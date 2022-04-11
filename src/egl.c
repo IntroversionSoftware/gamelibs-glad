@@ -37,21 +37,54 @@ int GLAD_EGL_ANDROID_image_native_buffer = 0;
 int GLAD_EGL_ANDROID_native_fence_sync = 0;
 int GLAD_EGL_ANDROID_presentation_time = 0;
 int GLAD_EGL_ANDROID_recordable = 0;
+int GLAD_EGL_ANGLE_context_virtualization = 0;
+int GLAD_EGL_ANGLE_create_context_backwards_compatible = 0;
+int GLAD_EGL_ANGLE_create_context_client_arrays = 0;
+int GLAD_EGL_ANGLE_create_context_extensions_enabled = 0;
+int GLAD_EGL_ANGLE_create_context_webgl_compatibility = 0;
+int GLAD_EGL_ANGLE_create_surface_swap_interval = 0;
 int GLAD_EGL_ANGLE_d3d_share_handle_client_buffer = 0;
+int GLAD_EGL_ANGLE_device_cgl = 0;
 int GLAD_EGL_ANGLE_device_creation = 0;
 int GLAD_EGL_ANGLE_device_d3d = 0;
+int GLAD_EGL_ANGLE_device_eagl = 0;
+int GLAD_EGL_ANGLE_device_metal = 0;
+int GLAD_EGL_ANGLE_device_vulkan = 0;
+int GLAD_EGL_ANGLE_direct_composition = 0;
+int GLAD_EGL_ANGLE_display_power_preference = 0;
 int GLAD_EGL_ANGLE_display_semaphore_share_group = 0;
 int GLAD_EGL_ANGLE_display_texture_share_group = 0;
+int GLAD_EGL_ANGLE_experimental_present_path = 0;
 int GLAD_EGL_ANGLE_feature_control = 0;
+int GLAD_EGL_ANGLE_ggp_stream_descriptor = 0;
+int GLAD_EGL_ANGLE_iosurface_client_buffer = 0;
+int GLAD_EGL_ANGLE_keyed_mutex = 0;
 int GLAD_EGL_ANGLE_metal_create_context_ownership_identity = 0;
+int GLAD_EGL_ANGLE_metal_texture_client_buffer = 0;
+int GLAD_EGL_ANGLE_platform_angle = 0;
+int GLAD_EGL_ANGLE_platform_angle_d3d = 0;
+int GLAD_EGL_ANGLE_platform_angle_d3d11on12 = 0;
+int GLAD_EGL_ANGLE_platform_angle_d3d_luid = 0;
+int GLAD_EGL_ANGLE_platform_angle_device_context_volatile_cgl = 0;
+int GLAD_EGL_ANGLE_platform_angle_device_context_volatile_eagl = 0;
+int GLAD_EGL_ANGLE_platform_angle_device_id = 0;
+int GLAD_EGL_ANGLE_platform_angle_device_type_egl = 0;
+int GLAD_EGL_ANGLE_platform_angle_device_type_swiftshader = 0;
+int GLAD_EGL_ANGLE_platform_angle_metal = 0;
+int GLAD_EGL_ANGLE_platform_angle_null = 0;
+int GLAD_EGL_ANGLE_platform_angle_opengl = 0;
+int GLAD_EGL_ANGLE_platform_angle_vulkan = 0;
 int GLAD_EGL_ANGLE_power_preference = 0;
 int GLAD_EGL_ANGLE_prepare_swap_buffers = 0;
 int GLAD_EGL_ANGLE_program_cache_control = 0;
 int GLAD_EGL_ANGLE_query_surface_pointer = 0;
+int GLAD_EGL_ANGLE_robust_resource_initialization = 0;
 int GLAD_EGL_ANGLE_stream_producer_d3d_texture = 0;
 int GLAD_EGL_ANGLE_surface_d3d_texture_2d_share_handle = 0;
+int GLAD_EGL_ANGLE_surface_orientation = 0;
 int GLAD_EGL_ANGLE_swap_with_frame_token = 0;
 int GLAD_EGL_ANGLE_sync_control_rate = 0;
+int GLAD_EGL_ANGLE_vulkan_display = 0;
 int GLAD_EGL_ANGLE_vulkan_image = 0;
 int GLAD_EGL_ANGLE_window_fixed_size = 0;
 int GLAD_EGL_ARM_image_format = 0;
@@ -840,21 +873,54 @@ static int glad_egl_find_extensions_egl(EGLDisplay display) {
     GLAD_EGL_ANDROID_native_fence_sync = glad_egl_has_extension(extensions, "EGL_ANDROID_native_fence_sync");
     GLAD_EGL_ANDROID_presentation_time = glad_egl_has_extension(extensions, "EGL_ANDROID_presentation_time");
     GLAD_EGL_ANDROID_recordable = glad_egl_has_extension(extensions, "EGL_ANDROID_recordable");
+    GLAD_EGL_ANGLE_context_virtualization = glad_egl_has_extension(extensions, "EGL_ANGLE_context_virtualization");
+    GLAD_EGL_ANGLE_create_context_backwards_compatible = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_backwards_compatible");
+    GLAD_EGL_ANGLE_create_context_client_arrays = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_client_arrays");
+    GLAD_EGL_ANGLE_create_context_extensions_enabled = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_extensions_enabled");
+    GLAD_EGL_ANGLE_create_context_webgl_compatibility = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_webgl_compatibility");
+    GLAD_EGL_ANGLE_create_surface_swap_interval = glad_egl_has_extension(extensions, "EGL_ANGLE_create_surface_swap_interval");
     GLAD_EGL_ANGLE_d3d_share_handle_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_d3d_share_handle_client_buffer");
+    GLAD_EGL_ANGLE_device_cgl = glad_egl_has_extension(extensions, "EGL_ANGLE_device_cgl");
     GLAD_EGL_ANGLE_device_creation = glad_egl_has_extension(extensions, "EGL_ANGLE_device_creation");
     GLAD_EGL_ANGLE_device_d3d = glad_egl_has_extension(extensions, "EGL_ANGLE_device_d3d");
+    GLAD_EGL_ANGLE_device_eagl = glad_egl_has_extension(extensions, "EGL_ANGLE_device_eagl");
+    GLAD_EGL_ANGLE_device_metal = glad_egl_has_extension(extensions, "EGL_ANGLE_device_metal");
+    GLAD_EGL_ANGLE_device_vulkan = glad_egl_has_extension(extensions, "EGL_ANGLE_device_vulkan");
+    GLAD_EGL_ANGLE_direct_composition = glad_egl_has_extension(extensions, "EGL_ANGLE_direct_composition");
+    GLAD_EGL_ANGLE_display_power_preference = glad_egl_has_extension(extensions, "EGL_ANGLE_display_power_preference");
     GLAD_EGL_ANGLE_display_semaphore_share_group = glad_egl_has_extension(extensions, "EGL_ANGLE_display_semaphore_share_group");
     GLAD_EGL_ANGLE_display_texture_share_group = glad_egl_has_extension(extensions, "EGL_ANGLE_display_texture_share_group");
+    GLAD_EGL_ANGLE_experimental_present_path = glad_egl_has_extension(extensions, "EGL_ANGLE_experimental_present_path");
     GLAD_EGL_ANGLE_feature_control = glad_egl_has_extension(extensions, "EGL_ANGLE_feature_control");
+    GLAD_EGL_ANGLE_ggp_stream_descriptor = glad_egl_has_extension(extensions, "EGL_ANGLE_ggp_stream_descriptor");
+    GLAD_EGL_ANGLE_iosurface_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_iosurface_client_buffer");
+    GLAD_EGL_ANGLE_keyed_mutex = glad_egl_has_extension(extensions, "EGL_ANGLE_keyed_mutex");
     GLAD_EGL_ANGLE_metal_create_context_ownership_identity = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_create_context_ownership_identity");
+    GLAD_EGL_ANGLE_metal_texture_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_texture_client_buffer");
+    GLAD_EGL_ANGLE_platform_angle = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle");
+    GLAD_EGL_ANGLE_platform_angle_d3d = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d");
+    GLAD_EGL_ANGLE_platform_angle_d3d11on12 = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d11on12");
+    GLAD_EGL_ANGLE_platform_angle_d3d_luid = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d_luid");
+    GLAD_EGL_ANGLE_platform_angle_device_context_volatile_cgl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_context_volatile_cgl");
+    GLAD_EGL_ANGLE_platform_angle_device_context_volatile_eagl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_context_volatile_eagl");
+    GLAD_EGL_ANGLE_platform_angle_device_id = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_id");
+    GLAD_EGL_ANGLE_platform_angle_device_type_egl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_type_egl");
+    GLAD_EGL_ANGLE_platform_angle_device_type_swiftshader = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_type_swiftshader");
+    GLAD_EGL_ANGLE_platform_angle_metal = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_metal");
+    GLAD_EGL_ANGLE_platform_angle_null = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_null");
+    GLAD_EGL_ANGLE_platform_angle_opengl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_opengl");
+    GLAD_EGL_ANGLE_platform_angle_vulkan = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_vulkan");
     GLAD_EGL_ANGLE_power_preference = glad_egl_has_extension(extensions, "EGL_ANGLE_power_preference");
     GLAD_EGL_ANGLE_prepare_swap_buffers = glad_egl_has_extension(extensions, "EGL_ANGLE_prepare_swap_buffers");
     GLAD_EGL_ANGLE_program_cache_control = glad_egl_has_extension(extensions, "EGL_ANGLE_program_cache_control");
     GLAD_EGL_ANGLE_query_surface_pointer = glad_egl_has_extension(extensions, "EGL_ANGLE_query_surface_pointer");
+    GLAD_EGL_ANGLE_robust_resource_initialization = glad_egl_has_extension(extensions, "EGL_ANGLE_robust_resource_initialization");
     GLAD_EGL_ANGLE_stream_producer_d3d_texture = glad_egl_has_extension(extensions, "EGL_ANGLE_stream_producer_d3d_texture");
     GLAD_EGL_ANGLE_surface_d3d_texture_2d_share_handle = glad_egl_has_extension(extensions, "EGL_ANGLE_surface_d3d_texture_2d_share_handle");
+    GLAD_EGL_ANGLE_surface_orientation = glad_egl_has_extension(extensions, "EGL_ANGLE_surface_orientation");
     GLAD_EGL_ANGLE_swap_with_frame_token = glad_egl_has_extension(extensions, "EGL_ANGLE_swap_with_frame_token");
     GLAD_EGL_ANGLE_sync_control_rate = glad_egl_has_extension(extensions, "EGL_ANGLE_sync_control_rate");
+    GLAD_EGL_ANGLE_vulkan_display = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_display");
     GLAD_EGL_ANGLE_vulkan_image = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_image");
     GLAD_EGL_ANGLE_window_fixed_size = glad_egl_has_extension(extensions, "EGL_ANGLE_window_fixed_size");
     GLAD_EGL_ARM_image_format = glad_egl_has_extension(extensions, "EGL_ARM_image_format");
@@ -1010,19 +1076,6 @@ static int glad_egl_find_core_egl(EGLDisplay display) {
     if (display == NULL) {
         display = EGL_NO_DISPLAY; /* this is usually NULL, better safe than sorry */
     }
-    if (display == EGL_NO_DISPLAY) {
-        display = eglGetCurrentDisplay();
-    }
-#ifdef EGL_VERSION_1_4
-    if (display == EGL_NO_DISPLAY) {
-        display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
-    }
-#endif
-#ifndef EGL_VERSION_1_5
-    if (display == EGL_NO_DISPLAY) {
-        return 0;
-    }
-#endif
 
     version = eglQueryString(display, EGL_VERSION);
     (void) eglGetError();
@@ -1127,6 +1180,8 @@ int gladLoadEGLUserPtr(EGLDisplay display, GLADuserptrloadfunc load, void* userp
     glad_egl_load_EGL_NV_system_time(load, userptr);
     glad_egl_load_EGL_WL_bind_wayland_display(load, userptr);
     glad_egl_load_EGL_WL_create_wayland_buffer_from_image(load, userptr);
+
+    glad_egl_resolve_aliases();
 
     return version;
 }
