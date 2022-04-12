@@ -58,6 +58,7 @@
 #endif
 
 #define GLAD_GL
+#define GLAD_GLES2
 #define GLAD_OPTION_GL_ALIAS
 #define GLAD_OPTION_GL_LOADER
 #define GLAD_OPTION_GL_MX
