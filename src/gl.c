@@ -8330,6 +8330,8 @@ int gladLoaderLoadGLContext(GladGLContext *context) {
     int did_load = 0;
     struct _glad_gl_userptr userptr;
 
+    gladLoaderResetGL();
+
     did_load = _gl_handle == NULL;
     handle = glad_gl_dlopen_handle();
     if (handle) {
@@ -8355,9 +8357,19 @@ void gladLoaderUnloadGL(void) {
         glad_close_dlopen_handle(_gl_handle);
         _gl_handle = NULL;
     }
+
+    gladLoaderResetGL();
 }
 
 #endif /* GLAD_GL */
+
+void gladLoaderResetGLContext(GladGLContext *context) {
+	memset(context, 0, sizeof(GladGLContext));
+}
+
+void gladLoaderResetGL(void) {
+    return gladLoaderResetGLContext(gladGetGLContext());
+}
 #ifdef GLAD_GLES2
 
 #ifndef GLAD_LOADER_LIBRARY_C_
@@ -8529,6 +8541,8 @@ void gladLoaderUnloadGLES2(void) {
         glad_close_dlopen_handle(_gles2_handle);
         _gles2_handle = NULL;
     }
+
+    gladLoaderResetGL();
 }
 
 #endif /* GLAD_GLES2 */
