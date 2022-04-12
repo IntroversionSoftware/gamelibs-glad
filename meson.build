@@ -6,6 +6,7 @@ link_deps = []
 incdirs = ['include']
 
 sources = [
+	'src/egl.c',
 	'src/gl.c',
 ]
 

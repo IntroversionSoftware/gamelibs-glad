@@ -34,7 +34,7 @@ libdir := $(prefix)/lib
 includedir := $(prefix)/include
 
 HEADERS = include/glad/gl.h include/KHR/khrplatform.h
-SOURCES = src/gl.c
+SOURCES = src/egl.c src/gl.c
 
 HEADERS_INST := $(patsubst include/%,$(includedir)/%,$(HEADERS))
 OBJECTS := $(patsubst %.c,$(OBJ_DIR)/%.o,$(SOURCES))
