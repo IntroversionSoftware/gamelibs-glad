@@ -106,6 +106,7 @@ int GLAD_EGL_EXT_device_openwf = 0;
 int GLAD_EGL_EXT_device_persistent_id = 0;
 int GLAD_EGL_EXT_device_query = 0;
 int GLAD_EGL_EXT_device_query_name = 0;
+int GLAD_EGL_EXT_explicit_device = 0;
 int GLAD_EGL_EXT_gl_colorspace_bt2020_linear = 0;
 int GLAD_EGL_EXT_gl_colorspace_bt2020_pq = 0;
 int GLAD_EGL_EXT_gl_colorspace_display_p3 = 0;
@@ -942,6 +943,7 @@ static int glad_egl_find_extensions_egl(EGLDisplay display) {
     GLAD_EGL_EXT_device_persistent_id = glad_egl_has_extension(extensions, "EGL_EXT_device_persistent_id");
     GLAD_EGL_EXT_device_query = glad_egl_has_extension(extensions, "EGL_EXT_device_query");
     GLAD_EGL_EXT_device_query_name = glad_egl_has_extension(extensions, "EGL_EXT_device_query_name");
+    GLAD_EGL_EXT_explicit_device = glad_egl_has_extension(extensions, "EGL_EXT_explicit_device");
     GLAD_EGL_EXT_gl_colorspace_bt2020_linear = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_linear");
     GLAD_EGL_EXT_gl_colorspace_bt2020_pq = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_pq");
     GLAD_EGL_EXT_gl_colorspace_display_p3 = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_display_p3");
@@ -1099,14 +1101,11 @@ static int glad_egl_find_core_egl(EGLDisplay display) {
 
 int gladLoadEGLUserPtr(EGLDisplay display, GLADuserptrloadfunc load, void* userptr) {
     int version;
-
-    gladLoaderResetEGL();
-
-    glad_eglGetDisplay = (PFNEGLGETDISPLAYPROC) load(userptr, "eglGetDisplay");
-    glad_eglGetCurrentDisplay = (PFNEGLGETCURRENTDISPLAYPROC) load(userptr, "eglGetCurrentDisplay");
-    glad_eglQueryString = (PFNEGLQUERYSTRINGPROC) load(userptr, "eglQueryString");
-    glad_eglGetError = (PFNEGLGETERRORPROC) load(userptr, "eglGetError");
-    if (glad_eglGetDisplay == NULL || glad_eglGetCurrentDisplay == NULL || glad_eglQueryString == NULL || glad_eglGetError == NULL) return 0;
+    eglGetDisplay = (PFNEGLGETDISPLAYPROC) load(userptr, "eglGetDisplay");
+    eglGetCurrentDisplay = (PFNEGLGETCURRENTDISPLAYPROC) load(userptr, "eglGetCurrentDisplay");
+    eglQueryString = (PFNEGLQUERYSTRINGPROC) load(userptr, "eglQueryString");
+    eglGetError = (PFNEGLGETERRORPROC) load(userptr, "eglGetError");
+    if (eglGetDisplay == NULL || eglGetCurrentDisplay == NULL || eglQueryString == NULL || eglGetError == NULL) return 0;
 
     version = glad_egl_find_core_egl(display);
     if (!version) return 0;
@@ -1427,6 +1426,7 @@ void gladLoaderResetEGL() {
     GLAD_EGL_EXT_device_persistent_id = 0;
     GLAD_EGL_EXT_device_query = 0;
     GLAD_EGL_EXT_device_query_name = 0;
+    GLAD_EGL_EXT_explicit_device = 0;
     GLAD_EGL_EXT_gl_colorspace_bt2020_linear = 0;
     GLAD_EGL_EXT_gl_colorspace_bt2020_pq = 0;
     GLAD_EGL_EXT_gl_colorspace_display_p3 = 0;
@@ -1551,10 +1551,10 @@ void gladLoaderResetEGL() {
     GLAD_EGL_WL_bind_wayland_display = 0;
     GLAD_EGL_WL_create_wayland_buffer_from_image = 0;
 
-    glad_eglGetDisplay = NULL;
-    glad_eglGetCurrentDisplay = NULL;
-    glad_eglQueryString = NULL;
-    glad_eglGetError = NULL;
+    eglGetDisplay = NULL;
+    eglGetCurrentDisplay = NULL;
+    eglQueryString = NULL;
+    eglGetError = NULL;
 
     glad_eglChooseConfig = NULL;
     glad_eglCopyBuffers = NULL;

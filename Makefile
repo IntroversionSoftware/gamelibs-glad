@@ -33,8 +33,17 @@ prefix ?= /usr/local
 libdir := $(prefix)/lib
 includedir := $(prefix)/include
 
-HEADERS = include/glad/gl.h include/KHR/khrplatform.h
-SOURCES = src/egl.c src/gl.c
+HEADERS := \
+	include/EGL/eglplatform.h \
+	include/KHR/khrplatform.h \
+	include/glad/egl.h \
+	include/glad/gl.h \
+	include/glad/vulkan.h \
+	include/vk_platform.h
+SOURCES := \
+	src/egl.c \
+	src/gl.c \
+	src/vulkan.c
 
 HEADERS_INST := $(patsubst include/%,$(includedir)/%,$(HEADERS))
 OBJECTS := $(patsubst %.c,$(OBJ_DIR)/%.o,$(SOURCES))

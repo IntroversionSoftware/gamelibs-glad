@@ -8,6 +8,7 @@ incdirs = ['include']
 sources = [
 	'src/egl.c',
 	'src/gl.c',
+	'src/vulkan.c',
 ]
 
 incdirs = include_directories(incdirs)

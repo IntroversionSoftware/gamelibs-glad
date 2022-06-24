@@ -30,12 +30,21 @@
     <ClInclude Include="..\include\KHR\khrplatform.h">
       <Filter>include\KHR</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\vk_platform.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glad\vulkan.h">
+      <Filter>include\glad</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\egl.c">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\gl.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vulkan.c">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

@@ -4780,6 +4780,13 @@ static void glad_gl_load_GL_EXT_draw_transform_feedback(GladGLContext *context, 
     context->DrawTransformFeedbackEXT = (PFNGLDRAWTRANSFORMFEEDBACKEXTPROC) load(userptr, "glDrawTransformFeedbackEXT");
     context->DrawTransformFeedbackInstancedEXT = (PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDEXTPROC) load(userptr, "glDrawTransformFeedbackInstancedEXT");
 }
+static void glad_gl_load_GL_EXT_fragment_shading_rate(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_fragment_shading_rate) return;
+    context->FramebufferShadingRateEXT = (PFNGLFRAMEBUFFERSHADINGRATEEXTPROC) load(userptr, "glFramebufferShadingRateEXT");
+    context->GetFragmentShadingRatesEXT = (PFNGLGETFRAGMENTSHADINGRATESEXTPROC) load(userptr, "glGetFragmentShadingRatesEXT");
+    context->ShadingRateCombinerOpsEXT = (PFNGLSHADINGRATECOMBINEROPSEXTPROC) load(userptr, "glShadingRateCombinerOpsEXT");
+    context->ShadingRateEXT = (PFNGLSHADINGRATEEXTPROC) load(userptr, "glShadingRateEXT");
+}
 static void glad_gl_load_GL_EXT_geometry_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_geometry_shader) return;
     context->FramebufferTextureEXT = (PFNGLFRAMEBUFFERTEXTUREEXTPROC) load(userptr, "glFramebufferTextureEXT");
@@ -6913,6 +6920,7 @@ static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
     context->EXT_shader_image_load_formatted = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shader_image_load_formatted");
     context->EXT_shader_image_load_store = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shader_image_load_store");
     context->EXT_shader_integer_mix = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shader_integer_mix");
+    context->EXT_shader_samples_identical = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shader_samples_identical");
     context->EXT_shadow_funcs = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shadow_funcs");
     context->EXT_shared_texture_palette = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shared_texture_palette");
     context->EXT_sparse_texture2 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_sparse_texture2");
@@ -7658,6 +7666,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->EXT_shader_framebuffer_fetch = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shader_framebuffer_fetch");
     context->EXT_shader_framebuffer_fetch_non_coherent = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shader_framebuffer_fetch_non_coherent");
     context->EXT_shader_integer_mix = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shader_integer_mix");
+    context->EXT_shader_samples_identical = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_shader_samples_identical");
     context->EXT_sparse_texture2 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_sparse_texture2");
     context->EXT_texture_compression_rgtc = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_texture_compression_rgtc");
     context->EXT_texture_compression_s3tc = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_texture_compression_s3tc");
@@ -7800,6 +7809,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->EXT_draw_elements_base_vertex = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_draw_elements_base_vertex");
     context->EXT_draw_transform_feedback = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_draw_transform_feedback");
     context->EXT_float_blend = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_float_blend");
+    context->EXT_fragment_shading_rate = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_fragment_shading_rate");
     context->EXT_geometry_point_size = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_geometry_point_size");
     context->EXT_geometry_shader = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_geometry_shader");
     context->EXT_gpu_shader5 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_gpu_shader5");
@@ -8100,6 +8110,7 @@ int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load
     glad_gl_load_GL_EXT_draw_buffers_indexed(context, load, userptr);
     glad_gl_load_GL_EXT_draw_elements_base_vertex(context, load, userptr);
     glad_gl_load_GL_EXT_draw_transform_feedback(context, load, userptr);
+    glad_gl_load_GL_EXT_fragment_shading_rate(context, load, userptr);
     glad_gl_load_GL_EXT_geometry_shader(context, load, userptr);
     glad_gl_load_GL_EXT_instanced_arrays(context, load, userptr);
     glad_gl_load_GL_EXT_map_buffer_range(context, load, userptr);
@@ -8330,8 +8341,6 @@ int gladLoaderLoadGLContext(GladGLContext *context) {
     int did_load = 0;
     struct _glad_gl_userptr userptr;
 
-    gladLoaderResetGL();
-
     did_load = _gl_handle == NULL;
     handle = glad_gl_dlopen_handle();
     if (handle) {
@@ -8345,6 +8354,14 @@ int gladLoaderLoadGLContext(GladGLContext *context) {
     }
 
     return version;
+}
+
+void gladLoaderResetGLContext(GladGLContext *context) {
+    memset(context, 0, sizeof(GladGLContext));
+}
+
+void gladLoaderResetGL(void) {
+    gladLoaderResetGLContext(gladGetGLContext());
 }
 
 
@@ -8362,14 +8379,6 @@ void gladLoaderUnloadGL(void) {
 }
 
 #endif /* GLAD_GL */
-
-void gladLoaderResetGLContext(GladGLContext *context) {
-	memset(context, 0, sizeof(GladGLContext));
-}
-
-void gladLoaderResetGL(void) {
-    return gladLoaderResetGLContext(gladGetGLContext());
-}
 #ifdef GLAD_GLES2
 
 #ifndef GLAD_LOADER_LIBRARY_C_
@@ -8531,6 +8540,14 @@ int gladLoaderLoadGLES2Context(GladGLContext *context) {
     return version;
 }
 
+void gladLoaderResetGLES2Context(GladGLContext *context) {
+    memset(context, 0, sizeof(GladGLContext));
+}
+
+void gladLoaderResetGLES2(void) {
+    gladLoaderResetGLES2Context(gladGetGLContext());
+}
+
 
 int gladLoaderLoadGLES2(void) {
     return gladLoaderLoadGLES2Context(gladGetGLContext());
@@ -8542,7 +8559,7 @@ void gladLoaderUnloadGLES2(void) {
         _gles2_handle = NULL;
     }
 
-    gladLoaderResetGL();
+    gladLoaderResetGLES2();
 }
 
 #endif /* GLAD_GLES2 */
