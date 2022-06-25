@@ -58,6 +58,7 @@ all: $(OBJ_DIR)/$(LIB)
 $(includedir)/%.h: include/%.h
 	-@if [ ! -d $(includedir)/glad ]; then mkdir -p $(includedir)/glad; fi
 	-@if [ ! -d $(includedir)/KHR ]; then mkdir -p $(includedir)/KHR; fi
+	-@if [ ! -d $(includedir)/EGL ]; then mkdir -p $(includedir)/EGL; fi
 	$(QUIET_INSTALL)cp $< $@
 	@chmod 0644 $@
 
