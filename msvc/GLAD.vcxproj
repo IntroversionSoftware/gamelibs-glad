@@ -61,6 +61,8 @@
   <ItemGroup>
     <ClCompile Include="..\src\egl.c" />
     <ClCompile Include="..\src\gl.c" />
+    <ClCompile Include="..\src\glx.c" />
+    <ClCompile Include="..\src\wgl.c" />
     <ClCompile Include="..\src\vulkan.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

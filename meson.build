@@ -8,6 +8,8 @@ incdirs = ['include']
 sources = [
 	'src/egl.c',
 	'src/gl.c',
+    'src/glx.c',
+    'src/wgl.c',
 	'src/vulkan.c',
 ]
 

@@ -27,6 +27,12 @@
     <ClInclude Include="..\include\glad\gl.h">
       <Filter>include\glad</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\glad\glx.h">
+      <Filter>include\glad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\glad\wgl.h">
+      <Filter>include\glad</Filter>
+    </ClInclude>
     <ClInclude Include="..\include\KHR\khrplatform.h">
       <Filter>include\KHR</Filter>
     </ClInclude>
@@ -42,6 +48,12 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\gl.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\glx.c">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\wgl.c">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\src\vulkan.c">

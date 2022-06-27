@@ -36,6 +36,8 @@ includedir := $(prefix)/include
 HEADERS := \
 	include/EGL/eglplatform.h \
 	include/KHR/khrplatform.h \
+	include/glad/wgl.h \
+	include/glad/glx.h \
 	include/glad/egl.h \
 	include/glad/gl.h \
 	include/glad/vulkan.h \
@@ -43,6 +45,8 @@ HEADERS := \
 SOURCES := \
 	src/egl.c \
 	src/gl.c \
+	src/glx.c \
+	src/wgl.c \
 	src/vulkan.c
 
 HEADERS_INST := $(patsubst include/%,$(includedir)/%,$(HEADERS))
