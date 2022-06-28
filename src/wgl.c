@@ -1,3 +1,5 @@
+#ifdef _WIN32
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,8 +7,6 @@
 
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
-
-#ifdef _WIN32
 
 #ifdef _MSC_VER
 #define GLAD_IMPL_UTIL_SSCANF sscanf_s
