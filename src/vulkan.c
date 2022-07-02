@@ -468,6 +468,11 @@ static void glad_vk_load_VK_EXT_sample_locations(GladVulkanContext *context, GLA
     context->CmdSetSampleLocationsEXT = (PFN_vkCmdSetSampleLocationsEXT) load(userptr, "vkCmdSetSampleLocationsEXT");
     context->GetPhysicalDeviceMultisamplePropertiesEXT = (PFN_vkGetPhysicalDeviceMultisamplePropertiesEXT) load(userptr, "vkGetPhysicalDeviceMultisamplePropertiesEXT");
 }
+static void glad_vk_load_VK_EXT_shader_module_identifier(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_shader_module_identifier) return;
+    context->GetShaderModuleCreateInfoIdentifierEXT = (PFN_vkGetShaderModuleCreateInfoIdentifierEXT) load(userptr, "vkGetShaderModuleCreateInfoIdentifierEXT");
+    context->GetShaderModuleIdentifierEXT = (PFN_vkGetShaderModuleIdentifierEXT) load(userptr, "vkGetShaderModuleIdentifierEXT");
+}
 static void glad_vk_load_VK_EXT_tooling_info(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_tooling_info) return;
     context->GetPhysicalDeviceToolPropertiesEXT = (PFN_vkGetPhysicalDeviceToolPropertiesEXT) load(userptr, "vkGetPhysicalDeviceToolPropertiesEXT");
@@ -1615,6 +1620,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
 #endif
     context->EXT_multi_draw = glad_vk_has_extension("VK_EXT_multi_draw", extension_count, extensions);
+    context->EXT_multisampled_render_to_single_sampled = glad_vk_has_extension("VK_EXT_multisampled_render_to_single_sampled", extension_count, extensions);
     context->EXT_non_seamless_cube_map = glad_vk_has_extension("VK_EXT_non_seamless_cube_map", extension_count, extensions);
     context->EXT_pageable_device_local_memory = glad_vk_has_extension("VK_EXT_pageable_device_local_memory", extension_count, extensions);
     context->EXT_pci_bus_info = glad_vk_has_extension("VK_EXT_pci_bus_info", extension_count, extensions);
@@ -1638,6 +1644,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_shader_atomic_float2 = glad_vk_has_extension("VK_EXT_shader_atomic_float2", extension_count, extensions);
     context->EXT_shader_demote_to_helper_invocation = glad_vk_has_extension("VK_EXT_shader_demote_to_helper_invocation", extension_count, extensions);
     context->EXT_shader_image_atomic_int64 = glad_vk_has_extension("VK_EXT_shader_image_atomic_int64", extension_count, extensions);
+    context->EXT_shader_module_identifier = glad_vk_has_extension("VK_EXT_shader_module_identifier", extension_count, extensions);
     context->EXT_shader_stencil_export = glad_vk_has_extension("VK_EXT_shader_stencil_export", extension_count, extensions);
     context->EXT_shader_subgroup_ballot = glad_vk_has_extension("VK_EXT_shader_subgroup_ballot", extension_count, extensions);
     context->EXT_shader_subgroup_vote = glad_vk_has_extension("VK_EXT_shader_subgroup_vote", extension_count, extensions);
@@ -2024,6 +2031,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_EXT_pipeline_properties(context, load, userptr);
     glad_vk_load_VK_EXT_private_data(context, load, userptr);
     glad_vk_load_VK_EXT_sample_locations(context, load, userptr);
+    glad_vk_load_VK_EXT_shader_module_identifier(context, load, userptr);
     glad_vk_load_VK_EXT_tooling_info(context, load, userptr);
     glad_vk_load_VK_EXT_transform_feedback(context, load, userptr);
     glad_vk_load_VK_EXT_validation_cache(context, load, userptr);
@@ -2656,6 +2664,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetSemaphoreWin32HandleKHR",
     "vkGetSemaphoreZirconHandleFUCHSIA",
     "vkGetShaderInfoAMD",
+    "vkGetShaderModuleCreateInfoIdentifierEXT",
+    "vkGetShaderModuleIdentifierEXT",
     "vkGetSwapchainCounterEXT",
     "vkGetSwapchainImagesKHR",
     "vkGetSwapchainStatusKHR",
