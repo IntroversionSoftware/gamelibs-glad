@@ -1032,6 +1032,11 @@ static void glad_vk_load_VK_NV_shading_rate_image(GladVulkanContext *context, GL
     context->CmdSetCoarseSampleOrderNV = (PFN_vkCmdSetCoarseSampleOrderNV) load(userptr, "vkCmdSetCoarseSampleOrderNV");
     context->CmdSetViewportShadingRatePaletteNV = (PFN_vkCmdSetViewportShadingRatePaletteNV) load(userptr, "vkCmdSetViewportShadingRatePaletteNV");
 }
+static void glad_vk_load_VK_QCOM_tile_properties(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->QCOM_tile_properties) return;
+    context->GetDynamicRenderingTilePropertiesQCOM = (PFN_vkGetDynamicRenderingTilePropertiesQCOM) load(userptr, "vkGetDynamicRenderingTilePropertiesQCOM");
+    context->GetFramebufferTilePropertiesQCOM = (PFN_vkGetFramebufferTilePropertiesQCOM) load(userptr, "vkGetFramebufferTilePropertiesQCOM");
+}
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
 static void glad_vk_load_VK_QNX_screen_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QNX_screen_surface) return;
@@ -1910,10 +1915,12 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
 #endif
     context->QCOM_fragment_density_map_offset = glad_vk_has_extension("VK_QCOM_fragment_density_map_offset", extension_count, extensions);
+    context->QCOM_image_processing = glad_vk_has_extension("VK_QCOM_image_processing", extension_count, extensions);
     context->QCOM_render_pass_shader_resolve = glad_vk_has_extension("VK_QCOM_render_pass_shader_resolve", extension_count, extensions);
     context->QCOM_render_pass_store_ops = glad_vk_has_extension("VK_QCOM_render_pass_store_ops", extension_count, extensions);
     context->QCOM_render_pass_transform = glad_vk_has_extension("VK_QCOM_render_pass_transform", extension_count, extensions);
     context->QCOM_rotated_copy_commands = glad_vk_has_extension("VK_QCOM_rotated_copy_commands", extension_count, extensions);
+    context->QCOM_tile_properties = glad_vk_has_extension("VK_QCOM_tile_properties", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
     context->QNX_screen_surface = glad_vk_has_extension("VK_QNX_screen_surface", extension_count, extensions);
 
@@ -2178,6 +2185,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_NV_ray_tracing(context, load, userptr);
     glad_vk_load_VK_NV_scissor_exclusive(context, load, userptr);
     glad_vk_load_VK_NV_shading_rate_image(context, load, userptr);
+    glad_vk_load_VK_QCOM_tile_properties(context, load, userptr);
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
     glad_vk_load_VK_QNX_screen_surface(context, load, userptr);
 
@@ -2615,10 +2623,12 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetDeviceQueue",
     "vkGetDeviceQueue2",
     "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI",
+    "vkGetDynamicRenderingTilePropertiesQCOM",
     "vkGetEventStatus",
     "vkGetFenceFdKHR",
     "vkGetFenceStatus",
     "vkGetFenceWin32HandleKHR",
+    "vkGetFramebufferTilePropertiesQCOM",
     "vkGetGeneratedCommandsMemoryRequirementsNV",
     "vkGetImageDrmFormatModifierPropertiesEXT",
     "vkGetImageMemoryRequirements",
