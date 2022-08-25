@@ -37,6 +37,7 @@ int GLAD_EGL_ANDROID_image_native_buffer = 0;
 int GLAD_EGL_ANDROID_native_fence_sync = 0;
 int GLAD_EGL_ANDROID_presentation_time = 0;
 int GLAD_EGL_ANDROID_recordable = 0;
+int GLAD_EGL_ANGLE_colorspace_attribute_passthrough = 0;
 int GLAD_EGL_ANGLE_context_virtualization = 0;
 int GLAD_EGL_ANGLE_create_context_backwards_compatible = 0;
 int GLAD_EGL_ANGLE_create_context_client_arrays = 0;
@@ -874,6 +875,7 @@ static int glad_egl_find_extensions_egl(EGLDisplay display) {
     GLAD_EGL_ANDROID_native_fence_sync = glad_egl_has_extension(extensions, "EGL_ANDROID_native_fence_sync");
     GLAD_EGL_ANDROID_presentation_time = glad_egl_has_extension(extensions, "EGL_ANDROID_presentation_time");
     GLAD_EGL_ANDROID_recordable = glad_egl_has_extension(extensions, "EGL_ANDROID_recordable");
+    GLAD_EGL_ANGLE_colorspace_attribute_passthrough = glad_egl_has_extension(extensions, "EGL_ANGLE_colorspace_attribute_passthrough");
     GLAD_EGL_ANGLE_context_virtualization = glad_egl_has_extension(extensions, "EGL_ANGLE_context_virtualization");
     GLAD_EGL_ANGLE_create_context_backwards_compatible = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_backwards_compatible");
     GLAD_EGL_ANGLE_create_context_client_arrays = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_client_arrays");
@@ -1357,6 +1359,7 @@ void gladLoaderResetEGL() {
     GLAD_EGL_ANDROID_native_fence_sync = 0;
     GLAD_EGL_ANDROID_presentation_time = 0;
     GLAD_EGL_ANDROID_recordable = 0;
+    GLAD_EGL_ANGLE_colorspace_attribute_passthrough = 0;
     GLAD_EGL_ANGLE_context_virtualization = 0;
     GLAD_EGL_ANGLE_create_context_backwards_compatible = 0;
     GLAD_EGL_ANGLE_create_context_client_arrays = 0;

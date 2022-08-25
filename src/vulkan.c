@@ -1562,6 +1562,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
 #endif
     context->EXT_astc_decode_mode = glad_vk_has_extension("VK_EXT_astc_decode_mode", extension_count, extensions);
+    context->EXT_attachment_feedback_loop_layout = glad_vk_has_extension("VK_EXT_attachment_feedback_loop_layout", extension_count, extensions);
     context->EXT_blend_operation_advanced = glad_vk_has_extension("VK_EXT_blend_operation_advanced", extension_count, extensions);
     context->EXT_border_color_swizzle = glad_vk_has_extension("VK_EXT_border_color_swizzle", extension_count, extensions);
     context->EXT_buffer_device_address = glad_vk_has_extension("VK_EXT_buffer_device_address", extension_count, extensions);
@@ -1640,6 +1641,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_private_data = glad_vk_has_extension("VK_EXT_private_data", extension_count, extensions);
     context->EXT_provoking_vertex = glad_vk_has_extension("VK_EXT_provoking_vertex", extension_count, extensions);
     context->EXT_queue_family_foreign = glad_vk_has_extension("VK_EXT_queue_family_foreign", extension_count, extensions);
+    context->EXT_rasterization_order_attachment_access = glad_vk_has_extension("VK_EXT_rasterization_order_attachment_access", extension_count, extensions);
     context->EXT_rgba10x6_formats = glad_vk_has_extension("VK_EXT_rgba10x6_formats", extension_count, extensions);
     context->EXT_robustness2 = glad_vk_has_extension("VK_EXT_robustness2", extension_count, extensions);
     context->EXT_sample_locations = glad_vk_has_extension("VK_EXT_sample_locations", extension_count, extensions);
@@ -1925,6 +1927,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->QNX_screen_surface = glad_vk_has_extension("VK_QNX_screen_surface", extension_count, extensions);
 
 #endif
+    context->SEC_amigo_profiling = glad_vk_has_extension("VK_SEC_amigo_profiling", extension_count, extensions);
     context->VALVE_descriptor_set_host_mapping = glad_vk_has_extension("VK_VALVE_descriptor_set_host_mapping", extension_count, extensions);
     context->VALVE_mutable_descriptor_type = glad_vk_has_extension("VK_VALVE_mutable_descriptor_type", extension_count, extensions);
 
