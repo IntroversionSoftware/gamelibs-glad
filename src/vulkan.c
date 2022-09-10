@@ -429,6 +429,12 @@ static void glad_vk_load_VK_EXT_line_rasterization(GladVulkanContext *context, G
     if(!context->EXT_line_rasterization) return;
     context->CmdSetLineStippleEXT = (PFN_vkCmdSetLineStippleEXT) load(userptr, "vkCmdSetLineStippleEXT");
 }
+static void glad_vk_load_VK_EXT_mesh_shader(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_mesh_shader) return;
+    context->CmdDrawMeshTasksEXT = (PFN_vkCmdDrawMeshTasksEXT) load(userptr, "vkCmdDrawMeshTasksEXT");
+    context->CmdDrawMeshTasksIndirectCountEXT = (PFN_vkCmdDrawMeshTasksIndirectCountEXT) load(userptr, "vkCmdDrawMeshTasksIndirectCountEXT");
+    context->CmdDrawMeshTasksIndirectEXT = (PFN_vkCmdDrawMeshTasksIndirectEXT) load(userptr, "vkCmdDrawMeshTasksIndirectEXT");
+}
 #if defined(VK_USE_PLATFORM_METAL_EXT)
 static void glad_vk_load_VK_EXT_metal_objects(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_metal_objects) return;
@@ -1574,6 +1580,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_debug_marker = glad_vk_has_extension("VK_EXT_debug_marker", extension_count, extensions);
     context->EXT_debug_report = glad_vk_has_extension("VK_EXT_debug_report", extension_count, extensions);
     context->EXT_debug_utils = glad_vk_has_extension("VK_EXT_debug_utils", extension_count, extensions);
+    context->EXT_depth_clamp_zero_one = glad_vk_has_extension("VK_EXT_depth_clamp_zero_one", extension_count, extensions);
     context->EXT_depth_clip_control = glad_vk_has_extension("VK_EXT_depth_clip_control", extension_count, extensions);
     context->EXT_depth_clip_enable = glad_vk_has_extension("VK_EXT_depth_clip_enable", extension_count, extensions);
     context->EXT_depth_range_unrestricted = glad_vk_has_extension("VK_EXT_depth_range_unrestricted", extension_count, extensions);
@@ -1613,10 +1620,12 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_image_view_min_lod = glad_vk_has_extension("VK_EXT_image_view_min_lod", extension_count, extensions);
     context->EXT_index_type_uint8 = glad_vk_has_extension("VK_EXT_index_type_uint8", extension_count, extensions);
     context->EXT_inline_uniform_block = glad_vk_has_extension("VK_EXT_inline_uniform_block", extension_count, extensions);
+    context->EXT_legacy_dithering = glad_vk_has_extension("VK_EXT_legacy_dithering", extension_count, extensions);
     context->EXT_line_rasterization = glad_vk_has_extension("VK_EXT_line_rasterization", extension_count, extensions);
     context->EXT_load_store_op_none = glad_vk_has_extension("VK_EXT_load_store_op_none", extension_count, extensions);
     context->EXT_memory_budget = glad_vk_has_extension("VK_EXT_memory_budget", extension_count, extensions);
     context->EXT_memory_priority = glad_vk_has_extension("VK_EXT_memory_priority", extension_count, extensions);
+    context->EXT_mesh_shader = glad_vk_has_extension("VK_EXT_mesh_shader", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_METAL_EXT)
     context->EXT_metal_objects = glad_vk_has_extension("VK_EXT_metal_objects", extension_count, extensions);
 
@@ -2029,6 +2038,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_EXT_image_compression_control(context, load, userptr);
     glad_vk_load_VK_EXT_image_drm_format_modifier(context, load, userptr);
     glad_vk_load_VK_EXT_line_rasterization(context, load, userptr);
+    glad_vk_load_VK_EXT_mesh_shader(context, load, userptr);
 #if defined(VK_USE_PLATFORM_METAL_EXT)
     glad_vk_load_VK_EXT_metal_objects(context, load, userptr);
 
@@ -2380,7 +2390,10 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdDrawIndirectCount",
     "vkCmdDrawIndirectCountAMD",
     "vkCmdDrawIndirectCountKHR",
+    "vkCmdDrawMeshTasksEXT",
+    "vkCmdDrawMeshTasksIndirectCountEXT",
     "vkCmdDrawMeshTasksIndirectCountNV",
+    "vkCmdDrawMeshTasksIndirectEXT",
     "vkCmdDrawMeshTasksIndirectNV",
     "vkCmdDrawMeshTasksNV",
     "vkCmdDrawMultiEXT",
