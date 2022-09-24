@@ -4564,6 +4564,10 @@ static void glad_gl_load_GL_ANGLE_instanced_arrays(GladGLContext *context, GLADu
     context->DrawElementsInstancedANGLE = (PFNGLDRAWELEMENTSINSTANCEDANGLEPROC) load(userptr, "glDrawElementsInstancedANGLE");
     context->VertexAttribDivisorANGLE = (PFNGLVERTEXATTRIBDIVISORANGLEPROC) load(userptr, "glVertexAttribDivisorANGLE");
 }
+static void glad_gl_load_GL_ANGLE_logic_op(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->ANGLE_logic_op) return;
+    context->LogicOpANGLE = (PFNGLLOGICOPANGLEPROC) load(userptr, "glLogicOpANGLE");
+}
 static void glad_gl_load_GL_ANGLE_multi_draw(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_multi_draw) return;
     context->MultiDrawArraysANGLE = (PFNGLMULTIDRAWARRAYSANGLEPROC) load(userptr, "glMultiDrawArraysANGLE");
@@ -4646,6 +4650,14 @@ static void glad_gl_load_GL_ANGLE_robust_client_memory(GladGLContext *context, G
     context->TexParameterivRobustANGLE = (PFNGLTEXPARAMETERIVROBUSTANGLEPROC) load(userptr, "glTexParameterivRobustANGLE");
     context->TexSubImage2DRobustANGLE = (PFNGLTEXSUBIMAGE2DROBUSTANGLEPROC) load(userptr, "glTexSubImage2DRobustANGLE");
     context->TexSubImage3DRobustANGLE = (PFNGLTEXSUBIMAGE3DROBUSTANGLEPROC) load(userptr, "glTexSubImage3DRobustANGLE");
+}
+static void glad_gl_load_GL_ANGLE_shader_pixel_local_storage(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->ANGLE_shader_pixel_local_storage) return;
+    context->BeginPixelLocalStorageANGLE = (PFNGLBEGINPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glBeginPixelLocalStorageANGLE");
+    context->EndPixelLocalStorageANGLE = (PFNGLENDPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glEndPixelLocalStorageANGLE");
+    context->FramebufferMemorylessPixelLocalStorageANGLE = (PFNGLFRAMEBUFFERMEMORYLESSPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glFramebufferMemorylessPixelLocalStorageANGLE");
+    context->FramebufferTexturePixelLocalStorageANGLE = (PFNGLFRAMEBUFFERTEXTUREPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glFramebufferTexturePixelLocalStorageANGLE");
+    context->PixelLocalStorageBarrierANGLE = (PFNGLPIXELLOCALSTORAGEBARRIERANGLEPROC) load(userptr, "glPixelLocalStorageBarrierANGLE");
 }
 static void glad_gl_load_GL_ANGLE_texture_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_texture_multisample) return;
@@ -7822,6 +7834,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->ANGLE_get_image = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_get_image");
     context->ANGLE_get_tex_level_parameter = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_get_tex_level_parameter");
     context->ANGLE_instanced_arrays = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_instanced_arrays");
+    context->ANGLE_logic_op = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_logic_op");
     context->ANGLE_multi_draw = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_multi_draw");
     context->ANGLE_pack_reverse_row_order = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_pack_reverse_row_order");
     context->ANGLE_program_binary = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_program_binary");
@@ -7829,6 +7842,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->ANGLE_request_extension = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_request_extension");
     context->ANGLE_robust_client_memory = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_client_memory");
     context->ANGLE_robust_resource_initialization = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_resource_initialization");
+    context->ANGLE_shader_pixel_local_storage = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_shader_pixel_local_storage");
     context->ANGLE_texture_compression_dxt3 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_compression_dxt3");
     context->ANGLE_texture_compression_dxt5 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_compression_dxt5");
     context->ANGLE_texture_multisample = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_multisample");
@@ -8151,10 +8165,12 @@ int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load
     glad_gl_load_GL_ANGLE_get_image(context, load, userptr);
     glad_gl_load_GL_ANGLE_get_tex_level_parameter(context, load, userptr);
     glad_gl_load_GL_ANGLE_instanced_arrays(context, load, userptr);
+    glad_gl_load_GL_ANGLE_logic_op(context, load, userptr);
     glad_gl_load_GL_ANGLE_multi_draw(context, load, userptr);
     glad_gl_load_GL_ANGLE_provoking_vertex(context, load, userptr);
     glad_gl_load_GL_ANGLE_request_extension(context, load, userptr);
     glad_gl_load_GL_ANGLE_robust_client_memory(context, load, userptr);
+    glad_gl_load_GL_ANGLE_shader_pixel_local_storage(context, load, userptr);
     glad_gl_load_GL_ANGLE_texture_multisample(context, load, userptr);
     glad_gl_load_GL_ANGLE_translated_shader_source(context, load, userptr);
     glad_gl_load_GL_ANGLE_vulkan_image(context, load, userptr);

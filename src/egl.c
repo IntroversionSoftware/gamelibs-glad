@@ -61,6 +61,7 @@ int GLAD_EGL_ANGLE_ggp_stream_descriptor = 0;
 int GLAD_EGL_ANGLE_iosurface_client_buffer = 0;
 int GLAD_EGL_ANGLE_keyed_mutex = 0;
 int GLAD_EGL_ANGLE_metal_create_context_ownership_identity = 0;
+int GLAD_EGL_ANGLE_metal_shared_event_sync = 0;
 int GLAD_EGL_ANGLE_metal_texture_client_buffer = 0;
 int GLAD_EGL_ANGLE_platform_angle = 0;
 int GLAD_EGL_ANGLE_platform_angle_d3d = 0;
@@ -250,6 +251,7 @@ PFNEGLCOMPOSITORSETWINDOWATTRIBUTESEXTPROC glad_eglCompositorSetWindowAttributes
 PFNEGLCOMPOSITORSETWINDOWLISTEXTPROC glad_eglCompositorSetWindowListEXT = NULL;
 PFNEGLCOMPOSITORSWAPPOLICYEXTPROC glad_eglCompositorSwapPolicyEXT = NULL;
 PFNEGLCOPYBUFFERSPROC glad_eglCopyBuffers = NULL;
+PFNEGLCOPYMETALSHAREDEVENTANGLEPROC glad_eglCopyMetalSharedEventANGLE = NULL;
 PFNEGLCREATECONTEXTPROC glad_eglCreateContext = NULL;
 PFNEGLCREATEDRMIMAGEMESAPROC glad_eglCreateDRMImageMESA = NULL;
 PFNEGLCREATEDEVICEANGLEPROC glad_eglCreateDeviceANGLE = NULL;
@@ -507,6 +509,10 @@ static void glad_egl_load_EGL_ANGLE_feature_control( GLADuserptrloadfunc load, v
     if(!GLAD_EGL_ANGLE_feature_control) return;
     glad_eglQueryDisplayAttribANGLE = (PFNEGLQUERYDISPLAYATTRIBANGLEPROC) load(userptr, "eglQueryDisplayAttribANGLE");
     glad_eglQueryStringiANGLE = (PFNEGLQUERYSTRINGIANGLEPROC) load(userptr, "eglQueryStringiANGLE");
+}
+static void glad_egl_load_EGL_ANGLE_metal_shared_event_sync( GLADuserptrloadfunc load, void* userptr) {
+    if(!GLAD_EGL_ANGLE_metal_shared_event_sync) return;
+    glad_eglCopyMetalSharedEventANGLE = (PFNEGLCOPYMETALSHAREDEVENTANGLEPROC) load(userptr, "eglCopyMetalSharedEventANGLE");
 }
 static void glad_egl_load_EGL_ANGLE_power_preference( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_EGL_ANGLE_power_preference) return;
@@ -899,6 +905,7 @@ static int glad_egl_find_extensions_egl(EGLDisplay display) {
     GLAD_EGL_ANGLE_iosurface_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_iosurface_client_buffer");
     GLAD_EGL_ANGLE_keyed_mutex = glad_egl_has_extension(extensions, "EGL_ANGLE_keyed_mutex");
     GLAD_EGL_ANGLE_metal_create_context_ownership_identity = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_create_context_ownership_identity");
+    GLAD_EGL_ANGLE_metal_shared_event_sync = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_shared_event_sync");
     GLAD_EGL_ANGLE_metal_texture_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_texture_client_buffer");
     GLAD_EGL_ANGLE_platform_angle = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle");
     GLAD_EGL_ANGLE_platform_angle_d3d = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d");
@@ -1126,6 +1133,7 @@ int gladLoadEGLUserPtr(EGLDisplay display, GLADuserptrloadfunc load, void* userp
     glad_egl_load_EGL_ANDROID_presentation_time(load, userptr);
     glad_egl_load_EGL_ANGLE_device_creation(load, userptr);
     glad_egl_load_EGL_ANGLE_feature_control(load, userptr);
+    glad_egl_load_EGL_ANGLE_metal_shared_event_sync(load, userptr);
     glad_egl_load_EGL_ANGLE_power_preference(load, userptr);
     glad_egl_load_EGL_ANGLE_prepare_swap_buffers(load, userptr);
     glad_egl_load_EGL_ANGLE_program_cache_control(load, userptr);
@@ -1383,6 +1391,7 @@ void gladLoaderResetEGL() {
     GLAD_EGL_ANGLE_iosurface_client_buffer = 0;
     GLAD_EGL_ANGLE_keyed_mutex = 0;
     GLAD_EGL_ANGLE_metal_create_context_ownership_identity = 0;
+    GLAD_EGL_ANGLE_metal_shared_event_sync = 0;
     GLAD_EGL_ANGLE_metal_texture_client_buffer = 0;
     GLAD_EGL_ANGLE_platform_angle = 0;
     GLAD_EGL_ANGLE_platform_angle_d3d = 0;
@@ -1617,6 +1626,7 @@ void gladLoaderResetEGL() {
     glad_eglReleaseDeviceANGLE = NULL;
     glad_eglQueryDisplayAttribANGLE = NULL;
     glad_eglQueryStringiANGLE = NULL;
+    glad_eglCopyMetalSharedEventANGLE = NULL;
     glad_eglForceGPUSwitchANGLE = NULL;
     glad_eglHandleGPUSwitchANGLE = NULL;
     glad_eglReacquireHighPowerGPUANGLE = NULL;
