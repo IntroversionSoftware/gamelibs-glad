@@ -341,6 +341,10 @@ static void glad_vk_load_VK_EXT_debug_utils(GladVulkanContext *context, GLADuser
     context->SetDebugUtilsObjectTagEXT = (PFN_vkSetDebugUtilsObjectTagEXT) load(userptr, "vkSetDebugUtilsObjectTagEXT");
     context->SubmitDebugUtilsMessageEXT = (PFN_vkSubmitDebugUtilsMessageEXT) load(userptr, "vkSubmitDebugUtilsMessageEXT");
 }
+static void glad_vk_load_VK_EXT_device_fault(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_device_fault) return;
+    context->GetDeviceFaultInfoEXT = (PFN_vkGetDeviceFaultInfoEXT) load(userptr, "vkGetDeviceFaultInfoEXT");
+}
 static void glad_vk_load_VK_EXT_direct_mode_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_direct_mode_display) return;
     context->ReleaseDisplayEXT = (PFN_vkReleaseDisplayEXT) load(userptr, "vkReleaseDisplayEXT");
@@ -390,6 +394,40 @@ static void glad_vk_load_VK_EXT_extended_dynamic_state2(GladVulkanContext *conte
     context->CmdSetPatchControlPointsEXT = (PFN_vkCmdSetPatchControlPointsEXT) load(userptr, "vkCmdSetPatchControlPointsEXT");
     context->CmdSetPrimitiveRestartEnableEXT = (PFN_vkCmdSetPrimitiveRestartEnableEXT) load(userptr, "vkCmdSetPrimitiveRestartEnableEXT");
     context->CmdSetRasterizerDiscardEnableEXT = (PFN_vkCmdSetRasterizerDiscardEnableEXT) load(userptr, "vkCmdSetRasterizerDiscardEnableEXT");
+}
+static void glad_vk_load_VK_EXT_extended_dynamic_state3(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_extended_dynamic_state3) return;
+    context->CmdSetAlphaToCoverageEnableEXT = (PFN_vkCmdSetAlphaToCoverageEnableEXT) load(userptr, "vkCmdSetAlphaToCoverageEnableEXT");
+    context->CmdSetAlphaToOneEnableEXT = (PFN_vkCmdSetAlphaToOneEnableEXT) load(userptr, "vkCmdSetAlphaToOneEnableEXT");
+    context->CmdSetColorBlendAdvancedEXT = (PFN_vkCmdSetColorBlendAdvancedEXT) load(userptr, "vkCmdSetColorBlendAdvancedEXT");
+    context->CmdSetColorBlendEnableEXT = (PFN_vkCmdSetColorBlendEnableEXT) load(userptr, "vkCmdSetColorBlendEnableEXT");
+    context->CmdSetColorBlendEquationEXT = (PFN_vkCmdSetColorBlendEquationEXT) load(userptr, "vkCmdSetColorBlendEquationEXT");
+    context->CmdSetColorWriteMaskEXT = (PFN_vkCmdSetColorWriteMaskEXT) load(userptr, "vkCmdSetColorWriteMaskEXT");
+    context->CmdSetConservativeRasterizationModeEXT = (PFN_vkCmdSetConservativeRasterizationModeEXT) load(userptr, "vkCmdSetConservativeRasterizationModeEXT");
+    context->CmdSetCoverageModulationModeNV = (PFN_vkCmdSetCoverageModulationModeNV) load(userptr, "vkCmdSetCoverageModulationModeNV");
+    context->CmdSetCoverageModulationTableEnableNV = (PFN_vkCmdSetCoverageModulationTableEnableNV) load(userptr, "vkCmdSetCoverageModulationTableEnableNV");
+    context->CmdSetCoverageModulationTableNV = (PFN_vkCmdSetCoverageModulationTableNV) load(userptr, "vkCmdSetCoverageModulationTableNV");
+    context->CmdSetCoverageReductionModeNV = (PFN_vkCmdSetCoverageReductionModeNV) load(userptr, "vkCmdSetCoverageReductionModeNV");
+    context->CmdSetCoverageToColorEnableNV = (PFN_vkCmdSetCoverageToColorEnableNV) load(userptr, "vkCmdSetCoverageToColorEnableNV");
+    context->CmdSetCoverageToColorLocationNV = (PFN_vkCmdSetCoverageToColorLocationNV) load(userptr, "vkCmdSetCoverageToColorLocationNV");
+    context->CmdSetDepthClampEnableEXT = (PFN_vkCmdSetDepthClampEnableEXT) load(userptr, "vkCmdSetDepthClampEnableEXT");
+    context->CmdSetDepthClipEnableEXT = (PFN_vkCmdSetDepthClipEnableEXT) load(userptr, "vkCmdSetDepthClipEnableEXT");
+    context->CmdSetDepthClipNegativeOneToOneEXT = (PFN_vkCmdSetDepthClipNegativeOneToOneEXT) load(userptr, "vkCmdSetDepthClipNegativeOneToOneEXT");
+    context->CmdSetExtraPrimitiveOverestimationSizeEXT = (PFN_vkCmdSetExtraPrimitiveOverestimationSizeEXT) load(userptr, "vkCmdSetExtraPrimitiveOverestimationSizeEXT");
+    context->CmdSetLineRasterizationModeEXT = (PFN_vkCmdSetLineRasterizationModeEXT) load(userptr, "vkCmdSetLineRasterizationModeEXT");
+    context->CmdSetLineStippleEnableEXT = (PFN_vkCmdSetLineStippleEnableEXT) load(userptr, "vkCmdSetLineStippleEnableEXT");
+    context->CmdSetLogicOpEnableEXT = (PFN_vkCmdSetLogicOpEnableEXT) load(userptr, "vkCmdSetLogicOpEnableEXT");
+    context->CmdSetPolygonModeEXT = (PFN_vkCmdSetPolygonModeEXT) load(userptr, "vkCmdSetPolygonModeEXT");
+    context->CmdSetProvokingVertexModeEXT = (PFN_vkCmdSetProvokingVertexModeEXT) load(userptr, "vkCmdSetProvokingVertexModeEXT");
+    context->CmdSetRasterizationSamplesEXT = (PFN_vkCmdSetRasterizationSamplesEXT) load(userptr, "vkCmdSetRasterizationSamplesEXT");
+    context->CmdSetRasterizationStreamEXT = (PFN_vkCmdSetRasterizationStreamEXT) load(userptr, "vkCmdSetRasterizationStreamEXT");
+    context->CmdSetRepresentativeFragmentTestEnableNV = (PFN_vkCmdSetRepresentativeFragmentTestEnableNV) load(userptr, "vkCmdSetRepresentativeFragmentTestEnableNV");
+    context->CmdSetSampleLocationsEnableEXT = (PFN_vkCmdSetSampleLocationsEnableEXT) load(userptr, "vkCmdSetSampleLocationsEnableEXT");
+    context->CmdSetSampleMaskEXT = (PFN_vkCmdSetSampleMaskEXT) load(userptr, "vkCmdSetSampleMaskEXT");
+    context->CmdSetShadingRateImageEnableNV = (PFN_vkCmdSetShadingRateImageEnableNV) load(userptr, "vkCmdSetShadingRateImageEnableNV");
+    context->CmdSetTessellationDomainOriginEXT = (PFN_vkCmdSetTessellationDomainOriginEXT) load(userptr, "vkCmdSetTessellationDomainOriginEXT");
+    context->CmdSetViewportSwizzleNV = (PFN_vkCmdSetViewportSwizzleNV) load(userptr, "vkCmdSetViewportSwizzleNV");
+    context->CmdSetViewportWScalingEnableNV = (PFN_vkCmdSetViewportWScalingEnableNV) load(userptr, "vkCmdSetViewportWScalingEnableNV");
 }
 static void glad_vk_load_VK_EXT_external_memory_host(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_external_memory_host) return;
@@ -453,6 +491,23 @@ static void glad_vk_load_VK_EXT_multi_draw(GladVulkanContext *context, GLADuserp
     if(!context->EXT_multi_draw) return;
     context->CmdDrawMultiEXT = (PFN_vkCmdDrawMultiEXT) load(userptr, "vkCmdDrawMultiEXT");
     context->CmdDrawMultiIndexedEXT = (PFN_vkCmdDrawMultiIndexedEXT) load(userptr, "vkCmdDrawMultiIndexedEXT");
+}
+static void glad_vk_load_VK_EXT_opacity_micromap(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_opacity_micromap) return;
+    context->BuildMicromapsEXT = (PFN_vkBuildMicromapsEXT) load(userptr, "vkBuildMicromapsEXT");
+    context->CmdBuildMicromapsEXT = (PFN_vkCmdBuildMicromapsEXT) load(userptr, "vkCmdBuildMicromapsEXT");
+    context->CmdCopyMemoryToMicromapEXT = (PFN_vkCmdCopyMemoryToMicromapEXT) load(userptr, "vkCmdCopyMemoryToMicromapEXT");
+    context->CmdCopyMicromapEXT = (PFN_vkCmdCopyMicromapEXT) load(userptr, "vkCmdCopyMicromapEXT");
+    context->CmdCopyMicromapToMemoryEXT = (PFN_vkCmdCopyMicromapToMemoryEXT) load(userptr, "vkCmdCopyMicromapToMemoryEXT");
+    context->CmdWriteMicromapsPropertiesEXT = (PFN_vkCmdWriteMicromapsPropertiesEXT) load(userptr, "vkCmdWriteMicromapsPropertiesEXT");
+    context->CopyMemoryToMicromapEXT = (PFN_vkCopyMemoryToMicromapEXT) load(userptr, "vkCopyMemoryToMicromapEXT");
+    context->CopyMicromapEXT = (PFN_vkCopyMicromapEXT) load(userptr, "vkCopyMicromapEXT");
+    context->CopyMicromapToMemoryEXT = (PFN_vkCopyMicromapToMemoryEXT) load(userptr, "vkCopyMicromapToMemoryEXT");
+    context->CreateMicromapEXT = (PFN_vkCreateMicromapEXT) load(userptr, "vkCreateMicromapEXT");
+    context->DestroyMicromapEXT = (PFN_vkDestroyMicromapEXT) load(userptr, "vkDestroyMicromapEXT");
+    context->GetDeviceMicromapCompatibilityEXT = (PFN_vkGetDeviceMicromapCompatibilityEXT) load(userptr, "vkGetDeviceMicromapCompatibilityEXT");
+    context->GetMicromapBuildSizesEXT = (PFN_vkGetMicromapBuildSizesEXT) load(userptr, "vkGetMicromapBuildSizesEXT");
+    context->WriteMicromapsPropertiesEXT = (PFN_vkWriteMicromapsPropertiesEXT) load(userptr, "vkWriteMicromapsPropertiesEXT");
 }
 static void glad_vk_load_VK_EXT_pageable_device_local_memory(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_pageable_device_local_memory) return;
@@ -1012,6 +1067,14 @@ static void glad_vk_load_VK_NV_mesh_shader(GladVulkanContext *context, GLADuserp
     context->CmdDrawMeshTasksIndirectCountNV = (PFN_vkCmdDrawMeshTasksIndirectCountNV) load(userptr, "vkCmdDrawMeshTasksIndirectCountNV");
     context->CmdDrawMeshTasksIndirectNV = (PFN_vkCmdDrawMeshTasksIndirectNV) load(userptr, "vkCmdDrawMeshTasksIndirectNV");
     context->CmdDrawMeshTasksNV = (PFN_vkCmdDrawMeshTasksNV) load(userptr, "vkCmdDrawMeshTasksNV");
+}
+static void glad_vk_load_VK_NV_optical_flow(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->NV_optical_flow) return;
+    context->BindOpticalFlowSessionImageNV = (PFN_vkBindOpticalFlowSessionImageNV) load(userptr, "vkBindOpticalFlowSessionImageNV");
+    context->CmdOpticalFlowExecuteNV = (PFN_vkCmdOpticalFlowExecuteNV) load(userptr, "vkCmdOpticalFlowExecuteNV");
+    context->CreateOpticalFlowSessionNV = (PFN_vkCreateOpticalFlowSessionNV) load(userptr, "vkCreateOpticalFlowSessionNV");
+    context->DestroyOpticalFlowSessionNV = (PFN_vkDestroyOpticalFlowSessionNV) load(userptr, "vkDestroyOpticalFlowSessionNV");
+    context->GetPhysicalDeviceOpticalFlowImageFormatsNV = (PFN_vkGetPhysicalDeviceOpticalFlowImageFormatsNV) load(userptr, "vkGetPhysicalDeviceOpticalFlowImageFormatsNV");
 }
 static void glad_vk_load_VK_NV_ray_tracing(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_ray_tracing) return;
@@ -1585,6 +1648,8 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_depth_clip_enable = glad_vk_has_extension("VK_EXT_depth_clip_enable", extension_count, extensions);
     context->EXT_depth_range_unrestricted = glad_vk_has_extension("VK_EXT_depth_range_unrestricted", extension_count, extensions);
     context->EXT_descriptor_indexing = glad_vk_has_extension("VK_EXT_descriptor_indexing", extension_count, extensions);
+    context->EXT_device_address_binding_report = glad_vk_has_extension("VK_EXT_device_address_binding_report", extension_count, extensions);
+    context->EXT_device_fault = glad_vk_has_extension("VK_EXT_device_fault", extension_count, extensions);
     context->EXT_device_memory_report = glad_vk_has_extension("VK_EXT_device_memory_report", extension_count, extensions);
     context->EXT_direct_mode_display = glad_vk_has_extension("VK_EXT_direct_mode_display", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
@@ -1596,6 +1661,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_display_surface_counter = glad_vk_has_extension("VK_EXT_display_surface_counter", extension_count, extensions);
     context->EXT_extended_dynamic_state = glad_vk_has_extension("VK_EXT_extended_dynamic_state", extension_count, extensions);
     context->EXT_extended_dynamic_state2 = glad_vk_has_extension("VK_EXT_extended_dynamic_state2", extension_count, extensions);
+    context->EXT_extended_dynamic_state3 = glad_vk_has_extension("VK_EXT_extended_dynamic_state3", extension_count, extensions);
     context->EXT_external_memory_dma_buf = glad_vk_has_extension("VK_EXT_external_memory_dma_buf", extension_count, extensions);
     context->EXT_external_memory_host = glad_vk_has_extension("VK_EXT_external_memory_host", extension_count, extensions);
     context->EXT_filter_cubic = glad_vk_has_extension("VK_EXT_filter_cubic", extension_count, extensions);
@@ -1638,12 +1704,14 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_multisampled_render_to_single_sampled = glad_vk_has_extension("VK_EXT_multisampled_render_to_single_sampled", extension_count, extensions);
     context->EXT_mutable_descriptor_type = glad_vk_has_extension("VK_EXT_mutable_descriptor_type", extension_count, extensions);
     context->EXT_non_seamless_cube_map = glad_vk_has_extension("VK_EXT_non_seamless_cube_map", extension_count, extensions);
+    context->EXT_opacity_micromap = glad_vk_has_extension("VK_EXT_opacity_micromap", extension_count, extensions);
     context->EXT_pageable_device_local_memory = glad_vk_has_extension("VK_EXT_pageable_device_local_memory", extension_count, extensions);
     context->EXT_pci_bus_info = glad_vk_has_extension("VK_EXT_pci_bus_info", extension_count, extensions);
     context->EXT_physical_device_drm = glad_vk_has_extension("VK_EXT_physical_device_drm", extension_count, extensions);
     context->EXT_pipeline_creation_cache_control = glad_vk_has_extension("VK_EXT_pipeline_creation_cache_control", extension_count, extensions);
     context->EXT_pipeline_creation_feedback = glad_vk_has_extension("VK_EXT_pipeline_creation_feedback", extension_count, extensions);
     context->EXT_pipeline_properties = glad_vk_has_extension("VK_EXT_pipeline_properties", extension_count, extensions);
+    context->EXT_pipeline_protected_access = glad_vk_has_extension("VK_EXT_pipeline_protected_access", extension_count, extensions);
     context->EXT_pipeline_robustness = glad_vk_has_extension("VK_EXT_pipeline_robustness", extension_count, extensions);
     context->EXT_post_depth_coverage = glad_vk_has_extension("VK_EXT_post_depth_coverage", extension_count, extensions);
     context->EXT_primitive_topology_list_restart = glad_vk_has_extension("VK_EXT_primitive_topology_list_restart", extension_count, extensions);
@@ -1911,6 +1979,8 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->NV_inherited_viewport_scissor = glad_vk_has_extension("VK_NV_inherited_viewport_scissor", extension_count, extensions);
     context->NV_linear_color_attachment = glad_vk_has_extension("VK_NV_linear_color_attachment", extension_count, extensions);
     context->NV_mesh_shader = glad_vk_has_extension("VK_NV_mesh_shader", extension_count, extensions);
+    context->NV_optical_flow = glad_vk_has_extension("VK_NV_optical_flow", extension_count, extensions);
+    context->NV_present_barrier = glad_vk_has_extension("VK_NV_present_barrier", extension_count, extensions);
     context->NV_ray_tracing = glad_vk_has_extension("VK_NV_ray_tracing", extension_count, extensions);
     context->NV_ray_tracing_motion_blur = glad_vk_has_extension("VK_NV_ray_tracing_motion_blur", extension_count, extensions);
     context->NV_representative_fragment_test = glad_vk_has_extension("VK_NV_representative_fragment_test", extension_count, extensions);
@@ -2018,6 +2088,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_EXT_debug_marker(context, load, userptr);
     glad_vk_load_VK_EXT_debug_report(context, load, userptr);
     glad_vk_load_VK_EXT_debug_utils(context, load, userptr);
+    glad_vk_load_VK_EXT_device_fault(context, load, userptr);
     glad_vk_load_VK_EXT_direct_mode_display(context, load, userptr);
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
     glad_vk_load_VK_EXT_directfb_surface(context, load, userptr);
@@ -2028,6 +2099,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_EXT_display_surface_counter(context, load, userptr);
     glad_vk_load_VK_EXT_extended_dynamic_state(context, load, userptr);
     glad_vk_load_VK_EXT_extended_dynamic_state2(context, load, userptr);
+    glad_vk_load_VK_EXT_extended_dynamic_state3(context, load, userptr);
     glad_vk_load_VK_EXT_external_memory_host(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_EXT_full_screen_exclusive(context, load, userptr);
@@ -2049,6 +2121,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
 
 #endif
     glad_vk_load_VK_EXT_multi_draw(context, load, userptr);
+    glad_vk_load_VK_EXT_opacity_micromap(context, load, userptr);
     glad_vk_load_VK_EXT_pageable_device_local_memory(context, load, userptr);
     glad_vk_load_VK_EXT_pipeline_properties(context, load, userptr);
     glad_vk_load_VK_EXT_private_data(context, load, userptr);
@@ -2196,6 +2269,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
 #endif
     glad_vk_load_VK_NV_fragment_shading_rate_enums(context, load, userptr);
     glad_vk_load_VK_NV_mesh_shader(context, load, userptr);
+    glad_vk_load_VK_NV_optical_flow(context, load, userptr);
     glad_vk_load_VK_NV_ray_tracing(context, load, userptr);
     glad_vk_load_VK_NV_scissor_exclusive(context, load, userptr);
     glad_vk_load_VK_NV_shading_rate_image(context, load, userptr);
@@ -2321,8 +2395,10 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkBindImageMemory",
     "vkBindImageMemory2",
     "vkBindImageMemory2KHR",
+    "vkBindOpticalFlowSessionImageNV",
     "vkBindVideoSessionMemoryKHR",
     "vkBuildAccelerationStructuresKHR",
+    "vkBuildMicromapsEXT",
     "vkCmdBeginConditionalRenderingEXT",
     "vkCmdBeginDebugUtilsLabelEXT",
     "vkCmdBeginQuery",
@@ -2350,6 +2426,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdBuildAccelerationStructureNV",
     "vkCmdBuildAccelerationStructuresIndirectKHR",
     "vkCmdBuildAccelerationStructuresKHR",
+    "vkCmdBuildMicromapsEXT",
     "vkCmdClearAttachments",
     "vkCmdClearColorImage",
     "vkCmdClearDepthStencilImage",
@@ -2370,6 +2447,9 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdCopyImageToBuffer2",
     "vkCmdCopyImageToBuffer2KHR",
     "vkCmdCopyMemoryToAccelerationStructureKHR",
+    "vkCmdCopyMemoryToMicromapEXT",
+    "vkCmdCopyMicromapEXT",
+    "vkCmdCopyMicromapToMemoryEXT",
     "vkCmdCopyQueryPoolResults",
     "vkCmdCuLaunchKernelNVX",
     "vkCmdDebugMarkerBeginEXT",
@@ -2418,6 +2498,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdNextSubpass",
     "vkCmdNextSubpass2",
     "vkCmdNextSubpass2KHR",
+    "vkCmdOpticalFlowExecuteNV",
     "vkCmdPipelineBarrier",
     "vkCmdPipelineBarrier2",
     "vkCmdPipelineBarrier2KHR",
@@ -2432,10 +2513,23 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdResolveImage",
     "vkCmdResolveImage2",
     "vkCmdResolveImage2KHR",
+    "vkCmdSetAlphaToCoverageEnableEXT",
+    "vkCmdSetAlphaToOneEnableEXT",
     "vkCmdSetBlendConstants",
     "vkCmdSetCheckpointNV",
     "vkCmdSetCoarseSampleOrderNV",
+    "vkCmdSetColorBlendAdvancedEXT",
+    "vkCmdSetColorBlendEnableEXT",
+    "vkCmdSetColorBlendEquationEXT",
     "vkCmdSetColorWriteEnableEXT",
+    "vkCmdSetColorWriteMaskEXT",
+    "vkCmdSetConservativeRasterizationModeEXT",
+    "vkCmdSetCoverageModulationModeNV",
+    "vkCmdSetCoverageModulationTableEnableNV",
+    "vkCmdSetCoverageModulationTableNV",
+    "vkCmdSetCoverageReductionModeNV",
+    "vkCmdSetCoverageToColorEnableNV",
+    "vkCmdSetCoverageToColorLocationNV",
     "vkCmdSetCullMode",
     "vkCmdSetCullModeEXT",
     "vkCmdSetDepthBias",
@@ -2444,6 +2538,9 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdSetDepthBounds",
     "vkCmdSetDepthBoundsTestEnable",
     "vkCmdSetDepthBoundsTestEnableEXT",
+    "vkCmdSetDepthClampEnableEXT",
+    "vkCmdSetDepthClipEnableEXT",
+    "vkCmdSetDepthClipNegativeOneToOneEXT",
     "vkCmdSetDepthCompareOp",
     "vkCmdSetDepthCompareOpEXT",
     "vkCmdSetDepthTestEnable",
@@ -2457,28 +2554,40 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdSetEvent2",
     "vkCmdSetEvent2KHR",
     "vkCmdSetExclusiveScissorNV",
+    "vkCmdSetExtraPrimitiveOverestimationSizeEXT",
     "vkCmdSetFragmentShadingRateEnumNV",
     "vkCmdSetFragmentShadingRateKHR",
     "vkCmdSetFrontFace",
     "vkCmdSetFrontFaceEXT",
+    "vkCmdSetLineRasterizationModeEXT",
     "vkCmdSetLineStippleEXT",
+    "vkCmdSetLineStippleEnableEXT",
     "vkCmdSetLineWidth",
     "vkCmdSetLogicOpEXT",
+    "vkCmdSetLogicOpEnableEXT",
     "vkCmdSetPatchControlPointsEXT",
     "vkCmdSetPerformanceMarkerINTEL",
     "vkCmdSetPerformanceOverrideINTEL",
     "vkCmdSetPerformanceStreamMarkerINTEL",
+    "vkCmdSetPolygonModeEXT",
     "vkCmdSetPrimitiveRestartEnable",
     "vkCmdSetPrimitiveRestartEnableEXT",
     "vkCmdSetPrimitiveTopology",
     "vkCmdSetPrimitiveTopologyEXT",
+    "vkCmdSetProvokingVertexModeEXT",
+    "vkCmdSetRasterizationSamplesEXT",
+    "vkCmdSetRasterizationStreamEXT",
     "vkCmdSetRasterizerDiscardEnable",
     "vkCmdSetRasterizerDiscardEnableEXT",
     "vkCmdSetRayTracingPipelineStackSizeKHR",
+    "vkCmdSetRepresentativeFragmentTestEnableNV",
     "vkCmdSetSampleLocationsEXT",
+    "vkCmdSetSampleLocationsEnableEXT",
+    "vkCmdSetSampleMaskEXT",
     "vkCmdSetScissor",
     "vkCmdSetScissorWithCount",
     "vkCmdSetScissorWithCountEXT",
+    "vkCmdSetShadingRateImageEnableNV",
     "vkCmdSetStencilCompareMask",
     "vkCmdSetStencilOp",
     "vkCmdSetStencilOpEXT",
@@ -2486,9 +2595,12 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdSetStencilTestEnable",
     "vkCmdSetStencilTestEnableEXT",
     "vkCmdSetStencilWriteMask",
+    "vkCmdSetTessellationDomainOriginEXT",
     "vkCmdSetVertexInputEXT",
     "vkCmdSetViewport",
     "vkCmdSetViewportShadingRatePaletteNV",
+    "vkCmdSetViewportSwizzleNV",
+    "vkCmdSetViewportWScalingEnableNV",
     "vkCmdSetViewportWScalingNV",
     "vkCmdSetViewportWithCount",
     "vkCmdSetViewportWithCountEXT",
@@ -2505,6 +2617,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdWriteAccelerationStructuresPropertiesNV",
     "vkCmdWriteBufferMarker2AMD",
     "vkCmdWriteBufferMarkerAMD",
+    "vkCmdWriteMicromapsPropertiesEXT",
     "vkCmdWriteTimestamp",
     "vkCmdWriteTimestamp2",
     "vkCmdWriteTimestamp2KHR",
@@ -2512,6 +2625,9 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCopyAccelerationStructureKHR",
     "vkCopyAccelerationStructureToMemoryKHR",
     "vkCopyMemoryToAccelerationStructureKHR",
+    "vkCopyMemoryToMicromapEXT",
+    "vkCopyMicromapEXT",
+    "vkCopyMicromapToMemoryEXT",
     "vkCreateAccelerationStructureKHR",
     "vkCreateAccelerationStructureNV",
     "vkCreateBuffer",
@@ -2533,6 +2649,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCreateImage",
     "vkCreateImageView",
     "vkCreateIndirectCommandsLayoutNV",
+    "vkCreateMicromapEXT",
+    "vkCreateOpticalFlowSessionNV",
     "vkCreatePipelineCache",
     "vkCreatePipelineLayout",
     "vkCreatePrivateDataSlot",
@@ -2576,6 +2694,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkDestroyImage",
     "vkDestroyImageView",
     "vkDestroyIndirectCommandsLayoutNV",
+    "vkDestroyMicromapEXT",
+    "vkDestroyOpticalFlowSessionNV",
     "vkDestroyPipeline",
     "vkDestroyPipelineCache",
     "vkDestroyPipelineLayout",
@@ -2624,6 +2744,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetDeviceAccelerationStructureCompatibilityKHR",
     "vkGetDeviceBufferMemoryRequirements",
     "vkGetDeviceBufferMemoryRequirementsKHR",
+    "vkGetDeviceFaultInfoEXT",
     "vkGetDeviceGroupPeerMemoryFeatures",
     "vkGetDeviceGroupPeerMemoryFeaturesKHR",
     "vkGetDeviceGroupPresentCapabilitiesKHR",
@@ -2636,6 +2757,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetDeviceMemoryCommitment",
     "vkGetDeviceMemoryOpaqueCaptureAddress",
     "vkGetDeviceMemoryOpaqueCaptureAddressKHR",
+    "vkGetDeviceMicromapCompatibilityEXT",
     "vkGetDeviceProcAddr",
     "vkGetDeviceQueue",
     "vkGetDeviceQueue2",
@@ -2668,6 +2790,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetMemoryWin32HandlePropertiesKHR",
     "vkGetMemoryZirconHandleFUCHSIA",
     "vkGetMemoryZirconHandlePropertiesFUCHSIA",
+    "vkGetMicromapBuildSizesEXT",
     "vkGetPastPresentationTimingGOOGLE",
     "vkGetPerformanceParameterINTEL",
     "vkGetPipelineCacheData",
@@ -2756,6 +2879,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkWaitSemaphores",
     "vkWaitSemaphoresKHR",
     "vkWriteAccelerationStructuresPropertiesKHR",
+    "vkWriteMicromapsPropertiesEXT",
 };
 
 static int glad_vulkan_is_device_function(const char *name) {
