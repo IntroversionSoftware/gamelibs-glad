@@ -1624,6 +1624,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
 #endif
     context->ARM_rasterization_order_attachment_access = glad_vk_has_extension("VK_ARM_rasterization_order_attachment_access", extension_count, extensions);
+    context->ARM_shader_core_builtins = glad_vk_has_extension("VK_ARM_shader_core_builtins", extension_count, extensions);
     context->EXT_4444_formats = glad_vk_has_extension("VK_EXT_4444_formats", extension_count, extensions);
     context->EXT_acquire_drm_display = glad_vk_has_extension("VK_EXT_acquire_drm_display", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_XLIB_XRANDR_EXT)
