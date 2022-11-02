@@ -1594,11 +1594,6 @@ void gladLoaderResetEGL(void) {
     GLAD_EGL_WL_bind_wayland_display = 0;
     GLAD_EGL_WL_create_wayland_buffer_from_image = 0;
 
-    eglGetDisplay = NULL;
-    eglGetCurrentDisplay = NULL;
-    eglQueryString = NULL;
-    eglGetError = NULL;
-
     glad_eglChooseConfig = NULL;
     glad_eglCopyBuffers = NULL;
     glad_eglCreateContext = NULL;
