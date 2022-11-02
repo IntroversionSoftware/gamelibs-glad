@@ -1,3 +1,6 @@
+/**
+ * SPDX-License-Identifier: (WTFPL OR CC0-1.0) AND Apache-2.0
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,10 +22,11 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-GladVulkanContext glad_vulkan_context = {};
+GladVulkanContext glad_vulkan_context_static = {};
 #else
-GladVulkanContext glad_vulkan_context = { 0 };
+GladVulkanContext glad_vulkan_context_static = { 0 };
 #endif
+GladVulkanContext* glad_vulkan_context = &glad_vulkan_context_static;
 
 
 
@@ -2012,7 +2016,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->VALVE_descriptor_set_host_mapping = glad_vk_has_extension("VK_VALVE_descriptor_set_host_mapping", extension_count, extensions);
     context->VALVE_mutable_descriptor_type = glad_vk_has_extension("VK_VALVE_mutable_descriptor_type", extension_count, extensions);
 
-    (void) glad_vk_has_extension;
+    GLAD_UNUSED(glad_vk_has_extension);
 
     glad_vk_free_extensions(extension_count, extensions);
 
@@ -2300,11 +2304,11 @@ int gladLoadVulkan(VkPhysicalDevice physical_device, GLADloadfunc load) {
 }
 
 GladVulkanContext* gladGetVulkanContext() {
-    return &glad_vulkan_context;
+    return glad_vulkan_context;
 }
 
 void gladSetVulkanContext(GladVulkanContext *context) {
-    glad_vulkan_context = *context;
+    glad_vulkan_context = context;
 }
 
  
@@ -2929,9 +2933,8 @@ static GLADapiproc glad_vulkan_get_proc(void *vuserptr, const char *name) {
 }
 
 
-static void* _vulkan_handle;
 
-static void* glad_vulkan_dlopen_handle(void) {
+static void* glad_vulkan_dlopen_handle(GladVulkanContext *context) {
     static const char *NAMES[] = {
 #if GLAD_PLATFORM_APPLE
         "libvulkan.dylib",
@@ -2945,11 +2948,11 @@ static void* glad_vulkan_dlopen_handle(void) {
 #endif
     };
 
-    if (_vulkan_handle == NULL) {
-        _vulkan_handle = glad_get_dlopen_handle(NAMES, sizeof(NAMES) / sizeof(NAMES[0]));
+    if (context->glad_loader_handle == NULL) {
+        context->glad_loader_handle = glad_get_dlopen_handle(NAMES, sizeof(NAMES) / sizeof(NAMES[0]));
     }
 
-    return _vulkan_handle;
+    return context->glad_loader_handle;
 }
 
 static struct _glad_vulkan_userptr glad_vulkan_build_userptr(void *handle, VkInstance instance, VkDevice device) {
@@ -2968,8 +2971,8 @@ int gladLoaderLoadVulkanContext(GladVulkanContext *context, VkInstance instance,
     int did_load = 0;
     struct _glad_vulkan_userptr userptr;
 
-    did_load = _vulkan_handle == NULL;
-    handle = glad_vulkan_dlopen_handle();
+    did_load = context->glad_loader_handle == NULL;
+    handle = glad_vulkan_dlopen_handle(context);
     if (handle != NULL) {
         userptr = glad_vulkan_build_userptr(handle, instance, device);
 
@@ -2978,7 +2981,7 @@ int gladLoaderLoadVulkanContext(GladVulkanContext *context, VkInstance instance,
         }
 
         if (!version && did_load) {
-            gladLoaderUnloadVulkan();
+            gladLoaderUnloadVulkanContext(context);
         }
     }
 
@@ -2998,13 +3001,17 @@ int gladLoaderLoadVulkan(VkInstance instance, VkPhysicalDevice physical_device, 
     return gladLoaderLoadVulkanContext(gladGetVulkanContext(), instance, physical_device, device);
 }
 
-void gladLoaderUnloadVulkan(void) {
-    if (_vulkan_handle != NULL) {
-        glad_close_dlopen_handle(_vulkan_handle);
-        _vulkan_handle = NULL;
+void gladLoaderUnloadVulkanContext(GladVulkanContext *context) {
+    if (context->glad_loader_handle != NULL) {
+        glad_close_dlopen_handle(context->glad_loader_handle);
+        context->glad_loader_handle = NULL;
     }
 
-    gladLoaderResetVulkan();
+    gladLoaderResetVulkanContext(context);
+}
+
+void gladLoaderUnloadVulkan(void) {
+    gladLoaderUnloadVulkanContext(gladGetVulkanContext());
 }
 
 #endif /* GLAD_VULKAN */

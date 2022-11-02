@@ -1,5 +1,8 @@
 #ifdef _WIN32
 
+/**
+ * SPDX-License-Identifier: (WTFPL OR CC0-1.0) AND Apache-2.0
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -579,7 +582,7 @@ int gladLoadWGL(HDC hdc, GLADloadfunc load) {
 #ifdef GLAD_WGL
 
 static GLADapiproc glad_wgl_get_proc(void *vuserptr, const char* name) {
-    (void) vuserptr;
+    GLAD_UNUSED(vuserptr);
     return GLAD_GNUC_EXTENSION (GLADapiproc) wglGetProcAddress(name);
 }
 

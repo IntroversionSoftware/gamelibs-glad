@@ -1,3 +1,6 @@
+/**
+ * SPDX-License-Identifier: (WTFPL OR CC0-1.0) AND Apache-2.0
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -19,10 +22,11 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-GladGLContext glad_gl_context = {};
+GladGLContext glad_gl_context_static = {};
 #else
-GladGLContext glad_gl_context = { 0 };
+GladGLContext glad_gl_context_static = { 0 };
 #endif
+GladGLContext* glad_gl_context = &glad_gl_context_static;
 
 
 
@@ -6515,9 +6519,9 @@ static int glad_gl_get_extensions(GladGLContext *context, int version, const cha
 #if GLAD_GL_IS_SOME_NEW_VERSION
     if(GLAD_VERSION_MAJOR(version) < 3) {
 #else
-    (void) version;
-    (void) out_num_exts_i;
-    (void) out_exts_i;
+    GLAD_UNUSED(version);
+    GLAD_UNUSED(out_num_exts_i);
+    GLAD_UNUSED(out_exts_i);
 #endif
         if (context->GetString == NULL) {
             return 0;
@@ -8275,11 +8279,11 @@ int gladLoadGLES2(GLADloadfunc load) {
 }
 
 GladGLContext* gladGetGLContext() {
-    return &glad_gl_context;
+    return glad_gl_context;
 }
 
 void gladSetGLContext(GladGLContext *context) {
-    glad_gl_context = *context;
+    glad_gl_context = context;
 }
 
  
@@ -8373,9 +8377,8 @@ static GLADapiproc glad_gl_get_proc(void *vuserptr, const char *name) {
     return result;
 }
 
-static void* _gl_handle = NULL;
 
-static void* glad_gl_dlopen_handle(void) {
+static void* glad_gl_dlopen_handle(GladGLContext *context) {
 #if GLAD_PLATFORM_APPLE
     static const char *NAMES[] = {
         "../Frameworks/OpenGL.framework/OpenGL",
@@ -8395,11 +8398,11 @@ static void* glad_gl_dlopen_handle(void) {
     };
 #endif
 
-    if (_gl_handle == NULL) {
-        _gl_handle = glad_get_dlopen_handle(NAMES, sizeof(NAMES) / sizeof(NAMES[0]));
+    if (context->glad_loader_handle == NULL) {
+        context->glad_loader_handle = glad_get_dlopen_handle(NAMES, sizeof(NAMES) / sizeof(NAMES[0]));
     }
 
-    return _gl_handle;
+    return context->glad_loader_handle;
 }
 
 static struct _glad_gl_userptr glad_gl_build_userptr(void *handle) {
@@ -8425,15 +8428,15 @@ int gladLoaderLoadGLContext(GladGLContext *context) {
     int did_load = 0;
     struct _glad_gl_userptr userptr;
 
-    did_load = _gl_handle == NULL;
-    handle = glad_gl_dlopen_handle();
+    did_load = context->glad_loader_handle == NULL;
+    handle = glad_gl_dlopen_handle(context);
     if (handle) {
         userptr = glad_gl_build_userptr(handle);
 
         version = gladLoadGLContextUserPtr(context,glad_gl_get_proc, &userptr);
 
         if (did_load) {
-            gladLoaderUnloadGL();
+            gladLoaderUnloadGLContext(context);
         }
     }
 
@@ -8453,13 +8456,17 @@ int gladLoaderLoadGL(void) {
     return gladLoaderLoadGLContext(gladGetGLContext());
 }
 
-void gladLoaderUnloadGL(void) {
-    if (_gl_handle != NULL) {
-        glad_close_dlopen_handle(_gl_handle);
-        _gl_handle = NULL;
+void gladLoaderUnloadGLContext(GladGLContext *context) {
+    if (context->glad_loader_handle != NULL) {
+        glad_close_dlopen_handle(context->glad_loader_handle);
+        context->glad_loader_handle = NULL;
     }
 
-    gladLoaderResetGL();
+    gladLoaderResetGLContext(context);
+}
+
+void gladLoaderUnloadGL(void) {
+    gladLoaderUnloadGLContext(gladGetGLContext());
 }
 
 #endif /* GLAD_GL */
@@ -8533,8 +8540,11 @@ static GLADapiproc glad_dlsym_handle(void* handle, const char *name) {
 #endif /* GLAD_LOADER_LIBRARY_C_ */
 
 #if GLAD_PLATFORM_EMSCRIPTEN
-  typedef void* (GLAD_API_PTR *PFNEGLGETPROCADDRESSPROC)(const char *name);
-  extern void* emscripten_GetProcAddress(const char *name);
+#ifndef GLAD_EGL_H_
+  typedef void (*__eglMustCastToProperFunctionPointerType)(void);
+  typedef __eglMustCastToProperFunctionPointerType (GLAD_API_PTR *PFNEGLGETPROCADDRESSPROC)(const char *name);
+#endif
+  extern __eglMustCastToProperFunctionPointerType emscripten_GetProcAddress(const char *name);
 #else
   #include <glad/egl.h>
 #endif
@@ -8550,7 +8560,9 @@ static GLADapiproc glad_gles2_get_proc(void *vuserptr, const char* name) {
     struct _glad_gles2_userptr userptr = *(struct _glad_gles2_userptr*) vuserptr;
     GLADapiproc result = NULL;
 
-#if !GLAD_PLATFORM_EMSCRIPTEN
+#if GLAD_PLATFORM_EMSCRIPTEN
+    GLAD_UNUSED(glad_dlsym_handle);
+#else
     result = glad_dlsym_handle(userptr.handle, name);
 #endif
     if (result == NULL) {
@@ -8560,9 +8572,8 @@ static GLADapiproc glad_gles2_get_proc(void *vuserptr, const char* name) {
     return result;
 }
 
-static void* _gles2_handle = NULL;
 
-static void* glad_gles2_dlopen_handle(void) {
+static void* glad_gles2_dlopen_handle(GladGLContext *context) {
 #if GLAD_PLATFORM_EMSCRIPTEN
 #elif GLAD_PLATFORM_APPLE
     static const char *NAMES[] = {"libGLESv2.dylib"};
@@ -8573,19 +8584,21 @@ static void* glad_gles2_dlopen_handle(void) {
 #endif
 
 #if GLAD_PLATFORM_EMSCRIPTEN
+    GLAD_UNUSED(glad_get_dlopen_handle);
     return NULL;
 #else
-    if (_gles2_handle == NULL) {
-        _gles2_handle = glad_get_dlopen_handle(NAMES, sizeof(NAMES) / sizeof(NAMES[0]));
+    if (context->glad_loader_handle == NULL) {
+        context->glad_loader_handle = glad_get_dlopen_handle(NAMES, sizeof(NAMES) / sizeof(NAMES[0]));
     }
 
-    return _gles2_handle;
+    return context->glad_loader_handle;
 #endif
 }
 
 static struct _glad_gles2_userptr glad_gles2_build_userptr(void *handle) {
     struct _glad_gles2_userptr userptr;
 #if GLAD_PLATFORM_EMSCRIPTEN
+    GLAD_UNUSED(handle);
     userptr.get_proc_address_ptr = emscripten_GetProcAddress;
 #else
     userptr.handle = handle;
@@ -8601,6 +8614,10 @@ int gladLoaderLoadGLES2Context(GladGLContext *context) {
     struct _glad_gles2_userptr userptr;
 
 #if GLAD_PLATFORM_EMSCRIPTEN
+    GLAD_UNUSED(handle);
+    GLAD_UNUSED(did_load);
+    GLAD_UNUSED(glad_gles2_dlopen_handle);
+    GLAD_UNUSED(glad_gles2_build_userptr);
     userptr.get_proc_address_ptr = emscripten_GetProcAddress;
     version = gladLoadGLES2ContextUserPtr(context, glad_gles2_get_proc, &userptr);
 #else
@@ -8608,15 +8625,15 @@ int gladLoaderLoadGLES2Context(GladGLContext *context) {
         return 0;
     }
 
-    did_load = _gles2_handle == NULL;
-    handle = glad_gles2_dlopen_handle();
+    did_load = context->glad_loader_handle == NULL;
+    handle = glad_gles2_dlopen_handle(context);
     if (handle != NULL) {
         userptr = glad_gles2_build_userptr(handle);
 
         version = gladLoadGLES2ContextUserPtr(context, glad_gles2_get_proc, &userptr);
 
         if (!version && did_load) {
-            gladLoaderUnloadGLES2();
+            gladLoaderUnloadGLES2Context(context);
         }
     }
 #endif
@@ -8637,13 +8654,17 @@ int gladLoaderLoadGLES2(void) {
     return gladLoaderLoadGLES2Context(gladGetGLContext());
 }
 
-void gladLoaderUnloadGLES2(void) {
-    if (_gles2_handle != NULL) {
-        glad_close_dlopen_handle(_gles2_handle);
-        _gles2_handle = NULL;
+void gladLoaderUnloadGLES2Context(GladGLContext *context) {
+    if (context->glad_loader_handle != NULL) {
+        glad_close_dlopen_handle(context->glad_loader_handle);
+        context->glad_loader_handle = NULL;
     }
 
-    gladLoaderResetGLES2();
+    gladLoaderResetGLES2Context(context);
+}
+
+void gladLoaderUnloadGLES2(void) {
+    gladLoaderUnloadGLES2Context(gladGetGLContext());
 }
 
 #endif /* GLAD_GLES2 */
