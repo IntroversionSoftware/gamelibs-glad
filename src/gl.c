@@ -6,6 +6,7 @@
 #include <string.h>
 #include <glad/gl.h>
 
+
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
 
@@ -21,12 +22,7 @@
 extern "C" {
 #endif
 
-#ifdef __cplusplus
-GladGLContext glad_gl_context_static = {};
-#else
-GladGLContext glad_gl_context_static = { 0 };
-#endif
-GladGLContext* glad_gl_context = &glad_gl_context_static;
+GladGLContext* glad_gl_context = NULL;
 
 
 
@@ -8433,7 +8429,7 @@ int gladLoaderLoadGLContext(GladGLContext *context) {
     if (handle) {
         userptr = glad_gl_build_userptr(handle);
 
-        version = gladLoadGLContextUserPtr(context, glad_gl_get_proc, &userptr);
+        version = gladLoadGLContextUserPtr(context,glad_gl_get_proc, &userptr);
 
         if (did_load) {
             gladLoaderUnloadGLContext(context);

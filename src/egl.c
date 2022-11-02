@@ -6,6 +6,7 @@
 #include <string.h>
 #include <glad/egl.h>
 
+
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
 
@@ -21,12 +22,7 @@
 extern "C" {
 #endif
 
-#ifdef __cplusplus
-GladEGLContext glad_egl_context_static = {};
-#else
-GladEGLContext glad_egl_context_static = { 0 };
-#endif
-GladEGLContext* glad_egl_context = &glad_egl_context_static;
+GladEGLContext* glad_egl_context = NULL;
 
 
 
@@ -457,8 +453,8 @@ static void glad_egl_resolve_aliases(GladEGLContext *context) {
     if (context->QueryDisplayAttribNV == NULL && context->QueryDisplayAttribKHR != NULL) context->QueryDisplayAttribNV = (PFNEGLQUERYDISPLAYATTRIBNVPROC)context->QueryDisplayAttribKHR;
 }
 
-static int glad_egl_get_extensions(EGLDisplay display, const char **extensions) {
-    *extensions = eglQueryString(display, EGL_EXTENSIONS);
+static int glad_egl_get_extensions(GladEGLContext *context, EGLDisplay display, const char **extensions) {
+    *extensions = context->QueryString(display, EGL_EXTENSIONS);
 
     return extensions != NULL;
 }
@@ -487,221 +483,221 @@ static GLADapiproc glad_egl_get_proc_from_userptr(void *userptr, const char *nam
     return (GLAD_GNUC_EXTENSION (GLADapiproc (*)(const char *name)) userptr)(name);
 }
 
-static int glad_egl_find_extensions_egl(EGLDisplay display) {
+static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay display) {
     const char *extensions;
-    if (!glad_egl_get_extensions(display, &extensions)) return 0;
+    if (!glad_egl_get_extensions(context, display, &extensions)) return 0;
 
-    GLAD_EGL_ANDROID_GLES_layers = glad_egl_has_extension(extensions, "EGL_ANDROID_GLES_layers");
-    GLAD_EGL_ANDROID_blob_cache = glad_egl_has_extension(extensions, "EGL_ANDROID_blob_cache");
-    GLAD_EGL_ANDROID_create_native_client_buffer = glad_egl_has_extension(extensions, "EGL_ANDROID_create_native_client_buffer");
-    GLAD_EGL_ANDROID_framebuffer_target = glad_egl_has_extension(extensions, "EGL_ANDROID_framebuffer_target");
-    GLAD_EGL_ANDROID_front_buffer_auto_refresh = glad_egl_has_extension(extensions, "EGL_ANDROID_front_buffer_auto_refresh");
-    GLAD_EGL_ANDROID_get_frame_timestamps = glad_egl_has_extension(extensions, "EGL_ANDROID_get_frame_timestamps");
-    GLAD_EGL_ANDROID_get_native_client_buffer = glad_egl_has_extension(extensions, "EGL_ANDROID_get_native_client_buffer");
-    GLAD_EGL_ANDROID_image_native_buffer = glad_egl_has_extension(extensions, "EGL_ANDROID_image_native_buffer");
-    GLAD_EGL_ANDROID_native_fence_sync = glad_egl_has_extension(extensions, "EGL_ANDROID_native_fence_sync");
-    GLAD_EGL_ANDROID_presentation_time = glad_egl_has_extension(extensions, "EGL_ANDROID_presentation_time");
-    GLAD_EGL_ANDROID_recordable = glad_egl_has_extension(extensions, "EGL_ANDROID_recordable");
-    GLAD_EGL_ANGLE_colorspace_attribute_passthrough = glad_egl_has_extension(extensions, "EGL_ANGLE_colorspace_attribute_passthrough");
-    GLAD_EGL_ANGLE_context_virtualization = glad_egl_has_extension(extensions, "EGL_ANGLE_context_virtualization");
-    GLAD_EGL_ANGLE_create_context_backwards_compatible = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_backwards_compatible");
-    GLAD_EGL_ANGLE_create_context_client_arrays = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_client_arrays");
-    GLAD_EGL_ANGLE_create_context_extensions_enabled = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_extensions_enabled");
-    GLAD_EGL_ANGLE_create_context_webgl_compatibility = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_webgl_compatibility");
-    GLAD_EGL_ANGLE_create_surface_swap_interval = glad_egl_has_extension(extensions, "EGL_ANGLE_create_surface_swap_interval");
-    GLAD_EGL_ANGLE_d3d_share_handle_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_d3d_share_handle_client_buffer");
-    GLAD_EGL_ANGLE_device_cgl = glad_egl_has_extension(extensions, "EGL_ANGLE_device_cgl");
-    GLAD_EGL_ANGLE_device_creation = glad_egl_has_extension(extensions, "EGL_ANGLE_device_creation");
-    GLAD_EGL_ANGLE_device_d3d = glad_egl_has_extension(extensions, "EGL_ANGLE_device_d3d");
-    GLAD_EGL_ANGLE_device_eagl = glad_egl_has_extension(extensions, "EGL_ANGLE_device_eagl");
-    GLAD_EGL_ANGLE_device_metal = glad_egl_has_extension(extensions, "EGL_ANGLE_device_metal");
-    GLAD_EGL_ANGLE_device_vulkan = glad_egl_has_extension(extensions, "EGL_ANGLE_device_vulkan");
-    GLAD_EGL_ANGLE_direct_composition = glad_egl_has_extension(extensions, "EGL_ANGLE_direct_composition");
-    GLAD_EGL_ANGLE_display_power_preference = glad_egl_has_extension(extensions, "EGL_ANGLE_display_power_preference");
-    GLAD_EGL_ANGLE_display_semaphore_share_group = glad_egl_has_extension(extensions, "EGL_ANGLE_display_semaphore_share_group");
-    GLAD_EGL_ANGLE_display_texture_share_group = glad_egl_has_extension(extensions, "EGL_ANGLE_display_texture_share_group");
-    GLAD_EGL_ANGLE_experimental_present_path = glad_egl_has_extension(extensions, "EGL_ANGLE_experimental_present_path");
-    GLAD_EGL_ANGLE_feature_control = glad_egl_has_extension(extensions, "EGL_ANGLE_feature_control");
-    GLAD_EGL_ANGLE_ggp_stream_descriptor = glad_egl_has_extension(extensions, "EGL_ANGLE_ggp_stream_descriptor");
-    GLAD_EGL_ANGLE_iosurface_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_iosurface_client_buffer");
-    GLAD_EGL_ANGLE_keyed_mutex = glad_egl_has_extension(extensions, "EGL_ANGLE_keyed_mutex");
-    GLAD_EGL_ANGLE_metal_create_context_ownership_identity = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_create_context_ownership_identity");
-    GLAD_EGL_ANGLE_metal_shared_event_sync = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_shared_event_sync");
-    GLAD_EGL_ANGLE_metal_texture_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_texture_client_buffer");
-    GLAD_EGL_ANGLE_platform_angle = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle");
-    GLAD_EGL_ANGLE_platform_angle_d3d = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d");
-    GLAD_EGL_ANGLE_platform_angle_d3d11on12 = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d11on12");
-    GLAD_EGL_ANGLE_platform_angle_d3d_luid = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d_luid");
-    GLAD_EGL_ANGLE_platform_angle_device_context_volatile_cgl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_context_volatile_cgl");
-    GLAD_EGL_ANGLE_platform_angle_device_context_volatile_eagl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_context_volatile_eagl");
-    GLAD_EGL_ANGLE_platform_angle_device_id = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_id");
-    GLAD_EGL_ANGLE_platform_angle_device_type_egl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_type_egl");
-    GLAD_EGL_ANGLE_platform_angle_device_type_swiftshader = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_type_swiftshader");
-    GLAD_EGL_ANGLE_platform_angle_metal = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_metal");
-    GLAD_EGL_ANGLE_platform_angle_null = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_null");
-    GLAD_EGL_ANGLE_platform_angle_opengl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_opengl");
-    GLAD_EGL_ANGLE_platform_angle_vulkan = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_vulkan");
-    GLAD_EGL_ANGLE_power_preference = glad_egl_has_extension(extensions, "EGL_ANGLE_power_preference");
-    GLAD_EGL_ANGLE_prepare_swap_buffers = glad_egl_has_extension(extensions, "EGL_ANGLE_prepare_swap_buffers");
-    GLAD_EGL_ANGLE_program_cache_control = glad_egl_has_extension(extensions, "EGL_ANGLE_program_cache_control");
-    GLAD_EGL_ANGLE_query_surface_pointer = glad_egl_has_extension(extensions, "EGL_ANGLE_query_surface_pointer");
-    GLAD_EGL_ANGLE_robust_resource_initialization = glad_egl_has_extension(extensions, "EGL_ANGLE_robust_resource_initialization");
-    GLAD_EGL_ANGLE_stream_producer_d3d_texture = glad_egl_has_extension(extensions, "EGL_ANGLE_stream_producer_d3d_texture");
-    GLAD_EGL_ANGLE_surface_d3d_texture_2d_share_handle = glad_egl_has_extension(extensions, "EGL_ANGLE_surface_d3d_texture_2d_share_handle");
-    GLAD_EGL_ANGLE_surface_orientation = glad_egl_has_extension(extensions, "EGL_ANGLE_surface_orientation");
-    GLAD_EGL_ANGLE_swap_with_frame_token = glad_egl_has_extension(extensions, "EGL_ANGLE_swap_with_frame_token");
-    GLAD_EGL_ANGLE_sync_control_rate = glad_egl_has_extension(extensions, "EGL_ANGLE_sync_control_rate");
-    GLAD_EGL_ANGLE_vulkan_display = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_display");
-    GLAD_EGL_ANGLE_vulkan_image = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_image");
-    GLAD_EGL_ANGLE_window_fixed_size = glad_egl_has_extension(extensions, "EGL_ANGLE_window_fixed_size");
-    GLAD_EGL_ARM_image_format = glad_egl_has_extension(extensions, "EGL_ARM_image_format");
-    GLAD_EGL_ARM_implicit_external_sync = glad_egl_has_extension(extensions, "EGL_ARM_implicit_external_sync");
-    GLAD_EGL_ARM_pixmap_multisample_discard = glad_egl_has_extension(extensions, "EGL_ARM_pixmap_multisample_discard");
-    GLAD_EGL_CHROMIUM_sync_control = glad_egl_has_extension(extensions, "EGL_CHROMIUM_sync_control");
-    GLAD_EGL_EXT_bind_to_front = glad_egl_has_extension(extensions, "EGL_EXT_bind_to_front");
-    GLAD_EGL_EXT_buffer_age = glad_egl_has_extension(extensions, "EGL_EXT_buffer_age");
-    GLAD_EGL_EXT_client_extensions = glad_egl_has_extension(extensions, "EGL_EXT_client_extensions");
-    GLAD_EGL_EXT_client_sync = glad_egl_has_extension(extensions, "EGL_EXT_client_sync");
-    GLAD_EGL_EXT_compositor = glad_egl_has_extension(extensions, "EGL_EXT_compositor");
-    GLAD_EGL_EXT_config_select_group = glad_egl_has_extension(extensions, "EGL_EXT_config_select_group");
-    GLAD_EGL_EXT_create_context_robustness = glad_egl_has_extension(extensions, "EGL_EXT_create_context_robustness");
-    GLAD_EGL_EXT_device_base = glad_egl_has_extension(extensions, "EGL_EXT_device_base");
-    GLAD_EGL_EXT_device_drm = glad_egl_has_extension(extensions, "EGL_EXT_device_drm");
-    GLAD_EGL_EXT_device_drm_render_node = glad_egl_has_extension(extensions, "EGL_EXT_device_drm_render_node");
-    GLAD_EGL_EXT_device_enumeration = glad_egl_has_extension(extensions, "EGL_EXT_device_enumeration");
-    GLAD_EGL_EXT_device_openwf = glad_egl_has_extension(extensions, "EGL_EXT_device_openwf");
-    GLAD_EGL_EXT_device_persistent_id = glad_egl_has_extension(extensions, "EGL_EXT_device_persistent_id");
-    GLAD_EGL_EXT_device_query = glad_egl_has_extension(extensions, "EGL_EXT_device_query");
-    GLAD_EGL_EXT_device_query_name = glad_egl_has_extension(extensions, "EGL_EXT_device_query_name");
-    GLAD_EGL_EXT_explicit_device = glad_egl_has_extension(extensions, "EGL_EXT_explicit_device");
-    GLAD_EGL_EXT_gl_colorspace_bt2020_linear = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_linear");
-    GLAD_EGL_EXT_gl_colorspace_bt2020_pq = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_pq");
-    GLAD_EGL_EXT_gl_colorspace_display_p3 = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_display_p3");
-    GLAD_EGL_EXT_gl_colorspace_display_p3_linear = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_display_p3_linear");
-    GLAD_EGL_EXT_gl_colorspace_display_p3_passthrough = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_display_p3_passthrough");
-    GLAD_EGL_EXT_gl_colorspace_scrgb = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_scrgb");
-    GLAD_EGL_EXT_gl_colorspace_scrgb_linear = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_scrgb_linear");
-    GLAD_EGL_EXT_image_dma_buf_import = glad_egl_has_extension(extensions, "EGL_EXT_image_dma_buf_import");
-    GLAD_EGL_EXT_image_dma_buf_import_modifiers = glad_egl_has_extension(extensions, "EGL_EXT_image_dma_buf_import_modifiers");
-    GLAD_EGL_EXT_image_gl_colorspace = glad_egl_has_extension(extensions, "EGL_EXT_image_gl_colorspace");
-    GLAD_EGL_EXT_image_implicit_sync_control = glad_egl_has_extension(extensions, "EGL_EXT_image_implicit_sync_control");
-    GLAD_EGL_EXT_multiview_window = glad_egl_has_extension(extensions, "EGL_EXT_multiview_window");
-    GLAD_EGL_EXT_output_base = glad_egl_has_extension(extensions, "EGL_EXT_output_base");
-    GLAD_EGL_EXT_output_drm = glad_egl_has_extension(extensions, "EGL_EXT_output_drm");
-    GLAD_EGL_EXT_output_openwf = glad_egl_has_extension(extensions, "EGL_EXT_output_openwf");
-    GLAD_EGL_EXT_pixel_format_float = glad_egl_has_extension(extensions, "EGL_EXT_pixel_format_float");
-    GLAD_EGL_EXT_platform_base = glad_egl_has_extension(extensions, "EGL_EXT_platform_base");
-    GLAD_EGL_EXT_platform_device = glad_egl_has_extension(extensions, "EGL_EXT_platform_device");
-    GLAD_EGL_EXT_platform_wayland = glad_egl_has_extension(extensions, "EGL_EXT_platform_wayland");
-    GLAD_EGL_EXT_platform_x11 = glad_egl_has_extension(extensions, "EGL_EXT_platform_x11");
-    GLAD_EGL_EXT_platform_xcb = glad_egl_has_extension(extensions, "EGL_EXT_platform_xcb");
-    GLAD_EGL_EXT_present_opaque = glad_egl_has_extension(extensions, "EGL_EXT_present_opaque");
-    GLAD_EGL_EXT_protected_content = glad_egl_has_extension(extensions, "EGL_EXT_protected_content");
-    GLAD_EGL_EXT_protected_surface = glad_egl_has_extension(extensions, "EGL_EXT_protected_surface");
-    GLAD_EGL_EXT_stream_consumer_egloutput = glad_egl_has_extension(extensions, "EGL_EXT_stream_consumer_egloutput");
-    GLAD_EGL_EXT_surface_CTA861_3_metadata = glad_egl_has_extension(extensions, "EGL_EXT_surface_CTA861_3_metadata");
-    GLAD_EGL_EXT_surface_SMPTE2086_metadata = glad_egl_has_extension(extensions, "EGL_EXT_surface_SMPTE2086_metadata");
-    GLAD_EGL_EXT_surface_compression = glad_egl_has_extension(extensions, "EGL_EXT_surface_compression");
-    GLAD_EGL_EXT_swap_buffers_with_damage = glad_egl_has_extension(extensions, "EGL_EXT_swap_buffers_with_damage");
-    GLAD_EGL_EXT_sync_reuse = glad_egl_has_extension(extensions, "EGL_EXT_sync_reuse");
-    GLAD_EGL_EXT_yuv_surface = glad_egl_has_extension(extensions, "EGL_EXT_yuv_surface");
-    GLAD_EGL_HI_clientpixmap = glad_egl_has_extension(extensions, "EGL_HI_clientpixmap");
-    GLAD_EGL_HI_colorformats = glad_egl_has_extension(extensions, "EGL_HI_colorformats");
-    GLAD_EGL_IMG_context_priority = glad_egl_has_extension(extensions, "EGL_IMG_context_priority");
-    GLAD_EGL_IMG_image_plane_attribs = glad_egl_has_extension(extensions, "EGL_IMG_image_plane_attribs");
-    GLAD_EGL_KHR_cl_event = glad_egl_has_extension(extensions, "EGL_KHR_cl_event");
-    GLAD_EGL_KHR_cl_event2 = glad_egl_has_extension(extensions, "EGL_KHR_cl_event2");
-    GLAD_EGL_KHR_client_get_all_proc_addresses = glad_egl_has_extension(extensions, "EGL_KHR_client_get_all_proc_addresses");
-    GLAD_EGL_KHR_config_attribs = glad_egl_has_extension(extensions, "EGL_KHR_config_attribs");
-    GLAD_EGL_KHR_context_flush_control = glad_egl_has_extension(extensions, "EGL_KHR_context_flush_control");
-    GLAD_EGL_KHR_create_context = glad_egl_has_extension(extensions, "EGL_KHR_create_context");
-    GLAD_EGL_KHR_create_context_no_error = glad_egl_has_extension(extensions, "EGL_KHR_create_context_no_error");
-    GLAD_EGL_KHR_debug = glad_egl_has_extension(extensions, "EGL_KHR_debug");
-    GLAD_EGL_KHR_display_reference = glad_egl_has_extension(extensions, "EGL_KHR_display_reference");
-    GLAD_EGL_KHR_fence_sync = glad_egl_has_extension(extensions, "EGL_KHR_fence_sync");
-    GLAD_EGL_KHR_get_all_proc_addresses = glad_egl_has_extension(extensions, "EGL_KHR_get_all_proc_addresses");
-    GLAD_EGL_KHR_gl_colorspace = glad_egl_has_extension(extensions, "EGL_KHR_gl_colorspace");
-    GLAD_EGL_KHR_gl_renderbuffer_image = glad_egl_has_extension(extensions, "EGL_KHR_gl_renderbuffer_image");
-    GLAD_EGL_KHR_gl_texture_2D_image = glad_egl_has_extension(extensions, "EGL_KHR_gl_texture_2D_image");
-    GLAD_EGL_KHR_gl_texture_3D_image = glad_egl_has_extension(extensions, "EGL_KHR_gl_texture_3D_image");
-    GLAD_EGL_KHR_gl_texture_cubemap_image = glad_egl_has_extension(extensions, "EGL_KHR_gl_texture_cubemap_image");
-    GLAD_EGL_KHR_image = glad_egl_has_extension(extensions, "EGL_KHR_image");
-    GLAD_EGL_KHR_image_base = glad_egl_has_extension(extensions, "EGL_KHR_image_base");
-    GLAD_EGL_KHR_image_pixmap = glad_egl_has_extension(extensions, "EGL_KHR_image_pixmap");
-    GLAD_EGL_KHR_lock_surface = glad_egl_has_extension(extensions, "EGL_KHR_lock_surface");
-    GLAD_EGL_KHR_lock_surface2 = glad_egl_has_extension(extensions, "EGL_KHR_lock_surface2");
-    GLAD_EGL_KHR_lock_surface3 = glad_egl_has_extension(extensions, "EGL_KHR_lock_surface3");
-    GLAD_EGL_KHR_mutable_render_buffer = glad_egl_has_extension(extensions, "EGL_KHR_mutable_render_buffer");
-    GLAD_EGL_KHR_no_config_context = glad_egl_has_extension(extensions, "EGL_KHR_no_config_context");
-    GLAD_EGL_KHR_partial_update = glad_egl_has_extension(extensions, "EGL_KHR_partial_update");
-    GLAD_EGL_KHR_platform_android = glad_egl_has_extension(extensions, "EGL_KHR_platform_android");
-    GLAD_EGL_KHR_platform_gbm = glad_egl_has_extension(extensions, "EGL_KHR_platform_gbm");
-    GLAD_EGL_KHR_platform_wayland = glad_egl_has_extension(extensions, "EGL_KHR_platform_wayland");
-    GLAD_EGL_KHR_platform_x11 = glad_egl_has_extension(extensions, "EGL_KHR_platform_x11");
-    GLAD_EGL_KHR_reusable_sync = glad_egl_has_extension(extensions, "EGL_KHR_reusable_sync");
-    GLAD_EGL_KHR_stream = glad_egl_has_extension(extensions, "EGL_KHR_stream");
-    GLAD_EGL_KHR_stream_attrib = glad_egl_has_extension(extensions, "EGL_KHR_stream_attrib");
-    GLAD_EGL_KHR_stream_consumer_gltexture = glad_egl_has_extension(extensions, "EGL_KHR_stream_consumer_gltexture");
-    GLAD_EGL_KHR_stream_cross_process_fd = glad_egl_has_extension(extensions, "EGL_KHR_stream_cross_process_fd");
-    GLAD_EGL_KHR_stream_fifo = glad_egl_has_extension(extensions, "EGL_KHR_stream_fifo");
-    GLAD_EGL_KHR_stream_producer_aldatalocator = glad_egl_has_extension(extensions, "EGL_KHR_stream_producer_aldatalocator");
-    GLAD_EGL_KHR_stream_producer_eglsurface = glad_egl_has_extension(extensions, "EGL_KHR_stream_producer_eglsurface");
-    GLAD_EGL_KHR_surfaceless_context = glad_egl_has_extension(extensions, "EGL_KHR_surfaceless_context");
-    GLAD_EGL_KHR_swap_buffers_with_damage = glad_egl_has_extension(extensions, "EGL_KHR_swap_buffers_with_damage");
-    GLAD_EGL_KHR_vg_parent_image = glad_egl_has_extension(extensions, "EGL_KHR_vg_parent_image");
-    GLAD_EGL_KHR_wait_sync = glad_egl_has_extension(extensions, "EGL_KHR_wait_sync");
-    GLAD_EGL_MESA_drm_image = glad_egl_has_extension(extensions, "EGL_MESA_drm_image");
-    GLAD_EGL_MESA_image_dma_buf_export = glad_egl_has_extension(extensions, "EGL_MESA_image_dma_buf_export");
-    GLAD_EGL_MESA_platform_gbm = glad_egl_has_extension(extensions, "EGL_MESA_platform_gbm");
-    GLAD_EGL_MESA_platform_surfaceless = glad_egl_has_extension(extensions, "EGL_MESA_platform_surfaceless");
-    GLAD_EGL_MESA_query_driver = glad_egl_has_extension(extensions, "EGL_MESA_query_driver");
-    GLAD_EGL_NOK_swap_region = glad_egl_has_extension(extensions, "EGL_NOK_swap_region");
-    GLAD_EGL_NOK_swap_region2 = glad_egl_has_extension(extensions, "EGL_NOK_swap_region2");
-    GLAD_EGL_NOK_texture_from_pixmap = glad_egl_has_extension(extensions, "EGL_NOK_texture_from_pixmap");
-    GLAD_EGL_NV_3dvision_surface = glad_egl_has_extension(extensions, "EGL_NV_3dvision_surface");
-    GLAD_EGL_NV_context_priority_realtime = glad_egl_has_extension(extensions, "EGL_NV_context_priority_realtime");
-    GLAD_EGL_NV_coverage_sample = glad_egl_has_extension(extensions, "EGL_NV_coverage_sample");
-    GLAD_EGL_NV_coverage_sample_resolve = glad_egl_has_extension(extensions, "EGL_NV_coverage_sample_resolve");
-    GLAD_EGL_NV_cuda_event = glad_egl_has_extension(extensions, "EGL_NV_cuda_event");
-    GLAD_EGL_NV_depth_nonlinear = glad_egl_has_extension(extensions, "EGL_NV_depth_nonlinear");
-    GLAD_EGL_NV_device_cuda = glad_egl_has_extension(extensions, "EGL_NV_device_cuda");
-    GLAD_EGL_NV_native_query = glad_egl_has_extension(extensions, "EGL_NV_native_query");
-    GLAD_EGL_NV_post_convert_rounding = glad_egl_has_extension(extensions, "EGL_NV_post_convert_rounding");
-    GLAD_EGL_NV_post_sub_buffer = glad_egl_has_extension(extensions, "EGL_NV_post_sub_buffer");
-    GLAD_EGL_NV_quadruple_buffer = glad_egl_has_extension(extensions, "EGL_NV_quadruple_buffer");
-    GLAD_EGL_NV_robustness_video_memory_purge = glad_egl_has_extension(extensions, "EGL_NV_robustness_video_memory_purge");
-    GLAD_EGL_NV_stream_consumer_eglimage = glad_egl_has_extension(extensions, "EGL_NV_stream_consumer_eglimage");
-    GLAD_EGL_NV_stream_consumer_gltexture_yuv = glad_egl_has_extension(extensions, "EGL_NV_stream_consumer_gltexture_yuv");
-    GLAD_EGL_NV_stream_cross_display = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_display");
-    GLAD_EGL_NV_stream_cross_object = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_object");
-    GLAD_EGL_NV_stream_cross_partition = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_partition");
-    GLAD_EGL_NV_stream_cross_process = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_process");
-    GLAD_EGL_NV_stream_cross_system = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_system");
-    GLAD_EGL_NV_stream_dma = glad_egl_has_extension(extensions, "EGL_NV_stream_dma");
-    GLAD_EGL_NV_stream_fifo_next = glad_egl_has_extension(extensions, "EGL_NV_stream_fifo_next");
-    GLAD_EGL_NV_stream_fifo_synchronous = glad_egl_has_extension(extensions, "EGL_NV_stream_fifo_synchronous");
-    GLAD_EGL_NV_stream_flush = glad_egl_has_extension(extensions, "EGL_NV_stream_flush");
-    GLAD_EGL_NV_stream_frame_limits = glad_egl_has_extension(extensions, "EGL_NV_stream_frame_limits");
-    GLAD_EGL_NV_stream_metadata = glad_egl_has_extension(extensions, "EGL_NV_stream_metadata");
-    GLAD_EGL_NV_stream_origin = glad_egl_has_extension(extensions, "EGL_NV_stream_origin");
-    GLAD_EGL_NV_stream_remote = glad_egl_has_extension(extensions, "EGL_NV_stream_remote");
-    GLAD_EGL_NV_stream_reset = glad_egl_has_extension(extensions, "EGL_NV_stream_reset");
-    GLAD_EGL_NV_stream_socket = glad_egl_has_extension(extensions, "EGL_NV_stream_socket");
-    GLAD_EGL_NV_stream_socket_inet = glad_egl_has_extension(extensions, "EGL_NV_stream_socket_inet");
-    GLAD_EGL_NV_stream_socket_unix = glad_egl_has_extension(extensions, "EGL_NV_stream_socket_unix");
-    GLAD_EGL_NV_stream_sync = glad_egl_has_extension(extensions, "EGL_NV_stream_sync");
-    GLAD_EGL_NV_sync = glad_egl_has_extension(extensions, "EGL_NV_sync");
-    GLAD_EGL_NV_system_time = glad_egl_has_extension(extensions, "EGL_NV_system_time");
-    GLAD_EGL_NV_triple_buffer = glad_egl_has_extension(extensions, "EGL_NV_triple_buffer");
-    GLAD_EGL_TIZEN_image_native_buffer = glad_egl_has_extension(extensions, "EGL_TIZEN_image_native_buffer");
-    GLAD_EGL_TIZEN_image_native_surface = glad_egl_has_extension(extensions, "EGL_TIZEN_image_native_surface");
-    GLAD_EGL_WL_bind_wayland_display = glad_egl_has_extension(extensions, "EGL_WL_bind_wayland_display");
-    GLAD_EGL_WL_create_wayland_buffer_from_image = glad_egl_has_extension(extensions, "EGL_WL_create_wayland_buffer_from_image");
+    context->ANDROID_GLES_layers = glad_egl_has_extension(extensions, "EGL_ANDROID_GLES_layers");
+    context->ANDROID_blob_cache = glad_egl_has_extension(extensions, "EGL_ANDROID_blob_cache");
+    context->ANDROID_create_native_client_buffer = glad_egl_has_extension(extensions, "EGL_ANDROID_create_native_client_buffer");
+    context->ANDROID_framebuffer_target = glad_egl_has_extension(extensions, "EGL_ANDROID_framebuffer_target");
+    context->ANDROID_front_buffer_auto_refresh = glad_egl_has_extension(extensions, "EGL_ANDROID_front_buffer_auto_refresh");
+    context->ANDROID_get_frame_timestamps = glad_egl_has_extension(extensions, "EGL_ANDROID_get_frame_timestamps");
+    context->ANDROID_get_native_client_buffer = glad_egl_has_extension(extensions, "EGL_ANDROID_get_native_client_buffer");
+    context->ANDROID_image_native_buffer = glad_egl_has_extension(extensions, "EGL_ANDROID_image_native_buffer");
+    context->ANDROID_native_fence_sync = glad_egl_has_extension(extensions, "EGL_ANDROID_native_fence_sync");
+    context->ANDROID_presentation_time = glad_egl_has_extension(extensions, "EGL_ANDROID_presentation_time");
+    context->ANDROID_recordable = glad_egl_has_extension(extensions, "EGL_ANDROID_recordable");
+    context->ANGLE_colorspace_attribute_passthrough = glad_egl_has_extension(extensions, "EGL_ANGLE_colorspace_attribute_passthrough");
+    context->ANGLE_context_virtualization = glad_egl_has_extension(extensions, "EGL_ANGLE_context_virtualization");
+    context->ANGLE_create_context_backwards_compatible = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_backwards_compatible");
+    context->ANGLE_create_context_client_arrays = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_client_arrays");
+    context->ANGLE_create_context_extensions_enabled = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_extensions_enabled");
+    context->ANGLE_create_context_webgl_compatibility = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_webgl_compatibility");
+    context->ANGLE_create_surface_swap_interval = glad_egl_has_extension(extensions, "EGL_ANGLE_create_surface_swap_interval");
+    context->ANGLE_d3d_share_handle_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_d3d_share_handle_client_buffer");
+    context->ANGLE_device_cgl = glad_egl_has_extension(extensions, "EGL_ANGLE_device_cgl");
+    context->ANGLE_device_creation = glad_egl_has_extension(extensions, "EGL_ANGLE_device_creation");
+    context->ANGLE_device_d3d = glad_egl_has_extension(extensions, "EGL_ANGLE_device_d3d");
+    context->ANGLE_device_eagl = glad_egl_has_extension(extensions, "EGL_ANGLE_device_eagl");
+    context->ANGLE_device_metal = glad_egl_has_extension(extensions, "EGL_ANGLE_device_metal");
+    context->ANGLE_device_vulkan = glad_egl_has_extension(extensions, "EGL_ANGLE_device_vulkan");
+    context->ANGLE_direct_composition = glad_egl_has_extension(extensions, "EGL_ANGLE_direct_composition");
+    context->ANGLE_display_power_preference = glad_egl_has_extension(extensions, "EGL_ANGLE_display_power_preference");
+    context->ANGLE_display_semaphore_share_group = glad_egl_has_extension(extensions, "EGL_ANGLE_display_semaphore_share_group");
+    context->ANGLE_display_texture_share_group = glad_egl_has_extension(extensions, "EGL_ANGLE_display_texture_share_group");
+    context->ANGLE_experimental_present_path = glad_egl_has_extension(extensions, "EGL_ANGLE_experimental_present_path");
+    context->ANGLE_feature_control = glad_egl_has_extension(extensions, "EGL_ANGLE_feature_control");
+    context->ANGLE_ggp_stream_descriptor = glad_egl_has_extension(extensions, "EGL_ANGLE_ggp_stream_descriptor");
+    context->ANGLE_iosurface_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_iosurface_client_buffer");
+    context->ANGLE_keyed_mutex = glad_egl_has_extension(extensions, "EGL_ANGLE_keyed_mutex");
+    context->ANGLE_metal_create_context_ownership_identity = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_create_context_ownership_identity");
+    context->ANGLE_metal_shared_event_sync = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_shared_event_sync");
+    context->ANGLE_metal_texture_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_metal_texture_client_buffer");
+    context->ANGLE_platform_angle = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle");
+    context->ANGLE_platform_angle_d3d = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d");
+    context->ANGLE_platform_angle_d3d11on12 = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d11on12");
+    context->ANGLE_platform_angle_d3d_luid = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_d3d_luid");
+    context->ANGLE_platform_angle_device_context_volatile_cgl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_context_volatile_cgl");
+    context->ANGLE_platform_angle_device_context_volatile_eagl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_context_volatile_eagl");
+    context->ANGLE_platform_angle_device_id = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_id");
+    context->ANGLE_platform_angle_device_type_egl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_type_egl");
+    context->ANGLE_platform_angle_device_type_swiftshader = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_device_type_swiftshader");
+    context->ANGLE_platform_angle_metal = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_metal");
+    context->ANGLE_platform_angle_null = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_null");
+    context->ANGLE_platform_angle_opengl = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_opengl");
+    context->ANGLE_platform_angle_vulkan = glad_egl_has_extension(extensions, "EGL_ANGLE_platform_angle_vulkan");
+    context->ANGLE_power_preference = glad_egl_has_extension(extensions, "EGL_ANGLE_power_preference");
+    context->ANGLE_prepare_swap_buffers = glad_egl_has_extension(extensions, "EGL_ANGLE_prepare_swap_buffers");
+    context->ANGLE_program_cache_control = glad_egl_has_extension(extensions, "EGL_ANGLE_program_cache_control");
+    context->ANGLE_query_surface_pointer = glad_egl_has_extension(extensions, "EGL_ANGLE_query_surface_pointer");
+    context->ANGLE_robust_resource_initialization = glad_egl_has_extension(extensions, "EGL_ANGLE_robust_resource_initialization");
+    context->ANGLE_stream_producer_d3d_texture = glad_egl_has_extension(extensions, "EGL_ANGLE_stream_producer_d3d_texture");
+    context->ANGLE_surface_d3d_texture_2d_share_handle = glad_egl_has_extension(extensions, "EGL_ANGLE_surface_d3d_texture_2d_share_handle");
+    context->ANGLE_surface_orientation = glad_egl_has_extension(extensions, "EGL_ANGLE_surface_orientation");
+    context->ANGLE_swap_with_frame_token = glad_egl_has_extension(extensions, "EGL_ANGLE_swap_with_frame_token");
+    context->ANGLE_sync_control_rate = glad_egl_has_extension(extensions, "EGL_ANGLE_sync_control_rate");
+    context->ANGLE_vulkan_display = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_display");
+    context->ANGLE_vulkan_image = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_image");
+    context->ANGLE_window_fixed_size = glad_egl_has_extension(extensions, "EGL_ANGLE_window_fixed_size");
+    context->ARM_image_format = glad_egl_has_extension(extensions, "EGL_ARM_image_format");
+    context->ARM_implicit_external_sync = glad_egl_has_extension(extensions, "EGL_ARM_implicit_external_sync");
+    context->ARM_pixmap_multisample_discard = glad_egl_has_extension(extensions, "EGL_ARM_pixmap_multisample_discard");
+    context->CHROMIUM_sync_control = glad_egl_has_extension(extensions, "EGL_CHROMIUM_sync_control");
+    context->EXT_bind_to_front = glad_egl_has_extension(extensions, "EGL_EXT_bind_to_front");
+    context->EXT_buffer_age = glad_egl_has_extension(extensions, "EGL_EXT_buffer_age");
+    context->EXT_client_extensions = glad_egl_has_extension(extensions, "EGL_EXT_client_extensions");
+    context->EXT_client_sync = glad_egl_has_extension(extensions, "EGL_EXT_client_sync");
+    context->EXT_compositor = glad_egl_has_extension(extensions, "EGL_EXT_compositor");
+    context->EXT_config_select_group = glad_egl_has_extension(extensions, "EGL_EXT_config_select_group");
+    context->EXT_create_context_robustness = glad_egl_has_extension(extensions, "EGL_EXT_create_context_robustness");
+    context->EXT_device_base = glad_egl_has_extension(extensions, "EGL_EXT_device_base");
+    context->EXT_device_drm = glad_egl_has_extension(extensions, "EGL_EXT_device_drm");
+    context->EXT_device_drm_render_node = glad_egl_has_extension(extensions, "EGL_EXT_device_drm_render_node");
+    context->EXT_device_enumeration = glad_egl_has_extension(extensions, "EGL_EXT_device_enumeration");
+    context->EXT_device_openwf = glad_egl_has_extension(extensions, "EGL_EXT_device_openwf");
+    context->EXT_device_persistent_id = glad_egl_has_extension(extensions, "EGL_EXT_device_persistent_id");
+    context->EXT_device_query = glad_egl_has_extension(extensions, "EGL_EXT_device_query");
+    context->EXT_device_query_name = glad_egl_has_extension(extensions, "EGL_EXT_device_query_name");
+    context->EXT_explicit_device = glad_egl_has_extension(extensions, "EGL_EXT_explicit_device");
+    context->EXT_gl_colorspace_bt2020_linear = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_linear");
+    context->EXT_gl_colorspace_bt2020_pq = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_pq");
+    context->EXT_gl_colorspace_display_p3 = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_display_p3");
+    context->EXT_gl_colorspace_display_p3_linear = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_display_p3_linear");
+    context->EXT_gl_colorspace_display_p3_passthrough = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_display_p3_passthrough");
+    context->EXT_gl_colorspace_scrgb = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_scrgb");
+    context->EXT_gl_colorspace_scrgb_linear = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_scrgb_linear");
+    context->EXT_image_dma_buf_import = glad_egl_has_extension(extensions, "EGL_EXT_image_dma_buf_import");
+    context->EXT_image_dma_buf_import_modifiers = glad_egl_has_extension(extensions, "EGL_EXT_image_dma_buf_import_modifiers");
+    context->EXT_image_gl_colorspace = glad_egl_has_extension(extensions, "EGL_EXT_image_gl_colorspace");
+    context->EXT_image_implicit_sync_control = glad_egl_has_extension(extensions, "EGL_EXT_image_implicit_sync_control");
+    context->EXT_multiview_window = glad_egl_has_extension(extensions, "EGL_EXT_multiview_window");
+    context->EXT_output_base = glad_egl_has_extension(extensions, "EGL_EXT_output_base");
+    context->EXT_output_drm = glad_egl_has_extension(extensions, "EGL_EXT_output_drm");
+    context->EXT_output_openwf = glad_egl_has_extension(extensions, "EGL_EXT_output_openwf");
+    context->EXT_pixel_format_float = glad_egl_has_extension(extensions, "EGL_EXT_pixel_format_float");
+    context->EXT_platform_base = glad_egl_has_extension(extensions, "EGL_EXT_platform_base");
+    context->EXT_platform_device = glad_egl_has_extension(extensions, "EGL_EXT_platform_device");
+    context->EXT_platform_wayland = glad_egl_has_extension(extensions, "EGL_EXT_platform_wayland");
+    context->EXT_platform_x11 = glad_egl_has_extension(extensions, "EGL_EXT_platform_x11");
+    context->EXT_platform_xcb = glad_egl_has_extension(extensions, "EGL_EXT_platform_xcb");
+    context->EXT_present_opaque = glad_egl_has_extension(extensions, "EGL_EXT_present_opaque");
+    context->EXT_protected_content = glad_egl_has_extension(extensions, "EGL_EXT_protected_content");
+    context->EXT_protected_surface = glad_egl_has_extension(extensions, "EGL_EXT_protected_surface");
+    context->EXT_stream_consumer_egloutput = glad_egl_has_extension(extensions, "EGL_EXT_stream_consumer_egloutput");
+    context->EXT_surface_CTA861_3_metadata = glad_egl_has_extension(extensions, "EGL_EXT_surface_CTA861_3_metadata");
+    context->EXT_surface_SMPTE2086_metadata = glad_egl_has_extension(extensions, "EGL_EXT_surface_SMPTE2086_metadata");
+    context->EXT_surface_compression = glad_egl_has_extension(extensions, "EGL_EXT_surface_compression");
+    context->EXT_swap_buffers_with_damage = glad_egl_has_extension(extensions, "EGL_EXT_swap_buffers_with_damage");
+    context->EXT_sync_reuse = glad_egl_has_extension(extensions, "EGL_EXT_sync_reuse");
+    context->EXT_yuv_surface = glad_egl_has_extension(extensions, "EGL_EXT_yuv_surface");
+    context->HI_clientpixmap = glad_egl_has_extension(extensions, "EGL_HI_clientpixmap");
+    context->HI_colorformats = glad_egl_has_extension(extensions, "EGL_HI_colorformats");
+    context->IMG_context_priority = glad_egl_has_extension(extensions, "EGL_IMG_context_priority");
+    context->IMG_image_plane_attribs = glad_egl_has_extension(extensions, "EGL_IMG_image_plane_attribs");
+    context->KHR_cl_event = glad_egl_has_extension(extensions, "EGL_KHR_cl_event");
+    context->KHR_cl_event2 = glad_egl_has_extension(extensions, "EGL_KHR_cl_event2");
+    context->KHR_client_get_all_proc_addresses = glad_egl_has_extension(extensions, "EGL_KHR_client_get_all_proc_addresses");
+    context->KHR_config_attribs = glad_egl_has_extension(extensions, "EGL_KHR_config_attribs");
+    context->KHR_context_flush_control = glad_egl_has_extension(extensions, "EGL_KHR_context_flush_control");
+    context->KHR_create_context = glad_egl_has_extension(extensions, "EGL_KHR_create_context");
+    context->KHR_create_context_no_error = glad_egl_has_extension(extensions, "EGL_KHR_create_context_no_error");
+    context->KHR_debug = glad_egl_has_extension(extensions, "EGL_KHR_debug");
+    context->KHR_display_reference = glad_egl_has_extension(extensions, "EGL_KHR_display_reference");
+    context->KHR_fence_sync = glad_egl_has_extension(extensions, "EGL_KHR_fence_sync");
+    context->KHR_get_all_proc_addresses = glad_egl_has_extension(extensions, "EGL_KHR_get_all_proc_addresses");
+    context->KHR_gl_colorspace = glad_egl_has_extension(extensions, "EGL_KHR_gl_colorspace");
+    context->KHR_gl_renderbuffer_image = glad_egl_has_extension(extensions, "EGL_KHR_gl_renderbuffer_image");
+    context->KHR_gl_texture_2D_image = glad_egl_has_extension(extensions, "EGL_KHR_gl_texture_2D_image");
+    context->KHR_gl_texture_3D_image = glad_egl_has_extension(extensions, "EGL_KHR_gl_texture_3D_image");
+    context->KHR_gl_texture_cubemap_image = glad_egl_has_extension(extensions, "EGL_KHR_gl_texture_cubemap_image");
+    context->KHR_image = glad_egl_has_extension(extensions, "EGL_KHR_image");
+    context->KHR_image_base = glad_egl_has_extension(extensions, "EGL_KHR_image_base");
+    context->KHR_image_pixmap = glad_egl_has_extension(extensions, "EGL_KHR_image_pixmap");
+    context->KHR_lock_surface = glad_egl_has_extension(extensions, "EGL_KHR_lock_surface");
+    context->KHR_lock_surface2 = glad_egl_has_extension(extensions, "EGL_KHR_lock_surface2");
+    context->KHR_lock_surface3 = glad_egl_has_extension(extensions, "EGL_KHR_lock_surface3");
+    context->KHR_mutable_render_buffer = glad_egl_has_extension(extensions, "EGL_KHR_mutable_render_buffer");
+    context->KHR_no_config_context = glad_egl_has_extension(extensions, "EGL_KHR_no_config_context");
+    context->KHR_partial_update = glad_egl_has_extension(extensions, "EGL_KHR_partial_update");
+    context->KHR_platform_android = glad_egl_has_extension(extensions, "EGL_KHR_platform_android");
+    context->KHR_platform_gbm = glad_egl_has_extension(extensions, "EGL_KHR_platform_gbm");
+    context->KHR_platform_wayland = glad_egl_has_extension(extensions, "EGL_KHR_platform_wayland");
+    context->KHR_platform_x11 = glad_egl_has_extension(extensions, "EGL_KHR_platform_x11");
+    context->KHR_reusable_sync = glad_egl_has_extension(extensions, "EGL_KHR_reusable_sync");
+    context->KHR_stream = glad_egl_has_extension(extensions, "EGL_KHR_stream");
+    context->KHR_stream_attrib = glad_egl_has_extension(extensions, "EGL_KHR_stream_attrib");
+    context->KHR_stream_consumer_gltexture = glad_egl_has_extension(extensions, "EGL_KHR_stream_consumer_gltexture");
+    context->KHR_stream_cross_process_fd = glad_egl_has_extension(extensions, "EGL_KHR_stream_cross_process_fd");
+    context->KHR_stream_fifo = glad_egl_has_extension(extensions, "EGL_KHR_stream_fifo");
+    context->KHR_stream_producer_aldatalocator = glad_egl_has_extension(extensions, "EGL_KHR_stream_producer_aldatalocator");
+    context->KHR_stream_producer_eglsurface = glad_egl_has_extension(extensions, "EGL_KHR_stream_producer_eglsurface");
+    context->KHR_surfaceless_context = glad_egl_has_extension(extensions, "EGL_KHR_surfaceless_context");
+    context->KHR_swap_buffers_with_damage = glad_egl_has_extension(extensions, "EGL_KHR_swap_buffers_with_damage");
+    context->KHR_vg_parent_image = glad_egl_has_extension(extensions, "EGL_KHR_vg_parent_image");
+    context->KHR_wait_sync = glad_egl_has_extension(extensions, "EGL_KHR_wait_sync");
+    context->MESA_drm_image = glad_egl_has_extension(extensions, "EGL_MESA_drm_image");
+    context->MESA_image_dma_buf_export = glad_egl_has_extension(extensions, "EGL_MESA_image_dma_buf_export");
+    context->MESA_platform_gbm = glad_egl_has_extension(extensions, "EGL_MESA_platform_gbm");
+    context->MESA_platform_surfaceless = glad_egl_has_extension(extensions, "EGL_MESA_platform_surfaceless");
+    context->MESA_query_driver = glad_egl_has_extension(extensions, "EGL_MESA_query_driver");
+    context->NOK_swap_region = glad_egl_has_extension(extensions, "EGL_NOK_swap_region");
+    context->NOK_swap_region2 = glad_egl_has_extension(extensions, "EGL_NOK_swap_region2");
+    context->NOK_texture_from_pixmap = glad_egl_has_extension(extensions, "EGL_NOK_texture_from_pixmap");
+    context->NV_3dvision_surface = glad_egl_has_extension(extensions, "EGL_NV_3dvision_surface");
+    context->NV_context_priority_realtime = glad_egl_has_extension(extensions, "EGL_NV_context_priority_realtime");
+    context->NV_coverage_sample = glad_egl_has_extension(extensions, "EGL_NV_coverage_sample");
+    context->NV_coverage_sample_resolve = glad_egl_has_extension(extensions, "EGL_NV_coverage_sample_resolve");
+    context->NV_cuda_event = glad_egl_has_extension(extensions, "EGL_NV_cuda_event");
+    context->NV_depth_nonlinear = glad_egl_has_extension(extensions, "EGL_NV_depth_nonlinear");
+    context->NV_device_cuda = glad_egl_has_extension(extensions, "EGL_NV_device_cuda");
+    context->NV_native_query = glad_egl_has_extension(extensions, "EGL_NV_native_query");
+    context->NV_post_convert_rounding = glad_egl_has_extension(extensions, "EGL_NV_post_convert_rounding");
+    context->NV_post_sub_buffer = glad_egl_has_extension(extensions, "EGL_NV_post_sub_buffer");
+    context->NV_quadruple_buffer = glad_egl_has_extension(extensions, "EGL_NV_quadruple_buffer");
+    context->NV_robustness_video_memory_purge = glad_egl_has_extension(extensions, "EGL_NV_robustness_video_memory_purge");
+    context->NV_stream_consumer_eglimage = glad_egl_has_extension(extensions, "EGL_NV_stream_consumer_eglimage");
+    context->NV_stream_consumer_gltexture_yuv = glad_egl_has_extension(extensions, "EGL_NV_stream_consumer_gltexture_yuv");
+    context->NV_stream_cross_display = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_display");
+    context->NV_stream_cross_object = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_object");
+    context->NV_stream_cross_partition = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_partition");
+    context->NV_stream_cross_process = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_process");
+    context->NV_stream_cross_system = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_system");
+    context->NV_stream_dma = glad_egl_has_extension(extensions, "EGL_NV_stream_dma");
+    context->NV_stream_fifo_next = glad_egl_has_extension(extensions, "EGL_NV_stream_fifo_next");
+    context->NV_stream_fifo_synchronous = glad_egl_has_extension(extensions, "EGL_NV_stream_fifo_synchronous");
+    context->NV_stream_flush = glad_egl_has_extension(extensions, "EGL_NV_stream_flush");
+    context->NV_stream_frame_limits = glad_egl_has_extension(extensions, "EGL_NV_stream_frame_limits");
+    context->NV_stream_metadata = glad_egl_has_extension(extensions, "EGL_NV_stream_metadata");
+    context->NV_stream_origin = glad_egl_has_extension(extensions, "EGL_NV_stream_origin");
+    context->NV_stream_remote = glad_egl_has_extension(extensions, "EGL_NV_stream_remote");
+    context->NV_stream_reset = glad_egl_has_extension(extensions, "EGL_NV_stream_reset");
+    context->NV_stream_socket = glad_egl_has_extension(extensions, "EGL_NV_stream_socket");
+    context->NV_stream_socket_inet = glad_egl_has_extension(extensions, "EGL_NV_stream_socket_inet");
+    context->NV_stream_socket_unix = glad_egl_has_extension(extensions, "EGL_NV_stream_socket_unix");
+    context->NV_stream_sync = glad_egl_has_extension(extensions, "EGL_NV_stream_sync");
+    context->NV_sync = glad_egl_has_extension(extensions, "EGL_NV_sync");
+    context->NV_system_time = glad_egl_has_extension(extensions, "EGL_NV_system_time");
+    context->NV_triple_buffer = glad_egl_has_extension(extensions, "EGL_NV_triple_buffer");
+    context->TIZEN_image_native_buffer = glad_egl_has_extension(extensions, "EGL_TIZEN_image_native_buffer");
+    context->TIZEN_image_native_surface = glad_egl_has_extension(extensions, "EGL_TIZEN_image_native_surface");
+    context->WL_bind_wayland_display = glad_egl_has_extension(extensions, "EGL_WL_bind_wayland_display");
+    context->WL_create_wayland_buffer_from_image = glad_egl_has_extension(extensions, "EGL_WL_create_wayland_buffer_from_image");
 
     return 1;
 }
 
-static int glad_egl_find_core_egl(EGLDisplay display) {
+static int glad_egl_find_core_egl(GladEGLContext *context, EGLDisplay display) {
     int major, minor;
     const char *version;
 
@@ -709,8 +705,8 @@ static int glad_egl_find_core_egl(EGLDisplay display) {
         display = EGL_NO_DISPLAY; /* this is usually NULL, better safe than sorry */
     }
 
-    version = eglQueryString(display, EGL_VERSION);
-    (void) eglGetError();
+    version = context->QueryString(display, EGL_VERSION);
+    (void) context->GetError();
 
     if (version == NULL) {
         major = 1;
@@ -719,25 +715,25 @@ static int glad_egl_find_core_egl(EGLDisplay display) {
         GLAD_IMPL_UTIL_SSCANF(version, "%d.%d", &major, &minor);
     }
 
-    GLAD_EGL_VERSION_1_0 = (major == 1 && minor >= 0) || major > 1;
-    GLAD_EGL_VERSION_1_1 = (major == 1 && minor >= 1) || major > 1;
-    GLAD_EGL_VERSION_1_2 = (major == 1 && minor >= 2) || major > 1;
-    GLAD_EGL_VERSION_1_3 = (major == 1 && minor >= 3) || major > 1;
-    GLAD_EGL_VERSION_1_4 = (major == 1 && minor >= 4) || major > 1;
-    GLAD_EGL_VERSION_1_5 = (major == 1 && minor >= 5) || major > 1;
+    context->VERSION_1_0 = (major == 1 && minor >= 0) || major > 1;
+    context->VERSION_1_1 = (major == 1 && minor >= 1) || major > 1;
+    context->VERSION_1_2 = (major == 1 && minor >= 2) || major > 1;
+    context->VERSION_1_3 = (major == 1 && minor >= 3) || major > 1;
+    context->VERSION_1_4 = (major == 1 && minor >= 4) || major > 1;
+    context->VERSION_1_5 = (major == 1 && minor >= 5) || major > 1;
 
     return GLAD_MAKE_VERSION(major, minor);
 }
 
 int gladLoadEGLContextUserPtr(GladEGLContext *context, EGLDisplay display, GLADuserptrloadfunc load, void *userptr) {
     int version;
-    eglGetDisplay = (PFNEGLGETDISPLAYPROC) load(userptr, "eglGetDisplay");
-    eglGetCurrentDisplay = (PFNEGLGETCURRENTDISPLAYPROC) load(userptr, "eglGetCurrentDisplay");
-    eglQueryString = (PFNEGLQUERYSTRINGPROC) load(userptr, "eglQueryString");
-    eglGetError = (PFNEGLGETERRORPROC) load(userptr, "eglGetError");
-    if (eglGetDisplay == NULL || eglGetCurrentDisplay == NULL || eglQueryString == NULL || eglGetError == NULL) return 0;
+	context->GetDisplay = (PFNEGLGETDISPLAYPROC) load(userptr, "eglGetDisplay");
+    context->GetCurrentDisplay = (PFNEGLGETCURRENTDISPLAYPROC) load(userptr, "eglGetCurrentDisplay");
+    context->QueryString = (PFNEGLQUERYSTRINGPROC) load(userptr, "eglQueryString");
+    context->GetError = (PFNEGLGETERRORPROC) load(userptr, "eglGetError");
+	if (context->GetDisplay == NULL || context->GetCurrentDisplay == NULL || context->QueryString == NULL || context->GetError == NULL) return 0;
 
-    version = glad_egl_find_core_egl(display);
+    version = glad_egl_find_core_egl(context, display);
     if (!version) return 0;
     glad_egl_load_EGL_VERSION_1_0(context, load, userptr);
     glad_egl_load_EGL_VERSION_1_1(context, load, userptr);
@@ -745,7 +741,7 @@ int gladLoadEGLContextUserPtr(GladEGLContext *context, EGLDisplay display, GLADu
     glad_egl_load_EGL_VERSION_1_4(context, load, userptr);
     glad_egl_load_EGL_VERSION_1_5(context, load, userptr);
 
-    if (!glad_egl_find_extensions_egl(display)) return 0;
+    if (!glad_egl_find_extensions_egl(context, display)) return 0;
     glad_egl_load_EGL_ANDROID_blob_cache(context, load, userptr);
     glad_egl_load_EGL_ANDROID_create_native_client_buffer(context, load, userptr);
     glad_egl_load_EGL_ANDROID_get_frame_timestamps(context, load, userptr);

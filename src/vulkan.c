@@ -6,6 +6,7 @@
 #include <string.h>
 #include <glad/vulkan.h>
 
+
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
 
@@ -21,12 +22,7 @@
 extern "C" {
 #endif
 
-#ifdef __cplusplus
-GladVulkanContext glad_vulkan_context_static = {};
-#else
-GladVulkanContext glad_vulkan_context_static = { 0 };
-#endif
-GladVulkanContext* glad_vulkan_context = &glad_vulkan_context_static;
+GladVulkanContext* glad_vulkan_context = NULL;
 
 
 

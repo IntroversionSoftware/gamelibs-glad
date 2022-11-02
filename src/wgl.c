@@ -1,5 +1,3 @@
-#ifdef _WIN32
-
 /**
  * SPDX-License-Identifier: (WTFPL OR CC0-1.0) AND Apache-2.0
  */
@@ -7,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <glad/wgl.h>
+
+#ifdef _WIN32
 
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
