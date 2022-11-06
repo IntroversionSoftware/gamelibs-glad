@@ -387,6 +387,7 @@ int GLAD_VK_NV_acquire_winrt_display = 0;
 int GLAD_VK_NV_clip_space_w_scaling = 0;
 int GLAD_VK_NV_compute_shader_derivatives = 0;
 int GLAD_VK_NV_cooperative_matrix = 0;
+int GLAD_VK_NV_copy_memory_indirect = 0;
 int GLAD_VK_NV_corner_sampled_image = 0;
 int GLAD_VK_NV_coverage_reduction_mode = 0;
 int GLAD_VK_NV_dedicated_allocation = 0;
@@ -410,10 +411,12 @@ int GLAD_VK_NV_geometry_shader_passthrough = 0;
 int GLAD_VK_NV_glsl_shader = 0;
 int GLAD_VK_NV_inherited_viewport_scissor = 0;
 int GLAD_VK_NV_linear_color_attachment = 0;
+int GLAD_VK_NV_memory_decompression = 0;
 int GLAD_VK_NV_mesh_shader = 0;
 int GLAD_VK_NV_optical_flow = 0;
 int GLAD_VK_NV_present_barrier = 0;
 int GLAD_VK_NV_ray_tracing = 0;
+int GLAD_VK_NV_ray_tracing_invocation_reorder = 0;
 int GLAD_VK_NV_ray_tracing_motion_blur = 0;
 int GLAD_VK_NV_representative_fragment_test = 0;
 int GLAD_VK_NV_sample_mask_override_coverage = 0;
@@ -533,7 +536,9 @@ PFN_vkCmdCopyImage2KHR glad_vkCmdCopyImage2KHR = NULL;
 PFN_vkCmdCopyImageToBuffer glad_vkCmdCopyImageToBuffer = NULL;
 PFN_vkCmdCopyImageToBuffer2 glad_vkCmdCopyImageToBuffer2 = NULL;
 PFN_vkCmdCopyImageToBuffer2KHR glad_vkCmdCopyImageToBuffer2KHR = NULL;
+PFN_vkCmdCopyMemoryIndirectNV glad_vkCmdCopyMemoryIndirectNV = NULL;
 PFN_vkCmdCopyMemoryToAccelerationStructureKHR glad_vkCmdCopyMemoryToAccelerationStructureKHR = NULL;
+PFN_vkCmdCopyMemoryToImageIndirectNV glad_vkCmdCopyMemoryToImageIndirectNV = NULL;
 PFN_vkCmdCopyMemoryToMicromapEXT glad_vkCmdCopyMemoryToMicromapEXT = NULL;
 PFN_vkCmdCopyMicromapEXT glad_vkCmdCopyMicromapEXT = NULL;
 PFN_vkCmdCopyMicromapToMemoryEXT glad_vkCmdCopyMicromapToMemoryEXT = NULL;
@@ -546,6 +551,8 @@ PFN_vkCmdDebugMarkerInsertEXT glad_vkCmdDebugMarkerInsertEXT = NULL;
 PFN_vkCmdDecodeVideoKHR glad_vkCmdDecodeVideoKHR = NULL;
 
 #endif
+PFN_vkCmdDecompressMemoryIndirectCountNV glad_vkCmdDecompressMemoryIndirectCountNV = NULL;
+PFN_vkCmdDecompressMemoryNV glad_vkCmdDecompressMemoryNV = NULL;
 PFN_vkCmdDispatch glad_vkCmdDispatch = NULL;
 PFN_vkCmdDispatchBase glad_vkCmdDispatchBase = NULL;
 PFN_vkCmdDispatchBaseKHR glad_vkCmdDispatchBaseKHR = NULL;
@@ -2229,6 +2236,11 @@ static void glad_vk_load_VK_NV_cooperative_matrix( GLADuserptrloadfunc load, voi
     if(!GLAD_VK_NV_cooperative_matrix) return;
     glad_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV = (PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV) load(userptr, "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV");
 }
+static void glad_vk_load_VK_NV_copy_memory_indirect( GLADuserptrloadfunc load, void* userptr) {
+    if(!GLAD_VK_NV_copy_memory_indirect) return;
+    glad_vkCmdCopyMemoryIndirectNV = (PFN_vkCmdCopyMemoryIndirectNV) load(userptr, "vkCmdCopyMemoryIndirectNV");
+    glad_vkCmdCopyMemoryToImageIndirectNV = (PFN_vkCmdCopyMemoryToImageIndirectNV) load(userptr, "vkCmdCopyMemoryToImageIndirectNV");
+}
 static void glad_vk_load_VK_NV_coverage_reduction_mode( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_VK_NV_coverage_reduction_mode) return;
     glad_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV = (PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV) load(userptr, "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
@@ -2265,6 +2277,11 @@ static void glad_vk_load_VK_NV_external_memory_win32( GLADuserptrloadfunc load, 
 static void glad_vk_load_VK_NV_fragment_shading_rate_enums( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_VK_NV_fragment_shading_rate_enums) return;
     glad_vkCmdSetFragmentShadingRateEnumNV = (PFN_vkCmdSetFragmentShadingRateEnumNV) load(userptr, "vkCmdSetFragmentShadingRateEnumNV");
+}
+static void glad_vk_load_VK_NV_memory_decompression( GLADuserptrloadfunc load, void* userptr) {
+    if(!GLAD_VK_NV_memory_decompression) return;
+    glad_vkCmdDecompressMemoryIndirectCountNV = (PFN_vkCmdDecompressMemoryIndirectCountNV) load(userptr, "vkCmdDecompressMemoryIndirectCountNV");
+    glad_vkCmdDecompressMemoryNV = (PFN_vkCmdDecompressMemoryNV) load(userptr, "vkCmdDecompressMemoryNV");
 }
 static void glad_vk_load_VK_NV_mesh_shader( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_VK_NV_mesh_shader) return;
@@ -3160,6 +3177,7 @@ static int glad_vk_find_extensions_vulkan( VkPhysicalDevice physical_device) {
     GLAD_VK_NV_clip_space_w_scaling = glad_vk_has_extension("VK_NV_clip_space_w_scaling", extension_count, extensions);
     GLAD_VK_NV_compute_shader_derivatives = glad_vk_has_extension("VK_NV_compute_shader_derivatives", extension_count, extensions);
     GLAD_VK_NV_cooperative_matrix = glad_vk_has_extension("VK_NV_cooperative_matrix", extension_count, extensions);
+    GLAD_VK_NV_copy_memory_indirect = glad_vk_has_extension("VK_NV_copy_memory_indirect", extension_count, extensions);
     GLAD_VK_NV_corner_sampled_image = glad_vk_has_extension("VK_NV_corner_sampled_image", extension_count, extensions);
     GLAD_VK_NV_coverage_reduction_mode = glad_vk_has_extension("VK_NV_coverage_reduction_mode", extension_count, extensions);
     GLAD_VK_NV_dedicated_allocation = glad_vk_has_extension("VK_NV_dedicated_allocation", extension_count, extensions);
@@ -3183,10 +3201,12 @@ static int glad_vk_find_extensions_vulkan( VkPhysicalDevice physical_device) {
     GLAD_VK_NV_glsl_shader = glad_vk_has_extension("VK_NV_glsl_shader", extension_count, extensions);
     GLAD_VK_NV_inherited_viewport_scissor = glad_vk_has_extension("VK_NV_inherited_viewport_scissor", extension_count, extensions);
     GLAD_VK_NV_linear_color_attachment = glad_vk_has_extension("VK_NV_linear_color_attachment", extension_count, extensions);
+    GLAD_VK_NV_memory_decompression = glad_vk_has_extension("VK_NV_memory_decompression", extension_count, extensions);
     GLAD_VK_NV_mesh_shader = glad_vk_has_extension("VK_NV_mesh_shader", extension_count, extensions);
     GLAD_VK_NV_optical_flow = glad_vk_has_extension("VK_NV_optical_flow", extension_count, extensions);
     GLAD_VK_NV_present_barrier = glad_vk_has_extension("VK_NV_present_barrier", extension_count, extensions);
     GLAD_VK_NV_ray_tracing = glad_vk_has_extension("VK_NV_ray_tracing", extension_count, extensions);
+    GLAD_VK_NV_ray_tracing_invocation_reorder = glad_vk_has_extension("VK_NV_ray_tracing_invocation_reorder", extension_count, extensions);
     GLAD_VK_NV_ray_tracing_motion_blur = glad_vk_has_extension("VK_NV_ray_tracing_motion_blur", extension_count, extensions);
     GLAD_VK_NV_representative_fragment_test = glad_vk_has_extension("VK_NV_representative_fragment_test", extension_count, extensions);
     GLAD_VK_NV_sample_mask_override_coverage = glad_vk_has_extension("VK_NV_sample_mask_override_coverage", extension_count, extensions);
@@ -3463,6 +3483,7 @@ int gladLoadVulkanUserPtr( VkPhysicalDevice physical_device, GLADuserptrloadfunc
 #endif
     glad_vk_load_VK_NV_clip_space_w_scaling(load, userptr);
     glad_vk_load_VK_NV_cooperative_matrix(load, userptr);
+    glad_vk_load_VK_NV_copy_memory_indirect(load, userptr);
     glad_vk_load_VK_NV_coverage_reduction_mode(load, userptr);
     glad_vk_load_VK_NV_device_diagnostic_checkpoints(load, userptr);
     glad_vk_load_VK_NV_device_generated_commands(load, userptr);
@@ -3473,6 +3494,7 @@ int gladLoadVulkanUserPtr( VkPhysicalDevice physical_device, GLADuserptrloadfunc
 
 #endif
     glad_vk_load_VK_NV_fragment_shading_rate_enums(load, userptr);
+    glad_vk_load_VK_NV_memory_decompression(load, userptr);
     glad_vk_load_VK_NV_mesh_shader(load, userptr);
     glad_vk_load_VK_NV_optical_flow(load, userptr);
     glad_vk_load_VK_NV_ray_tracing(load, userptr);
@@ -3637,7 +3659,9 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdCopyImageToBuffer",
     "vkCmdCopyImageToBuffer2",
     "vkCmdCopyImageToBuffer2KHR",
+    "vkCmdCopyMemoryIndirectNV",
     "vkCmdCopyMemoryToAccelerationStructureKHR",
+    "vkCmdCopyMemoryToImageIndirectNV",
     "vkCmdCopyMemoryToMicromapEXT",
     "vkCmdCopyMicromapEXT",
     "vkCmdCopyMicromapToMemoryEXT",
@@ -3647,6 +3671,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdDebugMarkerEndEXT",
     "vkCmdDebugMarkerInsertEXT",
     "vkCmdDecodeVideoKHR",
+    "vkCmdDecompressMemoryIndirectCountNV",
+    "vkCmdDecompressMemoryNV",
     "vkCmdDispatch",
     "vkCmdDispatchBase",
     "vkCmdDispatchBaseKHR",
@@ -4540,6 +4566,7 @@ void gladLoaderResetVulkan(void) {
     GLAD_VK_NV_clip_space_w_scaling = 0;
     GLAD_VK_NV_compute_shader_derivatives = 0;
     GLAD_VK_NV_cooperative_matrix = 0;
+    GLAD_VK_NV_copy_memory_indirect = 0;
     GLAD_VK_NV_corner_sampled_image = 0;
     GLAD_VK_NV_coverage_reduction_mode = 0;
     GLAD_VK_NV_dedicated_allocation = 0;
@@ -4563,10 +4590,12 @@ void gladLoaderResetVulkan(void) {
     GLAD_VK_NV_glsl_shader = 0;
     GLAD_VK_NV_inherited_viewport_scissor = 0;
     GLAD_VK_NV_linear_color_attachment = 0;
+    GLAD_VK_NV_memory_decompression = 0;
     GLAD_VK_NV_mesh_shader = 0;
     GLAD_VK_NV_optical_flow = 0;
     GLAD_VK_NV_present_barrier = 0;
     GLAD_VK_NV_ray_tracing = 0;
+    GLAD_VK_NV_ray_tracing_invocation_reorder = 0;
     GLAD_VK_NV_ray_tracing_motion_blur = 0;
     GLAD_VK_NV_representative_fragment_test = 0;
     GLAD_VK_NV_sample_mask_override_coverage = 0;
@@ -5336,6 +5365,8 @@ void gladLoaderResetVulkan(void) {
 #endif
     glad_vkCmdSetViewportWScalingNV = NULL;
     glad_vkGetPhysicalDeviceCooperativeMatrixPropertiesNV = NULL;
+    glad_vkCmdCopyMemoryIndirectNV = NULL;
+    glad_vkCmdCopyMemoryToImageIndirectNV = NULL;
     glad_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV = NULL;
     glad_vkCmdSetCheckpointNV = NULL;
     glad_vkGetQueueCheckpointDataNV = NULL;
@@ -5352,6 +5383,8 @@ void gladLoaderResetVulkan(void) {
 
 #endif
     glad_vkCmdSetFragmentShadingRateEnumNV = NULL;
+    glad_vkCmdDecompressMemoryIndirectCountNV = NULL;
+    glad_vkCmdDecompressMemoryNV = NULL;
     glad_vkCmdDrawMeshTasksIndirectCountNV = NULL;
     glad_vkCmdDrawMeshTasksIndirectNV = NULL;
     glad_vkCmdDrawMeshTasksNV = NULL;

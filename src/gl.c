@@ -3585,6 +3585,9 @@ PFNGLFRAMEBUFFERFETCHBARRIERQCOMPROC glad_glFramebufferFetchBarrierQCOM = NULL;
 PFNGLFRAMEBUFFERFOVEATIONCONFIGQCOMPROC glad_glFramebufferFoveationConfigQCOM = NULL;
 PFNGLFRAMEBUFFERFOVEATIONPARAMETERSQCOMPROC glad_glFramebufferFoveationParametersQCOM = NULL;
 PFNGLFRAMEBUFFERMEMORYLESSPIXELLOCALSTORAGEANGLEPROC glad_glFramebufferMemorylessPixelLocalStorageANGLE = NULL;
+PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEFVANGLEPROC glad_glFramebufferPixelLocalClearValuefvANGLE = NULL;
+PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEIVANGLEPROC glad_glFramebufferPixelLocalClearValueivANGLE = NULL;
+PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEUIVANGLEPROC glad_glFramebufferPixelLocalClearValueuivANGLE = NULL;
 PFNGLFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC glad_glFramebufferPixelLocalStorageSizeEXT = NULL;
 PFNGLFRAMEBUFFERSHADINGRATEEXTPROC glad_glFramebufferShadingRateEXT = NULL;
 PFNGLFRAMEBUFFERTEXTURE2DDOWNSAMPLEIMGPROC glad_glFramebufferTexture2DDownsampleIMG = NULL;
@@ -3616,6 +3619,8 @@ PFNGLGETFRAGDATAINDEXEXTPROC glad_glGetFragDataIndexEXT = NULL;
 PFNGLGETFRAGMENTSHADINGRATESEXTPROC glad_glGetFragmentShadingRatesEXT = NULL;
 PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVROBUSTANGLEPROC glad_glGetFramebufferAttachmentParameterivRobustANGLE = NULL;
 PFNGLGETFRAMEBUFFERPARAMETERIVROBUSTANGLEPROC glad_glGetFramebufferParameterivRobustANGLE = NULL;
+PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERFVANGLEPROC glad_glGetFramebufferPixelLocalStorageParameterfvANGLE = NULL;
+PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVANGLEPROC glad_glGetFramebufferPixelLocalStorageParameterivANGLE = NULL;
 PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC glad_glGetFramebufferPixelLocalStorageSizeEXT = NULL;
 PFNGLGETGRAPHICSRESETSTATUSEXTPROC glad_glGetGraphicsResetStatusEXT = NULL;
 PFNGLGETGRAPHICSRESETSTATUSKHRPROC glad_glGetGraphicsResetStatusKHR = NULL;
@@ -8432,7 +8437,12 @@ static void glad_gl_load_GL_ANGLE_shader_pixel_local_storage( GLADuserptrloadfun
     glad_glBeginPixelLocalStorageANGLE = (PFNGLBEGINPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glBeginPixelLocalStorageANGLE");
     glad_glEndPixelLocalStorageANGLE = (PFNGLENDPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glEndPixelLocalStorageANGLE");
     glad_glFramebufferMemorylessPixelLocalStorageANGLE = (PFNGLFRAMEBUFFERMEMORYLESSPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glFramebufferMemorylessPixelLocalStorageANGLE");
+    glad_glFramebufferPixelLocalClearValuefvANGLE = (PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEFVANGLEPROC) load(userptr, "glFramebufferPixelLocalClearValuefvANGLE");
+    glad_glFramebufferPixelLocalClearValueivANGLE = (PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEIVANGLEPROC) load(userptr, "glFramebufferPixelLocalClearValueivANGLE");
+    glad_glFramebufferPixelLocalClearValueuivANGLE = (PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEUIVANGLEPROC) load(userptr, "glFramebufferPixelLocalClearValueuivANGLE");
     glad_glFramebufferTexturePixelLocalStorageANGLE = (PFNGLFRAMEBUFFERTEXTUREPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glFramebufferTexturePixelLocalStorageANGLE");
+    glad_glGetFramebufferPixelLocalStorageParameterfvANGLE = (PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERFVANGLEPROC) load(userptr, "glGetFramebufferPixelLocalStorageParameterfvANGLE");
+    glad_glGetFramebufferPixelLocalStorageParameterivANGLE = (PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVANGLEPROC) load(userptr, "glGetFramebufferPixelLocalStorageParameterivANGLE");
     glad_glPixelLocalStorageBarrierANGLE = (PFNGLPIXELLOCALSTORAGEBARRIERANGLEPROC) load(userptr, "glPixelLocalStorageBarrierANGLE");
 }
 static void glad_gl_load_GL_ANGLE_texture_multisample( GLADuserptrloadfunc load, void* userptr) {
@@ -16691,7 +16701,12 @@ void gladLoaderResetGL(void) {
     glad_glBeginPixelLocalStorageANGLE = NULL;
     glad_glEndPixelLocalStorageANGLE = NULL;
     glad_glFramebufferMemorylessPixelLocalStorageANGLE = NULL;
+    glad_glFramebufferPixelLocalClearValuefvANGLE = NULL;
+    glad_glFramebufferPixelLocalClearValueivANGLE = NULL;
+    glad_glFramebufferPixelLocalClearValueuivANGLE = NULL;
     glad_glFramebufferTexturePixelLocalStorageANGLE = NULL;
+    glad_glGetFramebufferPixelLocalStorageParameterfvANGLE = NULL;
+    glad_glGetFramebufferPixelLocalStorageParameterivANGLE = NULL;
     glad_glPixelLocalStorageBarrierANGLE = NULL;
     glad_glGetMultisamplefvANGLE = NULL;
     glad_glGetTexLevelParameterfvANGLE = NULL;
@@ -21613,7 +21628,12 @@ void gladLoaderResetGLES2(void) {
     glad_glBeginPixelLocalStorageANGLE = NULL;
     glad_glEndPixelLocalStorageANGLE = NULL;
     glad_glFramebufferMemorylessPixelLocalStorageANGLE = NULL;
+    glad_glFramebufferPixelLocalClearValuefvANGLE = NULL;
+    glad_glFramebufferPixelLocalClearValueivANGLE = NULL;
+    glad_glFramebufferPixelLocalClearValueuivANGLE = NULL;
     glad_glFramebufferTexturePixelLocalStorageANGLE = NULL;
+    glad_glGetFramebufferPixelLocalStorageParameterfvANGLE = NULL;
+    glad_glGetFramebufferPixelLocalStorageParameterivANGLE = NULL;
     glad_glPixelLocalStorageBarrierANGLE = NULL;
     glad_glGetMultisamplefvANGLE = NULL;
     glad_glGetTexLevelParameterfvANGLE = NULL;
