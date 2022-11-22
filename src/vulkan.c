@@ -79,6 +79,7 @@ int GLAD_VK_EXT_depth_clamp_zero_one = 0;
 int GLAD_VK_EXT_depth_clip_control = 0;
 int GLAD_VK_EXT_depth_clip_enable = 0;
 int GLAD_VK_EXT_depth_range_unrestricted = 0;
+int GLAD_VK_EXT_descriptor_buffer = 0;
 int GLAD_VK_EXT_descriptor_indexing = 0;
 int GLAD_VK_EXT_device_address_binding_report = 0;
 int GLAD_VK_EXT_device_fault = 0;
@@ -497,6 +498,8 @@ PFN_vkCmdBeginTransformFeedbackEXT glad_vkCmdBeginTransformFeedbackEXT = NULL;
 PFN_vkCmdBeginVideoCodingKHR glad_vkCmdBeginVideoCodingKHR = NULL;
 
 #endif
+PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT glad_vkCmdBindDescriptorBufferEmbeddedSamplersEXT = NULL;
+PFN_vkCmdBindDescriptorBuffersEXT glad_vkCmdBindDescriptorBuffersEXT = NULL;
 PFN_vkCmdBindDescriptorSets glad_vkCmdBindDescriptorSets = NULL;
 PFN_vkCmdBindIndexBuffer glad_vkCmdBindIndexBuffer = NULL;
 PFN_vkCmdBindInvocationMaskHUAWEI glad_vkCmdBindInvocationMaskHUAWEI = NULL;
@@ -650,6 +653,7 @@ PFN_vkCmdSetDepthTestEnable glad_vkCmdSetDepthTestEnable = NULL;
 PFN_vkCmdSetDepthTestEnableEXT glad_vkCmdSetDepthTestEnableEXT = NULL;
 PFN_vkCmdSetDepthWriteEnable glad_vkCmdSetDepthWriteEnable = NULL;
 PFN_vkCmdSetDepthWriteEnableEXT glad_vkCmdSetDepthWriteEnableEXT = NULL;
+PFN_vkCmdSetDescriptorBufferOffsetsEXT glad_vkCmdSetDescriptorBufferOffsetsEXT = NULL;
 PFN_vkCmdSetDeviceMask glad_vkCmdSetDeviceMask = NULL;
 PFN_vkCmdSetDeviceMaskKHR glad_vkCmdSetDeviceMaskKHR = NULL;
 PFN_vkCmdSetDiscardRectangleEXT glad_vkCmdSetDiscardRectangleEXT = NULL;
@@ -921,6 +925,7 @@ PFN_vkGetAccelerationStructureBuildSizesKHR glad_vkGetAccelerationStructureBuild
 PFN_vkGetAccelerationStructureDeviceAddressKHR glad_vkGetAccelerationStructureDeviceAddressKHR = NULL;
 PFN_vkGetAccelerationStructureHandleNV glad_vkGetAccelerationStructureHandleNV = NULL;
 PFN_vkGetAccelerationStructureMemoryRequirementsNV glad_vkGetAccelerationStructureMemoryRequirementsNV = NULL;
+PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT glad_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT = NULL;
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
 PFN_vkGetAndroidHardwareBufferPropertiesANDROID glad_vkGetAndroidHardwareBufferPropertiesANDROID = NULL;
 
@@ -937,11 +942,15 @@ PFN_vkGetBufferMemoryRequirements2 glad_vkGetBufferMemoryRequirements2 = NULL;
 PFN_vkGetBufferMemoryRequirements2KHR glad_vkGetBufferMemoryRequirements2KHR = NULL;
 PFN_vkGetBufferOpaqueCaptureAddress glad_vkGetBufferOpaqueCaptureAddress = NULL;
 PFN_vkGetBufferOpaqueCaptureAddressKHR glad_vkGetBufferOpaqueCaptureAddressKHR = NULL;
+PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT glad_vkGetBufferOpaqueCaptureDescriptorDataEXT = NULL;
 PFN_vkGetCalibratedTimestampsEXT glad_vkGetCalibratedTimestampsEXT = NULL;
 PFN_vkGetDeferredOperationMaxConcurrencyKHR glad_vkGetDeferredOperationMaxConcurrencyKHR = NULL;
 PFN_vkGetDeferredOperationResultKHR glad_vkGetDeferredOperationResultKHR = NULL;
+PFN_vkGetDescriptorEXT glad_vkGetDescriptorEXT = NULL;
 PFN_vkGetDescriptorSetHostMappingVALVE glad_vkGetDescriptorSetHostMappingVALVE = NULL;
+PFN_vkGetDescriptorSetLayoutBindingOffsetEXT glad_vkGetDescriptorSetLayoutBindingOffsetEXT = NULL;
 PFN_vkGetDescriptorSetLayoutHostMappingInfoVALVE glad_vkGetDescriptorSetLayoutHostMappingInfoVALVE = NULL;
+PFN_vkGetDescriptorSetLayoutSizeEXT glad_vkGetDescriptorSetLayoutSizeEXT = NULL;
 PFN_vkGetDescriptorSetLayoutSupport glad_vkGetDescriptorSetLayoutSupport = NULL;
 PFN_vkGetDescriptorSetLayoutSupportKHR glad_vkGetDescriptorSetLayoutSupportKHR = NULL;
 PFN_vkGetDeviceAccelerationStructureCompatibilityKHR glad_vkGetDeviceAccelerationStructureCompatibilityKHR = NULL;
@@ -988,6 +997,7 @@ PFN_vkGetImageDrmFormatModifierPropertiesEXT glad_vkGetImageDrmFormatModifierPro
 PFN_vkGetImageMemoryRequirements glad_vkGetImageMemoryRequirements = NULL;
 PFN_vkGetImageMemoryRequirements2 glad_vkGetImageMemoryRequirements2 = NULL;
 PFN_vkGetImageMemoryRequirements2KHR glad_vkGetImageMemoryRequirements2KHR = NULL;
+PFN_vkGetImageOpaqueCaptureDescriptorDataEXT glad_vkGetImageOpaqueCaptureDescriptorDataEXT = NULL;
 PFN_vkGetImageSparseMemoryRequirements glad_vkGetImageSparseMemoryRequirements = NULL;
 PFN_vkGetImageSparseMemoryRequirements2 glad_vkGetImageSparseMemoryRequirements2 = NULL;
 PFN_vkGetImageSparseMemoryRequirements2KHR glad_vkGetImageSparseMemoryRequirements2KHR = NULL;
@@ -995,6 +1005,7 @@ PFN_vkGetImageSubresourceLayout glad_vkGetImageSubresourceLayout = NULL;
 PFN_vkGetImageSubresourceLayout2EXT glad_vkGetImageSubresourceLayout2EXT = NULL;
 PFN_vkGetImageViewAddressNVX glad_vkGetImageViewAddressNVX = NULL;
 PFN_vkGetImageViewHandleNVX glad_vkGetImageViewHandleNVX = NULL;
+PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT glad_vkGetImageViewOpaqueCaptureDescriptorDataEXT = NULL;
 PFN_vkGetInstanceProcAddr glad_vkGetInstanceProcAddr = NULL;
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
 PFN_vkGetMemoryAndroidHardwareBufferANDROID glad_vkGetMemoryAndroidHardwareBufferANDROID = NULL;
@@ -1132,6 +1143,7 @@ PFN_vkGetRayTracingShaderGroupHandlesNV glad_vkGetRayTracingShaderGroupHandlesNV
 PFN_vkGetRayTracingShaderGroupStackSizeKHR glad_vkGetRayTracingShaderGroupStackSizeKHR = NULL;
 PFN_vkGetRefreshCycleDurationGOOGLE glad_vkGetRefreshCycleDurationGOOGLE = NULL;
 PFN_vkGetRenderAreaGranularity glad_vkGetRenderAreaGranularity = NULL;
+PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT glad_vkGetSamplerOpaqueCaptureDescriptorDataEXT = NULL;
 PFN_vkGetSemaphoreCounterValue glad_vkGetSemaphoreCounterValue = NULL;
 PFN_vkGetSemaphoreCounterValueKHR glad_vkGetSemaphoreCounterValueKHR = NULL;
 PFN_vkGetSemaphoreFdKHR glad_vkGetSemaphoreFdKHR = NULL;
@@ -1551,6 +1563,20 @@ static void glad_vk_load_VK_EXT_debug_utils( GLADuserptrloadfunc load, void* use
     glad_vkSetDebugUtilsObjectNameEXT = (PFN_vkSetDebugUtilsObjectNameEXT) load(userptr, "vkSetDebugUtilsObjectNameEXT");
     glad_vkSetDebugUtilsObjectTagEXT = (PFN_vkSetDebugUtilsObjectTagEXT) load(userptr, "vkSetDebugUtilsObjectTagEXT");
     glad_vkSubmitDebugUtilsMessageEXT = (PFN_vkSubmitDebugUtilsMessageEXT) load(userptr, "vkSubmitDebugUtilsMessageEXT");
+}
+static void glad_vk_load_VK_EXT_descriptor_buffer( GLADuserptrloadfunc load, void* userptr) {
+    if(!GLAD_VK_EXT_descriptor_buffer) return;
+    glad_vkCmdBindDescriptorBufferEmbeddedSamplersEXT = (PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT) load(userptr, "vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
+    glad_vkCmdBindDescriptorBuffersEXT = (PFN_vkCmdBindDescriptorBuffersEXT) load(userptr, "vkCmdBindDescriptorBuffersEXT");
+    glad_vkCmdSetDescriptorBufferOffsetsEXT = (PFN_vkCmdSetDescriptorBufferOffsetsEXT) load(userptr, "vkCmdSetDescriptorBufferOffsetsEXT");
+    glad_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT = (PFN_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT) load(userptr, "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT");
+    glad_vkGetBufferOpaqueCaptureDescriptorDataEXT = (PFN_vkGetBufferOpaqueCaptureDescriptorDataEXT) load(userptr, "vkGetBufferOpaqueCaptureDescriptorDataEXT");
+    glad_vkGetDescriptorEXT = (PFN_vkGetDescriptorEXT) load(userptr, "vkGetDescriptorEXT");
+    glad_vkGetDescriptorSetLayoutBindingOffsetEXT = (PFN_vkGetDescriptorSetLayoutBindingOffsetEXT) load(userptr, "vkGetDescriptorSetLayoutBindingOffsetEXT");
+    glad_vkGetDescriptorSetLayoutSizeEXT = (PFN_vkGetDescriptorSetLayoutSizeEXT) load(userptr, "vkGetDescriptorSetLayoutSizeEXT");
+    glad_vkGetImageOpaqueCaptureDescriptorDataEXT = (PFN_vkGetImageOpaqueCaptureDescriptorDataEXT) load(userptr, "vkGetImageOpaqueCaptureDescriptorDataEXT");
+    glad_vkGetImageViewOpaqueCaptureDescriptorDataEXT = (PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT) load(userptr, "vkGetImageViewOpaqueCaptureDescriptorDataEXT");
+    glad_vkGetSamplerOpaqueCaptureDescriptorDataEXT = (PFN_vkGetSamplerOpaqueCaptureDescriptorDataEXT) load(userptr, "vkGetSamplerOpaqueCaptureDescriptorDataEXT");
 }
 static void glad_vk_load_VK_EXT_device_fault( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_VK_EXT_device_fault) return;
@@ -2869,6 +2895,7 @@ static int glad_vk_find_extensions_vulkan( VkPhysicalDevice physical_device) {
     GLAD_VK_EXT_depth_clip_control = glad_vk_has_extension("VK_EXT_depth_clip_control", extension_count, extensions);
     GLAD_VK_EXT_depth_clip_enable = glad_vk_has_extension("VK_EXT_depth_clip_enable", extension_count, extensions);
     GLAD_VK_EXT_depth_range_unrestricted = glad_vk_has_extension("VK_EXT_depth_range_unrestricted", extension_count, extensions);
+    GLAD_VK_EXT_descriptor_buffer = glad_vk_has_extension("VK_EXT_descriptor_buffer", extension_count, extensions);
     GLAD_VK_EXT_descriptor_indexing = glad_vk_has_extension("VK_EXT_descriptor_indexing", extension_count, extensions);
     GLAD_VK_EXT_device_address_binding_report = glad_vk_has_extension("VK_EXT_device_address_binding_report", extension_count, extensions);
     GLAD_VK_EXT_device_fault = glad_vk_has_extension("VK_EXT_device_fault", extension_count, extensions);
@@ -3313,6 +3340,7 @@ int gladLoadVulkanUserPtr( VkPhysicalDevice physical_device, GLADuserptrloadfunc
     glad_vk_load_VK_EXT_debug_marker(load, userptr);
     glad_vk_load_VK_EXT_debug_report(load, userptr);
     glad_vk_load_VK_EXT_debug_utils(load, userptr);
+    glad_vk_load_VK_EXT_descriptor_buffer(load, userptr);
     glad_vk_load_VK_EXT_device_fault(load, userptr);
     glad_vk_load_VK_EXT_direct_mode_display(load, userptr);
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
@@ -3623,6 +3651,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdBeginRenderingKHR",
     "vkCmdBeginTransformFeedbackEXT",
     "vkCmdBeginVideoCodingKHR",
+    "vkCmdBindDescriptorBufferEmbeddedSamplersEXT",
+    "vkCmdBindDescriptorBuffersEXT",
     "vkCmdBindDescriptorSets",
     "vkCmdBindIndexBuffer",
     "vkCmdBindInvocationMaskHUAWEI",
@@ -3764,6 +3794,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdSetDepthTestEnableEXT",
     "vkCmdSetDepthWriteEnable",
     "vkCmdSetDepthWriteEnableEXT",
+    "vkCmdSetDescriptorBufferOffsetsEXT",
     "vkCmdSetDeviceMask",
     "vkCmdSetDeviceMaskKHR",
     "vkCmdSetDiscardRectangleEXT",
@@ -3941,6 +3972,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetAccelerationStructureDeviceAddressKHR",
     "vkGetAccelerationStructureHandleNV",
     "vkGetAccelerationStructureMemoryRequirementsNV",
+    "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT",
     "vkGetAndroidHardwareBufferPropertiesANDROID",
     "vkGetBufferCollectionPropertiesFUCHSIA",
     "vkGetBufferDeviceAddress",
@@ -3951,11 +3983,15 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetBufferMemoryRequirements2KHR",
     "vkGetBufferOpaqueCaptureAddress",
     "vkGetBufferOpaqueCaptureAddressKHR",
+    "vkGetBufferOpaqueCaptureDescriptorDataEXT",
     "vkGetCalibratedTimestampsEXT",
     "vkGetDeferredOperationMaxConcurrencyKHR",
     "vkGetDeferredOperationResultKHR",
+    "vkGetDescriptorEXT",
     "vkGetDescriptorSetHostMappingVALVE",
+    "vkGetDescriptorSetLayoutBindingOffsetEXT",
     "vkGetDescriptorSetLayoutHostMappingInfoVALVE",
+    "vkGetDescriptorSetLayoutSizeEXT",
     "vkGetDescriptorSetLayoutSupport",
     "vkGetDescriptorSetLayoutSupportKHR",
     "vkGetDeviceAccelerationStructureCompatibilityKHR",
@@ -3990,6 +4026,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetImageMemoryRequirements",
     "vkGetImageMemoryRequirements2",
     "vkGetImageMemoryRequirements2KHR",
+    "vkGetImageOpaqueCaptureDescriptorDataEXT",
     "vkGetImageSparseMemoryRequirements",
     "vkGetImageSparseMemoryRequirements2",
     "vkGetImageSparseMemoryRequirements2KHR",
@@ -3997,6 +4034,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetImageSubresourceLayout2EXT",
     "vkGetImageViewAddressNVX",
     "vkGetImageViewHandleNVX",
+    "vkGetImageViewOpaqueCaptureDescriptorDataEXT",
     "vkGetMemoryAndroidHardwareBufferANDROID",
     "vkGetMemoryFdKHR",
     "vkGetMemoryFdPropertiesKHR",
@@ -4026,6 +4064,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetRayTracingShaderGroupStackSizeKHR",
     "vkGetRefreshCycleDurationGOOGLE",
     "vkGetRenderAreaGranularity",
+    "vkGetSamplerOpaqueCaptureDescriptorDataEXT",
     "vkGetSemaphoreCounterValue",
     "vkGetSemaphoreCounterValueKHR",
     "vkGetSemaphoreFdKHR",
@@ -4258,6 +4297,7 @@ void gladLoaderResetVulkan(void) {
     GLAD_VK_EXT_depth_clip_control = 0;
     GLAD_VK_EXT_depth_clip_enable = 0;
     GLAD_VK_EXT_depth_range_unrestricted = 0;
+    GLAD_VK_EXT_descriptor_buffer = 0;
     GLAD_VK_EXT_descriptor_indexing = 0;
     GLAD_VK_EXT_device_address_binding_report = 0;
     GLAD_VK_EXT_device_fault = 0;
@@ -4888,6 +4928,17 @@ void gladLoaderResetVulkan(void) {
     glad_vkSetDebugUtilsObjectNameEXT = NULL;
     glad_vkSetDebugUtilsObjectTagEXT = NULL;
     glad_vkSubmitDebugUtilsMessageEXT = NULL;
+    glad_vkCmdBindDescriptorBufferEmbeddedSamplersEXT = NULL;
+    glad_vkCmdBindDescriptorBuffersEXT = NULL;
+    glad_vkCmdSetDescriptorBufferOffsetsEXT = NULL;
+    glad_vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT = NULL;
+    glad_vkGetBufferOpaqueCaptureDescriptorDataEXT = NULL;
+    glad_vkGetDescriptorEXT = NULL;
+    glad_vkGetDescriptorSetLayoutBindingOffsetEXT = NULL;
+    glad_vkGetDescriptorSetLayoutSizeEXT = NULL;
+    glad_vkGetImageOpaqueCaptureDescriptorDataEXT = NULL;
+    glad_vkGetImageViewOpaqueCaptureDescriptorDataEXT = NULL;
+    glad_vkGetSamplerOpaqueCaptureDescriptorDataEXT = NULL;
     glad_vkGetDeviceFaultInfoEXT = NULL;
     glad_vkReleaseDisplayEXT = NULL;
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
