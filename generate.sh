@@ -90,6 +90,11 @@ GLAD_ARGS=(
 	c
 	--alias
 	--loader
+
+	# Even though we don't use the multi-context feature for its declared
+	# purpose, it does reduce the amount of memory consumed (by using
+	# bitfields) and simplifies context reset.
+	--mx --mx-global
 )
 
 #
