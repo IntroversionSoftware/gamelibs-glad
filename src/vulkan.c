@@ -1963,6 +1963,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
 #endif
     context->KHR_zero_initialize_workgroup_memory = glad_vk_has_extension("VK_KHR_zero_initialize_workgroup_memory", extension_count, extensions);
+    context->LUNARG_direct_driver_loading = glad_vk_has_extension("VK_LUNARG_direct_driver_loading", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_IOS_MVK)
     context->MVK_ios_surface = glad_vk_has_extension("VK_MVK_ios_surface", extension_count, extensions);
 
@@ -2031,6 +2032,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 #endif
     context->QCOM_fragment_density_map_offset = glad_vk_has_extension("VK_QCOM_fragment_density_map_offset", extension_count, extensions);
     context->QCOM_image_processing = glad_vk_has_extension("VK_QCOM_image_processing", extension_count, extensions);
+    context->QCOM_multiview_per_view_viewports = glad_vk_has_extension("VK_QCOM_multiview_per_view_viewports", extension_count, extensions);
     context->QCOM_render_pass_shader_resolve = glad_vk_has_extension("VK_QCOM_render_pass_shader_resolve", extension_count, extensions);
     context->QCOM_render_pass_store_ops = glad_vk_has_extension("VK_QCOM_render_pass_store_ops", extension_count, extensions);
     context->QCOM_render_pass_transform = glad_vk_has_extension("VK_QCOM_render_pass_transform", extension_count, extensions);

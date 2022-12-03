@@ -9129,7 +9129,7 @@ typedef void (GLAD_API_PTR *PFNGLCOPYTEXTURELEVELSAPPLEPROC)(GLuint destinationT
 typedef void (GLAD_API_PTR *PFNGLCOVERAGEMASKNVPROC)(GLboolean mask);
 typedef void (GLAD_API_PTR *PFNGLCOVERAGEMODULATIONCHROMIUMPROC)(GLenum components);
 typedef void (GLAD_API_PTR *PFNGLCOVERAGEOPERATIONNVPROC)(GLenum operation);
-typedef GLuint (GLAD_API_PTR *PFNGLCREATESHADERPROGRAMVEXTPROC)(GLenum type, GLsizei count, const GLchar ** strings);
+typedef GLuint (GLAD_API_PTR *PFNGLCREATESHADERPROGRAMVEXTPROC)(GLenum type, GLsizei count, const GLchar *const* strings);
 typedef void (GLAD_API_PTR *PFNGLDEBUGMESSAGECALLBACKKHRPROC)(GLDEBUGPROCKHR callback, const void * userParam);
 typedef void (GLAD_API_PTR *PFNGLDEBUGMESSAGECONTROLKHRPROC)(GLenum source, GLenum type, GLenum severity, GLsizei count, const GLuint * ids, GLboolean enabled);
 typedef void (GLAD_API_PTR *PFNGLDEBUGMESSAGEINSERTKHRPROC)(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar * buf);
@@ -9338,7 +9338,7 @@ typedef void (GLAD_API_PTR *PFNGLPRIMITIVEBOUNDINGBOXOESPROC)(GLfloat minX, GLfl
 typedef void (GLAD_API_PTR *PFNGLPROGRAMBINARYOESPROC)(GLuint program, GLenum binaryFormat, const void * binary, GLint length);
 typedef void (GLAD_API_PTR *PFNGLPROGRAMUNIFORMHANDLEUI64IMGPROC)(GLuint program, GLint location, GLuint64 value);
 typedef void (GLAD_API_PTR *PFNGLPROGRAMUNIFORMHANDLEUI64VIMGPROC)(GLuint program, GLint location, GLsizei count, const GLuint64 * values);
-typedef void (GLAD_API_PTR *PFNGLPROVOKINGVERTEXANGLEPROC)(GLenum mode);
+typedef void (GLAD_API_PTR *PFNGLPROVOKINGVERTEXANGLEPROC)(GLenum provokeMode);
 typedef void (GLAD_API_PTR *PFNGLPUSHDEBUGGROUPKHRPROC)(GLenum source, GLuint id, GLsizei length, const GLchar * message);
 typedef void (GLAD_API_PTR *PFNGLQUERYCOUNTEREXTPROC)(GLuint id, GLenum target);
 typedef void (GLAD_API_PTR *PFNGLREADBUFFERINDEXEDEXTPROC)(GLenum src, GLint index);
@@ -16706,7 +16706,7 @@ void glCopyTextureLevelsAPPLE(GLuint destinationTexture, GLuint sourceTexture, G
 void glCoverageMaskNV(GLboolean mask);
 void glCoverageModulationCHROMIUM(GLenum components);
 void glCoverageOperationNV(GLenum operation);
-GLuint glCreateShaderProgramvEXT(GLenum type, GLsizei count, const GLchar ** strings);
+GLuint glCreateShaderProgramvEXT(GLenum type, GLsizei count, const GLchar *const* strings);
 void glDebugMessageCallbackKHR(GLDEBUGPROCKHR callback, const void * userParam);
 void glDebugMessageControlKHR(GLenum source, GLenum type, GLenum severity, GLsizei count, const GLuint * ids, GLboolean enabled);
 void glDebugMessageInsertKHR(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar * buf);
@@ -16915,7 +16915,7 @@ void glPrimitiveBoundingBoxOES(GLfloat minX, GLfloat minY, GLfloat minZ, GLfloat
 void glProgramBinaryOES(GLuint program, GLenum binaryFormat, const void * binary, GLint length);
 void glProgramUniformHandleui64IMG(GLuint program, GLint location, GLuint64 value);
 void glProgramUniformHandleui64vIMG(GLuint program, GLint location, GLsizei count, const GLuint64 * values);
-void glProvokingVertexANGLE(GLenum mode);
+void glProvokingVertexANGLE(GLenum provokeMode);
 void glPushDebugGroupKHR(GLenum source, GLuint id, GLsizei length, const GLchar * message);
 void glQueryCounterEXT(GLuint id, GLenum target);
 void glReadBufferIndexedEXT(GLenum src, GLint index);

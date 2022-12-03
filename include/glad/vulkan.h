@@ -5,7 +5,7 @@
  *
  * Generator: C/C++
  * Specification: vk
- * Extensions: 310
+ * Extensions: 312
  *
  * APIs:
  *  - vulkan=1.3
@@ -20,7 +20,7 @@
  *  - ON_DEMAND = False
  *
  * Commandline:
- *    --merge --api='vulkan=1.3' --extensions='VK_AMD_buffer_marker,VK_AMD_device_coherent_memory,VK_AMD_display_native_hdr,VK_AMD_draw_indirect_count,VK_AMD_gcn_shader,VK_AMD_gpu_shader_half_float,VK_AMD_gpu_shader_int16,VK_AMD_memory_overallocation_behavior,VK_AMD_mixed_attachment_samples,VK_AMD_negative_viewport_height,VK_AMD_pipeline_compiler_control,VK_AMD_rasterization_order,VK_AMD_shader_ballot,VK_AMD_shader_core_properties,VK_AMD_shader_core_properties2,VK_AMD_shader_early_and_late_fragment_tests,VK_AMD_shader_explicit_vertex_parameter,VK_AMD_shader_fragment_mask,VK_AMD_shader_image_load_store_lod,VK_AMD_shader_info,VK_AMD_shader_trinary_minmax,VK_AMD_texture_gather_bias_lod,VK_ANDROID_external_memory_android_hardware_buffer,VK_ARM_rasterization_order_attachment_access,VK_ARM_shader_core_builtins,VK_EXT_4444_formats,VK_EXT_acquire_drm_display,VK_EXT_acquire_xlib_display,VK_EXT_astc_decode_mode,VK_EXT_attachment_feedback_loop_layout,VK_EXT_blend_operation_advanced,VK_EXT_border_color_swizzle,VK_EXT_buffer_device_address,VK_EXT_calibrated_timestamps,VK_EXT_color_write_enable,VK_EXT_conditional_rendering,VK_EXT_conservative_rasterization,VK_EXT_custom_border_color,VK_EXT_debug_marker,VK_EXT_debug_report,VK_EXT_debug_utils,VK_EXT_depth_clamp_zero_one,VK_EXT_depth_clip_control,VK_EXT_depth_clip_enable,VK_EXT_depth_range_unrestricted,VK_EXT_descriptor_buffer,VK_EXT_descriptor_indexing,VK_EXT_device_address_binding_report,VK_EXT_device_fault,VK_EXT_device_memory_report,VK_EXT_direct_mode_display,VK_EXT_directfb_surface,VK_EXT_discard_rectangles,VK_EXT_display_control,VK_EXT_display_surface_counter,VK_EXT_extended_dynamic_state,VK_EXT_extended_dynamic_state2,VK_EXT_extended_dynamic_state3,VK_EXT_external_memory_dma_buf,VK_EXT_external_memory_host,VK_EXT_filter_cubic,VK_EXT_fragment_density_map,VK_EXT_fragment_density_map2,VK_EXT_fragment_shader_interlock,VK_EXT_full_screen_exclusive,VK_EXT_global_priority,VK_EXT_global_priority_query,VK_EXT_graphics_pipeline_library,VK_EXT_hdr_metadata,VK_EXT_headless_surface,VK_EXT_host_query_reset,VK_EXT_image_2d_view_of_3d,VK_EXT_image_compression_control,VK_EXT_image_compression_control_swapchain,VK_EXT_image_drm_format_modifier,VK_EXT_image_robustness,VK_EXT_image_view_min_lod,VK_EXT_index_type_uint8,VK_EXT_inline_uniform_block,VK_EXT_legacy_dithering,VK_EXT_line_rasterization,VK_EXT_load_store_op_none,VK_EXT_memory_budget,VK_EXT_memory_priority,VK_EXT_mesh_shader,VK_EXT_metal_objects,VK_EXT_metal_surface,VK_EXT_multi_draw,VK_EXT_multisampled_render_to_single_sampled,VK_EXT_mutable_descriptor_type,VK_EXT_non_seamless_cube_map,VK_EXT_opacity_micromap,VK_EXT_pageable_device_local_memory,VK_EXT_pci_bus_info,VK_EXT_physical_device_drm,VK_EXT_pipeline_creation_cache_control,VK_EXT_pipeline_creation_feedback,VK_EXT_pipeline_properties,VK_EXT_pipeline_protected_access,VK_EXT_pipeline_robustness,VK_EXT_post_depth_coverage,VK_EXT_primitive_topology_list_restart,VK_EXT_primitives_generated_query,VK_EXT_private_data,VK_EXT_provoking_vertex,VK_EXT_queue_family_foreign,VK_EXT_rasterization_order_attachment_access,VK_EXT_rgba10x6_formats,VK_EXT_robustness2,VK_EXT_sample_locations,VK_EXT_sampler_filter_minmax,VK_EXT_scalar_block_layout,VK_EXT_separate_stencil_usage,VK_EXT_shader_atomic_float,VK_EXT_shader_atomic_float2,VK_EXT_shader_demote_to_helper_invocation,VK_EXT_shader_image_atomic_int64,VK_EXT_shader_module_identifier,VK_EXT_shader_stencil_export,VK_EXT_shader_subgroup_ballot,VK_EXT_shader_subgroup_vote,VK_EXT_shader_viewport_index_layer,VK_EXT_subgroup_size_control,VK_EXT_subpass_merge_feedback,VK_EXT_swapchain_colorspace,VK_EXT_texel_buffer_alignment,VK_EXT_texture_compression_astc_hdr,VK_EXT_tooling_info,VK_EXT_transform_feedback,VK_EXT_validation_cache,VK_EXT_validation_features,VK_EXT_validation_flags,VK_EXT_vertex_attribute_divisor,VK_EXT_vertex_input_dynamic_state,VK_EXT_video_decode_h264,VK_EXT_video_decode_h265,VK_EXT_video_encode_h264,VK_EXT_video_encode_h265,VK_EXT_ycbcr_2plane_444_formats,VK_EXT_ycbcr_image_arrays,VK_FUCHSIA_buffer_collection,VK_FUCHSIA_external_memory,VK_FUCHSIA_external_semaphore,VK_FUCHSIA_imagepipe_surface,VK_GGP_frame_token,VK_GGP_stream_descriptor_surface,VK_GOOGLE_decorate_string,VK_GOOGLE_display_timing,VK_GOOGLE_hlsl_functionality1,VK_GOOGLE_surfaceless_query,VK_GOOGLE_user_type,VK_HUAWEI_invocation_mask,VK_HUAWEI_subpass_shading,VK_IMG_filter_cubic,VK_IMG_format_pvrtc,VK_INTEL_performance_query,VK_INTEL_shader_integer_functions2,VK_KHR_16bit_storage,VK_KHR_8bit_storage,VK_KHR_acceleration_structure,VK_KHR_android_surface,VK_KHR_bind_memory2,VK_KHR_buffer_device_address,VK_KHR_copy_commands2,VK_KHR_create_renderpass2,VK_KHR_dedicated_allocation,VK_KHR_deferred_host_operations,VK_KHR_depth_stencil_resolve,VK_KHR_descriptor_update_template,VK_KHR_device_group,VK_KHR_device_group_creation,VK_KHR_display,VK_KHR_display_swapchain,VK_KHR_draw_indirect_count,VK_KHR_driver_properties,VK_KHR_dynamic_rendering,VK_KHR_external_fence,VK_KHR_external_fence_capabilities,VK_KHR_external_fence_fd,VK_KHR_external_fence_win32,VK_KHR_external_memory,VK_KHR_external_memory_capabilities,VK_KHR_external_memory_fd,VK_KHR_external_memory_win32,VK_KHR_external_semaphore,VK_KHR_external_semaphore_capabilities,VK_KHR_external_semaphore_fd,VK_KHR_external_semaphore_win32,VK_KHR_format_feature_flags2,VK_KHR_fragment_shader_barycentric,VK_KHR_fragment_shading_rate,VK_KHR_get_display_properties2,VK_KHR_get_memory_requirements2,VK_KHR_get_physical_device_properties2,VK_KHR_get_surface_capabilities2,VK_KHR_global_priority,VK_KHR_image_format_list,VK_KHR_imageless_framebuffer,VK_KHR_incremental_present,VK_KHR_maintenance1,VK_KHR_maintenance2,VK_KHR_maintenance3,VK_KHR_maintenance4,VK_KHR_multiview,VK_KHR_performance_query,VK_KHR_pipeline_executable_properties,VK_KHR_pipeline_library,VK_KHR_portability_enumeration,VK_KHR_portability_subset,VK_KHR_present_id,VK_KHR_present_wait,VK_KHR_push_descriptor,VK_KHR_ray_query,VK_KHR_ray_tracing_maintenance1,VK_KHR_ray_tracing_pipeline,VK_KHR_relaxed_block_layout,VK_KHR_sampler_mirror_clamp_to_edge,VK_KHR_sampler_ycbcr_conversion,VK_KHR_separate_depth_stencil_layouts,VK_KHR_shader_atomic_int64,VK_KHR_shader_clock,VK_KHR_shader_draw_parameters,VK_KHR_shader_float16_int8,VK_KHR_shader_float_controls,VK_KHR_shader_integer_dot_product,VK_KHR_shader_non_semantic_info,VK_KHR_shader_subgroup_extended_types,VK_KHR_shader_subgroup_uniform_control_flow,VK_KHR_shader_terminate_invocation,VK_KHR_shared_presentable_image,VK_KHR_spirv_1_4,VK_KHR_storage_buffer_storage_class,VK_KHR_surface,VK_KHR_surface_protected_capabilities,VK_KHR_swapchain,VK_KHR_swapchain_mutable_format,VK_KHR_synchronization2,VK_KHR_timeline_semaphore,VK_KHR_uniform_buffer_standard_layout,VK_KHR_variable_pointers,VK_KHR_video_decode_queue,VK_KHR_video_encode_queue,VK_KHR_video_queue,VK_KHR_vulkan_memory_model,VK_KHR_wayland_surface,VK_KHR_win32_keyed_mutex,VK_KHR_win32_surface,VK_KHR_workgroup_memory_explicit_layout,VK_KHR_xcb_surface,VK_KHR_xlib_surface,VK_KHR_zero_initialize_workgroup_memory,VK_MVK_ios_surface,VK_MVK_macos_surface,VK_NN_vi_surface,VK_NVX_binary_import,VK_NVX_image_view_handle,VK_NVX_multiview_per_view_attributes,VK_NV_acquire_winrt_display,VK_NV_clip_space_w_scaling,VK_NV_compute_shader_derivatives,VK_NV_cooperative_matrix,VK_NV_copy_memory_indirect,VK_NV_corner_sampled_image,VK_NV_coverage_reduction_mode,VK_NV_dedicated_allocation,VK_NV_dedicated_allocation_image_aliasing,VK_NV_device_diagnostic_checkpoints,VK_NV_device_diagnostics_config,VK_NV_device_generated_commands,VK_NV_external_memory,VK_NV_external_memory_capabilities,VK_NV_external_memory_rdma,VK_NV_external_memory_win32,VK_NV_fill_rectangle,VK_NV_fragment_coverage_to_color,VK_NV_fragment_shader_barycentric,VK_NV_fragment_shading_rate_enums,VK_NV_framebuffer_mixed_samples,VK_NV_geometry_shader_passthrough,VK_NV_glsl_shader,VK_NV_inherited_viewport_scissor,VK_NV_linear_color_attachment,VK_NV_memory_decompression,VK_NV_mesh_shader,VK_NV_optical_flow,VK_NV_present_barrier,VK_NV_ray_tracing,VK_NV_ray_tracing_invocation_reorder,VK_NV_ray_tracing_motion_blur,VK_NV_representative_fragment_test,VK_NV_sample_mask_override_coverage,VK_NV_scissor_exclusive,VK_NV_shader_image_footprint,VK_NV_shader_sm_builtins,VK_NV_shader_subgroup_partitioned,VK_NV_shading_rate_image,VK_NV_viewport_array2,VK_NV_viewport_swizzle,VK_NV_win32_keyed_mutex,VK_QCOM_fragment_density_map_offset,VK_QCOM_image_processing,VK_QCOM_render_pass_shader_resolve,VK_QCOM_render_pass_store_ops,VK_QCOM_render_pass_transform,VK_QCOM_rotated_copy_commands,VK_QCOM_tile_properties,VK_QNX_screen_surface,VK_SEC_amigo_profiling,VK_VALVE_descriptor_set_host_mapping,VK_VALVE_mutable_descriptor_type' c --alias --loader --mx --mx-global
+ *    --merge --api='vulkan=1.3' --extensions='VK_AMD_buffer_marker,VK_AMD_device_coherent_memory,VK_AMD_display_native_hdr,VK_AMD_draw_indirect_count,VK_AMD_gcn_shader,VK_AMD_gpu_shader_half_float,VK_AMD_gpu_shader_int16,VK_AMD_memory_overallocation_behavior,VK_AMD_mixed_attachment_samples,VK_AMD_negative_viewport_height,VK_AMD_pipeline_compiler_control,VK_AMD_rasterization_order,VK_AMD_shader_ballot,VK_AMD_shader_core_properties,VK_AMD_shader_core_properties2,VK_AMD_shader_early_and_late_fragment_tests,VK_AMD_shader_explicit_vertex_parameter,VK_AMD_shader_fragment_mask,VK_AMD_shader_image_load_store_lod,VK_AMD_shader_info,VK_AMD_shader_trinary_minmax,VK_AMD_texture_gather_bias_lod,VK_ANDROID_external_memory_android_hardware_buffer,VK_ARM_rasterization_order_attachment_access,VK_ARM_shader_core_builtins,VK_EXT_4444_formats,VK_EXT_acquire_drm_display,VK_EXT_acquire_xlib_display,VK_EXT_astc_decode_mode,VK_EXT_attachment_feedback_loop_layout,VK_EXT_blend_operation_advanced,VK_EXT_border_color_swizzle,VK_EXT_buffer_device_address,VK_EXT_calibrated_timestamps,VK_EXT_color_write_enable,VK_EXT_conditional_rendering,VK_EXT_conservative_rasterization,VK_EXT_custom_border_color,VK_EXT_debug_marker,VK_EXT_debug_report,VK_EXT_debug_utils,VK_EXT_depth_clamp_zero_one,VK_EXT_depth_clip_control,VK_EXT_depth_clip_enable,VK_EXT_depth_range_unrestricted,VK_EXT_descriptor_buffer,VK_EXT_descriptor_indexing,VK_EXT_device_address_binding_report,VK_EXT_device_fault,VK_EXT_device_memory_report,VK_EXT_direct_mode_display,VK_EXT_directfb_surface,VK_EXT_discard_rectangles,VK_EXT_display_control,VK_EXT_display_surface_counter,VK_EXT_extended_dynamic_state,VK_EXT_extended_dynamic_state2,VK_EXT_extended_dynamic_state3,VK_EXT_external_memory_dma_buf,VK_EXT_external_memory_host,VK_EXT_filter_cubic,VK_EXT_fragment_density_map,VK_EXT_fragment_density_map2,VK_EXT_fragment_shader_interlock,VK_EXT_full_screen_exclusive,VK_EXT_global_priority,VK_EXT_global_priority_query,VK_EXT_graphics_pipeline_library,VK_EXT_hdr_metadata,VK_EXT_headless_surface,VK_EXT_host_query_reset,VK_EXT_image_2d_view_of_3d,VK_EXT_image_compression_control,VK_EXT_image_compression_control_swapchain,VK_EXT_image_drm_format_modifier,VK_EXT_image_robustness,VK_EXT_image_view_min_lod,VK_EXT_index_type_uint8,VK_EXT_inline_uniform_block,VK_EXT_legacy_dithering,VK_EXT_line_rasterization,VK_EXT_load_store_op_none,VK_EXT_memory_budget,VK_EXT_memory_priority,VK_EXT_mesh_shader,VK_EXT_metal_objects,VK_EXT_metal_surface,VK_EXT_multi_draw,VK_EXT_multisampled_render_to_single_sampled,VK_EXT_mutable_descriptor_type,VK_EXT_non_seamless_cube_map,VK_EXT_opacity_micromap,VK_EXT_pageable_device_local_memory,VK_EXT_pci_bus_info,VK_EXT_physical_device_drm,VK_EXT_pipeline_creation_cache_control,VK_EXT_pipeline_creation_feedback,VK_EXT_pipeline_properties,VK_EXT_pipeline_protected_access,VK_EXT_pipeline_robustness,VK_EXT_post_depth_coverage,VK_EXT_primitive_topology_list_restart,VK_EXT_primitives_generated_query,VK_EXT_private_data,VK_EXT_provoking_vertex,VK_EXT_queue_family_foreign,VK_EXT_rasterization_order_attachment_access,VK_EXT_rgba10x6_formats,VK_EXT_robustness2,VK_EXT_sample_locations,VK_EXT_sampler_filter_minmax,VK_EXT_scalar_block_layout,VK_EXT_separate_stencil_usage,VK_EXT_shader_atomic_float,VK_EXT_shader_atomic_float2,VK_EXT_shader_demote_to_helper_invocation,VK_EXT_shader_image_atomic_int64,VK_EXT_shader_module_identifier,VK_EXT_shader_stencil_export,VK_EXT_shader_subgroup_ballot,VK_EXT_shader_subgroup_vote,VK_EXT_shader_viewport_index_layer,VK_EXT_subgroup_size_control,VK_EXT_subpass_merge_feedback,VK_EXT_swapchain_colorspace,VK_EXT_texel_buffer_alignment,VK_EXT_texture_compression_astc_hdr,VK_EXT_tooling_info,VK_EXT_transform_feedback,VK_EXT_validation_cache,VK_EXT_validation_features,VK_EXT_validation_flags,VK_EXT_vertex_attribute_divisor,VK_EXT_vertex_input_dynamic_state,VK_EXT_video_decode_h264,VK_EXT_video_decode_h265,VK_EXT_video_encode_h264,VK_EXT_video_encode_h265,VK_EXT_ycbcr_2plane_444_formats,VK_EXT_ycbcr_image_arrays,VK_FUCHSIA_buffer_collection,VK_FUCHSIA_external_memory,VK_FUCHSIA_external_semaphore,VK_FUCHSIA_imagepipe_surface,VK_GGP_frame_token,VK_GGP_stream_descriptor_surface,VK_GOOGLE_decorate_string,VK_GOOGLE_display_timing,VK_GOOGLE_hlsl_functionality1,VK_GOOGLE_surfaceless_query,VK_GOOGLE_user_type,VK_HUAWEI_invocation_mask,VK_HUAWEI_subpass_shading,VK_IMG_filter_cubic,VK_IMG_format_pvrtc,VK_INTEL_performance_query,VK_INTEL_shader_integer_functions2,VK_KHR_16bit_storage,VK_KHR_8bit_storage,VK_KHR_acceleration_structure,VK_KHR_android_surface,VK_KHR_bind_memory2,VK_KHR_buffer_device_address,VK_KHR_copy_commands2,VK_KHR_create_renderpass2,VK_KHR_dedicated_allocation,VK_KHR_deferred_host_operations,VK_KHR_depth_stencil_resolve,VK_KHR_descriptor_update_template,VK_KHR_device_group,VK_KHR_device_group_creation,VK_KHR_display,VK_KHR_display_swapchain,VK_KHR_draw_indirect_count,VK_KHR_driver_properties,VK_KHR_dynamic_rendering,VK_KHR_external_fence,VK_KHR_external_fence_capabilities,VK_KHR_external_fence_fd,VK_KHR_external_fence_win32,VK_KHR_external_memory,VK_KHR_external_memory_capabilities,VK_KHR_external_memory_fd,VK_KHR_external_memory_win32,VK_KHR_external_semaphore,VK_KHR_external_semaphore_capabilities,VK_KHR_external_semaphore_fd,VK_KHR_external_semaphore_win32,VK_KHR_format_feature_flags2,VK_KHR_fragment_shader_barycentric,VK_KHR_fragment_shading_rate,VK_KHR_get_display_properties2,VK_KHR_get_memory_requirements2,VK_KHR_get_physical_device_properties2,VK_KHR_get_surface_capabilities2,VK_KHR_global_priority,VK_KHR_image_format_list,VK_KHR_imageless_framebuffer,VK_KHR_incremental_present,VK_KHR_maintenance1,VK_KHR_maintenance2,VK_KHR_maintenance3,VK_KHR_maintenance4,VK_KHR_multiview,VK_KHR_performance_query,VK_KHR_pipeline_executable_properties,VK_KHR_pipeline_library,VK_KHR_portability_enumeration,VK_KHR_portability_subset,VK_KHR_present_id,VK_KHR_present_wait,VK_KHR_push_descriptor,VK_KHR_ray_query,VK_KHR_ray_tracing_maintenance1,VK_KHR_ray_tracing_pipeline,VK_KHR_relaxed_block_layout,VK_KHR_sampler_mirror_clamp_to_edge,VK_KHR_sampler_ycbcr_conversion,VK_KHR_separate_depth_stencil_layouts,VK_KHR_shader_atomic_int64,VK_KHR_shader_clock,VK_KHR_shader_draw_parameters,VK_KHR_shader_float16_int8,VK_KHR_shader_float_controls,VK_KHR_shader_integer_dot_product,VK_KHR_shader_non_semantic_info,VK_KHR_shader_subgroup_extended_types,VK_KHR_shader_subgroup_uniform_control_flow,VK_KHR_shader_terminate_invocation,VK_KHR_shared_presentable_image,VK_KHR_spirv_1_4,VK_KHR_storage_buffer_storage_class,VK_KHR_surface,VK_KHR_surface_protected_capabilities,VK_KHR_swapchain,VK_KHR_swapchain_mutable_format,VK_KHR_synchronization2,VK_KHR_timeline_semaphore,VK_KHR_uniform_buffer_standard_layout,VK_KHR_variable_pointers,VK_KHR_video_decode_queue,VK_KHR_video_encode_queue,VK_KHR_video_queue,VK_KHR_vulkan_memory_model,VK_KHR_wayland_surface,VK_KHR_win32_keyed_mutex,VK_KHR_win32_surface,VK_KHR_workgroup_memory_explicit_layout,VK_KHR_xcb_surface,VK_KHR_xlib_surface,VK_KHR_zero_initialize_workgroup_memory,VK_LUNARG_direct_driver_loading,VK_MVK_ios_surface,VK_MVK_macos_surface,VK_NN_vi_surface,VK_NVX_binary_import,VK_NVX_image_view_handle,VK_NVX_multiview_per_view_attributes,VK_NV_acquire_winrt_display,VK_NV_clip_space_w_scaling,VK_NV_compute_shader_derivatives,VK_NV_cooperative_matrix,VK_NV_copy_memory_indirect,VK_NV_corner_sampled_image,VK_NV_coverage_reduction_mode,VK_NV_dedicated_allocation,VK_NV_dedicated_allocation_image_aliasing,VK_NV_device_diagnostic_checkpoints,VK_NV_device_diagnostics_config,VK_NV_device_generated_commands,VK_NV_external_memory,VK_NV_external_memory_capabilities,VK_NV_external_memory_rdma,VK_NV_external_memory_win32,VK_NV_fill_rectangle,VK_NV_fragment_coverage_to_color,VK_NV_fragment_shader_barycentric,VK_NV_fragment_shading_rate_enums,VK_NV_framebuffer_mixed_samples,VK_NV_geometry_shader_passthrough,VK_NV_glsl_shader,VK_NV_inherited_viewport_scissor,VK_NV_linear_color_attachment,VK_NV_memory_decompression,VK_NV_mesh_shader,VK_NV_optical_flow,VK_NV_present_barrier,VK_NV_ray_tracing,VK_NV_ray_tracing_invocation_reorder,VK_NV_ray_tracing_motion_blur,VK_NV_representative_fragment_test,VK_NV_sample_mask_override_coverage,VK_NV_scissor_exclusive,VK_NV_shader_image_footprint,VK_NV_shader_sm_builtins,VK_NV_shader_subgroup_partitioned,VK_NV_shading_rate_image,VK_NV_viewport_array2,VK_NV_viewport_swizzle,VK_NV_win32_keyed_mutex,VK_QCOM_fragment_density_map_offset,VK_QCOM_image_processing,VK_QCOM_multiview_per_view_viewports,VK_QCOM_render_pass_shader_resolve,VK_QCOM_render_pass_store_ops,VK_QCOM_render_pass_transform,VK_QCOM_rotated_copy_commands,VK_QCOM_tile_properties,VK_QNX_screen_surface,VK_SEC_amigo_profiling,VK_VALVE_descriptor_set_host_mapping,VK_VALVE_mutable_descriptor_type' c --alias --loader --mx --mx-global
  *
  * Online:
  *    http://glad.sh/#api=vulkan%3D1.3&generator=c&options=MERGE%2CALIAS%2CLOADER%2CMX%2CMX_GLOBAL
@@ -486,7 +486,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 
 #endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-#define VK_EXT_VIDEO_DECODE_H265_SPEC_VERSION 5
+#define VK_EXT_VIDEO_DECODE_H265_SPEC_VERSION 6
 
 #endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
@@ -857,6 +857,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_LOD_CLAMP_NONE 1000.0F
 #define VK_LUID_SIZE 8
 #define VK_LUID_SIZE_KHR 8
+#define VK_LUNARG_DIRECT_DRIVER_LOADING_EXTENSION_NAME "VK_LUNARG_direct_driver_loading"
+#define VK_LUNARG_DIRECT_DRIVER_LOADING_SPEC_VERSION 1
 #define VK_MAX_DESCRIPTION_SIZE 256
 #define VK_MAX_DEVICE_GROUP_SIZE 32
 #define VK_MAX_DEVICE_GROUP_SIZE_KHR 32
@@ -1009,6 +1011,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_QCOM_FRAGMENT_DENSITY_MAP_OFFSET_SPEC_VERSION 1
 #define VK_QCOM_IMAGE_PROCESSING_EXTENSION_NAME "VK_QCOM_image_processing"
 #define VK_QCOM_IMAGE_PROCESSING_SPEC_VERSION 1
+#define VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_EXTENSION_NAME "VK_QCOM_multiview_per_view_viewports"
+#define VK_QCOM_MULTIVIEW_PER_VIEW_VIEWPORTS_SPEC_VERSION 1
 #define VK_QCOM_RENDER_PASS_SHADER_RESOLVE_EXTENSION_NAME "VK_QCOM_render_pass_shader_resolve"
 #define VK_QCOM_RENDER_PASS_SHADER_RESOLVE_SPEC_VERSION 4
 #define VK_QCOM_RENDER_PASS_STORE_OPS_EXTENSION_NAME "VK_QCOM_render_pass_store_ops"
@@ -1202,7 +1206,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 /* Vulkan 1.3 version number */
 #define VK_API_VERSION_1_3 VK_MAKE_API_VERSION(0, 1, 3, 0)/* Patch version should always be set to 0 */
 /* Version of this file */
-#define VK_HEADER_VERSION 235
+#define VK_HEADER_VERSION 236
 /* Complete version of this file */
 #define VK_HEADER_VERSION_COMPLETE VK_MAKE_API_VERSION(0, 1, 3, VK_HEADER_VERSION)
 #define VK_DEFINE_HANDLE(object) typedef struct object##_T* object;
@@ -3454,6 +3458,8 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_CONTROL_EXT = 1000458001,
     VK_STRUCTURE_TYPE_RENDER_PASS_CREATION_FEEDBACK_CREATE_INFO_EXT = 1000458002,
     VK_STRUCTURE_TYPE_RENDER_PASS_SUBPASS_FEEDBACK_CREATE_INFO_EXT = 1000458003,
+    VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_INFO_LUNARG = 1000459000,
+    VK_STRUCTURE_TYPE_DIRECT_DRIVER_LOADING_LIST_LUNARG = 1000459001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_FEATURES_EXT = 1000462000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_MODULE_IDENTIFIER_PROPERTIES_EXT = 1000462001,
     VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_MODULE_IDENTIFIER_CREATE_INFO_EXT = 1000462002,
@@ -3472,6 +3478,7 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM = 1000484001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC = 1000485000,
     VK_STRUCTURE_TYPE_AMIGO_PROFILING_SUBMIT_INFO_SEC = 1000485001,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM = 1000488000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV = 1000490000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV = 1000490001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT = 1000351000,
@@ -4491,6 +4498,11 @@ typedef enum VkDeviceFaultVendorBinaryHeaderVersionEXT {
 typedef uint64_t VkMemoryDecompressionMethodFlagBitsNV;
 static const VkMemoryDecompressionMethodFlagBitsNV VK_MEMORY_DECOMPRESSION_METHOD_GDEFLATE_1_0_BIT_NV = 1;
 
+typedef enum VkDirectDriverLoadingModeLUNARG {
+    VK_DIRECT_DRIVER_LOADING_MODE_EXCLUSIVE_LUNARG = 0,
+    VK_DIRECT_DRIVER_LOADING_MODE_INCLUSIVE_LUNARG = 1,
+    VK_DIRECT_DRIVER_LOADING_MODE_MAX_ENUM_LUNARG = 0x7FFFFFFF
+} VkDirectDriverLoadingModeLUNARG;
 typedef enum VkColorSpaceKHR {
     VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
     VK_COLORSPACE_SRGB_NONLINEAR_KHR = VK_COLOR_SPACE_SRGB_NONLINEAR_KHR,
@@ -5371,6 +5383,8 @@ typedef void (VKAPI_PTR *PFN_vkFreeFunction)(
     void*                                       pUserData,
     void*                                       pMemory);
 typedef void (VKAPI_PTR *PFN_vkVoidFunction)(void);
+typedef PFN_vkVoidFunction (VKAPI_PTR *PFN_vkGetInstanceProcAddr)(
+    VkInstance instance, const char* pName);
 typedef struct VkBaseOutStructure {
     VkStructureType   sType;
     struct  VkBaseOutStructure *  pNext;
@@ -7449,8 +7463,8 @@ typedef struct VkVideoDecodeH265PictureInfoEXT {
     VkStructureType   sType;
     const  void *         pNext;
     StdVideoDecodeH265PictureInfo *      pStdPictureInfo;
-    uint32_t                             sliceCount;
-    const  uint32_t *    pSliceOffsets;
+    uint32_t                             sliceSegmentCount;
+    const  uint32_t *    pSliceSegmentOffsets;
 } VkVideoDecodeH265PictureInfoEXT;
 
 #endif
@@ -8359,6 +8373,7 @@ typedef VkFlags64 VkMemoryDecompressionMethodFlagsNV;
 #define VkRenderingFlagsKHR VkRenderingFlags
 typedef VkFlags VkBuildMicromapFlagsEXT;
 typedef VkFlags VkMicromapCreateFlagsEXT;
+typedef VkFlags VkDirectDriverLoadingFlagsLUNARG;
 typedef VkFlags VkCompositeAlphaFlagsKHR;
 typedef VkFlags VkDisplayPlaneAlphaFlagsKHR;
 typedef VkFlags VkSurfaceTransformFlagsKHR;
@@ -13195,7 +13210,7 @@ typedef union VkDescriptorDataEXT {
     const  VkDescriptorAddressInfoEXT *        pStorageTexelBuffer;
     const  VkDescriptorAddressInfoEXT *              pUniformBuffer;
     const  VkDescriptorAddressInfoEXT *              pStorageBuffer;
-      VkDeviceAddress   accelerationStructure;
+    VkDeviceAddress   accelerationStructure;
 } VkDescriptorDataEXT;
 
 typedef struct VkDescriptorGetInfoEXT {
@@ -13810,6 +13825,27 @@ typedef struct VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV {
     VkBool32                                                                                           rayTracingInvocationReorder;
 } VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV;
 
+typedef struct VkDirectDriverLoadingInfoLUNARG {
+    VkStructureType   sType;
+    void *                                   pNext;
+    VkDirectDriverLoadingFlagsLUNARG                                               flags;
+    PFN_vkGetInstanceProcAddr                                pfnGetInstanceProcAddr;
+} VkDirectDriverLoadingInfoLUNARG;
+
+typedef struct VkDirectDriverLoadingListLUNARG {
+    VkStructureType   sType;
+    void *                  pNext;
+    VkDirectDriverLoadingModeLUNARG                               mode;
+    uint32_t                                                      driverCount;
+    const  VkDirectDriverLoadingInfoLUNARG *     pDrivers;
+} VkDirectDriverLoadingListLUNARG;
+
+typedef struct VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM {
+    VkStructureType   sType;
+    void *             pNext;
+    VkBool32                           multiviewPerViewViewports;
+} VkPhysicalDeviceMultiviewPerViewViewportsFeaturesQCOM;
+
 typedef VkBool32 (VKAPI_PTR *PFN_vkDebugUtilsMessengerCallbackEXT)(
     VkDebugUtilsMessageSeverityFlagBitsEXT           messageSeverity,
     VkDebugUtilsMessageTypeFlagsEXT                  messageTypes,
@@ -14282,6 +14318,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 
 #endif
 #define VK_KHR_zero_initialize_workgroup_memory 1
+#define VK_LUNARG_direct_driver_loading 1
 #if defined(VK_USE_PLATFORM_IOS_MVK)
 #define VK_MVK_ios_surface 1
 
@@ -14350,6 +14387,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #endif
 #define VK_QCOM_fragment_density_map_offset 1
 #define VK_QCOM_image_processing 1
+#define VK_QCOM_multiview_per_view_viewports 1
 #define VK_QCOM_render_pass_shader_resolve 1
 #define VK_QCOM_render_pass_store_ops 1
 #define VK_QCOM_render_pass_transform 1
@@ -15425,6 +15463,7 @@ typedef struct GladVulkanContext {
     unsigned KHR_xcb_surface : 1;
     unsigned KHR_xlib_surface : 1;
     unsigned KHR_zero_initialize_workgroup_memory : 1;
+    unsigned LUNARG_direct_driver_loading : 1;
     unsigned MVK_ios_surface : 1;
     unsigned MVK_macos_surface : 1;
     unsigned NN_vi_surface : 1;
@@ -15475,6 +15514,7 @@ typedef struct GladVulkanContext {
     unsigned NV_win32_keyed_mutex : 1;
     unsigned QCOM_fragment_density_map_offset : 1;
     unsigned QCOM_image_processing : 1;
+    unsigned QCOM_multiview_per_view_viewports : 1;
     unsigned QCOM_render_pass_shader_resolve : 1;
     unsigned QCOM_render_pass_store_ops : 1;
     unsigned QCOM_render_pass_transform : 1;
@@ -16548,6 +16588,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_KHR_xcb_surface (glad_vulkan_context.KHR_xcb_surface)
 #define GLAD_VK_KHR_xlib_surface (glad_vulkan_context.KHR_xlib_surface)
 #define GLAD_VK_KHR_zero_initialize_workgroup_memory (glad_vulkan_context.KHR_zero_initialize_workgroup_memory)
+#define GLAD_VK_LUNARG_direct_driver_loading (glad_vulkan_context.LUNARG_direct_driver_loading)
 #define GLAD_VK_MVK_ios_surface (glad_vulkan_context.MVK_ios_surface)
 #define GLAD_VK_MVK_macos_surface (glad_vulkan_context.MVK_macos_surface)
 #define GLAD_VK_NN_vi_surface (glad_vulkan_context.NN_vi_surface)
@@ -16598,6 +16639,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_NV_win32_keyed_mutex (glad_vulkan_context.NV_win32_keyed_mutex)
 #define GLAD_VK_QCOM_fragment_density_map_offset (glad_vulkan_context.QCOM_fragment_density_map_offset)
 #define GLAD_VK_QCOM_image_processing (glad_vulkan_context.QCOM_image_processing)
+#define GLAD_VK_QCOM_multiview_per_view_viewports (glad_vulkan_context.QCOM_multiview_per_view_viewports)
 #define GLAD_VK_QCOM_render_pass_shader_resolve (glad_vulkan_context.QCOM_render_pass_shader_resolve)
 #define GLAD_VK_QCOM_render_pass_store_ops (glad_vulkan_context.QCOM_render_pass_store_ops)
 #define GLAD_VK_QCOM_render_pass_transform (glad_vulkan_context.QCOM_render_pass_transform)
