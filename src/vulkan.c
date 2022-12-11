@@ -552,6 +552,10 @@ static void glad_vk_load_VK_EXT_shader_module_identifier(GladVulkanContext *cont
     context->GetShaderModuleCreateInfoIdentifierEXT = (PFN_vkGetShaderModuleCreateInfoIdentifierEXT) load(userptr, "vkGetShaderModuleCreateInfoIdentifierEXT");
     context->GetShaderModuleIdentifierEXT = (PFN_vkGetShaderModuleIdentifierEXT) load(userptr, "vkGetShaderModuleIdentifierEXT");
 }
+static void glad_vk_load_VK_EXT_swapchain_maintenance1(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_swapchain_maintenance1) return;
+    context->ReleaseSwapchainImagesEXT = (PFN_vkReleaseSwapchainImagesEXT) load(userptr, "vkReleaseSwapchainImagesEXT");
+}
 static void glad_vk_load_VK_EXT_tooling_info(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_tooling_info) return;
     context->GetPhysicalDeviceToolPropertiesEXT = (PFN_vkGetPhysicalDeviceToolPropertiesEXT) load(userptr, "vkGetPhysicalDeviceToolPropertiesEXT");
@@ -1767,7 +1771,9 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_shader_viewport_index_layer = glad_vk_has_extension("VK_EXT_shader_viewport_index_layer", extension_count, extensions);
     context->EXT_subgroup_size_control = glad_vk_has_extension("VK_EXT_subgroup_size_control", extension_count, extensions);
     context->EXT_subpass_merge_feedback = glad_vk_has_extension("VK_EXT_subpass_merge_feedback", extension_count, extensions);
+    context->EXT_surface_maintenance1 = glad_vk_has_extension("VK_EXT_surface_maintenance1", extension_count, extensions);
     context->EXT_swapchain_colorspace = glad_vk_has_extension("VK_EXT_swapchain_colorspace", extension_count, extensions);
+    context->EXT_swapchain_maintenance1 = glad_vk_has_extension("VK_EXT_swapchain_maintenance1", extension_count, extensions);
     context->EXT_texel_buffer_alignment = glad_vk_has_extension("VK_EXT_texel_buffer_alignment", extension_count, extensions);
     context->EXT_texture_compression_astc_hdr = glad_vk_has_extension("VK_EXT_texture_compression_astc_hdr", extension_count, extensions);
     context->EXT_tooling_info = glad_vk_has_extension("VK_EXT_tooling_info", extension_count, extensions);
@@ -2163,6 +2169,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_EXT_private_data(context, load, userptr);
     glad_vk_load_VK_EXT_sample_locations(context, load, userptr);
     glad_vk_load_VK_EXT_shader_module_identifier(context, load, userptr);
+    glad_vk_load_VK_EXT_swapchain_maintenance1(context, load, userptr);
     glad_vk_load_VK_EXT_tooling_info(context, load, userptr);
     glad_vk_load_VK_EXT_transform_feedback(context, load, userptr);
     glad_vk_load_VK_EXT_validation_cache(context, load, userptr);
@@ -2902,6 +2909,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkReleaseFullScreenExclusiveModeEXT",
     "vkReleasePerformanceConfigurationINTEL",
     "vkReleaseProfilingLockKHR",
+    "vkReleaseSwapchainImagesEXT",
     "vkResetCommandBuffer",
     "vkResetCommandPool",
     "vkResetDescriptorPool",
