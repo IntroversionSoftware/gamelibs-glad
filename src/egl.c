@@ -174,6 +174,10 @@ static void glad_egl_load_EGL_ANGLE_vulkan_image(GladEGLContext *context, GLADus
     if(!context->ANGLE_vulkan_image) return;
     context->ExportVkImageANGLE = (PFNEGLEXPORTVKIMAGEANGLEPROC) load(userptr, "eglExportVkImageANGLE");
 }
+static void glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->ANGLE_wait_until_work_scheduled) return;
+    context->WaitUntilWorkScheduledANGLE = (PFNEGLWAITUNTILWORKSCHEDULEDANGLEPROC) load(userptr, "eglWaitUntilWorkScheduledANGLE");
+}
 static void glad_egl_load_EGL_CHROMIUM_sync_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->CHROMIUM_sync_control) return;
     context->GetSyncValuesCHROMIUM = (PFNEGLGETSYNCVALUESCHROMIUMPROC) load(userptr, "eglGetSyncValuesCHROMIUM");
@@ -573,6 +577,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
     context->ANGLE_sync_control_rate = glad_egl_has_extension(extensions, "EGL_ANGLE_sync_control_rate");
     context->ANGLE_vulkan_display = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_display");
     context->ANGLE_vulkan_image = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_image");
+    context->ANGLE_wait_until_work_scheduled = glad_egl_has_extension(extensions, "EGL_ANGLE_wait_until_work_scheduled");
     context->ANGLE_window_fixed_size = glad_egl_has_extension(extensions, "EGL_ANGLE_window_fixed_size");
     context->ARM_image_format = glad_egl_has_extension(extensions, "EGL_ARM_image_format");
     context->ARM_implicit_external_sync = glad_egl_has_extension(extensions, "EGL_ARM_implicit_external_sync");
@@ -785,6 +790,7 @@ int gladLoadEGLContextUserPtr(GladEGLContext *context, EGLDisplay display, GLADu
     glad_egl_load_EGL_ANGLE_swap_with_frame_token(context, load, userptr);
     glad_egl_load_EGL_ANGLE_sync_control_rate(context, load, userptr);
     glad_egl_load_EGL_ANGLE_vulkan_image(context, load, userptr);
+    glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(context, load, userptr);
     glad_egl_load_EGL_CHROMIUM_sync_control(context, load, userptr);
     glad_egl_load_EGL_EXT_client_sync(context, load, userptr);
     glad_egl_load_EGL_EXT_compositor(context, load, userptr);
