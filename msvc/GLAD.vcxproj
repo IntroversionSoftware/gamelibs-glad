@@ -55,6 +55,13 @@
     <ClInclude Include="..\include\glad\egl.h" />
     <ClInclude Include="..\include\glad\gl.h" />
     <ClInclude Include="..\include\glad\glx.h" />
+    <ClInclude Include="..\include\glad\vk_video\vulkan_video_codecs_common.h" />
+    <ClInclude Include="..\include\glad\vk_video\vulkan_video_codec_h264std.h" />
+    <ClInclude Include="..\include\glad\vk_video\vulkan_video_codec_h264std_decode.h" />
+    <ClInclude Include="..\include\glad\vk_video\vulkan_video_codec_h264std_encode.h" />
+    <ClInclude Include="..\include\glad\vk_video\vulkan_video_codec_h265std.h" />
+    <ClInclude Include="..\include\glad\vk_video\vulkan_video_codec_h265std_decode.h" />
+    <ClInclude Include="..\include\glad\vk_video\vulkan_video_codec_h265std_encode.h" />
     <ClInclude Include="..\include\glad\vulkan.h" />
     <ClInclude Include="..\include\glad\wgl.h" />
     <ClInclude Include="..\include\KHR\khrplatform.h" />

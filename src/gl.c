@@ -7836,6 +7836,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->AMD_program_binary_Z400 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_AMD_program_binary_Z400");
     context->ANDROID_extension_pack_es31a = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANDROID_extension_pack_es31a");
     context->ANGLE_base_vertex_base_instance = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_base_vertex_base_instance");
+    context->ANGLE_clip_cull_distance = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_clip_cull_distance");
     context->ANGLE_copy_texture_3d = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_copy_texture_3d");
     context->ANGLE_depth_texture = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_depth_texture");
     context->ANGLE_framebuffer_blit = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_framebuffer_blit");

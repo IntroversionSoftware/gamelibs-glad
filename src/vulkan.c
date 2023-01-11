@@ -933,13 +933,10 @@ static void glad_vk_load_VK_KHR_timeline_semaphore(GladVulkanContext *context, G
     context->SignalSemaphoreKHR = (PFN_vkSignalSemaphoreKHR) load(userptr, "vkSignalSemaphoreKHR");
     context->WaitSemaphoresKHR = (PFN_vkWaitSemaphoresKHR) load(userptr, "vkWaitSemaphoresKHR");
 }
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
 static void glad_vk_load_VK_KHR_video_decode_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_video_decode_queue) return;
     context->CmdDecodeVideoKHR = (PFN_vkCmdDecodeVideoKHR) load(userptr, "vkCmdDecodeVideoKHR");
 }
-
-#endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
 static void glad_vk_load_VK_KHR_video_encode_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_video_encode_queue) return;
@@ -947,7 +944,6 @@ static void glad_vk_load_VK_KHR_video_encode_queue(GladVulkanContext *context, G
 }
 
 #endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
 static void glad_vk_load_VK_KHR_video_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_video_queue) return;
     context->BindVideoSessionMemoryKHR = (PFN_vkBindVideoSessionMemoryKHR) load(userptr, "vkBindVideoSessionMemoryKHR");
@@ -963,8 +959,6 @@ static void glad_vk_load_VK_KHR_video_queue(GladVulkanContext *context, GLADuser
     context->GetVideoSessionMemoryRequirementsKHR = (PFN_vkGetVideoSessionMemoryRequirementsKHR) load(userptr, "vkGetVideoSessionMemoryRequirementsKHR");
     context->UpdateVideoSessionParametersKHR = (PFN_vkUpdateVideoSessionParametersKHR) load(userptr, "vkUpdateVideoSessionParametersKHR");
 }
-
-#endif
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
 static void glad_vk_load_VK_KHR_wayland_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_wayland_surface) return;
@@ -1167,23 +1161,14 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->BindBufferMemory2KHR == NULL && context->BindBufferMemory2 != NULL) context->BindBufferMemory2KHR = (PFN_vkBindBufferMemory2KHR)context->BindBufferMemory2;
     if (context->BindImageMemory2 == NULL && context->BindImageMemory2KHR != NULL) context->BindImageMemory2 = (PFN_vkBindImageMemory2)context->BindImageMemory2KHR;
     if (context->BindImageMemory2KHR == NULL && context->BindImageMemory2 != NULL) context->BindImageMemory2KHR = (PFN_vkBindImageMemory2KHR)context->BindImageMemory2;
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
     if (context->CmdBeginRendering == NULL && context->CmdBeginRenderingKHR != NULL) context->CmdBeginRendering = (PFN_vkCmdBeginRendering)context->CmdBeginRenderingKHR;
     if (context->CmdBeginRenderingKHR == NULL && context->CmdBeginRendering != NULL) context->CmdBeginRenderingKHR = (PFN_vkCmdBeginRenderingKHR)context->CmdBeginRendering;
     if (context->CmdBeginRenderPass2 == NULL && context->CmdBeginRenderPass2KHR != NULL) context->CmdBeginRenderPass2 = (PFN_vkCmdBeginRenderPass2)context->CmdBeginRenderPass2KHR;
     if (context->CmdBeginRenderPass2KHR == NULL && context->CmdBeginRenderPass2 != NULL) context->CmdBeginRenderPass2KHR = (PFN_vkCmdBeginRenderPass2KHR)context->CmdBeginRenderPass2;
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
     if (context->CmdBindVertexBuffers2 == NULL && context->CmdBindVertexBuffers2EXT != NULL) context->CmdBindVertexBuffers2 = (PFN_vkCmdBindVertexBuffers2)context->CmdBindVertexBuffers2EXT;
     if (context->CmdBindVertexBuffers2EXT == NULL && context->CmdBindVertexBuffers2 != NULL) context->CmdBindVertexBuffers2EXT = (PFN_vkCmdBindVertexBuffers2EXT)context->CmdBindVertexBuffers2;
     if (context->CmdBlitImage2 == NULL && context->CmdBlitImage2KHR != NULL) context->CmdBlitImage2 = (PFN_vkCmdBlitImage2)context->CmdBlitImage2KHR;
     if (context->CmdBlitImage2KHR == NULL && context->CmdBlitImage2 != NULL) context->CmdBlitImage2KHR = (PFN_vkCmdBlitImage2KHR)context->CmdBlitImage2;
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
     if (context->CmdCopyBuffer2 == NULL && context->CmdCopyBuffer2KHR != NULL) context->CmdCopyBuffer2 = (PFN_vkCmdCopyBuffer2)context->CmdCopyBuffer2KHR;
     if (context->CmdCopyBuffer2KHR == NULL && context->CmdCopyBuffer2 != NULL) context->CmdCopyBuffer2KHR = (PFN_vkCmdCopyBuffer2KHR)context->CmdCopyBuffer2;
     if (context->CmdCopyBufferToImage2 == NULL && context->CmdCopyBufferToImage2KHR != NULL) context->CmdCopyBufferToImage2 = (PFN_vkCmdCopyBufferToImage2)context->CmdCopyBufferToImage2KHR;
@@ -1192,9 +1177,6 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->CmdCopyImage2KHR == NULL && context->CmdCopyImage2 != NULL) context->CmdCopyImage2KHR = (PFN_vkCmdCopyImage2KHR)context->CmdCopyImage2;
     if (context->CmdCopyImageToBuffer2 == NULL && context->CmdCopyImageToBuffer2KHR != NULL) context->CmdCopyImageToBuffer2 = (PFN_vkCmdCopyImageToBuffer2)context->CmdCopyImageToBuffer2KHR;
     if (context->CmdCopyImageToBuffer2KHR == NULL && context->CmdCopyImageToBuffer2 != NULL) context->CmdCopyImageToBuffer2KHR = (PFN_vkCmdCopyImageToBuffer2KHR)context->CmdCopyImageToBuffer2;
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
     if (context->CmdDispatchBase == NULL && context->CmdDispatchBaseKHR != NULL) context->CmdDispatchBase = (PFN_vkCmdDispatchBase)context->CmdDispatchBaseKHR;
     if (context->CmdDispatchBaseKHR == NULL && context->CmdDispatchBase != NULL) context->CmdDispatchBaseKHR = (PFN_vkCmdDispatchBaseKHR)context->CmdDispatchBase;
     if (context->CmdDrawIndexedIndirectCount == NULL && context->CmdDrawIndexedIndirectCountAMD != NULL) context->CmdDrawIndexedIndirectCount = (PFN_vkCmdDrawIndexedIndirectCount)context->CmdDrawIndexedIndirectCountAMD;
@@ -1216,9 +1198,6 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->CmdEndRenderingKHR == NULL && context->CmdEndRendering != NULL) context->CmdEndRenderingKHR = (PFN_vkCmdEndRenderingKHR)context->CmdEndRendering;
     if (context->CmdEndRenderPass2 == NULL && context->CmdEndRenderPass2KHR != NULL) context->CmdEndRenderPass2 = (PFN_vkCmdEndRenderPass2)context->CmdEndRenderPass2KHR;
     if (context->CmdEndRenderPass2KHR == NULL && context->CmdEndRenderPass2 != NULL) context->CmdEndRenderPass2KHR = (PFN_vkCmdEndRenderPass2KHR)context->CmdEndRenderPass2;
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
     if (context->CmdNextSubpass2 == NULL && context->CmdNextSubpass2KHR != NULL) context->CmdNextSubpass2 = (PFN_vkCmdNextSubpass2)context->CmdNextSubpass2KHR;
     if (context->CmdNextSubpass2KHR == NULL && context->CmdNextSubpass2 != NULL) context->CmdNextSubpass2KHR = (PFN_vkCmdNextSubpass2KHR)context->CmdNextSubpass2;
     if (context->CmdPipelineBarrier2 == NULL && context->CmdPipelineBarrier2KHR != NULL) context->CmdPipelineBarrier2 = (PFN_vkCmdPipelineBarrier2)context->CmdPipelineBarrier2KHR;
@@ -1298,12 +1277,6 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
 #if defined(VK_USE_PLATFORM_GGP)
 
 #endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
 #if defined(VK_USE_PLATFORM_VI_NN)
 
 #endif
@@ -1328,12 +1301,6 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->DestroyPrivateDataSlotEXT == NULL && context->DestroyPrivateDataSlot != NULL) context->DestroyPrivateDataSlotEXT = (PFN_vkDestroyPrivateDataSlotEXT)context->DestroyPrivateDataSlot;
     if (context->DestroySamplerYcbcrConversion == NULL && context->DestroySamplerYcbcrConversionKHR != NULL) context->DestroySamplerYcbcrConversion = (PFN_vkDestroySamplerYcbcrConversion)context->DestroySamplerYcbcrConversionKHR;
     if (context->DestroySamplerYcbcrConversionKHR == NULL && context->DestroySamplerYcbcrConversion != NULL) context->DestroySamplerYcbcrConversionKHR = (PFN_vkDestroySamplerYcbcrConversionKHR)context->DestroySamplerYcbcrConversion;
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
     if (context->EnumeratePhysicalDeviceGroups == NULL && context->EnumeratePhysicalDeviceGroupsKHR != NULL) context->EnumeratePhysicalDeviceGroups = (PFN_vkEnumeratePhysicalDeviceGroups)context->EnumeratePhysicalDeviceGroupsKHR;
     if (context->EnumeratePhysicalDeviceGroupsKHR == NULL && context->EnumeratePhysicalDeviceGroups != NULL) context->EnumeratePhysicalDeviceGroupsKHR = (PFN_vkEnumeratePhysicalDeviceGroupsKHR)context->EnumeratePhysicalDeviceGroups;
 #if defined(VK_USE_PLATFORM_METAL_EXT)
@@ -1426,12 +1393,6 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
 #endif
     if (context->GetPhysicalDeviceToolProperties == NULL && context->GetPhysicalDeviceToolPropertiesEXT != NULL) context->GetPhysicalDeviceToolProperties = (PFN_vkGetPhysicalDeviceToolProperties)context->GetPhysicalDeviceToolPropertiesEXT;
     if (context->GetPhysicalDeviceToolPropertiesEXT == NULL && context->GetPhysicalDeviceToolProperties != NULL) context->GetPhysicalDeviceToolPropertiesEXT = (PFN_vkGetPhysicalDeviceToolPropertiesEXT)context->GetPhysicalDeviceToolProperties;
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
 
 #endif
@@ -1457,9 +1418,6 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
 
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
-
-#endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
 
 #endif
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -1495,9 +1453,6 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->TrimCommandPoolKHR == NULL && context->TrimCommandPool != NULL) context->TrimCommandPoolKHR = (PFN_vkTrimCommandPoolKHR)context->TrimCommandPool;
     if (context->UpdateDescriptorSetWithTemplate == NULL && context->UpdateDescriptorSetWithTemplateKHR != NULL) context->UpdateDescriptorSetWithTemplate = (PFN_vkUpdateDescriptorSetWithTemplate)context->UpdateDescriptorSetWithTemplateKHR;
     if (context->UpdateDescriptorSetWithTemplateKHR == NULL && context->UpdateDescriptorSetWithTemplate != NULL) context->UpdateDescriptorSetWithTemplateKHR = (PFN_vkUpdateDescriptorSetWithTemplateKHR)context->UpdateDescriptorSetWithTemplate;
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
     if (context->WaitSemaphores == NULL && context->WaitSemaphoresKHR != NULL) context->WaitSemaphores = (PFN_vkWaitSemaphores)context->WaitSemaphoresKHR;
     if (context->WaitSemaphoresKHR == NULL && context->WaitSemaphores != NULL) context->WaitSemaphoresKHR = (PFN_vkWaitSemaphoresKHR)context->WaitSemaphores;
 }
@@ -1784,14 +1739,6 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_vertex_attribute_divisor = glad_vk_has_extension("VK_EXT_vertex_attribute_divisor", extension_count, extensions);
     context->EXT_vertex_input_dynamic_state = glad_vk_has_extension("VK_EXT_vertex_input_dynamic_state", extension_count, extensions);
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-    context->EXT_video_decode_h264 = glad_vk_has_extension("VK_EXT_video_decode_h264", extension_count, extensions);
-
-#endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-    context->EXT_video_decode_h265 = glad_vk_has_extension("VK_EXT_video_decode_h265", extension_count, extensions);
-
-#endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
     context->EXT_video_encode_h264 = glad_vk_has_extension("VK_EXT_video_encode_h264", extension_count, extensions);
 
 #endif
@@ -1934,18 +1881,14 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->KHR_timeline_semaphore = glad_vk_has_extension("VK_KHR_timeline_semaphore", extension_count, extensions);
     context->KHR_uniform_buffer_standard_layout = glad_vk_has_extension("VK_KHR_uniform_buffer_standard_layout", extension_count, extensions);
     context->KHR_variable_pointers = glad_vk_has_extension("VK_KHR_variable_pointers", extension_count, extensions);
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
+    context->KHR_video_decode_h264 = glad_vk_has_extension("VK_KHR_video_decode_h264", extension_count, extensions);
+    context->KHR_video_decode_h265 = glad_vk_has_extension("VK_KHR_video_decode_h265", extension_count, extensions);
     context->KHR_video_decode_queue = glad_vk_has_extension("VK_KHR_video_decode_queue", extension_count, extensions);
-
-#endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
     context->KHR_video_encode_queue = glad_vk_has_extension("VK_KHR_video_encode_queue", extension_count, extensions);
 
 #endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
     context->KHR_video_queue = glad_vk_has_extension("VK_KHR_video_queue", extension_count, extensions);
-
-#endif
     context->KHR_vulkan_memory_model = glad_vk_has_extension("VK_KHR_vulkan_memory_model", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
     context->KHR_wayland_surface = glad_vk_has_extension("VK_KHR_wayland_surface", extension_count, extensions);
@@ -2253,18 +2196,12 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_KHR_swapchain(context, load, userptr);
     glad_vk_load_VK_KHR_synchronization2(context, load, userptr);
     glad_vk_load_VK_KHR_timeline_semaphore(context, load, userptr);
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
     glad_vk_load_VK_KHR_video_decode_queue(context, load, userptr);
-
-#endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
     glad_vk_load_VK_KHR_video_encode_queue(context, load, userptr);
 
 #endif
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
     glad_vk_load_VK_KHR_video_queue(context, load, userptr);
-
-#endif
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
     glad_vk_load_VK_KHR_wayland_surface(context, load, userptr);
 
