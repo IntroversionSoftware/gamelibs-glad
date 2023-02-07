@@ -626,6 +626,11 @@ static void glad_vk_load_VK_GOOGLE_display_timing(GladVulkanContext *context, GL
     context->GetPastPresentationTimingGOOGLE = (PFN_vkGetPastPresentationTimingGOOGLE) load(userptr, "vkGetPastPresentationTimingGOOGLE");
     context->GetRefreshCycleDurationGOOGLE = (PFN_vkGetRefreshCycleDurationGOOGLE) load(userptr, "vkGetRefreshCycleDurationGOOGLE");
 }
+static void glad_vk_load_VK_HUAWEI_cluster_culling_shader(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->HUAWEI_cluster_culling_shader) return;
+    context->CmdDrawClusterHUAWEI = (PFN_vkCmdDrawClusterHUAWEI) load(userptr, "vkCmdDrawClusterHUAWEI");
+    context->CmdDrawClusterIndirectHUAWEI = (PFN_vkCmdDrawClusterIndirectHUAWEI) load(userptr, "vkCmdDrawClusterIndirectHUAWEI");
+}
 static void glad_vk_load_VK_HUAWEI_invocation_mask(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->HUAWEI_invocation_mask) return;
     context->CmdBindInvocationMaskHUAWEI = (PFN_vkCmdBindInvocationMaskHUAWEI) load(userptr, "vkCmdBindInvocationMaskHUAWEI");
@@ -1699,6 +1704,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_physical_device_drm = glad_vk_has_extension("VK_EXT_physical_device_drm", extension_count, extensions);
     context->EXT_pipeline_creation_cache_control = glad_vk_has_extension("VK_EXT_pipeline_creation_cache_control", extension_count, extensions);
     context->EXT_pipeline_creation_feedback = glad_vk_has_extension("VK_EXT_pipeline_creation_feedback", extension_count, extensions);
+    context->EXT_pipeline_library_group_handles = glad_vk_has_extension("VK_EXT_pipeline_library_group_handles", extension_count, extensions);
     context->EXT_pipeline_properties = glad_vk_has_extension("VK_EXT_pipeline_properties", extension_count, extensions);
     context->EXT_pipeline_protected_access = glad_vk_has_extension("VK_EXT_pipeline_protected_access", extension_count, extensions);
     context->EXT_pipeline_robustness = glad_vk_has_extension("VK_EXT_pipeline_robustness", extension_count, extensions);
@@ -1777,6 +1783,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->GOOGLE_hlsl_functionality1 = glad_vk_has_extension("VK_GOOGLE_hlsl_functionality1", extension_count, extensions);
     context->GOOGLE_surfaceless_query = glad_vk_has_extension("VK_GOOGLE_surfaceless_query", extension_count, extensions);
     context->GOOGLE_user_type = glad_vk_has_extension("VK_GOOGLE_user_type", extension_count, extensions);
+    context->HUAWEI_cluster_culling_shader = glad_vk_has_extension("VK_HUAWEI_cluster_culling_shader", extension_count, extensions);
     context->HUAWEI_invocation_mask = glad_vk_has_extension("VK_HUAWEI_invocation_mask", extension_count, extensions);
     context->HUAWEI_subpass_shading = glad_vk_has_extension("VK_HUAWEI_subpass_shading", extension_count, extensions);
     context->IMG_filter_cubic = glad_vk_has_extension("VK_IMG_filter_cubic", extension_count, extensions);
@@ -2138,6 +2145,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
 
 #endif
     glad_vk_load_VK_GOOGLE_display_timing(context, load, userptr);
+    glad_vk_load_VK_HUAWEI_cluster_culling_shader(context, load, userptr);
     glad_vk_load_VK_HUAWEI_invocation_mask(context, load, userptr);
     glad_vk_load_VK_HUAWEI_subpass_shading(context, load, userptr);
     glad_vk_load_VK_INTEL_performance_query(context, load, userptr);
@@ -2451,6 +2459,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdDispatchBaseKHR",
     "vkCmdDispatchIndirect",
     "vkCmdDraw",
+    "vkCmdDrawClusterHUAWEI",
+    "vkCmdDrawClusterIndirectHUAWEI",
     "vkCmdDrawIndexed",
     "vkCmdDrawIndexedIndirect",
     "vkCmdDrawIndexedIndirectCount",
