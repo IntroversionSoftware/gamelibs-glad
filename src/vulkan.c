@@ -378,6 +378,8 @@ static void glad_vk_load_VK_EXT_directfb_surface(GladVulkanContext *context, GLA
 static void glad_vk_load_VK_EXT_discard_rectangles(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_discard_rectangles) return;
     context->CmdSetDiscardRectangleEXT = (PFN_vkCmdSetDiscardRectangleEXT) load(userptr, "vkCmdSetDiscardRectangleEXT");
+    context->CmdSetDiscardRectangleEnableEXT = (PFN_vkCmdSetDiscardRectangleEnableEXT) load(userptr, "vkCmdSetDiscardRectangleEnableEXT");
+    context->CmdSetDiscardRectangleModeEXT = (PFN_vkCmdSetDiscardRectangleModeEXT) load(userptr, "vkCmdSetDiscardRectangleModeEXT");
 }
 static void glad_vk_load_VK_EXT_display_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_display_control) return;
@@ -1124,6 +1126,7 @@ static void glad_vk_load_VK_NV_ray_tracing(GladVulkanContext *context, GLADuserp
 }
 static void glad_vk_load_VK_NV_scissor_exclusive(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_scissor_exclusive) return;
+    context->CmdSetExclusiveScissorEnableNV = (PFN_vkCmdSetExclusiveScissorEnableNV) load(userptr, "vkCmdSetExclusiveScissorEnableNV");
     context->CmdSetExclusiveScissorNV = (PFN_vkCmdSetExclusiveScissorNV) load(userptr, "vkCmdSetExclusiveScissorNV");
 }
 static void glad_vk_load_VK_NV_shading_rate_image(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1617,6 +1620,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 #endif
     context->ARM_rasterization_order_attachment_access = glad_vk_has_extension("VK_ARM_rasterization_order_attachment_access", extension_count, extensions);
     context->ARM_shader_core_builtins = glad_vk_has_extension("VK_ARM_shader_core_builtins", extension_count, extensions);
+    context->ARM_shader_core_properties = glad_vk_has_extension("VK_ARM_shader_core_properties", extension_count, extensions);
     context->EXT_4444_formats = glad_vk_has_extension("VK_EXT_4444_formats", extension_count, extensions);
     context->EXT_acquire_drm_display = glad_vk_has_extension("VK_EXT_acquire_drm_display", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_XLIB_XRANDR_EXT)
@@ -1677,6 +1681,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_image_compression_control_swapchain = glad_vk_has_extension("VK_EXT_image_compression_control_swapchain", extension_count, extensions);
     context->EXT_image_drm_format_modifier = glad_vk_has_extension("VK_EXT_image_drm_format_modifier", extension_count, extensions);
     context->EXT_image_robustness = glad_vk_has_extension("VK_EXT_image_robustness", extension_count, extensions);
+    context->EXT_image_sliced_view_of_3d = glad_vk_has_extension("VK_EXT_image_sliced_view_of_3d", extension_count, extensions);
     context->EXT_image_view_min_lod = glad_vk_has_extension("VK_EXT_image_view_min_lod", extension_count, extensions);
     context->EXT_index_type_uint8 = glad_vk_has_extension("VK_EXT_index_type_uint8", extension_count, extensions);
     context->EXT_inline_uniform_block = glad_vk_has_extension("VK_EXT_inline_uniform_block", extension_count, extensions);
@@ -1988,6 +1993,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 #endif
     context->QCOM_fragment_density_map_offset = glad_vk_has_extension("VK_QCOM_fragment_density_map_offset", extension_count, extensions);
     context->QCOM_image_processing = glad_vk_has_extension("VK_QCOM_image_processing", extension_count, extensions);
+    context->QCOM_multiview_per_view_render_areas = glad_vk_has_extension("VK_QCOM_multiview_per_view_render_areas", extension_count, extensions);
     context->QCOM_multiview_per_view_viewports = glad_vk_has_extension("VK_QCOM_multiview_per_view_viewports", extension_count, extensions);
     context->QCOM_render_pass_shader_resolve = glad_vk_has_extension("VK_QCOM_render_pass_shader_resolve", extension_count, extensions);
     context->QCOM_render_pass_store_ops = glad_vk_has_extension("VK_QCOM_render_pass_store_ops", extension_count, extensions);
@@ -2551,9 +2557,12 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdSetDeviceMask",
     "vkCmdSetDeviceMaskKHR",
     "vkCmdSetDiscardRectangleEXT",
+    "vkCmdSetDiscardRectangleEnableEXT",
+    "vkCmdSetDiscardRectangleModeEXT",
     "vkCmdSetEvent",
     "vkCmdSetEvent2",
     "vkCmdSetEvent2KHR",
+    "vkCmdSetExclusiveScissorEnableNV",
     "vkCmdSetExclusiveScissorNV",
     "vkCmdSetExtraPrimitiveOverestimationSizeEXT",
     "vkCmdSetFragmentShadingRateEnumNV",
