@@ -5,7 +5,7 @@
  *
  * Generator: C/C++
  * Specification: vk
- * Extensions: 319
+ * Extensions: 324
  *
  * APIs:
  *  - vulkan=1.3
@@ -20,7 +20,7 @@
  *  - ON_DEMAND = False
  *
  * Commandline:
- *    --merge --api='vulkan=1.3' --extensions='VK_AMD_buffer_marker,VK_AMD_device_coherent_memory,VK_AMD_display_native_hdr,VK_AMD_draw_indirect_count,VK_AMD_gcn_shader,VK_AMD_gpu_shader_half_float,VK_AMD_gpu_shader_int16,VK_AMD_memory_overallocation_behavior,VK_AMD_mixed_attachment_samples,VK_AMD_negative_viewport_height,VK_AMD_pipeline_compiler_control,VK_AMD_rasterization_order,VK_AMD_shader_ballot,VK_AMD_shader_core_properties,VK_AMD_shader_core_properties2,VK_AMD_shader_early_and_late_fragment_tests,VK_AMD_shader_explicit_vertex_parameter,VK_AMD_shader_fragment_mask,VK_AMD_shader_image_load_store_lod,VK_AMD_shader_info,VK_AMD_shader_trinary_minmax,VK_AMD_texture_gather_bias_lod,VK_ANDROID_external_memory_android_hardware_buffer,VK_ARM_rasterization_order_attachment_access,VK_ARM_shader_core_builtins,VK_ARM_shader_core_properties,VK_EXT_4444_formats,VK_EXT_acquire_drm_display,VK_EXT_acquire_xlib_display,VK_EXT_astc_decode_mode,VK_EXT_attachment_feedback_loop_layout,VK_EXT_blend_operation_advanced,VK_EXT_border_color_swizzle,VK_EXT_buffer_device_address,VK_EXT_calibrated_timestamps,VK_EXT_color_write_enable,VK_EXT_conditional_rendering,VK_EXT_conservative_rasterization,VK_EXT_custom_border_color,VK_EXT_debug_marker,VK_EXT_debug_report,VK_EXT_debug_utils,VK_EXT_depth_clamp_zero_one,VK_EXT_depth_clip_control,VK_EXT_depth_clip_enable,VK_EXT_depth_range_unrestricted,VK_EXT_descriptor_buffer,VK_EXT_descriptor_indexing,VK_EXT_device_address_binding_report,VK_EXT_device_fault,VK_EXT_device_memory_report,VK_EXT_direct_mode_display,VK_EXT_directfb_surface,VK_EXT_discard_rectangles,VK_EXT_display_control,VK_EXT_display_surface_counter,VK_EXT_extended_dynamic_state,VK_EXT_extended_dynamic_state2,VK_EXT_extended_dynamic_state3,VK_EXT_external_memory_dma_buf,VK_EXT_external_memory_host,VK_EXT_filter_cubic,VK_EXT_fragment_density_map,VK_EXT_fragment_density_map2,VK_EXT_fragment_shader_interlock,VK_EXT_full_screen_exclusive,VK_EXT_global_priority,VK_EXT_global_priority_query,VK_EXT_graphics_pipeline_library,VK_EXT_hdr_metadata,VK_EXT_headless_surface,VK_EXT_host_query_reset,VK_EXT_image_2d_view_of_3d,VK_EXT_image_compression_control,VK_EXT_image_compression_control_swapchain,VK_EXT_image_drm_format_modifier,VK_EXT_image_robustness,VK_EXT_image_sliced_view_of_3d,VK_EXT_image_view_min_lod,VK_EXT_index_type_uint8,VK_EXT_inline_uniform_block,VK_EXT_legacy_dithering,VK_EXT_line_rasterization,VK_EXT_load_store_op_none,VK_EXT_memory_budget,VK_EXT_memory_priority,VK_EXT_mesh_shader,VK_EXT_metal_objects,VK_EXT_metal_surface,VK_EXT_multi_draw,VK_EXT_multisampled_render_to_single_sampled,VK_EXT_mutable_descriptor_type,VK_EXT_non_seamless_cube_map,VK_EXT_opacity_micromap,VK_EXT_pageable_device_local_memory,VK_EXT_pci_bus_info,VK_EXT_physical_device_drm,VK_EXT_pipeline_creation_cache_control,VK_EXT_pipeline_creation_feedback,VK_EXT_pipeline_library_group_handles,VK_EXT_pipeline_properties,VK_EXT_pipeline_protected_access,VK_EXT_pipeline_robustness,VK_EXT_post_depth_coverage,VK_EXT_primitive_topology_list_restart,VK_EXT_primitives_generated_query,VK_EXT_private_data,VK_EXT_provoking_vertex,VK_EXT_queue_family_foreign,VK_EXT_rasterization_order_attachment_access,VK_EXT_rgba10x6_formats,VK_EXT_robustness2,VK_EXT_sample_locations,VK_EXT_sampler_filter_minmax,VK_EXT_scalar_block_layout,VK_EXT_separate_stencil_usage,VK_EXT_shader_atomic_float,VK_EXT_shader_atomic_float2,VK_EXT_shader_demote_to_helper_invocation,VK_EXT_shader_image_atomic_int64,VK_EXT_shader_module_identifier,VK_EXT_shader_stencil_export,VK_EXT_shader_subgroup_ballot,VK_EXT_shader_subgroup_vote,VK_EXT_shader_viewport_index_layer,VK_EXT_subgroup_size_control,VK_EXT_subpass_merge_feedback,VK_EXT_surface_maintenance1,VK_EXT_swapchain_colorspace,VK_EXT_swapchain_maintenance1,VK_EXT_texel_buffer_alignment,VK_EXT_texture_compression_astc_hdr,VK_EXT_tooling_info,VK_EXT_transform_feedback,VK_EXT_validation_cache,VK_EXT_validation_features,VK_EXT_validation_flags,VK_EXT_vertex_attribute_divisor,VK_EXT_vertex_input_dynamic_state,VK_EXT_video_encode_h264,VK_EXT_video_encode_h265,VK_EXT_ycbcr_2plane_444_formats,VK_EXT_ycbcr_image_arrays,VK_FUCHSIA_buffer_collection,VK_FUCHSIA_external_memory,VK_FUCHSIA_external_semaphore,VK_FUCHSIA_imagepipe_surface,VK_GGP_frame_token,VK_GGP_stream_descriptor_surface,VK_GOOGLE_decorate_string,VK_GOOGLE_display_timing,VK_GOOGLE_hlsl_functionality1,VK_GOOGLE_surfaceless_query,VK_GOOGLE_user_type,VK_HUAWEI_cluster_culling_shader,VK_HUAWEI_invocation_mask,VK_HUAWEI_subpass_shading,VK_IMG_filter_cubic,VK_IMG_format_pvrtc,VK_INTEL_performance_query,VK_INTEL_shader_integer_functions2,VK_KHR_16bit_storage,VK_KHR_8bit_storage,VK_KHR_acceleration_structure,VK_KHR_android_surface,VK_KHR_bind_memory2,VK_KHR_buffer_device_address,VK_KHR_copy_commands2,VK_KHR_create_renderpass2,VK_KHR_dedicated_allocation,VK_KHR_deferred_host_operations,VK_KHR_depth_stencil_resolve,VK_KHR_descriptor_update_template,VK_KHR_device_group,VK_KHR_device_group_creation,VK_KHR_display,VK_KHR_display_swapchain,VK_KHR_draw_indirect_count,VK_KHR_driver_properties,VK_KHR_dynamic_rendering,VK_KHR_external_fence,VK_KHR_external_fence_capabilities,VK_KHR_external_fence_fd,VK_KHR_external_fence_win32,VK_KHR_external_memory,VK_KHR_external_memory_capabilities,VK_KHR_external_memory_fd,VK_KHR_external_memory_win32,VK_KHR_external_semaphore,VK_KHR_external_semaphore_capabilities,VK_KHR_external_semaphore_fd,VK_KHR_external_semaphore_win32,VK_KHR_format_feature_flags2,VK_KHR_fragment_shader_barycentric,VK_KHR_fragment_shading_rate,VK_KHR_get_display_properties2,VK_KHR_get_memory_requirements2,VK_KHR_get_physical_device_properties2,VK_KHR_get_surface_capabilities2,VK_KHR_global_priority,VK_KHR_image_format_list,VK_KHR_imageless_framebuffer,VK_KHR_incremental_present,VK_KHR_maintenance1,VK_KHR_maintenance2,VK_KHR_maintenance3,VK_KHR_maintenance4,VK_KHR_multiview,VK_KHR_performance_query,VK_KHR_pipeline_executable_properties,VK_KHR_pipeline_library,VK_KHR_portability_enumeration,VK_KHR_portability_subset,VK_KHR_present_id,VK_KHR_present_wait,VK_KHR_push_descriptor,VK_KHR_ray_query,VK_KHR_ray_tracing_maintenance1,VK_KHR_ray_tracing_pipeline,VK_KHR_relaxed_block_layout,VK_KHR_sampler_mirror_clamp_to_edge,VK_KHR_sampler_ycbcr_conversion,VK_KHR_separate_depth_stencil_layouts,VK_KHR_shader_atomic_int64,VK_KHR_shader_clock,VK_KHR_shader_draw_parameters,VK_KHR_shader_float16_int8,VK_KHR_shader_float_controls,VK_KHR_shader_integer_dot_product,VK_KHR_shader_non_semantic_info,VK_KHR_shader_subgroup_extended_types,VK_KHR_shader_subgroup_uniform_control_flow,VK_KHR_shader_terminate_invocation,VK_KHR_shared_presentable_image,VK_KHR_spirv_1_4,VK_KHR_storage_buffer_storage_class,VK_KHR_surface,VK_KHR_surface_protected_capabilities,VK_KHR_swapchain,VK_KHR_swapchain_mutable_format,VK_KHR_synchronization2,VK_KHR_timeline_semaphore,VK_KHR_uniform_buffer_standard_layout,VK_KHR_variable_pointers,VK_KHR_video_decode_h264,VK_KHR_video_decode_h265,VK_KHR_video_decode_queue,VK_KHR_video_encode_queue,VK_KHR_video_queue,VK_KHR_vulkan_memory_model,VK_KHR_wayland_surface,VK_KHR_win32_keyed_mutex,VK_KHR_win32_surface,VK_KHR_workgroup_memory_explicit_layout,VK_KHR_xcb_surface,VK_KHR_xlib_surface,VK_KHR_zero_initialize_workgroup_memory,VK_LUNARG_direct_driver_loading,VK_MVK_ios_surface,VK_MVK_macos_surface,VK_NN_vi_surface,VK_NVX_binary_import,VK_NVX_image_view_handle,VK_NVX_multiview_per_view_attributes,VK_NV_acquire_winrt_display,VK_NV_clip_space_w_scaling,VK_NV_compute_shader_derivatives,VK_NV_cooperative_matrix,VK_NV_copy_memory_indirect,VK_NV_corner_sampled_image,VK_NV_coverage_reduction_mode,VK_NV_dedicated_allocation,VK_NV_dedicated_allocation_image_aliasing,VK_NV_device_diagnostic_checkpoints,VK_NV_device_diagnostics_config,VK_NV_device_generated_commands,VK_NV_external_memory,VK_NV_external_memory_capabilities,VK_NV_external_memory_rdma,VK_NV_external_memory_win32,VK_NV_fill_rectangle,VK_NV_fragment_coverage_to_color,VK_NV_fragment_shader_barycentric,VK_NV_fragment_shading_rate_enums,VK_NV_framebuffer_mixed_samples,VK_NV_geometry_shader_passthrough,VK_NV_glsl_shader,VK_NV_inherited_viewport_scissor,VK_NV_linear_color_attachment,VK_NV_memory_decompression,VK_NV_mesh_shader,VK_NV_optical_flow,VK_NV_present_barrier,VK_NV_ray_tracing,VK_NV_ray_tracing_invocation_reorder,VK_NV_ray_tracing_motion_blur,VK_NV_representative_fragment_test,VK_NV_sample_mask_override_coverage,VK_NV_scissor_exclusive,VK_NV_shader_image_footprint,VK_NV_shader_sm_builtins,VK_NV_shader_subgroup_partitioned,VK_NV_shading_rate_image,VK_NV_viewport_array2,VK_NV_viewport_swizzle,VK_NV_win32_keyed_mutex,VK_QCOM_fragment_density_map_offset,VK_QCOM_image_processing,VK_QCOM_multiview_per_view_render_areas,VK_QCOM_multiview_per_view_viewports,VK_QCOM_render_pass_shader_resolve,VK_QCOM_render_pass_store_ops,VK_QCOM_render_pass_transform,VK_QCOM_rotated_copy_commands,VK_QCOM_tile_properties,VK_QNX_screen_surface,VK_SEC_amigo_profiling,VK_VALVE_descriptor_set_host_mapping,VK_VALVE_mutable_descriptor_type' c --alias --loader --mx --mx-global
+ *    --merge --api='vulkan=1.3' --extensions='VK_AMD_buffer_marker,VK_AMD_device_coherent_memory,VK_AMD_display_native_hdr,VK_AMD_draw_indirect_count,VK_AMD_gcn_shader,VK_AMD_gpu_shader_half_float,VK_AMD_gpu_shader_int16,VK_AMD_memory_overallocation_behavior,VK_AMD_mixed_attachment_samples,VK_AMD_negative_viewport_height,VK_AMD_pipeline_compiler_control,VK_AMD_rasterization_order,VK_AMD_shader_ballot,VK_AMD_shader_core_properties,VK_AMD_shader_core_properties2,VK_AMD_shader_early_and_late_fragment_tests,VK_AMD_shader_explicit_vertex_parameter,VK_AMD_shader_fragment_mask,VK_AMD_shader_image_load_store_lod,VK_AMD_shader_info,VK_AMD_shader_trinary_minmax,VK_AMD_texture_gather_bias_lod,VK_ANDROID_external_memory_android_hardware_buffer,VK_ARM_rasterization_order_attachment_access,VK_ARM_shader_core_builtins,VK_ARM_shader_core_properties,VK_EXT_4444_formats,VK_EXT_acquire_drm_display,VK_EXT_acquire_xlib_display,VK_EXT_astc_decode_mode,VK_EXT_attachment_feedback_loop_layout,VK_EXT_blend_operation_advanced,VK_EXT_border_color_swizzle,VK_EXT_buffer_device_address,VK_EXT_calibrated_timestamps,VK_EXT_color_write_enable,VK_EXT_conditional_rendering,VK_EXT_conservative_rasterization,VK_EXT_custom_border_color,VK_EXT_debug_marker,VK_EXT_debug_report,VK_EXT_debug_utils,VK_EXT_depth_clamp_zero_one,VK_EXT_depth_clip_control,VK_EXT_depth_clip_enable,VK_EXT_depth_range_unrestricted,VK_EXT_descriptor_buffer,VK_EXT_descriptor_indexing,VK_EXT_device_address_binding_report,VK_EXT_device_fault,VK_EXT_device_memory_report,VK_EXT_direct_mode_display,VK_EXT_directfb_surface,VK_EXT_discard_rectangles,VK_EXT_display_control,VK_EXT_display_surface_counter,VK_EXT_extended_dynamic_state,VK_EXT_extended_dynamic_state2,VK_EXT_extended_dynamic_state3,VK_EXT_external_memory_dma_buf,VK_EXT_external_memory_host,VK_EXT_filter_cubic,VK_EXT_fragment_density_map,VK_EXT_fragment_density_map2,VK_EXT_fragment_shader_interlock,VK_EXT_full_screen_exclusive,VK_EXT_global_priority,VK_EXT_global_priority_query,VK_EXT_graphics_pipeline_library,VK_EXT_hdr_metadata,VK_EXT_headless_surface,VK_EXT_host_query_reset,VK_EXT_image_2d_view_of_3d,VK_EXT_image_compression_control,VK_EXT_image_compression_control_swapchain,VK_EXT_image_drm_format_modifier,VK_EXT_image_robustness,VK_EXT_image_sliced_view_of_3d,VK_EXT_image_view_min_lod,VK_EXT_index_type_uint8,VK_EXT_inline_uniform_block,VK_EXT_legacy_dithering,VK_EXT_line_rasterization,VK_EXT_load_store_op_none,VK_EXT_memory_budget,VK_EXT_memory_priority,VK_EXT_mesh_shader,VK_EXT_metal_objects,VK_EXT_metal_surface,VK_EXT_multi_draw,VK_EXT_multisampled_render_to_single_sampled,VK_EXT_mutable_descriptor_type,VK_EXT_non_seamless_cube_map,VK_EXT_opacity_micromap,VK_EXT_pageable_device_local_memory,VK_EXT_pci_bus_info,VK_EXT_physical_device_drm,VK_EXT_pipeline_creation_cache_control,VK_EXT_pipeline_creation_feedback,VK_EXT_pipeline_library_group_handles,VK_EXT_pipeline_properties,VK_EXT_pipeline_protected_access,VK_EXT_pipeline_robustness,VK_EXT_post_depth_coverage,VK_EXT_primitive_topology_list_restart,VK_EXT_primitives_generated_query,VK_EXT_private_data,VK_EXT_provoking_vertex,VK_EXT_queue_family_foreign,VK_EXT_rasterization_order_attachment_access,VK_EXT_rgba10x6_formats,VK_EXT_robustness2,VK_EXT_sample_locations,VK_EXT_sampler_filter_minmax,VK_EXT_scalar_block_layout,VK_EXT_separate_stencil_usage,VK_EXT_shader_atomic_float,VK_EXT_shader_atomic_float2,VK_EXT_shader_demote_to_helper_invocation,VK_EXT_shader_image_atomic_int64,VK_EXT_shader_module_identifier,VK_EXT_shader_object,VK_EXT_shader_stencil_export,VK_EXT_shader_subgroup_ballot,VK_EXT_shader_subgroup_vote,VK_EXT_shader_tile_image,VK_EXT_shader_viewport_index_layer,VK_EXT_subgroup_size_control,VK_EXT_subpass_merge_feedback,VK_EXT_surface_maintenance1,VK_EXT_swapchain_colorspace,VK_EXT_swapchain_maintenance1,VK_EXT_texel_buffer_alignment,VK_EXT_texture_compression_astc_hdr,VK_EXT_tooling_info,VK_EXT_transform_feedback,VK_EXT_validation_cache,VK_EXT_validation_features,VK_EXT_validation_flags,VK_EXT_vertex_attribute_divisor,VK_EXT_vertex_input_dynamic_state,VK_EXT_video_encode_h264,VK_EXT_video_encode_h265,VK_EXT_ycbcr_2plane_444_formats,VK_EXT_ycbcr_image_arrays,VK_FUCHSIA_buffer_collection,VK_FUCHSIA_external_memory,VK_FUCHSIA_external_semaphore,VK_FUCHSIA_imagepipe_surface,VK_GGP_frame_token,VK_GGP_stream_descriptor_surface,VK_GOOGLE_decorate_string,VK_GOOGLE_display_timing,VK_GOOGLE_hlsl_functionality1,VK_GOOGLE_surfaceless_query,VK_GOOGLE_user_type,VK_HUAWEI_cluster_culling_shader,VK_HUAWEI_invocation_mask,VK_HUAWEI_subpass_shading,VK_IMG_filter_cubic,VK_IMG_format_pvrtc,VK_INTEL_performance_query,VK_INTEL_shader_integer_functions2,VK_KHR_16bit_storage,VK_KHR_8bit_storage,VK_KHR_acceleration_structure,VK_KHR_android_surface,VK_KHR_bind_memory2,VK_KHR_buffer_device_address,VK_KHR_copy_commands2,VK_KHR_create_renderpass2,VK_KHR_dedicated_allocation,VK_KHR_deferred_host_operations,VK_KHR_depth_stencil_resolve,VK_KHR_descriptor_update_template,VK_KHR_device_group,VK_KHR_device_group_creation,VK_KHR_display,VK_KHR_display_swapchain,VK_KHR_draw_indirect_count,VK_KHR_driver_properties,VK_KHR_dynamic_rendering,VK_KHR_external_fence,VK_KHR_external_fence_capabilities,VK_KHR_external_fence_fd,VK_KHR_external_fence_win32,VK_KHR_external_memory,VK_KHR_external_memory_capabilities,VK_KHR_external_memory_fd,VK_KHR_external_memory_win32,VK_KHR_external_semaphore,VK_KHR_external_semaphore_capabilities,VK_KHR_external_semaphore_fd,VK_KHR_external_semaphore_win32,VK_KHR_format_feature_flags2,VK_KHR_fragment_shader_barycentric,VK_KHR_fragment_shading_rate,VK_KHR_get_display_properties2,VK_KHR_get_memory_requirements2,VK_KHR_get_physical_device_properties2,VK_KHR_get_surface_capabilities2,VK_KHR_global_priority,VK_KHR_image_format_list,VK_KHR_imageless_framebuffer,VK_KHR_incremental_present,VK_KHR_maintenance1,VK_KHR_maintenance2,VK_KHR_maintenance3,VK_KHR_maintenance4,VK_KHR_map_memory2,VK_KHR_multiview,VK_KHR_performance_query,VK_KHR_pipeline_executable_properties,VK_KHR_pipeline_library,VK_KHR_portability_enumeration,VK_KHR_portability_subset,VK_KHR_present_id,VK_KHR_present_wait,VK_KHR_push_descriptor,VK_KHR_ray_query,VK_KHR_ray_tracing_maintenance1,VK_KHR_ray_tracing_pipeline,VK_KHR_relaxed_block_layout,VK_KHR_sampler_mirror_clamp_to_edge,VK_KHR_sampler_ycbcr_conversion,VK_KHR_separate_depth_stencil_layouts,VK_KHR_shader_atomic_int64,VK_KHR_shader_clock,VK_KHR_shader_draw_parameters,VK_KHR_shader_float16_int8,VK_KHR_shader_float_controls,VK_KHR_shader_integer_dot_product,VK_KHR_shader_non_semantic_info,VK_KHR_shader_subgroup_extended_types,VK_KHR_shader_subgroup_uniform_control_flow,VK_KHR_shader_terminate_invocation,VK_KHR_shared_presentable_image,VK_KHR_spirv_1_4,VK_KHR_storage_buffer_storage_class,VK_KHR_surface,VK_KHR_surface_protected_capabilities,VK_KHR_swapchain,VK_KHR_swapchain_mutable_format,VK_KHR_synchronization2,VK_KHR_timeline_semaphore,VK_KHR_uniform_buffer_standard_layout,VK_KHR_variable_pointers,VK_KHR_video_decode_h264,VK_KHR_video_decode_h265,VK_KHR_video_decode_queue,VK_KHR_video_encode_queue,VK_KHR_video_queue,VK_KHR_vulkan_memory_model,VK_KHR_wayland_surface,VK_KHR_win32_keyed_mutex,VK_KHR_win32_surface,VK_KHR_workgroup_memory_explicit_layout,VK_KHR_xcb_surface,VK_KHR_xlib_surface,VK_KHR_zero_initialize_workgroup_memory,VK_LUNARG_direct_driver_loading,VK_MVK_ios_surface,VK_MVK_macos_surface,VK_NN_vi_surface,VK_NVX_binary_import,VK_NVX_image_view_handle,VK_NVX_multiview_per_view_attributes,VK_NV_acquire_winrt_display,VK_NV_clip_space_w_scaling,VK_NV_compute_shader_derivatives,VK_NV_cooperative_matrix,VK_NV_copy_memory_indirect,VK_NV_corner_sampled_image,VK_NV_coverage_reduction_mode,VK_NV_dedicated_allocation,VK_NV_dedicated_allocation_image_aliasing,VK_NV_device_diagnostic_checkpoints,VK_NV_device_diagnostics_config,VK_NV_device_generated_commands,VK_NV_displacement_micromap,VK_NV_external_memory,VK_NV_external_memory_capabilities,VK_NV_external_memory_rdma,VK_NV_external_memory_win32,VK_NV_fill_rectangle,VK_NV_fragment_coverage_to_color,VK_NV_fragment_shader_barycentric,VK_NV_fragment_shading_rate_enums,VK_NV_framebuffer_mixed_samples,VK_NV_geometry_shader_passthrough,VK_NV_glsl_shader,VK_NV_inherited_viewport_scissor,VK_NV_linear_color_attachment,VK_NV_low_latency,VK_NV_memory_decompression,VK_NV_mesh_shader,VK_NV_optical_flow,VK_NV_present_barrier,VK_NV_ray_tracing,VK_NV_ray_tracing_invocation_reorder,VK_NV_ray_tracing_motion_blur,VK_NV_representative_fragment_test,VK_NV_sample_mask_override_coverage,VK_NV_scissor_exclusive,VK_NV_shader_image_footprint,VK_NV_shader_sm_builtins,VK_NV_shader_subgroup_partitioned,VK_NV_shading_rate_image,VK_NV_viewport_array2,VK_NV_viewport_swizzle,VK_NV_win32_keyed_mutex,VK_QCOM_fragment_density_map_offset,VK_QCOM_image_processing,VK_QCOM_multiview_per_view_render_areas,VK_QCOM_multiview_per_view_viewports,VK_QCOM_render_pass_shader_resolve,VK_QCOM_render_pass_store_ops,VK_QCOM_render_pass_transform,VK_QCOM_rotated_copy_commands,VK_QCOM_tile_properties,VK_QNX_screen_surface,VK_SEC_amigo_profiling,VK_VALVE_descriptor_set_host_mapping,VK_VALVE_mutable_descriptor_type' c --alias --loader --mx --mx-global
  *
  * Online:
  *    http://glad.sh/#api=vulkan%3D1.3&generator=c&options=MERGE%2CALIAS%2CLOADER%2CMX%2CMX_GLOBAL
@@ -280,7 +280,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_EXT_DEVICE_ADDRESS_BINDING_REPORT_EXTENSION_NAME "VK_EXT_device_address_binding_report"
 #define VK_EXT_DEVICE_ADDRESS_BINDING_REPORT_SPEC_VERSION 1
 #define VK_EXT_DEVICE_FAULT_EXTENSION_NAME "VK_EXT_device_fault"
-#define VK_EXT_DEVICE_FAULT_SPEC_VERSION 1
+#define VK_EXT_DEVICE_FAULT_SPEC_VERSION 2
 #define VK_EXT_DEVICE_MEMORY_REPORT_EXTENSION_NAME "VK_EXT_device_memory_report"
 #define VK_EXT_DEVICE_MEMORY_REPORT_SPEC_VERSION 2
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
@@ -447,12 +447,16 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_EXT_SHADER_IMAGE_ATOMIC_INT64_SPEC_VERSION 1
 #define VK_EXT_SHADER_MODULE_IDENTIFIER_EXTENSION_NAME "VK_EXT_shader_module_identifier"
 #define VK_EXT_SHADER_MODULE_IDENTIFIER_SPEC_VERSION 1
+#define VK_EXT_SHADER_OBJECT_EXTENSION_NAME "VK_EXT_shader_object"
+#define VK_EXT_SHADER_OBJECT_SPEC_VERSION 1
 #define VK_EXT_SHADER_STENCIL_EXPORT_EXTENSION_NAME "VK_EXT_shader_stencil_export"
 #define VK_EXT_SHADER_STENCIL_EXPORT_SPEC_VERSION 1
 #define VK_EXT_SHADER_SUBGROUP_BALLOT_EXTENSION_NAME "VK_EXT_shader_subgroup_ballot"
 #define VK_EXT_SHADER_SUBGROUP_BALLOT_SPEC_VERSION 1
 #define VK_EXT_SHADER_SUBGROUP_VOTE_EXTENSION_NAME "VK_EXT_shader_subgroup_vote"
 #define VK_EXT_SHADER_SUBGROUP_VOTE_SPEC_VERSION 1
+#define VK_EXT_SHADER_TILE_IMAGE_EXTENSION_NAME "VK_EXT_shader_tile_image"
+#define VK_EXT_SHADER_TILE_IMAGE_SPEC_VERSION 1
 #define VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_EXTENSION_NAME "VK_EXT_shader_viewport_index_layer"
 #define VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_SPEC_VERSION 1
 #define VK_EXT_SUBGROUP_SIZE_CONTROL_EXTENSION_NAME "VK_EXT_subgroup_size_control"
@@ -488,7 +492,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 
 #endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-#define VK_EXT_VIDEO_ENCODE_H264_SPEC_VERSION 9
+#define VK_EXT_VIDEO_ENCODE_H264_SPEC_VERSION 10
 
 #endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
@@ -496,7 +500,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 
 #endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-#define VK_EXT_VIDEO_ENCODE_H265_SPEC_VERSION 9
+#define VK_EXT_VIDEO_ENCODE_H265_SPEC_VERSION 10
 
 #endif
 #define VK_EXT_YCBCR_2PLANE_444_FORMATS_EXTENSION_NAME "VK_EXT_ycbcr_2plane_444_formats"
@@ -565,7 +569,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_GOOGLE_USER_TYPE_EXTENSION_NAME "VK_GOOGLE_user_type"
 #define VK_GOOGLE_USER_TYPE_SPEC_VERSION 1
 #define VK_HUAWEI_CLUSTER_CULLING_SHADER_EXTENSION_NAME "VK_HUAWEI_cluster_culling_shader"
-#define VK_HUAWEI_CLUSTER_CULLING_SHADER_SPEC_VERSION 1
+#define VK_HUAWEI_CLUSTER_CULLING_SHADER_SPEC_VERSION 2
 #define VK_HUAWEI_INVOCATION_MASK_EXTENSION_NAME "VK_HUAWEI_invocation_mask"
 #define VK_HUAWEI_INVOCATION_MASK_SPEC_VERSION 1
 #define VK_HUAWEI_SUBPASS_SHADING_EXTENSION_NAME "VK_HUAWEI_subpass_shading"
@@ -700,6 +704,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_KHR_MAINTENANCE_3_SPEC_VERSION 1
 #define VK_KHR_MAINTENANCE_4_EXTENSION_NAME "VK_KHR_maintenance4"
 #define VK_KHR_MAINTENANCE_4_SPEC_VERSION 2
+#define VK_KHR_MAP_MEMORY_2_EXTENSION_NAME "VK_KHR_map_memory2"
+#define VK_KHR_MAP_MEMORY_2_SPEC_VERSION 1
 #define VK_KHR_MULTIVIEW_EXTENSION_NAME "VK_KHR_multiview"
 #define VK_KHR_MULTIVIEW_SPEC_VERSION 1
 #define VK_KHR_PERFORMANCE_QUERY_EXTENSION_NAME "VK_KHR_performance_query"
@@ -791,7 +797,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 
 #endif
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-#define VK_KHR_VIDEO_ENCODE_QUEUE_SPEC_VERSION 7
+#define VK_KHR_VIDEO_ENCODE_QUEUE_SPEC_VERSION 8
 
 #endif
 #define VK_KHR_VIDEO_QUEUE_EXTENSION_NAME "VK_KHR_video_queue"
@@ -921,6 +927,14 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_SPEC_VERSION 2
 #define VK_NV_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME "VK_NV_device_generated_commands"
 #define VK_NV_DEVICE_GENERATED_COMMANDS_SPEC_VERSION 3
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+#define VK_NV_DISPLACEMENT_MICROMAP_EXTENSION_NAME "VK_NV_displacement_micromap"
+
+#endif
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+#define VK_NV_DISPLACEMENT_MICROMAP_SPEC_VERSION 1
+
+#endif
 #define VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME "VK_NV_external_memory_capabilities"
 #define VK_NV_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION 1
 #define VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME "VK_NV_external_memory"
@@ -953,6 +967,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_NV_INHERITED_VIEWPORT_SCISSOR_SPEC_VERSION 1
 #define VK_NV_LINEAR_COLOR_ATTACHMENT_EXTENSION_NAME "VK_NV_linear_color_attachment"
 #define VK_NV_LINEAR_COLOR_ATTACHMENT_SPEC_VERSION 1
+#define VK_NV_LOW_LATENCY_EXTENSION_NAME "VK_NV_low_latency"
+#define VK_NV_LOW_LATENCY_SPEC_VERSION 1
 #define VK_NV_MEMORY_DECOMPRESSION_EXTENSION_NAME "VK_NV_memory_decompression"
 #define VK_NV_MEMORY_DECOMPRESSION_SPEC_VERSION 1
 #define VK_NV_MESH_SHADER_EXTENSION_NAME "VK_NV_mesh_shader"
@@ -1197,8 +1213,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 /* Vulkan 1.3 version number */
 #define VK_API_VERSION_1_3 VK_MAKE_API_VERSION(0, 1, 3, 0)/* Patch version should always be set to 0 */
 /* Version of this file */
-#define VK_HEADER_VERSION 241
-#define VK_DEFINE_HANDLE(object) typedef struct object##_T* (object);
+#define VK_HEADER_VERSION 248
+#define VK_DEFINE_HANDLE(object) typedef struct object##_T* object;
 #ifndef VK_USE_64_BIT_PTR_DEFINES
     #if defined(__LP64__) || defined(_WIN64) || (defined(__x86_64__) && !defined(__ILP32__) ) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__)
         #define VK_USE_64_BIT_PTR_DEFINES 1
@@ -1222,9 +1238,9 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #endif
 #ifndef VK_DEFINE_NON_DISPATCHABLE_HANDLE
     #if (VK_USE_64_BIT_PTR_DEFINES==1)
-        #define VK_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef struct object##_T *(object);
+        #define VK_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef struct object##_T *object;
     #else
-        #define VK_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef uint64_t (object);
+        #define VK_DEFINE_NON_DISPATCHABLE_HANDLE(object) typedef uint64_t object;
     #endif
 #endif
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
@@ -1296,10 +1312,6 @@ typedef struct __IOSurface* IOSurfaceRef;
 
 
 
-#if defined(VK_ENABLE_BETA_EXTENSIONS) || defined(VK_ENABLE_BETA_EXTENSIONS)
-
-#endif
-
 
 
 
@@ -1353,6 +1365,7 @@ VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkCuModuleNVX)
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkCuFunctionNVX)
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkOpticalFlowSessionNV)
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkMicromapEXT)
+VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkShaderEXT)
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkDisplayKHR)
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkDisplayModeKHR)
 VK_DEFINE_NON_DISPATCHABLE_HANDLE(VkSurfaceKHR)
@@ -2371,6 +2384,7 @@ typedef enum VkPipelineCreateFlagBits {
     VK_PIPELINE_CREATE_COLOR_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT = 33554432,
     VK_PIPELINE_CREATE_DEPTH_STENCIL_ATTACHMENT_FEEDBACK_LOOP_BIT_EXT = 67108864,
     VK_PIPELINE_CREATE_RAY_TRACING_OPACITY_MICROMAP_BIT_EXT = 16777216,
+    VK_PIPELINE_CREATE_RAY_TRACING_DISPLACEMENT_MICROMAP_BIT_NV = 268435456,
     VK_PIPELINE_CREATE_NO_PROTECTED_ACCESS_BIT_EXT = 134217728,
     VK_PIPELINE_CREATE_PROTECTED_ACCESS_ONLY_BIT_EXT = 1073741824,
     VK_PIPELINE_CREATE_FLAG_BITS_MAX_ENUM = 0x7FFFFFFF
@@ -2429,7 +2443,7 @@ typedef enum VkQueryType {
     VK_QUERY_TYPE_ACCELERATION_STRUCTURE_SERIALIZATION_SIZE_KHR = 1000150001,
     VK_QUERY_TYPE_ACCELERATION_STRUCTURE_COMPACTED_SIZE_NV = 1000165000,
     VK_QUERY_TYPE_PERFORMANCE_QUERY_INTEL = 1000210000,
-    VK_QUERY_TYPE_VIDEO_ENCODE_BITSTREAM_BUFFER_RANGE_KHR = 1000299000,
+    VK_QUERY_TYPE_VIDEO_ENCODE_FEEDBACK_KHR = 1000299000,
     VK_QUERY_TYPE_MESH_PRIMITIVES_GENERATED_EXT = 1000328000,
     VK_QUERY_TYPE_PRIMITIVES_GENERATED_EXT = 1000382000,
     VK_QUERY_TYPE_ACCELERATION_STRUCTURE_SERIALIZATION_BOTTOM_LEVEL_POINTERS_KHR = 1000386000,
@@ -2507,7 +2521,9 @@ typedef enum VkResult {
     VK_OPERATION_NOT_DEFERRED_KHR = 1000268003,
     VK_PIPELINE_COMPILE_REQUIRED_EXT = VK_PIPELINE_COMPILE_REQUIRED,
     VK_ERROR_PIPELINE_COMPILE_REQUIRED_EXT = VK_PIPELINE_COMPILE_REQUIRED,
+    VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR = -1000299000,
     VK_ERROR_COMPRESSION_EXHAUSTED_EXT = -1000338000,
+    VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT = 1000482000,
     VK_RESULT_MAX_ENUM = 0x7FFFFFFF
 } VkResult;
 typedef enum VkShaderStageFlagBits {
@@ -2839,20 +2855,16 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_VCL_FRAME_INFO_EXT = 1000038003,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_DPB_SLOT_INFO_EXT = 1000038004,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_NALU_SLICE_INFO_EXT = 1000038005,
-    VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_EMIT_PICTURE_PARAMETERS_INFO_EXT = 1000038006,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_PROFILE_INFO_EXT = 1000038007,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_INFO_EXT = 1000038008,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_RATE_CONTROL_LAYER_INFO_EXT = 1000038009,
-    VK_STRUCTURE_TYPE_VIDEO_ENCODE_H264_REFERENCE_LISTS_INFO_EXT = 1000038010,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_CAPABILITIES_EXT = 1000039000,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_CREATE_INFO_EXT = 1000039001,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_SESSION_PARAMETERS_ADD_INFO_EXT = 1000039002,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_VCL_FRAME_INFO_EXT = 1000039003,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_DPB_SLOT_INFO_EXT = 1000039004,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_NALU_SLICE_SEGMENT_INFO_EXT = 1000039005,
-    VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_EMIT_PICTURE_PARAMETERS_INFO_EXT = 1000039006,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_PROFILE_INFO_EXT = 1000039007,
-    VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_REFERENCE_LISTS_INFO_EXT = 1000039008,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_INFO_EXT = 1000039009,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_H265_RATE_CONTROL_LAYER_INFO_EXT = 1000039010,
     VK_STRUCTURE_TYPE_VIDEO_DECODE_H264_CAPABILITIES_KHR = 1000040000,
@@ -3231,6 +3243,8 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INFO_KHR = 1000269003,
     VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_STATISTIC_KHR = 1000269004,
     VK_STRUCTURE_TYPE_PIPELINE_EXECUTABLE_INTERNAL_REPRESENTATION_KHR = 1000269005,
+    VK_STRUCTURE_TYPE_MEMORY_MAP_INFO_KHR = 1000271000,
+    VK_STRUCTURE_TYPE_MEMORY_UNMAP_INFO_KHR = 1000271001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_ATOMIC_FLOAT_2_FEATURES_EXT = 1000273000,
     VK_STRUCTURE_TYPE_SURFACE_PRESENT_MODE_EXT = 1000274000,
     VK_STRUCTURE_TYPE_SURFACE_PRESENT_SCALING_CAPABILITIES_EXT = 1000274001,
@@ -3281,8 +3295,10 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_RATE_CONTROL_LAYER_INFO_KHR = 1000299002,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_CAPABILITIES_KHR = 1000299003,
     VK_STRUCTURE_TYPE_VIDEO_ENCODE_USAGE_INFO_KHR = 1000299004,
+    VK_STRUCTURE_TYPE_QUERY_POOL_VIDEO_ENCODE_FEEDBACK_CREATE_INFO_KHR = 1000299005,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DIAGNOSTICS_CONFIG_FEATURES_NV = 1000300000,
     VK_STRUCTURE_TYPE_DEVICE_DIAGNOSTICS_CONFIG_CREATE_INFO_NV = 1000300001,
+    VK_STRUCTURE_TYPE_QUERY_LOW_LATENCY_SUPPORT_NV = 1000310000,
     VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECT_CREATE_INFO_EXT = 1000311000,
     VK_STRUCTURE_TYPE_EXPORT_METAL_OBJECTS_INFO_EXT = 1000311001,
     VK_STRUCTURE_TYPE_EXPORT_METAL_DEVICE_INFO_EXT = 1000311002,
@@ -3416,6 +3432,8 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_FEATURES_EXT = 1000392000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTI_DRAW_PROPERTIES_EXT = 1000392001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_2D_VIEW_OF_3D_FEATURES_EXT = 1000393000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_FEATURES_EXT = 1000395000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_TILE_IMAGE_PROPERTIES_EXT = 1000395001,
     VK_STRUCTURE_TYPE_MICROMAP_BUILD_INFO_EXT = 1000396000,
     VK_STRUCTURE_TYPE_MICROMAP_VERSION_INFO_EXT = 1000396001,
     VK_STRUCTURE_TYPE_COPY_MICROMAP_INFO_EXT = 1000396002,
@@ -3426,6 +3444,9 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_MICROMAP_CREATE_INFO_EXT = 1000396007,
     VK_STRUCTURE_TYPE_MICROMAP_BUILD_SIZES_INFO_EXT = 1000396008,
     VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_OPACITY_MICROMAP_EXT = 1000396009,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_FEATURES_NV = 1000397000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DISPLACEMENT_MICROMAP_PROPERTIES_NV = 1000397001,
+    VK_STRUCTURE_TYPE_ACCELERATION_STRUCTURE_TRIANGLES_DISPLACEMENT_MICROMAP_NV = 1000397002,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_FEATURES_HUAWEI = 1000404000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_CLUSTER_CULLING_SHADER_PROPERTIES_HUAWEI = 1000404001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_BORDER_COLOR_SWIZZLE_FEATURES_EXT = 1000411000,
@@ -3477,6 +3498,10 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV = 1000464010,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT = 1000465000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES_EXT = 1000466000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_FEATURES_EXT = 1000482000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_OBJECT_PROPERTIES_EXT = 1000482001,
+    VK_STRUCTURE_TYPE_SHADER_CREATE_INFO_EXT = 1000482002,
+    VK_STRUCTURE_TYPE_SHADER_REQUIRED_SUBGROUP_SIZE_CREATE_INFO_EXT = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_REQUIRED_SUBGROUP_SIZE_CREATE_INFO,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_TILE_PROPERTIES_FEATURES_QCOM = 1000484000,
     VK_STRUCTURE_TYPE_TILE_PROPERTIES_QCOM = 1000484001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_AMIGO_PROFILING_FEATURES_SEC = 1000485000,
@@ -3656,6 +3681,7 @@ typedef enum VkObjectType {
     VK_OBJECT_TYPE_BUFFER_COLLECTION_FUCHSIA = 1000366000,
     VK_OBJECT_TYPE_MICROMAP_EXT = 1000396000,
     VK_OBJECT_TYPE_OPTICAL_FLOW_SESSION_NV = 1000464000,
+    VK_OBJECT_TYPE_SHADER_EXT = 1000482000,
     VK_OBJECT_TYPE_MAX_ENUM = 0x7FFFFFFF
 } VkObjectType;
 typedef enum VkEventCreateFlagBits {
@@ -3870,6 +3896,7 @@ typedef enum VkBuildAccelerationStructureFlagBitsKHR {
     VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_UPDATE_EXT = 64,
     VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISABLE_OPACITY_MICROMAPS_EXT = 128,
     VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_OPACITY_MICROMAP_DATA_UPDATE_EXT = 256,
+    VK_BUILD_ACCELERATION_STRUCTURE_ALLOW_DISPLACEMENT_MICROMAP_UPDATE_NV = 512,
     VK_BUILD_ACCELERATION_STRUCTURE_FLAG_BITS_MAX_ENUM_KHR = 0x7FFFFFFF
 } VkBuildAccelerationStructureFlagBitsKHR;
 typedef enum VkBuildAccelerationStructureFlagBitsKHR VkBuildAccelerationStructureFlagBitsNV;
@@ -4463,6 +4490,7 @@ typedef enum VkDeviceAddressBindingTypeEXT {
 } VkDeviceAddressBindingTypeEXT;
 typedef enum VkMicromapTypeEXT {
     VK_MICROMAP_TYPE_OPACITY_MICROMAP_EXT = 0,
+    VK_MICROMAP_TYPE_DISPLACEMENT_MICROMAP_NV = 1000397000,
     VK_MICROMAP_TYPE_MAX_ENUM_EXT = 0x7FFFFFFF
 } VkMicromapTypeEXT;
 typedef enum VkBuildMicromapModeEXT {
@@ -4510,6 +4538,30 @@ typedef enum VkDirectDriverLoadingModeLUNARG {
     VK_DIRECT_DRIVER_LOADING_MODE_INCLUSIVE_LUNARG = 1,
     VK_DIRECT_DRIVER_LOADING_MODE_MAX_ENUM_LUNARG = 0x7FFFFFFF
 } VkDirectDriverLoadingModeLUNARG;
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+typedef enum VkDisplacementMicromapFormatNV {
+    VK_DISPLACEMENT_MICROMAP_FORMAT_64_TRIANGLES_64_BYTES_NV = 1,
+    VK_DISPLACEMENT_MICROMAP_FORMAT_256_TRIANGLES_128_BYTES_NV = 2,
+    VK_DISPLACEMENT_MICROMAP_FORMAT_1024_TRIANGLES_128_BYTES_NV = 3,
+    VK_DISPLACEMENT_MICROMAP_FORMAT_MAX_ENUM_NV = 0x7FFFFFFF
+} VkDisplacementMicromapFormatNV;
+#endif
+
+typedef enum VkShaderCreateFlagBitsEXT {
+    VK_SHADER_CREATE_LINK_STAGE_BIT_EXT = 1,
+    VK_SHADER_CREATE_ALLOW_VARYING_SUBGROUP_SIZE_BIT_EXT = 2,
+    VK_SHADER_CREATE_REQUIRE_FULL_SUBGROUPS_BIT_EXT = 4,
+    VK_SHADER_CREATE_NO_TASK_SHADER_BIT_EXT = 8,
+    VK_SHADER_CREATE_DISPATCH_BASE_BIT_EXT = 16,
+    VK_SHADER_CREATE_FRAGMENT_SHADING_RATE_ATTACHMENT_BIT_EXT = 32,
+    VK_SHADER_CREATE_FRAGMENT_DENSITY_MAP_ATTACHMENT_BIT_EXT = 64,
+    VK_SHADER_CREATE_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
+} VkShaderCreateFlagBitsEXT;
+typedef enum VkShaderCodeTypeEXT {
+    VK_SHADER_CODE_TYPE_BINARY_EXT = 0,
+    VK_SHADER_CODE_TYPE_SPIRV_EXT = 1,
+    VK_SHADER_CODE_TYPE_MAX_ENUM_EXT = 0x7FFFFFFF
+} VkShaderCodeTypeEXT;
 typedef enum VkColorSpaceKHR {
     VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
     VK_COLORSPACE_SRGB_NONLINEAR_KHR = VK_COLOR_SPACE_SRGB_NONLINEAR_KHR,
@@ -5030,6 +5082,7 @@ typedef enum VkVendorId {
     VK_VENDOR_ID_CODEPLAY = 0x10004,
     VK_VENDOR_ID_MESA = 0x10005,
     VK_VENDOR_ID_POCL = 0x10006,
+    VK_VENDOR_ID_MOBILEYE = 0x10007,
     VK_VENDOR_ID_MAX_ENUM = 0x7FFFFFFF
 } VkVendorId;
 typedef enum VkDriverId {
@@ -5205,10 +5258,19 @@ typedef enum VkVideoEncodeCapabilityFlagBitsKHR {
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
+typedef enum VkVideoEncodeFeedbackFlagBitsKHR {
+    VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_BUFFER_OFFSET_BIT_KHR = 1,
+    VK_VIDEO_ENCODE_FEEDBACK_BITSTREAM_BYTES_WRITTEN_BIT_KHR = 2,
+    VK_VIDEO_ENCODE_FEEDBACK_FLAG_BITS_MAX_ENUM_KHR = 0x7FFFFFFF
+} VkVideoEncodeFeedbackFlagBitsKHR;
+#endif
+
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
 typedef enum VkVideoEncodeRateControlModeFlagBitsKHR {
-    VK_VIDEO_ENCODE_RATE_CONTROL_MODE_NONE_BIT_KHR = 0,
-    VK_VIDEO_ENCODE_RATE_CONTROL_MODE_CBR_BIT_KHR = 1,
-    VK_VIDEO_ENCODE_RATE_CONTROL_MODE_VBR_BIT_KHR = 2,
+    VK_VIDEO_ENCODE_RATE_CONTROL_MODE_DEFAULT_KHR = 0,
+    VK_VIDEO_ENCODE_RATE_CONTROL_MODE_DISABLED_BIT_KHR = 1,
+    VK_VIDEO_ENCODE_RATE_CONTROL_MODE_CBR_BIT_KHR = 2,
+    VK_VIDEO_ENCODE_RATE_CONTROL_MODE_VBR_BIT_KHR = 4,
     VK_VIDEO_ENCODE_RATE_CONTROL_MODE_FLAG_BITS_MAX_ENUM_KHR = 0x7FFFFFFF
 } VkVideoEncodeRateControlModeFlagBitsKHR;
 #endif
@@ -5240,26 +5302,9 @@ typedef enum VkVideoEncodeH264CapabilityFlagBitsEXT {
     VK_VIDEO_ENCODE_H264_CAPABILITY_ROW_UNALIGNED_SLICE_BIT_EXT = 4194304,
     VK_VIDEO_ENCODE_H264_CAPABILITY_DIFFERENT_SLICE_TYPE_BIT_EXT = 8388608,
     VK_VIDEO_ENCODE_H264_CAPABILITY_B_FRAME_IN_L1_LIST_BIT_EXT = 16777216,
+    VK_VIDEO_ENCODE_H264_CAPABILITY_DIFFERENT_REFERENCE_FINAL_LISTS_BIT_EXT = 33554432,
     VK_VIDEO_ENCODE_H264_CAPABILITY_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
 } VkVideoEncodeH264CapabilityFlagBitsEXT;
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef enum VkVideoEncodeH264InputModeFlagBitsEXT {
-    VK_VIDEO_ENCODE_H264_INPUT_MODE_FRAME_BIT_EXT = 1,
-    VK_VIDEO_ENCODE_H264_INPUT_MODE_SLICE_BIT_EXT = 2,
-    VK_VIDEO_ENCODE_H264_INPUT_MODE_NON_VCL_BIT_EXT = 4,
-    VK_VIDEO_ENCODE_H264_INPUT_MODE_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
-} VkVideoEncodeH264InputModeFlagBitsEXT;
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef enum VkVideoEncodeH264OutputModeFlagBitsEXT {
-    VK_VIDEO_ENCODE_H264_OUTPUT_MODE_FRAME_BIT_EXT = 1,
-    VK_VIDEO_ENCODE_H264_OUTPUT_MODE_SLICE_BIT_EXT = 2,
-    VK_VIDEO_ENCODE_H264_OUTPUT_MODE_NON_VCL_BIT_EXT = 4,
-    VK_VIDEO_ENCODE_H264_OUTPUT_MODE_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
-} VkVideoEncodeH264OutputModeFlagBitsEXT;
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
@@ -5299,26 +5344,9 @@ typedef enum VkVideoEncodeH265CapabilityFlagBitsEXT {
     VK_VIDEO_ENCODE_H265_CAPABILITY_DEPENDENT_SLICE_SEGMENT_BIT_EXT = 8388608,
     VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_SLICE_TYPE_BIT_EXT = 16777216,
     VK_VIDEO_ENCODE_H265_CAPABILITY_B_FRAME_IN_L1_LIST_BIT_EXT = 33554432,
+    VK_VIDEO_ENCODE_H265_CAPABILITY_DIFFERENT_REFERENCE_FINAL_LISTS_BIT_EXT = 67108864,
     VK_VIDEO_ENCODE_H265_CAPABILITY_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
 } VkVideoEncodeH265CapabilityFlagBitsEXT;
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef enum VkVideoEncodeH265InputModeFlagBitsEXT {
-    VK_VIDEO_ENCODE_H265_INPUT_MODE_FRAME_BIT_EXT = 1,
-    VK_VIDEO_ENCODE_H265_INPUT_MODE_SLICE_SEGMENT_BIT_EXT = 2,
-    VK_VIDEO_ENCODE_H265_INPUT_MODE_NON_VCL_BIT_EXT = 4,
-    VK_VIDEO_ENCODE_H265_INPUT_MODE_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
-} VkVideoEncodeH265InputModeFlagBitsEXT;
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef enum VkVideoEncodeH265OutputModeFlagBitsEXT {
-    VK_VIDEO_ENCODE_H265_OUTPUT_MODE_FRAME_BIT_EXT = 1,
-    VK_VIDEO_ENCODE_H265_OUTPUT_MODE_SLICE_SEGMENT_BIT_EXT = 2,
-    VK_VIDEO_ENCODE_H265_OUTPUT_MODE_NON_VCL_BIT_EXT = 4,
-    VK_VIDEO_ENCODE_H265_OUTPUT_MODE_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
-} VkVideoEncodeH265OutputModeFlagBitsEXT;
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
@@ -7052,6 +7080,8 @@ typedef struct VkPipelineShaderStageRequiredSubgroupSizeCreateInfo {
 
 typedef struct VkPipelineShaderStageRequiredSubgroupSizeCreateInfo  VkPipelineShaderStageRequiredSubgroupSizeCreateInfoEXT;
 
+typedef struct VkPipelineShaderStageRequiredSubgroupSizeCreateInfo  VkShaderRequiredSubgroupSizeCreateInfoEXT;
+
 typedef struct VkSubpassShadingPipelineCreateInfoHUAWEI {
     VkStructureType   sType;
     void *                   pNext;
@@ -7064,14 +7094,6 @@ typedef struct VkPhysicalDeviceSubpassShadingPropertiesHUAWEI {
     void *                   pNext;
     uint32_t                 maxSubpassShadingWorkgroupSizeAspectRatio;
 } VkPhysicalDeviceSubpassShadingPropertiesHUAWEI;
-
-typedef struct VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
-    VkStructureType   sType;
-    void *                   pNext;
-    uint32_t             maxWorkGroupCount [3];
-    uint32_t             maxWorkGroupSize [3];
-    uint32_t                 maxOutputClusterCount;
-} VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI;
 
 typedef struct VkMemoryOpaqueCaptureAddressAllocateInfo {
     VkStructureType   sType;
@@ -7401,8 +7423,8 @@ typedef struct VkVideoSessionParametersUpdateInfoKHR {
 typedef struct VkVideoEncodeRateControlLayerInfoKHR {
     VkStructureType   sType;
     const  void *               pNext;
-    uint32_t                                   averageBitrate;
-    uint32_t                                   maxBitrate;
+    uint64_t                                   averageBitrate;
+    uint64_t                                   maxBitrate;
     uint32_t                                   frameRateNumerator;
     uint32_t                                   frameRateDenominator;
     uint32_t                                   virtualBufferSizeInMs;
@@ -7446,7 +7468,7 @@ typedef struct VkVideoEncodeH264SessionParametersAddInfoEXT {
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
 typedef struct VkVideoEncodeH264SessionParametersCreateInfoEXT {
     VkStructureType   sType;
-    const  void *                                                          pNext;
+    const  void *                                          pNext;
     uint32_t                                                              maxStdSPSCount;
     uint32_t                                                              maxStdPPSCount;
     const  VkVideoEncodeH264SessionParametersAddInfoEXT *  pParametersAddInfo;
@@ -7457,23 +7479,9 @@ typedef struct VkVideoEncodeH264SessionParametersCreateInfoEXT {
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
 typedef struct VkVideoEncodeH264DpbSlotInfoEXT {
     VkStructureType   sType;
-    const  void *                                                           pNext;
-    int8_t                                                                 slotIndex;
+    const  void *                                           pNext;
     const  StdVideoEncodeH264ReferenceInfo *                                pStdReferenceInfo;
 } VkVideoEncodeH264DpbSlotInfoEXT;
-
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef struct VkVideoEncodeH264ReferenceListsInfoEXT {
-    VkStructureType   sType;
-    const  void *                                             pNext;
-    uint8_t                                                  referenceList0EntryCount;
-    const  VkVideoEncodeH264DpbSlotInfoEXT *   pReferenceList0Entries;
-    uint8_t                                                  referenceList1EntryCount;
-    const  VkVideoEncodeH264DpbSlotInfoEXT *   pReferenceList1Entries;
-    const  StdVideoEncodeH264RefMemMgmtCtrlOperations *                       pMemMgmtCtrlOperations;
-} VkVideoEncodeH264ReferenceListsInfoEXT;
 
 #endif
 
@@ -7491,8 +7499,8 @@ typedef struct VkVideoEncodeH264NaluSliceInfoEXT {
     VkStructureType   sType;
     const  void *                      pNext;
     uint32_t                                          mbCount;
-    const  VkVideoEncodeH264ReferenceListsInfoEXT *  pReferenceFinalLists;
-    const  StdVideoEncodeH264SliceHeader *             pSliceHeaderStd;
+    const  StdVideoEncodeH264ReferenceListsInfo *  pStdReferenceFinalLists;
+    const  StdVideoEncodeH264SliceHeader *             pStdSliceHeader;
 } VkVideoEncodeH264NaluSliceInfoEXT;
 
 #endif
@@ -7505,7 +7513,7 @@ typedef struct VkVideoEncodeH264RateControlInfoEXT {
     uint32_t                                          idrPeriod;
     uint32_t                                          consecutiveBFrameCount;
     VkVideoEncodeH264RateControlStructureEXT          rateControlStructure;
-    uint8_t                                           temporalLayerCount;
+    uint32_t                                          temporalLayerCount;
 } VkVideoEncodeH264RateControlInfoEXT;
 
 #endif
@@ -7575,6 +7583,17 @@ typedef struct VkVideoEncodeH265SessionParametersCreateInfoEXT {
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
+typedef struct VkVideoEncodeH265NaluSliceSegmentInfoEXT {
+    VkStructureType   sType;
+    const  void *                                 pNext;
+    uint32_t                                                     ctbCount;
+    const  StdVideoEncodeH265ReferenceListsInfo *  pStdReferenceFinalLists;
+    const  StdVideoEncodeH265SliceSegmentHeader *                 pStdSliceSegmentHeader;
+} VkVideoEncodeH265NaluSliceSegmentInfoEXT;
+
+#endif
+
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
 typedef struct VkVideoEncodeH265RateControlInfoEXT {
     VkStructureType   sType;
     const  void *                      pNext;
@@ -7582,7 +7601,7 @@ typedef struct VkVideoEncodeH265RateControlInfoEXT {
     uint32_t                                          idrPeriod;
     uint32_t                                          consecutiveBFrameCount;
     VkVideoEncodeH265RateControlStructureEXT          rateControlStructure;
-    uint8_t                                           subLayerCount;
+    uint32_t                                          subLayerCount;
 } VkVideoEncodeH265RateControlInfoEXT;
 
 #endif
@@ -7618,22 +7637,8 @@ typedef struct VkVideoEncodeH265ProfileInfoEXT {
 typedef struct VkVideoEncodeH265DpbSlotInfoEXT {
     VkStructureType   sType;
     const  void *               pNext;
-    int8_t                                     slotIndex;
     const  StdVideoEncodeH265ReferenceInfo *    pStdReferenceInfo;
 } VkVideoEncodeH265DpbSlotInfoEXT;
-
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef struct VkVideoEncodeH265ReferenceListsInfoEXT {
-    VkStructureType   sType;
-    const  void *                                             pNext;
-    uint8_t                                                  referenceList0EntryCount;
-    const  VkVideoEncodeH265DpbSlotInfoEXT *   pReferenceList0Entries;
-    uint8_t                                                  referenceList1EntryCount;
-    const  VkVideoEncodeH265DpbSlotInfoEXT *   pReferenceList1Entries;
-    const  StdVideoEncodeH265ReferenceModifications *                         pReferenceModifications;
-} VkVideoEncodeH265ReferenceListsInfoEXT;
 
 #endif
 
@@ -7964,6 +7969,15 @@ typedef struct VkPhysicalDeviceOpacityMicromapPropertiesEXT {
     uint32_t                           maxOpacity4StateSubdivisionLevel;
 } VkPhysicalDeviceOpacityMicromapPropertiesEXT;
 
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+typedef struct VkPhysicalDeviceDisplacementMicromapPropertiesNV {
+    VkStructureType   sType;
+    void *                             pNext;
+    uint32_t                           maxDisplacementMicromapSubdivisionLevel;
+} VkPhysicalDeviceDisplacementMicromapPropertiesNV;
+
+#endif
+
 typedef struct VkPipelinePropertiesIdentifierEXT {
     VkStructureType   sType;
     void *               pNext;
@@ -8167,6 +8181,8 @@ typedef struct VkDeviceFaultVendorBinaryHeaderVersionOneEXT {
     uint32_t                 applicationNameOffset;
     uint32_t                 applicationVersion;
     uint32_t                 engineNameOffset;
+    uint32_t                 engineVersion;
+    uint32_t                 apiVersion;
 } VkDeviceFaultVendorBinaryHeaderVersionOneEXT;
 
 typedef struct VkPhysicalDeviceShaderCoreBuiltinsPropertiesARM {
@@ -8192,21 +8208,21 @@ typedef struct VkSurfacePresentModeCompatibilityEXT {
 
 typedef struct VkSwapchainPresentFenceInfoEXT {
     VkStructureType   sType;
-    void *                pNext;
+    const  void *          pNext;
     uint32_t                              swapchainCount;
     const  VkFence *  pFences;
 } VkSwapchainPresentFenceInfoEXT;
 
 typedef struct VkSwapchainPresentModesCreateInfoEXT {
     VkStructureType   sType;
-    void *                pNext;
+    const  void *          pNext;
     uint32_t                              presentModeCount;
     const  VkPresentModeKHR *  pPresentModes;
 } VkSwapchainPresentModesCreateInfoEXT;
 
 typedef struct VkSwapchainPresentModeInfoEXT {
     VkStructureType   sType;
-    void *                pNext;
+    const  void *          pNext;
     uint32_t                              swapchainCount;
     const  VkPresentModeKHR *  pPresentModes;
 } VkSwapchainPresentModeInfoEXT;
@@ -8239,6 +8255,19 @@ typedef struct VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM {
     uint32_t           perViewRenderAreaCount;
     const  VkRect2D *   pPerViewRenderAreas;
 } VkMultiviewPerViewRenderAreasRenderPassBeginInfoQCOM;
+
+typedef struct VkQueryLowLatencySupportNV {
+    VkStructureType   sType;
+    const  void *  pNext;
+    void *                                        pQueriedLowLatencyData;
+} VkQueryLowLatencySupportNV;
+
+typedef struct VkPhysicalDeviceShaderObjectPropertiesEXT {
+    VkStructureType   sType;
+    void *                                              pNext;
+    uint8_t                                                                shaderBinaryUUID [ VK_UUID_SIZE ];
+    uint32_t                                                               shaderBinaryVersion;
+} VkPhysicalDeviceShaderObjectPropertiesEXT;
 
 /* Complete version of this file */
 #define VK_HEADER_VERSION_COMPLETE VK_MAKE_API_VERSION(0, 1, 3, VK_HEADER_VERSION)
@@ -8474,6 +8503,7 @@ typedef VkFlags   VkOpticalFlowSessionCreateFlagsNV;
 typedef VkFlags   VkOpticalFlowExecuteFlagsNV;
 typedef VkFlags VkPresentScalingFlagsEXT;
 typedef VkFlags VkPresentGravityFlagsEXT;
+typedef VkFlags VkShaderCreateFlagsEXT;
 typedef VkFlags VkVideoCodecOperationFlagsKHR;
 typedef VkFlags VkVideoCapabilityFlagsKHR;
 typedef VkFlags VkVideoSessionCreateFlagsKHR;
@@ -8502,6 +8532,10 @@ typedef VkFlags VkVideoEncodeCapabilityFlagsKHR;
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
+typedef VkFlags VkVideoEncodeFeedbackFlagsKHR;
+#endif
+
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
 typedef VkFlags VkVideoEncodeRateControlFlagsKHR;
 #endif
 
@@ -8516,23 +8550,7 @@ typedef VkFlags VkVideoEncodeH264CapabilityFlagsEXT;
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef VkFlags VkVideoEncodeH264InputModeFlagsEXT;
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef VkFlags VkVideoEncodeH264OutputModeFlagsEXT;
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
 typedef VkFlags VkVideoEncodeH265CapabilityFlagsEXT;
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef VkFlags VkVideoEncodeH265InputModeFlagsEXT;
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef VkFlags VkVideoEncodeH265OutputModeFlagsEXT;
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
@@ -8543,6 +8561,7 @@ typedef VkFlags VkVideoEncodeH265CtbSizeFlagsEXT;
 typedef VkFlags VkVideoEncodeH265TransformBlockSizeFlagsEXT;
 #endif
 
+typedef VkFlags VkMemoryUnmapFlagsKHR;
 typedef VkBool32 (VKAPI_PTR *PFN_vkDebugReportCallbackEXT)(
     VkDebugReportFlagsEXT                       flags,
     VkDebugReportObjectTypeEXT                  objectType,
@@ -11715,6 +11734,15 @@ typedef struct VkPhysicalDeviceSubgroupSizeControlProperties {
 
 typedef struct VkPhysicalDeviceSubgroupSizeControlProperties  VkPhysicalDeviceSubgroupSizeControlPropertiesEXT;
 
+typedef struct VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI {
+    VkStructureType   sType;
+    void *                   pNext;
+    uint32_t             maxWorkGroupCount [3];
+    uint32_t             maxWorkGroupSize [3];
+    uint32_t                 maxOutputClusterCount;
+    VkDeviceSize           indirectBufferOffsetAlignment;
+} VkPhysicalDeviceClusterCullingShaderPropertiesHUAWEI;
+
 typedef struct VkPhysicalDeviceLineRasterizationFeaturesEXT {
     VkStructureType   sType;
     void *         pNext;
@@ -12834,9 +12862,9 @@ typedef struct VkVideoEncodeInfoKHR {
     const  void *             pNext;
     VkVideoEncodeFlagsKHR    flags;
     uint32_t                                 qualityLevel;
-    VkBuffer                                 dstBitstreamBuffer;
-    VkDeviceSize                             dstBitstreamBufferOffset;
-    VkDeviceSize                             dstBitstreamBufferMaxRange;
+    VkBuffer                                 dstBuffer;
+    VkDeviceSize                             dstBufferOffset;
+    VkDeviceSize                             dstBufferRange;
     VkVideoPictureResourceInfoKHR            srcPictureResource;
     const  VkVideoReferenceSlotInfoKHR *  pSetupReferenceSlot;
     uint32_t                 referenceSlotCount;
@@ -12847,13 +12875,22 @@ typedef struct VkVideoEncodeInfoKHR {
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
+typedef struct VkQueryPoolVideoEncodeFeedbackCreateInfoKHR {
+    VkStructureType   sType;
+    const  void *             pNext;
+    VkVideoEncodeFeedbackFlagsKHR            encodeFeedbackFlags;
+} VkQueryPoolVideoEncodeFeedbackCreateInfoKHR;
+
+#endif
+
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
 typedef struct VkVideoEncodeRateControlInfoKHR {
     VkStructureType   sType;
     const  void *               pNext;
     VkVideoEncodeRateControlFlagsKHR   flags;
     VkVideoEncodeRateControlModeFlagBitsKHR    rateControlMode;
-    uint8_t                                    layerCount;
-    const  VkVideoEncodeRateControlLayerInfoKHR *  pLayerConfigs;
+    uint32_t                                   layerCount;
+    const  VkVideoEncodeRateControlLayerInfoKHR *  pLayers;
 } VkVideoEncodeRateControlInfoKHR;
 
 #endif
@@ -12864,9 +12901,10 @@ typedef struct VkVideoEncodeCapabilitiesKHR {
     void *                  pNext;
     VkVideoEncodeCapabilityFlagsKHR         flags;
     VkVideoEncodeRateControlModeFlagsKHR    rateControlModes;
-    uint8_t                                 rateControlLayerCount;
-    uint8_t                                 qualityLevelCount;
+    uint32_t                                maxRateControlLayers;
+    uint32_t                                maxQualityLevels;
     VkExtent2D                              inputImageDataFillAlignment;
+    VkVideoEncodeFeedbackFlagsKHR           supportedEncodeFeedbackFlags;
 } VkVideoEncodeCapabilitiesKHR;
 
 #endif
@@ -12876,11 +12914,9 @@ typedef struct VkVideoEncodeH264CapabilitiesEXT {
     VkStructureType   sType;
     void *                  pNext;
     VkVideoEncodeH264CapabilityFlagsEXT     flags;
-    VkVideoEncodeH264InputModeFlagsEXT      inputModeFlags;
-    VkVideoEncodeH264OutputModeFlagsEXT     outputModeFlags;
-    uint8_t                                 maxPPictureL0ReferenceCount;
-    uint8_t                                 maxBPictureL0ReferenceCount;
-    uint8_t                                 maxL1ReferenceCount;
+    uint32_t                                maxPPictureL0ReferenceCount;
+    uint32_t                                maxBPictureL0ReferenceCount;
+    uint32_t                                maxL1ReferenceCount;
     VkBool32                                motionVectorsOverPicBoundariesFlag;
     uint32_t                                maxBytesPerPicDenom;
     uint32_t                                maxBitsPerMbDenom;
@@ -12894,23 +12930,11 @@ typedef struct VkVideoEncodeH264CapabilitiesEXT {
 typedef struct VkVideoEncodeH264VclFrameInfoEXT {
     VkStructureType   sType;
     const  void *                                         pNext;
-    const  VkVideoEncodeH264ReferenceListsInfoEXT *       pReferenceFinalLists;
+    const  StdVideoEncodeH264ReferenceListsInfo *         pStdReferenceFinalLists;
     uint32_t                                                             naluSliceEntryCount;
     const  VkVideoEncodeH264NaluSliceInfoEXT *  pNaluSliceEntries;
-    const  StdVideoEncodeH264PictureInfo *                                pCurrentPictureInfo;
+    const  StdVideoEncodeH264PictureInfo *                                pStdPictureInfo;
 } VkVideoEncodeH264VclFrameInfoEXT;
-
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef struct VkVideoEncodeH264EmitPictureParametersInfoEXT {
-    VkStructureType   sType;
-    const  void *              pNext;
-    uint8_t                                   spsId;
-    VkBool32                                  emitSpsEnable;
-    uint32_t                                  ppsIdEntryCount;
-    const  uint8_t *     ppsIdEntries;
-} VkVideoEncodeH264EmitPictureParametersInfoEXT;
 
 #endif
 
@@ -12918,7 +12942,7 @@ typedef struct VkVideoEncodeH264EmitPictureParametersInfoEXT {
 typedef struct VkVideoEncodeH264RateControlLayerInfoEXT {
     VkStructureType   sType;
     const  void *                      pNext;
-    uint8_t                                           temporalLayerId;
+    uint32_t                                          temporalLayerId;
     VkBool32                                          useInitialRcQp;
     VkVideoEncodeH264QpEXT                            initialRcQp;
     VkBool32                                          useMinQp;
@@ -12936,51 +12960,36 @@ typedef struct VkVideoEncodeH265CapabilitiesEXT {
     VkStructureType   sType;
     void *                  pNext;
     VkVideoEncodeH265CapabilityFlagsEXT     flags;
-    VkVideoEncodeH265InputModeFlagsEXT      inputModeFlags;
-    VkVideoEncodeH265OutputModeFlagsEXT     outputModeFlags;
     VkVideoEncodeH265CtbSizeFlagsEXT        ctbSizes;
     VkVideoEncodeH265TransformBlockSizeFlagsEXT        transformBlockSizes;
-    uint8_t                                 maxPPictureL0ReferenceCount;
-    uint8_t                                 maxBPictureL0ReferenceCount;
-    uint8_t                                 maxL1ReferenceCount;
-    uint8_t                                 maxSubLayersCount;
-    uint8_t                                 minLog2MinLumaCodingBlockSizeMinus3;
-    uint8_t                                 maxLog2MinLumaCodingBlockSizeMinus3;
-    uint8_t                                 minLog2MinLumaTransformBlockSizeMinus2;
-    uint8_t                                 maxLog2MinLumaTransformBlockSizeMinus2;
-    uint8_t                                 minMaxTransformHierarchyDepthInter;
-    uint8_t                                 maxMaxTransformHierarchyDepthInter;
-    uint8_t                                 minMaxTransformHierarchyDepthIntra;
-    uint8_t                                 maxMaxTransformHierarchyDepthIntra;
-    uint8_t                                 maxDiffCuQpDeltaDepth;
-    uint8_t                                 minMaxNumMergeCand;
-    uint8_t                                 maxMaxNumMergeCand;
+    uint32_t                                maxPPictureL0ReferenceCount;
+    uint32_t                                maxBPictureL0ReferenceCount;
+    uint32_t                                maxL1ReferenceCount;
+    uint32_t                                maxSubLayersCount;
+    uint32_t                                minLog2MinLumaCodingBlockSizeMinus3;
+    uint32_t                                maxLog2MinLumaCodingBlockSizeMinus3;
+    uint32_t                                minLog2MinLumaTransformBlockSizeMinus2;
+    uint32_t                                maxLog2MinLumaTransformBlockSizeMinus2;
+    uint32_t                                minMaxTransformHierarchyDepthInter;
+    uint32_t                                maxMaxTransformHierarchyDepthInter;
+    uint32_t                                minMaxTransformHierarchyDepthIntra;
+    uint32_t                                maxMaxTransformHierarchyDepthIntra;
+    uint32_t                                maxDiffCuQpDeltaDepth;
+    uint32_t                                minMaxNumMergeCand;
+    uint32_t                                maxMaxNumMergeCand;
 } VkVideoEncodeH265CapabilitiesEXT;
 
 #endif
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef struct VkVideoEncodeH265EmitPictureParametersInfoEXT {
+typedef struct VkVideoEncodeH265VclFrameInfoEXT {
     VkStructureType   sType;
-    const  void *              pNext;
-    uint8_t                                   vpsId;
-    uint8_t                                   spsId;
-    VkBool32                                  emitVpsEnable;
-    VkBool32                                  emitSpsEnable;
-    uint32_t                  ppsIdEntryCount;
-    const  uint8_t *     ppsIdEntries;
-} VkVideoEncodeH265EmitPictureParametersInfoEXT;
-
-#endif
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef struct VkVideoEncodeH265NaluSliceSegmentInfoEXT {
-    VkStructureType   sType;
-    const  void *                                 pNext;
-    uint32_t                                                     ctbCount;
-    const  VkVideoEncodeH265ReferenceListsInfoEXT *  pReferenceFinalLists;
-    const  StdVideoEncodeH265SliceSegmentHeader *                 pSliceSegmentHeaderStd;
-} VkVideoEncodeH265NaluSliceSegmentInfoEXT;
+    const  void *                                        pNext;
+    const  StdVideoEncodeH265ReferenceListsInfo *        pStdReferenceFinalLists;
+    uint32_t                                                            naluSliceSegmentEntryCount;
+    const  VkVideoEncodeH265NaluSliceSegmentInfoEXT *  pNaluSliceSegmentEntries;
+    const  StdVideoEncodeH265PictureInfo *                               pStdPictureInfo;
+} VkVideoEncodeH265VclFrameInfoEXT;
 
 #endif
 
@@ -12988,7 +12997,7 @@ typedef struct VkVideoEncodeH265NaluSliceSegmentInfoEXT {
 typedef struct VkVideoEncodeH265RateControlLayerInfoEXT {
     VkStructureType   sType;
     const  void *                      pNext;
-    uint8_t                                           temporalId;
+    uint32_t                                          temporalId;
     VkBool32                                          useInitialRcQp;
     VkVideoEncodeH265QpEXT                            initialRcQp;
     VkBool32                                          useMinQp;
@@ -13551,6 +13560,39 @@ typedef struct VkAccelerationStructureTrianglesOpacityMicromapEXT {
     VkMicromapEXT                                            micromap;
 } VkAccelerationStructureTrianglesOpacityMicromapEXT;
 
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+typedef struct VkPhysicalDeviceDisplacementMicromapFeaturesNV {
+    VkStructureType   sType;
+    void *                             pNext;
+    VkBool32                           displacementMicromap;
+} VkPhysicalDeviceDisplacementMicromapFeaturesNV;
+
+#endif
+
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+typedef struct VkAccelerationStructureTrianglesDisplacementMicromapNV {
+    VkStructureType   sType;
+    void *                                   pNext;
+    VkFormat                                                 displacementBiasAndScaleFormat;
+    VkFormat                                                 displacementVectorFormat;
+    VkDeviceOrHostAddressConstKHR      displacementBiasAndScaleBuffer;
+    VkDeviceSize                                             displacementBiasAndScaleStride;
+    VkDeviceOrHostAddressConstKHR      displacementVectorBuffer;
+    VkDeviceSize                                             displacementVectorStride;
+    VkDeviceOrHostAddressConstKHR      displacedMicromapPrimitiveFlags;
+    VkDeviceSize                                             displacedMicromapPrimitiveFlagsStride;
+    VkIndexType                                              indexType;
+    VkDeviceOrHostAddressConstKHR      indexBuffer;
+    VkDeviceSize                                             indexStride;
+    uint32_t                                                 baseTriangle;
+    uint32_t                                                            usageCountsCount;
+    const  VkMicromapUsageEXT *                   pUsageCounts;
+    const  VkMicromapUsageEXT * const*    ppUsageCounts;
+    VkMicromapEXT                                            micromap;
+} VkAccelerationStructureTrianglesDisplacementMicromapNV;
+
+#endif
+
 typedef struct VkPhysicalDevicePipelinePropertiesFeaturesEXT {
     VkStructureType   sType;
     void *  pNext;
@@ -13779,6 +13821,61 @@ typedef struct VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM {
     VkBool32                           multiviewPerViewRenderAreas;
 } VkPhysicalDeviceMultiviewPerViewRenderAreasFeaturesQCOM;
 
+typedef struct VkMemoryMapInfoKHR {
+    VkStructureType   sType;
+    const  void *       pNext;
+    VkMemoryMapFlags   flags;
+    VkDeviceMemory   memory;
+    VkDeviceSize                       offset;
+    VkDeviceSize                       size;
+} VkMemoryMapInfoKHR;
+
+typedef struct VkMemoryUnmapInfoKHR {
+    VkStructureType   sType;
+    const  void *             pNext;
+    VkMemoryUnmapFlagsKHR    flags;
+    VkDeviceMemory         memory;
+} VkMemoryUnmapInfoKHR;
+
+typedef struct VkPhysicalDeviceShaderObjectFeaturesEXT {
+    VkStructureType   sType;
+    void *                                            pNext;
+    VkBool32                                                                                shaderObject;
+} VkPhysicalDeviceShaderObjectFeaturesEXT;
+
+typedef struct VkShaderCreateInfoEXT {
+    VkStructureType         sType;
+    const  void *                                              pNext;
+    VkShaderCreateFlagsEXT                                    flags;
+    VkShaderStageFlagBits                                                     stage;
+    VkShaderStageFlags                                        nextStage;
+    VkShaderCodeTypeEXT                                                       codeType;
+    size_t                                                                    codeSize;
+    const  void *                                               pCode;
+    const  char *                        pName;
+    uint32_t                                                  setLayoutCount;
+    const  VkDescriptorSetLayout *        pSetLayouts;
+    uint32_t                                                  pushConstantRangeCount;
+    const  VkPushConstantRange *  pPushConstantRanges;
+    const  VkSpecializationInfo *                              pSpecializationInfo;
+} VkShaderCreateInfoEXT;
+
+typedef struct VkPhysicalDeviceShaderTileImageFeaturesEXT {
+    VkStructureType   sType;
+    void *         pNext;
+    VkBool32                       shaderTileImageColorReadAccess;
+    VkBool32                       shaderTileImageDepthReadAccess;
+    VkBool32                       shaderTileImageStencilReadAccess;
+} VkPhysicalDeviceShaderTileImageFeaturesEXT;
+
+typedef struct VkPhysicalDeviceShaderTileImagePropertiesEXT {
+    VkStructureType   sType;
+    void *         pNext;
+    VkBool32    shaderTileImageCoherentReadAccelerated;
+    VkBool32    shaderTileImageReadSampleFromPixelRateInvocation;
+    VkBool32    shaderTileImageReadFromHelperInvocation;
+} VkPhysicalDeviceShaderTileImagePropertiesEXT;
+
 typedef VkBool32 (VKAPI_PTR *PFN_vkDebugUtilsMessengerCallbackEXT)(
     VkDebugUtilsMessageSeverityFlagBitsEXT           messageSeverity,
     VkDebugUtilsMessageTypeFlagsEXT                  messageTypes,
@@ -13884,18 +13981,6 @@ typedef struct VkVideoProfileListInfoKHR {
     uint32_t                                        profileCount;
     const  VkVideoProfileInfoKHR *                pProfiles;
 } VkVideoProfileListInfoKHR;
-
-#if defined(VK_ENABLE_BETA_EXTENSIONS)
-typedef struct VkVideoEncodeH265VclFrameInfoEXT {
-    VkStructureType   sType;
-    const  void *                                        pNext;
-    const  VkVideoEncodeH265ReferenceListsInfoEXT *      pReferenceFinalLists;
-    uint32_t                                                            naluSliceSegmentEntryCount;
-    const  VkVideoEncodeH265NaluSliceSegmentInfoEXT *  pNaluSliceSegmentEntries;
-    const  StdVideoEncodeH265PictureInfo *                               pCurrentPictureInfo;
-} VkVideoEncodeH265VclFrameInfoEXT;
-
-#endif
 
 typedef struct VkDrmFormatModifierPropertiesList2EXT {
     VkStructureType   sType;
@@ -14049,9 +14134,11 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_EXT_shader_demote_to_helper_invocation 1
 #define VK_EXT_shader_image_atomic_int64 1
 #define VK_EXT_shader_module_identifier 1
+#define VK_EXT_shader_object 1
 #define VK_EXT_shader_stencil_export 1
 #define VK_EXT_shader_subgroup_ballot 1
 #define VK_EXT_shader_subgroup_vote 1
+#define VK_EXT_shader_tile_image 1
 #define VK_EXT_shader_viewport_index_layer 1
 #define VK_EXT_subgroup_size_control 1
 #define VK_EXT_subpass_merge_feedback 1
@@ -14171,6 +14258,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_KHR_maintenance2 1
 #define VK_KHR_maintenance3 1
 #define VK_KHR_maintenance4 1
+#define VK_KHR_map_memory2 1
 #define VK_KHR_multiview 1
 #define VK_KHR_performance_query 1
 #define VK_KHR_pipeline_executable_properties 1
@@ -14273,6 +14361,10 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_NV_device_diagnostic_checkpoints 1
 #define VK_NV_device_diagnostics_config 1
 #define VK_NV_device_generated_commands 1
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+#define VK_NV_displacement_micromap 1
+
+#endif
 #define VK_NV_external_memory 1
 #define VK_NV_external_memory_capabilities 1
 #define VK_NV_external_memory_rdma 1
@@ -14289,6 +14381,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_NV_glsl_shader 1
 #define VK_NV_inherited_viewport_scissor 1
 #define VK_NV_linear_color_attachment 1
+#define VK_NV_low_latency 1
 #define VK_NV_memory_decompression 1
 #define VK_NV_mesh_shader 1
 #define VK_NV_optical_flow 1
@@ -14377,6 +14470,7 @@ typedef void (GLAD_API_PTR *PFN_vkCmdBindIndexBuffer)(VkCommandBuffer commandBuf
 typedef void (GLAD_API_PTR *PFN_vkCmdBindInvocationMaskHUAWEI)(VkCommandBuffer commandBuffer, VkImageView imageView, VkImageLayout imageLayout);
 typedef void (GLAD_API_PTR *PFN_vkCmdBindPipeline)(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline);
 typedef void (GLAD_API_PTR *PFN_vkCmdBindPipelineShaderGroupNV)(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline, uint32_t groupIndex);
+typedef void (GLAD_API_PTR *PFN_vkCmdBindShadersEXT)(VkCommandBuffer commandBuffer, uint32_t stageCount, const VkShaderStageFlagBits * pStages, const VkShaderEXT * pShaders);
 typedef void (GLAD_API_PTR *PFN_vkCmdBindShadingRateImageNV)(VkCommandBuffer commandBuffer, VkImageView imageView, VkImageLayout imageLayout);
 typedef void (GLAD_API_PTR *PFN_vkCmdBindTransformFeedbackBuffersEXT)(VkCommandBuffer commandBuffer, uint32_t firstBinding, uint32_t bindingCount, const VkBuffer * pBuffers, const VkDeviceSize * pOffsets, const VkDeviceSize * pSizes);
 typedef void (GLAD_API_PTR *PFN_vkCmdBindVertexBuffers)(VkCommandBuffer commandBuffer, uint32_t firstBinding, uint32_t bindingCount, const VkBuffer * pBuffers, const VkDeviceSize * pOffsets);
@@ -14679,6 +14773,7 @@ typedef VkResult (GLAD_API_PTR *PFN_vkCreateScreenSurfaceQNX)(VkInstance instanc
 #endif
 typedef VkResult (GLAD_API_PTR *PFN_vkCreateSemaphore)(VkDevice device, const VkSemaphoreCreateInfo * pCreateInfo, const VkAllocationCallbacks * pAllocator, VkSemaphore * pSemaphore);
 typedef VkResult (GLAD_API_PTR *PFN_vkCreateShaderModule)(VkDevice device, const VkShaderModuleCreateInfo * pCreateInfo, const VkAllocationCallbacks * pAllocator, VkShaderModule * pShaderModule);
+typedef VkResult (GLAD_API_PTR *PFN_vkCreateShadersEXT)(VkDevice device, uint32_t createInfoCount, const VkShaderCreateInfoEXT * pCreateInfos, const VkAllocationCallbacks * pAllocator, VkShaderEXT * pShaders);
 typedef VkResult (GLAD_API_PTR *PFN_vkCreateSharedSwapchainsKHR)(VkDevice device, uint32_t swapchainCount, const VkSwapchainCreateInfoKHR * pCreateInfos, const VkAllocationCallbacks * pAllocator, VkSwapchainKHR * pSwapchains);
 #if defined(VK_USE_PLATFORM_GGP)
 typedef VkResult (GLAD_API_PTR *PFN_vkCreateStreamDescriptorSurfaceGGP)(VkInstance instance, const VkStreamDescriptorSurfaceCreateInfoGGP * pCreateInfo, const VkAllocationCallbacks * pAllocator, VkSurfaceKHR * pSurface);
@@ -14751,6 +14846,7 @@ typedef void (GLAD_API_PTR *PFN_vkDestroySampler)(VkDevice device, VkSampler sam
 typedef void (GLAD_API_PTR *PFN_vkDestroySamplerYcbcrConversion)(VkDevice device, VkSamplerYcbcrConversion ycbcrConversion, const VkAllocationCallbacks * pAllocator);
 typedef void (GLAD_API_PTR *PFN_vkDestroySamplerYcbcrConversionKHR)(VkDevice device, VkSamplerYcbcrConversion ycbcrConversion, const VkAllocationCallbacks * pAllocator);
 typedef void (GLAD_API_PTR *PFN_vkDestroySemaphore)(VkDevice device, VkSemaphore semaphore, const VkAllocationCallbacks * pAllocator);
+typedef void (GLAD_API_PTR *PFN_vkDestroyShaderEXT)(VkDevice device, VkShaderEXT shader, const VkAllocationCallbacks * pAllocator);
 typedef void (GLAD_API_PTR *PFN_vkDestroyShaderModule)(VkDevice device, VkShaderModule shaderModule, const VkAllocationCallbacks * pAllocator);
 typedef void (GLAD_API_PTR *PFN_vkDestroySurfaceKHR)(VkInstance instance, VkSurfaceKHR surface, const VkAllocationCallbacks * pAllocator);
 typedef void (GLAD_API_PTR *PFN_vkDestroySwapchainKHR)(VkDevice device, VkSwapchainKHR swapchain, const VkAllocationCallbacks * pAllocator);
@@ -15005,6 +15101,7 @@ typedef VkResult (GLAD_API_PTR *PFN_vkGetSemaphoreWin32HandleKHR)(VkDevice devic
 typedef VkResult (GLAD_API_PTR *PFN_vkGetSemaphoreZirconHandleFUCHSIA)(VkDevice device, const VkSemaphoreGetZirconHandleInfoFUCHSIA * pGetZirconHandleInfo, zx_handle_t * pZirconHandle);
 
 #endif
+typedef VkResult (GLAD_API_PTR *PFN_vkGetShaderBinaryDataEXT)(VkDevice device, VkShaderEXT shader, size_t * pDataSize, void * pData);
 typedef VkResult (GLAD_API_PTR *PFN_vkGetShaderInfoAMD)(VkDevice device, VkPipeline pipeline, VkShaderStageFlagBits shaderStage, VkShaderInfoTypeAMD infoType, size_t * pInfoSize, void * pInfo);
 typedef void (GLAD_API_PTR *PFN_vkGetShaderModuleCreateInfoIdentifierEXT)(VkDevice device, const VkShaderModuleCreateInfo * pCreateInfo, VkShaderModuleIdentifierEXT * pIdentifier);
 typedef void (GLAD_API_PTR *PFN_vkGetShaderModuleIdentifierEXT)(VkDevice device, VkShaderModule shaderModule, VkShaderModuleIdentifierEXT * pIdentifier);
@@ -15034,6 +15131,7 @@ typedef VkResult (GLAD_API_PTR *PFN_vkImportSemaphoreZirconHandleFUCHSIA)(VkDevi
 typedef VkResult (GLAD_API_PTR *PFN_vkInitializePerformanceApiINTEL)(VkDevice device, const VkInitializePerformanceApiInfoINTEL * pInitializeInfo);
 typedef VkResult (GLAD_API_PTR *PFN_vkInvalidateMappedMemoryRanges)(VkDevice device, uint32_t memoryRangeCount, const VkMappedMemoryRange * pMemoryRanges);
 typedef VkResult (GLAD_API_PTR *PFN_vkMapMemory)(VkDevice device, VkDeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, void ** ppData);
+typedef VkResult (GLAD_API_PTR *PFN_vkMapMemory2KHR)(VkDevice device, const VkMemoryMapInfoKHR * pMemoryMapInfo, void ** ppData);
 typedef VkResult (GLAD_API_PTR *PFN_vkMergePipelineCaches)(VkDevice device, VkPipelineCache dstCache, uint32_t srcCacheCount, const VkPipelineCache * pSrcCaches);
 typedef VkResult (GLAD_API_PTR *PFN_vkMergeValidationCachesEXT)(VkDevice device, VkValidationCacheEXT dstCache, uint32_t srcCacheCount, const VkValidationCacheEXT * pSrcCaches);
 typedef void (GLAD_API_PTR *PFN_vkQueueBeginDebugUtilsLabelEXT)(VkQueue queue, const VkDebugUtilsLabelEXT * pLabelInfo);
@@ -15086,6 +15184,7 @@ typedef void (GLAD_API_PTR *PFN_vkTrimCommandPool)(VkDevice device, VkCommandPoo
 typedef void (GLAD_API_PTR *PFN_vkTrimCommandPoolKHR)(VkDevice device, VkCommandPool commandPool, VkCommandPoolTrimFlags flags);
 typedef void (GLAD_API_PTR *PFN_vkUninitializePerformanceApiINTEL)(VkDevice device);
 typedef void (GLAD_API_PTR *PFN_vkUnmapMemory)(VkDevice device, VkDeviceMemory memory);
+typedef VkResult (GLAD_API_PTR *PFN_vkUnmapMemory2KHR)(VkDevice device, const VkMemoryUnmapInfoKHR * pMemoryUnmapInfo);
 typedef void (GLAD_API_PTR *PFN_vkUpdateDescriptorSetWithTemplate)(VkDevice device, VkDescriptorSet descriptorSet, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const void * pData);
 typedef void (GLAD_API_PTR *PFN_vkUpdateDescriptorSetWithTemplateKHR)(VkDevice device, VkDescriptorSet descriptorSet, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const void * pData);
 typedef void (GLAD_API_PTR *PFN_vkUpdateDescriptorSets)(VkDevice device, uint32_t descriptorWriteCount, const VkWriteDescriptorSet * pDescriptorWrites, uint32_t descriptorCopyCount, const VkCopyDescriptorSet * pDescriptorCopies);
@@ -15225,9 +15324,11 @@ typedef struct GladVulkanContext {
     unsigned EXT_shader_demote_to_helper_invocation : 1;
     unsigned EXT_shader_image_atomic_int64 : 1;
     unsigned EXT_shader_module_identifier : 1;
+    unsigned EXT_shader_object : 1;
     unsigned EXT_shader_stencil_export : 1;
     unsigned EXT_shader_subgroup_ballot : 1;
     unsigned EXT_shader_subgroup_vote : 1;
+    unsigned EXT_shader_tile_image : 1;
     unsigned EXT_shader_viewport_index_layer : 1;
     unsigned EXT_subgroup_size_control : 1;
     unsigned EXT_subpass_merge_feedback : 1;
@@ -15311,6 +15412,7 @@ typedef struct GladVulkanContext {
     unsigned KHR_maintenance2 : 1;
     unsigned KHR_maintenance3 : 1;
     unsigned KHR_maintenance4 : 1;
+    unsigned KHR_map_memory2 : 1;
     unsigned KHR_multiview : 1;
     unsigned KHR_performance_query : 1;
     unsigned KHR_pipeline_executable_properties : 1;
@@ -15380,6 +15482,7 @@ typedef struct GladVulkanContext {
     unsigned NV_device_diagnostic_checkpoints : 1;
     unsigned NV_device_diagnostics_config : 1;
     unsigned NV_device_generated_commands : 1;
+    unsigned NV_displacement_micromap : 1;
     unsigned NV_external_memory : 1;
     unsigned NV_external_memory_capabilities : 1;
     unsigned NV_external_memory_rdma : 1;
@@ -15393,6 +15496,7 @@ typedef struct GladVulkanContext {
     unsigned NV_glsl_shader : 1;
     unsigned NV_inherited_viewport_scissor : 1;
     unsigned NV_linear_color_attachment : 1;
+    unsigned NV_low_latency : 1;
     unsigned NV_memory_decompression : 1;
     unsigned NV_mesh_shader : 1;
     unsigned NV_optical_flow : 1;
@@ -15474,6 +15578,7 @@ typedef struct GladVulkanContext {
     PFN_vkCmdBindInvocationMaskHUAWEI CmdBindInvocationMaskHUAWEI;
     PFN_vkCmdBindPipeline CmdBindPipeline;
     PFN_vkCmdBindPipelineShaderGroupNV CmdBindPipelineShaderGroupNV;
+    PFN_vkCmdBindShadersEXT CmdBindShadersEXT;
     PFN_vkCmdBindShadingRateImageNV CmdBindShadingRateImageNV;
     PFN_vkCmdBindTransformFeedbackBuffersEXT CmdBindTransformFeedbackBuffersEXT;
     PFN_vkCmdBindVertexBuffers CmdBindVertexBuffers;
@@ -15776,6 +15881,7 @@ typedef struct GladVulkanContext {
 #endif
     PFN_vkCreateSemaphore CreateSemaphore;
     PFN_vkCreateShaderModule CreateShaderModule;
+    PFN_vkCreateShadersEXT CreateShadersEXT;
     PFN_vkCreateSharedSwapchainsKHR CreateSharedSwapchainsKHR;
 #if defined(VK_USE_PLATFORM_GGP)
     PFN_vkCreateStreamDescriptorSurfaceGGP CreateStreamDescriptorSurfaceGGP;
@@ -15848,6 +15954,7 @@ typedef struct GladVulkanContext {
     PFN_vkDestroySamplerYcbcrConversion DestroySamplerYcbcrConversion;
     PFN_vkDestroySamplerYcbcrConversionKHR DestroySamplerYcbcrConversionKHR;
     PFN_vkDestroySemaphore DestroySemaphore;
+    PFN_vkDestroyShaderEXT DestroyShaderEXT;
     PFN_vkDestroyShaderModule DestroyShaderModule;
     PFN_vkDestroySurfaceKHR DestroySurfaceKHR;
     PFN_vkDestroySwapchainKHR DestroySwapchainKHR;
@@ -16102,6 +16209,7 @@ typedef struct GladVulkanContext {
     PFN_vkGetSemaphoreZirconHandleFUCHSIA GetSemaphoreZirconHandleFUCHSIA;
 
 #endif
+    PFN_vkGetShaderBinaryDataEXT GetShaderBinaryDataEXT;
     PFN_vkGetShaderInfoAMD GetShaderInfoAMD;
     PFN_vkGetShaderModuleCreateInfoIdentifierEXT GetShaderModuleCreateInfoIdentifierEXT;
     PFN_vkGetShaderModuleIdentifierEXT GetShaderModuleIdentifierEXT;
@@ -16131,6 +16239,7 @@ typedef struct GladVulkanContext {
     PFN_vkInitializePerformanceApiINTEL InitializePerformanceApiINTEL;
     PFN_vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges;
     PFN_vkMapMemory MapMemory;
+    PFN_vkMapMemory2KHR MapMemory2KHR;
     PFN_vkMergePipelineCaches MergePipelineCaches;
     PFN_vkMergeValidationCachesEXT MergeValidationCachesEXT;
     PFN_vkQueueBeginDebugUtilsLabelEXT QueueBeginDebugUtilsLabelEXT;
@@ -16183,6 +16292,7 @@ typedef struct GladVulkanContext {
     PFN_vkTrimCommandPoolKHR TrimCommandPoolKHR;
     PFN_vkUninitializePerformanceApiINTEL UninitializePerformanceApiINTEL;
     PFN_vkUnmapMemory UnmapMemory;
+    PFN_vkUnmapMemory2KHR UnmapMemory2KHR;
     PFN_vkUpdateDescriptorSetWithTemplate UpdateDescriptorSetWithTemplate;
     PFN_vkUpdateDescriptorSetWithTemplateKHR UpdateDescriptorSetWithTemplateKHR;
     PFN_vkUpdateDescriptorSets UpdateDescriptorSets;
@@ -16324,9 +16434,11 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_EXT_shader_demote_to_helper_invocation (glad_vulkan_context.EXT_shader_demote_to_helper_invocation)
 #define GLAD_VK_EXT_shader_image_atomic_int64 (glad_vulkan_context.EXT_shader_image_atomic_int64)
 #define GLAD_VK_EXT_shader_module_identifier (glad_vulkan_context.EXT_shader_module_identifier)
+#define GLAD_VK_EXT_shader_object (glad_vulkan_context.EXT_shader_object)
 #define GLAD_VK_EXT_shader_stencil_export (glad_vulkan_context.EXT_shader_stencil_export)
 #define GLAD_VK_EXT_shader_subgroup_ballot (glad_vulkan_context.EXT_shader_subgroup_ballot)
 #define GLAD_VK_EXT_shader_subgroup_vote (glad_vulkan_context.EXT_shader_subgroup_vote)
+#define GLAD_VK_EXT_shader_tile_image (glad_vulkan_context.EXT_shader_tile_image)
 #define GLAD_VK_EXT_shader_viewport_index_layer (glad_vulkan_context.EXT_shader_viewport_index_layer)
 #define GLAD_VK_EXT_subgroup_size_control (glad_vulkan_context.EXT_subgroup_size_control)
 #define GLAD_VK_EXT_subpass_merge_feedback (glad_vulkan_context.EXT_subpass_merge_feedback)
@@ -16410,6 +16522,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_KHR_maintenance2 (glad_vulkan_context.KHR_maintenance2)
 #define GLAD_VK_KHR_maintenance3 (glad_vulkan_context.KHR_maintenance3)
 #define GLAD_VK_KHR_maintenance4 (glad_vulkan_context.KHR_maintenance4)
+#define GLAD_VK_KHR_map_memory2 (glad_vulkan_context.KHR_map_memory2)
 #define GLAD_VK_KHR_multiview (glad_vulkan_context.KHR_multiview)
 #define GLAD_VK_KHR_performance_query (glad_vulkan_context.KHR_performance_query)
 #define GLAD_VK_KHR_pipeline_executable_properties (glad_vulkan_context.KHR_pipeline_executable_properties)
@@ -16479,6 +16592,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_NV_device_diagnostic_checkpoints (glad_vulkan_context.NV_device_diagnostic_checkpoints)
 #define GLAD_VK_NV_device_diagnostics_config (glad_vulkan_context.NV_device_diagnostics_config)
 #define GLAD_VK_NV_device_generated_commands (glad_vulkan_context.NV_device_generated_commands)
+#define GLAD_VK_NV_displacement_micromap (glad_vulkan_context.NV_displacement_micromap)
 #define GLAD_VK_NV_external_memory (glad_vulkan_context.NV_external_memory)
 #define GLAD_VK_NV_external_memory_capabilities (glad_vulkan_context.NV_external_memory_capabilities)
 #define GLAD_VK_NV_external_memory_rdma (glad_vulkan_context.NV_external_memory_rdma)
@@ -16492,6 +16606,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_NV_glsl_shader (glad_vulkan_context.NV_glsl_shader)
 #define GLAD_VK_NV_inherited_viewport_scissor (glad_vulkan_context.NV_inherited_viewport_scissor)
 #define GLAD_VK_NV_linear_color_attachment (glad_vulkan_context.NV_linear_color_attachment)
+#define GLAD_VK_NV_low_latency (glad_vulkan_context.NV_low_latency)
 #define GLAD_VK_NV_memory_decompression (glad_vulkan_context.NV_memory_decompression)
 #define GLAD_VK_NV_mesh_shader (glad_vulkan_context.NV_mesh_shader)
 #define GLAD_VK_NV_optical_flow (glad_vulkan_context.NV_optical_flow)
@@ -16574,6 +16689,7 @@ void vkCmdBindIndexBuffer(VkCommandBuffer commandBuffer, VkBuffer buffer, VkDevi
 void vkCmdBindInvocationMaskHUAWEI(VkCommandBuffer commandBuffer, VkImageView imageView, VkImageLayout imageLayout);
 void vkCmdBindPipeline(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline);
 void vkCmdBindPipelineShaderGroupNV(VkCommandBuffer commandBuffer, VkPipelineBindPoint pipelineBindPoint, VkPipeline pipeline, uint32_t groupIndex);
+void vkCmdBindShadersEXT(VkCommandBuffer commandBuffer, uint32_t stageCount, const VkShaderStageFlagBits * pStages, const VkShaderEXT * pShaders);
 void vkCmdBindShadingRateImageNV(VkCommandBuffer commandBuffer, VkImageView imageView, VkImageLayout imageLayout);
 void vkCmdBindTransformFeedbackBuffersEXT(VkCommandBuffer commandBuffer, uint32_t firstBinding, uint32_t bindingCount, const VkBuffer * pBuffers, const VkDeviceSize * pOffsets, const VkDeviceSize * pSizes);
 void vkCmdBindVertexBuffers(VkCommandBuffer commandBuffer, uint32_t firstBinding, uint32_t bindingCount, const VkBuffer * pBuffers, const VkDeviceSize * pOffsets);
@@ -16876,6 +16992,7 @@ VkResult vkCreateScreenSurfaceQNX(VkInstance instance, const VkScreenSurfaceCrea
 #endif
 VkResult vkCreateSemaphore(VkDevice device, const VkSemaphoreCreateInfo * pCreateInfo, const VkAllocationCallbacks * pAllocator, VkSemaphore * pSemaphore);
 VkResult vkCreateShaderModule(VkDevice device, const VkShaderModuleCreateInfo * pCreateInfo, const VkAllocationCallbacks * pAllocator, VkShaderModule * pShaderModule);
+VkResult vkCreateShadersEXT(VkDevice device, uint32_t createInfoCount, const VkShaderCreateInfoEXT * pCreateInfos, const VkAllocationCallbacks * pAllocator, VkShaderEXT * pShaders);
 VkResult vkCreateSharedSwapchainsKHR(VkDevice device, uint32_t swapchainCount, const VkSwapchainCreateInfoKHR * pCreateInfos, const VkAllocationCallbacks * pAllocator, VkSwapchainKHR * pSwapchains);
 #if defined(VK_USE_PLATFORM_GGP)
 VkResult vkCreateStreamDescriptorSurfaceGGP(VkInstance instance, const VkStreamDescriptorSurfaceCreateInfoGGP * pCreateInfo, const VkAllocationCallbacks * pAllocator, VkSurfaceKHR * pSurface);
@@ -16948,6 +17065,7 @@ void vkDestroySampler(VkDevice device, VkSampler sampler, const VkAllocationCall
 void vkDestroySamplerYcbcrConversion(VkDevice device, VkSamplerYcbcrConversion ycbcrConversion, const VkAllocationCallbacks * pAllocator);
 void vkDestroySamplerYcbcrConversionKHR(VkDevice device, VkSamplerYcbcrConversion ycbcrConversion, const VkAllocationCallbacks * pAllocator);
 void vkDestroySemaphore(VkDevice device, VkSemaphore semaphore, const VkAllocationCallbacks * pAllocator);
+void vkDestroyShaderEXT(VkDevice device, VkShaderEXT shader, const VkAllocationCallbacks * pAllocator);
 void vkDestroyShaderModule(VkDevice device, VkShaderModule shaderModule, const VkAllocationCallbacks * pAllocator);
 void vkDestroySurfaceKHR(VkInstance instance, VkSurfaceKHR surface, const VkAllocationCallbacks * pAllocator);
 void vkDestroySwapchainKHR(VkDevice device, VkSwapchainKHR swapchain, const VkAllocationCallbacks * pAllocator);
@@ -17202,6 +17320,7 @@ VkResult vkGetSemaphoreWin32HandleKHR(VkDevice device, const VkSemaphoreGetWin32
 VkResult vkGetSemaphoreZirconHandleFUCHSIA(VkDevice device, const VkSemaphoreGetZirconHandleInfoFUCHSIA * pGetZirconHandleInfo, zx_handle_t * pZirconHandle);
 
 #endif
+VkResult vkGetShaderBinaryDataEXT(VkDevice device, VkShaderEXT shader, size_t * pDataSize, void * pData);
 VkResult vkGetShaderInfoAMD(VkDevice device, VkPipeline pipeline, VkShaderStageFlagBits shaderStage, VkShaderInfoTypeAMD infoType, size_t * pInfoSize, void * pInfo);
 void vkGetShaderModuleCreateInfoIdentifierEXT(VkDevice device, const VkShaderModuleCreateInfo * pCreateInfo, VkShaderModuleIdentifierEXT * pIdentifier);
 void vkGetShaderModuleIdentifierEXT(VkDevice device, VkShaderModule shaderModule, VkShaderModuleIdentifierEXT * pIdentifier);
@@ -17231,6 +17350,7 @@ VkResult vkImportSemaphoreZirconHandleFUCHSIA(VkDevice device, const VkImportSem
 VkResult vkInitializePerformanceApiINTEL(VkDevice device, const VkInitializePerformanceApiInfoINTEL * pInitializeInfo);
 VkResult vkInvalidateMappedMemoryRanges(VkDevice device, uint32_t memoryRangeCount, const VkMappedMemoryRange * pMemoryRanges);
 VkResult vkMapMemory(VkDevice device, VkDeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, void ** ppData);
+VkResult vkMapMemory2KHR(VkDevice device, const VkMemoryMapInfoKHR * pMemoryMapInfo, void ** ppData);
 VkResult vkMergePipelineCaches(VkDevice device, VkPipelineCache dstCache, uint32_t srcCacheCount, const VkPipelineCache * pSrcCaches);
 VkResult vkMergeValidationCachesEXT(VkDevice device, VkValidationCacheEXT dstCache, uint32_t srcCacheCount, const VkValidationCacheEXT * pSrcCaches);
 void vkQueueBeginDebugUtilsLabelEXT(VkQueue queue, const VkDebugUtilsLabelEXT * pLabelInfo);
@@ -17283,6 +17403,7 @@ void vkTrimCommandPool(VkDevice device, VkCommandPool commandPool, VkCommandPool
 void vkTrimCommandPoolKHR(VkDevice device, VkCommandPool commandPool, VkCommandPoolTrimFlags flags);
 void vkUninitializePerformanceApiINTEL(VkDevice device);
 void vkUnmapMemory(VkDevice device, VkDeviceMemory memory);
+VkResult vkUnmapMemory2KHR(VkDevice device, const VkMemoryUnmapInfoKHR * pMemoryUnmapInfo);
 void vkUpdateDescriptorSetWithTemplate(VkDevice device, VkDescriptorSet descriptorSet, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const void * pData);
 void vkUpdateDescriptorSetWithTemplateKHR(VkDevice device, VkDescriptorSet descriptorSet, VkDescriptorUpdateTemplate descriptorUpdateTemplate, const void * pData);
 void vkUpdateDescriptorSets(VkDevice device, uint32_t descriptorWriteCount, const VkWriteDescriptorSet * pDescriptorWrites, uint32_t descriptorCopyCount, const VkCopyDescriptorSet * pDescriptorCopies);
@@ -17336,6 +17457,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkCmdBindInvocationMaskHUAWEI (glad_vulkan_context.CmdBindInvocationMaskHUAWEI)
 #define vkCmdBindPipeline (glad_vulkan_context.CmdBindPipeline)
 #define vkCmdBindPipelineShaderGroupNV (glad_vulkan_context.CmdBindPipelineShaderGroupNV)
+#define vkCmdBindShadersEXT (glad_vulkan_context.CmdBindShadersEXT)
 #define vkCmdBindShadingRateImageNV (glad_vulkan_context.CmdBindShadingRateImageNV)
 #define vkCmdBindTransformFeedbackBuffersEXT (glad_vulkan_context.CmdBindTransformFeedbackBuffersEXT)
 #define vkCmdBindVertexBuffers (glad_vulkan_context.CmdBindVertexBuffers)
@@ -17611,6 +17733,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkCreateScreenSurfaceQNX (glad_vulkan_context.CreateScreenSurfaceQNX)
 #define vkCreateSemaphore (glad_vulkan_context.CreateSemaphore)
 #define vkCreateShaderModule (glad_vulkan_context.CreateShaderModule)
+#define vkCreateShadersEXT (glad_vulkan_context.CreateShadersEXT)
 #define vkCreateSharedSwapchainsKHR (glad_vulkan_context.CreateSharedSwapchainsKHR)
 #define vkCreateStreamDescriptorSurfaceGGP (glad_vulkan_context.CreateStreamDescriptorSurfaceGGP)
 #define vkCreateSwapchainKHR (glad_vulkan_context.CreateSwapchainKHR)
@@ -17662,6 +17785,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkDestroySamplerYcbcrConversion (glad_vulkan_context.DestroySamplerYcbcrConversion)
 #define vkDestroySamplerYcbcrConversionKHR (glad_vulkan_context.DestroySamplerYcbcrConversionKHR)
 #define vkDestroySemaphore (glad_vulkan_context.DestroySemaphore)
+#define vkDestroyShaderEXT (glad_vulkan_context.DestroyShaderEXT)
 #define vkDestroyShaderModule (glad_vulkan_context.DestroyShaderModule)
 #define vkDestroySurfaceKHR (glad_vulkan_context.DestroySurfaceKHR)
 #define vkDestroySwapchainKHR (glad_vulkan_context.DestroySwapchainKHR)
@@ -17853,6 +17977,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkGetSemaphoreFdKHR (glad_vulkan_context.GetSemaphoreFdKHR)
 #define vkGetSemaphoreWin32HandleKHR (glad_vulkan_context.GetSemaphoreWin32HandleKHR)
 #define vkGetSemaphoreZirconHandleFUCHSIA (glad_vulkan_context.GetSemaphoreZirconHandleFUCHSIA)
+#define vkGetShaderBinaryDataEXT (glad_vulkan_context.GetShaderBinaryDataEXT)
 #define vkGetShaderInfoAMD (glad_vulkan_context.GetShaderInfoAMD)
 #define vkGetShaderModuleCreateInfoIdentifierEXT (glad_vulkan_context.GetShaderModuleCreateInfoIdentifierEXT)
 #define vkGetShaderModuleIdentifierEXT (glad_vulkan_context.GetShaderModuleIdentifierEXT)
@@ -17870,6 +17995,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkInitializePerformanceApiINTEL (glad_vulkan_context.InitializePerformanceApiINTEL)
 #define vkInvalidateMappedMemoryRanges (glad_vulkan_context.InvalidateMappedMemoryRanges)
 #define vkMapMemory (glad_vulkan_context.MapMemory)
+#define vkMapMemory2KHR (glad_vulkan_context.MapMemory2KHR)
 #define vkMergePipelineCaches (glad_vulkan_context.MergePipelineCaches)
 #define vkMergeValidationCachesEXT (glad_vulkan_context.MergeValidationCachesEXT)
 #define vkQueueBeginDebugUtilsLabelEXT (glad_vulkan_context.QueueBeginDebugUtilsLabelEXT)
@@ -17913,6 +18039,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkTrimCommandPoolKHR (glad_vulkan_context.TrimCommandPoolKHR)
 #define vkUninitializePerformanceApiINTEL (glad_vulkan_context.UninitializePerformanceApiINTEL)
 #define vkUnmapMemory (glad_vulkan_context.UnmapMemory)
+#define vkUnmapMemory2KHR (glad_vulkan_context.UnmapMemory2KHR)
 #define vkUpdateDescriptorSetWithTemplate (glad_vulkan_context.UpdateDescriptorSetWithTemplate)
 #define vkUpdateDescriptorSetWithTemplateKHR (glad_vulkan_context.UpdateDescriptorSetWithTemplateKHR)
 #define vkUpdateDescriptorSets (glad_vulkan_context.UpdateDescriptorSets)

@@ -2836,6 +2836,11 @@ static void glad_gl_load_GL_EXT_framebuffer_blit(GladGLContext *context, GLADuse
     if(!context->EXT_framebuffer_blit) return;
     context->BlitFramebufferEXT = (PFNGLBLITFRAMEBUFFEREXTPROC) load(userptr, "glBlitFramebufferEXT");
 }
+static void glad_gl_load_GL_EXT_framebuffer_blit_layers(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_framebuffer_blit_layers) return;
+    context->BlitFramebufferLayerEXT = (PFNGLBLITFRAMEBUFFERLAYEREXTPROC) load(userptr, "glBlitFramebufferLayerEXT");
+    context->BlitFramebufferLayersEXT = (PFNGLBLITFRAMEBUFFERLAYERSEXTPROC) load(userptr, "glBlitFramebufferLayersEXT");
+}
 static void glad_gl_load_GL_EXT_framebuffer_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_framebuffer_multisample) return;
     context->RenderbufferStorageMultisampleEXT = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC) load(userptr, "glRenderbufferStorageMultisampleEXT");
@@ -4663,9 +4668,13 @@ static void glad_gl_load_GL_ANGLE_shader_pixel_local_storage(GladGLContext *cont
     context->FramebufferPixelLocalClearValuefvANGLE = (PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEFVANGLEPROC) load(userptr, "glFramebufferPixelLocalClearValuefvANGLE");
     context->FramebufferPixelLocalClearValueivANGLE = (PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEIVANGLEPROC) load(userptr, "glFramebufferPixelLocalClearValueivANGLE");
     context->FramebufferPixelLocalClearValueuivANGLE = (PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEUIVANGLEPROC) load(userptr, "glFramebufferPixelLocalClearValueuivANGLE");
+    context->FramebufferPixelLocalStorageInterruptANGLE = (PFNGLFRAMEBUFFERPIXELLOCALSTORAGEINTERRUPTANGLEPROC) load(userptr, "glFramebufferPixelLocalStorageInterruptANGLE");
+    context->FramebufferPixelLocalStorageRestoreANGLE = (PFNGLFRAMEBUFFERPIXELLOCALSTORAGERESTOREANGLEPROC) load(userptr, "glFramebufferPixelLocalStorageRestoreANGLE");
     context->FramebufferTexturePixelLocalStorageANGLE = (PFNGLFRAMEBUFFERTEXTUREPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glFramebufferTexturePixelLocalStorageANGLE");
     context->GetFramebufferPixelLocalStorageParameterfvANGLE = (PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERFVANGLEPROC) load(userptr, "glGetFramebufferPixelLocalStorageParameterfvANGLE");
+    context->GetFramebufferPixelLocalStorageParameterfvRobustANGLE = (PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERFVROBUSTANGLEPROC) load(userptr, "glGetFramebufferPixelLocalStorageParameterfvRobustANGLE");
     context->GetFramebufferPixelLocalStorageParameterivANGLE = (PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVANGLEPROC) load(userptr, "glGetFramebufferPixelLocalStorageParameterivANGLE");
+    context->GetFramebufferPixelLocalStorageParameterivRobustANGLE = (PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVROBUSTANGLEPROC) load(userptr, "glGetFramebufferPixelLocalStorageParameterivRobustANGLE");
     context->PixelLocalStorageBarrierANGLE = (PFNGLPIXELLOCALSTORAGEBARRIERANGLEPROC) load(userptr, "glPixelLocalStorageBarrierANGLE");
 }
 static void glad_gl_load_GL_ANGLE_texture_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -6903,6 +6912,7 @@ static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
     context->EXT_fragment_invocation_density = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_fragment_invocation_density");
     context->EXT_fragment_shader_barycentric = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_fragment_shader_barycentric");
     context->EXT_framebuffer_blit = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_framebuffer_blit");
+    context->EXT_framebuffer_blit_layers = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_framebuffer_blit_layers");
     context->EXT_framebuffer_multisample = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_framebuffer_multisample");
     context->EXT_framebuffer_multisample_blit_scaled = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_framebuffer_multisample_blit_scaled");
     context->EXT_framebuffer_object = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_framebuffer_object");
@@ -7503,6 +7513,7 @@ int gladLoadGLContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load, v
     glad_gl_load_GL_EXT_external_buffer(context, load, userptr);
     glad_gl_load_GL_EXT_fog_coord(context, load, userptr);
     glad_gl_load_GL_EXT_framebuffer_blit(context, load, userptr);
+    glad_gl_load_GL_EXT_framebuffer_blit_layers(context, load, userptr);
     glad_gl_load_GL_EXT_framebuffer_multisample(context, load, userptr);
     glad_gl_load_GL_EXT_framebuffer_object(context, load, userptr);
     glad_gl_load_GL_EXT_geometry_shader4(context, load, userptr);
@@ -7713,6 +7724,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->EXT_external_buffer = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_external_buffer");
     context->EXT_fragment_invocation_density = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_fragment_invocation_density");
     context->EXT_fragment_shader_barycentric = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_fragment_shader_barycentric");
+    context->EXT_framebuffer_blit_layers = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_framebuffer_blit_layers");
     context->EXT_memory_object = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_memory_object");
     context->EXT_memory_object_fd = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_memory_object_fd");
     context->EXT_memory_object_win32 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_memory_object_win32");
@@ -7853,6 +7865,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->ANGLE_robust_client_memory = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_client_memory");
     context->ANGLE_robust_resource_initialization = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_resource_initialization");
     context->ANGLE_shader_pixel_local_storage = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_shader_pixel_local_storage");
+    context->ANGLE_stencil_texturing = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_stencil_texturing");
     context->ANGLE_texture_compression_dxt3 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_compression_dxt3");
     context->ANGLE_texture_compression_dxt5 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_compression_dxt5");
     context->ANGLE_texture_multisample = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_multisample");
@@ -7974,6 +7987,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->NV_image_formats = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_image_formats");
     context->NV_instanced_arrays = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_instanced_arrays");
     context->NV_non_square_matrices = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_non_square_matrices");
+    context->NV_pack_subimage = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_pack_subimage");
     context->NV_pixel_buffer_object = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_pixel_buffer_object");
     context->NV_polygon_mode = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_polygon_mode");
     context->NV_read_buffer = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_read_buffer");
@@ -8125,6 +8139,7 @@ int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load
     glad_gl_load_GL_EXT_debug_marker(context, load, userptr);
     glad_gl_load_GL_EXT_draw_instanced(context, load, userptr);
     glad_gl_load_GL_EXT_external_buffer(context, load, userptr);
+    glad_gl_load_GL_EXT_framebuffer_blit_layers(context, load, userptr);
     glad_gl_load_GL_EXT_memory_object(context, load, userptr);
     glad_gl_load_GL_EXT_memory_object_fd(context, load, userptr);
     glad_gl_load_GL_EXT_memory_object_win32(context, load, userptr);

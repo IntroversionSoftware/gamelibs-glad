@@ -696,6 +696,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
     context->NV_quadruple_buffer = glad_egl_has_extension(extensions, "EGL_NV_quadruple_buffer");
     context->NV_robustness_video_memory_purge = glad_egl_has_extension(extensions, "EGL_NV_robustness_video_memory_purge");
     context->NV_stream_consumer_eglimage = glad_egl_has_extension(extensions, "EGL_NV_stream_consumer_eglimage");
+    context->NV_stream_consumer_eglimage_use_scanout_attrib = glad_egl_has_extension(extensions, "EGL_NV_stream_consumer_eglimage_use_scanout_attrib");
     context->NV_stream_consumer_gltexture_yuv = glad_egl_has_extension(extensions, "EGL_NV_stream_consumer_gltexture_yuv");
     context->NV_stream_cross_display = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_display");
     context->NV_stream_cross_object = glad_egl_has_extension(extensions, "EGL_NV_stream_cross_object");
