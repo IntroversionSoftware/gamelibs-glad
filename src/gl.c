@@ -7861,6 +7861,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->ANGLE_pack_reverse_row_order = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_pack_reverse_row_order");
     context->ANGLE_program_binary = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_program_binary");
     context->ANGLE_provoking_vertex = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_provoking_vertex");
+    context->ANGLE_renderability_validation = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_renderability_validation");
     context->ANGLE_request_extension = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_request_extension");
     context->ANGLE_robust_client_memory = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_client_memory");
     context->ANGLE_robust_resource_initialization = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_resource_initialization");
