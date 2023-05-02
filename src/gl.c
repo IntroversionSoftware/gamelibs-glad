@@ -4584,6 +4584,10 @@ static void glad_gl_load_GL_ANGLE_multi_draw(GladGLContext *context, GLADuserptr
     context->MultiDrawElementsANGLE = (PFNGLMULTIDRAWELEMENTSANGLEPROC) load(userptr, "glMultiDrawElementsANGLE");
     context->MultiDrawElementsInstancedANGLE = (PFNGLMULTIDRAWELEMENTSINSTANCEDANGLEPROC) load(userptr, "glMultiDrawElementsInstancedANGLE");
 }
+static void glad_gl_load_GL_ANGLE_polygon_mode(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->ANGLE_polygon_mode) return;
+    context->PolygonModeANGLE = (PFNGLPOLYGONMODEANGLEPROC) load(userptr, "glPolygonModeANGLE");
+}
 static void glad_gl_load_GL_ANGLE_provoking_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_provoking_vertex) return;
     context->ProvokingVertexANGLE = (PFNGLPROVOKINGVERTEXANGLEPROC) load(userptr, "glProvokingVertexANGLE");
@@ -7859,6 +7863,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->ANGLE_logic_op = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_logic_op");
     context->ANGLE_multi_draw = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_multi_draw");
     context->ANGLE_pack_reverse_row_order = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_pack_reverse_row_order");
+    context->ANGLE_polygon_mode = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_polygon_mode");
     context->ANGLE_program_binary = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_program_binary");
     context->ANGLE_provoking_vertex = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_provoking_vertex");
     context->ANGLE_renderability_validation = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_renderability_validation");
@@ -8193,6 +8198,7 @@ int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load
     glad_gl_load_GL_ANGLE_instanced_arrays(context, load, userptr);
     glad_gl_load_GL_ANGLE_logic_op(context, load, userptr);
     glad_gl_load_GL_ANGLE_multi_draw(context, load, userptr);
+    glad_gl_load_GL_ANGLE_polygon_mode(context, load, userptr);
     glad_gl_load_GL_ANGLE_provoking_vertex(context, load, userptr);
     glad_gl_load_GL_ANGLE_request_extension(context, load, userptr);
     glad_gl_load_GL_ANGLE_robust_client_memory(context, load, userptr);

@@ -1932,6 +1932,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->KHR_ray_query = glad_vk_has_extension("VK_KHR_ray_query", extension_count, extensions);
     context->KHR_ray_tracing_maintenance1 = glad_vk_has_extension("VK_KHR_ray_tracing_maintenance1", extension_count, extensions);
     context->KHR_ray_tracing_pipeline = glad_vk_has_extension("VK_KHR_ray_tracing_pipeline", extension_count, extensions);
+    context->KHR_ray_tracing_position_fetch = glad_vk_has_extension("VK_KHR_ray_tracing_position_fetch", extension_count, extensions);
     context->KHR_relaxed_block_layout = glad_vk_has_extension("VK_KHR_relaxed_block_layout", extension_count, extensions);
     context->KHR_sampler_mirror_clamp_to_edge = glad_vk_has_extension("VK_KHR_sampler_mirror_clamp_to_edge", extension_count, extensions);
     context->KHR_sampler_ycbcr_conversion = glad_vk_has_extension("VK_KHR_sampler_ycbcr_conversion", extension_count, extensions);
