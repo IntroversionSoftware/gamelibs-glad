@@ -299,6 +299,10 @@ static void glad_vk_load_VK_EXT_acquire_xlib_display(GladVulkanContext *context,
 }
 
 #endif
+static void glad_vk_load_VK_EXT_attachment_feedback_loop_dynamic_state(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_attachment_feedback_loop_dynamic_state) return;
+    context->CmdSetAttachmentFeedbackLoopEnableEXT = (PFN_vkCmdSetAttachmentFeedbackLoopEnableEXT) load(userptr, "vkCmdSetAttachmentFeedbackLoopEnableEXT");
+}
 static void glad_vk_load_VK_EXT_buffer_device_address(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_buffer_device_address) return;
     context->GetBufferDeviceAddressEXT = (PFN_vkGetBufferDeviceAddressEXT) load(userptr, "vkGetBufferDeviceAddressEXT");
@@ -1689,6 +1693,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
 #endif
     context->EXT_astc_decode_mode = glad_vk_has_extension("VK_EXT_astc_decode_mode", extension_count, extensions);
+    context->EXT_attachment_feedback_loop_dynamic_state = glad_vk_has_extension("VK_EXT_attachment_feedback_loop_dynamic_state", extension_count, extensions);
     context->EXT_attachment_feedback_loop_layout = glad_vk_has_extension("VK_EXT_attachment_feedback_loop_layout", extension_count, extensions);
     context->EXT_blend_operation_advanced = glad_vk_has_extension("VK_EXT_blend_operation_advanced", extension_count, extensions);
     context->EXT_border_color_swizzle = glad_vk_has_extension("VK_EXT_border_color_swizzle", extension_count, extensions);
@@ -2148,6 +2153,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_EXT_acquire_xlib_display(context, load, userptr);
 
 #endif
+    glad_vk_load_VK_EXT_attachment_feedback_loop_dynamic_state(context, load, userptr);
     glad_vk_load_VK_EXT_buffer_device_address(context, load, userptr);
     glad_vk_load_VK_EXT_calibrated_timestamps(context, load, userptr);
     glad_vk_load_VK_EXT_color_write_enable(context, load, userptr);
@@ -2594,6 +2600,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdResolveImage2KHR",
     "vkCmdSetAlphaToCoverageEnableEXT",
     "vkCmdSetAlphaToOneEnableEXT",
+    "vkCmdSetAttachmentFeedbackLoopEnableEXT",
     "vkCmdSetBlendConstants",
     "vkCmdSetCheckpointNV",
     "vkCmdSetCoarseSampleOrderNV",
