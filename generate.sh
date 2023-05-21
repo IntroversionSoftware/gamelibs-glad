@@ -61,14 +61,18 @@ EXTENSIONS=(
 	GL_EXT_gpu_shader5
 	GL_EXT_multi_draw_indirect
 	GL_EXT_multisample
+	GL_EXT_sRGB_write_control
 	GL_EXT_texture_env_combine
 	GL_EXT_texture_filter_anisotropic
 	GL_EXT_texture_format_BGRA8888
 	GL_EXT_texture_storage
 	GL_KHR_debug
+	GL_KHR_parallel_shader_compile
+	GL_NV_fence
 	GL_NV_fragment_shader_barycentric
 	GL_QCOM_shading_rate
 	VK_EXT_memory_budget
+	VK_KHR_portability_enumeration
 	VK_KHR_timeline_semaphore
 )
 printf -v extlist '%s,' "${EXTENSIONS[@]}"
