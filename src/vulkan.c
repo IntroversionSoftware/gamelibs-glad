@@ -1727,6 +1727,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_extended_dynamic_state = glad_vk_has_extension("VK_EXT_extended_dynamic_state", extension_count, extensions);
     context->EXT_extended_dynamic_state2 = glad_vk_has_extension("VK_EXT_extended_dynamic_state2", extension_count, extensions);
     context->EXT_extended_dynamic_state3 = glad_vk_has_extension("VK_EXT_extended_dynamic_state3", extension_count, extensions);
+    context->EXT_external_memory_acquire_unmodified = glad_vk_has_extension("VK_EXT_external_memory_acquire_unmodified", extension_count, extensions);
     context->EXT_external_memory_dma_buf = glad_vk_has_extension("VK_EXT_external_memory_dma_buf", extension_count, extensions);
     context->EXT_external_memory_host = glad_vk_has_extension("VK_EXT_external_memory_host", extension_count, extensions);
     context->EXT_filter_cubic = glad_vk_has_extension("VK_EXT_filter_cubic", extension_count, extensions);
