@@ -462,16 +462,18 @@ static void glad_egl_resolve_aliases(GladEGLContext *context) {
 }
 
 static int glad_egl_get_extensions(GladEGLContext *context, EGLDisplay display, char **extensions) {
+    size_t clientLen, displayLen;
+    char *concat;
     const char *clientExtensions = context->QueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS);
     const char *displayExtensions = (display == EGL_NO_DISPLAY) ? "" : context->QueryString(display, EGL_EXTENSIONS);
 
     if (!clientExtensions) return 0;
     if (!displayExtensions) return 0;
 
-    size_t clientLen = strlen(clientExtensions);
-    size_t displayLen = strlen(displayExtensions);
+    clientLen = strlen(clientExtensions);
+    displayLen = strlen(displayExtensions);
 
-    char *concat = (char *)malloc(clientLen + displayLen + 2);
+    concat = (char *)malloc(clientLen + displayLen + 2);
     if (!concat) return 0;
 
     concat[0] = 0;
@@ -997,7 +999,7 @@ int gladLoaderLoadEGLContext(GladEGLContext *context, EGLDisplay display) {
 
         version = gladLoadEGLContextUserPtr(context, display, glad_egl_get_proc, &userptr);
 
-        if (did_load) {
+        if (!version && did_load) {
             gladLoaderUnloadEGLContext(context);
         }
     }

@@ -8465,7 +8465,7 @@ int gladLoaderLoadGLContext(GladGLContext *context) {
 
         version = gladLoadGLContextUserPtr(context,glad_gl_get_proc, &userptr);
 
-        if (did_load) {
+        if (!version && did_load) {
             gladLoaderUnloadGLContext(context);
         }
     }
