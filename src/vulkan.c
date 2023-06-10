@@ -1013,6 +1013,8 @@ static void glad_vk_load_VK_KHR_video_decode_queue(GladVulkanContext *context, G
 static void glad_vk_load_VK_KHR_video_encode_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_video_encode_queue) return;
     context->CmdEncodeVideoKHR = (PFN_vkCmdEncodeVideoKHR) load(userptr, "vkCmdEncodeVideoKHR");
+    context->GetEncodedVideoSessionParametersKHR = (PFN_vkGetEncodedVideoSessionParametersKHR) load(userptr, "vkGetEncodedVideoSessionParametersKHR");
+    context->GetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR = (PFN_vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR) load(userptr, "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR");
 }
 
 #endif
@@ -1410,6 +1412,9 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->GetDeviceImageSparseMemoryRequirementsKHR == NULL && context->GetDeviceImageSparseMemoryRequirements != NULL) context->GetDeviceImageSparseMemoryRequirementsKHR = (PFN_vkGetDeviceImageSparseMemoryRequirementsKHR)context->GetDeviceImageSparseMemoryRequirements;
     if (context->GetDeviceMemoryOpaqueCaptureAddress == NULL && context->GetDeviceMemoryOpaqueCaptureAddressKHR != NULL) context->GetDeviceMemoryOpaqueCaptureAddress = (PFN_vkGetDeviceMemoryOpaqueCaptureAddress)context->GetDeviceMemoryOpaqueCaptureAddressKHR;
     if (context->GetDeviceMemoryOpaqueCaptureAddressKHR == NULL && context->GetDeviceMemoryOpaqueCaptureAddress != NULL) context->GetDeviceMemoryOpaqueCaptureAddressKHR = (PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR)context->GetDeviceMemoryOpaqueCaptureAddress;
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+
+#endif
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 
 #endif
@@ -1466,6 +1471,9 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
 #endif
     if (context->GetPhysicalDeviceToolProperties == NULL && context->GetPhysicalDeviceToolPropertiesEXT != NULL) context->GetPhysicalDeviceToolProperties = (PFN_vkGetPhysicalDeviceToolProperties)context->GetPhysicalDeviceToolPropertiesEXT;
     if (context->GetPhysicalDeviceToolPropertiesEXT == NULL && context->GetPhysicalDeviceToolProperties != NULL) context->GetPhysicalDeviceToolPropertiesEXT = (PFN_vkGetPhysicalDeviceToolPropertiesEXT)context->GetPhysicalDeviceToolProperties;
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+
+#endif
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
 
 #endif
@@ -2862,6 +2870,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetDeviceQueue2",
     "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI",
     "vkGetDynamicRenderingTilePropertiesQCOM",
+    "vkGetEncodedVideoSessionParametersKHR",
     "vkGetEventStatus",
     "vkGetFenceFdKHR",
     "vkGetFenceStatus",
