@@ -601,6 +601,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
     context->EXT_device_query = glad_egl_has_extension(extensions, "EGL_EXT_device_query");
     context->EXT_device_query_name = glad_egl_has_extension(extensions, "EGL_EXT_device_query_name");
     context->EXT_explicit_device = glad_egl_has_extension(extensions, "EGL_EXT_explicit_device");
+    context->EXT_gl_colorspace_bt2020_hlg = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_hlg");
     context->EXT_gl_colorspace_bt2020_linear = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_linear");
     context->EXT_gl_colorspace_bt2020_pq = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_bt2020_pq");
     context->EXT_gl_colorspace_display_p3 = glad_egl_has_extension(extensions, "EGL_EXT_gl_colorspace_display_p3");
@@ -721,6 +722,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
     context->NV_sync = glad_egl_has_extension(extensions, "EGL_NV_sync");
     context->NV_system_time = glad_egl_has_extension(extensions, "EGL_NV_system_time");
     context->NV_triple_buffer = glad_egl_has_extension(extensions, "EGL_NV_triple_buffer");
+    context->QNX_platform_screen = glad_egl_has_extension(extensions, "EGL_QNX_platform_screen");
     context->TIZEN_image_native_buffer = glad_egl_has_extension(extensions, "EGL_TIZEN_image_native_buffer");
     context->TIZEN_image_native_surface = glad_egl_has_extension(extensions, "EGL_TIZEN_image_native_surface");
     context->WL_bind_wayland_display = glad_egl_has_extension(extensions, "EGL_WL_bind_wayland_display");

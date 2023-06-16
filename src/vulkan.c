@@ -349,6 +349,10 @@ static void glad_vk_load_VK_EXT_debug_utils(GladVulkanContext *context, GLADuser
     context->SetDebugUtilsObjectTagEXT = (PFN_vkSetDebugUtilsObjectTagEXT) load(userptr, "vkSetDebugUtilsObjectTagEXT");
     context->SubmitDebugUtilsMessageEXT = (PFN_vkSubmitDebugUtilsMessageEXT) load(userptr, "vkSubmitDebugUtilsMessageEXT");
 }
+static void glad_vk_load_VK_EXT_depth_bias_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_depth_bias_control) return;
+    context->CmdSetDepthBias2EXT = (PFN_vkCmdSetDepthBias2EXT) load(userptr, "vkCmdSetDepthBias2EXT");
+}
 static void glad_vk_load_VK_EXT_descriptor_buffer(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_descriptor_buffer) return;
     context->CmdBindDescriptorBufferEmbeddedSamplersEXT = (PFN_vkCmdBindDescriptorBufferEmbeddedSamplersEXT) load(userptr, "vkCmdBindDescriptorBufferEmbeddedSamplersEXT");
@@ -1208,6 +1212,13 @@ static void glad_vk_load_VK_QCOM_tile_properties(GladVulkanContext *context, GLA
     context->GetFramebufferTilePropertiesQCOM = (PFN_vkGetFramebufferTilePropertiesQCOM) load(userptr, "vkGetFramebufferTilePropertiesQCOM");
 }
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
+static void glad_vk_load_VK_QNX_external_memory_screen_buffer(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->QNX_external_memory_screen_buffer) return;
+    context->GetScreenBufferPropertiesQNX = (PFN_vkGetScreenBufferPropertiesQNX) load(userptr, "vkGetScreenBufferPropertiesQNX");
+}
+
+#endif
+#if defined(VK_USE_PLATFORM_SCREEN_QNX)
 static void glad_vk_load_VK_QNX_screen_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QNX_screen_surface) return;
     context->CreateScreenSurfaceQNX = (PFN_vkCreateScreenSurfaceQNX) load(userptr, "vkCreateScreenSurfaceQNX");
@@ -1493,6 +1504,9 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
 #endif
     if (context->GetRayTracingShaderGroupHandlesKHR == NULL && context->GetRayTracingShaderGroupHandlesNV != NULL) context->GetRayTracingShaderGroupHandlesKHR = (PFN_vkGetRayTracingShaderGroupHandlesKHR)context->GetRayTracingShaderGroupHandlesNV;
     if (context->GetRayTracingShaderGroupHandlesNV == NULL && context->GetRayTracingShaderGroupHandlesKHR != NULL) context->GetRayTracingShaderGroupHandlesNV = (PFN_vkGetRayTracingShaderGroupHandlesNV)context->GetRayTracingShaderGroupHandlesKHR;
+#if defined(VK_USE_PLATFORM_SCREEN_QNX)
+
+#endif
     if (context->GetSemaphoreCounterValue == NULL && context->GetSemaphoreCounterValueKHR != NULL) context->GetSemaphoreCounterValue = (PFN_vkGetSemaphoreCounterValue)context->GetSemaphoreCounterValueKHR;
     if (context->GetSemaphoreCounterValueKHR == NULL && context->GetSemaphoreCounterValue != NULL) context->GetSemaphoreCounterValueKHR = (PFN_vkGetSemaphoreCounterValueKHR)context->GetSemaphoreCounterValue;
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -1714,6 +1728,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_debug_marker = glad_vk_has_extension("VK_EXT_debug_marker", extension_count, extensions);
     context->EXT_debug_report = glad_vk_has_extension("VK_EXT_debug_report", extension_count, extensions);
     context->EXT_debug_utils = glad_vk_has_extension("VK_EXT_debug_utils", extension_count, extensions);
+    context->EXT_depth_bias_control = glad_vk_has_extension("VK_EXT_depth_bias_control", extension_count, extensions);
     context->EXT_depth_clamp_zero_one = glad_vk_has_extension("VK_EXT_depth_clamp_zero_one", extension_count, extensions);
     context->EXT_depth_clip_control = glad_vk_has_extension("VK_EXT_depth_clip_control", extension_count, extensions);
     context->EXT_depth_clip_enable = glad_vk_has_extension("VK_EXT_depth_clip_enable", extension_count, extensions);
@@ -2086,6 +2101,10 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->QCOM_rotated_copy_commands = glad_vk_has_extension("VK_QCOM_rotated_copy_commands", extension_count, extensions);
     context->QCOM_tile_properties = glad_vk_has_extension("VK_QCOM_tile_properties", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
+    context->QNX_external_memory_screen_buffer = glad_vk_has_extension("VK_QNX_external_memory_screen_buffer", extension_count, extensions);
+
+#endif
+#if defined(VK_USE_PLATFORM_SCREEN_QNX)
     context->QNX_screen_surface = glad_vk_has_extension("VK_QNX_screen_surface", extension_count, extensions);
 
 #endif
@@ -2171,6 +2190,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_EXT_debug_marker(context, load, userptr);
     glad_vk_load_VK_EXT_debug_report(context, load, userptr);
     glad_vk_load_VK_EXT_debug_utils(context, load, userptr);
+    glad_vk_load_VK_EXT_depth_bias_control(context, load, userptr);
     glad_vk_load_VK_EXT_descriptor_buffer(context, load, userptr);
     glad_vk_load_VK_EXT_device_fault(context, load, userptr);
     glad_vk_load_VK_EXT_direct_mode_display(context, load, userptr);
@@ -2358,6 +2378,10 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_NV_scissor_exclusive(context, load, userptr);
     glad_vk_load_VK_NV_shading_rate_image(context, load, userptr);
     glad_vk_load_VK_QCOM_tile_properties(context, load, userptr);
+#if defined(VK_USE_PLATFORM_SCREEN_QNX)
+    glad_vk_load_VK_QNX_external_memory_screen_buffer(context, load, userptr);
+
+#endif
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
     glad_vk_load_VK_QNX_screen_surface(context, load, userptr);
 
@@ -2629,6 +2653,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdSetCullMode",
     "vkCmdSetCullModeEXT",
     "vkCmdSetDepthBias",
+    "vkCmdSetDepthBias2EXT",
     "vkCmdSetDepthBiasEnable",
     "vkCmdSetDepthBiasEnableEXT",
     "vkCmdSetDepthBounds",
@@ -2920,6 +2945,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetRefreshCycleDurationGOOGLE",
     "vkGetRenderAreaGranularity",
     "vkGetSamplerOpaqueCaptureDescriptorDataEXT",
+    "vkGetScreenBufferPropertiesQNX",
     "vkGetSemaphoreCounterValue",
     "vkGetSemaphoreCounterValueKHR",
     "vkGetSemaphoreFdKHR",
