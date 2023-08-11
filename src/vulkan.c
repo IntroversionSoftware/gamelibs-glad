@@ -261,6 +261,19 @@ static void glad_vk_load_VK_VERSION_1_3(GladVulkanContext *context, GLADuserptrl
     context->QueueSubmit2 = (PFN_vkQueueSubmit2) load(userptr, "vkQueueSubmit2");
     context->SetPrivateData = (PFN_vkSetPrivateData) load(userptr, "vkSetPrivateData");
 }
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+static void glad_vk_load_VK_AMDX_shader_enqueue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->AMDX_shader_enqueue) return;
+    context->CmdDispatchGraphAMDX = (PFN_vkCmdDispatchGraphAMDX) load(userptr, "vkCmdDispatchGraphAMDX");
+    context->CmdDispatchGraphIndirectAMDX = (PFN_vkCmdDispatchGraphIndirectAMDX) load(userptr, "vkCmdDispatchGraphIndirectAMDX");
+    context->CmdDispatchGraphIndirectCountAMDX = (PFN_vkCmdDispatchGraphIndirectCountAMDX) load(userptr, "vkCmdDispatchGraphIndirectCountAMDX");
+    context->CmdInitializeGraphScratchMemoryAMDX = (PFN_vkCmdInitializeGraphScratchMemoryAMDX) load(userptr, "vkCmdInitializeGraphScratchMemoryAMDX");
+    context->CreateExecutionGraphPipelinesAMDX = (PFN_vkCreateExecutionGraphPipelinesAMDX) load(userptr, "vkCreateExecutionGraphPipelinesAMDX");
+    context->GetExecutionGraphPipelineNodeIndexAMDX = (PFN_vkGetExecutionGraphPipelineNodeIndexAMDX) load(userptr, "vkGetExecutionGraphPipelineNodeIndexAMDX");
+    context->GetExecutionGraphPipelineScratchSizeAMDX = (PFN_vkGetExecutionGraphPipelineScratchSizeAMDX) load(userptr, "vkGetExecutionGraphPipelineScratchSizeAMDX");
+}
+
+#endif
 static void glad_vk_load_VK_AMD_buffer_marker(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_buffer_marker) return;
     context->CmdWriteBufferMarkerAMD = (PFN_vkCmdWriteBufferMarkerAMD) load(userptr, "vkCmdWriteBufferMarkerAMD");
@@ -478,6 +491,14 @@ static void glad_vk_load_VK_EXT_hdr_metadata(GladVulkanContext *context, GLADuse
 static void glad_vk_load_VK_EXT_headless_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_headless_surface) return;
     context->CreateHeadlessSurfaceEXT = (PFN_vkCreateHeadlessSurfaceEXT) load(userptr, "vkCreateHeadlessSurfaceEXT");
+}
+static void glad_vk_load_VK_EXT_host_image_copy(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->EXT_host_image_copy) return;
+    context->CopyImageToImageEXT = (PFN_vkCopyImageToImageEXT) load(userptr, "vkCopyImageToImageEXT");
+    context->CopyImageToMemoryEXT = (PFN_vkCopyImageToMemoryEXT) load(userptr, "vkCopyImageToMemoryEXT");
+    context->CopyMemoryToImageEXT = (PFN_vkCopyMemoryToImageEXT) load(userptr, "vkCopyMemoryToImageEXT");
+    context->GetImageSubresourceLayout2EXT = (PFN_vkGetImageSubresourceLayout2EXT) load(userptr, "vkGetImageSubresourceLayout2EXT");
+    context->TransitionImageLayoutEXT = (PFN_vkTransitionImageLayoutEXT) load(userptr, "vkTransitionImageLayoutEXT");
 }
 static void glad_vk_load_VK_EXT_host_query_reset(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_host_query_reset) return;
@@ -755,6 +776,10 @@ static void glad_vk_load_VK_KHR_buffer_device_address(GladVulkanContext *context
     context->GetBufferOpaqueCaptureAddressKHR = (PFN_vkGetBufferOpaqueCaptureAddressKHR) load(userptr, "vkGetBufferOpaqueCaptureAddressKHR");
     context->GetDeviceMemoryOpaqueCaptureAddressKHR = (PFN_vkGetDeviceMemoryOpaqueCaptureAddressKHR) load(userptr, "vkGetDeviceMemoryOpaqueCaptureAddressKHR");
 }
+static void glad_vk_load_VK_KHR_cooperative_matrix(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->KHR_cooperative_matrix) return;
+    context->GetPhysicalDeviceCooperativeMatrixPropertiesKHR = (PFN_vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR) load(userptr, "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR");
+}
 static void glad_vk_load_VK_KHR_copy_commands2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_copy_commands2) return;
     context->CmdBlitImage2KHR = (PFN_vkCmdBlitImage2KHR) load(userptr, "vkCmdBlitImage2KHR");
@@ -921,6 +946,13 @@ static void glad_vk_load_VK_KHR_maintenance4(GladVulkanContext *context, GLADuse
     context->GetDeviceBufferMemoryRequirementsKHR = (PFN_vkGetDeviceBufferMemoryRequirementsKHR) load(userptr, "vkGetDeviceBufferMemoryRequirementsKHR");
     context->GetDeviceImageMemoryRequirementsKHR = (PFN_vkGetDeviceImageMemoryRequirementsKHR) load(userptr, "vkGetDeviceImageMemoryRequirementsKHR");
     context->GetDeviceImageSparseMemoryRequirementsKHR = (PFN_vkGetDeviceImageSparseMemoryRequirementsKHR) load(userptr, "vkGetDeviceImageSparseMemoryRequirementsKHR");
+}
+static void glad_vk_load_VK_KHR_maintenance5(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->KHR_maintenance5) return;
+    context->CmdBindIndexBuffer2KHR = (PFN_vkCmdBindIndexBuffer2KHR) load(userptr, "vkCmdBindIndexBuffer2KHR");
+    context->GetDeviceImageSubresourceLayoutKHR = (PFN_vkGetDeviceImageSubresourceLayoutKHR) load(userptr, "vkGetDeviceImageSubresourceLayoutKHR");
+    context->GetImageSubresourceLayout2KHR = (PFN_vkGetImageSubresourceLayout2KHR) load(userptr, "vkGetImageSubresourceLayout2KHR");
+    context->GetRenderingAreaGranularityKHR = (PFN_vkGetRenderingAreaGranularityKHR) load(userptr, "vkGetRenderingAreaGranularityKHR");
 }
 static void glad_vk_load_VK_KHR_map_memory2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_map_memory2) return;
@@ -1142,6 +1174,12 @@ static void glad_vk_load_VK_NV_device_generated_commands(GladVulkanContext *cont
     context->DestroyIndirectCommandsLayoutNV = (PFN_vkDestroyIndirectCommandsLayoutNV) load(userptr, "vkDestroyIndirectCommandsLayoutNV");
     context->GetGeneratedCommandsMemoryRequirementsNV = (PFN_vkGetGeneratedCommandsMemoryRequirementsNV) load(userptr, "vkGetGeneratedCommandsMemoryRequirementsNV");
 }
+static void glad_vk_load_VK_NV_device_generated_commands_compute(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->NV_device_generated_commands_compute) return;
+    context->CmdUpdatePipelineIndirectBufferNV = (PFN_vkCmdUpdatePipelineIndirectBufferNV) load(userptr, "vkCmdUpdatePipelineIndirectBufferNV");
+    context->GetPipelineIndirectDeviceAddressNV = (PFN_vkGetPipelineIndirectDeviceAddressNV) load(userptr, "vkGetPipelineIndirectDeviceAddressNV");
+    context->GetPipelineIndirectMemoryRequirementsNV = (PFN_vkGetPipelineIndirectMemoryRequirementsNV) load(userptr, "vkGetPipelineIndirectMemoryRequirementsNV");
+}
 static void glad_vk_load_VK_NV_external_memory_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_external_memory_capabilities) return;
     context->GetPhysicalDeviceExternalImageFormatPropertiesNV = (PFN_vkGetPhysicalDeviceExternalImageFormatPropertiesNV) load(userptr, "vkGetPhysicalDeviceExternalImageFormatPropertiesNV");
@@ -1265,6 +1303,15 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->CmdCopyImageToBuffer2KHR == NULL && context->CmdCopyImageToBuffer2 != NULL) context->CmdCopyImageToBuffer2KHR = (PFN_vkCmdCopyImageToBuffer2KHR)context->CmdCopyImageToBuffer2;
     if (context->CmdDispatchBase == NULL && context->CmdDispatchBaseKHR != NULL) context->CmdDispatchBase = (PFN_vkCmdDispatchBase)context->CmdDispatchBaseKHR;
     if (context->CmdDispatchBaseKHR == NULL && context->CmdDispatchBase != NULL) context->CmdDispatchBaseKHR = (PFN_vkCmdDispatchBaseKHR)context->CmdDispatchBase;
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+
+#endif
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+
+#endif
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+
+#endif
     if (context->CmdDrawIndexedIndirectCount == NULL && context->CmdDrawIndexedIndirectCountAMD != NULL) context->CmdDrawIndexedIndirectCount = (PFN_vkCmdDrawIndexedIndirectCount)context->CmdDrawIndexedIndirectCountAMD;
     if (context->CmdDrawIndexedIndirectCount == NULL && context->CmdDrawIndexedIndirectCountKHR != NULL) context->CmdDrawIndexedIndirectCount = (PFN_vkCmdDrawIndexedIndirectCount)context->CmdDrawIndexedIndirectCountKHR;
     if (context->CmdDrawIndexedIndirectCountAMD == NULL && context->CmdDrawIndexedIndirectCount != NULL) context->CmdDrawIndexedIndirectCountAMD = (PFN_vkCmdDrawIndexedIndirectCountAMD)context->CmdDrawIndexedIndirectCount;
@@ -1284,6 +1331,9 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->CmdEndRenderingKHR == NULL && context->CmdEndRendering != NULL) context->CmdEndRenderingKHR = (PFN_vkCmdEndRenderingKHR)context->CmdEndRendering;
     if (context->CmdEndRenderPass2 == NULL && context->CmdEndRenderPass2KHR != NULL) context->CmdEndRenderPass2 = (PFN_vkCmdEndRenderPass2)context->CmdEndRenderPass2KHR;
     if (context->CmdEndRenderPass2KHR == NULL && context->CmdEndRenderPass2 != NULL) context->CmdEndRenderPass2KHR = (PFN_vkCmdEndRenderPass2KHR)context->CmdEndRenderPass2;
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+
+#endif
     if (context->CmdNextSubpass2 == NULL && context->CmdNextSubpass2KHR != NULL) context->CmdNextSubpass2 = (PFN_vkCmdNextSubpass2)context->CmdNextSubpass2KHR;
     if (context->CmdNextSubpass2KHR == NULL && context->CmdNextSubpass2 != NULL) context->CmdNextSubpass2KHR = (PFN_vkCmdNextSubpass2KHR)context->CmdNextSubpass2;
     if (context->CmdPipelineBarrier2 == NULL && context->CmdPipelineBarrier2KHR != NULL) context->CmdPipelineBarrier2 = (PFN_vkCmdPipelineBarrier2)context->CmdPipelineBarrier2KHR;
@@ -1337,6 +1387,9 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->CreateDescriptorUpdateTemplate == NULL && context->CreateDescriptorUpdateTemplateKHR != NULL) context->CreateDescriptorUpdateTemplate = (PFN_vkCreateDescriptorUpdateTemplate)context->CreateDescriptorUpdateTemplateKHR;
     if (context->CreateDescriptorUpdateTemplateKHR == NULL && context->CreateDescriptorUpdateTemplate != NULL) context->CreateDescriptorUpdateTemplateKHR = (PFN_vkCreateDescriptorUpdateTemplateKHR)context->CreateDescriptorUpdateTemplate;
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
+
+#endif
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
 
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
@@ -1426,6 +1479,12 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
 
 #endif
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+
+#endif
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+
+#endif
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 
 #endif
@@ -1433,6 +1492,8 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     if (context->GetImageMemoryRequirements2KHR == NULL && context->GetImageMemoryRequirements2 != NULL) context->GetImageMemoryRequirements2KHR = (PFN_vkGetImageMemoryRequirements2KHR)context->GetImageMemoryRequirements2;
     if (context->GetImageSparseMemoryRequirements2 == NULL && context->GetImageSparseMemoryRequirements2KHR != NULL) context->GetImageSparseMemoryRequirements2 = (PFN_vkGetImageSparseMemoryRequirements2)context->GetImageSparseMemoryRequirements2KHR;
     if (context->GetImageSparseMemoryRequirements2KHR == NULL && context->GetImageSparseMemoryRequirements2 != NULL) context->GetImageSparseMemoryRequirements2KHR = (PFN_vkGetImageSparseMemoryRequirements2KHR)context->GetImageSparseMemoryRequirements2;
+    if (context->GetImageSubresourceLayout2EXT == NULL && context->GetImageSubresourceLayout2KHR != NULL) context->GetImageSubresourceLayout2EXT = (PFN_vkGetImageSubresourceLayout2EXT)context->GetImageSubresourceLayout2KHR;
+    if (context->GetImageSubresourceLayout2KHR == NULL && context->GetImageSubresourceLayout2EXT != NULL) context->GetImageSubresourceLayout2KHR = (PFN_vkGetImageSubresourceLayout2KHR)context->GetImageSubresourceLayout2EXT;
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
 
 #endif
@@ -1679,6 +1740,10 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     char **extensions = NULL;
     if (!glad_vk_get_extensions(context, physical_device, &extension_count, &extensions)) return 0;
 
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+    context->AMDX_shader_enqueue = glad_vk_has_extension("VK_AMDX_shader_enqueue", extension_count, extensions);
+
+#endif
     context->AMD_buffer_marker = glad_vk_has_extension("VK_AMD_buffer_marker", extension_count, extensions);
     context->AMD_device_coherent_memory = glad_vk_has_extension("VK_AMD_device_coherent_memory", extension_count, extensions);
     context->AMD_display_native_hdr = glad_vk_has_extension("VK_AMD_display_native_hdr", extension_count, extensions);
@@ -1766,6 +1831,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_graphics_pipeline_library = glad_vk_has_extension("VK_EXT_graphics_pipeline_library", extension_count, extensions);
     context->EXT_hdr_metadata = glad_vk_has_extension("VK_EXT_hdr_metadata", extension_count, extensions);
     context->EXT_headless_surface = glad_vk_has_extension("VK_EXT_headless_surface", extension_count, extensions);
+    context->EXT_host_image_copy = glad_vk_has_extension("VK_EXT_host_image_copy", extension_count, extensions);
     context->EXT_host_query_reset = glad_vk_has_extension("VK_EXT_host_query_reset", extension_count, extensions);
     context->EXT_image_2d_view_of_3d = glad_vk_has_extension("VK_EXT_image_2d_view_of_3d", extension_count, extensions);
     context->EXT_image_compression_control = glad_vk_has_extension("VK_EXT_image_compression_control", extension_count, extensions);
@@ -1897,6 +1963,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 #endif
     context->KHR_bind_memory2 = glad_vk_has_extension("VK_KHR_bind_memory2", extension_count, extensions);
     context->KHR_buffer_device_address = glad_vk_has_extension("VK_KHR_buffer_device_address", extension_count, extensions);
+    context->KHR_cooperative_matrix = glad_vk_has_extension("VK_KHR_cooperative_matrix", extension_count, extensions);
     context->KHR_copy_commands2 = glad_vk_has_extension("VK_KHR_copy_commands2", extension_count, extensions);
     context->KHR_create_renderpass2 = glad_vk_has_extension("VK_KHR_create_renderpass2", extension_count, extensions);
     context->KHR_dedicated_allocation = glad_vk_has_extension("VK_KHR_dedicated_allocation", extension_count, extensions);
@@ -1946,6 +2013,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->KHR_maintenance2 = glad_vk_has_extension("VK_KHR_maintenance2", extension_count, extensions);
     context->KHR_maintenance3 = glad_vk_has_extension("VK_KHR_maintenance3", extension_count, extensions);
     context->KHR_maintenance4 = glad_vk_has_extension("VK_KHR_maintenance4", extension_count, extensions);
+    context->KHR_maintenance5 = glad_vk_has_extension("VK_KHR_maintenance5", extension_count, extensions);
     context->KHR_map_memory2 = glad_vk_has_extension("VK_KHR_map_memory2", extension_count, extensions);
     context->KHR_multiview = glad_vk_has_extension("VK_KHR_multiview", extension_count, extensions);
     context->KHR_performance_query = glad_vk_has_extension("VK_KHR_performance_query", extension_count, extensions);
@@ -2050,6 +2118,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->NV_device_diagnostic_checkpoints = glad_vk_has_extension("VK_NV_device_diagnostic_checkpoints", extension_count, extensions);
     context->NV_device_diagnostics_config = glad_vk_has_extension("VK_NV_device_diagnostics_config", extension_count, extensions);
     context->NV_device_generated_commands = glad_vk_has_extension("VK_NV_device_generated_commands", extension_count, extensions);
+    context->NV_device_generated_commands_compute = glad_vk_has_extension("VK_NV_device_generated_commands_compute", extension_count, extensions);
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
     context->NV_displacement_micromap = glad_vk_has_extension("VK_NV_displacement_micromap", extension_count, extensions);
 
@@ -2169,6 +2238,10 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_VERSION_1_3(context, load, userptr);
 
     if (!glad_vk_find_extensions_vulkan(context, physical_device)) return 0;
+#if defined(VK_ENABLE_BETA_EXTENSIONS)
+    glad_vk_load_VK_AMDX_shader_enqueue(context, load, userptr);
+
+#endif
     glad_vk_load_VK_AMD_buffer_marker(context, load, userptr);
     glad_vk_load_VK_AMD_display_native_hdr(context, load, userptr);
     glad_vk_load_VK_AMD_draw_indirect_count(context, load, userptr);
@@ -2211,6 +2284,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
 #endif
     glad_vk_load_VK_EXT_hdr_metadata(context, load, userptr);
     glad_vk_load_VK_EXT_headless_surface(context, load, userptr);
+    glad_vk_load_VK_EXT_host_image_copy(context, load, userptr);
     glad_vk_load_VK_EXT_host_query_reset(context, load, userptr);
     glad_vk_load_VK_EXT_image_compression_control(context, load, userptr);
     glad_vk_load_VK_EXT_image_drm_format_modifier(context, load, userptr);
@@ -2269,6 +2343,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
 #endif
     glad_vk_load_VK_KHR_bind_memory2(context, load, userptr);
     glad_vk_load_VK_KHR_buffer_device_address(context, load, userptr);
+    glad_vk_load_VK_KHR_cooperative_matrix(context, load, userptr);
     glad_vk_load_VK_KHR_copy_commands2(context, load, userptr);
     glad_vk_load_VK_KHR_create_renderpass2(context, load, userptr);
     glad_vk_load_VK_KHR_deferred_host_operations(context, load, userptr);
@@ -2305,6 +2380,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_KHR_maintenance1(context, load, userptr);
     glad_vk_load_VK_KHR_maintenance3(context, load, userptr);
     glad_vk_load_VK_KHR_maintenance4(context, load, userptr);
+    glad_vk_load_VK_KHR_maintenance5(context, load, userptr);
     glad_vk_load_VK_KHR_map_memory2(context, load, userptr);
     glad_vk_load_VK_KHR_performance_query(context, load, userptr);
     glad_vk_load_VK_KHR_pipeline_executable_properties(context, load, userptr);
@@ -2364,6 +2440,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_NV_coverage_reduction_mode(context, load, userptr);
     glad_vk_load_VK_NV_device_diagnostic_checkpoints(context, load, userptr);
     glad_vk_load_VK_NV_device_generated_commands(context, load, userptr);
+    glad_vk_load_VK_NV_device_generated_commands_compute(context, load, userptr);
     glad_vk_load_VK_NV_external_memory_capabilities(context, load, userptr);
     glad_vk_load_VK_NV_external_memory_rdma(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -2524,6 +2601,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdBindDescriptorBuffersEXT",
     "vkCmdBindDescriptorSets",
     "vkCmdBindIndexBuffer",
+    "vkCmdBindIndexBuffer2KHR",
     "vkCmdBindInvocationMaskHUAWEI",
     "vkCmdBindPipeline",
     "vkCmdBindPipelineShaderGroupNV",
@@ -2576,6 +2654,9 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdDispatch",
     "vkCmdDispatchBase",
     "vkCmdDispatchBaseKHR",
+    "vkCmdDispatchGraphAMDX",
+    "vkCmdDispatchGraphIndirectAMDX",
+    "vkCmdDispatchGraphIndirectCountAMDX",
     "vkCmdDispatchIndirect",
     "vkCmdDraw",
     "vkCmdDrawClusterHUAWEI",
@@ -2613,6 +2694,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdExecuteCommands",
     "vkCmdExecuteGeneratedCommandsNV",
     "vkCmdFillBuffer",
+    "vkCmdInitializeGraphScratchMemoryAMDX",
     "vkCmdInsertDebugUtilsLabelEXT",
     "vkCmdNextSubpass",
     "vkCmdNextSubpass2",
@@ -2735,6 +2817,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdTraceRaysKHR",
     "vkCmdTraceRaysNV",
     "vkCmdUpdateBuffer",
+    "vkCmdUpdatePipelineIndirectBufferNV",
     "vkCmdWaitEvents",
     "vkCmdWaitEvents2",
     "vkCmdWaitEvents2KHR",
@@ -2749,7 +2832,10 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCompileDeferredNV",
     "vkCopyAccelerationStructureKHR",
     "vkCopyAccelerationStructureToMemoryKHR",
+    "vkCopyImageToImageEXT",
+    "vkCopyImageToMemoryEXT",
     "vkCopyMemoryToAccelerationStructureKHR",
+    "vkCopyMemoryToImageEXT",
     "vkCopyMemoryToMicromapEXT",
     "vkCopyMicromapEXT",
     "vkCopyMicromapToMemoryEXT",
@@ -2768,6 +2854,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCreateDescriptorUpdateTemplate",
     "vkCreateDescriptorUpdateTemplateKHR",
     "vkCreateEvent",
+    "vkCreateExecutionGraphPipelinesAMDX",
     "vkCreateFence",
     "vkCreateFramebuffer",
     "vkCreateGraphicsPipelines",
@@ -2886,6 +2973,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetDeviceImageMemoryRequirementsKHR",
     "vkGetDeviceImageSparseMemoryRequirements",
     "vkGetDeviceImageSparseMemoryRequirementsKHR",
+    "vkGetDeviceImageSubresourceLayoutKHR",
     "vkGetDeviceMemoryCommitment",
     "vkGetDeviceMemoryOpaqueCaptureAddress",
     "vkGetDeviceMemoryOpaqueCaptureAddressKHR",
@@ -2897,6 +2985,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetDynamicRenderingTilePropertiesQCOM",
     "vkGetEncodedVideoSessionParametersKHR",
     "vkGetEventStatus",
+    "vkGetExecutionGraphPipelineNodeIndexAMDX",
+    "vkGetExecutionGraphPipelineScratchSizeAMDX",
     "vkGetFenceFdKHR",
     "vkGetFenceStatus",
     "vkGetFenceWin32HandleKHR",
@@ -2912,6 +3002,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetImageSparseMemoryRequirements2KHR",
     "vkGetImageSubresourceLayout",
     "vkGetImageSubresourceLayout2EXT",
+    "vkGetImageSubresourceLayout2KHR",
     "vkGetImageViewAddressNVX",
     "vkGetImageViewHandleNVX",
     "vkGetImageViewOpaqueCaptureDescriptorDataEXT",
@@ -2932,6 +3023,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetPipelineExecutableInternalRepresentationsKHR",
     "vkGetPipelineExecutablePropertiesKHR",
     "vkGetPipelineExecutableStatisticsKHR",
+    "vkGetPipelineIndirectDeviceAddressNV",
+    "vkGetPipelineIndirectMemoryRequirementsNV",
     "vkGetPipelinePropertiesEXT",
     "vkGetPrivateData",
     "vkGetPrivateDataEXT",
@@ -2944,6 +3037,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetRayTracingShaderGroupStackSizeKHR",
     "vkGetRefreshCycleDurationGOOGLE",
     "vkGetRenderAreaGranularity",
+    "vkGetRenderingAreaGranularityKHR",
     "vkGetSamplerOpaqueCaptureDescriptorDataEXT",
     "vkGetScreenBufferPropertiesQNX",
     "vkGetSemaphoreCounterValue",
@@ -3006,6 +3100,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkSetPrivateDataEXT",
     "vkSignalSemaphore",
     "vkSignalSemaphoreKHR",
+    "vkTransitionImageLayoutEXT",
     "vkTrimCommandPool",
     "vkTrimCommandPoolKHR",
     "vkUninitializePerformanceApiINTEL",

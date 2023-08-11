@@ -126,6 +126,11 @@ static void glad_egl_load_EGL_ANGLE_device_creation(GladEGLContext *context, GLA
     context->CreateDeviceANGLE = (PFNEGLCREATEDEVICEANGLEPROC) load(userptr, "eglCreateDeviceANGLE");
     context->ReleaseDeviceANGLE = (PFNEGLRELEASEDEVICEANGLEPROC) load(userptr, "eglReleaseDeviceANGLE");
 }
+static void glad_egl_load_EGL_ANGLE_external_context_and_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->ANGLE_external_context_and_surface) return;
+    context->AcquireExternalContextANGLE = (PFNEGLACQUIREEXTERNALCONTEXTANGLEPROC) load(userptr, "eglAcquireExternalContextANGLE");
+    context->ReleaseExternalContextANGLE = (PFNEGLRELEASEEXTERNALCONTEXTANGLEPROC) load(userptr, "eglReleaseExternalContextANGLE");
+}
 static void glad_egl_load_EGL_ANGLE_feature_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_feature_control) return;
     context->QueryDisplayAttribANGLE = (PFNEGLQUERYDISPLAYATTRIBANGLEPROC) load(userptr, "eglQueryDisplayAttribANGLE");
@@ -547,6 +552,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
     context->ANGLE_display_semaphore_share_group = glad_egl_has_extension(extensions, "EGL_ANGLE_display_semaphore_share_group");
     context->ANGLE_display_texture_share_group = glad_egl_has_extension(extensions, "EGL_ANGLE_display_texture_share_group");
     context->ANGLE_experimental_present_path = glad_egl_has_extension(extensions, "EGL_ANGLE_experimental_present_path");
+    context->ANGLE_external_context_and_surface = glad_egl_has_extension(extensions, "EGL_ANGLE_external_context_and_surface");
     context->ANGLE_feature_control = glad_egl_has_extension(extensions, "EGL_ANGLE_feature_control");
     context->ANGLE_ggp_stream_descriptor = glad_egl_has_extension(extensions, "EGL_ANGLE_ggp_stream_descriptor");
     context->ANGLE_iosurface_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_iosurface_client_buffer");
@@ -722,6 +728,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
     context->NV_sync = glad_egl_has_extension(extensions, "EGL_NV_sync");
     context->NV_system_time = glad_egl_has_extension(extensions, "EGL_NV_system_time");
     context->NV_triple_buffer = glad_egl_has_extension(extensions, "EGL_NV_triple_buffer");
+    context->QNX_image_native_buffer = glad_egl_has_extension(extensions, "EGL_QNX_image_native_buffer");
     context->QNX_platform_screen = glad_egl_has_extension(extensions, "EGL_QNX_platform_screen");
     context->TIZEN_image_native_buffer = glad_egl_has_extension(extensions, "EGL_TIZEN_image_native_buffer");
     context->TIZEN_image_native_surface = glad_egl_has_extension(extensions, "EGL_TIZEN_image_native_surface");
@@ -785,6 +792,7 @@ int gladLoadEGLContextUserPtr(GladEGLContext *context, EGLDisplay display, GLADu
     glad_egl_load_EGL_ANDROID_native_fence_sync(context, load, userptr);
     glad_egl_load_EGL_ANDROID_presentation_time(context, load, userptr);
     glad_egl_load_EGL_ANGLE_device_creation(context, load, userptr);
+    glad_egl_load_EGL_ANGLE_external_context_and_surface(context, load, userptr);
     glad_egl_load_EGL_ANGLE_feature_control(context, load, userptr);
     glad_egl_load_EGL_ANGLE_metal_shared_event_sync(context, load, userptr);
     glad_egl_load_EGL_ANGLE_power_preference(context, load, userptr);

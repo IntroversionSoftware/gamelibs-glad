@@ -7191,6 +7191,7 @@ static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
     context->NV_timeline_semaphore = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_timeline_semaphore");
     context->NV_transform_feedback = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_transform_feedback");
     context->NV_transform_feedback2 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_transform_feedback2");
+    context->NV_uniform_buffer_std430_layout = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_uniform_buffer_std430_layout");
     context->NV_uniform_buffer_unified_memory = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_uniform_buffer_unified_memory");
     context->NV_vdpau_interop = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_vdpau_interop");
     context->NV_vdpau_interop2 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_vdpau_interop2");
