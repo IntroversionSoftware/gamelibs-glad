@@ -2115,6 +2115,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->NV_coverage_reduction_mode = glad_vk_has_extension("VK_NV_coverage_reduction_mode", extension_count, extensions);
     context->NV_dedicated_allocation = glad_vk_has_extension("VK_NV_dedicated_allocation", extension_count, extensions);
     context->NV_dedicated_allocation_image_aliasing = glad_vk_has_extension("VK_NV_dedicated_allocation_image_aliasing", extension_count, extensions);
+    context->NV_descriptor_pool_overallocation = glad_vk_has_extension("VK_NV_descriptor_pool_overallocation", extension_count, extensions);
     context->NV_device_diagnostic_checkpoints = glad_vk_has_extension("VK_NV_device_diagnostic_checkpoints", extension_count, extensions);
     context->NV_device_diagnostics_config = glad_vk_has_extension("VK_NV_device_diagnostics_config", extension_count, extensions);
     context->NV_device_generated_commands = glad_vk_has_extension("VK_NV_device_generated_commands", extension_count, extensions);
@@ -2160,8 +2161,11 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->NV_win32_keyed_mutex = glad_vk_has_extension("VK_NV_win32_keyed_mutex", extension_count, extensions);
 
 #endif
+    context->QCOM_filter_cubic_clamp = glad_vk_has_extension("VK_QCOM_filter_cubic_clamp", extension_count, extensions);
+    context->QCOM_filter_cubic_weights = glad_vk_has_extension("VK_QCOM_filter_cubic_weights", extension_count, extensions);
     context->QCOM_fragment_density_map_offset = glad_vk_has_extension("VK_QCOM_fragment_density_map_offset", extension_count, extensions);
     context->QCOM_image_processing = glad_vk_has_extension("VK_QCOM_image_processing", extension_count, extensions);
+    context->QCOM_image_processing2 = glad_vk_has_extension("VK_QCOM_image_processing2", extension_count, extensions);
     context->QCOM_multiview_per_view_render_areas = glad_vk_has_extension("VK_QCOM_multiview_per_view_render_areas", extension_count, extensions);
     context->QCOM_multiview_per_view_viewports = glad_vk_has_extension("VK_QCOM_multiview_per_view_viewports", extension_count, extensions);
     context->QCOM_render_pass_shader_resolve = glad_vk_has_extension("VK_QCOM_render_pass_shader_resolve", extension_count, extensions);
@@ -2169,6 +2173,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->QCOM_render_pass_transform = glad_vk_has_extension("VK_QCOM_render_pass_transform", extension_count, extensions);
     context->QCOM_rotated_copy_commands = glad_vk_has_extension("VK_QCOM_rotated_copy_commands", extension_count, extensions);
     context->QCOM_tile_properties = glad_vk_has_extension("VK_QCOM_tile_properties", extension_count, extensions);
+    context->QCOM_ycbcr_degamma = glad_vk_has_extension("VK_QCOM_ycbcr_degamma", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
     context->QNX_external_memory_screen_buffer = glad_vk_has_extension("VK_QNX_external_memory_screen_buffer", extension_count, extensions);
 
