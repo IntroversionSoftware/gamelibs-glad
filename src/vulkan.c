@@ -1199,6 +1199,14 @@ static void glad_vk_load_VK_NV_fragment_shading_rate_enums(GladVulkanContext *co
     if(!context->NV_fragment_shading_rate_enums) return;
     context->CmdSetFragmentShadingRateEnumNV = (PFN_vkCmdSetFragmentShadingRateEnumNV) load(userptr, "vkCmdSetFragmentShadingRateEnumNV");
 }
+static void glad_vk_load_VK_NV_low_latency2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->NV_low_latency2) return;
+    context->GetLatencyTimingsNV = (PFN_vkGetLatencyTimingsNV) load(userptr, "vkGetLatencyTimingsNV");
+    context->LatencySleepNV = (PFN_vkLatencySleepNV) load(userptr, "vkLatencySleepNV");
+    context->QueueNotifyOutOfBandNV = (PFN_vkQueueNotifyOutOfBandNV) load(userptr, "vkQueueNotifyOutOfBandNV");
+    context->SetLatencyMarkerNV = (PFN_vkSetLatencyMarkerNV) load(userptr, "vkSetLatencyMarkerNV");
+    context->SetLatencySleepModeNV = (PFN_vkSetLatencySleepModeNV) load(userptr, "vkSetLatencySleepModeNV");
+}
 static void glad_vk_load_VK_NV_memory_decompression(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_memory_decompression) return;
     context->CmdDecompressMemoryIndirectCountNV = (PFN_vkCmdDecompressMemoryIndirectCountNV) load(userptr, "vkCmdDecompressMemoryIndirectCountNV");
@@ -1767,6 +1775,10 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->AMD_shader_trinary_minmax = glad_vk_has_extension("VK_AMD_shader_trinary_minmax", extension_count, extensions);
     context->AMD_texture_gather_bias_lod = glad_vk_has_extension("VK_AMD_texture_gather_bias_lod", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
+    context->ANDROID_external_format_resolve = glad_vk_has_extension("VK_ANDROID_external_format_resolve", extension_count, extensions);
+
+#endif
+#if defined(VK_USE_PLATFORM_ANDROID_KHR)
     context->ANDROID_external_memory_android_hardware_buffer = glad_vk_has_extension("VK_ANDROID_external_memory_android_hardware_buffer", extension_count, extensions);
 
 #endif
@@ -1822,6 +1834,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_fragment_density_map = glad_vk_has_extension("VK_EXT_fragment_density_map", extension_count, extensions);
     context->EXT_fragment_density_map2 = glad_vk_has_extension("VK_EXT_fragment_density_map2", extension_count, extensions);
     context->EXT_fragment_shader_interlock = glad_vk_has_extension("VK_EXT_fragment_shader_interlock", extension_count, extensions);
+    context->EXT_frame_boundary = glad_vk_has_extension("VK_EXT_frame_boundary", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     context->EXT_full_screen_exclusive = glad_vk_has_extension("VK_EXT_full_screen_exclusive", extension_count, extensions);
 
@@ -1859,6 +1872,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_multi_draw = glad_vk_has_extension("VK_EXT_multi_draw", extension_count, extensions);
     context->EXT_multisampled_render_to_single_sampled = glad_vk_has_extension("VK_EXT_multisampled_render_to_single_sampled", extension_count, extensions);
     context->EXT_mutable_descriptor_type = glad_vk_has_extension("VK_EXT_mutable_descriptor_type", extension_count, extensions);
+    context->EXT_nested_command_buffer = glad_vk_has_extension("VK_EXT_nested_command_buffer", extension_count, extensions);
     context->EXT_non_seamless_cube_map = glad_vk_has_extension("VK_EXT_non_seamless_cube_map", extension_count, extensions);
     context->EXT_opacity_micromap = glad_vk_has_extension("VK_EXT_opacity_micromap", extension_count, extensions);
     context->EXT_pageable_device_local_memory = glad_vk_has_extension("VK_EXT_pageable_device_local_memory", extension_count, extensions);
@@ -2088,6 +2102,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 #endif
     context->KHR_zero_initialize_workgroup_memory = glad_vk_has_extension("VK_KHR_zero_initialize_workgroup_memory", extension_count, extensions);
     context->LUNARG_direct_driver_loading = glad_vk_has_extension("VK_LUNARG_direct_driver_loading", extension_count, extensions);
+    context->MSFT_layered_driver = glad_vk_has_extension("VK_MSFT_layered_driver", extension_count, extensions);
 #if defined(VK_USE_PLATFORM_IOS_MVK)
     context->MVK_ios_surface = glad_vk_has_extension("VK_MVK_ios_surface", extension_count, extensions);
 
@@ -2124,6 +2139,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->NV_displacement_micromap = glad_vk_has_extension("VK_NV_displacement_micromap", extension_count, extensions);
 
 #endif
+    context->NV_extended_sparse_address_space = glad_vk_has_extension("VK_NV_extended_sparse_address_space", extension_count, extensions);
     context->NV_external_memory = glad_vk_has_extension("VK_NV_external_memory", extension_count, extensions);
     context->NV_external_memory_capabilities = glad_vk_has_extension("VK_NV_external_memory_capabilities", extension_count, extensions);
     context->NV_external_memory_rdma = glad_vk_has_extension("VK_NV_external_memory_rdma", extension_count, extensions);
@@ -2141,6 +2157,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->NV_inherited_viewport_scissor = glad_vk_has_extension("VK_NV_inherited_viewport_scissor", extension_count, extensions);
     context->NV_linear_color_attachment = glad_vk_has_extension("VK_NV_linear_color_attachment", extension_count, extensions);
     context->NV_low_latency = glad_vk_has_extension("VK_NV_low_latency", extension_count, extensions);
+    context->NV_low_latency2 = glad_vk_has_extension("VK_NV_low_latency2", extension_count, extensions);
     context->NV_memory_decompression = glad_vk_has_extension("VK_NV_memory_decompression", extension_count, extensions);
     context->NV_mesh_shader = glad_vk_has_extension("VK_NV_mesh_shader", extension_count, extensions);
     context->NV_optical_flow = glad_vk_has_extension("VK_NV_optical_flow", extension_count, extensions);
@@ -2453,6 +2470,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
 
 #endif
     glad_vk_load_VK_NV_fragment_shading_rate_enums(context, load, userptr);
+    glad_vk_load_VK_NV_low_latency2(context, load, userptr);
     glad_vk_load_VK_NV_memory_decompression(context, load, userptr);
     glad_vk_load_VK_NV_mesh_shader(context, load, userptr);
     glad_vk_load_VK_NV_optical_flow(context, load, userptr);
@@ -3011,6 +3029,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetImageViewAddressNVX",
     "vkGetImageViewHandleNVX",
     "vkGetImageViewOpaqueCaptureDescriptorDataEXT",
+    "vkGetLatencyTimingsNV",
     "vkGetMemoryAndroidHardwareBufferANDROID",
     "vkGetMemoryFdKHR",
     "vkGetMemoryFdPropertiesKHR",
@@ -3066,6 +3085,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkImportSemaphoreZirconHandleFUCHSIA",
     "vkInitializePerformanceApiINTEL",
     "vkInvalidateMappedMemoryRanges",
+    "vkLatencySleepNV",
     "vkMapMemory",
     "vkMapMemory2KHR",
     "vkMergePipelineCaches",
@@ -3074,6 +3094,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkQueueBindSparse",
     "vkQueueEndDebugUtilsLabelEXT",
     "vkQueueInsertDebugUtilsLabelEXT",
+    "vkQueueNotifyOutOfBandNV",
     "vkQueuePresentKHR",
     "vkQueueSetPerformanceConfigurationINTEL",
     "vkQueueSubmit",
@@ -3100,6 +3121,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkSetDeviceMemoryPriorityEXT",
     "vkSetEvent",
     "vkSetHdrMetadataEXT",
+    "vkSetLatencyMarkerNV",
+    "vkSetLatencySleepModeNV",
     "vkSetLocalDimmingAMD",
     "vkSetPrivateData",
     "vkSetPrivateDataEXT",

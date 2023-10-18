@@ -5,7 +5,7 @@
  *
  * Generator: C/C++
  * Specification: vk
- * Extensions: 340
+ * Extensions: 346
  *
  * APIs:
  *  - vulkan=1.3
@@ -20,7 +20,7 @@
  *  - ON_DEMAND = False
  *
  * Commandline:
- *    --merge --api='vulkan=1.3' --extensions='VK_AMDX_shader_enqueue,VK_AMD_buffer_marker,VK_AMD_device_coherent_memory,VK_AMD_display_native_hdr,VK_AMD_draw_indirect_count,VK_AMD_gcn_shader,VK_AMD_gpu_shader_half_float,VK_AMD_gpu_shader_int16,VK_AMD_memory_overallocation_behavior,VK_AMD_mixed_attachment_samples,VK_AMD_negative_viewport_height,VK_AMD_pipeline_compiler_control,VK_AMD_rasterization_order,VK_AMD_shader_ballot,VK_AMD_shader_core_properties,VK_AMD_shader_core_properties2,VK_AMD_shader_early_and_late_fragment_tests,VK_AMD_shader_explicit_vertex_parameter,VK_AMD_shader_fragment_mask,VK_AMD_shader_image_load_store_lod,VK_AMD_shader_info,VK_AMD_shader_trinary_minmax,VK_AMD_texture_gather_bias_lod,VK_ANDROID_external_memory_android_hardware_buffer,VK_ARM_rasterization_order_attachment_access,VK_ARM_shader_core_builtins,VK_ARM_shader_core_properties,VK_EXT_4444_formats,VK_EXT_acquire_drm_display,VK_EXT_acquire_xlib_display,VK_EXT_astc_decode_mode,VK_EXT_attachment_feedback_loop_dynamic_state,VK_EXT_attachment_feedback_loop_layout,VK_EXT_blend_operation_advanced,VK_EXT_border_color_swizzle,VK_EXT_buffer_device_address,VK_EXT_calibrated_timestamps,VK_EXT_color_write_enable,VK_EXT_conditional_rendering,VK_EXT_conservative_rasterization,VK_EXT_custom_border_color,VK_EXT_debug_marker,VK_EXT_debug_report,VK_EXT_debug_utils,VK_EXT_depth_bias_control,VK_EXT_depth_clamp_zero_one,VK_EXT_depth_clip_control,VK_EXT_depth_clip_enable,VK_EXT_depth_range_unrestricted,VK_EXT_descriptor_buffer,VK_EXT_descriptor_indexing,VK_EXT_device_address_binding_report,VK_EXT_device_fault,VK_EXT_device_memory_report,VK_EXT_direct_mode_display,VK_EXT_directfb_surface,VK_EXT_discard_rectangles,VK_EXT_display_control,VK_EXT_display_surface_counter,VK_EXT_dynamic_rendering_unused_attachments,VK_EXT_extended_dynamic_state,VK_EXT_extended_dynamic_state2,VK_EXT_extended_dynamic_state3,VK_EXT_external_memory_acquire_unmodified,VK_EXT_external_memory_dma_buf,VK_EXT_external_memory_host,VK_EXT_filter_cubic,VK_EXT_fragment_density_map,VK_EXT_fragment_density_map2,VK_EXT_fragment_shader_interlock,VK_EXT_full_screen_exclusive,VK_EXT_global_priority,VK_EXT_global_priority_query,VK_EXT_graphics_pipeline_library,VK_EXT_hdr_metadata,VK_EXT_headless_surface,VK_EXT_host_image_copy,VK_EXT_host_query_reset,VK_EXT_image_2d_view_of_3d,VK_EXT_image_compression_control,VK_EXT_image_compression_control_swapchain,VK_EXT_image_drm_format_modifier,VK_EXT_image_robustness,VK_EXT_image_sliced_view_of_3d,VK_EXT_image_view_min_lod,VK_EXT_index_type_uint8,VK_EXT_inline_uniform_block,VK_EXT_legacy_dithering,VK_EXT_line_rasterization,VK_EXT_load_store_op_none,VK_EXT_memory_budget,VK_EXT_memory_priority,VK_EXT_mesh_shader,VK_EXT_metal_objects,VK_EXT_metal_surface,VK_EXT_multi_draw,VK_EXT_multisampled_render_to_single_sampled,VK_EXT_mutable_descriptor_type,VK_EXT_non_seamless_cube_map,VK_EXT_opacity_micromap,VK_EXT_pageable_device_local_memory,VK_EXT_pci_bus_info,VK_EXT_physical_device_drm,VK_EXT_pipeline_creation_cache_control,VK_EXT_pipeline_creation_feedback,VK_EXT_pipeline_library_group_handles,VK_EXT_pipeline_properties,VK_EXT_pipeline_protected_access,VK_EXT_pipeline_robustness,VK_EXT_post_depth_coverage,VK_EXT_primitive_topology_list_restart,VK_EXT_primitives_generated_query,VK_EXT_private_data,VK_EXT_provoking_vertex,VK_EXT_queue_family_foreign,VK_EXT_rasterization_order_attachment_access,VK_EXT_rgba10x6_formats,VK_EXT_robustness2,VK_EXT_sample_locations,VK_EXT_sampler_filter_minmax,VK_EXT_scalar_block_layout,VK_EXT_separate_stencil_usage,VK_EXT_shader_atomic_float,VK_EXT_shader_atomic_float2,VK_EXT_shader_demote_to_helper_invocation,VK_EXT_shader_image_atomic_int64,VK_EXT_shader_module_identifier,VK_EXT_shader_object,VK_EXT_shader_stencil_export,VK_EXT_shader_subgroup_ballot,VK_EXT_shader_subgroup_vote,VK_EXT_shader_tile_image,VK_EXT_shader_viewport_index_layer,VK_EXT_subgroup_size_control,VK_EXT_subpass_merge_feedback,VK_EXT_surface_maintenance1,VK_EXT_swapchain_colorspace,VK_EXT_swapchain_maintenance1,VK_EXT_texel_buffer_alignment,VK_EXT_texture_compression_astc_hdr,VK_EXT_tooling_info,VK_EXT_transform_feedback,VK_EXT_validation_cache,VK_EXT_validation_features,VK_EXT_validation_flags,VK_EXT_vertex_attribute_divisor,VK_EXT_vertex_input_dynamic_state,VK_EXT_video_encode_h264,VK_EXT_video_encode_h265,VK_EXT_ycbcr_2plane_444_formats,VK_EXT_ycbcr_image_arrays,VK_FUCHSIA_buffer_collection,VK_FUCHSIA_external_memory,VK_FUCHSIA_external_semaphore,VK_FUCHSIA_imagepipe_surface,VK_GGP_frame_token,VK_GGP_stream_descriptor_surface,VK_GOOGLE_decorate_string,VK_GOOGLE_display_timing,VK_GOOGLE_hlsl_functionality1,VK_GOOGLE_surfaceless_query,VK_GOOGLE_user_type,VK_HUAWEI_cluster_culling_shader,VK_HUAWEI_invocation_mask,VK_HUAWEI_subpass_shading,VK_IMG_filter_cubic,VK_IMG_format_pvrtc,VK_INTEL_performance_query,VK_INTEL_shader_integer_functions2,VK_KHR_16bit_storage,VK_KHR_8bit_storage,VK_KHR_acceleration_structure,VK_KHR_android_surface,VK_KHR_bind_memory2,VK_KHR_buffer_device_address,VK_KHR_cooperative_matrix,VK_KHR_copy_commands2,VK_KHR_create_renderpass2,VK_KHR_dedicated_allocation,VK_KHR_deferred_host_operations,VK_KHR_depth_stencil_resolve,VK_KHR_descriptor_update_template,VK_KHR_device_group,VK_KHR_device_group_creation,VK_KHR_display,VK_KHR_display_swapchain,VK_KHR_draw_indirect_count,VK_KHR_driver_properties,VK_KHR_dynamic_rendering,VK_KHR_external_fence,VK_KHR_external_fence_capabilities,VK_KHR_external_fence_fd,VK_KHR_external_fence_win32,VK_KHR_external_memory,VK_KHR_external_memory_capabilities,VK_KHR_external_memory_fd,VK_KHR_external_memory_win32,VK_KHR_external_semaphore,VK_KHR_external_semaphore_capabilities,VK_KHR_external_semaphore_fd,VK_KHR_external_semaphore_win32,VK_KHR_format_feature_flags2,VK_KHR_fragment_shader_barycentric,VK_KHR_fragment_shading_rate,VK_KHR_get_display_properties2,VK_KHR_get_memory_requirements2,VK_KHR_get_physical_device_properties2,VK_KHR_get_surface_capabilities2,VK_KHR_global_priority,VK_KHR_image_format_list,VK_KHR_imageless_framebuffer,VK_KHR_incremental_present,VK_KHR_maintenance1,VK_KHR_maintenance2,VK_KHR_maintenance3,VK_KHR_maintenance4,VK_KHR_maintenance5,VK_KHR_map_memory2,VK_KHR_multiview,VK_KHR_performance_query,VK_KHR_pipeline_executable_properties,VK_KHR_pipeline_library,VK_KHR_portability_enumeration,VK_KHR_portability_subset,VK_KHR_present_id,VK_KHR_present_wait,VK_KHR_push_descriptor,VK_KHR_ray_query,VK_KHR_ray_tracing_maintenance1,VK_KHR_ray_tracing_pipeline,VK_KHR_ray_tracing_position_fetch,VK_KHR_relaxed_block_layout,VK_KHR_sampler_mirror_clamp_to_edge,VK_KHR_sampler_ycbcr_conversion,VK_KHR_separate_depth_stencil_layouts,VK_KHR_shader_atomic_int64,VK_KHR_shader_clock,VK_KHR_shader_draw_parameters,VK_KHR_shader_float16_int8,VK_KHR_shader_float_controls,VK_KHR_shader_integer_dot_product,VK_KHR_shader_non_semantic_info,VK_KHR_shader_subgroup_extended_types,VK_KHR_shader_subgroup_uniform_control_flow,VK_KHR_shader_terminate_invocation,VK_KHR_shared_presentable_image,VK_KHR_spirv_1_4,VK_KHR_storage_buffer_storage_class,VK_KHR_surface,VK_KHR_surface_protected_capabilities,VK_KHR_swapchain,VK_KHR_swapchain_mutable_format,VK_KHR_synchronization2,VK_KHR_timeline_semaphore,VK_KHR_uniform_buffer_standard_layout,VK_KHR_variable_pointers,VK_KHR_video_decode_h264,VK_KHR_video_decode_h265,VK_KHR_video_decode_queue,VK_KHR_video_encode_queue,VK_KHR_video_queue,VK_KHR_vulkan_memory_model,VK_KHR_wayland_surface,VK_KHR_win32_keyed_mutex,VK_KHR_win32_surface,VK_KHR_workgroup_memory_explicit_layout,VK_KHR_xcb_surface,VK_KHR_xlib_surface,VK_KHR_zero_initialize_workgroup_memory,VK_LUNARG_direct_driver_loading,VK_MVK_ios_surface,VK_MVK_macos_surface,VK_NN_vi_surface,VK_NVX_binary_import,VK_NVX_image_view_handle,VK_NVX_multiview_per_view_attributes,VK_NV_acquire_winrt_display,VK_NV_clip_space_w_scaling,VK_NV_compute_shader_derivatives,VK_NV_cooperative_matrix,VK_NV_copy_memory_indirect,VK_NV_corner_sampled_image,VK_NV_coverage_reduction_mode,VK_NV_dedicated_allocation,VK_NV_dedicated_allocation_image_aliasing,VK_NV_descriptor_pool_overallocation,VK_NV_device_diagnostic_checkpoints,VK_NV_device_diagnostics_config,VK_NV_device_generated_commands,VK_NV_device_generated_commands_compute,VK_NV_displacement_micromap,VK_NV_external_memory,VK_NV_external_memory_capabilities,VK_NV_external_memory_rdma,VK_NV_external_memory_win32,VK_NV_fill_rectangle,VK_NV_fragment_coverage_to_color,VK_NV_fragment_shader_barycentric,VK_NV_fragment_shading_rate_enums,VK_NV_framebuffer_mixed_samples,VK_NV_geometry_shader_passthrough,VK_NV_glsl_shader,VK_NV_inherited_viewport_scissor,VK_NV_linear_color_attachment,VK_NV_low_latency,VK_NV_memory_decompression,VK_NV_mesh_shader,VK_NV_optical_flow,VK_NV_present_barrier,VK_NV_ray_tracing,VK_NV_ray_tracing_invocation_reorder,VK_NV_ray_tracing_motion_blur,VK_NV_representative_fragment_test,VK_NV_sample_mask_override_coverage,VK_NV_scissor_exclusive,VK_NV_shader_image_footprint,VK_NV_shader_sm_builtins,VK_NV_shader_subgroup_partitioned,VK_NV_shading_rate_image,VK_NV_viewport_array2,VK_NV_viewport_swizzle,VK_NV_win32_keyed_mutex,VK_QCOM_filter_cubic_clamp,VK_QCOM_filter_cubic_weights,VK_QCOM_fragment_density_map_offset,VK_QCOM_image_processing,VK_QCOM_image_processing2,VK_QCOM_multiview_per_view_render_areas,VK_QCOM_multiview_per_view_viewports,VK_QCOM_render_pass_shader_resolve,VK_QCOM_render_pass_store_ops,VK_QCOM_render_pass_transform,VK_QCOM_rotated_copy_commands,VK_QCOM_tile_properties,VK_QCOM_ycbcr_degamma,VK_QNX_external_memory_screen_buffer,VK_QNX_screen_surface,VK_SEC_amigo_profiling,VK_VALVE_descriptor_set_host_mapping,VK_VALVE_mutable_descriptor_type' c --alias --loader --mx --mx-global
+ *    --merge --api='vulkan=1.3' --extensions='VK_AMDX_shader_enqueue,VK_AMD_buffer_marker,VK_AMD_device_coherent_memory,VK_AMD_display_native_hdr,VK_AMD_draw_indirect_count,VK_AMD_gcn_shader,VK_AMD_gpu_shader_half_float,VK_AMD_gpu_shader_int16,VK_AMD_memory_overallocation_behavior,VK_AMD_mixed_attachment_samples,VK_AMD_negative_viewport_height,VK_AMD_pipeline_compiler_control,VK_AMD_rasterization_order,VK_AMD_shader_ballot,VK_AMD_shader_core_properties,VK_AMD_shader_core_properties2,VK_AMD_shader_early_and_late_fragment_tests,VK_AMD_shader_explicit_vertex_parameter,VK_AMD_shader_fragment_mask,VK_AMD_shader_image_load_store_lod,VK_AMD_shader_info,VK_AMD_shader_trinary_minmax,VK_AMD_texture_gather_bias_lod,VK_ANDROID_external_format_resolve,VK_ANDROID_external_memory_android_hardware_buffer,VK_ARM_rasterization_order_attachment_access,VK_ARM_shader_core_builtins,VK_ARM_shader_core_properties,VK_EXT_4444_formats,VK_EXT_acquire_drm_display,VK_EXT_acquire_xlib_display,VK_EXT_astc_decode_mode,VK_EXT_attachment_feedback_loop_dynamic_state,VK_EXT_attachment_feedback_loop_layout,VK_EXT_blend_operation_advanced,VK_EXT_border_color_swizzle,VK_EXT_buffer_device_address,VK_EXT_calibrated_timestamps,VK_EXT_color_write_enable,VK_EXT_conditional_rendering,VK_EXT_conservative_rasterization,VK_EXT_custom_border_color,VK_EXT_debug_marker,VK_EXT_debug_report,VK_EXT_debug_utils,VK_EXT_depth_bias_control,VK_EXT_depth_clamp_zero_one,VK_EXT_depth_clip_control,VK_EXT_depth_clip_enable,VK_EXT_depth_range_unrestricted,VK_EXT_descriptor_buffer,VK_EXT_descriptor_indexing,VK_EXT_device_address_binding_report,VK_EXT_device_fault,VK_EXT_device_memory_report,VK_EXT_direct_mode_display,VK_EXT_directfb_surface,VK_EXT_discard_rectangles,VK_EXT_display_control,VK_EXT_display_surface_counter,VK_EXT_dynamic_rendering_unused_attachments,VK_EXT_extended_dynamic_state,VK_EXT_extended_dynamic_state2,VK_EXT_extended_dynamic_state3,VK_EXT_external_memory_acquire_unmodified,VK_EXT_external_memory_dma_buf,VK_EXT_external_memory_host,VK_EXT_filter_cubic,VK_EXT_fragment_density_map,VK_EXT_fragment_density_map2,VK_EXT_fragment_shader_interlock,VK_EXT_frame_boundary,VK_EXT_full_screen_exclusive,VK_EXT_global_priority,VK_EXT_global_priority_query,VK_EXT_graphics_pipeline_library,VK_EXT_hdr_metadata,VK_EXT_headless_surface,VK_EXT_host_image_copy,VK_EXT_host_query_reset,VK_EXT_image_2d_view_of_3d,VK_EXT_image_compression_control,VK_EXT_image_compression_control_swapchain,VK_EXT_image_drm_format_modifier,VK_EXT_image_robustness,VK_EXT_image_sliced_view_of_3d,VK_EXT_image_view_min_lod,VK_EXT_index_type_uint8,VK_EXT_inline_uniform_block,VK_EXT_legacy_dithering,VK_EXT_line_rasterization,VK_EXT_load_store_op_none,VK_EXT_memory_budget,VK_EXT_memory_priority,VK_EXT_mesh_shader,VK_EXT_metal_objects,VK_EXT_metal_surface,VK_EXT_multi_draw,VK_EXT_multisampled_render_to_single_sampled,VK_EXT_mutable_descriptor_type,VK_EXT_nested_command_buffer,VK_EXT_non_seamless_cube_map,VK_EXT_opacity_micromap,VK_EXT_pageable_device_local_memory,VK_EXT_pci_bus_info,VK_EXT_physical_device_drm,VK_EXT_pipeline_creation_cache_control,VK_EXT_pipeline_creation_feedback,VK_EXT_pipeline_library_group_handles,VK_EXT_pipeline_properties,VK_EXT_pipeline_protected_access,VK_EXT_pipeline_robustness,VK_EXT_post_depth_coverage,VK_EXT_primitive_topology_list_restart,VK_EXT_primitives_generated_query,VK_EXT_private_data,VK_EXT_provoking_vertex,VK_EXT_queue_family_foreign,VK_EXT_rasterization_order_attachment_access,VK_EXT_rgba10x6_formats,VK_EXT_robustness2,VK_EXT_sample_locations,VK_EXT_sampler_filter_minmax,VK_EXT_scalar_block_layout,VK_EXT_separate_stencil_usage,VK_EXT_shader_atomic_float,VK_EXT_shader_atomic_float2,VK_EXT_shader_demote_to_helper_invocation,VK_EXT_shader_image_atomic_int64,VK_EXT_shader_module_identifier,VK_EXT_shader_object,VK_EXT_shader_stencil_export,VK_EXT_shader_subgroup_ballot,VK_EXT_shader_subgroup_vote,VK_EXT_shader_tile_image,VK_EXT_shader_viewport_index_layer,VK_EXT_subgroup_size_control,VK_EXT_subpass_merge_feedback,VK_EXT_surface_maintenance1,VK_EXT_swapchain_colorspace,VK_EXT_swapchain_maintenance1,VK_EXT_texel_buffer_alignment,VK_EXT_texture_compression_astc_hdr,VK_EXT_tooling_info,VK_EXT_transform_feedback,VK_EXT_validation_cache,VK_EXT_validation_features,VK_EXT_validation_flags,VK_EXT_vertex_attribute_divisor,VK_EXT_vertex_input_dynamic_state,VK_EXT_video_encode_h264,VK_EXT_video_encode_h265,VK_EXT_ycbcr_2plane_444_formats,VK_EXT_ycbcr_image_arrays,VK_FUCHSIA_buffer_collection,VK_FUCHSIA_external_memory,VK_FUCHSIA_external_semaphore,VK_FUCHSIA_imagepipe_surface,VK_GGP_frame_token,VK_GGP_stream_descriptor_surface,VK_GOOGLE_decorate_string,VK_GOOGLE_display_timing,VK_GOOGLE_hlsl_functionality1,VK_GOOGLE_surfaceless_query,VK_GOOGLE_user_type,VK_HUAWEI_cluster_culling_shader,VK_HUAWEI_invocation_mask,VK_HUAWEI_subpass_shading,VK_IMG_filter_cubic,VK_IMG_format_pvrtc,VK_INTEL_performance_query,VK_INTEL_shader_integer_functions2,VK_KHR_16bit_storage,VK_KHR_8bit_storage,VK_KHR_acceleration_structure,VK_KHR_android_surface,VK_KHR_bind_memory2,VK_KHR_buffer_device_address,VK_KHR_cooperative_matrix,VK_KHR_copy_commands2,VK_KHR_create_renderpass2,VK_KHR_dedicated_allocation,VK_KHR_deferred_host_operations,VK_KHR_depth_stencil_resolve,VK_KHR_descriptor_update_template,VK_KHR_device_group,VK_KHR_device_group_creation,VK_KHR_display,VK_KHR_display_swapchain,VK_KHR_draw_indirect_count,VK_KHR_driver_properties,VK_KHR_dynamic_rendering,VK_KHR_external_fence,VK_KHR_external_fence_capabilities,VK_KHR_external_fence_fd,VK_KHR_external_fence_win32,VK_KHR_external_memory,VK_KHR_external_memory_capabilities,VK_KHR_external_memory_fd,VK_KHR_external_memory_win32,VK_KHR_external_semaphore,VK_KHR_external_semaphore_capabilities,VK_KHR_external_semaphore_fd,VK_KHR_external_semaphore_win32,VK_KHR_format_feature_flags2,VK_KHR_fragment_shader_barycentric,VK_KHR_fragment_shading_rate,VK_KHR_get_display_properties2,VK_KHR_get_memory_requirements2,VK_KHR_get_physical_device_properties2,VK_KHR_get_surface_capabilities2,VK_KHR_global_priority,VK_KHR_image_format_list,VK_KHR_imageless_framebuffer,VK_KHR_incremental_present,VK_KHR_maintenance1,VK_KHR_maintenance2,VK_KHR_maintenance3,VK_KHR_maintenance4,VK_KHR_maintenance5,VK_KHR_map_memory2,VK_KHR_multiview,VK_KHR_performance_query,VK_KHR_pipeline_executable_properties,VK_KHR_pipeline_library,VK_KHR_portability_enumeration,VK_KHR_portability_subset,VK_KHR_present_id,VK_KHR_present_wait,VK_KHR_push_descriptor,VK_KHR_ray_query,VK_KHR_ray_tracing_maintenance1,VK_KHR_ray_tracing_pipeline,VK_KHR_ray_tracing_position_fetch,VK_KHR_relaxed_block_layout,VK_KHR_sampler_mirror_clamp_to_edge,VK_KHR_sampler_ycbcr_conversion,VK_KHR_separate_depth_stencil_layouts,VK_KHR_shader_atomic_int64,VK_KHR_shader_clock,VK_KHR_shader_draw_parameters,VK_KHR_shader_float16_int8,VK_KHR_shader_float_controls,VK_KHR_shader_integer_dot_product,VK_KHR_shader_non_semantic_info,VK_KHR_shader_subgroup_extended_types,VK_KHR_shader_subgroup_uniform_control_flow,VK_KHR_shader_terminate_invocation,VK_KHR_shared_presentable_image,VK_KHR_spirv_1_4,VK_KHR_storage_buffer_storage_class,VK_KHR_surface,VK_KHR_surface_protected_capabilities,VK_KHR_swapchain,VK_KHR_swapchain_mutable_format,VK_KHR_synchronization2,VK_KHR_timeline_semaphore,VK_KHR_uniform_buffer_standard_layout,VK_KHR_variable_pointers,VK_KHR_video_decode_h264,VK_KHR_video_decode_h265,VK_KHR_video_decode_queue,VK_KHR_video_encode_queue,VK_KHR_video_queue,VK_KHR_vulkan_memory_model,VK_KHR_wayland_surface,VK_KHR_win32_keyed_mutex,VK_KHR_win32_surface,VK_KHR_workgroup_memory_explicit_layout,VK_KHR_xcb_surface,VK_KHR_xlib_surface,VK_KHR_zero_initialize_workgroup_memory,VK_LUNARG_direct_driver_loading,VK_MSFT_layered_driver,VK_MVK_ios_surface,VK_MVK_macos_surface,VK_NN_vi_surface,VK_NVX_binary_import,VK_NVX_image_view_handle,VK_NVX_multiview_per_view_attributes,VK_NV_acquire_winrt_display,VK_NV_clip_space_w_scaling,VK_NV_compute_shader_derivatives,VK_NV_cooperative_matrix,VK_NV_copy_memory_indirect,VK_NV_corner_sampled_image,VK_NV_coverage_reduction_mode,VK_NV_dedicated_allocation,VK_NV_dedicated_allocation_image_aliasing,VK_NV_descriptor_pool_overallocation,VK_NV_device_diagnostic_checkpoints,VK_NV_device_diagnostics_config,VK_NV_device_generated_commands,VK_NV_device_generated_commands_compute,VK_NV_displacement_micromap,VK_NV_extended_sparse_address_space,VK_NV_external_memory,VK_NV_external_memory_capabilities,VK_NV_external_memory_rdma,VK_NV_external_memory_win32,VK_NV_fill_rectangle,VK_NV_fragment_coverage_to_color,VK_NV_fragment_shader_barycentric,VK_NV_fragment_shading_rate_enums,VK_NV_framebuffer_mixed_samples,VK_NV_geometry_shader_passthrough,VK_NV_glsl_shader,VK_NV_inherited_viewport_scissor,VK_NV_linear_color_attachment,VK_NV_low_latency,VK_NV_low_latency2,VK_NV_memory_decompression,VK_NV_mesh_shader,VK_NV_optical_flow,VK_NV_present_barrier,VK_NV_ray_tracing,VK_NV_ray_tracing_invocation_reorder,VK_NV_ray_tracing_motion_blur,VK_NV_representative_fragment_test,VK_NV_sample_mask_override_coverage,VK_NV_scissor_exclusive,VK_NV_shader_image_footprint,VK_NV_shader_sm_builtins,VK_NV_shader_subgroup_partitioned,VK_NV_shading_rate_image,VK_NV_viewport_array2,VK_NV_viewport_swizzle,VK_NV_win32_keyed_mutex,VK_QCOM_filter_cubic_clamp,VK_QCOM_filter_cubic_weights,VK_QCOM_fragment_density_map_offset,VK_QCOM_image_processing,VK_QCOM_image_processing2,VK_QCOM_multiview_per_view_render_areas,VK_QCOM_multiview_per_view_viewports,VK_QCOM_render_pass_shader_resolve,VK_QCOM_render_pass_store_ops,VK_QCOM_render_pass_transform,VK_QCOM_rotated_copy_commands,VK_QCOM_tile_properties,VK_QCOM_ycbcr_degamma,VK_QNX_external_memory_screen_buffer,VK_QNX_screen_surface,VK_SEC_amigo_profiling,VK_VALVE_descriptor_set_host_mapping,VK_VALVE_mutable_descriptor_type' c --alias --loader --mx --mx-global
  *
  * Online:
  *    http://glad.sh/#api=vulkan%3D1.3&generator=c&options=MERGE%2CALIAS%2CLOADER%2CMX%2CMX_GLOBAL
@@ -221,6 +221,14 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME "VK_AMD_texture_gather_bias_lod"
 #define VK_AMD_TEXTURE_GATHER_BIAS_LOD_SPEC_VERSION 1
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
+#define VK_ANDROID_EXTERNAL_FORMAT_RESOLVE_EXTENSION_NAME "VK_ANDROID_external_format_resolve"
+
+#endif
+#if defined(VK_USE_PLATFORM_ANDROID_KHR)
+#define VK_ANDROID_EXTERNAL_FORMAT_RESOLVE_SPEC_VERSION 1
+
+#endif
+#if defined(VK_USE_PLATFORM_ANDROID_KHR)
 #define VK_ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_EXTENSION_NAME "VK_ANDROID_external_memory_android_hardware_buffer"
 
 #endif
@@ -333,6 +341,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION 2
 #define VK_EXT_FRAGMENT_SHADER_INTERLOCK_EXTENSION_NAME "VK_EXT_fragment_shader_interlock"
 #define VK_EXT_FRAGMENT_SHADER_INTERLOCK_SPEC_VERSION 1
+#define VK_EXT_FRAME_BOUNDARY_EXTENSION_NAME "VK_EXT_frame_boundary"
+#define VK_EXT_FRAME_BOUNDARY_SPEC_VERSION 1
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 #define VK_EXT_FULL_SCREEN_EXCLUSIVE_EXTENSION_NAME "VK_EXT_full_screen_exclusive"
 
@@ -407,6 +417,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_EXT_MULTI_DRAW_SPEC_VERSION 1
 #define VK_EXT_MUTABLE_DESCRIPTOR_TYPE_EXTENSION_NAME "VK_EXT_mutable_descriptor_type"
 #define VK_EXT_MUTABLE_DESCRIPTOR_TYPE_SPEC_VERSION 1
+#define VK_EXT_NESTED_COMMAND_BUFFER_EXTENSION_NAME "VK_EXT_nested_command_buffer"
+#define VK_EXT_NESTED_COMMAND_BUFFER_SPEC_VERSION 1
 #define VK_EXT_NON_SEAMLESS_CUBE_MAP_EXTENSION_NAME "VK_EXT_non_seamless_cube_map"
 #define VK_EXT_NON_SEAMLESS_CUBE_MAP_SPEC_VERSION 1
 #define VK_EXT_OPACITY_MICROMAP_EXTENSION_NAME "VK_EXT_opacity_micromap"
@@ -891,6 +903,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_MAX_MEMORY_TYPES 32
 #define VK_MAX_PHYSICAL_DEVICE_NAME_SIZE 256
 #define VK_MAX_SHADER_MODULE_IDENTIFIER_SIZE_EXT 32
+#define VK_MSFT_LAYERED_DRIVER_EXTENSION_NAME "VK_MSFT_layered_driver"
+#define VK_MSFT_LAYERED_DRIVER_SPEC_VERSION 1
 #if defined(VK_USE_PLATFORM_IOS_MVK)
 #define VK_MVK_IOS_SURFACE_EXTENSION_NAME "VK_MVK_ios_surface"
 
@@ -963,6 +977,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_NV_DISPLACEMENT_MICROMAP_SPEC_VERSION 2
 
 #endif
+#define VK_NV_EXTENDED_SPARSE_ADDRESS_SPACE_EXTENSION_NAME "VK_NV_extended_sparse_address_space"
+#define VK_NV_EXTENDED_SPARSE_ADDRESS_SPACE_SPEC_VERSION 1
 #define VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME "VK_NV_external_memory_capabilities"
 #define VK_NV_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION 1
 #define VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME "VK_NV_external_memory"
@@ -995,6 +1011,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_NV_INHERITED_VIEWPORT_SCISSOR_SPEC_VERSION 1
 #define VK_NV_LINEAR_COLOR_ATTACHMENT_EXTENSION_NAME "VK_NV_linear_color_attachment"
 #define VK_NV_LINEAR_COLOR_ATTACHMENT_SPEC_VERSION 1
+#define VK_NV_LOW_LATENCY_2_EXTENSION_NAME "VK_NV_low_latency2"
+#define VK_NV_LOW_LATENCY_2_SPEC_VERSION 1
 #define VK_NV_LOW_LATENCY_EXTENSION_NAME "VK_NV_low_latency"
 #define VK_NV_LOW_LATENCY_SPEC_VERSION 1
 #define VK_NV_MEMORY_DECOMPRESSION_EXTENSION_NAME "VK_NV_memory_decompression"
@@ -1265,10 +1283,10 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 /* Vulkan 1.3 version number */
 #define VK_API_VERSION_1_3 VK_MAKE_API_VERSION(0, 1, 3, 0)/* Patch version should always be set to 0 */
 /* Version of this file */
-#define VK_HEADER_VERSION 263
+#define VK_HEADER_VERSION 268
 #define VK_DEFINE_HANDLE(object) typedef struct object##_T* object;
 #ifndef VK_USE_64_BIT_PTR_DEFINES
-    #if defined(__LP64__) || defined(_WIN64) || (defined(__x86_64__) && !defined(__ILP32__) ) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__)
+    #if defined(__LP64__) || defined(_WIN64) || (defined(__x86_64__) && !defined(__ILP32__) ) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__) || (defined(__riscv) && __riscv_xlen == 64)
         #define VK_USE_64_BIT_PTR_DEFINES 1
     #else
         #define VK_USE_64_BIT_PTR_DEFINES 0
@@ -2525,6 +2543,7 @@ typedef enum VkQueueFlagBits {
 typedef enum VkSubpassContents {
     VK_SUBPASS_CONTENTS_INLINE = 0,
     VK_SUBPASS_CONTENTS_SECONDARY_COMMAND_BUFFERS = 1,
+    VK_SUBPASS_CONTENTS_INLINE_AND_SECONDARY_COMMAND_BUFFERS_EXT = 1000451000,
     VK_SUBPASS_CONTENTS_MAX_ENUM = 0x7FFFFFFF
 } VkSubpassContents;
 typedef enum VkResult {
@@ -3508,6 +3527,8 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PIPELINE_PROPERTIES_IDENTIFIER_EXT = 1000372000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROPERTIES_FEATURES_EXT = 1000372001,
     VK_STRUCTURE_TYPE_PIPELINE_INFO_EXT = VK_STRUCTURE_TYPE_PIPELINE_INFO_KHR,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FRAME_BOUNDARY_FEATURES_EXT = 1000375000,
+    VK_STRUCTURE_TYPE_FRAME_BOUNDARY_EXT = 1000375001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_FEATURES_EXT = 1000376000,
     VK_STRUCTURE_TYPE_SUBPASS_RESOLVE_PERFORMANCE_QUERY_EXT = 1000376001,
     VK_STRUCTURE_TYPE_MULTISAMPLED_RENDER_TO_SINGLE_SAMPLED_INFO_EXT = 1000376002,
@@ -3571,6 +3592,8 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_FEATURES_QCOM = 1000440000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_IMAGE_PROCESSING_PROPERTIES_QCOM = 1000440001,
     VK_STRUCTURE_TYPE_IMAGE_VIEW_SAMPLE_WEIGHT_CREATE_INFO_QCOM = 1000440002,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_FEATURES_EXT = 1000451000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_NESTED_COMMAND_BUFFER_PROPERTIES_EXT = 1000451001,
     VK_STRUCTURE_TYPE_EXTERNAL_MEMORY_ACQUIRE_UNMODIFIED_EXT = 1000453000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_FEATURES_EXT = 1000455000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_DYNAMIC_STATE_3_PROPERTIES_EXT = 1000455001,
@@ -3594,6 +3617,9 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_OPTICAL_FLOW_SESSION_CREATE_PRIVATE_DATA_INFO_NV = 1000464010,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LEGACY_DITHERING_FEATURES_EXT = 1000465000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_PROTECTED_ACCESS_FEATURES_EXT = 1000466000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_FEATURES_ANDROID = 1000468000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_FORMAT_RESOLVE_PROPERTIES_ANDROID = 1000468001,
+    VK_STRUCTURE_TYPE_ANDROID_HARDWARE_BUFFER_FORMAT_RESOLVE_PROPERTIES_ANDROID = 1000468002,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_FEATURES_KHR = 1000470000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MAINTENANCE_5_PROPERTIES_KHR = 1000470001,
     VK_STRUCTURE_TYPE_RENDERING_AREA_INFO_KHR = 1000470003,
@@ -3614,12 +3640,23 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MULTIVIEW_PER_VIEW_VIEWPORTS_FEATURES_QCOM = 1000488000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_FEATURES_NV = 1000490000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_RAY_TRACING_INVOCATION_REORDER_PROPERTIES_NV = 1000490001,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_FEATURES_NV = 1000492000,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTENDED_SPARSE_ADDRESS_SPACE_PROPERTIES_NV = 1000492001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_MUTABLE_DESCRIPTOR_TYPE_FEATURES_EXT = 1000351000,
     VK_STRUCTURE_TYPE_MUTABLE_DESCRIPTOR_TYPE_CREATE_INFO_EXT = 1000351002,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_FEATURES_ARM = 1000497000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_SHADER_CORE_BUILTINS_PROPERTIES_ARM = 1000497001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_PIPELINE_LIBRARY_GROUP_HANDLES_FEATURES_EXT = 1000498000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DYNAMIC_RENDERING_UNUSED_ATTACHMENTS_FEATURES_EXT = 1000499000,
+    VK_STRUCTURE_TYPE_LATENCY_SLEEP_MODE_INFO_NV = 1000505000,
+    VK_STRUCTURE_TYPE_LATENCY_SLEEP_INFO_NV = 1000505001,
+    VK_STRUCTURE_TYPE_SET_LATENCY_MARKER_INFO_NV = 1000505002,
+    VK_STRUCTURE_TYPE_GET_LATENCY_MARKER_INFO_NV = 1000505003,
+    VK_STRUCTURE_TYPE_LATENCY_TIMINGS_FRAME_REPORT_NV = 1000505004,
+    VK_STRUCTURE_TYPE_LATENCY_SUBMISSION_PRESENT_ID_NV = 1000505005,
+    VK_STRUCTURE_TYPE_OUT_OF_BAND_QUEUE_TYPE_INFO_NV = 1000505006,
+    VK_STRUCTURE_TYPE_SWAPCHAIN_LATENCY_CREATE_INFO_NV = 1000505007,
+    VK_STRUCTURE_TYPE_LATENCY_SURFACE_CAPABILITIES_NV = 1000505008,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_FEATURES_KHR = 1000506000,
     VK_STRUCTURE_TYPE_COOPERATIVE_MATRIX_PROPERTIES_KHR = 1000506001,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_COOPERATIVE_MATRIX_PROPERTIES_KHR = 1000506002,
@@ -3640,6 +3677,7 @@ typedef enum VkStructureType {
     VK_STRUCTURE_TYPE_IMPORT_SCREEN_BUFFER_INFO_QNX = 1000529002,
     VK_STRUCTURE_TYPE_EXTERNAL_FORMAT_QNX = 1000529003,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_EXTERNAL_MEMORY_SCREEN_BUFFER_FEATURES_QNX = 1000529004,
+    VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_LAYERED_DRIVER_PROPERTIES_MSFT = 1000530000,
     VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_DESCRIPTOR_POOL_OVERALLOCATION_FEATURES_NV = 1000546000,
     VK_STRUCTURE_TYPE_MAX_ENUM = 0x7FFFFFFF
 } VkStructureType;
@@ -3955,6 +3993,7 @@ typedef enum VkResolveModeFlagBits {
     VK_RESOLVE_MODE_AVERAGE_BIT_KHR = VK_RESOLVE_MODE_AVERAGE_BIT,
     VK_RESOLVE_MODE_MIN_BIT_KHR = VK_RESOLVE_MODE_MIN_BIT,
     VK_RESOLVE_MODE_MAX_BIT_KHR = VK_RESOLVE_MODE_MAX_BIT,
+    VK_RESOLVE_MODE_EXTERNAL_FORMAT_DOWNSAMPLE_ANDROID = 16,
     VK_RESOLVE_MODE_FLAG_BITS_MAX_ENUM = 0x7FFFFFFF
 } VkResolveModeFlagBits;
 typedef enum VkResolveModeFlagBits VkResolveModeFlagBitsKHR;
@@ -4516,6 +4555,7 @@ typedef enum VkRenderingFlagBits {
     VK_RENDERING_SUSPENDING_BIT_KHR = VK_RENDERING_SUSPENDING_BIT,
     VK_RENDERING_RESUMING_BIT = 4,
     VK_RENDERING_RESUMING_BIT_KHR = VK_RENDERING_RESUMING_BIT,
+    VK_RENDERING_CONTENTS_INLINE_BIT_EXT = 16,
     VK_RENDERING_ENABLE_LEGACY_DITHERING_BIT_EXT = 8,
     VK_RENDERING_FLAG_BITS_MAX_ENUM = 0x7FFFFFFF
 } VkRenderingFlagBits;
@@ -4645,6 +4685,10 @@ typedef enum VkDeviceFaultVendorBinaryHeaderVersionEXT {
     VK_DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_ONE_EXT = 1,
     VK_DEVICE_FAULT_VENDOR_BINARY_HEADER_VERSION_MAX_ENUM_EXT = 0x7FFFFFFF
 } VkDeviceFaultVendorBinaryHeaderVersionEXT;
+typedef enum VkFrameBoundaryFlagBitsEXT {
+    VK_FRAME_BOUNDARY_FRAME_END_BIT_EXT = 1,
+    VK_FRAME_BOUNDARY_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
+} VkFrameBoundaryFlagBitsEXT;
 typedef uint64_t VkMemoryDecompressionMethodFlagBitsNV;
 static const VkMemoryDecompressionMethodFlagBitsNV VK_MEMORY_DECOMPRESSION_METHOD_GDEFLATE_1_0_BIT_NV = 1;
 
@@ -4797,6 +4841,11 @@ typedef enum VkBlockMatchWindowCompareModeQCOM {
     VK_BLOCK_MATCH_WINDOW_COMPARE_MODE_MAX_QCOM = 1,
     VK_BLOCK_MATCH_WINDOW_COMPARE_MODE_MAX_ENUM_QCOM = 0x7FFFFFFF
 } VkBlockMatchWindowCompareModeQCOM;
+typedef enum VkLayeredDriverUnderlyingApiMSFT {
+    VK_LAYERED_DRIVER_UNDERLYING_API_NONE_MSFT = 0,
+    VK_LAYERED_DRIVER_UNDERLYING_API_D3D12_MSFT = 1,
+    VK_LAYERED_DRIVER_UNDERLYING_API_MAX_ENUM_MSFT = 0x7FFFFFFF
+} VkLayeredDriverUnderlyingApiMSFT;
 typedef enum VkColorSpaceKHR {
     VK_COLOR_SPACE_SRGB_NONLINEAR_KHR = 0,
     VK_COLORSPACE_SRGB_NONLINEAR_KHR = VK_COLOR_SPACE_SRGB_NONLINEAR_KHR,
@@ -5312,6 +5361,26 @@ typedef enum VkPresentGravityFlagBitsEXT {
     VK_PRESENT_GRAVITY_CENTERED_BIT_EXT = 4,
     VK_PRESENT_GRAVITY_FLAG_BITS_MAX_ENUM_EXT = 0x7FFFFFFF
 } VkPresentGravityFlagBitsEXT;
+typedef enum VkLatencyMarkerNV {
+    VK_LATENCY_MARKER_SIMULATION_START_NV = 0,
+    VK_LATENCY_MARKER_SIMULATION_END_NV = 1,
+    VK_LATENCY_MARKER_RENDERSUBMIT_START_NV = 2,
+    VK_LATENCY_MARKER_RENDERSUBMIT_END_NV = 3,
+    VK_LATENCY_MARKER_PRESENT_START_NV = 4,
+    VK_LATENCY_MARKER_PRESENT_END_NV = 5,
+    VK_LATENCY_MARKER_INPUT_SAMPLE_NV = 6,
+    VK_LATENCY_MARKER_TRIGGER_FLASH_NV = 7,
+    VK_LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_START_NV = 8,
+    VK_LATENCY_MARKER_OUT_OF_BAND_RENDERSUBMIT_END_NV = 9,
+    VK_LATENCY_MARKER_OUT_OF_BAND_PRESENT_START_NV = 10,
+    VK_LATENCY_MARKER_OUT_OF_BAND_PRESENT_END_NV = 11,
+    VK_LATENCY_MARKER_MAX_ENUM_NV = 0x7FFFFFFF
+} VkLatencyMarkerNV;
+typedef enum VkOutOfBandQueueTypeNV {
+    VK_OUT_OF_BAND_QUEUE_TYPE_RENDER_NV = 0,
+    VK_OUT_OF_BAND_QUEUE_TYPE_PRESENT_NV = 1,
+    VK_OUT_OF_BAND_QUEUE_TYPE_MAX_ENUM_NV = 0x7FFFFFFF
+} VkOutOfBandQueueTypeNV;
 typedef enum VkVendorId {
     VK_VENDOR_ID_VIV = 0x10001,
     VK_VENDOR_ID_VSI = 0x10002,
@@ -5348,6 +5417,7 @@ typedef enum VkDriverId {
     VK_DRIVER_ID_MESA_DOZEN = 23,
     VK_DRIVER_ID_MESA_NVK = 24,
     VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA = 25,
+    VK_DRIVER_ID_MESA_AGXV = 26,
     VK_DRIVER_ID_AMD_PROPRIETARY_KHR = VK_DRIVER_ID_AMD_PROPRIETARY,
     VK_DRIVER_ID_AMD_OPEN_SOURCE_KHR = VK_DRIVER_ID_AMD_OPEN_SOURCE,
     VK_DRIVER_ID_MESA_RADV_KHR = VK_DRIVER_ID_MESA_RADV,
@@ -8165,6 +8235,12 @@ typedef struct VkDescriptorSetLayoutHostMappingInfoVALVE {
     uint32_t                                                                                   descriptorSize;
 } VkDescriptorSetLayoutHostMappingInfoVALVE;
 
+typedef struct VkPhysicalDeviceNestedCommandBufferPropertiesEXT {
+    VkStructureType   sType;
+    void *                            pNext;
+    uint32_t                          maxCommandBufferNestingLevel;
+} VkPhysicalDeviceNestedCommandBufferPropertiesEXT;
+
 typedef struct VkPhysicalDeviceShaderModuleIdentifierPropertiesEXT {
     VkStructureType   sType;
     void *  pNext;
@@ -8614,6 +8690,73 @@ typedef struct VkSamplerBlockMatchWindowCreateInfoQCOM {
     VkBlockMatchWindowCompareModeQCOM              windowCompareMode;
 } VkSamplerBlockMatchWindowCreateInfoQCOM;
 
+typedef struct VkPhysicalDeviceLayeredDriverPropertiesMSFT {
+    VkStructureType   sType;
+    void *                        pNext;
+    VkLayeredDriverUnderlyingApiMSFT              underlyingAPI;
+} VkPhysicalDeviceLayeredDriverPropertiesMSFT;
+
+#if defined(VK_USE_PLATFORM_ANDROID_KHR)
+typedef struct VkAndroidHardwareBufferFormatResolvePropertiesANDROID {
+    VkStructureType   sType;
+    void *         pNext;
+    VkFormat                       colorAttachmentFormat;
+} VkAndroidHardwareBufferFormatResolvePropertiesANDROID;
+
+#endif
+
+typedef struct VkLatencySleepInfoNV {
+    VkStructureType   sType;
+    const  void *  pNext;
+    VkSemaphore   signalSemaphore;
+    uint64_t   value;
+} VkLatencySleepInfoNV;
+
+typedef struct VkSetLatencyMarkerInfoNV {
+    VkStructureType   sType;
+    const  void *  pNext;
+    uint64_t   presentID;
+    VkLatencyMarkerNV   marker;
+} VkSetLatencyMarkerInfoNV;
+
+typedef struct VkLatencyTimingsFrameReportNV {
+    VkStructureType   sType;
+    const  void *  pNext;
+    uint64_t                 presentID;
+    uint64_t                 inputSampleTimeUs;
+    uint64_t                 simStartTimeUs;
+    uint64_t                 simEndTimeUs;
+    uint64_t                 renderSubmitStartTimeUs;
+    uint64_t                 renderSubmitEndTimeUs;
+    uint64_t                 presentStartTimeUs;
+    uint64_t                 presentEndTimeUs;
+    uint64_t                 driverStartTimeUs;
+    uint64_t                 driverEndTimeUs;
+    uint64_t                 osRenderQueueStartTimeUs;
+    uint64_t                 osRenderQueueEndTimeUs;
+    uint64_t                 gpuRenderStartTimeUs;
+    uint64_t                 gpuRenderEndTimeUs;
+} VkLatencyTimingsFrameReportNV;
+
+typedef struct VkOutOfBandQueueTypeInfoNV {
+    VkStructureType   sType;
+    const  void *  pNext;
+    VkOutOfBandQueueTypeNV   queueType;
+} VkOutOfBandQueueTypeInfoNV;
+
+typedef struct VkLatencySubmissionPresentIdNV {
+    VkStructureType   sType;
+    const  void *       pNext;
+    uint64_t                           presentID;
+} VkLatencySubmissionPresentIdNV;
+
+typedef struct VkLatencySurfaceCapabilitiesNV {
+    VkStructureType   sType;
+    const  void *                               pNext;
+    uint32_t                             presentModeCount;
+    VkPresentModeKHR *  pPresentModes;
+} VkLatencySurfaceCapabilitiesNV;
+
 /* Complete version of this file */
 #define VK_HEADER_VERSION_COMPLETE VK_MAKE_API_VERSION(0, 1, 3, VK_HEADER_VERSION)
 typedef uint32_t VkSampleMask;
@@ -8850,6 +8993,7 @@ typedef VkFlags   VkOpticalFlowGridSizeFlagsNV;
 typedef VkFlags   VkOpticalFlowUsageFlagsNV;
 typedef VkFlags   VkOpticalFlowSessionCreateFlagsNV;
 typedef VkFlags   VkOpticalFlowExecuteFlagsNV;
+typedef VkFlags VkFrameBoundaryFlagsEXT;
 typedef VkFlags VkPresentScalingFlagsEXT;
 typedef VkFlags VkPresentGravityFlagsEXT;
 typedef VkFlags VkShaderCreateFlagsEXT;
@@ -14117,6 +14261,14 @@ typedef struct VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE {
     VkBool32                                                                                                descriptorSetHostMapping;
 } VkPhysicalDeviceDescriptorSetHostMappingFeaturesVALVE;
 
+typedef struct VkPhysicalDeviceNestedCommandBufferFeaturesEXT {
+    VkStructureType   sType;
+    void *      pNext;
+    VkBool32                                          nestedCommandBuffer;
+    VkBool32                                          nestedCommandBufferRendering;
+    VkBool32                                          nestedCommandBufferSimultaneousUse;
+} VkPhysicalDeviceNestedCommandBufferFeaturesEXT;
+
 typedef struct VkPhysicalDeviceShaderModuleIdentifierFeaturesEXT {
     VkStructureType   sType;
     void *                                                       pNext;
@@ -14467,6 +14619,26 @@ typedef struct VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM {
     VkBool32                   shaderCoreBuiltins;
 } VkPhysicalDeviceShaderCoreBuiltinsFeaturesARM;
 
+typedef struct VkFrameBoundaryEXT {
+    VkStructureType   sType;
+    const  void *                         pNext;
+    VkFrameBoundaryFlagsEXT              flags;
+    uint64_t                                             frameID;
+    uint32_t                             imageCount;
+    const  VkImage *     pImages;
+    uint32_t                             bufferCount;
+    const  VkBuffer *   pBuffers;
+    uint64_t                             tagName;
+    size_t                               tagSize;
+    const  void *           pTag;
+} VkFrameBoundaryEXT;
+
+typedef struct VkPhysicalDeviceFrameBoundaryFeaturesEXT {
+    VkStructureType   sType;
+    void *     pNext;
+    VkBool32                   frameBoundary;
+} VkPhysicalDeviceFrameBoundaryFeaturesEXT;
+
 typedef struct VkPhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT {
     VkStructureType   sType;
     void *     pNext;
@@ -14511,6 +14683,20 @@ typedef struct VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV {
     void *                                                       pNext;
     VkBool32                                                                                           rayTracingInvocationReorder;
 } VkPhysicalDeviceRayTracingInvocationReorderFeaturesNV;
+
+typedef struct VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV {
+    VkStructureType   sType;
+    void *   pNext;
+    VkBool32                                       extendedSparseAddressSpace;
+} VkPhysicalDeviceExtendedSparseAddressSpaceFeaturesNV;
+
+typedef struct VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV {
+    VkStructureType   sType;
+    void *                         pNext;
+    VkDeviceSize                   extendedSparseAddressSpaceSize;
+    VkImageUsageFlags          extendedSparseImageUsageFlags;
+    VkBufferUsageFlags         extendedSparseBufferUsageFlags;
+} VkPhysicalDeviceExtendedSparseAddressSpacePropertiesNV;
 
 typedef struct VkDirectDriverLoadingInfoLUNARG {
     VkStructureType   sType;
@@ -14759,6 +14945,46 @@ typedef struct VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV {
     VkBool32                                          descriptorPoolOverallocation;
 } VkPhysicalDeviceDescriptorPoolOverallocationFeaturesNV;
 
+#if defined(VK_USE_PLATFORM_ANDROID_KHR)
+typedef struct VkPhysicalDeviceExternalFormatResolveFeaturesANDROID {
+    VkStructureType   sType;
+    void *         pNext;
+    VkBool32                       externalFormatResolve;
+} VkPhysicalDeviceExternalFormatResolveFeaturesANDROID;
+
+#endif
+
+#if defined(VK_USE_PLATFORM_ANDROID_KHR)
+typedef struct VkPhysicalDeviceExternalFormatResolvePropertiesANDROID {
+    VkStructureType   sType;
+    void *         pNext;
+    VkBool32    nullColorAttachmentWithExternalFormatResolve;
+    VkChromaLocation    externalFormatResolveChromaOffsetX;
+    VkChromaLocation    externalFormatResolveChromaOffsetY;
+} VkPhysicalDeviceExternalFormatResolvePropertiesANDROID;
+
+#endif
+
+typedef struct VkLatencySleepModeInfoNV {
+    VkStructureType   sType;
+    const  void *  pNext;
+    VkBool32   lowLatencyMode;
+    VkBool32   lowLatencyBoost;
+    uint32_t   minimumIntervalUs;
+} VkLatencySleepModeInfoNV;
+
+typedef struct VkGetLatencyMarkerInfoNV {
+    VkStructureType   sType;
+    const  void *  pNext;
+    VkLatencyTimingsFrameReportNV *  pTimings;
+} VkGetLatencyMarkerInfoNV;
+
+typedef struct VkSwapchainLatencyCreateInfoNV {
+    VkStructureType   sType;
+    const  void *                         pNext;
+    VkBool32                             latencyModeEnable;
+} VkSwapchainLatencyCreateInfoNV;
+
 typedef VkBool32 (VKAPI_PTR *PFN_vkDebugUtilsMessengerCallbackEXT)(
     VkDebugUtilsMessageSeverityFlagBitsEXT           messageSeverity,
     VkDebugUtilsMessageTypeFlagsEXT                  messageTypes,
@@ -14905,6 +15131,10 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_AMD_shader_trinary_minmax 1
 #define VK_AMD_texture_gather_bias_lod 1
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
+#define VK_ANDROID_external_format_resolve 1
+
+#endif
+#if defined(VK_USE_PLATFORM_ANDROID_KHR)
 #define VK_ANDROID_external_memory_android_hardware_buffer 1
 
 #endif
@@ -14960,6 +15190,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_EXT_fragment_density_map 1
 #define VK_EXT_fragment_density_map2 1
 #define VK_EXT_fragment_shader_interlock 1
+#define VK_EXT_frame_boundary 1
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 #define VK_EXT_full_screen_exclusive 1
 
@@ -14997,6 +15228,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_EXT_multi_draw 1
 #define VK_EXT_multisampled_render_to_single_sampled 1
 #define VK_EXT_mutable_descriptor_type 1
+#define VK_EXT_nested_command_buffer 1
 #define VK_EXT_non_seamless_cube_map 1
 #define VK_EXT_opacity_micromap 1
 #define VK_EXT_pageable_device_local_memory 1
@@ -15226,6 +15458,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #endif
 #define VK_KHR_zero_initialize_workgroup_memory 1
 #define VK_LUNARG_direct_driver_loading 1
+#define VK_MSFT_layered_driver 1
 #if defined(VK_USE_PLATFORM_IOS_MVK)
 #define VK_MVK_ios_surface 1
 
@@ -15262,6 +15495,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_NV_displacement_micromap 1
 
 #endif
+#define VK_NV_extended_sparse_address_space 1
 #define VK_NV_external_memory 1
 #define VK_NV_external_memory_capabilities 1
 #define VK_NV_external_memory_rdma 1
@@ -15279,6 +15513,7 @@ typedef struct VkDrmFormatModifierPropertiesList2EXT {
 #define VK_NV_inherited_viewport_scissor 1
 #define VK_NV_linear_color_attachment 1
 #define VK_NV_low_latency 1
+#define VK_NV_low_latency2 1
 #define VK_NV_memory_decompression 1
 #define VK_NV_mesh_shader 1
 #define VK_NV_optical_flow 1
@@ -15905,6 +16140,7 @@ typedef VkResult (GLAD_API_PTR *PFN_vkGetImageViewAddressNVX)(VkDevice device, V
 typedef uint32_t (GLAD_API_PTR *PFN_vkGetImageViewHandleNVX)(VkDevice device, const VkImageViewHandleInfoNVX * pInfo);
 typedef VkResult (GLAD_API_PTR *PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT)(VkDevice device, const VkImageViewCaptureDescriptorDataInfoEXT * pInfo, void * pData);
 typedef PFN_vkVoidFunction (GLAD_API_PTR *PFN_vkGetInstanceProcAddr)(VkInstance instance, const char * pName);
+typedef void (GLAD_API_PTR *PFN_vkGetLatencyTimingsNV)(VkDevice device, VkSwapchainKHR swapchain, uint32_t * pTimingCount, VkGetLatencyMarkerInfoNV * pLatencyMarkerInfo);
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
 typedef VkResult (GLAD_API_PTR *PFN_vkGetMemoryAndroidHardwareBufferANDROID)(VkDevice device, const VkMemoryGetAndroidHardwareBufferInfoANDROID * pInfo, struct AHardwareBuffer ** pBuffer);
 
@@ -16088,6 +16324,7 @@ typedef VkResult (GLAD_API_PTR *PFN_vkImportSemaphoreZirconHandleFUCHSIA)(VkDevi
 #endif
 typedef VkResult (GLAD_API_PTR *PFN_vkInitializePerformanceApiINTEL)(VkDevice device, const VkInitializePerformanceApiInfoINTEL * pInitializeInfo);
 typedef VkResult (GLAD_API_PTR *PFN_vkInvalidateMappedMemoryRanges)(VkDevice device, uint32_t memoryRangeCount, const VkMappedMemoryRange * pMemoryRanges);
+typedef VkResult (GLAD_API_PTR *PFN_vkLatencySleepNV)(VkDevice device, VkSwapchainKHR swapchain, const VkLatencySleepInfoNV * pSleepInfo);
 typedef VkResult (GLAD_API_PTR *PFN_vkMapMemory)(VkDevice device, VkDeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, void ** ppData);
 typedef VkResult (GLAD_API_PTR *PFN_vkMapMemory2KHR)(VkDevice device, const VkMemoryMapInfoKHR * pMemoryMapInfo, void ** ppData);
 typedef VkResult (GLAD_API_PTR *PFN_vkMergePipelineCaches)(VkDevice device, VkPipelineCache dstCache, uint32_t srcCacheCount, const VkPipelineCache * pSrcCaches);
@@ -16096,6 +16333,7 @@ typedef void (GLAD_API_PTR *PFN_vkQueueBeginDebugUtilsLabelEXT)(VkQueue queue, c
 typedef VkResult (GLAD_API_PTR *PFN_vkQueueBindSparse)(VkQueue queue, uint32_t bindInfoCount, const VkBindSparseInfo * pBindInfo, VkFence fence);
 typedef void (GLAD_API_PTR *PFN_vkQueueEndDebugUtilsLabelEXT)(VkQueue queue);
 typedef void (GLAD_API_PTR *PFN_vkQueueInsertDebugUtilsLabelEXT)(VkQueue queue, const VkDebugUtilsLabelEXT * pLabelInfo);
+typedef void (GLAD_API_PTR *PFN_vkQueueNotifyOutOfBandNV)(VkQueue queue, const VkOutOfBandQueueTypeInfoNV * pQueueTypeInfo);
 typedef VkResult (GLAD_API_PTR *PFN_vkQueuePresentKHR)(VkQueue queue, const VkPresentInfoKHR * pPresentInfo);
 typedef VkResult (GLAD_API_PTR *PFN_vkQueueSetPerformanceConfigurationINTEL)(VkQueue queue, VkPerformanceConfigurationINTEL configuration);
 typedef VkResult (GLAD_API_PTR *PFN_vkQueueSubmit)(VkQueue queue, uint32_t submitCount, const VkSubmitInfo * pSubmits, VkFence fence);
@@ -16132,6 +16370,8 @@ typedef VkResult (GLAD_API_PTR *PFN_vkSetDebugUtilsObjectTagEXT)(VkDevice device
 typedef void (GLAD_API_PTR *PFN_vkSetDeviceMemoryPriorityEXT)(VkDevice device, VkDeviceMemory memory, float priority);
 typedef VkResult (GLAD_API_PTR *PFN_vkSetEvent)(VkDevice device, VkEvent event);
 typedef void (GLAD_API_PTR *PFN_vkSetHdrMetadataEXT)(VkDevice device, uint32_t swapchainCount, const VkSwapchainKHR * pSwapchains, const VkHdrMetadataEXT * pMetadata);
+typedef void (GLAD_API_PTR *PFN_vkSetLatencyMarkerNV)(VkDevice device, VkSwapchainKHR swapchain, const VkSetLatencyMarkerInfoNV * pLatencyMarkerInfo);
+typedef VkResult (GLAD_API_PTR *PFN_vkSetLatencySleepModeNV)(VkDevice device, VkSwapchainKHR swapchain, const VkLatencySleepModeInfoNV * pSleepModeInfo);
 typedef void (GLAD_API_PTR *PFN_vkSetLocalDimmingAMD)(VkDevice device, VkSwapchainKHR swapChain, VkBool32 localDimmingEnable);
 typedef VkResult (GLAD_API_PTR *PFN_vkSetPrivateData)(VkDevice device, VkObjectType objectType, uint64_t objectHandle, VkPrivateDataSlot privateDataSlot, uint64_t data);
 typedef VkResult (GLAD_API_PTR *PFN_vkSetPrivateDataEXT)(VkDevice device, VkObjectType objectType, uint64_t objectHandle, VkPrivateDataSlot privateDataSlot, uint64_t data);
@@ -16185,6 +16425,7 @@ typedef struct GladVulkanContext {
     unsigned AMD_shader_info : 1;
     unsigned AMD_shader_trinary_minmax : 1;
     unsigned AMD_texture_gather_bias_lod : 1;
+    unsigned ANDROID_external_format_resolve : 1;
     unsigned ANDROID_external_memory_android_hardware_buffer : 1;
     unsigned ARM_rasterization_order_attachment_access : 1;
     unsigned ARM_shader_core_builtins : 1;
@@ -16232,6 +16473,7 @@ typedef struct GladVulkanContext {
     unsigned EXT_fragment_density_map : 1;
     unsigned EXT_fragment_density_map2 : 1;
     unsigned EXT_fragment_shader_interlock : 1;
+    unsigned EXT_frame_boundary : 1;
     unsigned EXT_full_screen_exclusive : 1;
     unsigned EXT_global_priority : 1;
     unsigned EXT_global_priority_query : 1;
@@ -16260,6 +16502,7 @@ typedef struct GladVulkanContext {
     unsigned EXT_multi_draw : 1;
     unsigned EXT_multisampled_render_to_single_sampled : 1;
     unsigned EXT_mutable_descriptor_type : 1;
+    unsigned EXT_nested_command_buffer : 1;
     unsigned EXT_non_seamless_cube_map : 1;
     unsigned EXT_opacity_micromap : 1;
     unsigned EXT_pageable_device_local_memory : 1;
@@ -16432,6 +16675,7 @@ typedef struct GladVulkanContext {
     unsigned KHR_xlib_surface : 1;
     unsigned KHR_zero_initialize_workgroup_memory : 1;
     unsigned LUNARG_direct_driver_loading : 1;
+    unsigned MSFT_layered_driver : 1;
     unsigned MVK_ios_surface : 1;
     unsigned MVK_macos_surface : 1;
     unsigned NN_vi_surface : 1;
@@ -16453,6 +16697,7 @@ typedef struct GladVulkanContext {
     unsigned NV_device_generated_commands : 1;
     unsigned NV_device_generated_commands_compute : 1;
     unsigned NV_displacement_micromap : 1;
+    unsigned NV_extended_sparse_address_space : 1;
     unsigned NV_external_memory : 1;
     unsigned NV_external_memory_capabilities : 1;
     unsigned NV_external_memory_rdma : 1;
@@ -16467,6 +16712,7 @@ typedef struct GladVulkanContext {
     unsigned NV_inherited_viewport_scissor : 1;
     unsigned NV_linear_color_attachment : 1;
     unsigned NV_low_latency : 1;
+    unsigned NV_low_latency2 : 1;
     unsigned NV_memory_decompression : 1;
     unsigned NV_mesh_shader : 1;
     unsigned NV_optical_flow : 1;
@@ -17083,6 +17329,7 @@ typedef struct GladVulkanContext {
     PFN_vkGetImageViewHandleNVX GetImageViewHandleNVX;
     PFN_vkGetImageViewOpaqueCaptureDescriptorDataEXT GetImageViewOpaqueCaptureDescriptorDataEXT;
     PFN_vkGetInstanceProcAddr GetInstanceProcAddr;
+    PFN_vkGetLatencyTimingsNV GetLatencyTimingsNV;
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
     PFN_vkGetMemoryAndroidHardwareBufferANDROID GetMemoryAndroidHardwareBufferANDROID;
 
@@ -17266,6 +17513,7 @@ typedef struct GladVulkanContext {
 #endif
     PFN_vkInitializePerformanceApiINTEL InitializePerformanceApiINTEL;
     PFN_vkInvalidateMappedMemoryRanges InvalidateMappedMemoryRanges;
+    PFN_vkLatencySleepNV LatencySleepNV;
     PFN_vkMapMemory MapMemory;
     PFN_vkMapMemory2KHR MapMemory2KHR;
     PFN_vkMergePipelineCaches MergePipelineCaches;
@@ -17274,6 +17522,7 @@ typedef struct GladVulkanContext {
     PFN_vkQueueBindSparse QueueBindSparse;
     PFN_vkQueueEndDebugUtilsLabelEXT QueueEndDebugUtilsLabelEXT;
     PFN_vkQueueInsertDebugUtilsLabelEXT QueueInsertDebugUtilsLabelEXT;
+    PFN_vkQueueNotifyOutOfBandNV QueueNotifyOutOfBandNV;
     PFN_vkQueuePresentKHR QueuePresentKHR;
     PFN_vkQueueSetPerformanceConfigurationINTEL QueueSetPerformanceConfigurationINTEL;
     PFN_vkQueueSubmit QueueSubmit;
@@ -17310,6 +17559,8 @@ typedef struct GladVulkanContext {
     PFN_vkSetDeviceMemoryPriorityEXT SetDeviceMemoryPriorityEXT;
     PFN_vkSetEvent SetEvent;
     PFN_vkSetHdrMetadataEXT SetHdrMetadataEXT;
+    PFN_vkSetLatencyMarkerNV SetLatencyMarkerNV;
+    PFN_vkSetLatencySleepModeNV SetLatencySleepModeNV;
     PFN_vkSetLocalDimmingAMD SetLocalDimmingAMD;
     PFN_vkSetPrivateData SetPrivateData;
     PFN_vkSetPrivateDataEXT SetPrivateDataEXT;
@@ -17365,6 +17616,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_AMD_shader_info (glad_vulkan_context.AMD_shader_info)
 #define GLAD_VK_AMD_shader_trinary_minmax (glad_vulkan_context.AMD_shader_trinary_minmax)
 #define GLAD_VK_AMD_texture_gather_bias_lod (glad_vulkan_context.AMD_texture_gather_bias_lod)
+#define GLAD_VK_ANDROID_external_format_resolve (glad_vulkan_context.ANDROID_external_format_resolve)
 #define GLAD_VK_ANDROID_external_memory_android_hardware_buffer (glad_vulkan_context.ANDROID_external_memory_android_hardware_buffer)
 #define GLAD_VK_ARM_rasterization_order_attachment_access (glad_vulkan_context.ARM_rasterization_order_attachment_access)
 #define GLAD_VK_ARM_shader_core_builtins (glad_vulkan_context.ARM_shader_core_builtins)
@@ -17412,6 +17664,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_EXT_fragment_density_map (glad_vulkan_context.EXT_fragment_density_map)
 #define GLAD_VK_EXT_fragment_density_map2 (glad_vulkan_context.EXT_fragment_density_map2)
 #define GLAD_VK_EXT_fragment_shader_interlock (glad_vulkan_context.EXT_fragment_shader_interlock)
+#define GLAD_VK_EXT_frame_boundary (glad_vulkan_context.EXT_frame_boundary)
 #define GLAD_VK_EXT_full_screen_exclusive (glad_vulkan_context.EXT_full_screen_exclusive)
 #define GLAD_VK_EXT_global_priority (glad_vulkan_context.EXT_global_priority)
 #define GLAD_VK_EXT_global_priority_query (glad_vulkan_context.EXT_global_priority_query)
@@ -17440,6 +17693,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_EXT_multi_draw (glad_vulkan_context.EXT_multi_draw)
 #define GLAD_VK_EXT_multisampled_render_to_single_sampled (glad_vulkan_context.EXT_multisampled_render_to_single_sampled)
 #define GLAD_VK_EXT_mutable_descriptor_type (glad_vulkan_context.EXT_mutable_descriptor_type)
+#define GLAD_VK_EXT_nested_command_buffer (glad_vulkan_context.EXT_nested_command_buffer)
 #define GLAD_VK_EXT_non_seamless_cube_map (glad_vulkan_context.EXT_non_seamless_cube_map)
 #define GLAD_VK_EXT_opacity_micromap (glad_vulkan_context.EXT_opacity_micromap)
 #define GLAD_VK_EXT_pageable_device_local_memory (glad_vulkan_context.EXT_pageable_device_local_memory)
@@ -17612,6 +17866,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_KHR_xlib_surface (glad_vulkan_context.KHR_xlib_surface)
 #define GLAD_VK_KHR_zero_initialize_workgroup_memory (glad_vulkan_context.KHR_zero_initialize_workgroup_memory)
 #define GLAD_VK_LUNARG_direct_driver_loading (glad_vulkan_context.LUNARG_direct_driver_loading)
+#define GLAD_VK_MSFT_layered_driver (glad_vulkan_context.MSFT_layered_driver)
 #define GLAD_VK_MVK_ios_surface (glad_vulkan_context.MVK_ios_surface)
 #define GLAD_VK_MVK_macos_surface (glad_vulkan_context.MVK_macos_surface)
 #define GLAD_VK_NN_vi_surface (glad_vulkan_context.NN_vi_surface)
@@ -17633,6 +17888,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_NV_device_generated_commands (glad_vulkan_context.NV_device_generated_commands)
 #define GLAD_VK_NV_device_generated_commands_compute (glad_vulkan_context.NV_device_generated_commands_compute)
 #define GLAD_VK_NV_displacement_micromap (glad_vulkan_context.NV_displacement_micromap)
+#define GLAD_VK_NV_extended_sparse_address_space (glad_vulkan_context.NV_extended_sparse_address_space)
 #define GLAD_VK_NV_external_memory (glad_vulkan_context.NV_external_memory)
 #define GLAD_VK_NV_external_memory_capabilities (glad_vulkan_context.NV_external_memory_capabilities)
 #define GLAD_VK_NV_external_memory_rdma (glad_vulkan_context.NV_external_memory_rdma)
@@ -17647,6 +17903,7 @@ GLAD_API_CALL GladVulkanContext glad_vulkan_context;
 #define GLAD_VK_NV_inherited_viewport_scissor (glad_vulkan_context.NV_inherited_viewport_scissor)
 #define GLAD_VK_NV_linear_color_attachment (glad_vulkan_context.NV_linear_color_attachment)
 #define GLAD_VK_NV_low_latency (glad_vulkan_context.NV_low_latency)
+#define GLAD_VK_NV_low_latency2 (glad_vulkan_context.NV_low_latency2)
 #define GLAD_VK_NV_memory_decompression (glad_vulkan_context.NV_memory_decompression)
 #define GLAD_VK_NV_mesh_shader (glad_vulkan_context.NV_mesh_shader)
 #define GLAD_VK_NV_optical_flow (glad_vulkan_context.NV_optical_flow)
@@ -18264,6 +18521,7 @@ VkResult vkGetImageViewAddressNVX(VkDevice device, VkImageView imageView, VkImag
 uint32_t vkGetImageViewHandleNVX(VkDevice device, const VkImageViewHandleInfoNVX * pInfo);
 VkResult vkGetImageViewOpaqueCaptureDescriptorDataEXT(VkDevice device, const VkImageViewCaptureDescriptorDataInfoEXT * pInfo, void * pData);
 PFN_vkVoidFunction vkGetInstanceProcAddr(VkInstance instance, const char * pName);
+void vkGetLatencyTimingsNV(VkDevice device, VkSwapchainKHR swapchain, uint32_t * pTimingCount, VkGetLatencyMarkerInfoNV * pLatencyMarkerInfo);
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
 VkResult vkGetMemoryAndroidHardwareBufferANDROID(VkDevice device, const VkMemoryGetAndroidHardwareBufferInfoANDROID * pInfo, struct AHardwareBuffer ** pBuffer);
 
@@ -18447,6 +18705,7 @@ VkResult vkImportSemaphoreZirconHandleFUCHSIA(VkDevice device, const VkImportSem
 #endif
 VkResult vkInitializePerformanceApiINTEL(VkDevice device, const VkInitializePerformanceApiInfoINTEL * pInitializeInfo);
 VkResult vkInvalidateMappedMemoryRanges(VkDevice device, uint32_t memoryRangeCount, const VkMappedMemoryRange * pMemoryRanges);
+VkResult vkLatencySleepNV(VkDevice device, VkSwapchainKHR swapchain, const VkLatencySleepInfoNV * pSleepInfo);
 VkResult vkMapMemory(VkDevice device, VkDeviceMemory memory, VkDeviceSize offset, VkDeviceSize size, VkMemoryMapFlags flags, void ** ppData);
 VkResult vkMapMemory2KHR(VkDevice device, const VkMemoryMapInfoKHR * pMemoryMapInfo, void ** ppData);
 VkResult vkMergePipelineCaches(VkDevice device, VkPipelineCache dstCache, uint32_t srcCacheCount, const VkPipelineCache * pSrcCaches);
@@ -18455,6 +18714,7 @@ void vkQueueBeginDebugUtilsLabelEXT(VkQueue queue, const VkDebugUtilsLabelEXT * 
 VkResult vkQueueBindSparse(VkQueue queue, uint32_t bindInfoCount, const VkBindSparseInfo * pBindInfo, VkFence fence);
 void vkQueueEndDebugUtilsLabelEXT(VkQueue queue);
 void vkQueueInsertDebugUtilsLabelEXT(VkQueue queue, const VkDebugUtilsLabelEXT * pLabelInfo);
+void vkQueueNotifyOutOfBandNV(VkQueue queue, const VkOutOfBandQueueTypeInfoNV * pQueueTypeInfo);
 VkResult vkQueuePresentKHR(VkQueue queue, const VkPresentInfoKHR * pPresentInfo);
 VkResult vkQueueSetPerformanceConfigurationINTEL(VkQueue queue, VkPerformanceConfigurationINTEL configuration);
 VkResult vkQueueSubmit(VkQueue queue, uint32_t submitCount, const VkSubmitInfo * pSubmits, VkFence fence);
@@ -18491,6 +18751,8 @@ VkResult vkSetDebugUtilsObjectTagEXT(VkDevice device, const VkDebugUtilsObjectTa
 void vkSetDeviceMemoryPriorityEXT(VkDevice device, VkDeviceMemory memory, float priority);
 VkResult vkSetEvent(VkDevice device, VkEvent event);
 void vkSetHdrMetadataEXT(VkDevice device, uint32_t swapchainCount, const VkSwapchainKHR * pSwapchains, const VkHdrMetadataEXT * pMetadata);
+void vkSetLatencyMarkerNV(VkDevice device, VkSwapchainKHR swapchain, const VkSetLatencyMarkerInfoNV * pLatencyMarkerInfo);
+VkResult vkSetLatencySleepModeNV(VkDevice device, VkSwapchainKHR swapchain, const VkLatencySleepModeInfoNV * pSleepModeInfo);
 void vkSetLocalDimmingAMD(VkDevice device, VkSwapchainKHR swapChain, VkBool32 localDimmingEnable);
 VkResult vkSetPrivateData(VkDevice device, VkObjectType objectType, uint64_t objectHandle, VkPrivateDataSlot privateDataSlot, uint64_t data);
 VkResult vkSetPrivateDataEXT(VkDevice device, VkObjectType objectType, uint64_t objectHandle, VkPrivateDataSlot privateDataSlot, uint64_t data);
@@ -18999,6 +19261,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkGetImageViewHandleNVX (glad_vulkan_context.GetImageViewHandleNVX)
 #define vkGetImageViewOpaqueCaptureDescriptorDataEXT (glad_vulkan_context.GetImageViewOpaqueCaptureDescriptorDataEXT)
 #define vkGetInstanceProcAddr (glad_vulkan_context.GetInstanceProcAddr)
+#define vkGetLatencyTimingsNV (glad_vulkan_context.GetLatencyTimingsNV)
 #define vkGetMemoryAndroidHardwareBufferANDROID (glad_vulkan_context.GetMemoryAndroidHardwareBufferANDROID)
 #define vkGetMemoryFdKHR (glad_vulkan_context.GetMemoryFdKHR)
 #define vkGetMemoryFdPropertiesKHR (glad_vulkan_context.GetMemoryFdPropertiesKHR)
@@ -19116,6 +19379,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkImportSemaphoreZirconHandleFUCHSIA (glad_vulkan_context.ImportSemaphoreZirconHandleFUCHSIA)
 #define vkInitializePerformanceApiINTEL (glad_vulkan_context.InitializePerformanceApiINTEL)
 #define vkInvalidateMappedMemoryRanges (glad_vulkan_context.InvalidateMappedMemoryRanges)
+#define vkLatencySleepNV (glad_vulkan_context.LatencySleepNV)
 #define vkMapMemory (glad_vulkan_context.MapMemory)
 #define vkMapMemory2KHR (glad_vulkan_context.MapMemory2KHR)
 #define vkMergePipelineCaches (glad_vulkan_context.MergePipelineCaches)
@@ -19124,6 +19388,7 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkQueueBindSparse (glad_vulkan_context.QueueBindSparse)
 #define vkQueueEndDebugUtilsLabelEXT (glad_vulkan_context.QueueEndDebugUtilsLabelEXT)
 #define vkQueueInsertDebugUtilsLabelEXT (glad_vulkan_context.QueueInsertDebugUtilsLabelEXT)
+#define vkQueueNotifyOutOfBandNV (glad_vulkan_context.QueueNotifyOutOfBandNV)
 #define vkQueuePresentKHR (glad_vulkan_context.QueuePresentKHR)
 #define vkQueueSetPerformanceConfigurationINTEL (glad_vulkan_context.QueueSetPerformanceConfigurationINTEL)
 #define vkQueueSubmit (glad_vulkan_context.QueueSubmit)
@@ -19151,6 +19416,8 @@ VkResult vkWriteMicromapsPropertiesEXT(VkDevice device, uint32_t micromapCount, 
 #define vkSetDeviceMemoryPriorityEXT (glad_vulkan_context.SetDeviceMemoryPriorityEXT)
 #define vkSetEvent (glad_vulkan_context.SetEvent)
 #define vkSetHdrMetadataEXT (glad_vulkan_context.SetHdrMetadataEXT)
+#define vkSetLatencyMarkerNV (glad_vulkan_context.SetLatencyMarkerNV)
+#define vkSetLatencySleepModeNV (glad_vulkan_context.SetLatencySleepModeNV)
 #define vkSetLocalDimmingAMD (glad_vulkan_context.SetLocalDimmingAMD)
 #define vkSetPrivateData (glad_vulkan_context.SetPrivateData)
 #define vkSetPrivateDataEXT (glad_vulkan_context.SetPrivateDataEXT)
