@@ -1160,6 +1160,15 @@ static void glad_vk_load_VK_NV_coverage_reduction_mode(GladVulkanContext *contex
     if(!context->NV_coverage_reduction_mode) return;
     context->GetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV = (PFN_vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV) load(userptr, "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV");
 }
+static void glad_vk_load_VK_NV_cuda_kernel_launch(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->NV_cuda_kernel_launch) return;
+    context->CmdCudaLaunchKernelNV = (PFN_vkCmdCudaLaunchKernelNV) load(userptr, "vkCmdCudaLaunchKernelNV");
+    context->CreateCudaFunctionNV = (PFN_vkCreateCudaFunctionNV) load(userptr, "vkCreateCudaFunctionNV");
+    context->CreateCudaModuleNV = (PFN_vkCreateCudaModuleNV) load(userptr, "vkCreateCudaModuleNV");
+    context->DestroyCudaFunctionNV = (PFN_vkDestroyCudaFunctionNV) load(userptr, "vkDestroyCudaFunctionNV");
+    context->DestroyCudaModuleNV = (PFN_vkDestroyCudaModuleNV) load(userptr, "vkDestroyCudaModuleNV");
+    context->GetCudaModuleCacheNV = (PFN_vkGetCudaModuleCacheNV) load(userptr, "vkGetCudaModuleCacheNV");
+}
 static void glad_vk_load_VK_NV_device_diagnostic_checkpoints(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_device_diagnostic_checkpoints) return;
     context->CmdSetCheckpointNV = (PFN_vkCmdSetCheckpointNV) load(userptr, "vkCmdSetCheckpointNV");
@@ -1783,6 +1792,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
 #endif
     context->ARM_rasterization_order_attachment_access = glad_vk_has_extension("VK_ARM_rasterization_order_attachment_access", extension_count, extensions);
+    context->ARM_scheduling_controls = glad_vk_has_extension("VK_ARM_scheduling_controls", extension_count, extensions);
     context->ARM_shader_core_builtins = glad_vk_has_extension("VK_ARM_shader_core_builtins", extension_count, extensions);
     context->ARM_shader_core_properties = glad_vk_has_extension("VK_ARM_shader_core_properties", extension_count, extensions);
     context->EXT_4444_formats = glad_vk_has_extension("VK_EXT_4444_formats", extension_count, extensions);
@@ -2128,6 +2138,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->NV_copy_memory_indirect = glad_vk_has_extension("VK_NV_copy_memory_indirect", extension_count, extensions);
     context->NV_corner_sampled_image = glad_vk_has_extension("VK_NV_corner_sampled_image", extension_count, extensions);
     context->NV_coverage_reduction_mode = glad_vk_has_extension("VK_NV_coverage_reduction_mode", extension_count, extensions);
+    context->NV_cuda_kernel_launch = glad_vk_has_extension("VK_NV_cuda_kernel_launch", extension_count, extensions);
     context->NV_dedicated_allocation = glad_vk_has_extension("VK_NV_dedicated_allocation", extension_count, extensions);
     context->NV_dedicated_allocation_image_aliasing = glad_vk_has_extension("VK_NV_dedicated_allocation_image_aliasing", extension_count, extensions);
     context->NV_descriptor_pool_overallocation = glad_vk_has_extension("VK_NV_descriptor_pool_overallocation", extension_count, extensions);
@@ -2460,6 +2471,7 @@ int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice ph
     glad_vk_load_VK_NV_cooperative_matrix(context, load, userptr);
     glad_vk_load_VK_NV_copy_memory_indirect(context, load, userptr);
     glad_vk_load_VK_NV_coverage_reduction_mode(context, load, userptr);
+    glad_vk_load_VK_NV_cuda_kernel_launch(context, load, userptr);
     glad_vk_load_VK_NV_device_diagnostic_checkpoints(context, load, userptr);
     glad_vk_load_VK_NV_device_generated_commands(context, load, userptr);
     glad_vk_load_VK_NV_device_generated_commands_compute(context, load, userptr);
@@ -2668,6 +2680,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCmdCopyMicromapToMemoryEXT",
     "vkCmdCopyQueryPoolResults",
     "vkCmdCuLaunchKernelNVX",
+    "vkCmdCudaLaunchKernelNV",
     "vkCmdDebugMarkerBeginEXT",
     "vkCmdDebugMarkerEndEXT",
     "vkCmdDebugMarkerInsertEXT",
@@ -2871,6 +2884,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkCreateComputePipelines",
     "vkCreateCuFunctionNVX",
     "vkCreateCuModuleNVX",
+    "vkCreateCudaFunctionNV",
+    "vkCreateCudaModuleNV",
     "vkCreateDeferredOperationKHR",
     "vkCreateDescriptorPool",
     "vkCreateDescriptorSetLayout",
@@ -2918,6 +2933,8 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkDestroyCommandPool",
     "vkDestroyCuFunctionNVX",
     "vkDestroyCuModuleNVX",
+    "vkDestroyCudaFunctionNV",
+    "vkDestroyCudaModuleNV",
     "vkDestroyDeferredOperationKHR",
     "vkDestroyDescriptorPool",
     "vkDestroyDescriptorSetLayout",
@@ -2974,6 +2991,7 @@ static const char* DEVICE_FUNCTIONS[] = {
     "vkGetBufferOpaqueCaptureAddressKHR",
     "vkGetBufferOpaqueCaptureDescriptorDataEXT",
     "vkGetCalibratedTimestampsEXT",
+    "vkGetCudaModuleCacheNV",
     "vkGetDeferredOperationMaxConcurrencyKHR",
     "vkGetDeferredOperationResultKHR",
     "vkGetDescriptorEXT",
