@@ -4931,6 +4931,19 @@ static void glad_gl_load_GL_IMG_multisampled_render_to_texture(GladGLContext *co
     context->FramebufferTexture2DMultisampleIMG = (PFNGLFRAMEBUFFERTEXTURE2DMULTISAMPLEIMGPROC) load(userptr, "glFramebufferTexture2DMultisampleIMG");
     context->RenderbufferStorageMultisampleIMG = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEIMGPROC) load(userptr, "glRenderbufferStorageMultisampleIMG");
 }
+static void glad_gl_load_GL_MESA_sampler_objects(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->MESA_sampler_objects) return;
+    context->BindSampler = (PFNGLBINDSAMPLERPROC) load(userptr, "glBindSampler");
+    context->DeleteSamplers = (PFNGLDELETESAMPLERSPROC) load(userptr, "glDeleteSamplers");
+    context->GenSamplers = (PFNGLGENSAMPLERSPROC) load(userptr, "glGenSamplers");
+    context->GetSamplerParameterfv = (PFNGLGETSAMPLERPARAMETERFVPROC) load(userptr, "glGetSamplerParameterfv");
+    context->GetSamplerParameteriv = (PFNGLGETSAMPLERPARAMETERIVPROC) load(userptr, "glGetSamplerParameteriv");
+    context->IsSampler = (PFNGLISSAMPLERPROC) load(userptr, "glIsSampler");
+    context->SamplerParameterf = (PFNGLSAMPLERPARAMETERFPROC) load(userptr, "glSamplerParameterf");
+    context->SamplerParameterfv = (PFNGLSAMPLERPARAMETERFVPROC) load(userptr, "glSamplerParameterfv");
+    context->SamplerParameteri = (PFNGLSAMPLERPARAMETERIPROC) load(userptr, "glSamplerParameteri");
+    context->SamplerParameteriv = (PFNGLSAMPLERPARAMETERIVPROC) load(userptr, "glSamplerParameteriv");
+}
 static void glad_gl_load_GL_NV_copy_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_copy_buffer) return;
     context->CopyBufferSubDataNV = (PFNGLCOPYBUFFERSUBDATANVPROC) load(userptr, "glCopyBufferSubDataNV");
@@ -6674,6 +6687,7 @@ static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
     context->ANGLE_memory_object_flags = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_memory_object_flags");
     context->ANGLE_memory_object_fuchsia = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_memory_object_fuchsia");
     context->ANGLE_semaphore_fuchsia = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_semaphore_fuchsia");
+    context->ANGLE_texture_compression_dxt = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_compression_dxt");
     context->ANGLE_texture_external_update = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_external_update");
     context->APPLE_aux_depth_stencil = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_APPLE_aux_depth_stencil");
     context->APPLE_client_storage = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_APPLE_client_storage");
@@ -7713,6 +7727,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->ANGLE_memory_object_flags = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_memory_object_flags");
     context->ANGLE_memory_object_fuchsia = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_memory_object_fuchsia");
     context->ANGLE_semaphore_fuchsia = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_semaphore_fuchsia");
+    context->ANGLE_texture_compression_dxt = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_compression_dxt");
     context->ANGLE_texture_external_update = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_external_update");
     context->APPLE_rgb_422 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_APPLE_rgb_422");
     context->EXT_EGL_image_storage = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_EXT_EGL_image_storage");
@@ -7853,23 +7868,30 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->AMD_program_binary_Z400 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_AMD_program_binary_Z400");
     context->ANDROID_extension_pack_es31a = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANDROID_extension_pack_es31a");
     context->ANGLE_base_vertex_base_instance = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_base_vertex_base_instance");
+    context->ANGLE_client_arrays = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_client_arrays");
     context->ANGLE_clip_cull_distance = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_clip_cull_distance");
     context->ANGLE_copy_texture_3d = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_copy_texture_3d");
     context->ANGLE_depth_texture = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_depth_texture");
     context->ANGLE_framebuffer_blit = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_framebuffer_blit");
     context->ANGLE_framebuffer_multisample = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_framebuffer_multisample");
     context->ANGLE_get_image = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_get_image");
+    context->ANGLE_get_serialized_context_string = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_get_serialized_context_string");
     context->ANGLE_get_tex_level_parameter = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_get_tex_level_parameter");
     context->ANGLE_instanced_arrays = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_instanced_arrays");
     context->ANGLE_logic_op = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_logic_op");
+    context->ANGLE_lossy_etc_decode = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_lossy_etc_decode");
+    context->ANGLE_memory_size = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_memory_size");
     context->ANGLE_multi_draw = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_multi_draw");
     context->ANGLE_pack_reverse_row_order = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_pack_reverse_row_order");
     context->ANGLE_polygon_mode = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_polygon_mode");
     context->ANGLE_program_binary = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_program_binary");
+    context->ANGLE_program_cache_control = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_program_cache_control");
     context->ANGLE_provoking_vertex = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_provoking_vertex");
     context->ANGLE_renderability_validation = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_renderability_validation");
     context->ANGLE_request_extension = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_request_extension");
+    context->ANGLE_rgbx_internal_format = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_rgbx_internal_format");
     context->ANGLE_robust_client_memory = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_client_memory");
+    context->ANGLE_robust_fragment_shader_output = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_fragment_shader_output");
     context->ANGLE_robust_resource_initialization = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_robust_resource_initialization");
     context->ANGLE_shader_pixel_local_storage = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_shader_pixel_local_storage");
     context->ANGLE_stencil_texturing = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_stencil_texturing");
@@ -7877,8 +7899,10 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->ANGLE_texture_compression_dxt5 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_compression_dxt5");
     context->ANGLE_texture_multisample = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_multisample");
     context->ANGLE_texture_usage = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_texture_usage");
+    context->ANGLE_timer_query = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_timer_query");
     context->ANGLE_translated_shader_source = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_translated_shader_source");
     context->ANGLE_vulkan_image = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_vulkan_image");
+    context->ANGLE_yuv_internal_format = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ANGLE_yuv_internal_format");
     context->APPLE_clip_distance = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_APPLE_clip_distance");
     context->APPLE_color_buffer_packed_float = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_APPLE_color_buffer_packed_float");
     context->APPLE_copy_texture_levels = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_APPLE_copy_texture_levels");
@@ -7981,6 +8005,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->IMG_texture_compression_pvrtc2 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_IMG_texture_compression_pvrtc2");
     context->IMG_texture_filter_cubic = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_IMG_texture_filter_cubic");
     context->MESA_bgra = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_MESA_bgra");
+    context->MESA_sampler_objects = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_MESA_sampler_objects");
     context->NV_copy_buffer = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_copy_buffer");
     context->NV_coverage_sample = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_coverage_sample");
     context->NV_depth_nonlinear = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_NV_depth_nonlinear");
@@ -8249,6 +8274,7 @@ int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load
     glad_gl_load_GL_IMG_bindless_texture(context, load, userptr);
     glad_gl_load_GL_IMG_framebuffer_downsample(context, load, userptr);
     glad_gl_load_GL_IMG_multisampled_render_to_texture(context, load, userptr);
+    glad_gl_load_GL_MESA_sampler_objects(context, load, userptr);
     glad_gl_load_GL_NV_copy_buffer(context, load, userptr);
     glad_gl_load_GL_NV_coverage_sample(context, load, userptr);
     glad_gl_load_GL_NV_draw_buffers(context, load, userptr);

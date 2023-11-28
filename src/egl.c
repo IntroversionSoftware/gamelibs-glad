@@ -541,6 +541,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
     context->ANGLE_create_context_webgl_compatibility = glad_egl_has_extension(extensions, "EGL_ANGLE_create_context_webgl_compatibility");
     context->ANGLE_create_surface_swap_interval = glad_egl_has_extension(extensions, "EGL_ANGLE_create_surface_swap_interval");
     context->ANGLE_d3d_share_handle_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_d3d_share_handle_client_buffer");
+    context->ANGLE_d3d_texture_client_buffer = glad_egl_has_extension(extensions, "EGL_ANGLE_d3d_texture_client_buffer");
     context->ANGLE_device_cgl = glad_egl_has_extension(extensions, "EGL_ANGLE_device_cgl");
     context->ANGLE_device_creation = glad_egl_has_extension(extensions, "EGL_ANGLE_device_creation");
     context->ANGLE_device_d3d = glad_egl_has_extension(extensions, "EGL_ANGLE_device_d3d");
@@ -587,6 +588,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
     context->ANGLE_vulkan_image = glad_egl_has_extension(extensions, "EGL_ANGLE_vulkan_image");
     context->ANGLE_wait_until_work_scheduled = glad_egl_has_extension(extensions, "EGL_ANGLE_wait_until_work_scheduled");
     context->ANGLE_window_fixed_size = glad_egl_has_extension(extensions, "EGL_ANGLE_window_fixed_size");
+    context->ANGLE_x11_visual = glad_egl_has_extension(extensions, "EGL_ANGLE_x11_visual");
     context->ARM_image_format = glad_egl_has_extension(extensions, "EGL_ARM_image_format");
     context->ARM_implicit_external_sync = glad_egl_has_extension(extensions, "EGL_ARM_implicit_external_sync");
     context->ARM_pixmap_multisample_discard = glad_egl_has_extension(extensions, "EGL_ARM_pixmap_multisample_discard");
