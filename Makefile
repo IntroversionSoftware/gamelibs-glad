@@ -41,13 +41,13 @@ HEADERS := \
 	include/glad/egl.h \
 	include/glad/gl.h \
 	include/glad/vulkan.h \
-	include/glad/vk_video/vulkan_video_codec_h264std.h \
-	include/glad/vk_video/vulkan_video_codec_h264std_decode.h \
-	include/glad/vk_video/vulkan_video_codec_h264std_encode.h \
-	include/glad/vk_video/vulkan_video_codec_h265std.h \
-	include/glad/vk_video/vulkan_video_codec_h265std_decode.h \
-	include/glad/vk_video/vulkan_video_codec_h265std_encode.h \
-	include/glad/vk_video/vulkan_video_codecs_common.h \
+	include/vk_video/vulkan_video_codec_h264std.h \
+	include/vk_video/vulkan_video_codec_h264std_decode.h \
+	include/vk_video/vulkan_video_codec_h264std_encode.h \
+	include/vk_video/vulkan_video_codec_h265std.h \
+	include/vk_video/vulkan_video_codec_h265std_decode.h \
+	include/vk_video/vulkan_video_codec_h265std_encode.h \
+	include/vk_video/vulkan_video_codecs_common.h \
 	include/vk_platform.h
 SOURCES := \
 	src/egl.c \
@@ -67,7 +67,8 @@ CPPFLAGS += -Iinclude
 all: $(OBJ_DIR)/$(LIB)
 
 $(includedir)/%.h: include/%.h
-	-@if [ ! -d $(includedir)/glad/vk_video ]; then mkdir -p $(includedir)/glad/vk_video; fi
+	-@if [ ! -d $(includedir)/vk_video ]; then mkdir -p $(includedir)/vk_video; fi
+	-@if [ ! -d $(includedir)/glad ]; then mkdir -p $(includedir)/glad; fi
 	-@if [ ! -d $(includedir)/KHR ]; then mkdir -p $(includedir)/KHR; fi
 	-@if [ ! -d $(includedir)/EGL ]; then mkdir -p $(includedir)/EGL; fi
 	$(QUIET_INSTALL)cp $< $@
