@@ -4717,6 +4717,10 @@ static void glad_gl_load_GL_APPLE_sync(GladGLContext *context, GLADuserptrloadfu
     context->IsSyncAPPLE = (PFNGLISSYNCAPPLEPROC) load(userptr, "glIsSyncAPPLE");
     context->WaitSyncAPPLE = (PFNGLWAITSYNCAPPLEPROC) load(userptr, "glWaitSyncAPPLE");
 }
+static void glad_gl_load_GL_ARM_shader_core_properties(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    if(!context->ARM_shader_core_properties) return;
+    context->MaxActiveShaderCoresARM = (PFNGLMAXACTIVESHADERCORESARMPROC) load(userptr, "glMaxActiveShaderCoresARM");
+}
 static void glad_gl_load_GL_CHROMIUM_bind_uniform_location(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->CHROMIUM_bind_uniform_location) return;
     context->BindUniformLocationCHROMIUM = (PFNGLBINDUNIFORMLOCATIONCHROMIUMPROC) load(userptr, "glBindUniformLocationCHROMIUM");
@@ -7914,6 +7918,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     context->ARM_mali_program_binary = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ARM_mali_program_binary");
     context->ARM_mali_shader_binary = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ARM_mali_shader_binary");
     context->ARM_rgba8 = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ARM_rgba8");
+    context->ARM_shader_core_properties = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ARM_shader_core_properties");
     context->ARM_shader_framebuffer_fetch = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ARM_shader_framebuffer_fetch");
     context->ARM_shader_framebuffer_fetch_depth_stencil = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ARM_shader_framebuffer_fetch_depth_stencil");
     context->ARM_texture_unnormalized_coordinates = glad_gl_has_extension(version, exts, num_exts_i, exts_i, "GL_ARM_texture_unnormalized_coordinates");
@@ -8237,6 +8242,7 @@ int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load
     glad_gl_load_GL_APPLE_copy_texture_levels(context, load, userptr);
     glad_gl_load_GL_APPLE_framebuffer_multisample(context, load, userptr);
     glad_gl_load_GL_APPLE_sync(context, load, userptr);
+    glad_gl_load_GL_ARM_shader_core_properties(context, load, userptr);
     glad_gl_load_GL_CHROMIUM_bind_uniform_location(context, load, userptr);
     glad_gl_load_GL_CHROMIUM_copy_compressed_texture(context, load, userptr);
     glad_gl_load_GL_CHROMIUM_copy_texture(context, load, userptr);

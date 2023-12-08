@@ -1792,6 +1792,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
 #endif
     context->ARM_rasterization_order_attachment_access = glad_vk_has_extension("VK_ARM_rasterization_order_attachment_access", extension_count, extensions);
+    context->ARM_render_pass_striped = glad_vk_has_extension("VK_ARM_render_pass_striped", extension_count, extensions);
     context->ARM_scheduling_controls = glad_vk_has_extension("VK_ARM_scheduling_controls", extension_count, extensions);
     context->ARM_shader_core_builtins = glad_vk_has_extension("VK_ARM_shader_core_builtins", extension_count, extensions);
     context->ARM_shader_core_properties = glad_vk_has_extension("VK_ARM_shader_core_properties", extension_count, extensions);
@@ -1865,6 +1866,7 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
     context->EXT_image_view_min_lod = glad_vk_has_extension("VK_EXT_image_view_min_lod", extension_count, extensions);
     context->EXT_index_type_uint8 = glad_vk_has_extension("VK_EXT_index_type_uint8", extension_count, extensions);
     context->EXT_inline_uniform_block = glad_vk_has_extension("VK_EXT_inline_uniform_block", extension_count, extensions);
+    context->EXT_layer_settings = glad_vk_has_extension("VK_EXT_layer_settings", extension_count, extensions);
     context->EXT_legacy_dithering = glad_vk_has_extension("VK_EXT_legacy_dithering", extension_count, extensions);
     context->EXT_line_rasterization = glad_vk_has_extension("VK_EXT_line_rasterization", extension_count, extensions);
     context->EXT_load_store_op_none = glad_vk_has_extension("VK_EXT_load_store_op_none", extension_count, extensions);
