@@ -6,7 +6,6 @@
 #include <string.h>
 #include <glad/egl.h>
 
-
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
 
@@ -27,12 +26,6 @@ GladEGLContext glad_egl_context = {};
 #else
 GladEGLContext glad_egl_context = { 0 };
 #endif
-
-
-
-
-
-
 
 static void glad_egl_load_EGL_VERSION_1_0(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_0) return;
@@ -61,6 +54,7 @@ static void glad_egl_load_EGL_VERSION_1_0(GladEGLContext *context, GLADuserptrlo
     context->WaitGL = (PFNEGLWAITGLPROC) load(userptr, "eglWaitGL");
     context->WaitNative = (PFNEGLWAITNATIVEPROC) load(userptr, "eglWaitNative");
 }
+
 static void glad_egl_load_EGL_VERSION_1_1(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_1) return;
     context->BindTexImage = (PFNEGLBINDTEXIMAGEPROC) load(userptr, "eglBindTexImage");
@@ -68,6 +62,7 @@ static void glad_egl_load_EGL_VERSION_1_1(GladEGLContext *context, GLADuserptrlo
     context->SurfaceAttrib = (PFNEGLSURFACEATTRIBPROC) load(userptr, "eglSurfaceAttrib");
     context->SwapInterval = (PFNEGLSWAPINTERVALPROC) load(userptr, "eglSwapInterval");
 }
+
 static void glad_egl_load_EGL_VERSION_1_2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_2) return;
     context->BindAPI = (PFNEGLBINDAPIPROC) load(userptr, "eglBindAPI");
@@ -76,10 +71,12 @@ static void glad_egl_load_EGL_VERSION_1_2(GladEGLContext *context, GLADuserptrlo
     context->ReleaseThread = (PFNEGLRELEASETHREADPROC) load(userptr, "eglReleaseThread");
     context->WaitClient = (PFNEGLWAITCLIENTPROC) load(userptr, "eglWaitClient");
 }
+
 static void glad_egl_load_EGL_VERSION_1_4(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_4) return;
     context->GetCurrentContext = (PFNEGLGETCURRENTCONTEXTPROC) load(userptr, "eglGetCurrentContext");
 }
+
 static void glad_egl_load_EGL_VERSION_1_5(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_5) return;
     context->ClientWaitSync = (PFNEGLCLIENTWAITSYNCPROC) load(userptr, "eglClientWaitSync");
@@ -93,14 +90,17 @@ static void glad_egl_load_EGL_VERSION_1_5(GladEGLContext *context, GLADuserptrlo
     context->GetSyncAttrib = (PFNEGLGETSYNCATTRIBPROC) load(userptr, "eglGetSyncAttrib");
     context->WaitSync = (PFNEGLWAITSYNCPROC) load(userptr, "eglWaitSync");
 }
+
 static void glad_egl_load_EGL_ANDROID_blob_cache(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANDROID_blob_cache) return;
     context->SetBlobCacheFuncsANDROID = (PFNEGLSETBLOBCACHEFUNCSANDROIDPROC) load(userptr, "eglSetBlobCacheFuncsANDROID");
 }
+
 static void glad_egl_load_EGL_ANDROID_create_native_client_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANDROID_create_native_client_buffer) return;
     context->CreateNativeClientBufferANDROID = (PFNEGLCREATENATIVECLIENTBUFFERANDROIDPROC) load(userptr, "eglCreateNativeClientBufferANDROID");
 }
+
 static void glad_egl_load_EGL_ANDROID_get_frame_timestamps(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANDROID_get_frame_timestamps) return;
     context->GetCompositorTimingANDROID = (PFNEGLGETCOMPOSITORTIMINGANDROIDPROC) load(userptr, "eglGetCompositorTimingANDROID");
@@ -109,37 +109,45 @@ static void glad_egl_load_EGL_ANDROID_get_frame_timestamps(GladEGLContext *conte
     context->GetFrameTimestampsANDROID = (PFNEGLGETFRAMETIMESTAMPSANDROIDPROC) load(userptr, "eglGetFrameTimestampsANDROID");
     context->GetNextFrameIdANDROID = (PFNEGLGETNEXTFRAMEIDANDROIDPROC) load(userptr, "eglGetNextFrameIdANDROID");
 }
+
 static void glad_egl_load_EGL_ANDROID_get_native_client_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANDROID_get_native_client_buffer) return;
     context->GetNativeClientBufferANDROID = (PFNEGLGETNATIVECLIENTBUFFERANDROIDPROC) load(userptr, "eglGetNativeClientBufferANDROID");
 }
+
 static void glad_egl_load_EGL_ANDROID_native_fence_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANDROID_native_fence_sync) return;
     context->DupNativeFenceFDANDROID = (PFNEGLDUPNATIVEFENCEFDANDROIDPROC) load(userptr, "eglDupNativeFenceFDANDROID");
 }
+
 static void glad_egl_load_EGL_ANDROID_presentation_time(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANDROID_presentation_time) return;
     context->PresentationTimeANDROID = (PFNEGLPRESENTATIONTIMEANDROIDPROC) load(userptr, "eglPresentationTimeANDROID");
 }
+
 static void glad_egl_load_EGL_ANGLE_device_creation(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_device_creation) return;
     context->CreateDeviceANGLE = (PFNEGLCREATEDEVICEANGLEPROC) load(userptr, "eglCreateDeviceANGLE");
     context->ReleaseDeviceANGLE = (PFNEGLRELEASEDEVICEANGLEPROC) load(userptr, "eglReleaseDeviceANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_external_context_and_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_external_context_and_surface) return;
     context->AcquireExternalContextANGLE = (PFNEGLACQUIREEXTERNALCONTEXTANGLEPROC) load(userptr, "eglAcquireExternalContextANGLE");
     context->ReleaseExternalContextANGLE = (PFNEGLRELEASEEXTERNALCONTEXTANGLEPROC) load(userptr, "eglReleaseExternalContextANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_feature_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_feature_control) return;
     context->QueryDisplayAttribANGLE = (PFNEGLQUERYDISPLAYATTRIBANGLEPROC) load(userptr, "eglQueryDisplayAttribANGLE");
     context->QueryStringiANGLE = (PFNEGLQUERYSTRINGIANGLEPROC) load(userptr, "eglQueryStringiANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_metal_shared_event_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_metal_shared_event_sync) return;
     context->CopyMetalSharedEventANGLE = (PFNEGLCOPYMETALSHAREDEVENTANGLEPROC) load(userptr, "eglCopyMetalSharedEventANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_power_preference(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_power_preference) return;
     context->ForceGPUSwitchANGLE = (PFNEGLFORCEGPUSWITCHANGLEPROC) load(userptr, "eglForceGPUSwitchANGLE");
@@ -147,10 +155,12 @@ static void glad_egl_load_EGL_ANGLE_power_preference(GladEGLContext *context, GL
     context->ReacquireHighPowerGPUANGLE = (PFNEGLREACQUIREHIGHPOWERGPUANGLEPROC) load(userptr, "eglReacquireHighPowerGPUANGLE");
     context->ReleaseHighPowerGPUANGLE = (PFNEGLRELEASEHIGHPOWERGPUANGLEPROC) load(userptr, "eglReleaseHighPowerGPUANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_prepare_swap_buffers(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_prepare_swap_buffers) return;
     context->PrepareSwapBuffersANGLE = (PFNEGLPREPARESWAPBUFFERSANGLEPROC) load(userptr, "eglPrepareSwapBuffersANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_program_cache_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_program_cache_control) return;
     context->ProgramCacheGetAttribANGLE = (PFNEGLPROGRAMCACHEGETATTRIBANGLEPROC) load(userptr, "eglProgramCacheGetAttribANGLE");
@@ -158,39 +168,48 @@ static void glad_egl_load_EGL_ANGLE_program_cache_control(GladEGLContext *contex
     context->ProgramCacheQueryANGLE = (PFNEGLPROGRAMCACHEQUERYANGLEPROC) load(userptr, "eglProgramCacheQueryANGLE");
     context->ProgramCacheResizeANGLE = (PFNEGLPROGRAMCACHERESIZEANGLEPROC) load(userptr, "eglProgramCacheResizeANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_query_surface_pointer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_query_surface_pointer) return;
     context->QuerySurfacePointerANGLE = (PFNEGLQUERYSURFACEPOINTERANGLEPROC) load(userptr, "eglQuerySurfacePointerANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_stream_producer_d3d_texture(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_stream_producer_d3d_texture) return;
     context->CreateStreamProducerD3DTextureANGLE = (PFNEGLCREATESTREAMPRODUCERD3DTEXTUREANGLEPROC) load(userptr, "eglCreateStreamProducerD3DTextureANGLE");
     context->StreamPostD3DTextureANGLE = (PFNEGLSTREAMPOSTD3DTEXTUREANGLEPROC) load(userptr, "eglStreamPostD3DTextureANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_swap_with_frame_token(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_swap_with_frame_token) return;
     context->SwapBuffersWithFrameTokenANGLE = (PFNEGLSWAPBUFFERSWITHFRAMETOKENANGLEPROC) load(userptr, "eglSwapBuffersWithFrameTokenANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_sync_control_rate(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_sync_control_rate) return;
     context->GetMscRateANGLE = (PFNEGLGETMSCRATEANGLEPROC) load(userptr, "eglGetMscRateANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_vulkan_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_vulkan_image) return;
     context->ExportVkImageANGLE = (PFNEGLEXPORTVKIMAGEANGLEPROC) load(userptr, "eglExportVkImageANGLE");
 }
+
 static void glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_wait_until_work_scheduled) return;
     context->WaitUntilWorkScheduledANGLE = (PFNEGLWAITUNTILWORKSCHEDULEDANGLEPROC) load(userptr, "eglWaitUntilWorkScheduledANGLE");
 }
+
 static void glad_egl_load_EGL_CHROMIUM_sync_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->CHROMIUM_sync_control) return;
     context->GetSyncValuesCHROMIUM = (PFNEGLGETSYNCVALUESCHROMIUMPROC) load(userptr, "eglGetSyncValuesCHROMIUM");
 }
+
 static void glad_egl_load_EGL_EXT_client_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_client_sync) return;
     context->ClientSignalSyncEXT = (PFNEGLCLIENTSIGNALSYNCEXTPROC) load(userptr, "eglClientSignalSyncEXT");
 }
+
 static void glad_egl_load_EGL_EXT_compositor(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_compositor) return;
     context->CompositorBindTexWindowEXT = (PFNEGLCOMPOSITORBINDTEXWINDOWEXTPROC) load(userptr, "eglCompositorBindTexWindowEXT");
@@ -201,6 +220,7 @@ static void glad_egl_load_EGL_EXT_compositor(GladEGLContext *context, GLADuserpt
     context->CompositorSetWindowListEXT = (PFNEGLCOMPOSITORSETWINDOWLISTEXTPROC) load(userptr, "eglCompositorSetWindowListEXT");
     context->CompositorSwapPolicyEXT = (PFNEGLCOMPOSITORSWAPPOLICYEXTPROC) load(userptr, "eglCompositorSwapPolicyEXT");
 }
+
 static void glad_egl_load_EGL_EXT_device_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_device_base) return;
     context->QueryDeviceAttribEXT = (PFNEGLQUERYDEVICEATTRIBEXTPROC) load(userptr, "eglQueryDeviceAttribEXT");
@@ -208,25 +228,30 @@ static void glad_egl_load_EGL_EXT_device_base(GladEGLContext *context, GLADuserp
     context->QueryDevicesEXT = (PFNEGLQUERYDEVICESEXTPROC) load(userptr, "eglQueryDevicesEXT");
     context->QueryDisplayAttribEXT = (PFNEGLQUERYDISPLAYATTRIBEXTPROC) load(userptr, "eglQueryDisplayAttribEXT");
 }
+
 static void glad_egl_load_EGL_EXT_device_enumeration(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_device_enumeration) return;
     context->QueryDevicesEXT = (PFNEGLQUERYDEVICESEXTPROC) load(userptr, "eglQueryDevicesEXT");
 }
+
 static void glad_egl_load_EGL_EXT_device_persistent_id(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_device_persistent_id) return;
     context->QueryDeviceBinaryEXT = (PFNEGLQUERYDEVICEBINARYEXTPROC) load(userptr, "eglQueryDeviceBinaryEXT");
 }
+
 static void glad_egl_load_EGL_EXT_device_query(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_device_query) return;
     context->QueryDeviceAttribEXT = (PFNEGLQUERYDEVICEATTRIBEXTPROC) load(userptr, "eglQueryDeviceAttribEXT");
     context->QueryDeviceStringEXT = (PFNEGLQUERYDEVICESTRINGEXTPROC) load(userptr, "eglQueryDeviceStringEXT");
     context->QueryDisplayAttribEXT = (PFNEGLQUERYDISPLAYATTRIBEXTPROC) load(userptr, "eglQueryDisplayAttribEXT");
 }
+
 static void glad_egl_load_EGL_EXT_image_dma_buf_import_modifiers(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_image_dma_buf_import_modifiers) return;
     context->QueryDmaBufFormatsEXT = (PFNEGLQUERYDMABUFFORMATSEXTPROC) load(userptr, "eglQueryDmaBufFormatsEXT");
     context->QueryDmaBufModifiersEXT = (PFNEGLQUERYDMABUFMODIFIERSEXTPROC) load(userptr, "eglQueryDmaBufModifiersEXT");
 }
+
 static void glad_egl_load_EGL_EXT_output_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_output_base) return;
     context->GetOutputLayersEXT = (PFNEGLGETOUTPUTLAYERSEXTPROC) load(userptr, "eglGetOutputLayersEXT");
@@ -238,46 +263,56 @@ static void glad_egl_load_EGL_EXT_output_base(GladEGLContext *context, GLADuserp
     context->QueryOutputPortAttribEXT = (PFNEGLQUERYOUTPUTPORTATTRIBEXTPROC) load(userptr, "eglQueryOutputPortAttribEXT");
     context->QueryOutputPortStringEXT = (PFNEGLQUERYOUTPUTPORTSTRINGEXTPROC) load(userptr, "eglQueryOutputPortStringEXT");
 }
+
 static void glad_egl_load_EGL_EXT_platform_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_platform_base) return;
     context->CreatePlatformPixmapSurfaceEXT = (PFNEGLCREATEPLATFORMPIXMAPSURFACEEXTPROC) load(userptr, "eglCreatePlatformPixmapSurfaceEXT");
     context->CreatePlatformWindowSurfaceEXT = (PFNEGLCREATEPLATFORMWINDOWSURFACEEXTPROC) load(userptr, "eglCreatePlatformWindowSurfaceEXT");
     context->GetPlatformDisplayEXT = (PFNEGLGETPLATFORMDISPLAYEXTPROC) load(userptr, "eglGetPlatformDisplayEXT");
 }
+
 static void glad_egl_load_EGL_EXT_stream_consumer_egloutput(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_stream_consumer_egloutput) return;
     context->StreamConsumerOutputEXT = (PFNEGLSTREAMCONSUMEROUTPUTEXTPROC) load(userptr, "eglStreamConsumerOutputEXT");
 }
+
 static void glad_egl_load_EGL_EXT_surface_compression(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_surface_compression) return;
     context->QuerySupportedCompressionRatesEXT = (PFNEGLQUERYSUPPORTEDCOMPRESSIONRATESEXTPROC) load(userptr, "eglQuerySupportedCompressionRatesEXT");
 }
+
 static void glad_egl_load_EGL_EXT_swap_buffers_with_damage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_swap_buffers_with_damage) return;
     context->SwapBuffersWithDamageEXT = (PFNEGLSWAPBUFFERSWITHDAMAGEEXTPROC) load(userptr, "eglSwapBuffersWithDamageEXT");
 }
+
 static void glad_egl_load_EGL_EXT_sync_reuse(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_sync_reuse) return;
     context->UnsignalSyncEXT = (PFNEGLUNSIGNALSYNCEXTPROC) load(userptr, "eglUnsignalSyncEXT");
 }
+
 static void glad_egl_load_EGL_HI_clientpixmap(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->HI_clientpixmap) return;
     context->CreatePixmapSurfaceHI = (PFNEGLCREATEPIXMAPSURFACEHIPROC) load(userptr, "eglCreatePixmapSurfaceHI");
 }
+
 static void glad_egl_load_EGL_KHR_cl_event2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_cl_event2) return;
     context->CreateSync64KHR = (PFNEGLCREATESYNC64KHRPROC) load(userptr, "eglCreateSync64KHR");
 }
+
 static void glad_egl_load_EGL_KHR_debug(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_debug) return;
     context->DebugMessageControlKHR = (PFNEGLDEBUGMESSAGECONTROLKHRPROC) load(userptr, "eglDebugMessageControlKHR");
     context->LabelObjectKHR = (PFNEGLLABELOBJECTKHRPROC) load(userptr, "eglLabelObjectKHR");
     context->QueryDebugKHR = (PFNEGLQUERYDEBUGKHRPROC) load(userptr, "eglQueryDebugKHR");
 }
+
 static void glad_egl_load_EGL_KHR_display_reference(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_display_reference) return;
     context->QueryDisplayAttribKHR = (PFNEGLQUERYDISPLAYATTRIBKHRPROC) load(userptr, "eglQueryDisplayAttribKHR");
 }
+
 static void glad_egl_load_EGL_KHR_fence_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_fence_sync) return;
     context->ClientWaitSyncKHR = (PFNEGLCLIENTWAITSYNCKHRPROC) load(userptr, "eglClientWaitSyncKHR");
@@ -285,31 +320,37 @@ static void glad_egl_load_EGL_KHR_fence_sync(GladEGLContext *context, GLADuserpt
     context->DestroySyncKHR = (PFNEGLDESTROYSYNCKHRPROC) load(userptr, "eglDestroySyncKHR");
     context->GetSyncAttribKHR = (PFNEGLGETSYNCATTRIBKHRPROC) load(userptr, "eglGetSyncAttribKHR");
 }
+
 static void glad_egl_load_EGL_KHR_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_image) return;
     context->CreateImageKHR = (PFNEGLCREATEIMAGEKHRPROC) load(userptr, "eglCreateImageKHR");
     context->DestroyImageKHR = (PFNEGLDESTROYIMAGEKHRPROC) load(userptr, "eglDestroyImageKHR");
 }
+
 static void glad_egl_load_EGL_KHR_image_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_image_base) return;
     context->CreateImageKHR = (PFNEGLCREATEIMAGEKHRPROC) load(userptr, "eglCreateImageKHR");
     context->DestroyImageKHR = (PFNEGLDESTROYIMAGEKHRPROC) load(userptr, "eglDestroyImageKHR");
 }
+
 static void glad_egl_load_EGL_KHR_lock_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_lock_surface) return;
     context->LockSurfaceKHR = (PFNEGLLOCKSURFACEKHRPROC) load(userptr, "eglLockSurfaceKHR");
     context->UnlockSurfaceKHR = (PFNEGLUNLOCKSURFACEKHRPROC) load(userptr, "eglUnlockSurfaceKHR");
 }
+
 static void glad_egl_load_EGL_KHR_lock_surface3(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_lock_surface3) return;
     context->LockSurfaceKHR = (PFNEGLLOCKSURFACEKHRPROC) load(userptr, "eglLockSurfaceKHR");
     context->QuerySurface64KHR = (PFNEGLQUERYSURFACE64KHRPROC) load(userptr, "eglQuerySurface64KHR");
     context->UnlockSurfaceKHR = (PFNEGLUNLOCKSURFACEKHRPROC) load(userptr, "eglUnlockSurfaceKHR");
 }
+
 static void glad_egl_load_EGL_KHR_partial_update(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_partial_update) return;
     context->SetDamageRegionKHR = (PFNEGLSETDAMAGEREGIONKHRPROC) load(userptr, "eglSetDamageRegionKHR");
 }
+
 static void glad_egl_load_EGL_KHR_reusable_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_reusable_sync) return;
     context->ClientWaitSyncKHR = (PFNEGLCLIENTWAITSYNCKHRPROC) load(userptr, "eglClientWaitSyncKHR");
@@ -318,6 +359,7 @@ static void glad_egl_load_EGL_KHR_reusable_sync(GladEGLContext *context, GLADuse
     context->GetSyncAttribKHR = (PFNEGLGETSYNCATTRIBKHRPROC) load(userptr, "eglGetSyncAttribKHR");
     context->SignalSyncKHR = (PFNEGLSIGNALSYNCKHRPROC) load(userptr, "eglSignalSyncKHR");
 }
+
 static void glad_egl_load_EGL_KHR_stream(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_stream) return;
     context->CreateStreamKHR = (PFNEGLCREATESTREAMKHRPROC) load(userptr, "eglCreateStreamKHR");
@@ -326,6 +368,7 @@ static void glad_egl_load_EGL_KHR_stream(GladEGLContext *context, GLADuserptrloa
     context->QueryStreamu64KHR = (PFNEGLQUERYSTREAMU64KHRPROC) load(userptr, "eglQueryStreamu64KHR");
     context->StreamAttribKHR = (PFNEGLSTREAMATTRIBKHRPROC) load(userptr, "eglStreamAttribKHR");
 }
+
 static void glad_egl_load_EGL_KHR_stream_attrib(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_stream_attrib) return;
     context->CreateStreamAttribKHR = (PFNEGLCREATESTREAMATTRIBKHRPROC) load(userptr, "eglCreateStreamAttribKHR");
@@ -334,66 +377,80 @@ static void glad_egl_load_EGL_KHR_stream_attrib(GladEGLContext *context, GLADuse
     context->StreamConsumerAcquireAttribKHR = (PFNEGLSTREAMCONSUMERACQUIREATTRIBKHRPROC) load(userptr, "eglStreamConsumerAcquireAttribKHR");
     context->StreamConsumerReleaseAttribKHR = (PFNEGLSTREAMCONSUMERRELEASEATTRIBKHRPROC) load(userptr, "eglStreamConsumerReleaseAttribKHR");
 }
+
 static void glad_egl_load_EGL_KHR_stream_consumer_gltexture(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_stream_consumer_gltexture) return;
     context->StreamConsumerAcquireKHR = (PFNEGLSTREAMCONSUMERACQUIREKHRPROC) load(userptr, "eglStreamConsumerAcquireKHR");
     context->StreamConsumerGLTextureExternalKHR = (PFNEGLSTREAMCONSUMERGLTEXTUREEXTERNALKHRPROC) load(userptr, "eglStreamConsumerGLTextureExternalKHR");
     context->StreamConsumerReleaseKHR = (PFNEGLSTREAMCONSUMERRELEASEKHRPROC) load(userptr, "eglStreamConsumerReleaseKHR");
 }
+
 static void glad_egl_load_EGL_KHR_stream_cross_process_fd(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_stream_cross_process_fd) return;
     context->CreateStreamFromFileDescriptorKHR = (PFNEGLCREATESTREAMFROMFILEDESCRIPTORKHRPROC) load(userptr, "eglCreateStreamFromFileDescriptorKHR");
     context->GetStreamFileDescriptorKHR = (PFNEGLGETSTREAMFILEDESCRIPTORKHRPROC) load(userptr, "eglGetStreamFileDescriptorKHR");
 }
+
 static void glad_egl_load_EGL_KHR_stream_fifo(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_stream_fifo) return;
     context->QueryStreamTimeKHR = (PFNEGLQUERYSTREAMTIMEKHRPROC) load(userptr, "eglQueryStreamTimeKHR");
 }
+
 static void glad_egl_load_EGL_KHR_stream_producer_eglsurface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_stream_producer_eglsurface) return;
     context->CreateStreamProducerSurfaceKHR = (PFNEGLCREATESTREAMPRODUCERSURFACEKHRPROC) load(userptr, "eglCreateStreamProducerSurfaceKHR");
 }
+
 static void glad_egl_load_EGL_KHR_swap_buffers_with_damage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_swap_buffers_with_damage) return;
     context->SwapBuffersWithDamageKHR = (PFNEGLSWAPBUFFERSWITHDAMAGEKHRPROC) load(userptr, "eglSwapBuffersWithDamageKHR");
 }
+
 static void glad_egl_load_EGL_KHR_wait_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_wait_sync) return;
     context->WaitSyncKHR = (PFNEGLWAITSYNCKHRPROC) load(userptr, "eglWaitSyncKHR");
 }
+
 static void glad_egl_load_EGL_MESA_drm_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->MESA_drm_image) return;
     context->CreateDRMImageMESA = (PFNEGLCREATEDRMIMAGEMESAPROC) load(userptr, "eglCreateDRMImageMESA");
     context->ExportDRMImageMESA = (PFNEGLEXPORTDRMIMAGEMESAPROC) load(userptr, "eglExportDRMImageMESA");
 }
+
 static void glad_egl_load_EGL_MESA_image_dma_buf_export(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->MESA_image_dma_buf_export) return;
     context->ExportDMABUFImageMESA = (PFNEGLEXPORTDMABUFIMAGEMESAPROC) load(userptr, "eglExportDMABUFImageMESA");
     context->ExportDMABUFImageQueryMESA = (PFNEGLEXPORTDMABUFIMAGEQUERYMESAPROC) load(userptr, "eglExportDMABUFImageQueryMESA");
 }
+
 static void glad_egl_load_EGL_MESA_query_driver(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->MESA_query_driver) return;
     context->GetDisplayDriverConfig = (PFNEGLGETDISPLAYDRIVERCONFIGPROC) load(userptr, "eglGetDisplayDriverConfig");
     context->GetDisplayDriverName = (PFNEGLGETDISPLAYDRIVERNAMEPROC) load(userptr, "eglGetDisplayDriverName");
 }
+
 static void glad_egl_load_EGL_NOK_swap_region(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NOK_swap_region) return;
     context->SwapBuffersRegionNOK = (PFNEGLSWAPBUFFERSREGIONNOKPROC) load(userptr, "eglSwapBuffersRegionNOK");
 }
+
 static void glad_egl_load_EGL_NOK_swap_region2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NOK_swap_region2) return;
     context->SwapBuffersRegion2NOK = (PFNEGLSWAPBUFFERSREGION2NOKPROC) load(userptr, "eglSwapBuffersRegion2NOK");
 }
+
 static void glad_egl_load_EGL_NV_native_query(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_native_query) return;
     context->QueryNativeDisplayNV = (PFNEGLQUERYNATIVEDISPLAYNVPROC) load(userptr, "eglQueryNativeDisplayNV");
     context->QueryNativePixmapNV = (PFNEGLQUERYNATIVEPIXMAPNVPROC) load(userptr, "eglQueryNativePixmapNV");
     context->QueryNativeWindowNV = (PFNEGLQUERYNATIVEWINDOWNVPROC) load(userptr, "eglQueryNativeWindowNV");
 }
+
 static void glad_egl_load_EGL_NV_post_sub_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_post_sub_buffer) return;
     context->PostSubBufferNV = (PFNEGLPOSTSUBBUFFERNVPROC) load(userptr, "eglPostSubBufferNV");
 }
+
 static void glad_egl_load_EGL_NV_stream_consumer_eglimage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_stream_consumer_eglimage) return;
     context->QueryStreamConsumerEventNV = (PFNEGLQUERYSTREAMCONSUMEREVENTNVPROC) load(userptr, "eglQueryStreamConsumerEventNV");
@@ -401,28 +458,34 @@ static void glad_egl_load_EGL_NV_stream_consumer_eglimage(GladEGLContext *contex
     context->StreamImageConsumerConnectNV = (PFNEGLSTREAMIMAGECONSUMERCONNECTNVPROC) load(userptr, "eglStreamImageConsumerConnectNV");
     context->StreamReleaseImageNV = (PFNEGLSTREAMRELEASEIMAGENVPROC) load(userptr, "eglStreamReleaseImageNV");
 }
+
 static void glad_egl_load_EGL_NV_stream_consumer_gltexture_yuv(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_stream_consumer_gltexture_yuv) return;
     context->StreamConsumerGLTextureExternalAttribsNV = (PFNEGLSTREAMCONSUMERGLTEXTUREEXTERNALATTRIBSNVPROC) load(userptr, "eglStreamConsumerGLTextureExternalAttribsNV");
 }
+
 static void glad_egl_load_EGL_NV_stream_flush(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_stream_flush) return;
     context->StreamFlushNV = (PFNEGLSTREAMFLUSHNVPROC) load(userptr, "eglStreamFlushNV");
 }
+
 static void glad_egl_load_EGL_NV_stream_metadata(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_stream_metadata) return;
     context->QueryDisplayAttribNV = (PFNEGLQUERYDISPLAYATTRIBNVPROC) load(userptr, "eglQueryDisplayAttribNV");
     context->QueryStreamMetadataNV = (PFNEGLQUERYSTREAMMETADATANVPROC) load(userptr, "eglQueryStreamMetadataNV");
     context->SetStreamMetadataNV = (PFNEGLSETSTREAMMETADATANVPROC) load(userptr, "eglSetStreamMetadataNV");
 }
+
 static void glad_egl_load_EGL_NV_stream_reset(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_stream_reset) return;
     context->ResetStreamNV = (PFNEGLRESETSTREAMNVPROC) load(userptr, "eglResetStreamNV");
 }
+
 static void glad_egl_load_EGL_NV_stream_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_stream_sync) return;
     context->CreateStreamSyncNV = (PFNEGLCREATESTREAMSYNCNVPROC) load(userptr, "eglCreateStreamSyncNV");
 }
+
 static void glad_egl_load_EGL_NV_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_sync) return;
     context->ClientWaitSyncNV = (PFNEGLCLIENTWAITSYNCNVPROC) load(userptr, "eglClientWaitSyncNV");
@@ -432,22 +495,24 @@ static void glad_egl_load_EGL_NV_sync(GladEGLContext *context, GLADuserptrloadfu
     context->GetSyncAttribNV = (PFNEGLGETSYNCATTRIBNVPROC) load(userptr, "eglGetSyncAttribNV");
     context->SignalSyncNV = (PFNEGLSIGNALSYNCNVPROC) load(userptr, "eglSignalSyncNV");
 }
+
 static void glad_egl_load_EGL_NV_system_time(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_system_time) return;
     context->GetSystemTimeFrequencyNV = (PFNEGLGETSYSTEMTIMEFREQUENCYNVPROC) load(userptr, "eglGetSystemTimeFrequencyNV");
     context->GetSystemTimeNV = (PFNEGLGETSYSTEMTIMENVPROC) load(userptr, "eglGetSystemTimeNV");
 }
+
 static void glad_egl_load_EGL_WL_bind_wayland_display(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->WL_bind_wayland_display) return;
     context->BindWaylandDisplayWL = (PFNEGLBINDWAYLANDDISPLAYWLPROC) load(userptr, "eglBindWaylandDisplayWL");
     context->QueryWaylandBufferWL = (PFNEGLQUERYWAYLANDBUFFERWLPROC) load(userptr, "eglQueryWaylandBufferWL");
     context->UnbindWaylandDisplayWL = (PFNEGLUNBINDWAYLANDDISPLAYWLPROC) load(userptr, "eglUnbindWaylandDisplayWL");
 }
+
 static void glad_egl_load_EGL_WL_create_wayland_buffer_from_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->WL_create_wayland_buffer_from_image) return;
     context->CreateWaylandBufferFromImageWL = (PFNEGLCREATEWAYLANDBUFFERFROMIMAGEWLPROC) load(userptr, "eglCreateWaylandBufferFromImageWL");
 }
-
 
 static void glad_egl_resolve_aliases(GladEGLContext *context) {
     if (context->ClientWaitSync == NULL && context->ClientWaitSyncKHR != NULL) context->ClientWaitSync = (PFNEGLCLIENTWAITSYNCPROC)context->ClientWaitSyncKHR;

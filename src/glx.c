@@ -7,7 +7,6 @@
 #include <glad/glx.h>
 
 #ifdef __linux__
-
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
 
@@ -22,7 +21,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 
 int GLAD_GLX_VERSION_1_0 = 0;
@@ -96,8 +94,6 @@ int GLAD_GLX_SGI_make_current_read = 0;
 int GLAD_GLX_SGI_swap_control = 0;
 int GLAD_GLX_SGI_video_sync = 0;
 int GLAD_GLX_SUN_get_transparent_index = 0;
-
-
 
 PFNGLXBINDCHANNELTOWINDOWSGIXPROC glad_glXBindChannelToWindowSGIX = NULL;
 PFNGLXBINDHYPERPIPESGIXPROC glad_glXBindHyperpipeSGIX = NULL;
@@ -231,7 +227,6 @@ PFNGLXWAITGLPROC glad_glXWaitGL = NULL;
 PFNGLXWAITVIDEOSYNCSGIPROC glad_glXWaitVideoSyncSGI = NULL;
 PFNGLXWAITXPROC glad_glXWaitX = NULL;
 
-
 static void glad_glx_load_GLX_VERSION_1_0( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_VERSION_1_0) return;
     glad_glXChooseVisual = (PFNGLXCHOOSEVISUALPROC) load(userptr, "glXChooseVisual");
@@ -252,16 +247,19 @@ static void glad_glx_load_GLX_VERSION_1_0( GLADuserptrloadfunc load, void* userp
     glad_glXWaitGL = (PFNGLXWAITGLPROC) load(userptr, "glXWaitGL");
     glad_glXWaitX = (PFNGLXWAITXPROC) load(userptr, "glXWaitX");
 }
+
 static void glad_glx_load_GLX_VERSION_1_1( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_VERSION_1_1) return;
     glad_glXGetClientString = (PFNGLXGETCLIENTSTRINGPROC) load(userptr, "glXGetClientString");
     glad_glXQueryExtensionsString = (PFNGLXQUERYEXTENSIONSSTRINGPROC) load(userptr, "glXQueryExtensionsString");
     glad_glXQueryServerString = (PFNGLXQUERYSERVERSTRINGPROC) load(userptr, "glXQueryServerString");
 }
+
 static void glad_glx_load_GLX_VERSION_1_2( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_VERSION_1_2) return;
     glad_glXGetCurrentDisplay = (PFNGLXGETCURRENTDISPLAYPROC) load(userptr, "glXGetCurrentDisplay");
 }
+
 static void glad_glx_load_GLX_VERSION_1_3( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_VERSION_1_3) return;
     glad_glXChooseFBConfig = (PFNGLXCHOOSEFBCONFIGPROC) load(userptr, "glXChooseFBConfig");
@@ -282,10 +280,12 @@ static void glad_glx_load_GLX_VERSION_1_3( GLADuserptrloadfunc load, void* userp
     glad_glXQueryDrawable = (PFNGLXQUERYDRAWABLEPROC) load(userptr, "glXQueryDrawable");
     glad_glXSelectEvent = (PFNGLXSELECTEVENTPROC) load(userptr, "glXSelectEvent");
 }
+
 static void glad_glx_load_GLX_VERSION_1_4( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_VERSION_1_4) return;
     glad_glXGetProcAddress = (PFNGLXGETPROCADDRESSPROC) load(userptr, "glXGetProcAddress");
 }
+
 static void glad_glx_load_GLX_AMD_gpu_association( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_AMD_gpu_association) return;
     glad_glXBlitContextFramebufferAMD = (PFNGLXBLITCONTEXTFRAMEBUFFERAMDPROC) load(userptr, "glXBlitContextFramebufferAMD");
@@ -298,14 +298,17 @@ static void glad_glx_load_GLX_AMD_gpu_association( GLADuserptrloadfunc load, voi
     glad_glXGetGPUInfoAMD = (PFNGLXGETGPUINFOAMDPROC) load(userptr, "glXGetGPUInfoAMD");
     glad_glXMakeAssociatedContextCurrentAMD = (PFNGLXMAKEASSOCIATEDCONTEXTCURRENTAMDPROC) load(userptr, "glXMakeAssociatedContextCurrentAMD");
 }
+
 static void glad_glx_load_GLX_ARB_create_context( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_ARB_create_context) return;
     glad_glXCreateContextAttribsARB = (PFNGLXCREATECONTEXTATTRIBSARBPROC) load(userptr, "glXCreateContextAttribsARB");
 }
+
 static void glad_glx_load_GLX_ARB_get_proc_address( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_ARB_get_proc_address) return;
     glad_glXGetProcAddressARB = (PFNGLXGETPROCADDRESSARBPROC) load(userptr, "glXGetProcAddressARB");
 }
+
 static void glad_glx_load_GLX_EXT_import_context( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_EXT_import_context) return;
     glad_glXFreeContextEXT = (PFNGLXFREECONTEXTEXTPROC) load(userptr, "glXFreeContextEXT");
@@ -314,27 +317,33 @@ static void glad_glx_load_GLX_EXT_import_context( GLADuserptrloadfunc load, void
     glad_glXImportContextEXT = (PFNGLXIMPORTCONTEXTEXTPROC) load(userptr, "glXImportContextEXT");
     glad_glXQueryContextInfoEXT = (PFNGLXQUERYCONTEXTINFOEXTPROC) load(userptr, "glXQueryContextInfoEXT");
 }
+
 static void glad_glx_load_GLX_EXT_swap_control( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_EXT_swap_control) return;
     glad_glXSwapIntervalEXT = (PFNGLXSWAPINTERVALEXTPROC) load(userptr, "glXSwapIntervalEXT");
 }
+
 static void glad_glx_load_GLX_EXT_texture_from_pixmap( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_EXT_texture_from_pixmap) return;
     glad_glXBindTexImageEXT = (PFNGLXBINDTEXIMAGEEXTPROC) load(userptr, "glXBindTexImageEXT");
     glad_glXReleaseTexImageEXT = (PFNGLXRELEASETEXIMAGEEXTPROC) load(userptr, "glXReleaseTexImageEXT");
 }
+
 static void glad_glx_load_GLX_MESA_agp_offset( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_MESA_agp_offset) return;
     glad_glXGetAGPOffsetMESA = (PFNGLXGETAGPOFFSETMESAPROC) load(userptr, "glXGetAGPOffsetMESA");
 }
+
 static void glad_glx_load_GLX_MESA_copy_sub_buffer( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_MESA_copy_sub_buffer) return;
     glad_glXCopySubBufferMESA = (PFNGLXCOPYSUBBUFFERMESAPROC) load(userptr, "glXCopySubBufferMESA");
 }
+
 static void glad_glx_load_GLX_MESA_pixmap_colormap( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_MESA_pixmap_colormap) return;
     glad_glXCreateGLXPixmapMESA = (PFNGLXCREATEGLXPIXMAPMESAPROC) load(userptr, "glXCreateGLXPixmapMESA");
 }
+
 static void glad_glx_load_GLX_MESA_query_renderer( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_MESA_query_renderer) return;
     glad_glXQueryCurrentRendererIntegerMESA = (PFNGLXQUERYCURRENTRENDERERINTEGERMESAPROC) load(userptr, "glXQueryCurrentRendererIntegerMESA");
@@ -342,37 +351,45 @@ static void glad_glx_load_GLX_MESA_query_renderer( GLADuserptrloadfunc load, voi
     glad_glXQueryRendererIntegerMESA = (PFNGLXQUERYRENDERERINTEGERMESAPROC) load(userptr, "glXQueryRendererIntegerMESA");
     glad_glXQueryRendererStringMESA = (PFNGLXQUERYRENDERERSTRINGMESAPROC) load(userptr, "glXQueryRendererStringMESA");
 }
+
 static void glad_glx_load_GLX_MESA_release_buffers( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_MESA_release_buffers) return;
     glad_glXReleaseBuffersMESA = (PFNGLXRELEASEBUFFERSMESAPROC) load(userptr, "glXReleaseBuffersMESA");
 }
+
 static void glad_glx_load_GLX_MESA_set_3dfx_mode( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_MESA_set_3dfx_mode) return;
     glad_glXSet3DfxModeMESA = (PFNGLXSET3DFXMODEMESAPROC) load(userptr, "glXSet3DfxModeMESA");
 }
+
 static void glad_glx_load_GLX_MESA_swap_control( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_MESA_swap_control) return;
     glad_glXGetSwapIntervalMESA = (PFNGLXGETSWAPINTERVALMESAPROC) load(userptr, "glXGetSwapIntervalMESA");
     glad_glXSwapIntervalMESA = (PFNGLXSWAPINTERVALMESAPROC) load(userptr, "glXSwapIntervalMESA");
 }
+
 static void glad_glx_load_GLX_NV_copy_buffer( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_NV_copy_buffer) return;
     glad_glXCopyBufferSubDataNV = (PFNGLXCOPYBUFFERSUBDATANVPROC) load(userptr, "glXCopyBufferSubDataNV");
     glad_glXNamedCopyBufferSubDataNV = (PFNGLXNAMEDCOPYBUFFERSUBDATANVPROC) load(userptr, "glXNamedCopyBufferSubDataNV");
 }
+
 static void glad_glx_load_GLX_NV_copy_image( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_NV_copy_image) return;
     glad_glXCopyImageSubDataNV = (PFNGLXCOPYIMAGESUBDATANVPROC) load(userptr, "glXCopyImageSubDataNV");
 }
+
 static void glad_glx_load_GLX_NV_delay_before_swap( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_NV_delay_before_swap) return;
     glad_glXDelayBeforeSwapNV = (PFNGLXDELAYBEFORESWAPNVPROC) load(userptr, "glXDelayBeforeSwapNV");
 }
+
 static void glad_glx_load_GLX_NV_present_video( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_NV_present_video) return;
     glad_glXBindVideoDeviceNV = (PFNGLXBINDVIDEODEVICENVPROC) load(userptr, "glXBindVideoDeviceNV");
     glad_glXEnumerateVideoDevicesNV = (PFNGLXENUMERATEVIDEODEVICESNVPROC) load(userptr, "glXEnumerateVideoDevicesNV");
 }
+
 static void glad_glx_load_GLX_NV_swap_group( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_NV_swap_group) return;
     glad_glXBindSwapBarrierNV = (PFNGLXBINDSWAPBARRIERNVPROC) load(userptr, "glXBindSwapBarrierNV");
@@ -382,6 +399,7 @@ static void glad_glx_load_GLX_NV_swap_group( GLADuserptrloadfunc load, void* use
     glad_glXQuerySwapGroupNV = (PFNGLXQUERYSWAPGROUPNVPROC) load(userptr, "glXQuerySwapGroupNV");
     glad_glXResetFrameCountNV = (PFNGLXRESETFRAMECOUNTNVPROC) load(userptr, "glXResetFrameCountNV");
 }
+
 static void glad_glx_load_GLX_NV_video_capture( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_NV_video_capture) return;
     glad_glXBindVideoCaptureDeviceNV = (PFNGLXBINDVIDEOCAPTUREDEVICENVPROC) load(userptr, "glXBindVideoCaptureDeviceNV");
@@ -390,6 +408,7 @@ static void glad_glx_load_GLX_NV_video_capture( GLADuserptrloadfunc load, void* 
     glad_glXQueryVideoCaptureDeviceNV = (PFNGLXQUERYVIDEOCAPTUREDEVICENVPROC) load(userptr, "glXQueryVideoCaptureDeviceNV");
     glad_glXReleaseVideoCaptureDeviceNV = (PFNGLXRELEASEVIDEOCAPTUREDEVICENVPROC) load(userptr, "glXReleaseVideoCaptureDeviceNV");
 }
+
 static void glad_glx_load_GLX_NV_video_out( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_NV_video_out) return;
     glad_glXBindVideoImageNV = (PFNGLXBINDVIDEOIMAGENVPROC) load(userptr, "glXBindVideoImageNV");
@@ -399,6 +418,7 @@ static void glad_glx_load_GLX_NV_video_out( GLADuserptrloadfunc load, void* user
     glad_glXReleaseVideoImageNV = (PFNGLXRELEASEVIDEOIMAGENVPROC) load(userptr, "glXReleaseVideoImageNV");
     glad_glXSendPbufferToVideoNV = (PFNGLXSENDPBUFFERTOVIDEONVPROC) load(userptr, "glXSendPbufferToVideoNV");
 }
+
 static void glad_glx_load_GLX_OML_sync_control( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_OML_sync_control) return;
     glad_glXGetMscRateOML = (PFNGLXGETMSCRATEOMLPROC) load(userptr, "glXGetMscRateOML");
@@ -407,6 +427,7 @@ static void glad_glx_load_GLX_OML_sync_control( GLADuserptrloadfunc load, void* 
     glad_glXWaitForMscOML = (PFNGLXWAITFORMSCOMLPROC) load(userptr, "glXWaitForMscOML");
     glad_glXWaitForSbcOML = (PFNGLXWAITFORSBCOMLPROC) load(userptr, "glXWaitForSbcOML");
 }
+
 static void glad_glx_load_GLX_SGIX_fbconfig( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGIX_fbconfig) return;
     glad_glXChooseFBConfigSGIX = (PFNGLXCHOOSEFBCONFIGSGIXPROC) load(userptr, "glXChooseFBConfigSGIX");
@@ -416,6 +437,7 @@ static void glad_glx_load_GLX_SGIX_fbconfig( GLADuserptrloadfunc load, void* use
     glad_glXGetFBConfigFromVisualSGIX = (PFNGLXGETFBCONFIGFROMVISUALSGIXPROC) load(userptr, "glXGetFBConfigFromVisualSGIX");
     glad_glXGetVisualFromFBConfigSGIX = (PFNGLXGETVISUALFROMFBCONFIGSGIXPROC) load(userptr, "glXGetVisualFromFBConfigSGIX");
 }
+
 static void glad_glx_load_GLX_SGIX_hyperpipe( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGIX_hyperpipe) return;
     glad_glXBindHyperpipeSGIX = (PFNGLXBINDHYPERPIPESGIXPROC) load(userptr, "glXBindHyperpipeSGIX");
@@ -427,6 +449,7 @@ static void glad_glx_load_GLX_SGIX_hyperpipe( GLADuserptrloadfunc load, void* us
     glad_glXQueryHyperpipeConfigSGIX = (PFNGLXQUERYHYPERPIPECONFIGSGIXPROC) load(userptr, "glXQueryHyperpipeConfigSGIX");
     glad_glXQueryHyperpipeNetworkSGIX = (PFNGLXQUERYHYPERPIPENETWORKSGIXPROC) load(userptr, "glXQueryHyperpipeNetworkSGIX");
 }
+
 static void glad_glx_load_GLX_SGIX_pbuffer( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGIX_pbuffer) return;
     glad_glXCreateGLXPbufferSGIX = (PFNGLXCREATEGLXPBUFFERSGIXPROC) load(userptr, "glXCreateGLXPbufferSGIX");
@@ -435,15 +458,18 @@ static void glad_glx_load_GLX_SGIX_pbuffer( GLADuserptrloadfunc load, void* user
     glad_glXQueryGLXPbufferSGIX = (PFNGLXQUERYGLXPBUFFERSGIXPROC) load(userptr, "glXQueryGLXPbufferSGIX");
     glad_glXSelectEventSGIX = (PFNGLXSELECTEVENTSGIXPROC) load(userptr, "glXSelectEventSGIX");
 }
+
 static void glad_glx_load_GLX_SGIX_swap_barrier( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGIX_swap_barrier) return;
     glad_glXBindSwapBarrierSGIX = (PFNGLXBINDSWAPBARRIERSGIXPROC) load(userptr, "glXBindSwapBarrierSGIX");
     glad_glXQueryMaxSwapBarriersSGIX = (PFNGLXQUERYMAXSWAPBARRIERSSGIXPROC) load(userptr, "glXQueryMaxSwapBarriersSGIX");
 }
+
 static void glad_glx_load_GLX_SGIX_swap_group( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGIX_swap_group) return;
     glad_glXJoinSwapGroupSGIX = (PFNGLXJOINSWAPGROUPSGIXPROC) load(userptr, "glXJoinSwapGroupSGIX");
 }
+
 static void glad_glx_load_GLX_SGIX_video_resize( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGIX_video_resize) return;
     glad_glXBindChannelToWindowSGIX = (PFNGLXBINDCHANNELTOWINDOWSGIXPROC) load(userptr, "glXBindChannelToWindowSGIX");
@@ -452,29 +478,33 @@ static void glad_glx_load_GLX_SGIX_video_resize( GLADuserptrloadfunc load, void*
     glad_glXQueryChannelDeltasSGIX = (PFNGLXQUERYCHANNELDELTASSGIXPROC) load(userptr, "glXQueryChannelDeltasSGIX");
     glad_glXQueryChannelRectSGIX = (PFNGLXQUERYCHANNELRECTSGIXPROC) load(userptr, "glXQueryChannelRectSGIX");
 }
+
 static void glad_glx_load_GLX_SGI_cushion( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGI_cushion) return;
     glad_glXCushionSGI = (PFNGLXCUSHIONSGIPROC) load(userptr, "glXCushionSGI");
 }
+
 static void glad_glx_load_GLX_SGI_make_current_read( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGI_make_current_read) return;
     glad_glXGetCurrentReadDrawableSGI = (PFNGLXGETCURRENTREADDRAWABLESGIPROC) load(userptr, "glXGetCurrentReadDrawableSGI");
     glad_glXMakeCurrentReadSGI = (PFNGLXMAKECURRENTREADSGIPROC) load(userptr, "glXMakeCurrentReadSGI");
 }
+
 static void glad_glx_load_GLX_SGI_swap_control( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGI_swap_control) return;
     glad_glXSwapIntervalSGI = (PFNGLXSWAPINTERVALSGIPROC) load(userptr, "glXSwapIntervalSGI");
 }
+
 static void glad_glx_load_GLX_SGI_video_sync( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SGI_video_sync) return;
     glad_glXGetVideoSyncSGI = (PFNGLXGETVIDEOSYNCSGIPROC) load(userptr, "glXGetVideoSyncSGI");
     glad_glXWaitVideoSyncSGI = (PFNGLXWAITVIDEOSYNCSGIPROC) load(userptr, "glXWaitVideoSyncSGI");
 }
+
 static void glad_glx_load_GLX_SUN_get_transparent_index( GLADuserptrloadfunc load, void* userptr) {
     if(!GLAD_GLX_SUN_get_transparent_index) return;
     glad_glXGetTransparentIndexSUN = (PFNGLXGETTRANSPARENTINDEXSUNPROC) load(userptr, "glXGetTransparentIndexSUN");
 }
-
 
 static void glad_glx_resolve_aliases(void) {
 }

@@ -7,7 +7,6 @@
 #include <glad/wgl.h>
 
 #ifdef _WIN32
-
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
 
@@ -22,7 +21,6 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 
 int GLAD_WGL_VERSION_1_0 = 0;
@@ -83,8 +81,6 @@ int GLAD_WGL_NV_vertex_array_range = 0;
 int GLAD_WGL_NV_video_capture = 0;
 int GLAD_WGL_NV_video_output = 0;
 int GLAD_WGL_OML_sync_control = 0;
-
-
 
 PFNWGLALLOCATEMEMORYNVPROC glad_wglAllocateMemoryNV = NULL;
 PFNWGLASSOCIATEIMAGEBUFFEREVENTSI3DPROC glad_wglAssociateImageBufferEventsI3D = NULL;
@@ -205,7 +201,6 @@ PFNWGLSWAPINTERVALEXTPROC glad_wglSwapIntervalEXT = NULL;
 PFNWGLSWAPLAYERBUFFERSMSCOMLPROC glad_wglSwapLayerBuffersMscOML = NULL;
 PFNWGLWAITFORMSCOMLPROC glad_wglWaitForMscOML = NULL;
 PFNWGLWAITFORSBCOMLPROC glad_wglWaitForSbcOML = NULL;
-
 
 static void glad_wgl_load_WGL_3DL_stereo_control(GLADuserptrloadfunc load, void *userptr) {
     if(!GLAD_WGL_3DL_stereo_control) return;
@@ -419,8 +414,6 @@ static void glad_wgl_load_WGL_OML_sync_control(GLADuserptrloadfunc load, void *u
     glad_wglWaitForMscOML = (PFNWGLWAITFORMSCOMLPROC) load(userptr, "wglWaitForMscOML");
     glad_wglWaitForSbcOML = (PFNWGLWAITFORSBCOMLPROC) load(userptr, "wglWaitForSbcOML");
 }
-
-
 static void glad_wgl_resolve_aliases(void) {
 }
 

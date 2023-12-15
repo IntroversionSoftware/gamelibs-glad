@@ -6,7 +6,6 @@
 #include <string.h>
 #include <glad/gl.h>
 
-
 #ifndef GLAD_IMPL_UTIL_C_
 #define GLAD_IMPL_UTIL_C_
 
@@ -27,12 +26,6 @@ GladGLContext glad_gl_context = {};
 #else
 GladGLContext glad_gl_context = { 0 };
 #endif
-
-
-
-
-
-
 
 static void glad_gl_load_GL_VERSION_1_0(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_0) return;
@@ -85,6 +78,7 @@ static void glad_gl_load_GL_VERSION_1_0(GladGLContext *context, GLADuserptrloadf
     context->TexParameteriv = (PFNGLTEXPARAMETERIVPROC) load(userptr, "glTexParameteriv");
     context->Viewport = (PFNGLVIEWPORTPROC) load(userptr, "glViewport");
 }
+
 static void glad_gl_load_GL_VERSION_1_1(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_1) return;
     context->BindTexture = (PFNGLBINDTEXTUREPROC) load(userptr, "glBindTexture");
@@ -102,6 +96,7 @@ static void glad_gl_load_GL_VERSION_1_1(GladGLContext *context, GLADuserptrloadf
     context->TexSubImage1D = (PFNGLTEXSUBIMAGE1DPROC) load(userptr, "glTexSubImage1D");
     context->TexSubImage2D = (PFNGLTEXSUBIMAGE2DPROC) load(userptr, "glTexSubImage2D");
 }
+
 static void glad_gl_load_GL_VERSION_1_2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_2) return;
     context->CopyTexSubImage3D = (PFNGLCOPYTEXSUBIMAGE3DPROC) load(userptr, "glCopyTexSubImage3D");
@@ -109,6 +104,7 @@ static void glad_gl_load_GL_VERSION_1_2(GladGLContext *context, GLADuserptrloadf
     context->TexImage3D = (PFNGLTEXIMAGE3DPROC) load(userptr, "glTexImage3D");
     context->TexSubImage3D = (PFNGLTEXSUBIMAGE3DPROC) load(userptr, "glTexSubImage3D");
 }
+
 static void glad_gl_load_GL_VERSION_1_3(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_3) return;
     context->ActiveTexture = (PFNGLACTIVETEXTUREPROC) load(userptr, "glActiveTexture");
@@ -121,6 +117,7 @@ static void glad_gl_load_GL_VERSION_1_3(GladGLContext *context, GLADuserptrloadf
     context->GetCompressedTexImage = (PFNGLGETCOMPRESSEDTEXIMAGEPROC) load(userptr, "glGetCompressedTexImage");
     context->SampleCoverage = (PFNGLSAMPLECOVERAGEPROC) load(userptr, "glSampleCoverage");
 }
+
 static void glad_gl_load_GL_VERSION_1_4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_4) return;
     context->BlendColor = (PFNGLBLENDCOLORPROC) load(userptr, "glBlendColor");
@@ -133,6 +130,7 @@ static void glad_gl_load_GL_VERSION_1_4(GladGLContext *context, GLADuserptrloadf
     context->PointParameteri = (PFNGLPOINTPARAMETERIPROC) load(userptr, "glPointParameteri");
     context->PointParameteriv = (PFNGLPOINTPARAMETERIVPROC) load(userptr, "glPointParameteriv");
 }
+
 static void glad_gl_load_GL_VERSION_1_5(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_1_5) return;
     context->BeginQuery = (PFNGLBEGINQUERYPROC) load(userptr, "glBeginQuery");
@@ -155,6 +153,7 @@ static void glad_gl_load_GL_VERSION_1_5(GladGLContext *context, GLADuserptrloadf
     context->MapBuffer = (PFNGLMAPBUFFERPROC) load(userptr, "glMapBuffer");
     context->UnmapBuffer = (PFNGLUNMAPBUFFERPROC) load(userptr, "glUnmapBuffer");
 }
+
 static void glad_gl_load_GL_VERSION_2_0(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_2_0) return;
     context->AttachShader = (PFNGLATTACHSHADERPROC) load(userptr, "glAttachShader");
@@ -251,6 +250,7 @@ static void glad_gl_load_GL_VERSION_2_0(GladGLContext *context, GLADuserptrloadf
     context->VertexAttrib4usv = (PFNGLVERTEXATTRIB4USVPROC) load(userptr, "glVertexAttrib4usv");
     context->VertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC) load(userptr, "glVertexAttribPointer");
 }
+
 static void glad_gl_load_GL_VERSION_2_1(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_2_1) return;
     context->UniformMatrix2x3fv = (PFNGLUNIFORMMATRIX2X3FVPROC) load(userptr, "glUniformMatrix2x3fv");
@@ -260,6 +260,7 @@ static void glad_gl_load_GL_VERSION_2_1(GladGLContext *context, GLADuserptrloadf
     context->UniformMatrix4x2fv = (PFNGLUNIFORMMATRIX4X2FVPROC) load(userptr, "glUniformMatrix4x2fv");
     context->UniformMatrix4x3fv = (PFNGLUNIFORMMATRIX4X3FVPROC) load(userptr, "glUniformMatrix4x3fv");
 }
+
 static void glad_gl_load_GL_VERSION_3_0(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_3_0) return;
     context->BeginConditionalRender = (PFNGLBEGINCONDITIONALRENDERPROC) load(userptr, "glBeginConditionalRender");
@@ -347,6 +348,7 @@ static void glad_gl_load_GL_VERSION_3_0(GladGLContext *context, GLADuserptrloadf
     context->VertexAttribI4usv = (PFNGLVERTEXATTRIBI4USVPROC) load(userptr, "glVertexAttribI4usv");
     context->VertexAttribIPointer = (PFNGLVERTEXATTRIBIPOINTERPROC) load(userptr, "glVertexAttribIPointer");
 }
+
 static void glad_gl_load_GL_VERSION_3_1(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_3_1) return;
     context->BindBufferBase = (PFNGLBINDBUFFERBASEPROC) load(userptr, "glBindBufferBase");
@@ -365,6 +367,7 @@ static void glad_gl_load_GL_VERSION_3_1(GladGLContext *context, GLADuserptrloadf
     context->TexBuffer = (PFNGLTEXBUFFERPROC) load(userptr, "glTexBuffer");
     context->UniformBlockBinding = (PFNGLUNIFORMBLOCKBINDINGPROC) load(userptr, "glUniformBlockBinding");
 }
+
 static void glad_gl_load_GL_VERSION_3_2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_3_2) return;
     context->ClientWaitSync = (PFNGLCLIENTWAITSYNCPROC) load(userptr, "glClientWaitSync");
@@ -387,6 +390,7 @@ static void glad_gl_load_GL_VERSION_3_2(GladGLContext *context, GLADuserptrloadf
     context->TexImage3DMultisample = (PFNGLTEXIMAGE3DMULTISAMPLEPROC) load(userptr, "glTexImage3DMultisample");
     context->WaitSync = (PFNGLWAITSYNCPROC) load(userptr, "glWaitSync");
 }
+
 static void glad_gl_load_GL_VERSION_3_3(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_3_3) return;
     context->BindFragDataLocationIndexed = (PFNGLBINDFRAGDATALOCATIONINDEXEDPROC) load(userptr, "glBindFragDataLocationIndexed");
@@ -418,6 +422,7 @@ static void glad_gl_load_GL_VERSION_3_3(GladGLContext *context, GLADuserptrloadf
     context->VertexAttribP4ui = (PFNGLVERTEXATTRIBP4UIPROC) load(userptr, "glVertexAttribP4ui");
     context->VertexAttribP4uiv = (PFNGLVERTEXATTRIBP4UIVPROC) load(userptr, "glVertexAttribP4uiv");
 }
+
 static void glad_gl_load_GL_VERSION_4_0(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_4_0) return;
     context->BeginQueryIndexed = (PFNGLBEGINQUERYINDEXEDPROC) load(userptr, "glBeginQueryIndexed");
@@ -467,6 +472,7 @@ static void glad_gl_load_GL_VERSION_4_0(GladGLContext *context, GLADuserptrloadf
     context->UniformMatrix4x3dv = (PFNGLUNIFORMMATRIX4X3DVPROC) load(userptr, "glUniformMatrix4x3dv");
     context->UniformSubroutinesuiv = (PFNGLUNIFORMSUBROUTINESUIVPROC) load(userptr, "glUniformSubroutinesuiv");
 }
+
 static void glad_gl_load_GL_VERSION_4_1(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_4_1) return;
     context->ActiveShaderProgram = (PFNGLACTIVESHADERPROGRAMPROC) load(userptr, "glActiveShaderProgram");
@@ -558,6 +564,7 @@ static void glad_gl_load_GL_VERSION_4_1(GladGLContext *context, GLADuserptrloadf
     context->ViewportIndexedf = (PFNGLVIEWPORTINDEXEDFPROC) load(userptr, "glViewportIndexedf");
     context->ViewportIndexedfv = (PFNGLVIEWPORTINDEXEDFVPROC) load(userptr, "glViewportIndexedfv");
 }
+
 static void glad_gl_load_GL_VERSION_4_2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_4_2) return;
     context->BindImageTexture = (PFNGLBINDIMAGETEXTUREPROC) load(userptr, "glBindImageTexture");
@@ -573,6 +580,7 @@ static void glad_gl_load_GL_VERSION_4_2(GladGLContext *context, GLADuserptrloadf
     context->TexStorage2D = (PFNGLTEXSTORAGE2DPROC) load(userptr, "glTexStorage2D");
     context->TexStorage3D = (PFNGLTEXSTORAGE3DPROC) load(userptr, "glTexStorage3D");
 }
+
 static void glad_gl_load_GL_VERSION_4_3(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_4_3) return;
     context->BindVertexBuffer = (PFNGLBINDVERTEXBUFFERPROC) load(userptr, "glBindVertexBuffer");
@@ -620,6 +628,7 @@ static void glad_gl_load_GL_VERSION_4_3(GladGLContext *context, GLADuserptrloadf
     context->VertexAttribLFormat = (PFNGLVERTEXATTRIBLFORMATPROC) load(userptr, "glVertexAttribLFormat");
     context->VertexBindingDivisor = (PFNGLVERTEXBINDINGDIVISORPROC) load(userptr, "glVertexBindingDivisor");
 }
+
 static void glad_gl_load_GL_VERSION_4_4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_4_4) return;
     context->BindBuffersBase = (PFNGLBINDBUFFERSBASEPROC) load(userptr, "glBindBuffersBase");
@@ -632,6 +641,7 @@ static void glad_gl_load_GL_VERSION_4_4(GladGLContext *context, GLADuserptrloadf
     context->ClearTexImage = (PFNGLCLEARTEXIMAGEPROC) load(userptr, "glClearTexImage");
     context->ClearTexSubImage = (PFNGLCLEARTEXSUBIMAGEPROC) load(userptr, "glClearTexSubImage");
 }
+
 static void glad_gl_load_GL_VERSION_4_5(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_4_5) return;
     context->BindTextureUnit = (PFNGLBINDTEXTUREUNITPROC) load(userptr, "glBindTextureUnit");
@@ -745,6 +755,7 @@ static void glad_gl_load_GL_VERSION_4_5(GladGLContext *context, GLADuserptrloadf
     context->VertexArrayVertexBuffer = (PFNGLVERTEXARRAYVERTEXBUFFERPROC) load(userptr, "glVertexArrayVertexBuffer");
     context->VertexArrayVertexBuffers = (PFNGLVERTEXARRAYVERTEXBUFFERSPROC) load(userptr, "glVertexArrayVertexBuffers");
 }
+
 static void glad_gl_load_GL_VERSION_4_6(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->VERSION_4_6) return;
     context->MultiDrawArraysIndirectCount = (PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC) load(userptr, "glMultiDrawArraysIndirectCount");
@@ -752,6 +763,7 @@ static void glad_gl_load_GL_VERSION_4_6(GladGLContext *context, GLADuserptrloadf
     context->PolygonOffsetClamp = (PFNGLPOLYGONOFFSETCLAMPPROC) load(userptr, "glPolygonOffsetClamp");
     context->SpecializeShader = (PFNGLSPECIALIZESHADERPROC) load(userptr, "glSpecializeShader");
 }
+
 static void glad_gl_load_GL_ES_VERSION_2_0(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ES_VERSION_2_0) return;
     context->ActiveTexture = (PFNGLACTIVETEXTUREPROC) load(userptr, "glActiveTexture");
@@ -897,6 +909,7 @@ static void glad_gl_load_GL_ES_VERSION_2_0(GladGLContext *context, GLADuserptrlo
     context->VertexAttribPointer = (PFNGLVERTEXATTRIBPOINTERPROC) load(userptr, "glVertexAttribPointer");
     context->Viewport = (PFNGLVIEWPORTPROC) load(userptr, "glViewport");
 }
+
 static void glad_gl_load_GL_ES_VERSION_3_0(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ES_VERSION_3_0) return;
     context->BeginQuery = (PFNGLBEGINQUERYPROC) load(userptr, "glBeginQuery");
@@ -1004,6 +1017,7 @@ static void glad_gl_load_GL_ES_VERSION_3_0(GladGLContext *context, GLADuserptrlo
     context->VertexAttribIPointer = (PFNGLVERTEXATTRIBIPOINTERPROC) load(userptr, "glVertexAttribIPointer");
     context->WaitSync = (PFNGLWAITSYNCPROC) load(userptr, "glWaitSync");
 }
+
 static void glad_gl_load_GL_ES_VERSION_3_1(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ES_VERSION_3_1) return;
     context->ActiveShaderProgram = (PFNGLACTIVESHADERPROGRAMPROC) load(userptr, "glActiveShaderProgram");
@@ -1075,6 +1089,7 @@ static void glad_gl_load_GL_ES_VERSION_3_1(GladGLContext *context, GLADuserptrlo
     context->VertexAttribIFormat = (PFNGLVERTEXATTRIBIFORMATPROC) load(userptr, "glVertexAttribIFormat");
     context->VertexBindingDivisor = (PFNGLVERTEXBINDINGDIVISORPROC) load(userptr, "glVertexBindingDivisor");
 }
+
 static void glad_gl_load_GL_ES_VERSION_3_2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ES_VERSION_3_2) return;
     context->BlendBarrier = (PFNGLBLENDBARRIERPROC) load(userptr, "glBlendBarrier");
@@ -1122,10 +1137,12 @@ static void glad_gl_load_GL_ES_VERSION_3_2(GladGLContext *context, GLADuserptrlo
     context->TexParameterIuiv = (PFNGLTEXPARAMETERIUIVPROC) load(userptr, "glTexParameterIuiv");
     context->TexStorage3DMultisample = (PFNGLTEXSTORAGE3DMULTISAMPLEPROC) load(userptr, "glTexStorage3DMultisample");
 }
+
 static void glad_gl_load_GL_3DFX_tbuffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->_3DFX_tbuffer) return;
     context->TbufferMask3DFX = (PFNGLTBUFFERMASK3DFXPROC) load(userptr, "glTbufferMask3DFX");
 }
+
 static void glad_gl_load_GL_AMD_debug_output(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_debug_output) return;
     context->DebugMessageCallbackAMD = (PFNGLDEBUGMESSAGECALLBACKAMDPROC) load(userptr, "glDebugMessageCallbackAMD");
@@ -1133,6 +1150,7 @@ static void glad_gl_load_GL_AMD_debug_output(GladGLContext *context, GLADuserptr
     context->DebugMessageInsertAMD = (PFNGLDEBUGMESSAGEINSERTAMDPROC) load(userptr, "glDebugMessageInsertAMD");
     context->GetDebugMessageLogAMD = (PFNGLGETDEBUGMESSAGELOGAMDPROC) load(userptr, "glGetDebugMessageLogAMD");
 }
+
 static void glad_gl_load_GL_AMD_draw_buffers_blend(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_draw_buffers_blend) return;
     context->BlendEquationIndexedAMD = (PFNGLBLENDEQUATIONINDEXEDAMDPROC) load(userptr, "glBlendEquationIndexedAMD");
@@ -1140,11 +1158,13 @@ static void glad_gl_load_GL_AMD_draw_buffers_blend(GladGLContext *context, GLADu
     context->BlendFuncIndexedAMD = (PFNGLBLENDFUNCINDEXEDAMDPROC) load(userptr, "glBlendFuncIndexedAMD");
     context->BlendFuncSeparateIndexedAMD = (PFNGLBLENDFUNCSEPARATEINDEXEDAMDPROC) load(userptr, "glBlendFuncSeparateIndexedAMD");
 }
+
 static void glad_gl_load_GL_AMD_framebuffer_multisample_advanced(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_framebuffer_multisample_advanced) return;
     context->NamedRenderbufferStorageMultisampleAdvancedAMD = (PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) load(userptr, "glNamedRenderbufferStorageMultisampleAdvancedAMD");
     context->RenderbufferStorageMultisampleAdvancedAMD = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC) load(userptr, "glRenderbufferStorageMultisampleAdvancedAMD");
 }
+
 static void glad_gl_load_GL_AMD_framebuffer_sample_positions(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_framebuffer_sample_positions) return;
     context->FramebufferSamplePositionsfvAMD = (PFNGLFRAMEBUFFERSAMPLEPOSITIONSFVAMDPROC) load(userptr, "glFramebufferSamplePositionsfvAMD");
@@ -1152,6 +1172,7 @@ static void glad_gl_load_GL_AMD_framebuffer_sample_positions(GladGLContext *cont
     context->GetNamedFramebufferParameterfvAMD = (PFNGLGETNAMEDFRAMEBUFFERPARAMETERFVAMDPROC) load(userptr, "glGetNamedFramebufferParameterfvAMD");
     context->NamedFramebufferSamplePositionsfvAMD = (PFNGLNAMEDFRAMEBUFFERSAMPLEPOSITIONSFVAMDPROC) load(userptr, "glNamedFramebufferSamplePositionsfvAMD");
 }
+
 static void glad_gl_load_GL_AMD_gpu_shader_int64(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_gpu_shader_int64) return;
     context->GetUniformi64vNV = (PFNGLGETUNIFORMI64VNVPROC) load(userptr, "glGetUniformi64vNV");
@@ -1189,25 +1210,30 @@ static void glad_gl_load_GL_AMD_gpu_shader_int64(GladGLContext *context, GLADuse
     context->Uniform4ui64NV = (PFNGLUNIFORM4UI64NVPROC) load(userptr, "glUniform4ui64NV");
     context->Uniform4ui64vNV = (PFNGLUNIFORM4UI64VNVPROC) load(userptr, "glUniform4ui64vNV");
 }
+
 static void glad_gl_load_GL_AMD_interleaved_elements(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_interleaved_elements) return;
     context->VertexAttribParameteriAMD = (PFNGLVERTEXATTRIBPARAMETERIAMDPROC) load(userptr, "glVertexAttribParameteriAMD");
 }
+
 static void glad_gl_load_GL_AMD_multi_draw_indirect(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_multi_draw_indirect) return;
     context->MultiDrawArraysIndirectAMD = (PFNGLMULTIDRAWARRAYSINDIRECTAMDPROC) load(userptr, "glMultiDrawArraysIndirectAMD");
     context->MultiDrawElementsIndirectAMD = (PFNGLMULTIDRAWELEMENTSINDIRECTAMDPROC) load(userptr, "glMultiDrawElementsIndirectAMD");
 }
+
 static void glad_gl_load_GL_AMD_name_gen_delete(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_name_gen_delete) return;
     context->DeleteNamesAMD = (PFNGLDELETENAMESAMDPROC) load(userptr, "glDeleteNamesAMD");
     context->GenNamesAMD = (PFNGLGENNAMESAMDPROC) load(userptr, "glGenNamesAMD");
     context->IsNameAMD = (PFNGLISNAMEAMDPROC) load(userptr, "glIsNameAMD");
 }
+
 static void glad_gl_load_GL_AMD_occlusion_query_event(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_occlusion_query_event) return;
     context->QueryObjectParameteruiAMD = (PFNGLQUERYOBJECTPARAMETERUIAMDPROC) load(userptr, "glQueryObjectParameteruiAMD");
 }
+
 static void glad_gl_load_GL_AMD_performance_monitor(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_performance_monitor) return;
     context->BeginPerfMonitorAMD = (PFNGLBEGINPERFMONITORAMDPROC) load(userptr, "glBeginPerfMonitorAMD");
@@ -1222,24 +1248,29 @@ static void glad_gl_load_GL_AMD_performance_monitor(GladGLContext *context, GLAD
     context->GetPerfMonitorGroupsAMD = (PFNGLGETPERFMONITORGROUPSAMDPROC) load(userptr, "glGetPerfMonitorGroupsAMD");
     context->SelectPerfMonitorCountersAMD = (PFNGLSELECTPERFMONITORCOUNTERSAMDPROC) load(userptr, "glSelectPerfMonitorCountersAMD");
 }
+
 static void glad_gl_load_GL_AMD_sample_positions(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_sample_positions) return;
     context->SetMultisamplefvAMD = (PFNGLSETMULTISAMPLEFVAMDPROC) load(userptr, "glSetMultisamplefvAMD");
 }
+
 static void glad_gl_load_GL_AMD_sparse_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_sparse_texture) return;
     context->TexStorageSparseAMD = (PFNGLTEXSTORAGESPARSEAMDPROC) load(userptr, "glTexStorageSparseAMD");
     context->TextureStorageSparseAMD = (PFNGLTEXTURESTORAGESPARSEAMDPROC) load(userptr, "glTextureStorageSparseAMD");
 }
+
 static void glad_gl_load_GL_AMD_stencil_operation_extended(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_stencil_operation_extended) return;
     context->StencilOpValueAMD = (PFNGLSTENCILOPVALUEAMDPROC) load(userptr, "glStencilOpValueAMD");
 }
+
 static void glad_gl_load_GL_AMD_vertex_shader_tessellator(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->AMD_vertex_shader_tessellator) return;
     context->TessellationFactorAMD = (PFNGLTESSELLATIONFACTORAMDPROC) load(userptr, "glTessellationFactorAMD");
     context->TessellationModeAMD = (PFNGLTESSELLATIONMODEAMDPROC) load(userptr, "glTessellationModeAMD");
 }
+
 static void glad_gl_load_GL_ANGLE_memory_object_flags(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_memory_object_flags) return;
     context->TexStorageMemFlags2DANGLE = (PFNGLTEXSTORAGEMEMFLAGS2DANGLEPROC) load(userptr, "glTexStorageMemFlags2DANGLE");
@@ -1247,19 +1278,23 @@ static void glad_gl_load_GL_ANGLE_memory_object_flags(GladGLContext *context, GL
     context->TexStorageMemFlags3DANGLE = (PFNGLTEXSTORAGEMEMFLAGS3DANGLEPROC) load(userptr, "glTexStorageMemFlags3DANGLE");
     context->TexStorageMemFlags3DMultisampleANGLE = (PFNGLTEXSTORAGEMEMFLAGS3DMULTISAMPLEANGLEPROC) load(userptr, "glTexStorageMemFlags3DMultisampleANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_memory_object_fuchsia(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_memory_object_fuchsia) return;
     context->ImportMemoryZirconHandleANGLE = (PFNGLIMPORTMEMORYZIRCONHANDLEANGLEPROC) load(userptr, "glImportMemoryZirconHandleANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_semaphore_fuchsia(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_semaphore_fuchsia) return;
     context->ImportSemaphoreZirconHandleANGLE = (PFNGLIMPORTSEMAPHOREZIRCONHANDLEANGLEPROC) load(userptr, "glImportSemaphoreZirconHandleANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_texture_external_update(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_texture_external_update) return;
     context->InvalidateTextureANGLE = (PFNGLINVALIDATETEXTUREANGLEPROC) load(userptr, "glInvalidateTextureANGLE");
     context->TexImage2DExternalANGLE = (PFNGLTEXIMAGE2DEXTERNALANGLEPROC) load(userptr, "glTexImage2DExternalANGLE");
 }
+
 static void glad_gl_load_GL_APPLE_element_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_element_array) return;
     context->DrawElementArrayAPPLE = (PFNGLDRAWELEMENTARRAYAPPLEPROC) load(userptr, "glDrawElementArrayAPPLE");
@@ -1268,6 +1303,7 @@ static void glad_gl_load_GL_APPLE_element_array(GladGLContext *context, GLADuser
     context->MultiDrawElementArrayAPPLE = (PFNGLMULTIDRAWELEMENTARRAYAPPLEPROC) load(userptr, "glMultiDrawElementArrayAPPLE");
     context->MultiDrawRangeElementArrayAPPLE = (PFNGLMULTIDRAWRANGEELEMENTARRAYAPPLEPROC) load(userptr, "glMultiDrawRangeElementArrayAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_fence(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_fence) return;
     context->DeleteFencesAPPLE = (PFNGLDELETEFENCESAPPLEPROC) load(userptr, "glDeleteFencesAPPLE");
@@ -1279,22 +1315,26 @@ static void glad_gl_load_GL_APPLE_fence(GladGLContext *context, GLADuserptrloadf
     context->TestFenceAPPLE = (PFNGLTESTFENCEAPPLEPROC) load(userptr, "glTestFenceAPPLE");
     context->TestObjectAPPLE = (PFNGLTESTOBJECTAPPLEPROC) load(userptr, "glTestObjectAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_flush_buffer_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_flush_buffer_range) return;
     context->BufferParameteriAPPLE = (PFNGLBUFFERPARAMETERIAPPLEPROC) load(userptr, "glBufferParameteriAPPLE");
     context->FlushMappedBufferRangeAPPLE = (PFNGLFLUSHMAPPEDBUFFERRANGEAPPLEPROC) load(userptr, "glFlushMappedBufferRangeAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_object_purgeable(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_object_purgeable) return;
     context->GetObjectParameterivAPPLE = (PFNGLGETOBJECTPARAMETERIVAPPLEPROC) load(userptr, "glGetObjectParameterivAPPLE");
     context->ObjectPurgeableAPPLE = (PFNGLOBJECTPURGEABLEAPPLEPROC) load(userptr, "glObjectPurgeableAPPLE");
     context->ObjectUnpurgeableAPPLE = (PFNGLOBJECTUNPURGEABLEAPPLEPROC) load(userptr, "glObjectUnpurgeableAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_texture_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_texture_range) return;
     context->GetTexParameterPointervAPPLE = (PFNGLGETTEXPARAMETERPOINTERVAPPLEPROC) load(userptr, "glGetTexParameterPointervAPPLE");
     context->TextureRangeAPPLE = (PFNGLTEXTURERANGEAPPLEPROC) load(userptr, "glTextureRangeAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_vertex_array_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_vertex_array_object) return;
     context->BindVertexArrayAPPLE = (PFNGLBINDVERTEXARRAYAPPLEPROC) load(userptr, "glBindVertexArrayAPPLE");
@@ -1302,12 +1342,14 @@ static void glad_gl_load_GL_APPLE_vertex_array_object(GladGLContext *context, GL
     context->GenVertexArraysAPPLE = (PFNGLGENVERTEXARRAYSAPPLEPROC) load(userptr, "glGenVertexArraysAPPLE");
     context->IsVertexArrayAPPLE = (PFNGLISVERTEXARRAYAPPLEPROC) load(userptr, "glIsVertexArrayAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_vertex_array_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_vertex_array_range) return;
     context->FlushVertexArrayRangeAPPLE = (PFNGLFLUSHVERTEXARRAYRANGEAPPLEPROC) load(userptr, "glFlushVertexArrayRangeAPPLE");
     context->VertexArrayParameteriAPPLE = (PFNGLVERTEXARRAYPARAMETERIAPPLEPROC) load(userptr, "glVertexArrayParameteriAPPLE");
     context->VertexArrayRangeAPPLE = (PFNGLVERTEXARRAYRANGEAPPLEPROC) load(userptr, "glVertexArrayRangeAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_vertex_program_evaluators(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_vertex_program_evaluators) return;
     context->DisableVertexAttribAPPLE = (PFNGLDISABLEVERTEXATTRIBAPPLEPROC) load(userptr, "glDisableVertexAttribAPPLE");
@@ -1318,6 +1360,7 @@ static void glad_gl_load_GL_APPLE_vertex_program_evaluators(GladGLContext *conte
     context->MapVertexAttrib2dAPPLE = (PFNGLMAPVERTEXATTRIB2DAPPLEPROC) load(userptr, "glMapVertexAttrib2dAPPLE");
     context->MapVertexAttrib2fAPPLE = (PFNGLMAPVERTEXATTRIB2FAPPLEPROC) load(userptr, "glMapVertexAttrib2fAPPLE");
 }
+
 static void glad_gl_load_GL_ARB_ES2_compatibility(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_ES2_compatibility) return;
     context->ClearDepthf = (PFNGLCLEARDEPTHFPROC) load(userptr, "glClearDepthf");
@@ -1326,20 +1369,24 @@ static void glad_gl_load_GL_ARB_ES2_compatibility(GladGLContext *context, GLADus
     context->ReleaseShaderCompiler = (PFNGLRELEASESHADERCOMPILERPROC) load(userptr, "glReleaseShaderCompiler");
     context->ShaderBinary = (PFNGLSHADERBINARYPROC) load(userptr, "glShaderBinary");
 }
+
 static void glad_gl_load_GL_ARB_ES3_1_compatibility(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_ES3_1_compatibility) return;
     context->MemoryBarrierByRegion = (PFNGLMEMORYBARRIERBYREGIONPROC) load(userptr, "glMemoryBarrierByRegion");
 }
+
 static void glad_gl_load_GL_ARB_ES3_2_compatibility(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_ES3_2_compatibility) return;
     context->PrimitiveBoundingBoxARB = (PFNGLPRIMITIVEBOUNDINGBOXARBPROC) load(userptr, "glPrimitiveBoundingBoxARB");
 }
+
 static void glad_gl_load_GL_ARB_base_instance(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_base_instance) return;
     context->DrawArraysInstancedBaseInstance = (PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC) load(userptr, "glDrawArraysInstancedBaseInstance");
     context->DrawElementsInstancedBaseInstance = (PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC) load(userptr, "glDrawElementsInstancedBaseInstance");
     context->DrawElementsInstancedBaseVertexBaseInstance = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC) load(userptr, "glDrawElementsInstancedBaseVertexBaseInstance");
 }
+
 static void glad_gl_load_GL_ARB_bindless_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_bindless_texture) return;
     context->GetImageHandleARB = (PFNGLGETIMAGEHANDLEARBPROC) load(userptr, "glGetImageHandleARB");
@@ -1359,54 +1406,66 @@ static void glad_gl_load_GL_ARB_bindless_texture(GladGLContext *context, GLADuse
     context->VertexAttribL1ui64ARB = (PFNGLVERTEXATTRIBL1UI64ARBPROC) load(userptr, "glVertexAttribL1ui64ARB");
     context->VertexAttribL1ui64vARB = (PFNGLVERTEXATTRIBL1UI64VARBPROC) load(userptr, "glVertexAttribL1ui64vARB");
 }
+
 static void glad_gl_load_GL_ARB_blend_func_extended(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_blend_func_extended) return;
     context->BindFragDataLocationIndexed = (PFNGLBINDFRAGDATALOCATIONINDEXEDPROC) load(userptr, "glBindFragDataLocationIndexed");
     context->GetFragDataIndex = (PFNGLGETFRAGDATAINDEXPROC) load(userptr, "glGetFragDataIndex");
 }
+
 static void glad_gl_load_GL_ARB_buffer_storage(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_buffer_storage) return;
     context->BufferStorage = (PFNGLBUFFERSTORAGEPROC) load(userptr, "glBufferStorage");
 }
+
 static void glad_gl_load_GL_ARB_cl_event(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_cl_event) return;
     context->CreateSyncFromCLeventARB = (PFNGLCREATESYNCFROMCLEVENTARBPROC) load(userptr, "glCreateSyncFromCLeventARB");
 }
+
 static void glad_gl_load_GL_ARB_clear_buffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_clear_buffer_object) return;
     context->ClearBufferData = (PFNGLCLEARBUFFERDATAPROC) load(userptr, "glClearBufferData");
     context->ClearBufferSubData = (PFNGLCLEARBUFFERSUBDATAPROC) load(userptr, "glClearBufferSubData");
 }
+
 static void glad_gl_load_GL_ARB_clear_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_clear_texture) return;
     context->ClearTexImage = (PFNGLCLEARTEXIMAGEPROC) load(userptr, "glClearTexImage");
     context->ClearTexSubImage = (PFNGLCLEARTEXSUBIMAGEPROC) load(userptr, "glClearTexSubImage");
 }
+
 static void glad_gl_load_GL_ARB_clip_control(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_clip_control) return;
     context->ClipControl = (PFNGLCLIPCONTROLPROC) load(userptr, "glClipControl");
 }
+
 static void glad_gl_load_GL_ARB_color_buffer_float(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_color_buffer_float) return;
     context->ClampColorARB = (PFNGLCLAMPCOLORARBPROC) load(userptr, "glClampColorARB");
 }
+
 static void glad_gl_load_GL_ARB_compute_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_compute_shader) return;
     context->DispatchCompute = (PFNGLDISPATCHCOMPUTEPROC) load(userptr, "glDispatchCompute");
     context->DispatchComputeIndirect = (PFNGLDISPATCHCOMPUTEINDIRECTPROC) load(userptr, "glDispatchComputeIndirect");
 }
+
 static void glad_gl_load_GL_ARB_compute_variable_group_size(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_compute_variable_group_size) return;
     context->DispatchComputeGroupSizeARB = (PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC) load(userptr, "glDispatchComputeGroupSizeARB");
 }
+
 static void glad_gl_load_GL_ARB_copy_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_copy_buffer) return;
     context->CopyBufferSubData = (PFNGLCOPYBUFFERSUBDATAPROC) load(userptr, "glCopyBufferSubData");
 }
+
 static void glad_gl_load_GL_ARB_copy_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_copy_image) return;
     context->CopyImageSubData = (PFNGLCOPYIMAGESUBDATAPROC) load(userptr, "glCopyImageSubData");
 }
+
 static void glad_gl_load_GL_ARB_debug_output(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_debug_output) return;
     context->DebugMessageCallbackARB = (PFNGLDEBUGMESSAGECALLBACKARBPROC) load(userptr, "glDebugMessageCallbackARB");
@@ -1414,6 +1473,7 @@ static void glad_gl_load_GL_ARB_debug_output(GladGLContext *context, GLADuserptr
     context->DebugMessageInsertARB = (PFNGLDEBUGMESSAGEINSERTARBPROC) load(userptr, "glDebugMessageInsertARB");
     context->GetDebugMessageLogARB = (PFNGLGETDEBUGMESSAGELOGARBPROC) load(userptr, "glGetDebugMessageLogARB");
 }
+
 static void glad_gl_load_GL_ARB_direct_state_access(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_direct_state_access) return;
     context->BindTextureUnit = (PFNGLBINDTEXTUREUNITPROC) load(userptr, "glBindTextureUnit");
@@ -1514,10 +1574,12 @@ static void glad_gl_load_GL_ARB_direct_state_access(GladGLContext *context, GLAD
     context->VertexArrayVertexBuffer = (PFNGLVERTEXARRAYVERTEXBUFFERPROC) load(userptr, "glVertexArrayVertexBuffer");
     context->VertexArrayVertexBuffers = (PFNGLVERTEXARRAYVERTEXBUFFERSPROC) load(userptr, "glVertexArrayVertexBuffers");
 }
+
 static void glad_gl_load_GL_ARB_draw_buffers(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_draw_buffers) return;
     context->DrawBuffersARB = (PFNGLDRAWBUFFERSARBPROC) load(userptr, "glDrawBuffersARB");
 }
+
 static void glad_gl_load_GL_ARB_draw_buffers_blend(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_draw_buffers_blend) return;
     context->BlendEquationSeparateiARB = (PFNGLBLENDEQUATIONSEPARATEIARBPROC) load(userptr, "glBlendEquationSeparateiARB");
@@ -1525,6 +1587,7 @@ static void glad_gl_load_GL_ARB_draw_buffers_blend(GladGLContext *context, GLADu
     context->BlendFuncSeparateiARB = (PFNGLBLENDFUNCSEPARATEIARBPROC) load(userptr, "glBlendFuncSeparateiARB");
     context->BlendFunciARB = (PFNGLBLENDFUNCIARBPROC) load(userptr, "glBlendFunciARB");
 }
+
 static void glad_gl_load_GL_ARB_draw_elements_base_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_draw_elements_base_vertex) return;
     context->DrawElementsBaseVertex = (PFNGLDRAWELEMENTSBASEVERTEXPROC) load(userptr, "glDrawElementsBaseVertex");
@@ -1532,16 +1595,19 @@ static void glad_gl_load_GL_ARB_draw_elements_base_vertex(GladGLContext *context
     context->DrawRangeElementsBaseVertex = (PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC) load(userptr, "glDrawRangeElementsBaseVertex");
     context->MultiDrawElementsBaseVertex = (PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC) load(userptr, "glMultiDrawElementsBaseVertex");
 }
+
 static void glad_gl_load_GL_ARB_draw_indirect(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_draw_indirect) return;
     context->DrawArraysIndirect = (PFNGLDRAWARRAYSINDIRECTPROC) load(userptr, "glDrawArraysIndirect");
     context->DrawElementsIndirect = (PFNGLDRAWELEMENTSINDIRECTPROC) load(userptr, "glDrawElementsIndirect");
 }
+
 static void glad_gl_load_GL_ARB_draw_instanced(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_draw_instanced) return;
     context->DrawArraysInstancedARB = (PFNGLDRAWARRAYSINSTANCEDARBPROC) load(userptr, "glDrawArraysInstancedARB");
     context->DrawElementsInstancedARB = (PFNGLDRAWELEMENTSINSTANCEDARBPROC) load(userptr, "glDrawElementsInstancedARB");
 }
+
 static void glad_gl_load_GL_ARB_fragment_program(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_fragment_program) return;
     context->BindProgramARB = (PFNGLBINDPROGRAMARBPROC) load(userptr, "glBindProgramARB");
@@ -1564,11 +1630,13 @@ static void glad_gl_load_GL_ARB_fragment_program(GladGLContext *context, GLADuse
     context->ProgramLocalParameter4fvARB = (PFNGLPROGRAMLOCALPARAMETER4FVARBPROC) load(userptr, "glProgramLocalParameter4fvARB");
     context->ProgramStringARB = (PFNGLPROGRAMSTRINGARBPROC) load(userptr, "glProgramStringARB");
 }
+
 static void glad_gl_load_GL_ARB_framebuffer_no_attachments(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_framebuffer_no_attachments) return;
     context->FramebufferParameteri = (PFNGLFRAMEBUFFERPARAMETERIPROC) load(userptr, "glFramebufferParameteri");
     context->GetFramebufferParameteriv = (PFNGLGETFRAMEBUFFERPARAMETERIVPROC) load(userptr, "glGetFramebufferParameteriv");
 }
+
 static void glad_gl_load_GL_ARB_framebuffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_framebuffer_object) return;
     context->BindFramebuffer = (PFNGLBINDFRAMEBUFFERPROC) load(userptr, "glBindFramebuffer");
@@ -1592,6 +1660,7 @@ static void glad_gl_load_GL_ARB_framebuffer_object(GladGLContext *context, GLADu
     context->RenderbufferStorage = (PFNGLRENDERBUFFERSTORAGEPROC) load(userptr, "glRenderbufferStorage");
     context->RenderbufferStorageMultisample = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC) load(userptr, "glRenderbufferStorageMultisample");
 }
+
 static void glad_gl_load_GL_ARB_geometry_shader4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_geometry_shader4) return;
     context->FramebufferTextureARB = (PFNGLFRAMEBUFFERTEXTUREARBPROC) load(userptr, "glFramebufferTextureARB");
@@ -1599,21 +1668,25 @@ static void glad_gl_load_GL_ARB_geometry_shader4(GladGLContext *context, GLADuse
     context->FramebufferTextureLayerARB = (PFNGLFRAMEBUFFERTEXTURELAYERARBPROC) load(userptr, "glFramebufferTextureLayerARB");
     context->ProgramParameteriARB = (PFNGLPROGRAMPARAMETERIARBPROC) load(userptr, "glProgramParameteriARB");
 }
+
 static void glad_gl_load_GL_ARB_get_program_binary(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_get_program_binary) return;
     context->GetProgramBinary = (PFNGLGETPROGRAMBINARYPROC) load(userptr, "glGetProgramBinary");
     context->ProgramBinary = (PFNGLPROGRAMBINARYPROC) load(userptr, "glProgramBinary");
     context->ProgramParameteri = (PFNGLPROGRAMPARAMETERIPROC) load(userptr, "glProgramParameteri");
 }
+
 static void glad_gl_load_GL_ARB_get_texture_sub_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_get_texture_sub_image) return;
     context->GetCompressedTextureSubImage = (PFNGLGETCOMPRESSEDTEXTURESUBIMAGEPROC) load(userptr, "glGetCompressedTextureSubImage");
     context->GetTextureSubImage = (PFNGLGETTEXTURESUBIMAGEPROC) load(userptr, "glGetTextureSubImage");
 }
+
 static void glad_gl_load_GL_ARB_gl_spirv(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_gl_spirv) return;
     context->SpecializeShaderARB = (PFNGLSPECIALIZESHADERARBPROC) load(userptr, "glSpecializeShaderARB");
 }
+
 static void glad_gl_load_GL_ARB_gpu_shader_fp64(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_gpu_shader_fp64) return;
     context->GetUniformdv = (PFNGLGETUNIFORMDVPROC) load(userptr, "glGetUniformdv");
@@ -1635,6 +1708,7 @@ static void glad_gl_load_GL_ARB_gpu_shader_fp64(GladGLContext *context, GLADuser
     context->UniformMatrix4x2dv = (PFNGLUNIFORMMATRIX4X2DVPROC) load(userptr, "glUniformMatrix4x2dv");
     context->UniformMatrix4x3dv = (PFNGLUNIFORMMATRIX4X3DVPROC) load(userptr, "glUniformMatrix4x3dv");
 }
+
 static void glad_gl_load_GL_ARB_gpu_shader_int64(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_gpu_shader_int64) return;
     context->GetUniformi64vARB = (PFNGLGETUNIFORMI64VARBPROC) load(userptr, "glGetUniformi64vARB");
@@ -1674,28 +1748,34 @@ static void glad_gl_load_GL_ARB_gpu_shader_int64(GladGLContext *context, GLADuse
     context->Uniform4ui64ARB = (PFNGLUNIFORM4UI64ARBPROC) load(userptr, "glUniform4ui64ARB");
     context->Uniform4ui64vARB = (PFNGLUNIFORM4UI64VARBPROC) load(userptr, "glUniform4ui64vARB");
 }
+
 static void glad_gl_load_GL_ARB_imaging(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_imaging) return;
     context->BlendColor = (PFNGLBLENDCOLORPROC) load(userptr, "glBlendColor");
     context->BlendEquation = (PFNGLBLENDEQUATIONPROC) load(userptr, "glBlendEquation");
 }
+
 static void glad_gl_load_GL_ARB_indirect_parameters(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_indirect_parameters) return;
     context->MultiDrawArraysIndirectCountARB = (PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC) load(userptr, "glMultiDrawArraysIndirectCountARB");
     context->MultiDrawElementsIndirectCountARB = (PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC) load(userptr, "glMultiDrawElementsIndirectCountARB");
 }
+
 static void glad_gl_load_GL_ARB_instanced_arrays(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_instanced_arrays) return;
     context->VertexAttribDivisorARB = (PFNGLVERTEXATTRIBDIVISORARBPROC) load(userptr, "glVertexAttribDivisorARB");
 }
+
 static void glad_gl_load_GL_ARB_internalformat_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_internalformat_query) return;
     context->GetInternalformativ = (PFNGLGETINTERNALFORMATIVPROC) load(userptr, "glGetInternalformativ");
 }
+
 static void glad_gl_load_GL_ARB_internalformat_query2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_internalformat_query2) return;
     context->GetInternalformati64v = (PFNGLGETINTERNALFORMATI64VPROC) load(userptr, "glGetInternalformati64v");
 }
+
 static void glad_gl_load_GL_ARB_invalidate_subdata(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_invalidate_subdata) return;
     context->InvalidateBufferData = (PFNGLINVALIDATEBUFFERDATAPROC) load(userptr, "glInvalidateBufferData");
@@ -1705,11 +1785,13 @@ static void glad_gl_load_GL_ARB_invalidate_subdata(GladGLContext *context, GLADu
     context->InvalidateTexImage = (PFNGLINVALIDATETEXIMAGEPROC) load(userptr, "glInvalidateTexImage");
     context->InvalidateTexSubImage = (PFNGLINVALIDATETEXSUBIMAGEPROC) load(userptr, "glInvalidateTexSubImage");
 }
+
 static void glad_gl_load_GL_ARB_map_buffer_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_map_buffer_range) return;
     context->FlushMappedBufferRange = (PFNGLFLUSHMAPPEDBUFFERRANGEPROC) load(userptr, "glFlushMappedBufferRange");
     context->MapBufferRange = (PFNGLMAPBUFFERRANGEPROC) load(userptr, "glMapBufferRange");
 }
+
 static void glad_gl_load_GL_ARB_matrix_palette(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_matrix_palette) return;
     context->CurrentPaletteMatrixARB = (PFNGLCURRENTPALETTEMATRIXARBPROC) load(userptr, "glCurrentPaletteMatrixARB");
@@ -1718,6 +1800,7 @@ static void glad_gl_load_GL_ARB_matrix_palette(GladGLContext *context, GLADuserp
     context->MatrixIndexuivARB = (PFNGLMATRIXINDEXUIVARBPROC) load(userptr, "glMatrixIndexuivARB");
     context->MatrixIndexusvARB = (PFNGLMATRIXINDEXUSVARBPROC) load(userptr, "glMatrixIndexusvARB");
 }
+
 static void glad_gl_load_GL_ARB_multi_bind(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_multi_bind) return;
     context->BindBuffersBase = (PFNGLBINDBUFFERSBASEPROC) load(userptr, "glBindBuffersBase");
@@ -1727,15 +1810,18 @@ static void glad_gl_load_GL_ARB_multi_bind(GladGLContext *context, GLADuserptrlo
     context->BindTextures = (PFNGLBINDTEXTURESPROC) load(userptr, "glBindTextures");
     context->BindVertexBuffers = (PFNGLBINDVERTEXBUFFERSPROC) load(userptr, "glBindVertexBuffers");
 }
+
 static void glad_gl_load_GL_ARB_multi_draw_indirect(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_multi_draw_indirect) return;
     context->MultiDrawArraysIndirect = (PFNGLMULTIDRAWARRAYSINDIRECTPROC) load(userptr, "glMultiDrawArraysIndirect");
     context->MultiDrawElementsIndirect = (PFNGLMULTIDRAWELEMENTSINDIRECTPROC) load(userptr, "glMultiDrawElementsIndirect");
 }
+
 static void glad_gl_load_GL_ARB_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_multisample) return;
     context->SampleCoverageARB = (PFNGLSAMPLECOVERAGEARBPROC) load(userptr, "glSampleCoverageARB");
 }
+
 static void glad_gl_load_GL_ARB_multitexture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_multitexture) return;
     context->ActiveTextureARB = (PFNGLACTIVETEXTUREARBPROC) load(userptr, "glActiveTextureARB");
@@ -1773,6 +1859,7 @@ static void glad_gl_load_GL_ARB_multitexture(GladGLContext *context, GLADuserptr
     context->MultiTexCoord4sARB = (PFNGLMULTITEXCOORD4SARBPROC) load(userptr, "glMultiTexCoord4sARB");
     context->MultiTexCoord4svARB = (PFNGLMULTITEXCOORD4SVARBPROC) load(userptr, "glMultiTexCoord4svARB");
 }
+
 static void glad_gl_load_GL_ARB_occlusion_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_occlusion_query) return;
     context->BeginQueryARB = (PFNGLBEGINQUERYARBPROC) load(userptr, "glBeginQueryARB");
@@ -1784,19 +1871,23 @@ static void glad_gl_load_GL_ARB_occlusion_query(GladGLContext *context, GLADuser
     context->GetQueryivARB = (PFNGLGETQUERYIVARBPROC) load(userptr, "glGetQueryivARB");
     context->IsQueryARB = (PFNGLISQUERYARBPROC) load(userptr, "glIsQueryARB");
 }
+
 static void glad_gl_load_GL_ARB_parallel_shader_compile(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_parallel_shader_compile) return;
     context->MaxShaderCompilerThreadsARB = (PFNGLMAXSHADERCOMPILERTHREADSARBPROC) load(userptr, "glMaxShaderCompilerThreadsARB");
 }
+
 static void glad_gl_load_GL_ARB_point_parameters(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_point_parameters) return;
     context->PointParameterfARB = (PFNGLPOINTPARAMETERFARBPROC) load(userptr, "glPointParameterfARB");
     context->PointParameterfvARB = (PFNGLPOINTPARAMETERFVARBPROC) load(userptr, "glPointParameterfvARB");
 }
+
 static void glad_gl_load_GL_ARB_polygon_offset_clamp(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_polygon_offset_clamp) return;
     context->PolygonOffsetClamp = (PFNGLPOLYGONOFFSETCLAMPPROC) load(userptr, "glPolygonOffsetClamp");
 }
+
 static void glad_gl_load_GL_ARB_program_interface_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_program_interface_query) return;
     context->GetProgramInterfaceiv = (PFNGLGETPROGRAMINTERFACEIVPROC) load(userptr, "glGetProgramInterfaceiv");
@@ -1806,10 +1897,12 @@ static void glad_gl_load_GL_ARB_program_interface_query(GladGLContext *context, 
     context->GetProgramResourceName = (PFNGLGETPROGRAMRESOURCENAMEPROC) load(userptr, "glGetProgramResourceName");
     context->GetProgramResourceiv = (PFNGLGETPROGRAMRESOURCEIVPROC) load(userptr, "glGetProgramResourceiv");
 }
+
 static void glad_gl_load_GL_ARB_provoking_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_provoking_vertex) return;
     context->ProvokingVertex = (PFNGLPROVOKINGVERTEXPROC) load(userptr, "glProvokingVertex");
 }
+
 static void glad_gl_load_GL_ARB_robustness(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_robustness) return;
     context->GetGraphicsResetStatusARB = (PFNGLGETGRAPHICSRESETSTATUSARBPROC) load(userptr, "glGetGraphicsResetStatusARB");
@@ -1821,16 +1914,19 @@ static void glad_gl_load_GL_ARB_robustness(GladGLContext *context, GLADuserptrlo
     context->GetnUniformuivARB = (PFNGLGETNUNIFORMUIVARBPROC) load(userptr, "glGetnUniformuivARB");
     context->ReadnPixelsARB = (PFNGLREADNPIXELSARBPROC) load(userptr, "glReadnPixelsARB");
 }
+
 static void glad_gl_load_GL_ARB_sample_locations(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_sample_locations) return;
     context->EvaluateDepthValuesARB = (PFNGLEVALUATEDEPTHVALUESARBPROC) load(userptr, "glEvaluateDepthValuesARB");
     context->FramebufferSampleLocationsfvARB = (PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC) load(userptr, "glFramebufferSampleLocationsfvARB");
     context->NamedFramebufferSampleLocationsfvARB = (PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC) load(userptr, "glNamedFramebufferSampleLocationsfvARB");
 }
+
 static void glad_gl_load_GL_ARB_sample_shading(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_sample_shading) return;
     context->MinSampleShadingARB = (PFNGLMINSAMPLESHADINGARBPROC) load(userptr, "glMinSampleShadingARB");
 }
+
 static void glad_gl_load_GL_ARB_sampler_objects(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_sampler_objects) return;
     context->BindSampler = (PFNGLBINDSAMPLERPROC) load(userptr, "glBindSampler");
@@ -1848,6 +1944,7 @@ static void glad_gl_load_GL_ARB_sampler_objects(GladGLContext *context, GLADuser
     context->SamplerParameteri = (PFNGLSAMPLERPARAMETERIPROC) load(userptr, "glSamplerParameteri");
     context->SamplerParameteriv = (PFNGLSAMPLERPARAMETERIVPROC) load(userptr, "glSamplerParameteriv");
 }
+
 static void glad_gl_load_GL_ARB_separate_shader_objects(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_separate_shader_objects) return;
     context->ActiveShaderProgram = (PFNGLACTIVESHADERPROGRAMPROC) load(userptr, "glActiveShaderProgram");
@@ -1912,15 +2009,18 @@ static void glad_gl_load_GL_ARB_separate_shader_objects(GladGLContext *context, 
     context->UseProgramStages = (PFNGLUSEPROGRAMSTAGESPROC) load(userptr, "glUseProgramStages");
     context->ValidateProgramPipeline = (PFNGLVALIDATEPROGRAMPIPELINEPROC) load(userptr, "glValidateProgramPipeline");
 }
+
 static void glad_gl_load_GL_ARB_shader_atomic_counters(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_shader_atomic_counters) return;
     context->GetActiveAtomicCounterBufferiv = (PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC) load(userptr, "glGetActiveAtomicCounterBufferiv");
 }
+
 static void glad_gl_load_GL_ARB_shader_image_load_store(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_shader_image_load_store) return;
     context->BindImageTexture = (PFNGLBINDIMAGETEXTUREPROC) load(userptr, "glBindImageTexture");
     context->MemoryBarrier = (PFNGLMEMORYBARRIERPROC) load(userptr, "glMemoryBarrier");
 }
+
 static void glad_gl_load_GL_ARB_shader_objects(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_shader_objects) return;
     context->AttachObjectARB = (PFNGLATTACHOBJECTARBPROC) load(userptr, "glAttachObjectARB");
@@ -1963,10 +2063,12 @@ static void glad_gl_load_GL_ARB_shader_objects(GladGLContext *context, GLADuserp
     context->UseProgramObjectARB = (PFNGLUSEPROGRAMOBJECTARBPROC) load(userptr, "glUseProgramObjectARB");
     context->ValidateProgramARB = (PFNGLVALIDATEPROGRAMARBPROC) load(userptr, "glValidateProgramARB");
 }
+
 static void glad_gl_load_GL_ARB_shader_storage_buffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_shader_storage_buffer_object) return;
     context->ShaderStorageBlockBinding = (PFNGLSHADERSTORAGEBLOCKBINDINGPROC) load(userptr, "glShaderStorageBlockBinding");
 }
+
 static void glad_gl_load_GL_ARB_shader_subroutine(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_shader_subroutine) return;
     context->GetActiveSubroutineName = (PFNGLGETACTIVESUBROUTINENAMEPROC) load(userptr, "glGetActiveSubroutineName");
@@ -1978,6 +2080,7 @@ static void glad_gl_load_GL_ARB_shader_subroutine(GladGLContext *context, GLADus
     context->GetUniformSubroutineuiv = (PFNGLGETUNIFORMSUBROUTINEUIVPROC) load(userptr, "glGetUniformSubroutineuiv");
     context->UniformSubroutinesuiv = (PFNGLUNIFORMSUBROUTINESUIVPROC) load(userptr, "glUniformSubroutinesuiv");
 }
+
 static void glad_gl_load_GL_ARB_shading_language_include(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_shading_language_include) return;
     context->CompileShaderIncludeARB = (PFNGLCOMPILESHADERINCLUDEARBPROC) load(userptr, "glCompileShaderIncludeARB");
@@ -1987,16 +2090,19 @@ static void glad_gl_load_GL_ARB_shading_language_include(GladGLContext *context,
     context->IsNamedStringARB = (PFNGLISNAMEDSTRINGARBPROC) load(userptr, "glIsNamedStringARB");
     context->NamedStringARB = (PFNGLNAMEDSTRINGARBPROC) load(userptr, "glNamedStringARB");
 }
+
 static void glad_gl_load_GL_ARB_sparse_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_sparse_buffer) return;
     context->BufferPageCommitmentARB = (PFNGLBUFFERPAGECOMMITMENTARBPROC) load(userptr, "glBufferPageCommitmentARB");
     context->NamedBufferPageCommitmentARB = (PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC) load(userptr, "glNamedBufferPageCommitmentARB");
     context->NamedBufferPageCommitmentEXT = (PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC) load(userptr, "glNamedBufferPageCommitmentEXT");
 }
+
 static void glad_gl_load_GL_ARB_sparse_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_sparse_texture) return;
     context->TexPageCommitmentARB = (PFNGLTEXPAGECOMMITMENTARBPROC) load(userptr, "glTexPageCommitmentARB");
 }
+
 static void glad_gl_load_GL_ARB_sync(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_sync) return;
     context->ClientWaitSync = (PFNGLCLIENTWAITSYNCPROC) load(userptr, "glClientWaitSync");
@@ -2007,23 +2113,28 @@ static void glad_gl_load_GL_ARB_sync(GladGLContext *context, GLADuserptrloadfunc
     context->IsSync = (PFNGLISSYNCPROC) load(userptr, "glIsSync");
     context->WaitSync = (PFNGLWAITSYNCPROC) load(userptr, "glWaitSync");
 }
+
 static void glad_gl_load_GL_ARB_tessellation_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_tessellation_shader) return;
     context->PatchParameterfv = (PFNGLPATCHPARAMETERFVPROC) load(userptr, "glPatchParameterfv");
     context->PatchParameteri = (PFNGLPATCHPARAMETERIPROC) load(userptr, "glPatchParameteri");
 }
+
 static void glad_gl_load_GL_ARB_texture_barrier(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_texture_barrier) return;
     context->TextureBarrier = (PFNGLTEXTUREBARRIERPROC) load(userptr, "glTextureBarrier");
 }
+
 static void glad_gl_load_GL_ARB_texture_buffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_texture_buffer_object) return;
     context->TexBufferARB = (PFNGLTEXBUFFERARBPROC) load(userptr, "glTexBufferARB");
 }
+
 static void glad_gl_load_GL_ARB_texture_buffer_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_texture_buffer_range) return;
     context->TexBufferRange = (PFNGLTEXBUFFERRANGEPROC) load(userptr, "glTexBufferRange");
 }
+
 static void glad_gl_load_GL_ARB_texture_compression(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_texture_compression) return;
     context->CompressedTexImage1DARB = (PFNGLCOMPRESSEDTEXIMAGE1DARBPROC) load(userptr, "glCompressedTexImage1DARB");
@@ -2034,6 +2145,7 @@ static void glad_gl_load_GL_ARB_texture_compression(GladGLContext *context, GLAD
     context->CompressedTexSubImage3DARB = (PFNGLCOMPRESSEDTEXSUBIMAGE3DARBPROC) load(userptr, "glCompressedTexSubImage3DARB");
     context->GetCompressedTexImageARB = (PFNGLGETCOMPRESSEDTEXIMAGEARBPROC) load(userptr, "glGetCompressedTexImageARB");
 }
+
 static void glad_gl_load_GL_ARB_texture_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_texture_multisample) return;
     context->GetMultisamplefv = (PFNGLGETMULTISAMPLEFVPROC) load(userptr, "glGetMultisamplefv");
@@ -2041,27 +2153,32 @@ static void glad_gl_load_GL_ARB_texture_multisample(GladGLContext *context, GLAD
     context->TexImage2DMultisample = (PFNGLTEXIMAGE2DMULTISAMPLEPROC) load(userptr, "glTexImage2DMultisample");
     context->TexImage3DMultisample = (PFNGLTEXIMAGE3DMULTISAMPLEPROC) load(userptr, "glTexImage3DMultisample");
 }
+
 static void glad_gl_load_GL_ARB_texture_storage(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_texture_storage) return;
     context->TexStorage1D = (PFNGLTEXSTORAGE1DPROC) load(userptr, "glTexStorage1D");
     context->TexStorage2D = (PFNGLTEXSTORAGE2DPROC) load(userptr, "glTexStorage2D");
     context->TexStorage3D = (PFNGLTEXSTORAGE3DPROC) load(userptr, "glTexStorage3D");
 }
+
 static void glad_gl_load_GL_ARB_texture_storage_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_texture_storage_multisample) return;
     context->TexStorage2DMultisample = (PFNGLTEXSTORAGE2DMULTISAMPLEPROC) load(userptr, "glTexStorage2DMultisample");
     context->TexStorage3DMultisample = (PFNGLTEXSTORAGE3DMULTISAMPLEPROC) load(userptr, "glTexStorage3DMultisample");
 }
+
 static void glad_gl_load_GL_ARB_texture_view(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_texture_view) return;
     context->TextureView = (PFNGLTEXTUREVIEWPROC) load(userptr, "glTextureView");
 }
+
 static void glad_gl_load_GL_ARB_timer_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_timer_query) return;
     context->GetQueryObjecti64v = (PFNGLGETQUERYOBJECTI64VPROC) load(userptr, "glGetQueryObjecti64v");
     context->GetQueryObjectui64v = (PFNGLGETQUERYOBJECTUI64VPROC) load(userptr, "glGetQueryObjectui64v");
     context->QueryCounter = (PFNGLQUERYCOUNTERPROC) load(userptr, "glQueryCounter");
 }
+
 static void glad_gl_load_GL_ARB_transform_feedback2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_transform_feedback2) return;
     context->BindTransformFeedback = (PFNGLBINDTRANSFORMFEEDBACKPROC) load(userptr, "glBindTransformFeedback");
@@ -2072,6 +2189,7 @@ static void glad_gl_load_GL_ARB_transform_feedback2(GladGLContext *context, GLAD
     context->PauseTransformFeedback = (PFNGLPAUSETRANSFORMFEEDBACKPROC) load(userptr, "glPauseTransformFeedback");
     context->ResumeTransformFeedback = (PFNGLRESUMETRANSFORMFEEDBACKPROC) load(userptr, "glResumeTransformFeedback");
 }
+
 static void glad_gl_load_GL_ARB_transform_feedback3(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_transform_feedback3) return;
     context->BeginQueryIndexed = (PFNGLBEGINQUERYINDEXEDPROC) load(userptr, "glBeginQueryIndexed");
@@ -2079,11 +2197,13 @@ static void glad_gl_load_GL_ARB_transform_feedback3(GladGLContext *context, GLAD
     context->EndQueryIndexed = (PFNGLENDQUERYINDEXEDPROC) load(userptr, "glEndQueryIndexed");
     context->GetQueryIndexediv = (PFNGLGETQUERYINDEXEDIVPROC) load(userptr, "glGetQueryIndexediv");
 }
+
 static void glad_gl_load_GL_ARB_transform_feedback_instanced(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_transform_feedback_instanced) return;
     context->DrawTransformFeedbackInstanced = (PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC) load(userptr, "glDrawTransformFeedbackInstanced");
     context->DrawTransformFeedbackStreamInstanced = (PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC) load(userptr, "glDrawTransformFeedbackStreamInstanced");
 }
+
 static void glad_gl_load_GL_ARB_transpose_matrix(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_transpose_matrix) return;
     context->LoadTransposeMatrixdARB = (PFNGLLOADTRANSPOSEMATRIXDARBPROC) load(userptr, "glLoadTransposeMatrixdARB");
@@ -2091,6 +2211,7 @@ static void glad_gl_load_GL_ARB_transpose_matrix(GladGLContext *context, GLADuse
     context->MultTransposeMatrixdARB = (PFNGLMULTTRANSPOSEMATRIXDARBPROC) load(userptr, "glMultTransposeMatrixdARB");
     context->MultTransposeMatrixfARB = (PFNGLMULTTRANSPOSEMATRIXFARBPROC) load(userptr, "glMultTransposeMatrixfARB");
 }
+
 static void glad_gl_load_GL_ARB_uniform_buffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_uniform_buffer_object) return;
     context->BindBufferBase = (PFNGLBINDBUFFERBASEPROC) load(userptr, "glBindBufferBase");
@@ -2104,6 +2225,7 @@ static void glad_gl_load_GL_ARB_uniform_buffer_object(GladGLContext *context, GL
     context->GetUniformIndices = (PFNGLGETUNIFORMINDICESPROC) load(userptr, "glGetUniformIndices");
     context->UniformBlockBinding = (PFNGLUNIFORMBLOCKBINDINGPROC) load(userptr, "glUniformBlockBinding");
 }
+
 static void glad_gl_load_GL_ARB_vertex_array_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_vertex_array_object) return;
     context->BindVertexArray = (PFNGLBINDVERTEXARRAYPROC) load(userptr, "glBindVertexArray");
@@ -2111,6 +2233,7 @@ static void glad_gl_load_GL_ARB_vertex_array_object(GladGLContext *context, GLAD
     context->GenVertexArrays = (PFNGLGENVERTEXARRAYSPROC) load(userptr, "glGenVertexArrays");
     context->IsVertexArray = (PFNGLISVERTEXARRAYPROC) load(userptr, "glIsVertexArray");
 }
+
 static void glad_gl_load_GL_ARB_vertex_attrib_64bit(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_vertex_attrib_64bit) return;
     context->GetVertexAttribLdv = (PFNGLGETVERTEXATTRIBLDVPROC) load(userptr, "glGetVertexAttribLdv");
@@ -2124,6 +2247,7 @@ static void glad_gl_load_GL_ARB_vertex_attrib_64bit(GladGLContext *context, GLAD
     context->VertexAttribL4dv = (PFNGLVERTEXATTRIBL4DVPROC) load(userptr, "glVertexAttribL4dv");
     context->VertexAttribLPointer = (PFNGLVERTEXATTRIBLPOINTERPROC) load(userptr, "glVertexAttribLPointer");
 }
+
 static void glad_gl_load_GL_ARB_vertex_attrib_binding(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_vertex_attrib_binding) return;
     context->BindVertexBuffer = (PFNGLBINDVERTEXBUFFERPROC) load(userptr, "glBindVertexBuffer");
@@ -2133,6 +2257,7 @@ static void glad_gl_load_GL_ARB_vertex_attrib_binding(GladGLContext *context, GL
     context->VertexAttribLFormat = (PFNGLVERTEXATTRIBLFORMATPROC) load(userptr, "glVertexAttribLFormat");
     context->VertexBindingDivisor = (PFNGLVERTEXBINDINGDIVISORPROC) load(userptr, "glVertexBindingDivisor");
 }
+
 static void glad_gl_load_GL_ARB_vertex_blend(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_vertex_blend) return;
     context->VertexBlendARB = (PFNGLVERTEXBLENDARBPROC) load(userptr, "glVertexBlendARB");
@@ -2146,6 +2271,7 @@ static void glad_gl_load_GL_ARB_vertex_blend(GladGLContext *context, GLADuserptr
     context->WeightuivARB = (PFNGLWEIGHTUIVARBPROC) load(userptr, "glWeightuivARB");
     context->WeightusvARB = (PFNGLWEIGHTUSVARBPROC) load(userptr, "glWeightusvARB");
 }
+
 static void glad_gl_load_GL_ARB_vertex_buffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_vertex_buffer_object) return;
     context->BindBufferARB = (PFNGLBINDBUFFERARBPROC) load(userptr, "glBindBufferARB");
@@ -2160,6 +2286,7 @@ static void glad_gl_load_GL_ARB_vertex_buffer_object(GladGLContext *context, GLA
     context->MapBufferARB = (PFNGLMAPBUFFERARBPROC) load(userptr, "glMapBufferARB");
     context->UnmapBufferARB = (PFNGLUNMAPBUFFERARBPROC) load(userptr, "glUnmapBufferARB");
 }
+
 static void glad_gl_load_GL_ARB_vertex_program(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_vertex_program) return;
     context->BindProgramARB = (PFNGLBINDPROGRAMARBPROC) load(userptr, "glBindProgramARB");
@@ -2225,6 +2352,7 @@ static void glad_gl_load_GL_ARB_vertex_program(GladGLContext *context, GLADuserp
     context->VertexAttrib4usvARB = (PFNGLVERTEXATTRIB4USVARBPROC) load(userptr, "glVertexAttrib4usvARB");
     context->VertexAttribPointerARB = (PFNGLVERTEXATTRIBPOINTERARBPROC) load(userptr, "glVertexAttribPointerARB");
 }
+
 static void glad_gl_load_GL_ARB_vertex_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_vertex_shader) return;
     context->BindAttribLocationARB = (PFNGLBINDATTRIBLOCATIONARBPROC) load(userptr, "glBindAttribLocationARB");
@@ -2274,6 +2402,7 @@ static void glad_gl_load_GL_ARB_vertex_shader(GladGLContext *context, GLADuserpt
     context->VertexAttrib4usvARB = (PFNGLVERTEXATTRIB4USVARBPROC) load(userptr, "glVertexAttrib4usvARB");
     context->VertexAttribPointerARB = (PFNGLVERTEXATTRIBPOINTERARBPROC) load(userptr, "glVertexAttribPointerARB");
 }
+
 static void glad_gl_load_GL_ARB_vertex_type_2_10_10_10_rev(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_vertex_type_2_10_10_10_rev) return;
     context->VertexAttribP1ui = (PFNGLVERTEXATTRIBP1UIPROC) load(userptr, "glVertexAttribP1ui");
@@ -2285,6 +2414,7 @@ static void glad_gl_load_GL_ARB_vertex_type_2_10_10_10_rev(GladGLContext *contex
     context->VertexAttribP4ui = (PFNGLVERTEXATTRIBP4UIPROC) load(userptr, "glVertexAttribP4ui");
     context->VertexAttribP4uiv = (PFNGLVERTEXATTRIBP4UIVPROC) load(userptr, "glVertexAttribP4uiv");
 }
+
 static void glad_gl_load_GL_ARB_viewport_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_viewport_array) return;
     context->DepthRangeArraydvNV = (PFNGLDEPTHRANGEARRAYDVNVPROC) load(userptr, "glDepthRangeArraydvNV");
@@ -2300,6 +2430,7 @@ static void glad_gl_load_GL_ARB_viewport_array(GladGLContext *context, GLADuserp
     context->ViewportIndexedf = (PFNGLVIEWPORTINDEXEDFPROC) load(userptr, "glViewportIndexedf");
     context->ViewportIndexedfv = (PFNGLVIEWPORTINDEXEDFVPROC) load(userptr, "glViewportIndexedfv");
 }
+
 static void glad_gl_load_GL_ARB_window_pos(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARB_window_pos) return;
     context->WindowPos2dARB = (PFNGLWINDOWPOS2DARBPROC) load(userptr, "glWindowPos2dARB");
@@ -2319,16 +2450,19 @@ static void glad_gl_load_GL_ARB_window_pos(GladGLContext *context, GLADuserptrlo
     context->WindowPos3sARB = (PFNGLWINDOWPOS3SARBPROC) load(userptr, "glWindowPos3sARB");
     context->WindowPos3svARB = (PFNGLWINDOWPOS3SVARBPROC) load(userptr, "glWindowPos3svARB");
 }
+
 static void glad_gl_load_GL_ATI_draw_buffers(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_draw_buffers) return;
     context->DrawBuffersATI = (PFNGLDRAWBUFFERSATIPROC) load(userptr, "glDrawBuffersATI");
 }
+
 static void glad_gl_load_GL_ATI_element_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_element_array) return;
     context->DrawElementArrayATI = (PFNGLDRAWELEMENTARRAYATIPROC) load(userptr, "glDrawElementArrayATI");
     context->DrawRangeElementArrayATI = (PFNGLDRAWRANGEELEMENTARRAYATIPROC) load(userptr, "glDrawRangeElementArrayATI");
     context->ElementPointerATI = (PFNGLELEMENTPOINTERATIPROC) load(userptr, "glElementPointerATI");
 }
+
 static void glad_gl_load_GL_ATI_envmap_bumpmap(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_envmap_bumpmap) return;
     context->GetTexBumpParameterfvATI = (PFNGLGETTEXBUMPPARAMETERFVATIPROC) load(userptr, "glGetTexBumpParameterfvATI");
@@ -2336,6 +2470,7 @@ static void glad_gl_load_GL_ATI_envmap_bumpmap(GladGLContext *context, GLADuserp
     context->TexBumpParameterfvATI = (PFNGLTEXBUMPPARAMETERFVATIPROC) load(userptr, "glTexBumpParameterfvATI");
     context->TexBumpParameterivATI = (PFNGLTEXBUMPPARAMETERIVATIPROC) load(userptr, "glTexBumpParameterivATI");
 }
+
 static void glad_gl_load_GL_ATI_fragment_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_fragment_shader) return;
     context->AlphaFragmentOp1ATI = (PFNGLALPHAFRAGMENTOP1ATIPROC) load(userptr, "glAlphaFragmentOp1ATI");
@@ -2353,21 +2488,25 @@ static void glad_gl_load_GL_ATI_fragment_shader(GladGLContext *context, GLADuser
     context->SampleMapATI = (PFNGLSAMPLEMAPATIPROC) load(userptr, "glSampleMapATI");
     context->SetFragmentShaderConstantATI = (PFNGLSETFRAGMENTSHADERCONSTANTATIPROC) load(userptr, "glSetFragmentShaderConstantATI");
 }
+
 static void glad_gl_load_GL_ATI_map_object_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_map_object_buffer) return;
     context->MapObjectBufferATI = (PFNGLMAPOBJECTBUFFERATIPROC) load(userptr, "glMapObjectBufferATI");
     context->UnmapObjectBufferATI = (PFNGLUNMAPOBJECTBUFFERATIPROC) load(userptr, "glUnmapObjectBufferATI");
 }
+
 static void glad_gl_load_GL_ATI_pn_triangles(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_pn_triangles) return;
     context->PNTrianglesfATI = (PFNGLPNTRIANGLESFATIPROC) load(userptr, "glPNTrianglesfATI");
     context->PNTrianglesiATI = (PFNGLPNTRIANGLESIATIPROC) load(userptr, "glPNTrianglesiATI");
 }
+
 static void glad_gl_load_GL_ATI_separate_stencil(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_separate_stencil) return;
     context->StencilFuncSeparateATI = (PFNGLSTENCILFUNCSEPARATEATIPROC) load(userptr, "glStencilFuncSeparateATI");
     context->StencilOpSeparateATI = (PFNGLSTENCILOPSEPARATEATIPROC) load(userptr, "glStencilOpSeparateATI");
 }
+
 static void glad_gl_load_GL_ATI_vertex_array_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_vertex_array_object) return;
     context->ArrayObjectATI = (PFNGLARRAYOBJECTATIPROC) load(userptr, "glArrayObjectATI");
@@ -2383,12 +2522,14 @@ static void glad_gl_load_GL_ATI_vertex_array_object(GladGLContext *context, GLAD
     context->UpdateObjectBufferATI = (PFNGLUPDATEOBJECTBUFFERATIPROC) load(userptr, "glUpdateObjectBufferATI");
     context->VariantArrayObjectATI = (PFNGLVARIANTARRAYOBJECTATIPROC) load(userptr, "glVariantArrayObjectATI");
 }
+
 static void glad_gl_load_GL_ATI_vertex_attrib_array_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_vertex_attrib_array_object) return;
     context->GetVertexAttribArrayObjectfvATI = (PFNGLGETVERTEXATTRIBARRAYOBJECTFVATIPROC) load(userptr, "glGetVertexAttribArrayObjectfvATI");
     context->GetVertexAttribArrayObjectivATI = (PFNGLGETVERTEXATTRIBARRAYOBJECTIVATIPROC) load(userptr, "glGetVertexAttribArrayObjectivATI");
     context->VertexAttribArrayObjectATI = (PFNGLVERTEXATTRIBARRAYOBJECTATIPROC) load(userptr, "glVertexAttribArrayObjectATI");
 }
+
 static void glad_gl_load_GL_ATI_vertex_streams(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ATI_vertex_streams) return;
     context->ClientActiveVertexStreamATI = (PFNGLCLIENTACTIVEVERTEXSTREAMATIPROC) load(userptr, "glClientActiveVertexStreamATI");
@@ -2437,43 +2578,52 @@ static void glad_gl_load_GL_ATI_vertex_streams(GladGLContext *context, GLADuserp
     context->VertexStream4sATI = (PFNGLVERTEXSTREAM4SATIPROC) load(userptr, "glVertexStream4sATI");
     context->VertexStream4svATI = (PFNGLVERTEXSTREAM4SVATIPROC) load(userptr, "glVertexStream4svATI");
 }
+
 static void glad_gl_load_GL_EXT_EGL_image_storage(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_EGL_image_storage) return;
     context->EGLImageTargetTexStorageEXT = (PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC) load(userptr, "glEGLImageTargetTexStorageEXT");
     context->EGLImageTargetTextureStorageEXT = (PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC) load(userptr, "glEGLImageTargetTextureStorageEXT");
 }
+
 static void glad_gl_load_GL_EXT_bindable_uniform(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_bindable_uniform) return;
     context->GetUniformBufferSizeEXT = (PFNGLGETUNIFORMBUFFERSIZEEXTPROC) load(userptr, "glGetUniformBufferSizeEXT");
     context->GetUniformOffsetEXT = (PFNGLGETUNIFORMOFFSETEXTPROC) load(userptr, "glGetUniformOffsetEXT");
     context->UniformBufferEXT = (PFNGLUNIFORMBUFFEREXTPROC) load(userptr, "glUniformBufferEXT");
 }
+
 static void glad_gl_load_GL_EXT_blend_color(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_blend_color) return;
     context->BlendColorEXT = (PFNGLBLENDCOLOREXTPROC) load(userptr, "glBlendColorEXT");
 }
+
 static void glad_gl_load_GL_EXT_blend_equation_separate(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_blend_equation_separate) return;
     context->BlendEquationSeparateEXT = (PFNGLBLENDEQUATIONSEPARATEEXTPROC) load(userptr, "glBlendEquationSeparateEXT");
 }
+
 static void glad_gl_load_GL_EXT_blend_func_separate(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_blend_func_separate) return;
     context->BlendFuncSeparateEXT = (PFNGLBLENDFUNCSEPARATEEXTPROC) load(userptr, "glBlendFuncSeparateEXT");
 }
+
 static void glad_gl_load_GL_EXT_blend_minmax(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_blend_minmax) return;
     context->BlendEquationEXT = (PFNGLBLENDEQUATIONEXTPROC) load(userptr, "glBlendEquationEXT");
 }
+
 static void glad_gl_load_GL_EXT_color_subtable(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_color_subtable) return;
     context->ColorSubTableEXT = (PFNGLCOLORSUBTABLEEXTPROC) load(userptr, "glColorSubTableEXT");
     context->CopyColorSubTableEXT = (PFNGLCOPYCOLORSUBTABLEEXTPROC) load(userptr, "glCopyColorSubTableEXT");
 }
+
 static void glad_gl_load_GL_EXT_compiled_vertex_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_compiled_vertex_array) return;
     context->LockArraysEXT = (PFNGLLOCKARRAYSEXTPROC) load(userptr, "glLockArraysEXT");
     context->UnlockArraysEXT = (PFNGLUNLOCKARRAYSEXTPROC) load(userptr, "glUnlockArraysEXT");
 }
+
 static void glad_gl_load_GL_EXT_convolution(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_convolution) return;
     context->ConvolutionFilter1DEXT = (PFNGLCONVOLUTIONFILTER1DEXTPROC) load(userptr, "glConvolutionFilter1DEXT");
@@ -2490,6 +2640,7 @@ static void glad_gl_load_GL_EXT_convolution(GladGLContext *context, GLADuserptrl
     context->GetSeparableFilterEXT = (PFNGLGETSEPARABLEFILTEREXTPROC) load(userptr, "glGetSeparableFilterEXT");
     context->SeparableFilter2DEXT = (PFNGLSEPARABLEFILTER2DEXTPROC) load(userptr, "glSeparableFilter2DEXT");
 }
+
 static void glad_gl_load_GL_EXT_coordinate_frame(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_coordinate_frame) return;
     context->Binormal3bEXT = (PFNGLBINORMAL3BEXTPROC) load(userptr, "glBinormal3bEXT");
@@ -2515,6 +2666,7 @@ static void glad_gl_load_GL_EXT_coordinate_frame(GladGLContext *context, GLADuse
     context->Tangent3svEXT = (PFNGLTANGENT3SVEXTPROC) load(userptr, "glTangent3svEXT");
     context->TangentPointerEXT = (PFNGLTANGENTPOINTEREXTPROC) load(userptr, "glTangentPointerEXT");
 }
+
 static void glad_gl_load_GL_EXT_copy_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_copy_texture) return;
     context->CopyTexImage1DEXT = (PFNGLCOPYTEXIMAGE1DEXTPROC) load(userptr, "glCopyTexImage1DEXT");
@@ -2523,26 +2675,31 @@ static void glad_gl_load_GL_EXT_copy_texture(GladGLContext *context, GLADuserptr
     context->CopyTexSubImage2DEXT = (PFNGLCOPYTEXSUBIMAGE2DEXTPROC) load(userptr, "glCopyTexSubImage2DEXT");
     context->CopyTexSubImage3DEXT = (PFNGLCOPYTEXSUBIMAGE3DEXTPROC) load(userptr, "glCopyTexSubImage3DEXT");
 }
+
 static void glad_gl_load_GL_EXT_cull_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_cull_vertex) return;
     context->CullParameterdvEXT = (PFNGLCULLPARAMETERDVEXTPROC) load(userptr, "glCullParameterdvEXT");
     context->CullParameterfvEXT = (PFNGLCULLPARAMETERFVEXTPROC) load(userptr, "glCullParameterfvEXT");
 }
+
 static void glad_gl_load_GL_EXT_debug_label(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_debug_label) return;
     context->GetObjectLabelEXT = (PFNGLGETOBJECTLABELEXTPROC) load(userptr, "glGetObjectLabelEXT");
     context->LabelObjectEXT = (PFNGLLABELOBJECTEXTPROC) load(userptr, "glLabelObjectEXT");
 }
+
 static void glad_gl_load_GL_EXT_debug_marker(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_debug_marker) return;
     context->InsertEventMarkerEXT = (PFNGLINSERTEVENTMARKEREXTPROC) load(userptr, "glInsertEventMarkerEXT");
     context->PopGroupMarkerEXT = (PFNGLPOPGROUPMARKEREXTPROC) load(userptr, "glPopGroupMarkerEXT");
     context->PushGroupMarkerEXT = (PFNGLPUSHGROUPMARKEREXTPROC) load(userptr, "glPushGroupMarkerEXT");
 }
+
 static void glad_gl_load_GL_EXT_depth_bounds_test(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_depth_bounds_test) return;
     context->DepthBoundsEXT = (PFNGLDEPTHBOUNDSEXTPROC) load(userptr, "glDepthBoundsEXT");
 }
+
 static void glad_gl_load_GL_EXT_direct_state_access(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_direct_state_access) return;
     context->BindMultiTextureEXT = (PFNGLBINDMULTITEXTUREEXTPROC) load(userptr, "glBindMultiTextureEXT");
@@ -2801,6 +2958,7 @@ static void glad_gl_load_GL_EXT_direct_state_access(GladGLContext *context, GLAD
     context->VertexArrayVertexBindingDivisorEXT = (PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC) load(userptr, "glVertexArrayVertexBindingDivisorEXT");
     context->VertexArrayVertexOffsetEXT = (PFNGLVERTEXARRAYVERTEXOFFSETEXTPROC) load(userptr, "glVertexArrayVertexOffsetEXT");
 }
+
 static void glad_gl_load_GL_EXT_draw_buffers2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_draw_buffers2) return;
     context->ColorMaskIndexedEXT = (PFNGLCOLORMASKINDEXEDEXTPROC) load(userptr, "glColorMaskIndexedEXT");
@@ -2810,20 +2968,24 @@ static void glad_gl_load_GL_EXT_draw_buffers2(GladGLContext *context, GLADuserpt
     context->GetIntegerIndexedvEXT = (PFNGLGETINTEGERINDEXEDVEXTPROC) load(userptr, "glGetIntegerIndexedvEXT");
     context->IsEnabledIndexedEXT = (PFNGLISENABLEDINDEXEDEXTPROC) load(userptr, "glIsEnabledIndexedEXT");
 }
+
 static void glad_gl_load_GL_EXT_draw_instanced(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_draw_instanced) return;
     context->DrawArraysInstancedEXT = (PFNGLDRAWARRAYSINSTANCEDEXTPROC) load(userptr, "glDrawArraysInstancedEXT");
     context->DrawElementsInstancedEXT = (PFNGLDRAWELEMENTSINSTANCEDEXTPROC) load(userptr, "glDrawElementsInstancedEXT");
 }
+
 static void glad_gl_load_GL_EXT_draw_range_elements(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_draw_range_elements) return;
     context->DrawRangeElementsEXT = (PFNGLDRAWRANGEELEMENTSEXTPROC) load(userptr, "glDrawRangeElementsEXT");
 }
+
 static void glad_gl_load_GL_EXT_external_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_external_buffer) return;
     context->BufferStorageExternalEXT = (PFNGLBUFFERSTORAGEEXTERNALEXTPROC) load(userptr, "glBufferStorageExternalEXT");
     context->NamedBufferStorageExternalEXT = (PFNGLNAMEDBUFFERSTORAGEEXTERNALEXTPROC) load(userptr, "glNamedBufferStorageExternalEXT");
 }
+
 static void glad_gl_load_GL_EXT_fog_coord(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_fog_coord) return;
     context->FogCoordPointerEXT = (PFNGLFOGCOORDPOINTEREXTPROC) load(userptr, "glFogCoordPointerEXT");
@@ -2832,19 +2994,23 @@ static void glad_gl_load_GL_EXT_fog_coord(GladGLContext *context, GLADuserptrloa
     context->FogCoordfEXT = (PFNGLFOGCOORDFEXTPROC) load(userptr, "glFogCoordfEXT");
     context->FogCoordfvEXT = (PFNGLFOGCOORDFVEXTPROC) load(userptr, "glFogCoordfvEXT");
 }
+
 static void glad_gl_load_GL_EXT_framebuffer_blit(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_framebuffer_blit) return;
     context->BlitFramebufferEXT = (PFNGLBLITFRAMEBUFFEREXTPROC) load(userptr, "glBlitFramebufferEXT");
 }
+
 static void glad_gl_load_GL_EXT_framebuffer_blit_layers(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_framebuffer_blit_layers) return;
     context->BlitFramebufferLayerEXT = (PFNGLBLITFRAMEBUFFERLAYEREXTPROC) load(userptr, "glBlitFramebufferLayerEXT");
     context->BlitFramebufferLayersEXT = (PFNGLBLITFRAMEBUFFERLAYERSEXTPROC) load(userptr, "glBlitFramebufferLayersEXT");
 }
+
 static void glad_gl_load_GL_EXT_framebuffer_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_framebuffer_multisample) return;
     context->RenderbufferStorageMultisampleEXT = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC) load(userptr, "glRenderbufferStorageMultisampleEXT");
 }
+
 static void glad_gl_load_GL_EXT_framebuffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_framebuffer_object) return;
     context->BindFramebufferEXT = (PFNGLBINDFRAMEBUFFEREXTPROC) load(userptr, "glBindFramebufferEXT");
@@ -2865,15 +3031,18 @@ static void glad_gl_load_GL_EXT_framebuffer_object(GladGLContext *context, GLADu
     context->IsRenderbufferEXT = (PFNGLISRENDERBUFFEREXTPROC) load(userptr, "glIsRenderbufferEXT");
     context->RenderbufferStorageEXT = (PFNGLRENDERBUFFERSTORAGEEXTPROC) load(userptr, "glRenderbufferStorageEXT");
 }
+
 static void glad_gl_load_GL_EXT_geometry_shader4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_geometry_shader4) return;
     context->ProgramParameteriEXT = (PFNGLPROGRAMPARAMETERIEXTPROC) load(userptr, "glProgramParameteriEXT");
 }
+
 static void glad_gl_load_GL_EXT_gpu_program_parameters(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_gpu_program_parameters) return;
     context->ProgramEnvParameters4fvEXT = (PFNGLPROGRAMENVPARAMETERS4FVEXTPROC) load(userptr, "glProgramEnvParameters4fvEXT");
     context->ProgramLocalParameters4fvEXT = (PFNGLPROGRAMLOCALPARAMETERS4FVEXTPROC) load(userptr, "glProgramLocalParameters4fvEXT");
 }
+
 static void glad_gl_load_GL_EXT_gpu_shader4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_gpu_shader4) return;
     context->BindFragDataLocationEXT = (PFNGLBINDFRAGDATALOCATIONEXTPROC) load(userptr, "glBindFragDataLocationEXT");
@@ -2911,6 +3080,7 @@ static void glad_gl_load_GL_EXT_gpu_shader4(GladGLContext *context, GLADuserptrl
     context->VertexAttribI4usvEXT = (PFNGLVERTEXATTRIBI4USVEXTPROC) load(userptr, "glVertexAttribI4usvEXT");
     context->VertexAttribIPointerEXT = (PFNGLVERTEXATTRIBIPOINTEREXTPROC) load(userptr, "glVertexAttribIPointerEXT");
 }
+
 static void glad_gl_load_GL_EXT_histogram(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_histogram) return;
     context->GetHistogramEXT = (PFNGLGETHISTOGRAMEXTPROC) load(userptr, "glGetHistogramEXT");
@@ -2924,20 +3094,24 @@ static void glad_gl_load_GL_EXT_histogram(GladGLContext *context, GLADuserptrloa
     context->ResetHistogramEXT = (PFNGLRESETHISTOGRAMEXTPROC) load(userptr, "glResetHistogramEXT");
     context->ResetMinmaxEXT = (PFNGLRESETMINMAXEXTPROC) load(userptr, "glResetMinmaxEXT");
 }
+
 static void glad_gl_load_GL_EXT_index_func(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_index_func) return;
     context->IndexFuncEXT = (PFNGLINDEXFUNCEXTPROC) load(userptr, "glIndexFuncEXT");
 }
+
 static void glad_gl_load_GL_EXT_index_material(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_index_material) return;
     context->IndexMaterialEXT = (PFNGLINDEXMATERIALEXTPROC) load(userptr, "glIndexMaterialEXT");
 }
+
 static void glad_gl_load_GL_EXT_light_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_light_texture) return;
     context->ApplyTextureEXT = (PFNGLAPPLYTEXTUREEXTPROC) load(userptr, "glApplyTextureEXT");
     context->TextureLightEXT = (PFNGLTEXTURELIGHTEXTPROC) load(userptr, "glTextureLightEXT");
     context->TextureMaterialEXT = (PFNGLTEXTUREMATERIALEXTPROC) load(userptr, "glTextureMaterialEXT");
 }
+
 static void glad_gl_load_GL_EXT_memory_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_memory_object) return;
     context->BufferStorageMemEXT = (PFNGLBUFFERSTORAGEMEMEXTPROC) load(userptr, "glBufferStorageMemEXT");
@@ -2960,25 +3134,30 @@ static void glad_gl_load_GL_EXT_memory_object(GladGLContext *context, GLADuserpt
     context->TextureStorageMem3DEXT = (PFNGLTEXTURESTORAGEMEM3DEXTPROC) load(userptr, "glTextureStorageMem3DEXT");
     context->TextureStorageMem3DMultisampleEXT = (PFNGLTEXTURESTORAGEMEM3DMULTISAMPLEEXTPROC) load(userptr, "glTextureStorageMem3DMultisampleEXT");
 }
+
 static void glad_gl_load_GL_EXT_memory_object_fd(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_memory_object_fd) return;
     context->ImportMemoryFdEXT = (PFNGLIMPORTMEMORYFDEXTPROC) load(userptr, "glImportMemoryFdEXT");
 }
+
 static void glad_gl_load_GL_EXT_memory_object_win32(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_memory_object_win32) return;
     context->ImportMemoryWin32HandleEXT = (PFNGLIMPORTMEMORYWIN32HANDLEEXTPROC) load(userptr, "glImportMemoryWin32HandleEXT");
     context->ImportMemoryWin32NameEXT = (PFNGLIMPORTMEMORYWIN32NAMEEXTPROC) load(userptr, "glImportMemoryWin32NameEXT");
 }
+
 static void glad_gl_load_GL_EXT_multi_draw_arrays(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_multi_draw_arrays) return;
     context->MultiDrawArraysEXT = (PFNGLMULTIDRAWARRAYSEXTPROC) load(userptr, "glMultiDrawArraysEXT");
     context->MultiDrawElementsEXT = (PFNGLMULTIDRAWELEMENTSEXTPROC) load(userptr, "glMultiDrawElementsEXT");
 }
+
 static void glad_gl_load_GL_EXT_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_multisample) return;
     context->SampleMaskEXT = (PFNGLSAMPLEMASKEXTPROC) load(userptr, "glSampleMaskEXT");
     context->SamplePatternEXT = (PFNGLSAMPLEPATTERNEXTPROC) load(userptr, "glSamplePatternEXT");
 }
+
 static void glad_gl_load_GL_EXT_paletted_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_paletted_texture) return;
     context->ColorTableEXT = (PFNGLCOLORTABLEEXTPROC) load(userptr, "glColorTableEXT");
@@ -2986,6 +3165,7 @@ static void glad_gl_load_GL_EXT_paletted_texture(GladGLContext *context, GLADuse
     context->GetColorTableParameterfvEXT = (PFNGLGETCOLORTABLEPARAMETERFVEXTPROC) load(userptr, "glGetColorTableParameterfvEXT");
     context->GetColorTableParameterivEXT = (PFNGLGETCOLORTABLEPARAMETERIVEXTPROC) load(userptr, "glGetColorTableParameterivEXT");
 }
+
 static void glad_gl_load_GL_EXT_pixel_transform(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_pixel_transform) return;
     context->GetPixelTransformParameterfvEXT = (PFNGLGETPIXELTRANSFORMPARAMETERFVEXTPROC) load(userptr, "glGetPixelTransformParameterfvEXT");
@@ -2995,27 +3175,33 @@ static void glad_gl_load_GL_EXT_pixel_transform(GladGLContext *context, GLADuser
     context->PixelTransformParameteriEXT = (PFNGLPIXELTRANSFORMPARAMETERIEXTPROC) load(userptr, "glPixelTransformParameteriEXT");
     context->PixelTransformParameterivEXT = (PFNGLPIXELTRANSFORMPARAMETERIVEXTPROC) load(userptr, "glPixelTransformParameterivEXT");
 }
+
 static void glad_gl_load_GL_EXT_point_parameters(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_point_parameters) return;
     context->PointParameterfEXT = (PFNGLPOINTPARAMETERFEXTPROC) load(userptr, "glPointParameterfEXT");
     context->PointParameterfvEXT = (PFNGLPOINTPARAMETERFVEXTPROC) load(userptr, "glPointParameterfvEXT");
 }
+
 static void glad_gl_load_GL_EXT_polygon_offset(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_polygon_offset) return;
     context->PolygonOffsetEXT = (PFNGLPOLYGONOFFSETEXTPROC) load(userptr, "glPolygonOffsetEXT");
 }
+
 static void glad_gl_load_GL_EXT_polygon_offset_clamp(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_polygon_offset_clamp) return;
     context->PolygonOffsetClampEXT = (PFNGLPOLYGONOFFSETCLAMPEXTPROC) load(userptr, "glPolygonOffsetClampEXT");
 }
+
 static void glad_gl_load_GL_EXT_provoking_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_provoking_vertex) return;
     context->ProvokingVertexEXT = (PFNGLPROVOKINGVERTEXEXTPROC) load(userptr, "glProvokingVertexEXT");
 }
+
 static void glad_gl_load_GL_EXT_raster_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_raster_multisample) return;
     context->RasterSamplesEXT = (PFNGLRASTERSAMPLESEXTPROC) load(userptr, "glRasterSamplesEXT");
 }
+
 static void glad_gl_load_GL_EXT_secondary_color(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_secondary_color) return;
     context->SecondaryColor3bEXT = (PFNGLSECONDARYCOLOR3BEXTPROC) load(userptr, "glSecondaryColor3bEXT");
@@ -3036,6 +3222,7 @@ static void glad_gl_load_GL_EXT_secondary_color(GladGLContext *context, GLADuser
     context->SecondaryColor3usvEXT = (PFNGLSECONDARYCOLOR3USVEXTPROC) load(userptr, "glSecondaryColor3usvEXT");
     context->SecondaryColorPointerEXT = (PFNGLSECONDARYCOLORPOINTEREXTPROC) load(userptr, "glSecondaryColorPointerEXT");
 }
+
 static void glad_gl_load_GL_EXT_semaphore(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_semaphore) return;
     context->DeleteSemaphoresEXT = (PFNGLDELETESEMAPHORESEXTPROC) load(userptr, "glDeleteSemaphoresEXT");
@@ -3048,15 +3235,18 @@ static void glad_gl_load_GL_EXT_semaphore(GladGLContext *context, GLADuserptrloa
     context->SignalSemaphoreEXT = (PFNGLSIGNALSEMAPHOREEXTPROC) load(userptr, "glSignalSemaphoreEXT");
     context->WaitSemaphoreEXT = (PFNGLWAITSEMAPHOREEXTPROC) load(userptr, "glWaitSemaphoreEXT");
 }
+
 static void glad_gl_load_GL_EXT_semaphore_fd(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_semaphore_fd) return;
     context->ImportSemaphoreFdEXT = (PFNGLIMPORTSEMAPHOREFDEXTPROC) load(userptr, "glImportSemaphoreFdEXT");
 }
+
 static void glad_gl_load_GL_EXT_semaphore_win32(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_semaphore_win32) return;
     context->ImportSemaphoreWin32HandleEXT = (PFNGLIMPORTSEMAPHOREWIN32HANDLEEXTPROC) load(userptr, "glImportSemaphoreWin32HandleEXT");
     context->ImportSemaphoreWin32NameEXT = (PFNGLIMPORTSEMAPHOREWIN32NAMEEXTPROC) load(userptr, "glImportSemaphoreWin32NameEXT");
 }
+
 static void glad_gl_load_GL_EXT_separate_shader_objects(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_separate_shader_objects) return;
     context->ActiveProgramEXT = (PFNGLACTIVEPROGRAMEXTPROC) load(userptr, "glActiveProgramEXT");
@@ -3107,41 +3297,50 @@ static void glad_gl_load_GL_EXT_separate_shader_objects(GladGLContext *context, 
     context->UseShaderProgramEXT = (PFNGLUSESHADERPROGRAMEXTPROC) load(userptr, "glUseShaderProgramEXT");
     context->ValidateProgramPipelineEXT = (PFNGLVALIDATEPROGRAMPIPELINEEXTPROC) load(userptr, "glValidateProgramPipelineEXT");
 }
+
 static void glad_gl_load_GL_EXT_shader_framebuffer_fetch_non_coherent(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_shader_framebuffer_fetch_non_coherent) return;
     context->FramebufferFetchBarrierEXT = (PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC) load(userptr, "glFramebufferFetchBarrierEXT");
 }
+
 static void glad_gl_load_GL_EXT_shader_image_load_store(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_shader_image_load_store) return;
     context->BindImageTextureEXT = (PFNGLBINDIMAGETEXTUREEXTPROC) load(userptr, "glBindImageTextureEXT");
     context->MemoryBarrierEXT = (PFNGLMEMORYBARRIEREXTPROC) load(userptr, "glMemoryBarrierEXT");
 }
+
 static void glad_gl_load_GL_EXT_stencil_clear_tag(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_stencil_clear_tag) return;
     context->StencilClearTagEXT = (PFNGLSTENCILCLEARTAGEXTPROC) load(userptr, "glStencilClearTagEXT");
 }
+
 static void glad_gl_load_GL_EXT_stencil_two_side(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_stencil_two_side) return;
     context->ActiveStencilFaceEXT = (PFNGLACTIVESTENCILFACEEXTPROC) load(userptr, "glActiveStencilFaceEXT");
 }
+
 static void glad_gl_load_GL_EXT_subtexture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_subtexture) return;
     context->TexSubImage1DEXT = (PFNGLTEXSUBIMAGE1DEXTPROC) load(userptr, "glTexSubImage1DEXT");
     context->TexSubImage2DEXT = (PFNGLTEXSUBIMAGE2DEXTPROC) load(userptr, "glTexSubImage2DEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture3D(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture3D) return;
     context->TexImage3DEXT = (PFNGLTEXIMAGE3DEXTPROC) load(userptr, "glTexImage3DEXT");
     context->TexSubImage3DEXT = (PFNGLTEXSUBIMAGE3DEXTPROC) load(userptr, "glTexSubImage3DEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_array) return;
     context->FramebufferTextureLayerEXT = (PFNGLFRAMEBUFFERTEXTURELAYEREXTPROC) load(userptr, "glFramebufferTextureLayerEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_buffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_buffer_object) return;
     context->TexBufferEXT = (PFNGLTEXBUFFEREXTPROC) load(userptr, "glTexBufferEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_integer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_integer) return;
     context->ClearColorIiEXT = (PFNGLCLEARCOLORIIEXTPROC) load(userptr, "glClearColorIiEXT");
@@ -3151,6 +3350,7 @@ static void glad_gl_load_GL_EXT_texture_integer(GladGLContext *context, GLADuser
     context->TexParameterIivEXT = (PFNGLTEXPARAMETERIIVEXTPROC) load(userptr, "glTexParameterIivEXT");
     context->TexParameterIuivEXT = (PFNGLTEXPARAMETERIUIVEXTPROC) load(userptr, "glTexParameterIuivEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_object) return;
     context->AreTexturesResidentEXT = (PFNGLARETEXTURESRESIDENTEXTPROC) load(userptr, "glAreTexturesResidentEXT");
@@ -3160,10 +3360,12 @@ static void glad_gl_load_GL_EXT_texture_object(GladGLContext *context, GLADuserp
     context->IsTextureEXT = (PFNGLISTEXTUREEXTPROC) load(userptr, "glIsTextureEXT");
     context->PrioritizeTexturesEXT = (PFNGLPRIORITIZETEXTURESEXTPROC) load(userptr, "glPrioritizeTexturesEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_perturb_normal(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_perturb_normal) return;
     context->TextureNormalEXT = (PFNGLTEXTURENORMALEXTPROC) load(userptr, "glTextureNormalEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_storage(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_storage) return;
     context->TexStorage1DEXT = (PFNGLTEXSTORAGE1DEXTPROC) load(userptr, "glTexStorage1DEXT");
@@ -3173,11 +3375,13 @@ static void glad_gl_load_GL_EXT_texture_storage(GladGLContext *context, GLADuser
     context->TextureStorage2DEXT = (PFNGLTEXTURESTORAGE2DEXTPROC) load(userptr, "glTextureStorage2DEXT");
     context->TextureStorage3DEXT = (PFNGLTEXTURESTORAGE3DEXTPROC) load(userptr, "glTextureStorage3DEXT");
 }
+
 static void glad_gl_load_GL_EXT_timer_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_timer_query) return;
     context->GetQueryObjecti64vEXT = (PFNGLGETQUERYOBJECTI64VEXTPROC) load(userptr, "glGetQueryObjecti64vEXT");
     context->GetQueryObjectui64vEXT = (PFNGLGETQUERYOBJECTUI64VEXTPROC) load(userptr, "glGetQueryObjectui64vEXT");
 }
+
 static void glad_gl_load_GL_EXT_transform_feedback(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_transform_feedback) return;
     context->BeginTransformFeedbackEXT = (PFNGLBEGINTRANSFORMFEEDBACKEXTPROC) load(userptr, "glBeginTransformFeedbackEXT");
@@ -3188,6 +3392,7 @@ static void glad_gl_load_GL_EXT_transform_feedback(GladGLContext *context, GLADu
     context->GetTransformFeedbackVaryingEXT = (PFNGLGETTRANSFORMFEEDBACKVARYINGEXTPROC) load(userptr, "glGetTransformFeedbackVaryingEXT");
     context->TransformFeedbackVaryingsEXT = (PFNGLTRANSFORMFEEDBACKVARYINGSEXTPROC) load(userptr, "glTransformFeedbackVaryingsEXT");
 }
+
 static void glad_gl_load_GL_EXT_vertex_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_vertex_array) return;
     context->ArrayElementEXT = (PFNGLARRAYELEMENTEXTPROC) load(userptr, "glArrayElementEXT");
@@ -3200,6 +3405,7 @@ static void glad_gl_load_GL_EXT_vertex_array(GladGLContext *context, GLADuserptr
     context->TexCoordPointerEXT = (PFNGLTEXCOORDPOINTEREXTPROC) load(userptr, "glTexCoordPointerEXT");
     context->VertexPointerEXT = (PFNGLVERTEXPOINTEREXTPROC) load(userptr, "glVertexPointerEXT");
 }
+
 static void glad_gl_load_GL_EXT_vertex_attrib_64bit(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_vertex_attrib_64bit) return;
     context->GetVertexAttribLdvEXT = (PFNGLGETVERTEXATTRIBLDVEXTPROC) load(userptr, "glGetVertexAttribLdvEXT");
@@ -3213,6 +3419,7 @@ static void glad_gl_load_GL_EXT_vertex_attrib_64bit(GladGLContext *context, GLAD
     context->VertexAttribL4dvEXT = (PFNGLVERTEXATTRIBL4DVEXTPROC) load(userptr, "glVertexAttribL4dvEXT");
     context->VertexAttribLPointerEXT = (PFNGLVERTEXATTRIBLPOINTEREXTPROC) load(userptr, "glVertexAttribLPointerEXT");
 }
+
 static void glad_gl_load_GL_EXT_vertex_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_vertex_shader) return;
     context->BeginVertexShaderEXT = (PFNGLBEGINVERTEXSHADEREXTPROC) load(userptr, "glBeginVertexShaderEXT");
@@ -3258,33 +3465,40 @@ static void glad_gl_load_GL_EXT_vertex_shader(GladGLContext *context, GLADuserpt
     context->VariantusvEXT = (PFNGLVARIANTUSVEXTPROC) load(userptr, "glVariantusvEXT");
     context->WriteMaskEXT = (PFNGLWRITEMASKEXTPROC) load(userptr, "glWriteMaskEXT");
 }
+
 static void glad_gl_load_GL_EXT_vertex_weighting(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_vertex_weighting) return;
     context->VertexWeightPointerEXT = (PFNGLVERTEXWEIGHTPOINTEREXTPROC) load(userptr, "glVertexWeightPointerEXT");
     context->VertexWeightfEXT = (PFNGLVERTEXWEIGHTFEXTPROC) load(userptr, "glVertexWeightfEXT");
     context->VertexWeightfvEXT = (PFNGLVERTEXWEIGHTFVEXTPROC) load(userptr, "glVertexWeightfvEXT");
 }
+
 static void glad_gl_load_GL_EXT_win32_keyed_mutex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_win32_keyed_mutex) return;
     context->AcquireKeyedMutexWin32EXT = (PFNGLACQUIREKEYEDMUTEXWIN32EXTPROC) load(userptr, "glAcquireKeyedMutexWin32EXT");
     context->ReleaseKeyedMutexWin32EXT = (PFNGLRELEASEKEYEDMUTEXWIN32EXTPROC) load(userptr, "glReleaseKeyedMutexWin32EXT");
 }
+
 static void glad_gl_load_GL_EXT_window_rectangles(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_window_rectangles) return;
     context->WindowRectanglesEXT = (PFNGLWINDOWRECTANGLESEXTPROC) load(userptr, "glWindowRectanglesEXT");
 }
+
 static void glad_gl_load_GL_EXT_x11_sync_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_x11_sync_object) return;
     context->ImportSyncEXT = (PFNGLIMPORTSYNCEXTPROC) load(userptr, "glImportSyncEXT");
 }
+
 static void glad_gl_load_GL_GREMEDY_frame_terminator(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->GREMEDY_frame_terminator) return;
     context->FrameTerminatorGREMEDY = (PFNGLFRAMETERMINATORGREMEDYPROC) load(userptr, "glFrameTerminatorGREMEDY");
 }
+
 static void glad_gl_load_GL_GREMEDY_string_marker(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->GREMEDY_string_marker) return;
     context->StringMarkerGREMEDY = (PFNGLSTRINGMARKERGREMEDYPROC) load(userptr, "glStringMarkerGREMEDY");
 }
+
 static void glad_gl_load_GL_HP_image_transform(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->HP_image_transform) return;
     context->GetImageTransformParameterfvHP = (PFNGLGETIMAGETRANSFORMPARAMETERFVHPPROC) load(userptr, "glGetImageTransformParameterfvHP");
@@ -3294,15 +3508,18 @@ static void glad_gl_load_GL_HP_image_transform(GladGLContext *context, GLADuserp
     context->ImageTransformParameteriHP = (PFNGLIMAGETRANSFORMPARAMETERIHPPROC) load(userptr, "glImageTransformParameteriHP");
     context->ImageTransformParameterivHP = (PFNGLIMAGETRANSFORMPARAMETERIVHPPROC) load(userptr, "glImageTransformParameterivHP");
 }
+
 static void glad_gl_load_GL_IBM_multimode_draw_arrays(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->IBM_multimode_draw_arrays) return;
     context->MultiModeDrawArraysIBM = (PFNGLMULTIMODEDRAWARRAYSIBMPROC) load(userptr, "glMultiModeDrawArraysIBM");
     context->MultiModeDrawElementsIBM = (PFNGLMULTIMODEDRAWELEMENTSIBMPROC) load(userptr, "glMultiModeDrawElementsIBM");
 }
+
 static void glad_gl_load_GL_IBM_static_data(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->IBM_static_data) return;
     context->FlushStaticDataIBM = (PFNGLFLUSHSTATICDATAIBMPROC) load(userptr, "glFlushStaticDataIBM");
 }
+
 static void glad_gl_load_GL_IBM_vertex_array_lists(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->IBM_vertex_array_lists) return;
     context->ColorPointerListIBM = (PFNGLCOLORPOINTERLISTIBMPROC) load(userptr, "glColorPointerListIBM");
@@ -3314,20 +3531,24 @@ static void glad_gl_load_GL_IBM_vertex_array_lists(GladGLContext *context, GLADu
     context->TexCoordPointerListIBM = (PFNGLTEXCOORDPOINTERLISTIBMPROC) load(userptr, "glTexCoordPointerListIBM");
     context->VertexPointerListIBM = (PFNGLVERTEXPOINTERLISTIBMPROC) load(userptr, "glVertexPointerListIBM");
 }
+
 static void glad_gl_load_GL_INGR_blend_func_separate(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->INGR_blend_func_separate) return;
     context->BlendFuncSeparateINGR = (PFNGLBLENDFUNCSEPARATEINGRPROC) load(userptr, "glBlendFuncSeparateINGR");
 }
+
 static void glad_gl_load_GL_INTEL_framebuffer_CMAA(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->INTEL_framebuffer_CMAA) return;
     context->ApplyFramebufferAttachmentCMAAINTEL = (PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC) load(userptr, "glApplyFramebufferAttachmentCMAAINTEL");
 }
+
 static void glad_gl_load_GL_INTEL_map_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->INTEL_map_texture) return;
     context->MapTexture2DINTEL = (PFNGLMAPTEXTURE2DINTELPROC) load(userptr, "glMapTexture2DINTEL");
     context->SyncTextureINTEL = (PFNGLSYNCTEXTUREINTELPROC) load(userptr, "glSyncTextureINTEL");
     context->UnmapTexture2DINTEL = (PFNGLUNMAPTEXTURE2DINTELPROC) load(userptr, "glUnmapTexture2DINTEL");
 }
+
 static void glad_gl_load_GL_INTEL_parallel_arrays(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->INTEL_parallel_arrays) return;
     context->ColorPointervINTEL = (PFNGLCOLORPOINTERVINTELPROC) load(userptr, "glColorPointervINTEL");
@@ -3335,6 +3556,7 @@ static void glad_gl_load_GL_INTEL_parallel_arrays(GladGLContext *context, GLADus
     context->TexCoordPointervINTEL = (PFNGLTEXCOORDPOINTERVINTELPROC) load(userptr, "glTexCoordPointervINTEL");
     context->VertexPointervINTEL = (PFNGLVERTEXPOINTERVINTELPROC) load(userptr, "glVertexPointervINTEL");
 }
+
 static void glad_gl_load_GL_INTEL_performance_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->INTEL_performance_query) return;
     context->BeginPerfQueryINTEL = (PFNGLBEGINPERFQUERYINTELPROC) load(userptr, "glBeginPerfQueryINTEL");
@@ -3348,10 +3570,12 @@ static void glad_gl_load_GL_INTEL_performance_query(GladGLContext *context, GLAD
     context->GetPerfQueryIdByNameINTEL = (PFNGLGETPERFQUERYIDBYNAMEINTELPROC) load(userptr, "glGetPerfQueryIdByNameINTEL");
     context->GetPerfQueryInfoINTEL = (PFNGLGETPERFQUERYINFOINTELPROC) load(userptr, "glGetPerfQueryInfoINTEL");
 }
+
 static void glad_gl_load_GL_KHR_blend_equation_advanced(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_blend_equation_advanced) return;
     context->BlendBarrierKHR = (PFNGLBLENDBARRIERKHRPROC) load(userptr, "glBlendBarrierKHR");
 }
+
 static void glad_gl_load_GL_KHR_debug(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_debug) return;
     context->DebugMessageCallback = (PFNGLDEBUGMESSAGECALLBACKPROC) load(userptr, "glDebugMessageCallback");
@@ -3377,10 +3601,12 @@ static void glad_gl_load_GL_KHR_debug(GladGLContext *context, GLADuserptrloadfun
     context->PushDebugGroup = (PFNGLPUSHDEBUGGROUPPROC) load(userptr, "glPushDebugGroup");
     context->PushDebugGroupKHR = (PFNGLPUSHDEBUGGROUPKHRPROC) load(userptr, "glPushDebugGroupKHR");
 }
+
 static void glad_gl_load_GL_KHR_parallel_shader_compile(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_parallel_shader_compile) return;
     context->MaxShaderCompilerThreadsKHR = (PFNGLMAXSHADERCOMPILERTHREADSKHRPROC) load(userptr, "glMaxShaderCompilerThreadsKHR");
 }
+
 static void glad_gl_load_GL_KHR_robustness(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->KHR_robustness) return;
     context->GetGraphicsResetStatus = (PFNGLGETGRAPHICSRESETSTATUSPROC) load(userptr, "glGetGraphicsResetStatus");
@@ -3394,15 +3620,18 @@ static void glad_gl_load_GL_KHR_robustness(GladGLContext *context, GLADuserptrlo
     context->ReadnPixels = (PFNGLREADNPIXELSPROC) load(userptr, "glReadnPixels");
     context->ReadnPixelsKHR = (PFNGLREADNPIXELSKHRPROC) load(userptr, "glReadnPixelsKHR");
 }
+
 static void glad_gl_load_GL_MESA_framebuffer_flip_y(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->MESA_framebuffer_flip_y) return;
     context->FramebufferParameteriMESA = (PFNGLFRAMEBUFFERPARAMETERIMESAPROC) load(userptr, "glFramebufferParameteriMESA");
     context->GetFramebufferParameterivMESA = (PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC) load(userptr, "glGetFramebufferParameterivMESA");
 }
+
 static void glad_gl_load_GL_MESA_resize_buffers(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->MESA_resize_buffers) return;
     context->ResizeBuffersMESA = (PFNGLRESIZEBUFFERSMESAPROC) load(userptr, "glResizeBuffersMESA");
 }
+
 static void glad_gl_load_GL_MESA_window_pos(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->MESA_window_pos) return;
     context->WindowPos2dMESA = (PFNGLWINDOWPOS2DMESAPROC) load(userptr, "glWindowPos2dMESA");
@@ -3430,11 +3659,13 @@ static void glad_gl_load_GL_MESA_window_pos(GladGLContext *context, GLADuserptrl
     context->WindowPos4sMESA = (PFNGLWINDOWPOS4SMESAPROC) load(userptr, "glWindowPos4sMESA");
     context->WindowPos4svMESA = (PFNGLWINDOWPOS4SVMESAPROC) load(userptr, "glWindowPos4svMESA");
 }
+
 static void glad_gl_load_GL_NVX_conditional_render(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NVX_conditional_render) return;
     context->BeginConditionalRenderNVX = (PFNGLBEGINCONDITIONALRENDERNVXPROC) load(userptr, "glBeginConditionalRenderNVX");
     context->EndConditionalRenderNVX = (PFNGLENDCONDITIONALRENDERNVXPROC) load(userptr, "glEndConditionalRenderNVX");
 }
+
 static void glad_gl_load_GL_NVX_gpu_multicast2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NVX_gpu_multicast2) return;
     context->AsyncCopyBufferSubDataNVX = (PFNGLASYNCCOPYBUFFERSUBDATANVXPROC) load(userptr, "glAsyncCopyBufferSubDataNVX");
@@ -3444,12 +3675,14 @@ static void glad_gl_load_GL_NVX_gpu_multicast2(GladGLContext *context, GLADuserp
     context->MulticastViewportPositionWScaleNVX = (PFNGLMULTICASTVIEWPORTPOSITIONWSCALENVXPROC) load(userptr, "glMulticastViewportPositionWScaleNVX");
     context->UploadGpuMaskNVX = (PFNGLUPLOADGPUMASKNVXPROC) load(userptr, "glUploadGpuMaskNVX");
 }
+
 static void glad_gl_load_GL_NVX_linked_gpu_multicast(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NVX_linked_gpu_multicast) return;
     context->LGPUCopyImageSubDataNVX = (PFNGLLGPUCOPYIMAGESUBDATANVXPROC) load(userptr, "glLGPUCopyImageSubDataNVX");
     context->LGPUInterlockNVX = (PFNGLLGPUINTERLOCKNVXPROC) load(userptr, "glLGPUInterlockNVX");
     context->LGPUNamedBufferSubDataNVX = (PFNGLLGPUNAMEDBUFFERSUBDATANVXPROC) load(userptr, "glLGPUNamedBufferSubDataNVX");
 }
+
 static void glad_gl_load_GL_NVX_progress_fence(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NVX_progress_fence) return;
     context->ClientWaitSemaphoreui64NVX = (PFNGLCLIENTWAITSEMAPHOREUI64NVXPROC) load(userptr, "glClientWaitSemaphoreui64NVX");
@@ -3457,20 +3690,24 @@ static void glad_gl_load_GL_NVX_progress_fence(GladGLContext *context, GLADuserp
     context->SignalSemaphoreui64NVX = (PFNGLSIGNALSEMAPHOREUI64NVXPROC) load(userptr, "glSignalSemaphoreui64NVX");
     context->WaitSemaphoreui64NVX = (PFNGLWAITSEMAPHOREUI64NVXPROC) load(userptr, "glWaitSemaphoreui64NVX");
 }
+
 static void glad_gl_load_GL_NV_alpha_to_coverage_dither_control(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_alpha_to_coverage_dither_control) return;
     context->AlphaToCoverageDitherControlNV = (PFNGLALPHATOCOVERAGEDITHERCONTROLNVPROC) load(userptr, "glAlphaToCoverageDitherControlNV");
 }
+
 static void glad_gl_load_GL_NV_bindless_multi_draw_indirect(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_bindless_multi_draw_indirect) return;
     context->MultiDrawArraysIndirectBindlessNV = (PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC) load(userptr, "glMultiDrawArraysIndirectBindlessNV");
     context->MultiDrawElementsIndirectBindlessNV = (PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC) load(userptr, "glMultiDrawElementsIndirectBindlessNV");
 }
+
 static void glad_gl_load_GL_NV_bindless_multi_draw_indirect_count(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_bindless_multi_draw_indirect_count) return;
     context->MultiDrawArraysIndirectBindlessCountNV = (PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC) load(userptr, "glMultiDrawArraysIndirectBindlessCountNV");
     context->MultiDrawElementsIndirectBindlessCountNV = (PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC) load(userptr, "glMultiDrawElementsIndirectBindlessCountNV");
 }
+
 static void glad_gl_load_GL_NV_bindless_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_bindless_texture) return;
     context->GetImageHandleNV = (PFNGLGETIMAGEHANDLENVPROC) load(userptr, "glGetImageHandleNV");
@@ -3487,15 +3724,18 @@ static void glad_gl_load_GL_NV_bindless_texture(GladGLContext *context, GLADuser
     context->UniformHandleui64NV = (PFNGLUNIFORMHANDLEUI64NVPROC) load(userptr, "glUniformHandleui64NV");
     context->UniformHandleui64vNV = (PFNGLUNIFORMHANDLEUI64VNVPROC) load(userptr, "glUniformHandleui64vNV");
 }
+
 static void glad_gl_load_GL_NV_blend_equation_advanced(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_blend_equation_advanced) return;
     context->BlendBarrierNV = (PFNGLBLENDBARRIERNVPROC) load(userptr, "glBlendBarrierNV");
     context->BlendParameteriNV = (PFNGLBLENDPARAMETERINVPROC) load(userptr, "glBlendParameteriNV");
 }
+
 static void glad_gl_load_GL_NV_clip_space_w_scaling(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_clip_space_w_scaling) return;
     context->ViewportPositionWScaleNV = (PFNGLVIEWPORTPOSITIONWSCALENVPROC) load(userptr, "glViewportPositionWScaleNV");
 }
+
 static void glad_gl_load_GL_NV_command_list(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_command_list) return;
     context->CallCommandListNV = (PFNGLCALLCOMMANDLISTNVPROC) load(userptr, "glCallCommandListNV");
@@ -3516,37 +3756,45 @@ static void glad_gl_load_GL_NV_command_list(GladGLContext *context, GLADuserptrl
     context->ListDrawCommandsStatesClientNV = (PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC) load(userptr, "glListDrawCommandsStatesClientNV");
     context->StateCaptureNV = (PFNGLSTATECAPTURENVPROC) load(userptr, "glStateCaptureNV");
 }
+
 static void glad_gl_load_GL_NV_conditional_render(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_conditional_render) return;
     context->BeginConditionalRenderNV = (PFNGLBEGINCONDITIONALRENDERNVPROC) load(userptr, "glBeginConditionalRenderNV");
     context->EndConditionalRenderNV = (PFNGLENDCONDITIONALRENDERNVPROC) load(userptr, "glEndConditionalRenderNV");
 }
+
 static void glad_gl_load_GL_NV_conservative_raster(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_conservative_raster) return;
     context->SubpixelPrecisionBiasNV = (PFNGLSUBPIXELPRECISIONBIASNVPROC) load(userptr, "glSubpixelPrecisionBiasNV");
 }
+
 static void glad_gl_load_GL_NV_conservative_raster_dilate(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_conservative_raster_dilate) return;
     context->ConservativeRasterParameterfNV = (PFNGLCONSERVATIVERASTERPARAMETERFNVPROC) load(userptr, "glConservativeRasterParameterfNV");
 }
+
 static void glad_gl_load_GL_NV_conservative_raster_pre_snap_triangles(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_conservative_raster_pre_snap_triangles) return;
     context->ConservativeRasterParameteriNV = (PFNGLCONSERVATIVERASTERPARAMETERINVPROC) load(userptr, "glConservativeRasterParameteriNV");
 }
+
 static void glad_gl_load_GL_NV_copy_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_copy_image) return;
     context->CopyImageSubDataNV = (PFNGLCOPYIMAGESUBDATANVPROC) load(userptr, "glCopyImageSubDataNV");
 }
+
 static void glad_gl_load_GL_NV_depth_buffer_float(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_depth_buffer_float) return;
     context->ClearDepthdNV = (PFNGLCLEARDEPTHDNVPROC) load(userptr, "glClearDepthdNV");
     context->DepthBoundsdNV = (PFNGLDEPTHBOUNDSDNVPROC) load(userptr, "glDepthBoundsdNV");
     context->DepthRangedNV = (PFNGLDEPTHRANGEDNVPROC) load(userptr, "glDepthRangedNV");
 }
+
 static void glad_gl_load_GL_NV_draw_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_draw_texture) return;
     context->DrawTextureNV = (PFNGLDRAWTEXTURENVPROC) load(userptr, "glDrawTextureNV");
 }
+
 static void glad_gl_load_GL_NV_draw_vulkan_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_draw_vulkan_image) return;
     context->DrawVkImageNV = (PFNGLDRAWVKIMAGENVPROC) load(userptr, "glDrawVkImageNV");
@@ -3555,6 +3803,7 @@ static void glad_gl_load_GL_NV_draw_vulkan_image(GladGLContext *context, GLADuse
     context->SignalVkSemaphoreNV = (PFNGLSIGNALVKSEMAPHORENVPROC) load(userptr, "glSignalVkSemaphoreNV");
     context->WaitVkSemaphoreNV = (PFNGLWAITVKSEMAPHORENVPROC) load(userptr, "glWaitVkSemaphoreNV");
 }
+
 static void glad_gl_load_GL_NV_evaluators(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_evaluators) return;
     context->EvalMapsNV = (PFNGLEVALMAPSNVPROC) load(userptr, "glEvalMapsNV");
@@ -3567,12 +3816,14 @@ static void glad_gl_load_GL_NV_evaluators(GladGLContext *context, GLADuserptrloa
     context->MapParameterfvNV = (PFNGLMAPPARAMETERFVNVPROC) load(userptr, "glMapParameterfvNV");
     context->MapParameterivNV = (PFNGLMAPPARAMETERIVNVPROC) load(userptr, "glMapParameterivNV");
 }
+
 static void glad_gl_load_GL_NV_explicit_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_explicit_multisample) return;
     context->GetMultisamplefvNV = (PFNGLGETMULTISAMPLEFVNVPROC) load(userptr, "glGetMultisamplefvNV");
     context->SampleMaskIndexedNV = (PFNGLSAMPLEMASKINDEXEDNVPROC) load(userptr, "glSampleMaskIndexedNV");
     context->TexRenderbufferNV = (PFNGLTEXRENDERBUFFERNVPROC) load(userptr, "glTexRenderbufferNV");
 }
+
 static void glad_gl_load_GL_NV_fence(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_fence) return;
     context->DeleteFencesNV = (PFNGLDELETEFENCESNVPROC) load(userptr, "glDeleteFencesNV");
@@ -3583,10 +3834,12 @@ static void glad_gl_load_GL_NV_fence(GladGLContext *context, GLADuserptrloadfunc
     context->SetFenceNV = (PFNGLSETFENCENVPROC) load(userptr, "glSetFenceNV");
     context->TestFenceNV = (PFNGLTESTFENCENVPROC) load(userptr, "glTestFenceNV");
 }
+
 static void glad_gl_load_GL_NV_fragment_coverage_to_color(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_fragment_coverage_to_color) return;
     context->FragmentCoverageColorNV = (PFNGLFRAGMENTCOVERAGECOLORNVPROC) load(userptr, "glFragmentCoverageColorNV");
 }
+
 static void glad_gl_load_GL_NV_fragment_program(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_fragment_program) return;
     context->GetProgramNamedParameterdvNV = (PFNGLGETPROGRAMNAMEDPARAMETERDVNVPROC) load(userptr, "glGetProgramNamedParameterdvNV");
@@ -3596,6 +3849,7 @@ static void glad_gl_load_GL_NV_fragment_program(GladGLContext *context, GLADuser
     context->ProgramNamedParameter4fNV = (PFNGLPROGRAMNAMEDPARAMETER4FNVPROC) load(userptr, "glProgramNamedParameter4fNV");
     context->ProgramNamedParameter4fvNV = (PFNGLPROGRAMNAMEDPARAMETER4FVNVPROC) load(userptr, "glProgramNamedParameter4fvNV");
 }
+
 static void glad_gl_load_GL_NV_framebuffer_mixed_samples(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_framebuffer_mixed_samples) return;
     context->CoverageModulationNV = (PFNGLCOVERAGEMODULATIONNVPROC) load(userptr, "glCoverageModulationNV");
@@ -3603,10 +3857,12 @@ static void glad_gl_load_GL_NV_framebuffer_mixed_samples(GladGLContext *context,
     context->GetCoverageModulationTableNV = (PFNGLGETCOVERAGEMODULATIONTABLENVPROC) load(userptr, "glGetCoverageModulationTableNV");
     context->RasterSamplesEXT = (PFNGLRASTERSAMPLESEXTPROC) load(userptr, "glRasterSamplesEXT");
 }
+
 static void glad_gl_load_GL_NV_framebuffer_multisample_coverage(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_framebuffer_multisample_coverage) return;
     context->RenderbufferStorageMultisampleCoverageNV = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC) load(userptr, "glRenderbufferStorageMultisampleCoverageNV");
 }
+
 static void glad_gl_load_GL_NV_geometry_program4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_geometry_program4) return;
     context->FramebufferTextureEXT = (PFNGLFRAMEBUFFERTEXTUREEXTPROC) load(userptr, "glFramebufferTextureEXT");
@@ -3614,6 +3870,7 @@ static void glad_gl_load_GL_NV_geometry_program4(GladGLContext *context, GLADuse
     context->FramebufferTextureLayerEXT = (PFNGLFRAMEBUFFERTEXTURELAYEREXTPROC) load(userptr, "glFramebufferTextureLayerEXT");
     context->ProgramVertexLimitNV = (PFNGLPROGRAMVERTEXLIMITNVPROC) load(userptr, "glProgramVertexLimitNV");
 }
+
 static void glad_gl_load_GL_NV_gpu_multicast(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_gpu_multicast) return;
     context->MulticastBarrierNV = (PFNGLMULTICASTBARRIERNVPROC) load(userptr, "glMulticastBarrierNV");
@@ -3629,6 +3886,7 @@ static void glad_gl_load_GL_NV_gpu_multicast(GladGLContext *context, GLADuserptr
     context->MulticastWaitSyncNV = (PFNGLMULTICASTWAITSYNCNVPROC) load(userptr, "glMulticastWaitSyncNV");
     context->RenderGpuMaskNV = (PFNGLRENDERGPUMASKNVPROC) load(userptr, "glRenderGpuMaskNV");
 }
+
 static void glad_gl_load_GL_NV_gpu_program4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_gpu_program4) return;
     context->GetProgramEnvParameterIivNV = (PFNGLGETPROGRAMENVPARAMETERIIVNVPROC) load(userptr, "glGetProgramEnvParameterIivNV");
@@ -3648,11 +3906,13 @@ static void glad_gl_load_GL_NV_gpu_program4(GladGLContext *context, GLADuserptrl
     context->ProgramLocalParametersI4ivNV = (PFNGLPROGRAMLOCALPARAMETERSI4IVNVPROC) load(userptr, "glProgramLocalParametersI4ivNV");
     context->ProgramLocalParametersI4uivNV = (PFNGLPROGRAMLOCALPARAMETERSI4UIVNVPROC) load(userptr, "glProgramLocalParametersI4uivNV");
 }
+
 static void glad_gl_load_GL_NV_gpu_program5(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_gpu_program5) return;
     context->GetProgramSubroutineParameteruivNV = (PFNGLGETPROGRAMSUBROUTINEPARAMETERUIVNVPROC) load(userptr, "glGetProgramSubroutineParameteruivNV");
     context->ProgramSubroutineParametersuivNV = (PFNGLPROGRAMSUBROUTINEPARAMETERSUIVNVPROC) load(userptr, "glProgramSubroutineParametersuivNV");
 }
+
 static void glad_gl_load_GL_NV_gpu_shader5(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_gpu_shader5) return;
     context->GetUniformi64vNV = (PFNGLGETUNIFORMI64VNVPROC) load(userptr, "glGetUniformi64vNV");
@@ -3689,6 +3949,7 @@ static void glad_gl_load_GL_NV_gpu_shader5(GladGLContext *context, GLADuserptrlo
     context->Uniform4ui64NV = (PFNGLUNIFORM4UI64NVPROC) load(userptr, "glUniform4ui64NV");
     context->Uniform4ui64vNV = (PFNGLUNIFORM4UI64VNVPROC) load(userptr, "glUniform4ui64vNV");
 }
+
 static void glad_gl_load_GL_NV_half_float(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_half_float) return;
     context->Color3hNV = (PFNGLCOLOR3HNVPROC) load(userptr, "glColor3hNV");
@@ -3738,10 +3999,12 @@ static void glad_gl_load_GL_NV_half_float(GladGLContext *context, GLADuserptrloa
     context->VertexWeighthNV = (PFNGLVERTEXWEIGHTHNVPROC) load(userptr, "glVertexWeighthNV");
     context->VertexWeighthvNV = (PFNGLVERTEXWEIGHTHVNVPROC) load(userptr, "glVertexWeighthvNV");
 }
+
 static void glad_gl_load_GL_NV_internalformat_sample_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_internalformat_sample_query) return;
     context->GetInternalformatSampleivNV = (PFNGLGETINTERNALFORMATSAMPLEIVNVPROC) load(userptr, "glGetInternalformatSampleivNV");
 }
+
 static void glad_gl_load_GL_NV_memory_attachment(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_memory_attachment) return;
     context->BufferAttachMemoryNV = (PFNGLBUFFERATTACHMEMORYNVPROC) load(userptr, "glBufferAttachMemoryNV");
@@ -3751,6 +4014,7 @@ static void glad_gl_load_GL_NV_memory_attachment(GladGLContext *context, GLADuse
     context->TexAttachMemoryNV = (PFNGLTEXATTACHMEMORYNVPROC) load(userptr, "glTexAttachMemoryNV");
     context->TextureAttachMemoryNV = (PFNGLTEXTUREATTACHMEMORYNVPROC) load(userptr, "glTextureAttachMemoryNV");
 }
+
 static void glad_gl_load_GL_NV_memory_object_sparse(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_memory_object_sparse) return;
     context->BufferPageCommitmentMemNV = (PFNGLBUFFERPAGECOMMITMENTMEMNVPROC) load(userptr, "glBufferPageCommitmentMemNV");
@@ -3758,6 +4022,7 @@ static void glad_gl_load_GL_NV_memory_object_sparse(GladGLContext *context, GLAD
     context->TexPageCommitmentMemNV = (PFNGLTEXPAGECOMMITMENTMEMNVPROC) load(userptr, "glTexPageCommitmentMemNV");
     context->TexturePageCommitmentMemNV = (PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC) load(userptr, "glTexturePageCommitmentMemNV");
 }
+
 static void glad_gl_load_GL_NV_mesh_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_mesh_shader) return;
     context->DrawMeshTasksIndirectNV = (PFNGLDRAWMESHTASKSINDIRECTNVPROC) load(userptr, "glDrawMeshTasksIndirectNV");
@@ -3765,6 +4030,7 @@ static void glad_gl_load_GL_NV_mesh_shader(GladGLContext *context, GLADuserptrlo
     context->MultiDrawMeshTasksIndirectCountNV = (PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC) load(userptr, "glMultiDrawMeshTasksIndirectCountNV");
     context->MultiDrawMeshTasksIndirectNV = (PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC) load(userptr, "glMultiDrawMeshTasksIndirectNV");
 }
+
 static void glad_gl_load_GL_NV_occlusion_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_occlusion_query) return;
     context->BeginOcclusionQueryNV = (PFNGLBEGINOCCLUSIONQUERYNVPROC) load(userptr, "glBeginOcclusionQueryNV");
@@ -3775,12 +4041,14 @@ static void glad_gl_load_GL_NV_occlusion_query(GladGLContext *context, GLADuserp
     context->GetOcclusionQueryuivNV = (PFNGLGETOCCLUSIONQUERYUIVNVPROC) load(userptr, "glGetOcclusionQueryuivNV");
     context->IsOcclusionQueryNV = (PFNGLISOCCLUSIONQUERYNVPROC) load(userptr, "glIsOcclusionQueryNV");
 }
+
 static void glad_gl_load_GL_NV_parameter_buffer_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_parameter_buffer_object) return;
     context->ProgramBufferParametersIivNV = (PFNGLPROGRAMBUFFERPARAMETERSIIVNVPROC) load(userptr, "glProgramBufferParametersIivNV");
     context->ProgramBufferParametersIuivNV = (PFNGLPROGRAMBUFFERPARAMETERSIUIVNVPROC) load(userptr, "glProgramBufferParametersIuivNV");
     context->ProgramBufferParametersfvNV = (PFNGLPROGRAMBUFFERPARAMETERSFVNVPROC) load(userptr, "glProgramBufferParametersfvNV");
 }
+
 static void glad_gl_load_GL_NV_path_rendering(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_path_rendering) return;
     context->CopyPathNV = (PFNGLCOPYPATHNVPROC) load(userptr, "glCopyPathNV");
@@ -3860,16 +4128,19 @@ static void glad_gl_load_GL_NV_path_rendering(GladGLContext *context, GLADuserpt
     context->TransformPathNV = (PFNGLTRANSFORMPATHNVPROC) load(userptr, "glTransformPathNV");
     context->WeightPathsNV = (PFNGLWEIGHTPATHSNVPROC) load(userptr, "glWeightPathsNV");
 }
+
 static void glad_gl_load_GL_NV_pixel_data_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_pixel_data_range) return;
     context->FlushPixelDataRangeNV = (PFNGLFLUSHPIXELDATARANGENVPROC) load(userptr, "glFlushPixelDataRangeNV");
     context->PixelDataRangeNV = (PFNGLPIXELDATARANGENVPROC) load(userptr, "glPixelDataRangeNV");
 }
+
 static void glad_gl_load_GL_NV_point_sprite(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_point_sprite) return;
     context->PointParameteriNV = (PFNGLPOINTPARAMETERINVPROC) load(userptr, "glPointParameteriNV");
     context->PointParameterivNV = (PFNGLPOINTPARAMETERIVNVPROC) load(userptr, "glPointParameterivNV");
 }
+
 static void glad_gl_load_GL_NV_present_video(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_present_video) return;
     context->GetVideoi64vNV = (PFNGLGETVIDEOI64VNVPROC) load(userptr, "glGetVideoi64vNV");
@@ -3879,21 +4150,25 @@ static void glad_gl_load_GL_NV_present_video(GladGLContext *context, GLADuserptr
     context->PresentFrameDualFillNV = (PFNGLPRESENTFRAMEDUALFILLNVPROC) load(userptr, "glPresentFrameDualFillNV");
     context->PresentFrameKeyedNV = (PFNGLPRESENTFRAMEKEYEDNVPROC) load(userptr, "glPresentFrameKeyedNV");
 }
+
 static void glad_gl_load_GL_NV_primitive_restart(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_primitive_restart) return;
     context->PrimitiveRestartIndexNV = (PFNGLPRIMITIVERESTARTINDEXNVPROC) load(userptr, "glPrimitiveRestartIndexNV");
     context->PrimitiveRestartNV = (PFNGLPRIMITIVERESTARTNVPROC) load(userptr, "glPrimitiveRestartNV");
 }
+
 static void glad_gl_load_GL_NV_query_resource(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_query_resource) return;
     context->QueryResourceNV = (PFNGLQUERYRESOURCENVPROC) load(userptr, "glQueryResourceNV");
 }
+
 static void glad_gl_load_GL_NV_query_resource_tag(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_query_resource_tag) return;
     context->DeleteQueryResourceTagNV = (PFNGLDELETEQUERYRESOURCETAGNVPROC) load(userptr, "glDeleteQueryResourceTagNV");
     context->GenQueryResourceTagNV = (PFNGLGENQUERYRESOURCETAGNVPROC) load(userptr, "glGenQueryResourceTagNV");
     context->QueryResourceTagNV = (PFNGLQUERYRESOURCETAGNVPROC) load(userptr, "glQueryResourceTagNV");
 }
+
 static void glad_gl_load_GL_NV_register_combiners(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_register_combiners) return;
     context->CombinerInputNV = (PFNGLCOMBINERINPUTNVPROC) load(userptr, "glCombinerInputNV");
@@ -3910,22 +4185,26 @@ static void glad_gl_load_GL_NV_register_combiners(GladGLContext *context, GLADus
     context->GetFinalCombinerInputParameterfvNV = (PFNGLGETFINALCOMBINERINPUTPARAMETERFVNVPROC) load(userptr, "glGetFinalCombinerInputParameterfvNV");
     context->GetFinalCombinerInputParameterivNV = (PFNGLGETFINALCOMBINERINPUTPARAMETERIVNVPROC) load(userptr, "glGetFinalCombinerInputParameterivNV");
 }
+
 static void glad_gl_load_GL_NV_register_combiners2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_register_combiners2) return;
     context->CombinerStageParameterfvNV = (PFNGLCOMBINERSTAGEPARAMETERFVNVPROC) load(userptr, "glCombinerStageParameterfvNV");
     context->GetCombinerStageParameterfvNV = (PFNGLGETCOMBINERSTAGEPARAMETERFVNVPROC) load(userptr, "glGetCombinerStageParameterfvNV");
 }
+
 static void glad_gl_load_GL_NV_sample_locations(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_sample_locations) return;
     context->FramebufferSampleLocationsfvNV = (PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) load(userptr, "glFramebufferSampleLocationsfvNV");
     context->NamedFramebufferSampleLocationsfvNV = (PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC) load(userptr, "glNamedFramebufferSampleLocationsfvNV");
     context->ResolveDepthValuesNV = (PFNGLRESOLVEDEPTHVALUESNVPROC) load(userptr, "glResolveDepthValuesNV");
 }
+
 static void glad_gl_load_GL_NV_scissor_exclusive(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_scissor_exclusive) return;
     context->ScissorExclusiveArrayvNV = (PFNGLSCISSOREXCLUSIVEARRAYVNVPROC) load(userptr, "glScissorExclusiveArrayvNV");
     context->ScissorExclusiveNV = (PFNGLSCISSOREXCLUSIVENVPROC) load(userptr, "glScissorExclusiveNV");
 }
+
 static void glad_gl_load_GL_NV_shader_buffer_load(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_shader_buffer_load) return;
     context->GetBufferParameterui64vNV = (PFNGLGETBUFFERPARAMETERUI64VNVPROC) load(userptr, "glGetBufferParameterui64vNV");
@@ -3943,6 +4222,7 @@ static void glad_gl_load_GL_NV_shader_buffer_load(GladGLContext *context, GLADus
     context->Uniformui64NV = (PFNGLUNIFORMUI64NVPROC) load(userptr, "glUniformui64NV");
     context->Uniformui64vNV = (PFNGLUNIFORMUI64VNVPROC) load(userptr, "glUniformui64vNV");
 }
+
 static void glad_gl_load_GL_NV_shading_rate_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_shading_rate_image) return;
     context->BindShadingRateImageNV = (PFNGLBINDSHADINGRATEIMAGENVPROC) load(userptr, "glBindShadingRateImageNV");
@@ -3953,10 +4233,12 @@ static void glad_gl_load_GL_NV_shading_rate_image(GladGLContext *context, GLADus
     context->ShadingRateSampleOrderCustomNV = (PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC) load(userptr, "glShadingRateSampleOrderCustomNV");
     context->ShadingRateSampleOrderNV = (PFNGLSHADINGRATESAMPLEORDERNVPROC) load(userptr, "glShadingRateSampleOrderNV");
 }
+
 static void glad_gl_load_GL_NV_texture_barrier(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_texture_barrier) return;
     context->TextureBarrierNV = (PFNGLTEXTUREBARRIERNVPROC) load(userptr, "glTextureBarrierNV");
 }
+
 static void glad_gl_load_GL_NV_texture_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_texture_multisample) return;
     context->TexImage2DMultisampleCoverageNV = (PFNGLTEXIMAGE2DMULTISAMPLECOVERAGENVPROC) load(userptr, "glTexImage2DMultisampleCoverageNV");
@@ -3966,12 +4248,14 @@ static void glad_gl_load_GL_NV_texture_multisample(GladGLContext *context, GLADu
     context->TextureImage3DMultisampleCoverageNV = (PFNGLTEXTUREIMAGE3DMULTISAMPLECOVERAGENVPROC) load(userptr, "glTextureImage3DMultisampleCoverageNV");
     context->TextureImage3DMultisampleNV = (PFNGLTEXTUREIMAGE3DMULTISAMPLENVPROC) load(userptr, "glTextureImage3DMultisampleNV");
 }
+
 static void glad_gl_load_GL_NV_timeline_semaphore(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_timeline_semaphore) return;
     context->CreateSemaphoresNV = (PFNGLCREATESEMAPHORESNVPROC) load(userptr, "glCreateSemaphoresNV");
     context->GetSemaphoreParameterivNV = (PFNGLGETSEMAPHOREPARAMETERIVNVPROC) load(userptr, "glGetSemaphoreParameterivNV");
     context->SemaphoreParameterivNV = (PFNGLSEMAPHOREPARAMETERIVNVPROC) load(userptr, "glSemaphoreParameterivNV");
 }
+
 static void glad_gl_load_GL_NV_transform_feedback(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_transform_feedback) return;
     context->ActiveVaryingNV = (PFNGLACTIVEVARYINGNVPROC) load(userptr, "glActiveVaryingNV");
@@ -3987,6 +4271,7 @@ static void glad_gl_load_GL_NV_transform_feedback(GladGLContext *context, GLADus
     context->TransformFeedbackStreamAttribsNV = (PFNGLTRANSFORMFEEDBACKSTREAMATTRIBSNVPROC) load(userptr, "glTransformFeedbackStreamAttribsNV");
     context->TransformFeedbackVaryingsNV = (PFNGLTRANSFORMFEEDBACKVARYINGSNVPROC) load(userptr, "glTransformFeedbackVaryingsNV");
 }
+
 static void glad_gl_load_GL_NV_transform_feedback2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_transform_feedback2) return;
     context->BindTransformFeedbackNV = (PFNGLBINDTRANSFORMFEEDBACKNVPROC) load(userptr, "glBindTransformFeedbackNV");
@@ -3997,6 +4282,7 @@ static void glad_gl_load_GL_NV_transform_feedback2(GladGLContext *context, GLADu
     context->PauseTransformFeedbackNV = (PFNGLPAUSETRANSFORMFEEDBACKNVPROC) load(userptr, "glPauseTransformFeedbackNV");
     context->ResumeTransformFeedbackNV = (PFNGLRESUMETRANSFORMFEEDBACKNVPROC) load(userptr, "glResumeTransformFeedbackNV");
 }
+
 static void glad_gl_load_GL_NV_vdpau_interop(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_vdpau_interop) return;
     context->VDPAUFiniNV = (PFNGLVDPAUFININVPROC) load(userptr, "glVDPAUFiniNV");
@@ -4010,15 +4296,18 @@ static void glad_gl_load_GL_NV_vdpau_interop(GladGLContext *context, GLADuserptr
     context->VDPAUUnmapSurfacesNV = (PFNGLVDPAUUNMAPSURFACESNVPROC) load(userptr, "glVDPAUUnmapSurfacesNV");
     context->VDPAUUnregisterSurfaceNV = (PFNGLVDPAUUNREGISTERSURFACENVPROC) load(userptr, "glVDPAUUnregisterSurfaceNV");
 }
+
 static void glad_gl_load_GL_NV_vdpau_interop2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_vdpau_interop2) return;
     context->VDPAURegisterVideoSurfaceWithPictureStructureNV = (PFNGLVDPAUREGISTERVIDEOSURFACEWITHPICTURESTRUCTURENVPROC) load(userptr, "glVDPAURegisterVideoSurfaceWithPictureStructureNV");
 }
+
 static void glad_gl_load_GL_NV_vertex_array_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_vertex_array_range) return;
     context->FlushVertexArrayRangeNV = (PFNGLFLUSHVERTEXARRAYRANGENVPROC) load(userptr, "glFlushVertexArrayRangeNV");
     context->VertexArrayRangeNV = (PFNGLVERTEXARRAYRANGENVPROC) load(userptr, "glVertexArrayRangeNV");
 }
+
 static void glad_gl_load_GL_NV_vertex_attrib_integer_64bit(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_vertex_attrib_integer_64bit) return;
     context->GetVertexAttribLi64vNV = (PFNGLGETVERTEXATTRIBLI64VNVPROC) load(userptr, "glGetVertexAttribLi64vNV");
@@ -4041,6 +4330,7 @@ static void glad_gl_load_GL_NV_vertex_attrib_integer_64bit(GladGLContext *contex
     context->VertexAttribL4ui64vNV = (PFNGLVERTEXATTRIBL4UI64VNVPROC) load(userptr, "glVertexAttribL4ui64vNV");
     context->VertexAttribLFormatNV = (PFNGLVERTEXATTRIBLFORMATNVPROC) load(userptr, "glVertexAttribLFormatNV");
 }
+
 static void glad_gl_load_GL_NV_vertex_buffer_unified_memory(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_vertex_buffer_unified_memory) return;
     context->BufferAddressRangeNV = (PFNGLBUFFERADDRESSRANGENVPROC) load(userptr, "glBufferAddressRangeNV");
@@ -4056,6 +4346,7 @@ static void glad_gl_load_GL_NV_vertex_buffer_unified_memory(GladGLContext *conte
     context->VertexAttribIFormatNV = (PFNGLVERTEXATTRIBIFORMATNVPROC) load(userptr, "glVertexAttribIFormatNV");
     context->VertexFormatNV = (PFNGLVERTEXFORMATNVPROC) load(userptr, "glVertexFormatNV");
 }
+
 static void glad_gl_load_GL_NV_vertex_program(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_vertex_program) return;
     context->AreProgramsResidentNV = (PFNGLAREPROGRAMSRESIDENTNVPROC) load(userptr, "glAreProgramsResidentNV");
@@ -4123,6 +4414,7 @@ static void glad_gl_load_GL_NV_vertex_program(GladGLContext *context, GLADuserpt
     context->VertexAttribs4svNV = (PFNGLVERTEXATTRIBS4SVNVPROC) load(userptr, "glVertexAttribs4svNV");
     context->VertexAttribs4ubvNV = (PFNGLVERTEXATTRIBS4UBVNVPROC) load(userptr, "glVertexAttribs4ubvNV");
 }
+
 static void glad_gl_load_GL_NV_vertex_program4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_vertex_program4) return;
     context->GetVertexAttribIivEXT = (PFNGLGETVERTEXATTRIBIIVEXTPROC) load(userptr, "glGetVertexAttribIivEXT");
@@ -4149,6 +4441,7 @@ static void glad_gl_load_GL_NV_vertex_program4(GladGLContext *context, GLADuserp
     context->VertexAttribI4usvEXT = (PFNGLVERTEXATTRIBI4USVEXTPROC) load(userptr, "glVertexAttribI4usvEXT");
     context->VertexAttribIPointerEXT = (PFNGLVERTEXATTRIBIPOINTEREXTPROC) load(userptr, "glVertexAttribIPointerEXT");
 }
+
 static void glad_gl_load_GL_NV_video_capture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_video_capture) return;
     context->BeginVideoCaptureNV = (PFNGLBEGINVIDEOCAPTURENVPROC) load(userptr, "glBeginVideoCaptureNV");
@@ -4164,10 +4457,12 @@ static void glad_gl_load_GL_NV_video_capture(GladGLContext *context, GLADuserptr
     context->VideoCaptureStreamParameterfvNV = (PFNGLVIDEOCAPTURESTREAMPARAMETERFVNVPROC) load(userptr, "glVideoCaptureStreamParameterfvNV");
     context->VideoCaptureStreamParameterivNV = (PFNGLVIDEOCAPTURESTREAMPARAMETERIVNVPROC) load(userptr, "glVideoCaptureStreamParameterivNV");
 }
+
 static void glad_gl_load_GL_NV_viewport_swizzle(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_viewport_swizzle) return;
     context->ViewportSwizzleNV = (PFNGLVIEWPORTSWIZZLENVPROC) load(userptr, "glViewportSwizzleNV");
 }
+
 static void glad_gl_load_GL_OES_byte_coordinates(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_byte_coordinates) return;
     context->MultiTexCoord1bOES = (PFNGLMULTITEXCOORD1BOESPROC) load(userptr, "glMultiTexCoord1bOES");
@@ -4193,6 +4488,7 @@ static void glad_gl_load_GL_OES_byte_coordinates(GladGLContext *context, GLADuse
     context->Vertex4bOES = (PFNGLVERTEX4BOESPROC) load(userptr, "glVertex4bOES");
     context->Vertex4bvOES = (PFNGLVERTEX4BVOESPROC) load(userptr, "glVertex4bvOES");
 }
+
 static void glad_gl_load_GL_OES_fixed_point(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_fixed_point) return;
     context->AccumxOES = (PFNGLACCUMXOESPROC) load(userptr, "glAccumxOES");
@@ -4299,10 +4595,12 @@ static void glad_gl_load_GL_OES_fixed_point(GladGLContext *context, GLADuserptrl
     context->Vertex4xOES = (PFNGLVERTEX4XOESPROC) load(userptr, "glVertex4xOES");
     context->Vertex4xvOES = (PFNGLVERTEX4XVOESPROC) load(userptr, "glVertex4xvOES");
 }
+
 static void glad_gl_load_GL_OES_query_matrix(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_query_matrix) return;
     context->QueryMatrixxOES = (PFNGLQUERYMATRIXXOESPROC) load(userptr, "glQueryMatrixxOES");
 }
+
 static void glad_gl_load_GL_OES_single_precision(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_single_precision) return;
     context->ClearDepthfOES = (PFNGLCLEARDEPTHFOESPROC) load(userptr, "glClearDepthfOES");
@@ -4312,29 +4610,35 @@ static void glad_gl_load_GL_OES_single_precision(GladGLContext *context, GLADuse
     context->GetClipPlanefOES = (PFNGLGETCLIPPLANEFOESPROC) load(userptr, "glGetClipPlanefOES");
     context->OrthofOES = (PFNGLORTHOFOESPROC) load(userptr, "glOrthofOES");
 }
+
 static void glad_gl_load_GL_OVR_multiview(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OVR_multiview) return;
     context->FramebufferTextureMultiviewOVR = (PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC) load(userptr, "glFramebufferTextureMultiviewOVR");
 }
+
 static void glad_gl_load_GL_PGI_misc_hints(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->PGI_misc_hints) return;
     context->HintPGI = (PFNGLHINTPGIPROC) load(userptr, "glHintPGI");
 }
+
 static void glad_gl_load_GL_SGIS_detail_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_detail_texture) return;
     context->DetailTexFuncSGIS = (PFNGLDETAILTEXFUNCSGISPROC) load(userptr, "glDetailTexFuncSGIS");
     context->GetDetailTexFuncSGIS = (PFNGLGETDETAILTEXFUNCSGISPROC) load(userptr, "glGetDetailTexFuncSGIS");
 }
+
 static void glad_gl_load_GL_SGIS_fog_function(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_fog_function) return;
     context->FogFuncSGIS = (PFNGLFOGFUNCSGISPROC) load(userptr, "glFogFuncSGIS");
     context->GetFogFuncSGIS = (PFNGLGETFOGFUNCSGISPROC) load(userptr, "glGetFogFuncSGIS");
 }
+
 static void glad_gl_load_GL_SGIS_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_multisample) return;
     context->SampleMaskSGIS = (PFNGLSAMPLEMASKSGISPROC) load(userptr, "glSampleMaskSGIS");
     context->SamplePatternSGIS = (PFNGLSAMPLEPATTERNSGISPROC) load(userptr, "glSamplePatternSGIS");
 }
+
 static void glad_gl_load_GL_SGIS_pixel_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_pixel_texture) return;
     context->GetPixelTexGenParameterfvSGIS = (PFNGLGETPIXELTEXGENPARAMETERFVSGISPROC) load(userptr, "glGetPixelTexGenParameterfvSGIS");
@@ -4344,30 +4648,36 @@ static void glad_gl_load_GL_SGIS_pixel_texture(GladGLContext *context, GLADuserp
     context->PixelTexGenParameteriSGIS = (PFNGLPIXELTEXGENPARAMETERISGISPROC) load(userptr, "glPixelTexGenParameteriSGIS");
     context->PixelTexGenParameterivSGIS = (PFNGLPIXELTEXGENPARAMETERIVSGISPROC) load(userptr, "glPixelTexGenParameterivSGIS");
 }
+
 static void glad_gl_load_GL_SGIS_point_parameters(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_point_parameters) return;
     context->PointParameterfSGIS = (PFNGLPOINTPARAMETERFSGISPROC) load(userptr, "glPointParameterfSGIS");
     context->PointParameterfvSGIS = (PFNGLPOINTPARAMETERFVSGISPROC) load(userptr, "glPointParameterfvSGIS");
 }
+
 static void glad_gl_load_GL_SGIS_sharpen_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_sharpen_texture) return;
     context->GetSharpenTexFuncSGIS = (PFNGLGETSHARPENTEXFUNCSGISPROC) load(userptr, "glGetSharpenTexFuncSGIS");
     context->SharpenTexFuncSGIS = (PFNGLSHARPENTEXFUNCSGISPROC) load(userptr, "glSharpenTexFuncSGIS");
 }
+
 static void glad_gl_load_GL_SGIS_texture4D(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_texture4D) return;
     context->TexImage4DSGIS = (PFNGLTEXIMAGE4DSGISPROC) load(userptr, "glTexImage4DSGIS");
     context->TexSubImage4DSGIS = (PFNGLTEXSUBIMAGE4DSGISPROC) load(userptr, "glTexSubImage4DSGIS");
 }
+
 static void glad_gl_load_GL_SGIS_texture_color_mask(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_texture_color_mask) return;
     context->TextureColorMaskSGIS = (PFNGLTEXTURECOLORMASKSGISPROC) load(userptr, "glTextureColorMaskSGIS");
 }
+
 static void glad_gl_load_GL_SGIS_texture_filter4(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIS_texture_filter4) return;
     context->GetTexFilterFuncSGIS = (PFNGLGETTEXFILTERFUNCSGISPROC) load(userptr, "glGetTexFilterFuncSGIS");
     context->TexFilterFuncSGIS = (PFNGLTEXFILTERFUNCSGISPROC) load(userptr, "glTexFilterFuncSGIS");
 }
+
 static void glad_gl_load_GL_SGIX_async(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_async) return;
     context->AsyncMarkerSGIX = (PFNGLASYNCMARKERSGIXPROC) load(userptr, "glAsyncMarkerSGIX");
@@ -4377,10 +4687,12 @@ static void glad_gl_load_GL_SGIX_async(GladGLContext *context, GLADuserptrloadfu
     context->IsAsyncMarkerSGIX = (PFNGLISASYNCMARKERSGIXPROC) load(userptr, "glIsAsyncMarkerSGIX");
     context->PollAsyncSGIX = (PFNGLPOLLASYNCSGIXPROC) load(userptr, "glPollAsyncSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_flush_raster(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_flush_raster) return;
     context->FlushRasterSGIX = (PFNGLFLUSHRASTERSGIXPROC) load(userptr, "glFlushRasterSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_fragment_lighting(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_fragment_lighting) return;
     context->FragmentColorMaterialSGIX = (PFNGLFRAGMENTCOLORMATERIALSGIXPROC) load(userptr, "glFragmentColorMaterialSGIX");
@@ -4402,14 +4714,17 @@ static void glad_gl_load_GL_SGIX_fragment_lighting(GladGLContext *context, GLADu
     context->GetFragmentMaterialivSGIX = (PFNGLGETFRAGMENTMATERIALIVSGIXPROC) load(userptr, "glGetFragmentMaterialivSGIX");
     context->LightEnviSGIX = (PFNGLLIGHTENVISGIXPROC) load(userptr, "glLightEnviSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_framezoom(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_framezoom) return;
     context->FrameZoomSGIX = (PFNGLFRAMEZOOMSGIXPROC) load(userptr, "glFrameZoomSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_igloo_interface(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_igloo_interface) return;
     context->IglooInterfaceSGIX = (PFNGLIGLOOINTERFACESGIXPROC) load(userptr, "glIglooInterfaceSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_instruments(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_instruments) return;
     context->GetInstrumentsSGIX = (PFNGLGETINSTRUMENTSSGIXPROC) load(userptr, "glGetInstrumentsSGIX");
@@ -4419,6 +4734,7 @@ static void glad_gl_load_GL_SGIX_instruments(GladGLContext *context, GLADuserptr
     context->StartInstrumentsSGIX = (PFNGLSTARTINSTRUMENTSSGIXPROC) load(userptr, "glStartInstrumentsSGIX");
     context->StopInstrumentsSGIX = (PFNGLSTOPINSTRUMENTSSGIXPROC) load(userptr, "glStopInstrumentsSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_list_priority(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_list_priority) return;
     context->GetListParameterfvSGIX = (PFNGLGETLISTPARAMETERFVSGIXPROC) load(userptr, "glGetListParameterfvSGIX");
@@ -4428,10 +4744,12 @@ static void glad_gl_load_GL_SGIX_list_priority(GladGLContext *context, GLADuserp
     context->ListParameteriSGIX = (PFNGLLISTPARAMETERISGIXPROC) load(userptr, "glListParameteriSGIX");
     context->ListParameterivSGIX = (PFNGLLISTPARAMETERIVSGIXPROC) load(userptr, "glListParameterivSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_pixel_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_pixel_texture) return;
     context->PixelTexGenSGIX = (PFNGLPIXELTEXGENSGIXPROC) load(userptr, "glPixelTexGenSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_polynomial_ffd(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_polynomial_ffd) return;
     context->DeformSGIX = (PFNGLDEFORMSGIXPROC) load(userptr, "glDeformSGIX");
@@ -4439,10 +4757,12 @@ static void glad_gl_load_GL_SGIX_polynomial_ffd(GladGLContext *context, GLADuser
     context->DeformationMap3fSGIX = (PFNGLDEFORMATIONMAP3FSGIXPROC) load(userptr, "glDeformationMap3fSGIX");
     context->LoadIdentityDeformationMapSGIX = (PFNGLLOADIDENTITYDEFORMATIONMAPSGIXPROC) load(userptr, "glLoadIdentityDeformationMapSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_reference_plane(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_reference_plane) return;
     context->ReferencePlaneSGIX = (PFNGLREFERENCEPLANESGIXPROC) load(userptr, "glReferencePlaneSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_sprite(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_sprite) return;
     context->SpriteParameterfSGIX = (PFNGLSPRITEPARAMETERFSGIXPROC) load(userptr, "glSpriteParameterfSGIX");
@@ -4450,10 +4770,12 @@ static void glad_gl_load_GL_SGIX_sprite(GladGLContext *context, GLADuserptrloadf
     context->SpriteParameteriSGIX = (PFNGLSPRITEPARAMETERISGIXPROC) load(userptr, "glSpriteParameteriSGIX");
     context->SpriteParameterivSGIX = (PFNGLSPRITEPARAMETERIVSGIXPROC) load(userptr, "glSpriteParameterivSGIX");
 }
+
 static void glad_gl_load_GL_SGIX_tag_sample_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGIX_tag_sample_buffer) return;
     context->TagSampleBufferSGIX = (PFNGLTAGSAMPLEBUFFERSGIXPROC) load(userptr, "glTagSampleBufferSGIX");
 }
+
 static void glad_gl_load_GL_SGI_color_table(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SGI_color_table) return;
     context->ColorTableParameterfvSGI = (PFNGLCOLORTABLEPARAMETERFVSGIPROC) load(userptr, "glColorTableParameterfvSGI");
@@ -4464,10 +4786,12 @@ static void glad_gl_load_GL_SGI_color_table(GladGLContext *context, GLADuserptrl
     context->GetColorTableParameterivSGI = (PFNGLGETCOLORTABLEPARAMETERIVSGIPROC) load(userptr, "glGetColorTableParameterivSGI");
     context->GetColorTableSGI = (PFNGLGETCOLORTABLESGIPROC) load(userptr, "glGetColorTableSGI");
 }
+
 static void glad_gl_load_GL_SUNX_constant_data(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SUNX_constant_data) return;
     context->FinishTextureSUNX = (PFNGLFINISHTEXTURESUNXPROC) load(userptr, "glFinishTextureSUNX");
 }
+
 static void glad_gl_load_GL_SUN_global_alpha(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SUN_global_alpha) return;
     context->GlobalAlphaFactorbSUN = (PFNGLGLOBALALPHAFACTORBSUNPROC) load(userptr, "glGlobalAlphaFactorbSUN");
@@ -4479,10 +4803,12 @@ static void glad_gl_load_GL_SUN_global_alpha(GladGLContext *context, GLADuserptr
     context->GlobalAlphaFactoruiSUN = (PFNGLGLOBALALPHAFACTORUISUNPROC) load(userptr, "glGlobalAlphaFactoruiSUN");
     context->GlobalAlphaFactorusSUN = (PFNGLGLOBALALPHAFACTORUSSUNPROC) load(userptr, "glGlobalAlphaFactorusSUN");
 }
+
 static void glad_gl_load_GL_SUN_mesh_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SUN_mesh_array) return;
     context->DrawMeshArraysSUN = (PFNGLDRAWMESHARRAYSSUNPROC) load(userptr, "glDrawMeshArraysSUN");
 }
+
 static void glad_gl_load_GL_SUN_triangle_list(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SUN_triangle_list) return;
     context->ReplacementCodePointerSUN = (PFNGLREPLACEMENTCODEPOINTERSUNPROC) load(userptr, "glReplacementCodePointerSUN");
@@ -4493,6 +4819,7 @@ static void glad_gl_load_GL_SUN_triangle_list(GladGLContext *context, GLADuserpt
     context->ReplacementCodeusSUN = (PFNGLREPLACEMENTCODEUSSUNPROC) load(userptr, "glReplacementCodeusSUN");
     context->ReplacementCodeusvSUN = (PFNGLREPLACEMENTCODEUSVSUNPROC) load(userptr, "glReplacementCodeusvSUN");
 }
+
 static void glad_gl_load_GL_SUN_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->SUN_vertex) return;
     context->Color3fVertex3fSUN = (PFNGLCOLOR3FVERTEX3FSUNPROC) load(userptr, "glColor3fVertex3fSUN");
@@ -4536,6 +4863,7 @@ static void glad_gl_load_GL_SUN_vertex(GladGLContext *context, GLADuserptrloadfu
     context->TexCoord4fVertex4fSUN = (PFNGLTEXCOORD4FVERTEX4FSUNPROC) load(userptr, "glTexCoord4fVertex4fSUN");
     context->TexCoord4fVertex4fvSUN = (PFNGLTEXCOORD4FVERTEX4FVSUNPROC) load(userptr, "glTexCoord4fVertex4fvSUN");
 }
+
 static void glad_gl_load_GL_ANGLE_base_vertex_base_instance(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_base_vertex_base_instance) return;
     context->DrawArraysInstancedBaseInstanceANGLE = (PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEANGLEPROC) load(userptr, "glDrawArraysInstancedBaseInstanceANGLE");
@@ -4543,40 +4871,48 @@ static void glad_gl_load_GL_ANGLE_base_vertex_base_instance(GladGLContext *conte
     context->MultiDrawArraysInstancedBaseInstanceANGLE = (PFNGLMULTIDRAWARRAYSINSTANCEDBASEINSTANCEANGLEPROC) load(userptr, "glMultiDrawArraysInstancedBaseInstanceANGLE");
     context->MultiDrawElementsInstancedBaseVertexBaseInstanceANGLE = (PFNGLMULTIDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEANGLEPROC) load(userptr, "glMultiDrawElementsInstancedBaseVertexBaseInstanceANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_copy_texture_3d(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_copy_texture_3d) return;
     context->CopySubTexture3DANGLE = (PFNGLCOPYSUBTEXTURE3DANGLEPROC) load(userptr, "glCopySubTexture3DANGLE");
     context->CopyTexture3DANGLE = (PFNGLCOPYTEXTURE3DANGLEPROC) load(userptr, "glCopyTexture3DANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_framebuffer_blit(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_framebuffer_blit) return;
     context->BlitFramebufferANGLE = (PFNGLBLITFRAMEBUFFERANGLEPROC) load(userptr, "glBlitFramebufferANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_framebuffer_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_framebuffer_multisample) return;
     context->RenderbufferStorageMultisampleANGLE = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEANGLEPROC) load(userptr, "glRenderbufferStorageMultisampleANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_get_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_get_image) return;
     context->GetCompressedTexImageANGLE = (PFNGLGETCOMPRESSEDTEXIMAGEANGLEPROC) load(userptr, "glGetCompressedTexImageANGLE");
     context->GetRenderbufferImageANGLE = (PFNGLGETRENDERBUFFERIMAGEANGLEPROC) load(userptr, "glGetRenderbufferImageANGLE");
     context->GetTexImageANGLE = (PFNGLGETTEXIMAGEANGLEPROC) load(userptr, "glGetTexImageANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_get_tex_level_parameter(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_get_tex_level_parameter) return;
     context->GetTexLevelParameterfvANGLE = (PFNGLGETTEXLEVELPARAMETERFVANGLEPROC) load(userptr, "glGetTexLevelParameterfvANGLE");
     context->GetTexLevelParameterivANGLE = (PFNGLGETTEXLEVELPARAMETERIVANGLEPROC) load(userptr, "glGetTexLevelParameterivANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_instanced_arrays(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_instanced_arrays) return;
     context->DrawArraysInstancedANGLE = (PFNGLDRAWARRAYSINSTANCEDANGLEPROC) load(userptr, "glDrawArraysInstancedANGLE");
     context->DrawElementsInstancedANGLE = (PFNGLDRAWELEMENTSINSTANCEDANGLEPROC) load(userptr, "glDrawElementsInstancedANGLE");
     context->VertexAttribDivisorANGLE = (PFNGLVERTEXATTRIBDIVISORANGLEPROC) load(userptr, "glVertexAttribDivisorANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_logic_op(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_logic_op) return;
     context->LogicOpANGLE = (PFNGLLOGICOPANGLEPROC) load(userptr, "glLogicOpANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_multi_draw(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_multi_draw) return;
     context->MultiDrawArraysANGLE = (PFNGLMULTIDRAWARRAYSANGLEPROC) load(userptr, "glMultiDrawArraysANGLE");
@@ -4584,19 +4920,23 @@ static void glad_gl_load_GL_ANGLE_multi_draw(GladGLContext *context, GLADuserptr
     context->MultiDrawElementsANGLE = (PFNGLMULTIDRAWELEMENTSANGLEPROC) load(userptr, "glMultiDrawElementsANGLE");
     context->MultiDrawElementsInstancedANGLE = (PFNGLMULTIDRAWELEMENTSINSTANCEDANGLEPROC) load(userptr, "glMultiDrawElementsInstancedANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_polygon_mode(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_polygon_mode) return;
     context->PolygonModeANGLE = (PFNGLPOLYGONMODEANGLEPROC) load(userptr, "glPolygonModeANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_provoking_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_provoking_vertex) return;
     context->ProvokingVertexANGLE = (PFNGLPROVOKINGVERTEXANGLEPROC) load(userptr, "glProvokingVertexANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_request_extension(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_request_extension) return;
     context->DisableExtensionANGLE = (PFNGLDISABLEEXTENSIONANGLEPROC) load(userptr, "glDisableExtensionANGLE");
     context->RequestExtensionANGLE = (PFNGLREQUESTEXTENSIONANGLEPROC) load(userptr, "glRequestExtensionANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_robust_client_memory(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_robust_client_memory) return;
     context->CompressedTexImage2DRobustANGLE = (PFNGLCOMPRESSEDTEXIMAGE2DROBUSTANGLEPROC) load(userptr, "glCompressedTexImage2DRobustANGLE");
@@ -4664,6 +5004,7 @@ static void glad_gl_load_GL_ANGLE_robust_client_memory(GladGLContext *context, G
     context->TexSubImage2DRobustANGLE = (PFNGLTEXSUBIMAGE2DROBUSTANGLEPROC) load(userptr, "glTexSubImage2DRobustANGLE");
     context->TexSubImage3DRobustANGLE = (PFNGLTEXSUBIMAGE3DROBUSTANGLEPROC) load(userptr, "glTexSubImage3DRobustANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_shader_pixel_local_storage(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_shader_pixel_local_storage) return;
     context->BeginPixelLocalStorageANGLE = (PFNGLBEGINPIXELLOCALSTORAGEANGLEPROC) load(userptr, "glBeginPixelLocalStorageANGLE");
@@ -4681,6 +5022,7 @@ static void glad_gl_load_GL_ANGLE_shader_pixel_local_storage(GladGLContext *cont
     context->GetFramebufferPixelLocalStorageParameterivRobustANGLE = (PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVROBUSTANGLEPROC) load(userptr, "glGetFramebufferPixelLocalStorageParameterivRobustANGLE");
     context->PixelLocalStorageBarrierANGLE = (PFNGLPIXELLOCALSTORAGEBARRIERANGLEPROC) load(userptr, "glPixelLocalStorageBarrierANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_texture_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_texture_multisample) return;
     context->GetMultisamplefvANGLE = (PFNGLGETMULTISAMPLEFVANGLEPROC) load(userptr, "glGetMultisamplefvANGLE");
@@ -4689,24 +5031,29 @@ static void glad_gl_load_GL_ANGLE_texture_multisample(GladGLContext *context, GL
     context->SampleMaskiANGLE = (PFNGLSAMPLEMASKIANGLEPROC) load(userptr, "glSampleMaskiANGLE");
     context->TexStorage2DMultisampleANGLE = (PFNGLTEXSTORAGE2DMULTISAMPLEANGLEPROC) load(userptr, "glTexStorage2DMultisampleANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_translated_shader_source(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_translated_shader_source) return;
     context->GetTranslatedShaderSourceANGLE = (PFNGLGETTRANSLATEDSHADERSOURCEANGLEPROC) load(userptr, "glGetTranslatedShaderSourceANGLE");
 }
+
 static void glad_gl_load_GL_ANGLE_vulkan_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ANGLE_vulkan_image) return;
     context->AcquireTexturesANGLE = (PFNGLACQUIRETEXTURESANGLEPROC) load(userptr, "glAcquireTexturesANGLE");
     context->ReleaseTexturesANGLE = (PFNGLRELEASETEXTURESANGLEPROC) load(userptr, "glReleaseTexturesANGLE");
 }
+
 static void glad_gl_load_GL_APPLE_copy_texture_levels(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_copy_texture_levels) return;
     context->CopyTextureLevelsAPPLE = (PFNGLCOPYTEXTURELEVELSAPPLEPROC) load(userptr, "glCopyTextureLevelsAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_framebuffer_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_framebuffer_multisample) return;
     context->RenderbufferStorageMultisampleAPPLE = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEAPPLEPROC) load(userptr, "glRenderbufferStorageMultisampleAPPLE");
     context->ResolveMultisampleFramebufferAPPLE = (PFNGLRESOLVEMULTISAMPLEFRAMEBUFFERAPPLEPROC) load(userptr, "glResolveMultisampleFramebufferAPPLE");
 }
+
 static void glad_gl_load_GL_APPLE_sync(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->APPLE_sync) return;
     context->ClientWaitSyncAPPLE = (PFNGLCLIENTWAITSYNCAPPLEPROC) load(userptr, "glClientWaitSyncAPPLE");
@@ -4717,37 +5064,45 @@ static void glad_gl_load_GL_APPLE_sync(GladGLContext *context, GLADuserptrloadfu
     context->IsSyncAPPLE = (PFNGLISSYNCAPPLEPROC) load(userptr, "glIsSyncAPPLE");
     context->WaitSyncAPPLE = (PFNGLWAITSYNCAPPLEPROC) load(userptr, "glWaitSyncAPPLE");
 }
+
 static void glad_gl_load_GL_ARM_shader_core_properties(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->ARM_shader_core_properties) return;
     context->MaxActiveShaderCoresARM = (PFNGLMAXACTIVESHADERCORESARMPROC) load(userptr, "glMaxActiveShaderCoresARM");
 }
+
 static void glad_gl_load_GL_CHROMIUM_bind_uniform_location(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->CHROMIUM_bind_uniform_location) return;
     context->BindUniformLocationCHROMIUM = (PFNGLBINDUNIFORMLOCATIONCHROMIUMPROC) load(userptr, "glBindUniformLocationCHROMIUM");
 }
+
 static void glad_gl_load_GL_CHROMIUM_copy_compressed_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->CHROMIUM_copy_compressed_texture) return;
     context->CompressedCopyTextureCHROMIUM = (PFNGLCOMPRESSEDCOPYTEXTURECHROMIUMPROC) load(userptr, "glCompressedCopyTextureCHROMIUM");
 }
+
 static void glad_gl_load_GL_CHROMIUM_copy_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->CHROMIUM_copy_texture) return;
     context->CopySubTextureCHROMIUM = (PFNGLCOPYSUBTEXTURECHROMIUMPROC) load(userptr, "glCopySubTextureCHROMIUM");
     context->CopyTextureCHROMIUM = (PFNGLCOPYTEXTURECHROMIUMPROC) load(userptr, "glCopyTextureCHROMIUM");
 }
+
 static void glad_gl_load_GL_CHROMIUM_framebuffer_mixed_samples(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->CHROMIUM_framebuffer_mixed_samples) return;
     context->CoverageModulationCHROMIUM = (PFNGLCOVERAGEMODULATIONCHROMIUMPROC) load(userptr, "glCoverageModulationCHROMIUM");
 }
+
 static void glad_gl_load_GL_CHROMIUM_lose_context(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->CHROMIUM_lose_context) return;
     context->LoseContextCHROMIUM = (PFNGLLOSECONTEXTCHROMIUMPROC) load(userptr, "glLoseContextCHROMIUM");
 }
+
 static void glad_gl_load_GL_EXT_base_instance(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_base_instance) return;
     context->DrawArraysInstancedBaseInstanceEXT = (PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEEXTPROC) load(userptr, "glDrawArraysInstancedBaseInstanceEXT");
     context->DrawElementsInstancedBaseInstanceEXT = (PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEEXTPROC) load(userptr, "glDrawElementsInstancedBaseInstanceEXT");
     context->DrawElementsInstancedBaseVertexBaseInstanceEXT = (PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEEXTPROC) load(userptr, "glDrawElementsInstancedBaseVertexBaseInstanceEXT");
 }
+
 static void glad_gl_load_GL_EXT_blend_func_extended(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_blend_func_extended) return;
     context->BindFragDataLocationEXT = (PFNGLBINDFRAGDATALOCATIONEXTPROC) load(userptr, "glBindFragDataLocationEXT");
@@ -4755,27 +5110,33 @@ static void glad_gl_load_GL_EXT_blend_func_extended(GladGLContext *context, GLAD
     context->GetFragDataIndexEXT = (PFNGLGETFRAGDATAINDEXEXTPROC) load(userptr, "glGetFragDataIndexEXT");
     context->GetProgramResourceLocationIndexEXT = (PFNGLGETPROGRAMRESOURCELOCATIONINDEXEXTPROC) load(userptr, "glGetProgramResourceLocationIndexEXT");
 }
+
 static void glad_gl_load_GL_EXT_buffer_storage(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_buffer_storage) return;
     context->BufferStorageEXT = (PFNGLBUFFERSTORAGEEXTPROC) load(userptr, "glBufferStorageEXT");
 }
+
 static void glad_gl_load_GL_EXT_clear_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_clear_texture) return;
     context->ClearTexImageEXT = (PFNGLCLEARTEXIMAGEEXTPROC) load(userptr, "glClearTexImageEXT");
     context->ClearTexSubImageEXT = (PFNGLCLEARTEXSUBIMAGEEXTPROC) load(userptr, "glClearTexSubImageEXT");
 }
+
 static void glad_gl_load_GL_EXT_clip_control(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_clip_control) return;
     context->ClipControlEXT = (PFNGLCLIPCONTROLEXTPROC) load(userptr, "glClipControlEXT");
 }
+
 static void glad_gl_load_GL_EXT_copy_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_copy_image) return;
     context->CopyImageSubDataEXT = (PFNGLCOPYIMAGESUBDATAEXTPROC) load(userptr, "glCopyImageSubDataEXT");
 }
+
 static void glad_gl_load_GL_EXT_discard_framebuffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_discard_framebuffer) return;
     context->DiscardFramebufferEXT = (PFNGLDISCARDFRAMEBUFFEREXTPROC) load(userptr, "glDiscardFramebufferEXT");
 }
+
 static void glad_gl_load_GL_EXT_disjoint_timer_query(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_disjoint_timer_query) return;
     context->BeginQueryEXT = (PFNGLBEGINQUERYEXTPROC) load(userptr, "glBeginQueryEXT");
@@ -4791,10 +5152,12 @@ static void glad_gl_load_GL_EXT_disjoint_timer_query(GladGLContext *context, GLA
     context->IsQueryEXT = (PFNGLISQUERYEXTPROC) load(userptr, "glIsQueryEXT");
     context->QueryCounterEXT = (PFNGLQUERYCOUNTEREXTPROC) load(userptr, "glQueryCounterEXT");
 }
+
 static void glad_gl_load_GL_EXT_draw_buffers(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_draw_buffers) return;
     context->DrawBuffersEXT = (PFNGLDRAWBUFFERSEXTPROC) load(userptr, "glDrawBuffersEXT");
 }
+
 static void glad_gl_load_GL_EXT_draw_buffers_indexed(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_draw_buffers_indexed) return;
     context->BlendEquationSeparateiEXT = (PFNGLBLENDEQUATIONSEPARATEIEXTPROC) load(userptr, "glBlendEquationSeparateiEXT");
@@ -4806,6 +5169,7 @@ static void glad_gl_load_GL_EXT_draw_buffers_indexed(GladGLContext *context, GLA
     context->EnableiEXT = (PFNGLENABLEIEXTPROC) load(userptr, "glEnableiEXT");
     context->IsEnablediEXT = (PFNGLISENABLEDIEXTPROC) load(userptr, "glIsEnablediEXT");
 }
+
 static void glad_gl_load_GL_EXT_draw_elements_base_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_draw_elements_base_vertex) return;
     context->DrawElementsBaseVertexEXT = (PFNGLDRAWELEMENTSBASEVERTEXEXTPROC) load(userptr, "glDrawElementsBaseVertexEXT");
@@ -4813,11 +5177,13 @@ static void glad_gl_load_GL_EXT_draw_elements_base_vertex(GladGLContext *context
     context->DrawRangeElementsBaseVertexEXT = (PFNGLDRAWRANGEELEMENTSBASEVERTEXEXTPROC) load(userptr, "glDrawRangeElementsBaseVertexEXT");
     context->MultiDrawElementsBaseVertexEXT = (PFNGLMULTIDRAWELEMENTSBASEVERTEXEXTPROC) load(userptr, "glMultiDrawElementsBaseVertexEXT");
 }
+
 static void glad_gl_load_GL_EXT_draw_transform_feedback(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_draw_transform_feedback) return;
     context->DrawTransformFeedbackEXT = (PFNGLDRAWTRANSFORMFEEDBACKEXTPROC) load(userptr, "glDrawTransformFeedbackEXT");
     context->DrawTransformFeedbackInstancedEXT = (PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDEXTPROC) load(userptr, "glDrawTransformFeedbackInstancedEXT");
 }
+
 static void glad_gl_load_GL_EXT_fragment_shading_rate(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_fragment_shading_rate) return;
     context->FramebufferShadingRateEXT = (PFNGLFRAMEBUFFERSHADINGRATEEXTPROC) load(userptr, "glFramebufferShadingRateEXT");
@@ -4825,37 +5191,44 @@ static void glad_gl_load_GL_EXT_fragment_shading_rate(GladGLContext *context, GL
     context->ShadingRateCombinerOpsEXT = (PFNGLSHADINGRATECOMBINEROPSEXTPROC) load(userptr, "glShadingRateCombinerOpsEXT");
     context->ShadingRateEXT = (PFNGLSHADINGRATEEXTPROC) load(userptr, "glShadingRateEXT");
 }
+
 static void glad_gl_load_GL_EXT_geometry_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_geometry_shader) return;
     context->FramebufferTextureEXT = (PFNGLFRAMEBUFFERTEXTUREEXTPROC) load(userptr, "glFramebufferTextureEXT");
 }
+
 static void glad_gl_load_GL_EXT_instanced_arrays(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_instanced_arrays) return;
     context->DrawArraysInstancedEXT = (PFNGLDRAWARRAYSINSTANCEDEXTPROC) load(userptr, "glDrawArraysInstancedEXT");
     context->DrawElementsInstancedEXT = (PFNGLDRAWELEMENTSINSTANCEDEXTPROC) load(userptr, "glDrawElementsInstancedEXT");
     context->VertexAttribDivisorEXT = (PFNGLVERTEXATTRIBDIVISOREXTPROC) load(userptr, "glVertexAttribDivisorEXT");
 }
+
 static void glad_gl_load_GL_EXT_map_buffer_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_map_buffer_range) return;
     context->FlushMappedBufferRangeEXT = (PFNGLFLUSHMAPPEDBUFFERRANGEEXTPROC) load(userptr, "glFlushMappedBufferRangeEXT");
     context->MapBufferRangeEXT = (PFNGLMAPBUFFERRANGEEXTPROC) load(userptr, "glMapBufferRangeEXT");
 }
+
 static void glad_gl_load_GL_EXT_multi_draw_indirect(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_multi_draw_indirect) return;
     context->MultiDrawArraysIndirectEXT = (PFNGLMULTIDRAWARRAYSINDIRECTEXTPROC) load(userptr, "glMultiDrawArraysIndirectEXT");
     context->MultiDrawElementsIndirectEXT = (PFNGLMULTIDRAWELEMENTSINDIRECTEXTPROC) load(userptr, "glMultiDrawElementsIndirectEXT");
 }
+
 static void glad_gl_load_GL_EXT_multisampled_render_to_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_multisampled_render_to_texture) return;
     context->FramebufferTexture2DMultisampleEXT = (PFNGLFRAMEBUFFERTEXTURE2DMULTISAMPLEEXTPROC) load(userptr, "glFramebufferTexture2DMultisampleEXT");
     context->RenderbufferStorageMultisampleEXT = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC) load(userptr, "glRenderbufferStorageMultisampleEXT");
 }
+
 static void glad_gl_load_GL_EXT_multiview_draw_buffers(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_multiview_draw_buffers) return;
     context->DrawBuffersIndexedEXT = (PFNGLDRAWBUFFERSINDEXEDEXTPROC) load(userptr, "glDrawBuffersIndexedEXT");
     context->GetIntegeri_vEXT = (PFNGLGETINTEGERI_VEXTPROC) load(userptr, "glGetIntegeri_vEXT");
     context->ReadBufferIndexedEXT = (PFNGLREADBUFFERINDEXEDEXTPROC) load(userptr, "glReadBufferIndexedEXT");
 }
+
 static void glad_gl_load_GL_EXT_occlusion_query_boolean(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_occlusion_query_boolean) return;
     context->BeginQueryEXT = (PFNGLBEGINQUERYEXTPROC) load(userptr, "glBeginQueryEXT");
@@ -4866,10 +5239,12 @@ static void glad_gl_load_GL_EXT_occlusion_query_boolean(GladGLContext *context, 
     context->GetQueryivEXT = (PFNGLGETQUERYIVEXTPROC) load(userptr, "glGetQueryivEXT");
     context->IsQueryEXT = (PFNGLISQUERYEXTPROC) load(userptr, "glIsQueryEXT");
 }
+
 static void glad_gl_load_GL_EXT_primitive_bounding_box(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_primitive_bounding_box) return;
     context->PrimitiveBoundingBoxEXT = (PFNGLPRIMITIVEBOUNDINGBOXEXTPROC) load(userptr, "glPrimitiveBoundingBoxEXT");
 }
+
 static void glad_gl_load_GL_EXT_robustness(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_robustness) return;
     context->GetGraphicsResetStatusEXT = (PFNGLGETGRAPHICSRESETSTATUSEXTPROC) load(userptr, "glGetGraphicsResetStatusEXT");
@@ -4877,20 +5252,24 @@ static void glad_gl_load_GL_EXT_robustness(GladGLContext *context, GLADuserptrlo
     context->GetnUniformivEXT = (PFNGLGETNUNIFORMIVEXTPROC) load(userptr, "glGetnUniformivEXT");
     context->ReadnPixelsEXT = (PFNGLREADNPIXELSEXTPROC) load(userptr, "glReadnPixelsEXT");
 }
+
 static void glad_gl_load_GL_EXT_shader_pixel_local_storage2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_shader_pixel_local_storage2) return;
     context->ClearPixelLocalStorageuiEXT = (PFNGLCLEARPIXELLOCALSTORAGEUIEXTPROC) load(userptr, "glClearPixelLocalStorageuiEXT");
     context->FramebufferPixelLocalStorageSizeEXT = (PFNGLFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC) load(userptr, "glFramebufferPixelLocalStorageSizeEXT");
     context->GetFramebufferPixelLocalStorageSizeEXT = (PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC) load(userptr, "glGetFramebufferPixelLocalStorageSizeEXT");
 }
+
 static void glad_gl_load_GL_EXT_sparse_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_sparse_texture) return;
     context->TexPageCommitmentEXT = (PFNGLTEXPAGECOMMITMENTEXTPROC) load(userptr, "glTexPageCommitmentEXT");
 }
+
 static void glad_gl_load_GL_EXT_tessellation_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_tessellation_shader) return;
     context->PatchParameteriEXT = (PFNGLPATCHPARAMETERIEXTPROC) load(userptr, "glPatchParameteriEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_border_clamp(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_border_clamp) return;
     context->GetSamplerParameterIivEXT = (PFNGLGETSAMPLERPARAMETERIIVEXTPROC) load(userptr, "glGetSamplerParameterIivEXT");
@@ -4902,20 +5281,24 @@ static void glad_gl_load_GL_EXT_texture_border_clamp(GladGLContext *context, GLA
     context->TexParameterIivEXT = (PFNGLTEXPARAMETERIIVEXTPROC) load(userptr, "glTexParameterIivEXT");
     context->TexParameterIuivEXT = (PFNGLTEXPARAMETERIUIVEXTPROC) load(userptr, "glTexParameterIuivEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_buffer) return;
     context->TexBufferEXT = (PFNGLTEXBUFFEREXTPROC) load(userptr, "glTexBufferEXT");
     context->TexBufferRangeEXT = (PFNGLTEXBUFFERRANGEEXTPROC) load(userptr, "glTexBufferRangeEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_storage_compression(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_storage_compression) return;
     context->TexStorageAttribs2DEXT = (PFNGLTEXSTORAGEATTRIBS2DEXTPROC) load(userptr, "glTexStorageAttribs2DEXT");
     context->TexStorageAttribs3DEXT = (PFNGLTEXSTORAGEATTRIBS3DEXTPROC) load(userptr, "glTexStorageAttribs3DEXT");
 }
+
 static void glad_gl_load_GL_EXT_texture_view(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->EXT_texture_view) return;
     context->TextureViewEXT = (PFNGLTEXTUREVIEWEXTPROC) load(userptr, "glTextureViewEXT");
 }
+
 static void glad_gl_load_GL_IMG_bindless_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->IMG_bindless_texture) return;
     context->GetTextureHandleIMG = (PFNGLGETTEXTUREHANDLEIMGPROC) load(userptr, "glGetTextureHandleIMG");
@@ -4925,16 +5308,19 @@ static void glad_gl_load_GL_IMG_bindless_texture(GladGLContext *context, GLADuse
     context->UniformHandleui64IMG = (PFNGLUNIFORMHANDLEUI64IMGPROC) load(userptr, "glUniformHandleui64IMG");
     context->UniformHandleui64vIMG = (PFNGLUNIFORMHANDLEUI64VIMGPROC) load(userptr, "glUniformHandleui64vIMG");
 }
+
 static void glad_gl_load_GL_IMG_framebuffer_downsample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->IMG_framebuffer_downsample) return;
     context->FramebufferTexture2DDownsampleIMG = (PFNGLFRAMEBUFFERTEXTURE2DDOWNSAMPLEIMGPROC) load(userptr, "glFramebufferTexture2DDownsampleIMG");
     context->FramebufferTextureLayerDownsampleIMG = (PFNGLFRAMEBUFFERTEXTURELAYERDOWNSAMPLEIMGPROC) load(userptr, "glFramebufferTextureLayerDownsampleIMG");
 }
+
 static void glad_gl_load_GL_IMG_multisampled_render_to_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->IMG_multisampled_render_to_texture) return;
     context->FramebufferTexture2DMultisampleIMG = (PFNGLFRAMEBUFFERTEXTURE2DMULTISAMPLEIMGPROC) load(userptr, "glFramebufferTexture2DMultisampleIMG");
     context->RenderbufferStorageMultisampleIMG = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLEIMGPROC) load(userptr, "glRenderbufferStorageMultisampleIMG");
 }
+
 static void glad_gl_load_GL_MESA_sampler_objects(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->MESA_sampler_objects) return;
     context->BindSampler = (PFNGLBINDSAMPLERPROC) load(userptr, "glBindSampler");
@@ -4948,36 +5334,44 @@ static void glad_gl_load_GL_MESA_sampler_objects(GladGLContext *context, GLADuse
     context->SamplerParameteri = (PFNGLSAMPLERPARAMETERIPROC) load(userptr, "glSamplerParameteri");
     context->SamplerParameteriv = (PFNGLSAMPLERPARAMETERIVPROC) load(userptr, "glSamplerParameteriv");
 }
+
 static void glad_gl_load_GL_NV_copy_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_copy_buffer) return;
     context->CopyBufferSubDataNV = (PFNGLCOPYBUFFERSUBDATANVPROC) load(userptr, "glCopyBufferSubDataNV");
 }
+
 static void glad_gl_load_GL_NV_coverage_sample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_coverage_sample) return;
     context->CoverageMaskNV = (PFNGLCOVERAGEMASKNVPROC) load(userptr, "glCoverageMaskNV");
     context->CoverageOperationNV = (PFNGLCOVERAGEOPERATIONNVPROC) load(userptr, "glCoverageOperationNV");
 }
+
 static void glad_gl_load_GL_NV_draw_buffers(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_draw_buffers) return;
     context->DrawBuffersNV = (PFNGLDRAWBUFFERSNVPROC) load(userptr, "glDrawBuffersNV");
 }
+
 static void glad_gl_load_GL_NV_draw_instanced(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_draw_instanced) return;
     context->DrawArraysInstancedNV = (PFNGLDRAWARRAYSINSTANCEDNVPROC) load(userptr, "glDrawArraysInstancedNV");
     context->DrawElementsInstancedNV = (PFNGLDRAWELEMENTSINSTANCEDNVPROC) load(userptr, "glDrawElementsInstancedNV");
 }
+
 static void glad_gl_load_GL_NV_framebuffer_blit(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_framebuffer_blit) return;
     context->BlitFramebufferNV = (PFNGLBLITFRAMEBUFFERNVPROC) load(userptr, "glBlitFramebufferNV");
 }
+
 static void glad_gl_load_GL_NV_framebuffer_multisample(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_framebuffer_multisample) return;
     context->RenderbufferStorageMultisampleNV = (PFNGLRENDERBUFFERSTORAGEMULTISAMPLENVPROC) load(userptr, "glRenderbufferStorageMultisampleNV");
 }
+
 static void glad_gl_load_GL_NV_instanced_arrays(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_instanced_arrays) return;
     context->VertexAttribDivisorNV = (PFNGLVERTEXATTRIBDIVISORNVPROC) load(userptr, "glVertexAttribDivisorNV");
 }
+
 static void glad_gl_load_GL_NV_non_square_matrices(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_non_square_matrices) return;
     context->UniformMatrix2x3fvNV = (PFNGLUNIFORMMATRIX2X3FVNVPROC) load(userptr, "glUniformMatrix2x3fvNV");
@@ -4987,14 +5381,17 @@ static void glad_gl_load_GL_NV_non_square_matrices(GladGLContext *context, GLADu
     context->UniformMatrix4x2fvNV = (PFNGLUNIFORMMATRIX4X2FVNVPROC) load(userptr, "glUniformMatrix4x2fvNV");
     context->UniformMatrix4x3fvNV = (PFNGLUNIFORMMATRIX4X3FVNVPROC) load(userptr, "glUniformMatrix4x3fvNV");
 }
+
 static void glad_gl_load_GL_NV_polygon_mode(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_polygon_mode) return;
     context->PolygonModeNV = (PFNGLPOLYGONMODENVPROC) load(userptr, "glPolygonModeNV");
 }
+
 static void glad_gl_load_GL_NV_read_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_read_buffer) return;
     context->ReadBufferNV = (PFNGLREADBUFFERNVPROC) load(userptr, "glReadBufferNV");
 }
+
 static void glad_gl_load_GL_NV_viewport_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->NV_viewport_array) return;
     context->DepthRangeArrayfvNV = (PFNGLDEPTHRANGEARRAYFVNVPROC) load(userptr, "glDepthRangeArrayfvNV");
@@ -5010,15 +5407,18 @@ static void glad_gl_load_GL_NV_viewport_array(GladGLContext *context, GLADuserpt
     context->ViewportIndexedfNV = (PFNGLVIEWPORTINDEXEDFNVPROC) load(userptr, "glViewportIndexedfNV");
     context->ViewportIndexedfvNV = (PFNGLVIEWPORTINDEXEDFVNVPROC) load(userptr, "glViewportIndexedfvNV");
 }
+
 static void glad_gl_load_GL_OES_EGL_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_EGL_image) return;
     context->EGLImageTargetRenderbufferStorageOES = (PFNGLEGLIMAGETARGETRENDERBUFFERSTORAGEOESPROC) load(userptr, "glEGLImageTargetRenderbufferStorageOES");
     context->EGLImageTargetTexture2DOES = (PFNGLEGLIMAGETARGETTEXTURE2DOESPROC) load(userptr, "glEGLImageTargetTexture2DOES");
 }
+
 static void glad_gl_load_GL_OES_copy_image(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_copy_image) return;
     context->CopyImageSubDataOES = (PFNGLCOPYIMAGESUBDATAOESPROC) load(userptr, "glCopyImageSubDataOES");
 }
+
 static void glad_gl_load_GL_OES_draw_buffers_indexed(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_draw_buffers_indexed) return;
     context->BlendEquationSeparateiOES = (PFNGLBLENDEQUATIONSEPARATEIOESPROC) load(userptr, "glBlendEquationSeparateiOES");
@@ -5030,6 +5430,7 @@ static void glad_gl_load_GL_OES_draw_buffers_indexed(GladGLContext *context, GLA
     context->EnableiOES = (PFNGLENABLEIOESPROC) load(userptr, "glEnableiOES");
     context->IsEnablediOES = (PFNGLISENABLEDIOESPROC) load(userptr, "glIsEnablediOES");
 }
+
 static void glad_gl_load_GL_OES_draw_elements_base_vertex(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_draw_elements_base_vertex) return;
     context->DrawElementsBaseVertexOES = (PFNGLDRAWELEMENTSBASEVERTEXOESPROC) load(userptr, "glDrawElementsBaseVertexOES");
@@ -5037,33 +5438,40 @@ static void glad_gl_load_GL_OES_draw_elements_base_vertex(GladGLContext *context
     context->DrawRangeElementsBaseVertexOES = (PFNGLDRAWRANGEELEMENTSBASEVERTEXOESPROC) load(userptr, "glDrawRangeElementsBaseVertexOES");
     context->MultiDrawElementsBaseVertexEXT = (PFNGLMULTIDRAWELEMENTSBASEVERTEXEXTPROC) load(userptr, "glMultiDrawElementsBaseVertexEXT");
 }
+
 static void glad_gl_load_GL_OES_geometry_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_geometry_shader) return;
     context->FramebufferTextureOES = (PFNGLFRAMEBUFFERTEXTUREOESPROC) load(userptr, "glFramebufferTextureOES");
 }
+
 static void glad_gl_load_GL_OES_get_program_binary(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_get_program_binary) return;
     context->GetProgramBinaryOES = (PFNGLGETPROGRAMBINARYOESPROC) load(userptr, "glGetProgramBinaryOES");
     context->ProgramBinaryOES = (PFNGLPROGRAMBINARYOESPROC) load(userptr, "glProgramBinaryOES");
 }
+
 static void glad_gl_load_GL_OES_mapbuffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_mapbuffer) return;
     context->GetBufferPointervOES = (PFNGLGETBUFFERPOINTERVOESPROC) load(userptr, "glGetBufferPointervOES");
     context->MapBufferOES = (PFNGLMAPBUFFEROESPROC) load(userptr, "glMapBufferOES");
     context->UnmapBufferOES = (PFNGLUNMAPBUFFEROESPROC) load(userptr, "glUnmapBufferOES");
 }
+
 static void glad_gl_load_GL_OES_primitive_bounding_box(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_primitive_bounding_box) return;
     context->PrimitiveBoundingBoxOES = (PFNGLPRIMITIVEBOUNDINGBOXOESPROC) load(userptr, "glPrimitiveBoundingBoxOES");
 }
+
 static void glad_gl_load_GL_OES_sample_shading(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_sample_shading) return;
     context->MinSampleShadingOES = (PFNGLMINSAMPLESHADINGOESPROC) load(userptr, "glMinSampleShadingOES");
 }
+
 static void glad_gl_load_GL_OES_tessellation_shader(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_tessellation_shader) return;
     context->PatchParameteriOES = (PFNGLPATCHPARAMETERIOESPROC) load(userptr, "glPatchParameteriOES");
 }
+
 static void glad_gl_load_GL_OES_texture_3D(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_texture_3D) return;
     context->CompressedTexImage3DOES = (PFNGLCOMPRESSEDTEXIMAGE3DOESPROC) load(userptr, "glCompressedTexImage3DOES");
@@ -5073,6 +5481,7 @@ static void glad_gl_load_GL_OES_texture_3D(GladGLContext *context, GLADuserptrlo
     context->TexImage3DOES = (PFNGLTEXIMAGE3DOESPROC) load(userptr, "glTexImage3DOES");
     context->TexSubImage3DOES = (PFNGLTEXSUBIMAGE3DOESPROC) load(userptr, "glTexSubImage3DOES");
 }
+
 static void glad_gl_load_GL_OES_texture_border_clamp(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_texture_border_clamp) return;
     context->GetSamplerParameterIivOES = (PFNGLGETSAMPLERPARAMETERIIVOESPROC) load(userptr, "glGetSamplerParameterIivOES");
@@ -5084,19 +5493,23 @@ static void glad_gl_load_GL_OES_texture_border_clamp(GladGLContext *context, GLA
     context->TexParameterIivOES = (PFNGLTEXPARAMETERIIVOESPROC) load(userptr, "glTexParameterIivOES");
     context->TexParameterIuivOES = (PFNGLTEXPARAMETERIUIVOESPROC) load(userptr, "glTexParameterIuivOES");
 }
+
 static void glad_gl_load_GL_OES_texture_buffer(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_texture_buffer) return;
     context->TexBufferOES = (PFNGLTEXBUFFEROESPROC) load(userptr, "glTexBufferOES");
     context->TexBufferRangeOES = (PFNGLTEXBUFFERRANGEOESPROC) load(userptr, "glTexBufferRangeOES");
 }
+
 static void glad_gl_load_GL_OES_texture_storage_multisample_2d_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_texture_storage_multisample_2d_array) return;
     context->TexStorage3DMultisampleOES = (PFNGLTEXSTORAGE3DMULTISAMPLEOESPROC) load(userptr, "glTexStorage3DMultisampleOES");
 }
+
 static void glad_gl_load_GL_OES_texture_view(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_texture_view) return;
     context->TextureViewOES = (PFNGLTEXTUREVIEWOESPROC) load(userptr, "glTextureViewOES");
 }
+
 static void glad_gl_load_GL_OES_vertex_array_object(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_vertex_array_object) return;
     context->BindVertexArrayOES = (PFNGLBINDVERTEXARRAYOESPROC) load(userptr, "glBindVertexArrayOES");
@@ -5104,6 +5517,7 @@ static void glad_gl_load_GL_OES_vertex_array_object(GladGLContext *context, GLAD
     context->GenVertexArraysOES = (PFNGLGENVERTEXARRAYSOESPROC) load(userptr, "glGenVertexArraysOES");
     context->IsVertexArrayOES = (PFNGLISVERTEXARRAYOESPROC) load(userptr, "glIsVertexArrayOES");
 }
+
 static void glad_gl_load_GL_OES_viewport_array(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OES_viewport_array) return;
     context->DepthRangeArrayfvOES = (PFNGLDEPTHRANGEARRAYFVOESPROC) load(userptr, "glDepthRangeArrayfvOES");
@@ -5119,14 +5533,17 @@ static void glad_gl_load_GL_OES_viewport_array(GladGLContext *context, GLADuserp
     context->ViewportIndexedfOES = (PFNGLVIEWPORTINDEXEDFOESPROC) load(userptr, "glViewportIndexedfOES");
     context->ViewportIndexedfvOES = (PFNGLVIEWPORTINDEXEDFVOESPROC) load(userptr, "glViewportIndexedfvOES");
 }
+
 static void glad_gl_load_GL_OVR_multiview_multisampled_render_to_texture(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->OVR_multiview_multisampled_render_to_texture) return;
     context->FramebufferTextureMultisampleMultiviewOVR = (PFNGLFRAMEBUFFERTEXTUREMULTISAMPLEMULTIVIEWOVRPROC) load(userptr, "glFramebufferTextureMultisampleMultiviewOVR");
 }
+
 static void glad_gl_load_GL_QCOM_alpha_test(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_alpha_test) return;
     context->AlphaFuncQCOM = (PFNGLALPHAFUNCQCOMPROC) load(userptr, "glAlphaFuncQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_driver_control(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_driver_control) return;
     context->DisableDriverControlQCOM = (PFNGLDISABLEDRIVERCONTROLQCOMPROC) load(userptr, "glDisableDriverControlQCOM");
@@ -5134,6 +5551,7 @@ static void glad_gl_load_GL_QCOM_driver_control(GladGLContext *context, GLADuser
     context->GetDriverControlStringQCOM = (PFNGLGETDRIVERCONTROLSTRINGQCOMPROC) load(userptr, "glGetDriverControlStringQCOM");
     context->GetDriverControlsQCOM = (PFNGLGETDRIVERCONTROLSQCOMPROC) load(userptr, "glGetDriverControlsQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_extended_get(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_extended_get) return;
     context->ExtGetBufferPointervQCOM = (PFNGLEXTGETBUFFERPOINTERVQCOMPROC) load(userptr, "glExtGetBufferPointervQCOM");
@@ -5145,6 +5563,7 @@ static void glad_gl_load_GL_QCOM_extended_get(GladGLContext *context, GLADuserpt
     context->ExtGetTexturesQCOM = (PFNGLEXTGETTEXTURESQCOMPROC) load(userptr, "glExtGetTexturesQCOM");
     context->ExtTexObjectStateOverrideiQCOM = (PFNGLEXTTEXOBJECTSTATEOVERRIDEIQCOMPROC) load(userptr, "glExtTexObjectStateOverrideiQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_extended_get2(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_extended_get2) return;
     context->ExtGetProgramBinarySourceQCOM = (PFNGLEXTGETPROGRAMBINARYSOURCEQCOMPROC) load(userptr, "glExtGetProgramBinarySourceQCOM");
@@ -5152,38 +5571,44 @@ static void glad_gl_load_GL_QCOM_extended_get2(GladGLContext *context, GLADuserp
     context->ExtGetShadersQCOM = (PFNGLEXTGETSHADERSQCOMPROC) load(userptr, "glExtGetShadersQCOM");
     context->ExtIsProgramBinaryQCOM = (PFNGLEXTISPROGRAMBINARYQCOMPROC) load(userptr, "glExtIsProgramBinaryQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_frame_extrapolation(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_frame_extrapolation) return;
     context->ExtrapolateTex2DQCOM = (PFNGLEXTRAPOLATETEX2DQCOMPROC) load(userptr, "glExtrapolateTex2DQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_framebuffer_foveated(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_framebuffer_foveated) return;
     context->FramebufferFoveationConfigQCOM = (PFNGLFRAMEBUFFERFOVEATIONCONFIGQCOMPROC) load(userptr, "glFramebufferFoveationConfigQCOM");
     context->FramebufferFoveationParametersQCOM = (PFNGLFRAMEBUFFERFOVEATIONPARAMETERSQCOMPROC) load(userptr, "glFramebufferFoveationParametersQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_motion_estimation(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_motion_estimation) return;
     context->TexEstimateMotionQCOM = (PFNGLTEXESTIMATEMOTIONQCOMPROC) load(userptr, "glTexEstimateMotionQCOM");
     context->TexEstimateMotionRegionsQCOM = (PFNGLTEXESTIMATEMOTIONREGIONSQCOMPROC) load(userptr, "glTexEstimateMotionRegionsQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_shader_framebuffer_fetch_noncoherent(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_shader_framebuffer_fetch_noncoherent) return;
     context->FramebufferFetchBarrierQCOM = (PFNGLFRAMEBUFFERFETCHBARRIERQCOMPROC) load(userptr, "glFramebufferFetchBarrierQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_shading_rate(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_shading_rate) return;
     context->ShadingRateQCOM = (PFNGLSHADINGRATEQCOMPROC) load(userptr, "glShadingRateQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_texture_foveated(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_texture_foveated) return;
     context->TextureFoveationParametersQCOM = (PFNGLTEXTUREFOVEATIONPARAMETERSQCOMPROC) load(userptr, "glTextureFoveationParametersQCOM");
 }
+
 static void glad_gl_load_GL_QCOM_tiled_rendering(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     if(!context->QCOM_tiled_rendering) return;
     context->EndTilingQCOM = (PFNGLENDTILINGQCOMPROC) load(userptr, "glEndTilingQCOM");
     context->StartTilingQCOM = (PFNGLSTARTTILINGQCOMPROC) load(userptr, "glStartTilingQCOM");
 }
-
 
 static void glad_gl_resolve_aliases(GladGLContext *context) {
     if (context->ActiveTexture == NULL && context->ActiveTextureARB != NULL) context->ActiveTexture = (PFNGLACTIVETEXTUREPROC)context->ActiveTextureARB;
@@ -7719,6 +8144,7 @@ int gladLoadGLContext(GladGLContext *context, GLADloadfunc load) {
 int gladLoadGL(GLADloadfunc load) {
     return gladLoadGLContext(gladGetGLContext(), load);
 }
+
 static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     const char *exts = NULL;
     unsigned int num_exts_i = 0;
@@ -8340,6 +8766,7 @@ int gladLoadGLES2Context(GladGLContext *context, GLADloadfunc load) {
 int gladLoadGLES2(GLADloadfunc load) {
     return gladLoadGLES2Context(gladGetGLContext(), load);
 }
+
 
 GladGLContext* gladGetGLContext() {
     return &glad_gl_context;
