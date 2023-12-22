@@ -5,7 +5,7 @@
  *
  * Generator: C/C++
  * Specification: egl
- * Extensions: 214
+ * Extensions: 215
  *
  * APIs:
  *  - egl=1.5
@@ -20,7 +20,7 @@
  *  - ON_DEMAND = False
  *
  * Commandline:
- *    --merge --api='egl=1.5' --extensions='EGL_ANDROID_GLES_layers,EGL_ANDROID_blob_cache,EGL_ANDROID_create_native_client_buffer,EGL_ANDROID_framebuffer_target,EGL_ANDROID_front_buffer_auto_refresh,EGL_ANDROID_get_frame_timestamps,EGL_ANDROID_get_native_client_buffer,EGL_ANDROID_image_native_buffer,EGL_ANDROID_native_fence_sync,EGL_ANDROID_presentation_time,EGL_ANDROID_recordable,EGL_ANGLE_colorspace_attribute_passthrough,EGL_ANGLE_context_virtualization,EGL_ANGLE_create_context_backwards_compatible,EGL_ANGLE_create_context_client_arrays,EGL_ANGLE_create_context_extensions_enabled,EGL_ANGLE_create_context_webgl_compatibility,EGL_ANGLE_create_surface_swap_interval,EGL_ANGLE_d3d_share_handle_client_buffer,EGL_ANGLE_d3d_texture_client_buffer,EGL_ANGLE_device_cgl,EGL_ANGLE_device_creation,EGL_ANGLE_device_d3d,EGL_ANGLE_device_eagl,EGL_ANGLE_device_metal,EGL_ANGLE_device_vulkan,EGL_ANGLE_direct_composition,EGL_ANGLE_display_power_preference,EGL_ANGLE_display_semaphore_share_group,EGL_ANGLE_display_texture_share_group,EGL_ANGLE_experimental_present_path,EGL_ANGLE_external_context_and_surface,EGL_ANGLE_feature_control,EGL_ANGLE_ggp_stream_descriptor,EGL_ANGLE_iosurface_client_buffer,EGL_ANGLE_keyed_mutex,EGL_ANGLE_metal_create_context_ownership_identity,EGL_ANGLE_metal_shared_event_sync,EGL_ANGLE_metal_texture_client_buffer,EGL_ANGLE_platform_angle,EGL_ANGLE_platform_angle_d3d,EGL_ANGLE_platform_angle_d3d11on12,EGL_ANGLE_platform_angle_d3d_luid,EGL_ANGLE_platform_angle_device_context_volatile_cgl,EGL_ANGLE_platform_angle_device_context_volatile_eagl,EGL_ANGLE_platform_angle_device_id,EGL_ANGLE_platform_angle_device_type_egl,EGL_ANGLE_platform_angle_device_type_swiftshader,EGL_ANGLE_platform_angle_metal,EGL_ANGLE_platform_angle_null,EGL_ANGLE_platform_angle_opengl,EGL_ANGLE_platform_angle_vulkan,EGL_ANGLE_power_preference,EGL_ANGLE_prepare_swap_buffers,EGL_ANGLE_program_cache_control,EGL_ANGLE_query_surface_pointer,EGL_ANGLE_robust_resource_initialization,EGL_ANGLE_stream_producer_d3d_texture,EGL_ANGLE_surface_d3d_texture_2d_share_handle,EGL_ANGLE_surface_orientation,EGL_ANGLE_swap_with_frame_token,EGL_ANGLE_sync_control_rate,EGL_ANGLE_vulkan_display,EGL_ANGLE_vulkan_image,EGL_ANGLE_wait_until_work_scheduled,EGL_ANGLE_window_fixed_size,EGL_ANGLE_x11_visual,EGL_ARM_image_format,EGL_ARM_implicit_external_sync,EGL_ARM_pixmap_multisample_discard,EGL_CHROMIUM_sync_control,EGL_EXT_bind_to_front,EGL_EXT_buffer_age,EGL_EXT_client_extensions,EGL_EXT_client_sync,EGL_EXT_compositor,EGL_EXT_config_select_group,EGL_EXT_create_context_robustness,EGL_EXT_device_base,EGL_EXT_device_drm,EGL_EXT_device_drm_render_node,EGL_EXT_device_enumeration,EGL_EXT_device_openwf,EGL_EXT_device_persistent_id,EGL_EXT_device_query,EGL_EXT_device_query_name,EGL_EXT_explicit_device,EGL_EXT_gl_colorspace_bt2020_hlg,EGL_EXT_gl_colorspace_bt2020_linear,EGL_EXT_gl_colorspace_bt2020_pq,EGL_EXT_gl_colorspace_display_p3,EGL_EXT_gl_colorspace_display_p3_linear,EGL_EXT_gl_colorspace_display_p3_passthrough,EGL_EXT_gl_colorspace_scrgb,EGL_EXT_gl_colorspace_scrgb_linear,EGL_EXT_image_dma_buf_import,EGL_EXT_image_dma_buf_import_modifiers,EGL_EXT_image_gl_colorspace,EGL_EXT_image_implicit_sync_control,EGL_EXT_multiview_window,EGL_EXT_output_base,EGL_EXT_output_drm,EGL_EXT_output_openwf,EGL_EXT_pixel_format_float,EGL_EXT_platform_base,EGL_EXT_platform_device,EGL_EXT_platform_wayland,EGL_EXT_platform_x11,EGL_EXT_platform_xcb,EGL_EXT_present_opaque,EGL_EXT_protected_content,EGL_EXT_protected_surface,EGL_EXT_stream_consumer_egloutput,EGL_EXT_surface_CTA861_3_metadata,EGL_EXT_surface_SMPTE2086_metadata,EGL_EXT_surface_compression,EGL_EXT_swap_buffers_with_damage,EGL_EXT_sync_reuse,EGL_EXT_yuv_surface,EGL_HI_clientpixmap,EGL_HI_colorformats,EGL_IMG_context_priority,EGL_IMG_image_plane_attribs,EGL_KHR_cl_event,EGL_KHR_cl_event2,EGL_KHR_client_get_all_proc_addresses,EGL_KHR_config_attribs,EGL_KHR_context_flush_control,EGL_KHR_create_context,EGL_KHR_create_context_no_error,EGL_KHR_debug,EGL_KHR_display_reference,EGL_KHR_fence_sync,EGL_KHR_get_all_proc_addresses,EGL_KHR_gl_colorspace,EGL_KHR_gl_renderbuffer_image,EGL_KHR_gl_texture_2D_image,EGL_KHR_gl_texture_3D_image,EGL_KHR_gl_texture_cubemap_image,EGL_KHR_image,EGL_KHR_image_base,EGL_KHR_image_pixmap,EGL_KHR_lock_surface,EGL_KHR_lock_surface2,EGL_KHR_lock_surface3,EGL_KHR_mutable_render_buffer,EGL_KHR_no_config_context,EGL_KHR_partial_update,EGL_KHR_platform_android,EGL_KHR_platform_gbm,EGL_KHR_platform_wayland,EGL_KHR_platform_x11,EGL_KHR_reusable_sync,EGL_KHR_stream,EGL_KHR_stream_attrib,EGL_KHR_stream_consumer_gltexture,EGL_KHR_stream_cross_process_fd,EGL_KHR_stream_fifo,EGL_KHR_stream_producer_aldatalocator,EGL_KHR_stream_producer_eglsurface,EGL_KHR_surfaceless_context,EGL_KHR_swap_buffers_with_damage,EGL_KHR_vg_parent_image,EGL_KHR_wait_sync,EGL_MESA_drm_image,EGL_MESA_image_dma_buf_export,EGL_MESA_platform_gbm,EGL_MESA_platform_surfaceless,EGL_MESA_query_driver,EGL_NOK_swap_region,EGL_NOK_swap_region2,EGL_NOK_texture_from_pixmap,EGL_NV_3dvision_surface,EGL_NV_context_priority_realtime,EGL_NV_coverage_sample,EGL_NV_coverage_sample_resolve,EGL_NV_cuda_event,EGL_NV_depth_nonlinear,EGL_NV_device_cuda,EGL_NV_native_query,EGL_NV_post_convert_rounding,EGL_NV_post_sub_buffer,EGL_NV_quadruple_buffer,EGL_NV_robustness_video_memory_purge,EGL_NV_stream_consumer_eglimage,EGL_NV_stream_consumer_eglimage_use_scanout_attrib,EGL_NV_stream_consumer_gltexture_yuv,EGL_NV_stream_cross_display,EGL_NV_stream_cross_object,EGL_NV_stream_cross_partition,EGL_NV_stream_cross_process,EGL_NV_stream_cross_system,EGL_NV_stream_dma,EGL_NV_stream_fifo_next,EGL_NV_stream_fifo_synchronous,EGL_NV_stream_flush,EGL_NV_stream_frame_limits,EGL_NV_stream_metadata,EGL_NV_stream_origin,EGL_NV_stream_remote,EGL_NV_stream_reset,EGL_NV_stream_socket,EGL_NV_stream_socket_inet,EGL_NV_stream_socket_unix,EGL_NV_stream_sync,EGL_NV_sync,EGL_NV_system_time,EGL_NV_triple_buffer,EGL_QNX_image_native_buffer,EGL_QNX_platform_screen,EGL_TIZEN_image_native_buffer,EGL_TIZEN_image_native_surface,EGL_WL_bind_wayland_display,EGL_WL_create_wayland_buffer_from_image' c --alias --loader --mx --mx-global
+ *    --merge --api='egl=1.5' --extensions='EGL_ANDROID_GLES_layers,EGL_ANDROID_blob_cache,EGL_ANDROID_create_native_client_buffer,EGL_ANDROID_framebuffer_target,EGL_ANDROID_front_buffer_auto_refresh,EGL_ANDROID_get_frame_timestamps,EGL_ANDROID_get_native_client_buffer,EGL_ANDROID_image_native_buffer,EGL_ANDROID_native_fence_sync,EGL_ANDROID_presentation_time,EGL_ANDROID_recordable,EGL_ANGLE_colorspace_attribute_passthrough,EGL_ANGLE_context_virtualization,EGL_ANGLE_create_context_backwards_compatible,EGL_ANGLE_create_context_client_arrays,EGL_ANGLE_create_context_extensions_enabled,EGL_ANGLE_create_context_webgl_compatibility,EGL_ANGLE_create_surface_swap_interval,EGL_ANGLE_d3d_share_handle_client_buffer,EGL_ANGLE_d3d_texture_client_buffer,EGL_ANGLE_device_cgl,EGL_ANGLE_device_creation,EGL_ANGLE_device_d3d,EGL_ANGLE_device_eagl,EGL_ANGLE_device_metal,EGL_ANGLE_device_vulkan,EGL_ANGLE_direct_composition,EGL_ANGLE_display_power_preference,EGL_ANGLE_display_semaphore_share_group,EGL_ANGLE_display_texture_share_group,EGL_ANGLE_experimental_present_path,EGL_ANGLE_external_context_and_surface,EGL_ANGLE_feature_control,EGL_ANGLE_ggp_stream_descriptor,EGL_ANGLE_iosurface_client_buffer,EGL_ANGLE_keyed_mutex,EGL_ANGLE_metal_create_context_ownership_identity,EGL_ANGLE_metal_shared_event_sync,EGL_ANGLE_metal_texture_client_buffer,EGL_ANGLE_platform_angle,EGL_ANGLE_platform_angle_d3d,EGL_ANGLE_platform_angle_d3d11on12,EGL_ANGLE_platform_angle_d3d_luid,EGL_ANGLE_platform_angle_device_context_volatile_cgl,EGL_ANGLE_platform_angle_device_context_volatile_eagl,EGL_ANGLE_platform_angle_device_id,EGL_ANGLE_platform_angle_device_type_egl,EGL_ANGLE_platform_angle_device_type_swiftshader,EGL_ANGLE_platform_angle_metal,EGL_ANGLE_platform_angle_null,EGL_ANGLE_platform_angle_opengl,EGL_ANGLE_platform_angle_vulkan,EGL_ANGLE_power_preference,EGL_ANGLE_prepare_swap_buffers,EGL_ANGLE_program_cache_control,EGL_ANGLE_query_surface_pointer,EGL_ANGLE_robust_resource_initialization,EGL_ANGLE_stream_producer_d3d_texture,EGL_ANGLE_surface_d3d_texture_2d_share_handle,EGL_ANGLE_surface_orientation,EGL_ANGLE_swap_with_frame_token,EGL_ANGLE_sync_control_rate,EGL_ANGLE_vulkan_display,EGL_ANGLE_vulkan_image,EGL_ANGLE_wait_until_work_scheduled,EGL_ANGLE_window_fixed_size,EGL_ANGLE_x11_visual,EGL_ARM_image_format,EGL_ARM_implicit_external_sync,EGL_ARM_pixmap_multisample_discard,EGL_CHROMIUM_sync_control,EGL_EXT_bind_to_front,EGL_EXT_buffer_age,EGL_EXT_client_extensions,EGL_EXT_client_sync,EGL_EXT_compositor,EGL_EXT_config_select_group,EGL_EXT_create_context_robustness,EGL_EXT_device_base,EGL_EXT_device_drm,EGL_EXT_device_drm_render_node,EGL_EXT_device_enumeration,EGL_EXT_device_openwf,EGL_EXT_device_persistent_id,EGL_EXT_device_query,EGL_EXT_device_query_name,EGL_EXT_explicit_device,EGL_EXT_gl_colorspace_bt2020_hlg,EGL_EXT_gl_colorspace_bt2020_linear,EGL_EXT_gl_colorspace_bt2020_pq,EGL_EXT_gl_colorspace_display_p3,EGL_EXT_gl_colorspace_display_p3_linear,EGL_EXT_gl_colorspace_display_p3_passthrough,EGL_EXT_gl_colorspace_scrgb,EGL_EXT_gl_colorspace_scrgb_linear,EGL_EXT_image_dma_buf_import,EGL_EXT_image_dma_buf_import_modifiers,EGL_EXT_image_gl_colorspace,EGL_EXT_image_implicit_sync_control,EGL_EXT_multiview_window,EGL_EXT_output_base,EGL_EXT_output_drm,EGL_EXT_output_openwf,EGL_EXT_pixel_format_float,EGL_EXT_platform_base,EGL_EXT_platform_device,EGL_EXT_platform_wayland,EGL_EXT_platform_x11,EGL_EXT_platform_xcb,EGL_EXT_present_opaque,EGL_EXT_protected_content,EGL_EXT_protected_surface,EGL_EXT_query_reset_notification_strategy,EGL_EXT_stream_consumer_egloutput,EGL_EXT_surface_CTA861_3_metadata,EGL_EXT_surface_SMPTE2086_metadata,EGL_EXT_surface_compression,EGL_EXT_swap_buffers_with_damage,EGL_EXT_sync_reuse,EGL_EXT_yuv_surface,EGL_HI_clientpixmap,EGL_HI_colorformats,EGL_IMG_context_priority,EGL_IMG_image_plane_attribs,EGL_KHR_cl_event,EGL_KHR_cl_event2,EGL_KHR_client_get_all_proc_addresses,EGL_KHR_config_attribs,EGL_KHR_context_flush_control,EGL_KHR_create_context,EGL_KHR_create_context_no_error,EGL_KHR_debug,EGL_KHR_display_reference,EGL_KHR_fence_sync,EGL_KHR_get_all_proc_addresses,EGL_KHR_gl_colorspace,EGL_KHR_gl_renderbuffer_image,EGL_KHR_gl_texture_2D_image,EGL_KHR_gl_texture_3D_image,EGL_KHR_gl_texture_cubemap_image,EGL_KHR_image,EGL_KHR_image_base,EGL_KHR_image_pixmap,EGL_KHR_lock_surface,EGL_KHR_lock_surface2,EGL_KHR_lock_surface3,EGL_KHR_mutable_render_buffer,EGL_KHR_no_config_context,EGL_KHR_partial_update,EGL_KHR_platform_android,EGL_KHR_platform_gbm,EGL_KHR_platform_wayland,EGL_KHR_platform_x11,EGL_KHR_reusable_sync,EGL_KHR_stream,EGL_KHR_stream_attrib,EGL_KHR_stream_consumer_gltexture,EGL_KHR_stream_cross_process_fd,EGL_KHR_stream_fifo,EGL_KHR_stream_producer_aldatalocator,EGL_KHR_stream_producer_eglsurface,EGL_KHR_surfaceless_context,EGL_KHR_swap_buffers_with_damage,EGL_KHR_vg_parent_image,EGL_KHR_wait_sync,EGL_MESA_drm_image,EGL_MESA_image_dma_buf_export,EGL_MESA_platform_gbm,EGL_MESA_platform_surfaceless,EGL_MESA_query_driver,EGL_NOK_swap_region,EGL_NOK_swap_region2,EGL_NOK_texture_from_pixmap,EGL_NV_3dvision_surface,EGL_NV_context_priority_realtime,EGL_NV_coverage_sample,EGL_NV_coverage_sample_resolve,EGL_NV_cuda_event,EGL_NV_depth_nonlinear,EGL_NV_device_cuda,EGL_NV_native_query,EGL_NV_post_convert_rounding,EGL_NV_post_sub_buffer,EGL_NV_quadruple_buffer,EGL_NV_robustness_video_memory_purge,EGL_NV_stream_consumer_eglimage,EGL_NV_stream_consumer_eglimage_use_scanout_attrib,EGL_NV_stream_consumer_gltexture_yuv,EGL_NV_stream_cross_display,EGL_NV_stream_cross_object,EGL_NV_stream_cross_partition,EGL_NV_stream_cross_process,EGL_NV_stream_cross_system,EGL_NV_stream_dma,EGL_NV_stream_fifo_next,EGL_NV_stream_fifo_synchronous,EGL_NV_stream_flush,EGL_NV_stream_frame_limits,EGL_NV_stream_metadata,EGL_NV_stream_origin,EGL_NV_stream_remote,EGL_NV_stream_reset,EGL_NV_stream_socket,EGL_NV_stream_socket_inet,EGL_NV_stream_socket_unix,EGL_NV_stream_sync,EGL_NV_sync,EGL_NV_system_time,EGL_NV_triple_buffer,EGL_QNX_image_native_buffer,EGL_QNX_platform_screen,EGL_TIZEN_image_native_buffer,EGL_TIZEN_image_native_surface,EGL_WL_bind_wayland_display,EGL_WL_create_wayland_buffer_from_image' c --alias --loader --mx --mx-global
  *
  * Online:
  *    http://glad.sh/#api=egl%3D1.5&generator=c&options=MERGE%2CALIAS%2CLOADER%2CMX%2CMX_GLOBAL
@@ -1036,6 +1036,7 @@ typedef khronos_uint64_t EGLFrameTokenANGLE;
 #define EGL_EXT_present_opaque 1
 #define EGL_EXT_protected_content 1
 #define EGL_EXT_protected_surface 1
+#define EGL_EXT_query_reset_notification_strategy 1
 #define EGL_EXT_stream_consumer_egloutput 1
 #define EGL_EXT_surface_CTA861_3_metadata 1
 #define EGL_EXT_surface_SMPTE2086_metadata 1
@@ -1138,6 +1139,7 @@ typedef khronos_uint64_t EGLFrameTokenANGLE;
 #define EGL_TIZEN_image_native_surface 1
 #define EGL_WL_bind_wayland_display 1
 #define EGL_WL_create_wayland_buffer_from_image 1
+
 
 
 typedef void (GLAD_API_PTR *PFNEGLACQUIREEXTERNALCONTEXTANGLEPROC)(EGLDisplay dpy, EGLSurface drawAndRead);
@@ -1323,406 +1325,418 @@ typedef void (GLAD_API_PTR *PFNEGLWAITUNTILWORKSCHEDULEDANGLEPROC)(EGLDisplay dp
 typedef struct GladEGLContext {
     void* userptr;
 
-    unsigned VERSION_1_0 : 1;
-    unsigned VERSION_1_1 : 1;
-    unsigned VERSION_1_2 : 1;
-    unsigned VERSION_1_3 : 1;
-    unsigned VERSION_1_4 : 1;
-    unsigned VERSION_1_5 : 1;
-    unsigned ANDROID_GLES_layers : 1;
-    unsigned ANDROID_blob_cache : 1;
-    unsigned ANDROID_create_native_client_buffer : 1;
-    unsigned ANDROID_framebuffer_target : 1;
-    unsigned ANDROID_front_buffer_auto_refresh : 1;
-    unsigned ANDROID_get_frame_timestamps : 1;
-    unsigned ANDROID_get_native_client_buffer : 1;
-    unsigned ANDROID_image_native_buffer : 1;
-    unsigned ANDROID_native_fence_sync : 1;
-    unsigned ANDROID_presentation_time : 1;
-    unsigned ANDROID_recordable : 1;
-    unsigned ANGLE_colorspace_attribute_passthrough : 1;
-    unsigned ANGLE_context_virtualization : 1;
-    unsigned ANGLE_create_context_backwards_compatible : 1;
-    unsigned ANGLE_create_context_client_arrays : 1;
-    unsigned ANGLE_create_context_extensions_enabled : 1;
-    unsigned ANGLE_create_context_webgl_compatibility : 1;
-    unsigned ANGLE_create_surface_swap_interval : 1;
-    unsigned ANGLE_d3d_share_handle_client_buffer : 1;
-    unsigned ANGLE_d3d_texture_client_buffer : 1;
-    unsigned ANGLE_device_cgl : 1;
-    unsigned ANGLE_device_creation : 1;
-    unsigned ANGLE_device_d3d : 1;
-    unsigned ANGLE_device_eagl : 1;
-    unsigned ANGLE_device_metal : 1;
-    unsigned ANGLE_device_vulkan : 1;
-    unsigned ANGLE_direct_composition : 1;
-    unsigned ANGLE_display_power_preference : 1;
-    unsigned ANGLE_display_semaphore_share_group : 1;
-    unsigned ANGLE_display_texture_share_group : 1;
-    unsigned ANGLE_experimental_present_path : 1;
-    unsigned ANGLE_external_context_and_surface : 1;
-    unsigned ANGLE_feature_control : 1;
-    unsigned ANGLE_ggp_stream_descriptor : 1;
-    unsigned ANGLE_iosurface_client_buffer : 1;
-    unsigned ANGLE_keyed_mutex : 1;
-    unsigned ANGLE_metal_create_context_ownership_identity : 1;
-    unsigned ANGLE_metal_shared_event_sync : 1;
-    unsigned ANGLE_metal_texture_client_buffer : 1;
-    unsigned ANGLE_platform_angle : 1;
-    unsigned ANGLE_platform_angle_d3d : 1;
-    unsigned ANGLE_platform_angle_d3d11on12 : 1;
-    unsigned ANGLE_platform_angle_d3d_luid : 1;
-    unsigned ANGLE_platform_angle_device_context_volatile_cgl : 1;
-    unsigned ANGLE_platform_angle_device_context_volatile_eagl : 1;
-    unsigned ANGLE_platform_angle_device_id : 1;
-    unsigned ANGLE_platform_angle_device_type_egl : 1;
-    unsigned ANGLE_platform_angle_device_type_swiftshader : 1;
-    unsigned ANGLE_platform_angle_metal : 1;
-    unsigned ANGLE_platform_angle_null : 1;
-    unsigned ANGLE_platform_angle_opengl : 1;
-    unsigned ANGLE_platform_angle_vulkan : 1;
-    unsigned ANGLE_power_preference : 1;
-    unsigned ANGLE_prepare_swap_buffers : 1;
-    unsigned ANGLE_program_cache_control : 1;
-    unsigned ANGLE_query_surface_pointer : 1;
-    unsigned ANGLE_robust_resource_initialization : 1;
-    unsigned ANGLE_stream_producer_d3d_texture : 1;
-    unsigned ANGLE_surface_d3d_texture_2d_share_handle : 1;
-    unsigned ANGLE_surface_orientation : 1;
-    unsigned ANGLE_swap_with_frame_token : 1;
-    unsigned ANGLE_sync_control_rate : 1;
-    unsigned ANGLE_vulkan_display : 1;
-    unsigned ANGLE_vulkan_image : 1;
-    unsigned ANGLE_wait_until_work_scheduled : 1;
-    unsigned ANGLE_window_fixed_size : 1;
-    unsigned ANGLE_x11_visual : 1;
-    unsigned ARM_image_format : 1;
-    unsigned ARM_implicit_external_sync : 1;
-    unsigned ARM_pixmap_multisample_discard : 1;
-    unsigned CHROMIUM_sync_control : 1;
-    unsigned EXT_bind_to_front : 1;
-    unsigned EXT_buffer_age : 1;
-    unsigned EXT_client_extensions : 1;
-    unsigned EXT_client_sync : 1;
-    unsigned EXT_compositor : 1;
-    unsigned EXT_config_select_group : 1;
-    unsigned EXT_create_context_robustness : 1;
-    unsigned EXT_device_base : 1;
-    unsigned EXT_device_drm : 1;
-    unsigned EXT_device_drm_render_node : 1;
-    unsigned EXT_device_enumeration : 1;
-    unsigned EXT_device_openwf : 1;
-    unsigned EXT_device_persistent_id : 1;
-    unsigned EXT_device_query : 1;
-    unsigned EXT_device_query_name : 1;
-    unsigned EXT_explicit_device : 1;
-    unsigned EXT_gl_colorspace_bt2020_hlg : 1;
-    unsigned EXT_gl_colorspace_bt2020_linear : 1;
-    unsigned EXT_gl_colorspace_bt2020_pq : 1;
-    unsigned EXT_gl_colorspace_display_p3 : 1;
-    unsigned EXT_gl_colorspace_display_p3_linear : 1;
-    unsigned EXT_gl_colorspace_display_p3_passthrough : 1;
-    unsigned EXT_gl_colorspace_scrgb : 1;
-    unsigned EXT_gl_colorspace_scrgb_linear : 1;
-    unsigned EXT_image_dma_buf_import : 1;
-    unsigned EXT_image_dma_buf_import_modifiers : 1;
-    unsigned EXT_image_gl_colorspace : 1;
-    unsigned EXT_image_implicit_sync_control : 1;
-    unsigned EXT_multiview_window : 1;
-    unsigned EXT_output_base : 1;
-    unsigned EXT_output_drm : 1;
-    unsigned EXT_output_openwf : 1;
-    unsigned EXT_pixel_format_float : 1;
-    unsigned EXT_platform_base : 1;
-    unsigned EXT_platform_device : 1;
-    unsigned EXT_platform_wayland : 1;
-    unsigned EXT_platform_x11 : 1;
-    unsigned EXT_platform_xcb : 1;
-    unsigned EXT_present_opaque : 1;
-    unsigned EXT_protected_content : 1;
-    unsigned EXT_protected_surface : 1;
-    unsigned EXT_stream_consumer_egloutput : 1;
-    unsigned EXT_surface_CTA861_3_metadata : 1;
-    unsigned EXT_surface_SMPTE2086_metadata : 1;
-    unsigned EXT_surface_compression : 1;
-    unsigned EXT_swap_buffers_with_damage : 1;
-    unsigned EXT_sync_reuse : 1;
-    unsigned EXT_yuv_surface : 1;
-    unsigned HI_clientpixmap : 1;
-    unsigned HI_colorformats : 1;
-    unsigned IMG_context_priority : 1;
-    unsigned IMG_image_plane_attribs : 1;
-    unsigned KHR_cl_event : 1;
-    unsigned KHR_cl_event2 : 1;
-    unsigned KHR_client_get_all_proc_addresses : 1;
-    unsigned KHR_config_attribs : 1;
-    unsigned KHR_context_flush_control : 1;
-    unsigned KHR_create_context : 1;
-    unsigned KHR_create_context_no_error : 1;
-    unsigned KHR_debug : 1;
-    unsigned KHR_display_reference : 1;
-    unsigned KHR_fence_sync : 1;
-    unsigned KHR_get_all_proc_addresses : 1;
-    unsigned KHR_gl_colorspace : 1;
-    unsigned KHR_gl_renderbuffer_image : 1;
-    unsigned KHR_gl_texture_2D_image : 1;
-    unsigned KHR_gl_texture_3D_image : 1;
-    unsigned KHR_gl_texture_cubemap_image : 1;
-    unsigned KHR_image : 1;
-    unsigned KHR_image_base : 1;
-    unsigned KHR_image_pixmap : 1;
-    unsigned KHR_lock_surface : 1;
-    unsigned KHR_lock_surface2 : 1;
-    unsigned KHR_lock_surface3 : 1;
-    unsigned KHR_mutable_render_buffer : 1;
-    unsigned KHR_no_config_context : 1;
-    unsigned KHR_partial_update : 1;
-    unsigned KHR_platform_android : 1;
-    unsigned KHR_platform_gbm : 1;
-    unsigned KHR_platform_wayland : 1;
-    unsigned KHR_platform_x11 : 1;
-    unsigned KHR_reusable_sync : 1;
-    unsigned KHR_stream : 1;
-    unsigned KHR_stream_attrib : 1;
-    unsigned KHR_stream_consumer_gltexture : 1;
-    unsigned KHR_stream_cross_process_fd : 1;
-    unsigned KHR_stream_fifo : 1;
-    unsigned KHR_stream_producer_aldatalocator : 1;
-    unsigned KHR_stream_producer_eglsurface : 1;
-    unsigned KHR_surfaceless_context : 1;
-    unsigned KHR_swap_buffers_with_damage : 1;
-    unsigned KHR_vg_parent_image : 1;
-    unsigned KHR_wait_sync : 1;
-    unsigned MESA_drm_image : 1;
-    unsigned MESA_image_dma_buf_export : 1;
-    unsigned MESA_platform_gbm : 1;
-    unsigned MESA_platform_surfaceless : 1;
-    unsigned MESA_query_driver : 1;
-    unsigned NOK_swap_region : 1;
-    unsigned NOK_swap_region2 : 1;
-    unsigned NOK_texture_from_pixmap : 1;
-    unsigned NV_3dvision_surface : 1;
-    unsigned NV_context_priority_realtime : 1;
-    unsigned NV_coverage_sample : 1;
-    unsigned NV_coverage_sample_resolve : 1;
-    unsigned NV_cuda_event : 1;
-    unsigned NV_depth_nonlinear : 1;
-    unsigned NV_device_cuda : 1;
-    unsigned NV_native_query : 1;
-    unsigned NV_post_convert_rounding : 1;
-    unsigned NV_post_sub_buffer : 1;
-    unsigned NV_quadruple_buffer : 1;
-    unsigned NV_robustness_video_memory_purge : 1;
-    unsigned NV_stream_consumer_eglimage : 1;
-    unsigned NV_stream_consumer_eglimage_use_scanout_attrib : 1;
-    unsigned NV_stream_consumer_gltexture_yuv : 1;
-    unsigned NV_stream_cross_display : 1;
-    unsigned NV_stream_cross_object : 1;
-    unsigned NV_stream_cross_partition : 1;
-    unsigned NV_stream_cross_process : 1;
-    unsigned NV_stream_cross_system : 1;
-    unsigned NV_stream_dma : 1;
-    unsigned NV_stream_fifo_next : 1;
-    unsigned NV_stream_fifo_synchronous : 1;
-    unsigned NV_stream_flush : 1;
-    unsigned NV_stream_frame_limits : 1;
-    unsigned NV_stream_metadata : 1;
-    unsigned NV_stream_origin : 1;
-    unsigned NV_stream_remote : 1;
-    unsigned NV_stream_reset : 1;
-    unsigned NV_stream_socket : 1;
-    unsigned NV_stream_socket_inet : 1;
-    unsigned NV_stream_socket_unix : 1;
-    unsigned NV_stream_sync : 1;
-    unsigned NV_sync : 1;
-    unsigned NV_system_time : 1;
-    unsigned NV_triple_buffer : 1;
-    unsigned QNX_image_native_buffer : 1;
-    unsigned QNX_platform_screen : 1;
-    unsigned TIZEN_image_native_buffer : 1;
-    unsigned TIZEN_image_native_surface : 1;
-    unsigned WL_bind_wayland_display : 1;
-    unsigned WL_create_wayland_buffer_from_image : 1;
+    unsigned char VERSION_1_0;
+    unsigned char VERSION_1_1;
+    unsigned char VERSION_1_2;
+    unsigned char VERSION_1_3;
+    unsigned char VERSION_1_4;
+    unsigned char VERSION_1_5;
 
-    PFNEGLACQUIREEXTERNALCONTEXTANGLEPROC AcquireExternalContextANGLE;
-    PFNEGLBINDAPIPROC BindAPI;
-    PFNEGLBINDTEXIMAGEPROC BindTexImage;
-    PFNEGLBINDWAYLANDDISPLAYWLPROC BindWaylandDisplayWL;
-    PFNEGLCHOOSECONFIGPROC ChooseConfig;
-    PFNEGLCLIENTSIGNALSYNCEXTPROC ClientSignalSyncEXT;
-    PFNEGLCLIENTWAITSYNCPROC ClientWaitSync;
-    PFNEGLCLIENTWAITSYNCKHRPROC ClientWaitSyncKHR;
-    PFNEGLCLIENTWAITSYNCNVPROC ClientWaitSyncNV;
-    PFNEGLCOMPOSITORBINDTEXWINDOWEXTPROC CompositorBindTexWindowEXT;
-    PFNEGLCOMPOSITORSETCONTEXTATTRIBUTESEXTPROC CompositorSetContextAttributesEXT;
-    PFNEGLCOMPOSITORSETCONTEXTLISTEXTPROC CompositorSetContextListEXT;
-    PFNEGLCOMPOSITORSETSIZEEXTPROC CompositorSetSizeEXT;
-    PFNEGLCOMPOSITORSETWINDOWATTRIBUTESEXTPROC CompositorSetWindowAttributesEXT;
-    PFNEGLCOMPOSITORSETWINDOWLISTEXTPROC CompositorSetWindowListEXT;
-    PFNEGLCOMPOSITORSWAPPOLICYEXTPROC CompositorSwapPolicyEXT;
-    PFNEGLCOPYBUFFERSPROC CopyBuffers;
-    PFNEGLCOPYMETALSHAREDEVENTANGLEPROC CopyMetalSharedEventANGLE;
-    PFNEGLCREATECONTEXTPROC CreateContext;
-    PFNEGLCREATEDRMIMAGEMESAPROC CreateDRMImageMESA;
-    PFNEGLCREATEDEVICEANGLEPROC CreateDeviceANGLE;
-    PFNEGLCREATEFENCESYNCNVPROC CreateFenceSyncNV;
-    PFNEGLCREATEIMAGEPROC CreateImage;
-    PFNEGLCREATEIMAGEKHRPROC CreateImageKHR;
-    PFNEGLCREATENATIVECLIENTBUFFERANDROIDPROC CreateNativeClientBufferANDROID;
-    PFNEGLCREATEPBUFFERFROMCLIENTBUFFERPROC CreatePbufferFromClientBuffer;
-    PFNEGLCREATEPBUFFERSURFACEPROC CreatePbufferSurface;
-    PFNEGLCREATEPIXMAPSURFACEPROC CreatePixmapSurface;
-    PFNEGLCREATEPIXMAPSURFACEHIPROC CreatePixmapSurfaceHI;
-    PFNEGLCREATEPLATFORMPIXMAPSURFACEPROC CreatePlatformPixmapSurface;
-    PFNEGLCREATEPLATFORMPIXMAPSURFACEEXTPROC CreatePlatformPixmapSurfaceEXT;
-    PFNEGLCREATEPLATFORMWINDOWSURFACEPROC CreatePlatformWindowSurface;
-    PFNEGLCREATEPLATFORMWINDOWSURFACEEXTPROC CreatePlatformWindowSurfaceEXT;
-    PFNEGLCREATESTREAMATTRIBKHRPROC CreateStreamAttribKHR;
-    PFNEGLCREATESTREAMFROMFILEDESCRIPTORKHRPROC CreateStreamFromFileDescriptorKHR;
-    PFNEGLCREATESTREAMKHRPROC CreateStreamKHR;
-    PFNEGLCREATESTREAMPRODUCERD3DTEXTUREANGLEPROC CreateStreamProducerD3DTextureANGLE;
-    PFNEGLCREATESTREAMPRODUCERSURFACEKHRPROC CreateStreamProducerSurfaceKHR;
-    PFNEGLCREATESTREAMSYNCNVPROC CreateStreamSyncNV;
-    PFNEGLCREATESYNCPROC CreateSync;
-    PFNEGLCREATESYNC64KHRPROC CreateSync64KHR;
-    PFNEGLCREATESYNCKHRPROC CreateSyncKHR;
-    PFNEGLCREATEWAYLANDBUFFERFROMIMAGEWLPROC CreateWaylandBufferFromImageWL;
-    PFNEGLCREATEWINDOWSURFACEPROC CreateWindowSurface;
-    PFNEGLDEBUGMESSAGECONTROLKHRPROC DebugMessageControlKHR;
-    PFNEGLDESTROYCONTEXTPROC DestroyContext;
-    PFNEGLDESTROYIMAGEPROC DestroyImage;
-    PFNEGLDESTROYIMAGEKHRPROC DestroyImageKHR;
-    PFNEGLDESTROYSTREAMKHRPROC DestroyStreamKHR;
-    PFNEGLDESTROYSURFACEPROC DestroySurface;
-    PFNEGLDESTROYSYNCPROC DestroySync;
-    PFNEGLDESTROYSYNCKHRPROC DestroySyncKHR;
-    PFNEGLDESTROYSYNCNVPROC DestroySyncNV;
-    PFNEGLDUPNATIVEFENCEFDANDROIDPROC DupNativeFenceFDANDROID;
-    PFNEGLEXPORTDMABUFIMAGEMESAPROC ExportDMABUFImageMESA;
-    PFNEGLEXPORTDMABUFIMAGEQUERYMESAPROC ExportDMABUFImageQueryMESA;
-    PFNEGLEXPORTDRMIMAGEMESAPROC ExportDRMImageMESA;
-    PFNEGLEXPORTVKIMAGEANGLEPROC ExportVkImageANGLE;
-    PFNEGLFENCENVPROC FenceNV;
-    PFNEGLFORCEGPUSWITCHANGLEPROC ForceGPUSwitchANGLE;
-    PFNEGLGETCOMPOSITORTIMINGANDROIDPROC GetCompositorTimingANDROID;
-    PFNEGLGETCOMPOSITORTIMINGSUPPORTEDANDROIDPROC GetCompositorTimingSupportedANDROID;
-    PFNEGLGETCONFIGATTRIBPROC GetConfigAttrib;
-    PFNEGLGETCONFIGSPROC GetConfigs;
-    PFNEGLGETCURRENTCONTEXTPROC GetCurrentContext;
-    PFNEGLGETCURRENTDISPLAYPROC GetCurrentDisplay;
-    PFNEGLGETCURRENTSURFACEPROC GetCurrentSurface;
-    PFNEGLGETDISPLAYPROC GetDisplay;
-    PFNEGLGETDISPLAYDRIVERCONFIGPROC GetDisplayDriverConfig;
-    PFNEGLGETDISPLAYDRIVERNAMEPROC GetDisplayDriverName;
-    PFNEGLGETERRORPROC GetError;
-    PFNEGLGETFRAMETIMESTAMPSUPPORTEDANDROIDPROC GetFrameTimestampSupportedANDROID;
-    PFNEGLGETFRAMETIMESTAMPSANDROIDPROC GetFrameTimestampsANDROID;
-    PFNEGLGETMSCRATEANGLEPROC GetMscRateANGLE;
-    PFNEGLGETNATIVECLIENTBUFFERANDROIDPROC GetNativeClientBufferANDROID;
-    PFNEGLGETNEXTFRAMEIDANDROIDPROC GetNextFrameIdANDROID;
-    PFNEGLGETOUTPUTLAYERSEXTPROC GetOutputLayersEXT;
-    PFNEGLGETOUTPUTPORTSEXTPROC GetOutputPortsEXT;
-    PFNEGLGETPLATFORMDISPLAYPROC GetPlatformDisplay;
-    PFNEGLGETPLATFORMDISPLAYEXTPROC GetPlatformDisplayEXT;
-    PFNEGLGETPROCADDRESSPROC GetProcAddress;
-    PFNEGLGETSTREAMFILEDESCRIPTORKHRPROC GetStreamFileDescriptorKHR;
-    PFNEGLGETSYNCATTRIBPROC GetSyncAttrib;
-    PFNEGLGETSYNCATTRIBKHRPROC GetSyncAttribKHR;
-    PFNEGLGETSYNCATTRIBNVPROC GetSyncAttribNV;
-    PFNEGLGETSYNCVALUESCHROMIUMPROC GetSyncValuesCHROMIUM;
-    PFNEGLGETSYSTEMTIMEFREQUENCYNVPROC GetSystemTimeFrequencyNV;
-    PFNEGLGETSYSTEMTIMENVPROC GetSystemTimeNV;
-    PFNEGLHANDLEGPUSWITCHANGLEPROC HandleGPUSwitchANGLE;
-    PFNEGLINITIALIZEPROC Initialize;
-    PFNEGLLABELOBJECTKHRPROC LabelObjectKHR;
-    PFNEGLLOCKSURFACEKHRPROC LockSurfaceKHR;
-    PFNEGLMAKECURRENTPROC MakeCurrent;
-    PFNEGLOUTPUTLAYERATTRIBEXTPROC OutputLayerAttribEXT;
-    PFNEGLOUTPUTPORTATTRIBEXTPROC OutputPortAttribEXT;
-    PFNEGLPOSTSUBBUFFERNVPROC PostSubBufferNV;
-    PFNEGLPREPARESWAPBUFFERSANGLEPROC PrepareSwapBuffersANGLE;
-    PFNEGLPRESENTATIONTIMEANDROIDPROC PresentationTimeANDROID;
-    PFNEGLPROGRAMCACHEGETATTRIBANGLEPROC ProgramCacheGetAttribANGLE;
-    PFNEGLPROGRAMCACHEPOPULATEANGLEPROC ProgramCachePopulateANGLE;
-    PFNEGLPROGRAMCACHEQUERYANGLEPROC ProgramCacheQueryANGLE;
-    PFNEGLPROGRAMCACHERESIZEANGLEPROC ProgramCacheResizeANGLE;
-    PFNEGLQUERYAPIPROC QueryAPI;
-    PFNEGLQUERYCONTEXTPROC QueryContext;
-    PFNEGLQUERYDEBUGKHRPROC QueryDebugKHR;
-    PFNEGLQUERYDEVICEATTRIBEXTPROC QueryDeviceAttribEXT;
-    PFNEGLQUERYDEVICEBINARYEXTPROC QueryDeviceBinaryEXT;
-    PFNEGLQUERYDEVICESTRINGEXTPROC QueryDeviceStringEXT;
-    PFNEGLQUERYDEVICESEXTPROC QueryDevicesEXT;
-    PFNEGLQUERYDISPLAYATTRIBANGLEPROC QueryDisplayAttribANGLE;
-    PFNEGLQUERYDISPLAYATTRIBEXTPROC QueryDisplayAttribEXT;
-    PFNEGLQUERYDISPLAYATTRIBKHRPROC QueryDisplayAttribKHR;
-    PFNEGLQUERYDISPLAYATTRIBNVPROC QueryDisplayAttribNV;
-    PFNEGLQUERYDMABUFFORMATSEXTPROC QueryDmaBufFormatsEXT;
-    PFNEGLQUERYDMABUFMODIFIERSEXTPROC QueryDmaBufModifiersEXT;
-    PFNEGLQUERYNATIVEDISPLAYNVPROC QueryNativeDisplayNV;
-    PFNEGLQUERYNATIVEPIXMAPNVPROC QueryNativePixmapNV;
-    PFNEGLQUERYNATIVEWINDOWNVPROC QueryNativeWindowNV;
-    PFNEGLQUERYOUTPUTLAYERATTRIBEXTPROC QueryOutputLayerAttribEXT;
-    PFNEGLQUERYOUTPUTLAYERSTRINGEXTPROC QueryOutputLayerStringEXT;
-    PFNEGLQUERYOUTPUTPORTATTRIBEXTPROC QueryOutputPortAttribEXT;
-    PFNEGLQUERYOUTPUTPORTSTRINGEXTPROC QueryOutputPortStringEXT;
-    PFNEGLQUERYSTREAMATTRIBKHRPROC QueryStreamAttribKHR;
-    PFNEGLQUERYSTREAMCONSUMEREVENTNVPROC QueryStreamConsumerEventNV;
-    PFNEGLQUERYSTREAMKHRPROC QueryStreamKHR;
-    PFNEGLQUERYSTREAMMETADATANVPROC QueryStreamMetadataNV;
-    PFNEGLQUERYSTREAMTIMEKHRPROC QueryStreamTimeKHR;
-    PFNEGLQUERYSTREAMU64KHRPROC QueryStreamu64KHR;
-    PFNEGLQUERYSTRINGPROC QueryString;
-    PFNEGLQUERYSTRINGIANGLEPROC QueryStringiANGLE;
-    PFNEGLQUERYSUPPORTEDCOMPRESSIONRATESEXTPROC QuerySupportedCompressionRatesEXT;
-    PFNEGLQUERYSURFACEPROC QuerySurface;
-    PFNEGLQUERYSURFACE64KHRPROC QuerySurface64KHR;
-    PFNEGLQUERYSURFACEPOINTERANGLEPROC QuerySurfacePointerANGLE;
-    PFNEGLQUERYWAYLANDBUFFERWLPROC QueryWaylandBufferWL;
-    PFNEGLREACQUIREHIGHPOWERGPUANGLEPROC ReacquireHighPowerGPUANGLE;
-    PFNEGLRELEASEDEVICEANGLEPROC ReleaseDeviceANGLE;
-    PFNEGLRELEASEEXTERNALCONTEXTANGLEPROC ReleaseExternalContextANGLE;
-    PFNEGLRELEASEHIGHPOWERGPUANGLEPROC ReleaseHighPowerGPUANGLE;
-    PFNEGLRELEASETEXIMAGEPROC ReleaseTexImage;
-    PFNEGLRELEASETHREADPROC ReleaseThread;
-    PFNEGLRESETSTREAMNVPROC ResetStreamNV;
-    PFNEGLSETBLOBCACHEFUNCSANDROIDPROC SetBlobCacheFuncsANDROID;
-    PFNEGLSETDAMAGEREGIONKHRPROC SetDamageRegionKHR;
-    PFNEGLSETSTREAMATTRIBKHRPROC SetStreamAttribKHR;
-    PFNEGLSETSTREAMMETADATANVPROC SetStreamMetadataNV;
-    PFNEGLSIGNALSYNCKHRPROC SignalSyncKHR;
-    PFNEGLSIGNALSYNCNVPROC SignalSyncNV;
-    PFNEGLSTREAMACQUIREIMAGENVPROC StreamAcquireImageNV;
-    PFNEGLSTREAMATTRIBKHRPROC StreamAttribKHR;
-    PFNEGLSTREAMCONSUMERACQUIREATTRIBKHRPROC StreamConsumerAcquireAttribKHR;
-    PFNEGLSTREAMCONSUMERACQUIREKHRPROC StreamConsumerAcquireKHR;
-    PFNEGLSTREAMCONSUMERGLTEXTUREEXTERNALATTRIBSNVPROC StreamConsumerGLTextureExternalAttribsNV;
-    PFNEGLSTREAMCONSUMERGLTEXTUREEXTERNALKHRPROC StreamConsumerGLTextureExternalKHR;
-    PFNEGLSTREAMCONSUMEROUTPUTEXTPROC StreamConsumerOutputEXT;
-    PFNEGLSTREAMCONSUMERRELEASEATTRIBKHRPROC StreamConsumerReleaseAttribKHR;
-    PFNEGLSTREAMCONSUMERRELEASEKHRPROC StreamConsumerReleaseKHR;
-    PFNEGLSTREAMFLUSHNVPROC StreamFlushNV;
-    PFNEGLSTREAMIMAGECONSUMERCONNECTNVPROC StreamImageConsumerConnectNV;
-    PFNEGLSTREAMPOSTD3DTEXTUREANGLEPROC StreamPostD3DTextureANGLE;
-    PFNEGLSTREAMRELEASEIMAGENVPROC StreamReleaseImageNV;
-    PFNEGLSURFACEATTRIBPROC SurfaceAttrib;
-    PFNEGLSWAPBUFFERSPROC SwapBuffers;
-    PFNEGLSWAPBUFFERSREGION2NOKPROC SwapBuffersRegion2NOK;
-    PFNEGLSWAPBUFFERSREGIONNOKPROC SwapBuffersRegionNOK;
-    PFNEGLSWAPBUFFERSWITHDAMAGEEXTPROC SwapBuffersWithDamageEXT;
-    PFNEGLSWAPBUFFERSWITHDAMAGEKHRPROC SwapBuffersWithDamageKHR;
-    PFNEGLSWAPBUFFERSWITHFRAMETOKENANGLEPROC SwapBuffersWithFrameTokenANGLE;
-    PFNEGLSWAPINTERVALPROC SwapInterval;
-    PFNEGLTERMINATEPROC Terminate;
-    PFNEGLUNBINDWAYLANDDISPLAYWLPROC UnbindWaylandDisplayWL;
-    PFNEGLUNLOCKSURFACEKHRPROC UnlockSurfaceKHR;
-    PFNEGLUNSIGNALSYNCEXTPROC UnsignalSyncEXT;
-    PFNEGLWAITCLIENTPROC WaitClient;
-    PFNEGLWAITGLPROC WaitGL;
-    PFNEGLWAITNATIVEPROC WaitNative;
-    PFNEGLWAITSYNCPROC WaitSync;
-    PFNEGLWAITSYNCKHRPROC WaitSyncKHR;
-    PFNEGLWAITUNTILWORKSCHEDULEDANGLEPROC WaitUntilWorkScheduledANGLE;
+    union {
+        unsigned char extArray[215];
+        struct {
+            unsigned char ANDROID_GLES_layers; // 0
+            unsigned char ANDROID_blob_cache; // 1
+            unsigned char ANDROID_create_native_client_buffer; // 2
+            unsigned char ANDROID_framebuffer_target; // 3
+            unsigned char ANDROID_front_buffer_auto_refresh; // 4
+            unsigned char ANDROID_get_frame_timestamps; // 5
+            unsigned char ANDROID_get_native_client_buffer; // 6
+            unsigned char ANDROID_image_native_buffer; // 7
+            unsigned char ANDROID_native_fence_sync; // 8
+            unsigned char ANDROID_presentation_time; // 9
+            unsigned char ANDROID_recordable; // 10
+            unsigned char ANGLE_colorspace_attribute_passthrough; // 11
+            unsigned char ANGLE_context_virtualization; // 12
+            unsigned char ANGLE_create_context_backwards_compatible; // 13
+            unsigned char ANGLE_create_context_client_arrays; // 14
+            unsigned char ANGLE_create_context_extensions_enabled; // 15
+            unsigned char ANGLE_create_context_webgl_compatibility; // 16
+            unsigned char ANGLE_create_surface_swap_interval; // 17
+            unsigned char ANGLE_d3d_share_handle_client_buffer; // 18
+            unsigned char ANGLE_d3d_texture_client_buffer; // 19
+            unsigned char ANGLE_device_cgl; // 20
+            unsigned char ANGLE_device_creation; // 21
+            unsigned char ANGLE_device_d3d; // 22
+            unsigned char ANGLE_device_eagl; // 23
+            unsigned char ANGLE_device_metal; // 24
+            unsigned char ANGLE_device_vulkan; // 25
+            unsigned char ANGLE_direct_composition; // 26
+            unsigned char ANGLE_display_power_preference; // 27
+            unsigned char ANGLE_display_semaphore_share_group; // 28
+            unsigned char ANGLE_display_texture_share_group; // 29
+            unsigned char ANGLE_experimental_present_path; // 30
+            unsigned char ANGLE_external_context_and_surface; // 31
+            unsigned char ANGLE_feature_control; // 32
+            unsigned char ANGLE_ggp_stream_descriptor; // 33
+            unsigned char ANGLE_iosurface_client_buffer; // 34
+            unsigned char ANGLE_keyed_mutex; // 35
+            unsigned char ANGLE_metal_create_context_ownership_identity; // 36
+            unsigned char ANGLE_metal_shared_event_sync; // 37
+            unsigned char ANGLE_metal_texture_client_buffer; // 38
+            unsigned char ANGLE_platform_angle; // 39
+            unsigned char ANGLE_platform_angle_d3d; // 40
+            unsigned char ANGLE_platform_angle_d3d11on12; // 41
+            unsigned char ANGLE_platform_angle_d3d_luid; // 42
+            unsigned char ANGLE_platform_angle_device_context_volatile_cgl; // 43
+            unsigned char ANGLE_platform_angle_device_context_volatile_eagl; // 44
+            unsigned char ANGLE_platform_angle_device_id; // 45
+            unsigned char ANGLE_platform_angle_device_type_egl; // 46
+            unsigned char ANGLE_platform_angle_device_type_swiftshader; // 47
+            unsigned char ANGLE_platform_angle_metal; // 48
+            unsigned char ANGLE_platform_angle_null; // 49
+            unsigned char ANGLE_platform_angle_opengl; // 50
+            unsigned char ANGLE_platform_angle_vulkan; // 51
+            unsigned char ANGLE_power_preference; // 52
+            unsigned char ANGLE_prepare_swap_buffers; // 53
+            unsigned char ANGLE_program_cache_control; // 54
+            unsigned char ANGLE_query_surface_pointer; // 55
+            unsigned char ANGLE_robust_resource_initialization; // 56
+            unsigned char ANGLE_stream_producer_d3d_texture; // 57
+            unsigned char ANGLE_surface_d3d_texture_2d_share_handle; // 58
+            unsigned char ANGLE_surface_orientation; // 59
+            unsigned char ANGLE_swap_with_frame_token; // 60
+            unsigned char ANGLE_sync_control_rate; // 61
+            unsigned char ANGLE_vulkan_display; // 62
+            unsigned char ANGLE_vulkan_image; // 63
+            unsigned char ANGLE_wait_until_work_scheduled; // 64
+            unsigned char ANGLE_window_fixed_size; // 65
+            unsigned char ANGLE_x11_visual; // 66
+            unsigned char ARM_image_format; // 67
+            unsigned char ARM_implicit_external_sync; // 68
+            unsigned char ARM_pixmap_multisample_discard; // 69
+            unsigned char CHROMIUM_sync_control; // 70
+            unsigned char EXT_bind_to_front; // 71
+            unsigned char EXT_buffer_age; // 72
+            unsigned char EXT_client_extensions; // 73
+            unsigned char EXT_client_sync; // 74
+            unsigned char EXT_compositor; // 75
+            unsigned char EXT_config_select_group; // 76
+            unsigned char EXT_create_context_robustness; // 77
+            unsigned char EXT_device_base; // 78
+            unsigned char EXT_device_drm; // 79
+            unsigned char EXT_device_drm_render_node; // 80
+            unsigned char EXT_device_enumeration; // 81
+            unsigned char EXT_device_openwf; // 82
+            unsigned char EXT_device_persistent_id; // 83
+            unsigned char EXT_device_query; // 84
+            unsigned char EXT_device_query_name; // 85
+            unsigned char EXT_explicit_device; // 86
+            unsigned char EXT_gl_colorspace_bt2020_hlg; // 87
+            unsigned char EXT_gl_colorspace_bt2020_linear; // 88
+            unsigned char EXT_gl_colorspace_bt2020_pq; // 89
+            unsigned char EXT_gl_colorspace_display_p3; // 90
+            unsigned char EXT_gl_colorspace_display_p3_linear; // 91
+            unsigned char EXT_gl_colorspace_display_p3_passthrough; // 92
+            unsigned char EXT_gl_colorspace_scrgb; // 93
+            unsigned char EXT_gl_colorspace_scrgb_linear; // 94
+            unsigned char EXT_image_dma_buf_import; // 95
+            unsigned char EXT_image_dma_buf_import_modifiers; // 96
+            unsigned char EXT_image_gl_colorspace; // 97
+            unsigned char EXT_image_implicit_sync_control; // 98
+            unsigned char EXT_multiview_window; // 99
+            unsigned char EXT_output_base; // 100
+            unsigned char EXT_output_drm; // 101
+            unsigned char EXT_output_openwf; // 102
+            unsigned char EXT_pixel_format_float; // 103
+            unsigned char EXT_platform_base; // 104
+            unsigned char EXT_platform_device; // 105
+            unsigned char EXT_platform_wayland; // 106
+            unsigned char EXT_platform_x11; // 107
+            unsigned char EXT_platform_xcb; // 108
+            unsigned char EXT_present_opaque; // 109
+            unsigned char EXT_protected_content; // 110
+            unsigned char EXT_protected_surface; // 111
+            unsigned char EXT_query_reset_notification_strategy; // 112
+            unsigned char EXT_stream_consumer_egloutput; // 113
+            unsigned char EXT_surface_CTA861_3_metadata; // 114
+            unsigned char EXT_surface_SMPTE2086_metadata; // 115
+            unsigned char EXT_surface_compression; // 116
+            unsigned char EXT_swap_buffers_with_damage; // 117
+            unsigned char EXT_sync_reuse; // 118
+            unsigned char EXT_yuv_surface; // 119
+            unsigned char HI_clientpixmap; // 120
+            unsigned char HI_colorformats; // 121
+            unsigned char IMG_context_priority; // 122
+            unsigned char IMG_image_plane_attribs; // 123
+            unsigned char KHR_cl_event; // 124
+            unsigned char KHR_cl_event2; // 125
+            unsigned char KHR_client_get_all_proc_addresses; // 126
+            unsigned char KHR_config_attribs; // 127
+            unsigned char KHR_context_flush_control; // 128
+            unsigned char KHR_create_context; // 129
+            unsigned char KHR_create_context_no_error; // 130
+            unsigned char KHR_debug; // 131
+            unsigned char KHR_display_reference; // 132
+            unsigned char KHR_fence_sync; // 133
+            unsigned char KHR_get_all_proc_addresses; // 134
+            unsigned char KHR_gl_colorspace; // 135
+            unsigned char KHR_gl_renderbuffer_image; // 136
+            unsigned char KHR_gl_texture_2D_image; // 137
+            unsigned char KHR_gl_texture_3D_image; // 138
+            unsigned char KHR_gl_texture_cubemap_image; // 139
+            unsigned char KHR_image; // 140
+            unsigned char KHR_image_base; // 141
+            unsigned char KHR_image_pixmap; // 142
+            unsigned char KHR_lock_surface; // 143
+            unsigned char KHR_lock_surface2; // 144
+            unsigned char KHR_lock_surface3; // 145
+            unsigned char KHR_mutable_render_buffer; // 146
+            unsigned char KHR_no_config_context; // 147
+            unsigned char KHR_partial_update; // 148
+            unsigned char KHR_platform_android; // 149
+            unsigned char KHR_platform_gbm; // 150
+            unsigned char KHR_platform_wayland; // 151
+            unsigned char KHR_platform_x11; // 152
+            unsigned char KHR_reusable_sync; // 153
+            unsigned char KHR_stream; // 154
+            unsigned char KHR_stream_attrib; // 155
+            unsigned char KHR_stream_consumer_gltexture; // 156
+            unsigned char KHR_stream_cross_process_fd; // 157
+            unsigned char KHR_stream_fifo; // 158
+            unsigned char KHR_stream_producer_aldatalocator; // 159
+            unsigned char KHR_stream_producer_eglsurface; // 160
+            unsigned char KHR_surfaceless_context; // 161
+            unsigned char KHR_swap_buffers_with_damage; // 162
+            unsigned char KHR_vg_parent_image; // 163
+            unsigned char KHR_wait_sync; // 164
+            unsigned char MESA_drm_image; // 165
+            unsigned char MESA_image_dma_buf_export; // 166
+            unsigned char MESA_platform_gbm; // 167
+            unsigned char MESA_platform_surfaceless; // 168
+            unsigned char MESA_query_driver; // 169
+            unsigned char NOK_swap_region; // 170
+            unsigned char NOK_swap_region2; // 171
+            unsigned char NOK_texture_from_pixmap; // 172
+            unsigned char NV_3dvision_surface; // 173
+            unsigned char NV_context_priority_realtime; // 174
+            unsigned char NV_coverage_sample; // 175
+            unsigned char NV_coverage_sample_resolve; // 176
+            unsigned char NV_cuda_event; // 177
+            unsigned char NV_depth_nonlinear; // 178
+            unsigned char NV_device_cuda; // 179
+            unsigned char NV_native_query; // 180
+            unsigned char NV_post_convert_rounding; // 181
+            unsigned char NV_post_sub_buffer; // 182
+            unsigned char NV_quadruple_buffer; // 183
+            unsigned char NV_robustness_video_memory_purge; // 184
+            unsigned char NV_stream_consumer_eglimage; // 185
+            unsigned char NV_stream_consumer_eglimage_use_scanout_attrib; // 186
+            unsigned char NV_stream_consumer_gltexture_yuv; // 187
+            unsigned char NV_stream_cross_display; // 188
+            unsigned char NV_stream_cross_object; // 189
+            unsigned char NV_stream_cross_partition; // 190
+            unsigned char NV_stream_cross_process; // 191
+            unsigned char NV_stream_cross_system; // 192
+            unsigned char NV_stream_dma; // 193
+            unsigned char NV_stream_fifo_next; // 194
+            unsigned char NV_stream_fifo_synchronous; // 195
+            unsigned char NV_stream_flush; // 196
+            unsigned char NV_stream_frame_limits; // 197
+            unsigned char NV_stream_metadata; // 198
+            unsigned char NV_stream_origin; // 199
+            unsigned char NV_stream_remote; // 200
+            unsigned char NV_stream_reset; // 201
+            unsigned char NV_stream_socket; // 202
+            unsigned char NV_stream_socket_inet; // 203
+            unsigned char NV_stream_socket_unix; // 204
+            unsigned char NV_stream_sync; // 205
+            unsigned char NV_sync; // 206
+            unsigned char NV_system_time; // 207
+            unsigned char NV_triple_buffer; // 208
+            unsigned char QNX_image_native_buffer; // 209
+            unsigned char QNX_platform_screen; // 210
+            unsigned char TIZEN_image_native_buffer; // 211
+            unsigned char TIZEN_image_native_surface; // 212
+            unsigned char WL_bind_wayland_display; // 213
+            unsigned char WL_create_wayland_buffer_from_image; // 214
+        };
+    };
+
+    union {
+        void *pfnArray[179];
+        struct {
+            PFNEGLACQUIREEXTERNALCONTEXTANGLEPROC AcquireExternalContextANGLE; // 0
+            PFNEGLBINDAPIPROC BindAPI; // 1
+            PFNEGLBINDTEXIMAGEPROC BindTexImage; // 2
+            PFNEGLBINDWAYLANDDISPLAYWLPROC BindWaylandDisplayWL; // 3
+            PFNEGLCHOOSECONFIGPROC ChooseConfig; // 4
+            PFNEGLCLIENTSIGNALSYNCEXTPROC ClientSignalSyncEXT; // 5
+            PFNEGLCLIENTWAITSYNCPROC ClientWaitSync; // 6
+            PFNEGLCLIENTWAITSYNCKHRPROC ClientWaitSyncKHR; // 7
+            PFNEGLCLIENTWAITSYNCNVPROC ClientWaitSyncNV; // 8
+            PFNEGLCOMPOSITORBINDTEXWINDOWEXTPROC CompositorBindTexWindowEXT; // 9
+            PFNEGLCOMPOSITORSETCONTEXTATTRIBUTESEXTPROC CompositorSetContextAttributesEXT; // 10
+            PFNEGLCOMPOSITORSETCONTEXTLISTEXTPROC CompositorSetContextListEXT; // 11
+            PFNEGLCOMPOSITORSETSIZEEXTPROC CompositorSetSizeEXT; // 12
+            PFNEGLCOMPOSITORSETWINDOWATTRIBUTESEXTPROC CompositorSetWindowAttributesEXT; // 13
+            PFNEGLCOMPOSITORSETWINDOWLISTEXTPROC CompositorSetWindowListEXT; // 14
+            PFNEGLCOMPOSITORSWAPPOLICYEXTPROC CompositorSwapPolicyEXT; // 15
+            PFNEGLCOPYBUFFERSPROC CopyBuffers; // 16
+            PFNEGLCOPYMETALSHAREDEVENTANGLEPROC CopyMetalSharedEventANGLE; // 17
+            PFNEGLCREATECONTEXTPROC CreateContext; // 18
+            PFNEGLCREATEDRMIMAGEMESAPROC CreateDRMImageMESA; // 19
+            PFNEGLCREATEDEVICEANGLEPROC CreateDeviceANGLE; // 20
+            PFNEGLCREATEFENCESYNCNVPROC CreateFenceSyncNV; // 21
+            PFNEGLCREATEIMAGEPROC CreateImage; // 22
+            PFNEGLCREATEIMAGEKHRPROC CreateImageKHR; // 23
+            PFNEGLCREATENATIVECLIENTBUFFERANDROIDPROC CreateNativeClientBufferANDROID; // 24
+            PFNEGLCREATEPBUFFERFROMCLIENTBUFFERPROC CreatePbufferFromClientBuffer; // 25
+            PFNEGLCREATEPBUFFERSURFACEPROC CreatePbufferSurface; // 26
+            PFNEGLCREATEPIXMAPSURFACEPROC CreatePixmapSurface; // 27
+            PFNEGLCREATEPIXMAPSURFACEHIPROC CreatePixmapSurfaceHI; // 28
+            PFNEGLCREATEPLATFORMPIXMAPSURFACEPROC CreatePlatformPixmapSurface; // 29
+            PFNEGLCREATEPLATFORMPIXMAPSURFACEEXTPROC CreatePlatformPixmapSurfaceEXT; // 30
+            PFNEGLCREATEPLATFORMWINDOWSURFACEPROC CreatePlatformWindowSurface; // 31
+            PFNEGLCREATEPLATFORMWINDOWSURFACEEXTPROC CreatePlatformWindowSurfaceEXT; // 32
+            PFNEGLCREATESTREAMATTRIBKHRPROC CreateStreamAttribKHR; // 33
+            PFNEGLCREATESTREAMFROMFILEDESCRIPTORKHRPROC CreateStreamFromFileDescriptorKHR; // 34
+            PFNEGLCREATESTREAMKHRPROC CreateStreamKHR; // 35
+            PFNEGLCREATESTREAMPRODUCERD3DTEXTUREANGLEPROC CreateStreamProducerD3DTextureANGLE; // 36
+            PFNEGLCREATESTREAMPRODUCERSURFACEKHRPROC CreateStreamProducerSurfaceKHR; // 37
+            PFNEGLCREATESTREAMSYNCNVPROC CreateStreamSyncNV; // 38
+            PFNEGLCREATESYNCPROC CreateSync; // 39
+            PFNEGLCREATESYNC64KHRPROC CreateSync64KHR; // 40
+            PFNEGLCREATESYNCKHRPROC CreateSyncKHR; // 41
+            PFNEGLCREATEWAYLANDBUFFERFROMIMAGEWLPROC CreateWaylandBufferFromImageWL; // 42
+            PFNEGLCREATEWINDOWSURFACEPROC CreateWindowSurface; // 43
+            PFNEGLDEBUGMESSAGECONTROLKHRPROC DebugMessageControlKHR; // 44
+            PFNEGLDESTROYCONTEXTPROC DestroyContext; // 45
+            PFNEGLDESTROYIMAGEPROC DestroyImage; // 46
+            PFNEGLDESTROYIMAGEKHRPROC DestroyImageKHR; // 47
+            PFNEGLDESTROYSTREAMKHRPROC DestroyStreamKHR; // 48
+            PFNEGLDESTROYSURFACEPROC DestroySurface; // 49
+            PFNEGLDESTROYSYNCPROC DestroySync; // 50
+            PFNEGLDESTROYSYNCKHRPROC DestroySyncKHR; // 51
+            PFNEGLDESTROYSYNCNVPROC DestroySyncNV; // 52
+            PFNEGLDUPNATIVEFENCEFDANDROIDPROC DupNativeFenceFDANDROID; // 53
+            PFNEGLEXPORTDMABUFIMAGEMESAPROC ExportDMABUFImageMESA; // 54
+            PFNEGLEXPORTDMABUFIMAGEQUERYMESAPROC ExportDMABUFImageQueryMESA; // 55
+            PFNEGLEXPORTDRMIMAGEMESAPROC ExportDRMImageMESA; // 56
+            PFNEGLEXPORTVKIMAGEANGLEPROC ExportVkImageANGLE; // 57
+            PFNEGLFENCENVPROC FenceNV; // 58
+            PFNEGLFORCEGPUSWITCHANGLEPROC ForceGPUSwitchANGLE; // 59
+            PFNEGLGETCOMPOSITORTIMINGANDROIDPROC GetCompositorTimingANDROID; // 60
+            PFNEGLGETCOMPOSITORTIMINGSUPPORTEDANDROIDPROC GetCompositorTimingSupportedANDROID; // 61
+            PFNEGLGETCONFIGATTRIBPROC GetConfigAttrib; // 62
+            PFNEGLGETCONFIGSPROC GetConfigs; // 63
+            PFNEGLGETCURRENTCONTEXTPROC GetCurrentContext; // 64
+            PFNEGLGETCURRENTDISPLAYPROC GetCurrentDisplay; // 65
+            PFNEGLGETCURRENTSURFACEPROC GetCurrentSurface; // 66
+            PFNEGLGETDISPLAYPROC GetDisplay; // 67
+            PFNEGLGETDISPLAYDRIVERCONFIGPROC GetDisplayDriverConfig; // 68
+            PFNEGLGETDISPLAYDRIVERNAMEPROC GetDisplayDriverName; // 69
+            PFNEGLGETERRORPROC GetError; // 70
+            PFNEGLGETFRAMETIMESTAMPSUPPORTEDANDROIDPROC GetFrameTimestampSupportedANDROID; // 71
+            PFNEGLGETFRAMETIMESTAMPSANDROIDPROC GetFrameTimestampsANDROID; // 72
+            PFNEGLGETMSCRATEANGLEPROC GetMscRateANGLE; // 73
+            PFNEGLGETNATIVECLIENTBUFFERANDROIDPROC GetNativeClientBufferANDROID; // 74
+            PFNEGLGETNEXTFRAMEIDANDROIDPROC GetNextFrameIdANDROID; // 75
+            PFNEGLGETOUTPUTLAYERSEXTPROC GetOutputLayersEXT; // 76
+            PFNEGLGETOUTPUTPORTSEXTPROC GetOutputPortsEXT; // 77
+            PFNEGLGETPLATFORMDISPLAYPROC GetPlatformDisplay; // 78
+            PFNEGLGETPLATFORMDISPLAYEXTPROC GetPlatformDisplayEXT; // 79
+            PFNEGLGETPROCADDRESSPROC GetProcAddress; // 80
+            PFNEGLGETSTREAMFILEDESCRIPTORKHRPROC GetStreamFileDescriptorKHR; // 81
+            PFNEGLGETSYNCATTRIBPROC GetSyncAttrib; // 82
+            PFNEGLGETSYNCATTRIBKHRPROC GetSyncAttribKHR; // 83
+            PFNEGLGETSYNCATTRIBNVPROC GetSyncAttribNV; // 84
+            PFNEGLGETSYNCVALUESCHROMIUMPROC GetSyncValuesCHROMIUM; // 85
+            PFNEGLGETSYSTEMTIMEFREQUENCYNVPROC GetSystemTimeFrequencyNV; // 86
+            PFNEGLGETSYSTEMTIMENVPROC GetSystemTimeNV; // 87
+            PFNEGLHANDLEGPUSWITCHANGLEPROC HandleGPUSwitchANGLE; // 88
+            PFNEGLINITIALIZEPROC Initialize; // 89
+            PFNEGLLABELOBJECTKHRPROC LabelObjectKHR; // 90
+            PFNEGLLOCKSURFACEKHRPROC LockSurfaceKHR; // 91
+            PFNEGLMAKECURRENTPROC MakeCurrent; // 92
+            PFNEGLOUTPUTLAYERATTRIBEXTPROC OutputLayerAttribEXT; // 93
+            PFNEGLOUTPUTPORTATTRIBEXTPROC OutputPortAttribEXT; // 94
+            PFNEGLPOSTSUBBUFFERNVPROC PostSubBufferNV; // 95
+            PFNEGLPREPARESWAPBUFFERSANGLEPROC PrepareSwapBuffersANGLE; // 96
+            PFNEGLPRESENTATIONTIMEANDROIDPROC PresentationTimeANDROID; // 97
+            PFNEGLPROGRAMCACHEGETATTRIBANGLEPROC ProgramCacheGetAttribANGLE; // 98
+            PFNEGLPROGRAMCACHEPOPULATEANGLEPROC ProgramCachePopulateANGLE; // 99
+            PFNEGLPROGRAMCACHEQUERYANGLEPROC ProgramCacheQueryANGLE; // 100
+            PFNEGLPROGRAMCACHERESIZEANGLEPROC ProgramCacheResizeANGLE; // 101
+            PFNEGLQUERYAPIPROC QueryAPI; // 102
+            PFNEGLQUERYCONTEXTPROC QueryContext; // 103
+            PFNEGLQUERYDEBUGKHRPROC QueryDebugKHR; // 104
+            PFNEGLQUERYDEVICEATTRIBEXTPROC QueryDeviceAttribEXT; // 105
+            PFNEGLQUERYDEVICEBINARYEXTPROC QueryDeviceBinaryEXT; // 106
+            PFNEGLQUERYDEVICESTRINGEXTPROC QueryDeviceStringEXT; // 107
+            PFNEGLQUERYDEVICESEXTPROC QueryDevicesEXT; // 108
+            PFNEGLQUERYDISPLAYATTRIBANGLEPROC QueryDisplayAttribANGLE; // 109
+            PFNEGLQUERYDISPLAYATTRIBEXTPROC QueryDisplayAttribEXT; // 110
+            PFNEGLQUERYDISPLAYATTRIBKHRPROC QueryDisplayAttribKHR; // 111
+            PFNEGLQUERYDISPLAYATTRIBNVPROC QueryDisplayAttribNV; // 112
+            PFNEGLQUERYDMABUFFORMATSEXTPROC QueryDmaBufFormatsEXT; // 113
+            PFNEGLQUERYDMABUFMODIFIERSEXTPROC QueryDmaBufModifiersEXT; // 114
+            PFNEGLQUERYNATIVEDISPLAYNVPROC QueryNativeDisplayNV; // 115
+            PFNEGLQUERYNATIVEPIXMAPNVPROC QueryNativePixmapNV; // 116
+            PFNEGLQUERYNATIVEWINDOWNVPROC QueryNativeWindowNV; // 117
+            PFNEGLQUERYOUTPUTLAYERATTRIBEXTPROC QueryOutputLayerAttribEXT; // 118
+            PFNEGLQUERYOUTPUTLAYERSTRINGEXTPROC QueryOutputLayerStringEXT; // 119
+            PFNEGLQUERYOUTPUTPORTATTRIBEXTPROC QueryOutputPortAttribEXT; // 120
+            PFNEGLQUERYOUTPUTPORTSTRINGEXTPROC QueryOutputPortStringEXT; // 121
+            PFNEGLQUERYSTREAMATTRIBKHRPROC QueryStreamAttribKHR; // 122
+            PFNEGLQUERYSTREAMCONSUMEREVENTNVPROC QueryStreamConsumerEventNV; // 123
+            PFNEGLQUERYSTREAMKHRPROC QueryStreamKHR; // 124
+            PFNEGLQUERYSTREAMMETADATANVPROC QueryStreamMetadataNV; // 125
+            PFNEGLQUERYSTREAMTIMEKHRPROC QueryStreamTimeKHR; // 126
+            PFNEGLQUERYSTREAMU64KHRPROC QueryStreamu64KHR; // 127
+            PFNEGLQUERYSTRINGPROC QueryString; // 128
+            PFNEGLQUERYSTRINGIANGLEPROC QueryStringiANGLE; // 129
+            PFNEGLQUERYSUPPORTEDCOMPRESSIONRATESEXTPROC QuerySupportedCompressionRatesEXT; // 130
+            PFNEGLQUERYSURFACEPROC QuerySurface; // 131
+            PFNEGLQUERYSURFACE64KHRPROC QuerySurface64KHR; // 132
+            PFNEGLQUERYSURFACEPOINTERANGLEPROC QuerySurfacePointerANGLE; // 133
+            PFNEGLQUERYWAYLANDBUFFERWLPROC QueryWaylandBufferWL; // 134
+            PFNEGLREACQUIREHIGHPOWERGPUANGLEPROC ReacquireHighPowerGPUANGLE; // 135
+            PFNEGLRELEASEDEVICEANGLEPROC ReleaseDeviceANGLE; // 136
+            PFNEGLRELEASEEXTERNALCONTEXTANGLEPROC ReleaseExternalContextANGLE; // 137
+            PFNEGLRELEASEHIGHPOWERGPUANGLEPROC ReleaseHighPowerGPUANGLE; // 138
+            PFNEGLRELEASETEXIMAGEPROC ReleaseTexImage; // 139
+            PFNEGLRELEASETHREADPROC ReleaseThread; // 140
+            PFNEGLRESETSTREAMNVPROC ResetStreamNV; // 141
+            PFNEGLSETBLOBCACHEFUNCSANDROIDPROC SetBlobCacheFuncsANDROID; // 142
+            PFNEGLSETDAMAGEREGIONKHRPROC SetDamageRegionKHR; // 143
+            PFNEGLSETSTREAMATTRIBKHRPROC SetStreamAttribKHR; // 144
+            PFNEGLSETSTREAMMETADATANVPROC SetStreamMetadataNV; // 145
+            PFNEGLSIGNALSYNCKHRPROC SignalSyncKHR; // 146
+            PFNEGLSIGNALSYNCNVPROC SignalSyncNV; // 147
+            PFNEGLSTREAMACQUIREIMAGENVPROC StreamAcquireImageNV; // 148
+            PFNEGLSTREAMATTRIBKHRPROC StreamAttribKHR; // 149
+            PFNEGLSTREAMCONSUMERACQUIREATTRIBKHRPROC StreamConsumerAcquireAttribKHR; // 150
+            PFNEGLSTREAMCONSUMERACQUIREKHRPROC StreamConsumerAcquireKHR; // 151
+            PFNEGLSTREAMCONSUMERGLTEXTUREEXTERNALATTRIBSNVPROC StreamConsumerGLTextureExternalAttribsNV; // 152
+            PFNEGLSTREAMCONSUMERGLTEXTUREEXTERNALKHRPROC StreamConsumerGLTextureExternalKHR; // 153
+            PFNEGLSTREAMCONSUMEROUTPUTEXTPROC StreamConsumerOutputEXT; // 154
+            PFNEGLSTREAMCONSUMERRELEASEATTRIBKHRPROC StreamConsumerReleaseAttribKHR; // 155
+            PFNEGLSTREAMCONSUMERRELEASEKHRPROC StreamConsumerReleaseKHR; // 156
+            PFNEGLSTREAMFLUSHNVPROC StreamFlushNV; // 157
+            PFNEGLSTREAMIMAGECONSUMERCONNECTNVPROC StreamImageConsumerConnectNV; // 158
+            PFNEGLSTREAMPOSTD3DTEXTUREANGLEPROC StreamPostD3DTextureANGLE; // 159
+            PFNEGLSTREAMRELEASEIMAGENVPROC StreamReleaseImageNV; // 160
+            PFNEGLSURFACEATTRIBPROC SurfaceAttrib; // 161
+            PFNEGLSWAPBUFFERSPROC SwapBuffers; // 162
+            PFNEGLSWAPBUFFERSREGION2NOKPROC SwapBuffersRegion2NOK; // 163
+            PFNEGLSWAPBUFFERSREGIONNOKPROC SwapBuffersRegionNOK; // 164
+            PFNEGLSWAPBUFFERSWITHDAMAGEEXTPROC SwapBuffersWithDamageEXT; // 165
+            PFNEGLSWAPBUFFERSWITHDAMAGEKHRPROC SwapBuffersWithDamageKHR; // 166
+            PFNEGLSWAPBUFFERSWITHFRAMETOKENANGLEPROC SwapBuffersWithFrameTokenANGLE; // 167
+            PFNEGLSWAPINTERVALPROC SwapInterval; // 168
+            PFNEGLTERMINATEPROC Terminate; // 169
+            PFNEGLUNBINDWAYLANDDISPLAYWLPROC UnbindWaylandDisplayWL; // 170
+            PFNEGLUNLOCKSURFACEKHRPROC UnlockSurfaceKHR; // 171
+            PFNEGLUNSIGNALSYNCEXTPROC UnsignalSyncEXT; // 172
+            PFNEGLWAITCLIENTPROC WaitClient; // 173
+            PFNEGLWAITGLPROC WaitGL; // 174
+            PFNEGLWAITNATIVEPROC WaitNative; // 175
+            PFNEGLWAITSYNCPROC WaitSync; // 176
+            PFNEGLWAITSYNCKHRPROC WaitSyncKHR; // 177
+            PFNEGLWAITUNTILWORKSCHEDULEDANGLEPROC WaitUntilWorkScheduledANGLE; // 178
+        };
+    };
 
     void* glad_loader_handle;
 } GladEGLContext;
@@ -1847,6 +1861,7 @@ GLAD_API_CALL GladEGLContext glad_egl_context;
 #define GLAD_EGL_EXT_present_opaque (glad_egl_context.EXT_present_opaque)
 #define GLAD_EGL_EXT_protected_content (glad_egl_context.EXT_protected_content)
 #define GLAD_EGL_EXT_protected_surface (glad_egl_context.EXT_protected_surface)
+#define GLAD_EGL_EXT_query_reset_notification_strategy (glad_egl_context.EXT_query_reset_notification_strategy)
 #define GLAD_EGL_EXT_stream_consumer_egloutput (glad_egl_context.EXT_stream_consumer_egloutput)
 #define GLAD_EGL_EXT_surface_CTA861_3_metadata (glad_egl_context.EXT_surface_CTA861_3_metadata)
 #define GLAD_EGL_EXT_surface_SMPTE2086_metadata (glad_egl_context.EXT_surface_SMPTE2086_metadata)

@@ -6645,6 +6645,7 @@ typedef void (GLAD_API_PTR *GLVULKANPROCNV)(void);
 #define GL_VIV_shader_binary 1
 
 
+
 typedef void (GLAD_API_PTR *PFNGLACCUMXOESPROC)(GLenum op, GLfixed value);
 typedef GLboolean (GLAD_API_PTR *PFNGLACQUIREKEYEDMUTEXWIN32EXTPROC)(GLuint memory, GLuint64 key, GLuint timeout);
 typedef void (GLAD_API_PTR *PFNGLACTIVEPROGRAMEXTPROC)(GLuint program);
@@ -9532,3818 +9533,3829 @@ typedef void (GLAD_API_PTR *PFNGLWAITSYNCAPPLEPROC)(GLsync sync, GLbitfield flag
 typedef struct GladGLContext {
     void* userptr;
 
-    unsigned VERSION_1_0 : 1;
-    unsigned VERSION_1_1 : 1;
-    unsigned VERSION_1_2 : 1;
-    unsigned VERSION_1_3 : 1;
-    unsigned VERSION_1_4 : 1;
-    unsigned VERSION_1_5 : 1;
-    unsigned VERSION_2_0 : 1;
-    unsigned VERSION_2_1 : 1;
-    unsigned VERSION_3_0 : 1;
-    unsigned VERSION_3_1 : 1;
-    unsigned VERSION_3_2 : 1;
-    unsigned VERSION_3_3 : 1;
-    unsigned VERSION_4_0 : 1;
-    unsigned VERSION_4_1 : 1;
-    unsigned VERSION_4_2 : 1;
-    unsigned VERSION_4_3 : 1;
-    unsigned VERSION_4_4 : 1;
-    unsigned VERSION_4_5 : 1;
-    unsigned VERSION_4_6 : 1;
-    unsigned ES_VERSION_2_0 : 1;
-    unsigned ES_VERSION_3_0 : 1;
-    unsigned ES_VERSION_3_1 : 1;
-    unsigned ES_VERSION_3_2 : 1;
-    unsigned _3DFX_multisample : 1;
-    unsigned _3DFX_tbuffer : 1;
-    unsigned _3DFX_texture_compression_FXT1 : 1;
-    unsigned AMD_blend_minmax_factor : 1;
-    unsigned AMD_conservative_depth : 1;
-    unsigned AMD_debug_output : 1;
-    unsigned AMD_depth_clamp_separate : 1;
-    unsigned AMD_draw_buffers_blend : 1;
-    unsigned AMD_framebuffer_multisample_advanced : 1;
-    unsigned AMD_framebuffer_sample_positions : 1;
-    unsigned AMD_gcn_shader : 1;
-    unsigned AMD_gpu_shader_half_float : 1;
-    unsigned AMD_gpu_shader_int16 : 1;
-    unsigned AMD_gpu_shader_int64 : 1;
-    unsigned AMD_interleaved_elements : 1;
-    unsigned AMD_multi_draw_indirect : 1;
-    unsigned AMD_name_gen_delete : 1;
-    unsigned AMD_occlusion_query_event : 1;
-    unsigned AMD_performance_monitor : 1;
-    unsigned AMD_pinned_memory : 1;
-    unsigned AMD_query_buffer_object : 1;
-    unsigned AMD_sample_positions : 1;
-    unsigned AMD_seamless_cubemap_per_texture : 1;
-    unsigned AMD_shader_atomic_counter_ops : 1;
-    unsigned AMD_shader_ballot : 1;
-    unsigned AMD_shader_explicit_vertex_parameter : 1;
-    unsigned AMD_shader_fragment_mask : 1;
-    unsigned AMD_shader_gpu_shader_half_float_fetch : 1;
-    unsigned AMD_shader_image_load_store_lod : 1;
-    unsigned AMD_shader_stencil_export : 1;
-    unsigned AMD_shader_trinary_minmax : 1;
-    unsigned AMD_sparse_texture : 1;
-    unsigned AMD_stencil_operation_extended : 1;
-    unsigned AMD_texture_gather_bias_lod : 1;
-    unsigned AMD_texture_texture4 : 1;
-    unsigned AMD_transform_feedback3_lines_triangles : 1;
-    unsigned AMD_transform_feedback4 : 1;
-    unsigned AMD_vertex_shader_layer : 1;
-    unsigned AMD_vertex_shader_tessellator : 1;
-    unsigned AMD_vertex_shader_viewport_index : 1;
-    unsigned ANGLE_memory_object_flags : 1;
-    unsigned ANGLE_memory_object_fuchsia : 1;
-    unsigned ANGLE_semaphore_fuchsia : 1;
-    unsigned ANGLE_texture_compression_dxt : 1;
-    unsigned ANGLE_texture_external_update : 1;
-    unsigned APPLE_aux_depth_stencil : 1;
-    unsigned APPLE_client_storage : 1;
-    unsigned APPLE_element_array : 1;
-    unsigned APPLE_fence : 1;
-    unsigned APPLE_float_pixels : 1;
-    unsigned APPLE_flush_buffer_range : 1;
-    unsigned APPLE_object_purgeable : 1;
-    unsigned APPLE_rgb_422 : 1;
-    unsigned APPLE_row_bytes : 1;
-    unsigned APPLE_specular_vector : 1;
-    unsigned APPLE_texture_range : 1;
-    unsigned APPLE_transform_hint : 1;
-    unsigned APPLE_vertex_array_object : 1;
-    unsigned APPLE_vertex_array_range : 1;
-    unsigned APPLE_vertex_program_evaluators : 1;
-    unsigned APPLE_ycbcr_422 : 1;
-    unsigned ARB_ES2_compatibility : 1;
-    unsigned ARB_ES3_1_compatibility : 1;
-    unsigned ARB_ES3_2_compatibility : 1;
-    unsigned ARB_ES3_compatibility : 1;
-    unsigned ARB_arrays_of_arrays : 1;
-    unsigned ARB_base_instance : 1;
-    unsigned ARB_bindless_texture : 1;
-    unsigned ARB_blend_func_extended : 1;
-    unsigned ARB_buffer_storage : 1;
-    unsigned ARB_cl_event : 1;
-    unsigned ARB_clear_buffer_object : 1;
-    unsigned ARB_clear_texture : 1;
-    unsigned ARB_clip_control : 1;
-    unsigned ARB_color_buffer_float : 1;
-    unsigned ARB_compatibility : 1;
-    unsigned ARB_compressed_texture_pixel_storage : 1;
-    unsigned ARB_compute_shader : 1;
-    unsigned ARB_compute_variable_group_size : 1;
-    unsigned ARB_conditional_render_inverted : 1;
-    unsigned ARB_conservative_depth : 1;
-    unsigned ARB_copy_buffer : 1;
-    unsigned ARB_copy_image : 1;
-    unsigned ARB_cull_distance : 1;
-    unsigned ARB_debug_output : 1;
-    unsigned ARB_depth_buffer_float : 1;
-    unsigned ARB_depth_clamp : 1;
-    unsigned ARB_depth_texture : 1;
-    unsigned ARB_derivative_control : 1;
-    unsigned ARB_direct_state_access : 1;
-    unsigned ARB_draw_buffers : 1;
-    unsigned ARB_draw_buffers_blend : 1;
-    unsigned ARB_draw_elements_base_vertex : 1;
-    unsigned ARB_draw_indirect : 1;
-    unsigned ARB_draw_instanced : 1;
-    unsigned ARB_enhanced_layouts : 1;
-    unsigned ARB_explicit_attrib_location : 1;
-    unsigned ARB_explicit_uniform_location : 1;
-    unsigned ARB_fragment_coord_conventions : 1;
-    unsigned ARB_fragment_layer_viewport : 1;
-    unsigned ARB_fragment_program : 1;
-    unsigned ARB_fragment_program_shadow : 1;
-    unsigned ARB_fragment_shader : 1;
-    unsigned ARB_fragment_shader_interlock : 1;
-    unsigned ARB_framebuffer_no_attachments : 1;
-    unsigned ARB_framebuffer_object : 1;
-    unsigned ARB_framebuffer_sRGB : 1;
-    unsigned ARB_geometry_shader4 : 1;
-    unsigned ARB_get_program_binary : 1;
-    unsigned ARB_get_texture_sub_image : 1;
-    unsigned ARB_gl_spirv : 1;
-    unsigned ARB_gpu_shader5 : 1;
-    unsigned ARB_gpu_shader_fp64 : 1;
-    unsigned ARB_gpu_shader_int64 : 1;
-    unsigned ARB_half_float_pixel : 1;
-    unsigned ARB_half_float_vertex : 1;
-    unsigned ARB_imaging : 1;
-    unsigned ARB_indirect_parameters : 1;
-    unsigned ARB_instanced_arrays : 1;
-    unsigned ARB_internalformat_query : 1;
-    unsigned ARB_internalformat_query2 : 1;
-    unsigned ARB_invalidate_subdata : 1;
-    unsigned ARB_map_buffer_alignment : 1;
-    unsigned ARB_map_buffer_range : 1;
-    unsigned ARB_matrix_palette : 1;
-    unsigned ARB_multi_bind : 1;
-    unsigned ARB_multi_draw_indirect : 1;
-    unsigned ARB_multisample : 1;
-    unsigned ARB_multitexture : 1;
-    unsigned ARB_occlusion_query : 1;
-    unsigned ARB_occlusion_query2 : 1;
-    unsigned ARB_parallel_shader_compile : 1;
-    unsigned ARB_pipeline_statistics_query : 1;
-    unsigned ARB_pixel_buffer_object : 1;
-    unsigned ARB_point_parameters : 1;
-    unsigned ARB_point_sprite : 1;
-    unsigned ARB_polygon_offset_clamp : 1;
-    unsigned ARB_post_depth_coverage : 1;
-    unsigned ARB_program_interface_query : 1;
-    unsigned ARB_provoking_vertex : 1;
-    unsigned ARB_query_buffer_object : 1;
-    unsigned ARB_robust_buffer_access_behavior : 1;
-    unsigned ARB_robustness : 1;
-    unsigned ARB_robustness_isolation : 1;
-    unsigned ARB_sample_locations : 1;
-    unsigned ARB_sample_shading : 1;
-    unsigned ARB_sampler_objects : 1;
-    unsigned ARB_seamless_cube_map : 1;
-    unsigned ARB_seamless_cubemap_per_texture : 1;
-    unsigned ARB_separate_shader_objects : 1;
-    unsigned ARB_shader_atomic_counter_ops : 1;
-    unsigned ARB_shader_atomic_counters : 1;
-    unsigned ARB_shader_ballot : 1;
-    unsigned ARB_shader_bit_encoding : 1;
-    unsigned ARB_shader_clock : 1;
-    unsigned ARB_shader_draw_parameters : 1;
-    unsigned ARB_shader_group_vote : 1;
-    unsigned ARB_shader_image_load_store : 1;
-    unsigned ARB_shader_image_size : 1;
-    unsigned ARB_shader_objects : 1;
-    unsigned ARB_shader_precision : 1;
-    unsigned ARB_shader_stencil_export : 1;
-    unsigned ARB_shader_storage_buffer_object : 1;
-    unsigned ARB_shader_subroutine : 1;
-    unsigned ARB_shader_texture_image_samples : 1;
-    unsigned ARB_shader_texture_lod : 1;
-    unsigned ARB_shader_viewport_layer_array : 1;
-    unsigned ARB_shading_language_100 : 1;
-    unsigned ARB_shading_language_420pack : 1;
-    unsigned ARB_shading_language_include : 1;
-    unsigned ARB_shading_language_packing : 1;
-    unsigned ARB_shadow : 1;
-    unsigned ARB_shadow_ambient : 1;
-    unsigned ARB_sparse_buffer : 1;
-    unsigned ARB_sparse_texture : 1;
-    unsigned ARB_sparse_texture2 : 1;
-    unsigned ARB_sparse_texture_clamp : 1;
-    unsigned ARB_spirv_extensions : 1;
-    unsigned ARB_stencil_texturing : 1;
-    unsigned ARB_sync : 1;
-    unsigned ARB_tessellation_shader : 1;
-    unsigned ARB_texture_barrier : 1;
-    unsigned ARB_texture_border_clamp : 1;
-    unsigned ARB_texture_buffer_object : 1;
-    unsigned ARB_texture_buffer_object_rgb32 : 1;
-    unsigned ARB_texture_buffer_range : 1;
-    unsigned ARB_texture_compression : 1;
-    unsigned ARB_texture_compression_bptc : 1;
-    unsigned ARB_texture_compression_rgtc : 1;
-    unsigned ARB_texture_cube_map : 1;
-    unsigned ARB_texture_cube_map_array : 1;
-    unsigned ARB_texture_env_add : 1;
-    unsigned ARB_texture_env_combine : 1;
-    unsigned ARB_texture_env_crossbar : 1;
-    unsigned ARB_texture_env_dot3 : 1;
-    unsigned ARB_texture_filter_anisotropic : 1;
-    unsigned ARB_texture_filter_minmax : 1;
-    unsigned ARB_texture_float : 1;
-    unsigned ARB_texture_gather : 1;
-    unsigned ARB_texture_mirror_clamp_to_edge : 1;
-    unsigned ARB_texture_mirrored_repeat : 1;
-    unsigned ARB_texture_multisample : 1;
-    unsigned ARB_texture_non_power_of_two : 1;
-    unsigned ARB_texture_query_levels : 1;
-    unsigned ARB_texture_query_lod : 1;
-    unsigned ARB_texture_rectangle : 1;
-    unsigned ARB_texture_rg : 1;
-    unsigned ARB_texture_rgb10_a2ui : 1;
-    unsigned ARB_texture_stencil8 : 1;
-    unsigned ARB_texture_storage : 1;
-    unsigned ARB_texture_storage_multisample : 1;
-    unsigned ARB_texture_swizzle : 1;
-    unsigned ARB_texture_view : 1;
-    unsigned ARB_timer_query : 1;
-    unsigned ARB_transform_feedback2 : 1;
-    unsigned ARB_transform_feedback3 : 1;
-    unsigned ARB_transform_feedback_instanced : 1;
-    unsigned ARB_transform_feedback_overflow_query : 1;
-    unsigned ARB_transpose_matrix : 1;
-    unsigned ARB_uniform_buffer_object : 1;
-    unsigned ARB_vertex_array_bgra : 1;
-    unsigned ARB_vertex_array_object : 1;
-    unsigned ARB_vertex_attrib_64bit : 1;
-    unsigned ARB_vertex_attrib_binding : 1;
-    unsigned ARB_vertex_blend : 1;
-    unsigned ARB_vertex_buffer_object : 1;
-    unsigned ARB_vertex_program : 1;
-    unsigned ARB_vertex_shader : 1;
-    unsigned ARB_vertex_type_10f_11f_11f_rev : 1;
-    unsigned ARB_vertex_type_2_10_10_10_rev : 1;
-    unsigned ARB_viewport_array : 1;
-    unsigned ARB_window_pos : 1;
-    unsigned ATI_draw_buffers : 1;
-    unsigned ATI_element_array : 1;
-    unsigned ATI_envmap_bumpmap : 1;
-    unsigned ATI_fragment_shader : 1;
-    unsigned ATI_map_object_buffer : 1;
-    unsigned ATI_meminfo : 1;
-    unsigned ATI_pixel_format_float : 1;
-    unsigned ATI_pn_triangles : 1;
-    unsigned ATI_separate_stencil : 1;
-    unsigned ATI_text_fragment_shader : 1;
-    unsigned ATI_texture_env_combine3 : 1;
-    unsigned ATI_texture_float : 1;
-    unsigned ATI_texture_mirror_once : 1;
-    unsigned ATI_vertex_array_object : 1;
-    unsigned ATI_vertex_attrib_array_object : 1;
-    unsigned ATI_vertex_streams : 1;
-    unsigned EXT_422_pixels : 1;
-    unsigned EXT_EGL_image_storage : 1;
-    unsigned EXT_EGL_sync : 1;
-    unsigned EXT_abgr : 1;
-    unsigned EXT_bgra : 1;
-    unsigned EXT_bindable_uniform : 1;
-    unsigned EXT_blend_color : 1;
-    unsigned EXT_blend_equation_separate : 1;
-    unsigned EXT_blend_func_separate : 1;
-    unsigned EXT_blend_logic_op : 1;
-    unsigned EXT_blend_minmax : 1;
-    unsigned EXT_blend_subtract : 1;
-    unsigned EXT_buffer_reference : 1;
-    unsigned EXT_buffer_reference2 : 1;
-    unsigned EXT_clip_volume_hint : 1;
-    unsigned EXT_cmyka : 1;
-    unsigned EXT_color_subtable : 1;
-    unsigned EXT_compiled_vertex_array : 1;
-    unsigned EXT_control_flow_attributes : 1;
-    unsigned EXT_convolution : 1;
-    unsigned EXT_coordinate_frame : 1;
-    unsigned EXT_copy_texture : 1;
-    unsigned EXT_cull_vertex : 1;
-    unsigned EXT_debug_label : 1;
-    unsigned EXT_debug_marker : 1;
-    unsigned EXT_debug_printf : 1;
-    unsigned EXT_demote_to_helper_invocation : 1;
-    unsigned EXT_depth_bounds_test : 1;
-    unsigned EXT_device_group : 1;
-    unsigned EXT_direct_state_access : 1;
-    unsigned EXT_draw_buffers2 : 1;
-    unsigned EXT_draw_instanced : 1;
-    unsigned EXT_draw_range_elements : 1;
-    unsigned EXT_external_buffer : 1;
-    unsigned EXT_fog_coord : 1;
-    unsigned EXT_fragment_invocation_density : 1;
-    unsigned EXT_fragment_shader_barycentric : 1;
-    unsigned EXT_framebuffer_blit : 1;
-    unsigned EXT_framebuffer_blit_layers : 1;
-    unsigned EXT_framebuffer_multisample : 1;
-    unsigned EXT_framebuffer_multisample_blit_scaled : 1;
-    unsigned EXT_framebuffer_object : 1;
-    unsigned EXT_framebuffer_sRGB : 1;
-    unsigned EXT_geometry_shader4 : 1;
-    unsigned EXT_gpu_program_parameters : 1;
-    unsigned EXT_gpu_shader4 : 1;
-    unsigned EXT_histogram : 1;
-    unsigned EXT_index_array_formats : 1;
-    unsigned EXT_index_func : 1;
-    unsigned EXT_index_material : 1;
-    unsigned EXT_index_texture : 1;
-    unsigned EXT_light_texture : 1;
-    unsigned EXT_memory_object : 1;
-    unsigned EXT_memory_object_fd : 1;
-    unsigned EXT_memory_object_win32 : 1;
-    unsigned EXT_misc_attribute : 1;
-    unsigned EXT_multi_draw_arrays : 1;
-    unsigned EXT_multisample : 1;
-    unsigned EXT_multiview_tessellation_geometry_shader : 1;
-    unsigned EXT_multiview_texture_multisample : 1;
-    unsigned EXT_multiview_timer_query : 1;
-    unsigned EXT_nonuniform_qualifier : 1;
-    unsigned EXT_packed_depth_stencil : 1;
-    unsigned EXT_packed_float : 1;
-    unsigned EXT_packed_pixels : 1;
-    unsigned EXT_paletted_texture : 1;
-    unsigned EXT_pixel_buffer_object : 1;
-    unsigned EXT_pixel_transform : 1;
-    unsigned EXT_pixel_transform_color_table : 1;
-    unsigned EXT_point_parameters : 1;
-    unsigned EXT_polygon_offset : 1;
-    unsigned EXT_polygon_offset_clamp : 1;
-    unsigned EXT_post_depth_coverage : 1;
-    unsigned EXT_provoking_vertex : 1;
-    unsigned EXT_raster_multisample : 1;
-    unsigned EXT_ray_cull_mask : 1;
-    unsigned EXT_ray_flags_primitive_culling : 1;
-    unsigned EXT_ray_query : 1;
-    unsigned EXT_ray_tracing : 1;
-    unsigned EXT_rescale_normal : 1;
-    unsigned EXT_samplerless_texture_functions : 1;
-    unsigned EXT_scalar_block_layout : 1;
-    unsigned EXT_secondary_color : 1;
-    unsigned EXT_semaphore : 1;
-    unsigned EXT_semaphore_fd : 1;
-    unsigned EXT_semaphore_win32 : 1;
-    unsigned EXT_separate_shader_objects : 1;
-    unsigned EXT_separate_specular_color : 1;
-    unsigned EXT_shader_16bit_storage : 1;
-    unsigned EXT_shader_atomic_float : 1;
-    unsigned EXT_shader_explicit_arithmetic_types : 1;
-    unsigned EXT_shader_framebuffer_fetch : 1;
-    unsigned EXT_shader_framebuffer_fetch_non_coherent : 1;
-    unsigned EXT_shader_image_int64 : 1;
-    unsigned EXT_shader_image_load_formatted : 1;
-    unsigned EXT_shader_image_load_store : 1;
-    unsigned EXT_shader_integer_mix : 1;
-    unsigned EXT_shader_realtime_clock : 1;
-    unsigned EXT_shader_samples_identical : 1;
-    unsigned EXT_shader_subgroup_extended_types : 1;
-    unsigned EXT_shadow_funcs : 1;
-    unsigned EXT_shared_memory_block : 1;
-    unsigned EXT_shared_texture_palette : 1;
-    unsigned EXT_sparse_texture2 : 1;
-    unsigned EXT_stencil_clear_tag : 1;
-    unsigned EXT_stencil_two_side : 1;
-    unsigned EXT_stencil_wrap : 1;
-    unsigned EXT_subgroup_uniform_control_flow : 1;
-    unsigned EXT_subgroupuniform_qualifier : 1;
-    unsigned EXT_subtexture : 1;
-    unsigned EXT_texture : 1;
-    unsigned EXT_texture3D : 1;
-    unsigned EXT_texture_array : 1;
-    unsigned EXT_texture_buffer_object : 1;
-    unsigned EXT_texture_compression_latc : 1;
-    unsigned EXT_texture_compression_rgtc : 1;
-    unsigned EXT_texture_compression_s3tc : 1;
-    unsigned EXT_texture_cube_map : 1;
-    unsigned EXT_texture_env_add : 1;
-    unsigned EXT_texture_env_combine : 1;
-    unsigned EXT_texture_env_dot3 : 1;
-    unsigned EXT_texture_filter_anisotropic : 1;
-    unsigned EXT_texture_filter_minmax : 1;
-    unsigned EXT_texture_integer : 1;
-    unsigned EXT_texture_lod_bias : 1;
-    unsigned EXT_texture_mirror_clamp : 1;
-    unsigned EXT_texture_object : 1;
-    unsigned EXT_texture_perturb_normal : 1;
-    unsigned EXT_texture_sRGB : 1;
-    unsigned EXT_texture_sRGB_R8 : 1;
-    unsigned EXT_texture_sRGB_RG8 : 1;
-    unsigned EXT_texture_sRGB_decode : 1;
-    unsigned EXT_texture_shadow_lod : 1;
-    unsigned EXT_texture_shared_exponent : 1;
-    unsigned EXT_texture_snorm : 1;
-    unsigned EXT_texture_storage : 1;
-    unsigned EXT_texture_swizzle : 1;
-    unsigned EXT_timer_query : 1;
-    unsigned EXT_transform_feedback : 1;
-    unsigned EXT_vertex_array : 1;
-    unsigned EXT_vertex_array_bgra : 1;
-    unsigned EXT_vertex_attrib_64bit : 1;
-    unsigned EXT_vertex_shader : 1;
-    unsigned EXT_vertex_weighting : 1;
-    unsigned EXT_vulkan_glsl_relaxed : 1;
-    unsigned EXT_win32_keyed_mutex : 1;
-    unsigned EXT_window_rectangles : 1;
-    unsigned EXT_x11_sync_object : 1;
-    unsigned GREMEDY_frame_terminator : 1;
-    unsigned GREMEDY_string_marker : 1;
-    unsigned HP_convolution_border_modes : 1;
-    unsigned HP_image_transform : 1;
-    unsigned HP_occlusion_test : 1;
-    unsigned HP_texture_lighting : 1;
-    unsigned HUAWEI_subpass_shading : 1;
-    unsigned IBM_cull_vertex : 1;
-    unsigned IBM_multimode_draw_arrays : 1;
-    unsigned IBM_rasterpos_clip : 1;
-    unsigned IBM_static_data : 1;
-    unsigned IBM_texture_mirrored_repeat : 1;
-    unsigned IBM_vertex_array_lists : 1;
-    unsigned INGR_blend_func_separate : 1;
-    unsigned INGR_color_clamp : 1;
-    unsigned INGR_interlace_read : 1;
-    unsigned INTEL_blackhole_render : 1;
-    unsigned INTEL_conservative_rasterization : 1;
-    unsigned INTEL_fragment_shader_ordering : 1;
-    unsigned INTEL_framebuffer_CMAA : 1;
-    unsigned INTEL_map_texture : 1;
-    unsigned INTEL_parallel_arrays : 1;
-    unsigned INTEL_performance_query : 1;
-    unsigned KHR_blend_equation_advanced : 1;
-    unsigned KHR_blend_equation_advanced_coherent : 1;
-    unsigned KHR_context_flush_control : 1;
-    unsigned KHR_debug : 1;
-    unsigned KHR_memory_scope_semantics : 1;
-    unsigned KHR_no_error : 1;
-    unsigned KHR_parallel_shader_compile : 1;
-    unsigned KHR_robust_buffer_access_behavior : 1;
-    unsigned KHR_robustness : 1;
-    unsigned KHR_shader_subgroup : 1;
-    unsigned KHR_texture_compression_astc_hdr : 1;
-    unsigned KHR_texture_compression_astc_ldr : 1;
-    unsigned KHR_texture_compression_astc_sliced_3d : 1;
-    unsigned KHR_vulkan_glsl : 1;
-    unsigned MESAX_texture_stack : 1;
-    unsigned MESA_framebuffer_flip_x : 1;
-    unsigned MESA_framebuffer_flip_y : 1;
-    unsigned MESA_framebuffer_swap_xy : 1;
-    unsigned MESA_pack_invert : 1;
-    unsigned MESA_program_binary_formats : 1;
-    unsigned MESA_resize_buffers : 1;
-    unsigned MESA_shader_integer_functions : 1;
-    unsigned MESA_tile_raster_order : 1;
-    unsigned MESA_window_pos : 1;
-    unsigned MESA_ycbcr_texture : 1;
-    unsigned NVX_blend_equation_advanced_multi_draw_buffers : 1;
-    unsigned NVX_conditional_render : 1;
-    unsigned NVX_gpu_memory_info : 1;
-    unsigned NVX_gpu_multicast2 : 1;
-    unsigned NVX_linked_gpu_multicast : 1;
-    unsigned NVX_multiview_per_view_attributes : 1;
-    unsigned NVX_progress_fence : 1;
-    unsigned NV_alpha_to_coverage_dither_control : 1;
-    unsigned NV_bindless_multi_draw_indirect : 1;
-    unsigned NV_bindless_multi_draw_indirect_count : 1;
-    unsigned NV_bindless_texture : 1;
-    unsigned NV_blend_equation_advanced : 1;
-    unsigned NV_blend_equation_advanced_coherent : 1;
-    unsigned NV_blend_minmax_factor : 1;
-    unsigned NV_blend_square : 1;
-    unsigned NV_clip_space_w_scaling : 1;
-    unsigned NV_command_list : 1;
-    unsigned NV_compute_program5 : 1;
-    unsigned NV_compute_shader_derivatives : 1;
-    unsigned NV_conditional_render : 1;
-    unsigned NV_conservative_raster : 1;
-    unsigned NV_conservative_raster_dilate : 1;
-    unsigned NV_conservative_raster_pre_snap : 1;
-    unsigned NV_conservative_raster_pre_snap_triangles : 1;
-    unsigned NV_conservative_raster_underestimation : 1;
-    unsigned NV_cooperative_matrix : 1;
-    unsigned NV_copy_depth_to_color : 1;
-    unsigned NV_copy_image : 1;
-    unsigned NV_deep_texture3D : 1;
-    unsigned NV_depth_buffer_float : 1;
-    unsigned NV_depth_clamp : 1;
-    unsigned NV_draw_texture : 1;
-    unsigned NV_draw_vulkan_image : 1;
-    unsigned NV_evaluators : 1;
-    unsigned NV_explicit_multisample : 1;
-    unsigned NV_fence : 1;
-    unsigned NV_fill_rectangle : 1;
-    unsigned NV_float_buffer : 1;
-    unsigned NV_fog_distance : 1;
-    unsigned NV_fragment_coverage_to_color : 1;
-    unsigned NV_fragment_program : 1;
-    unsigned NV_fragment_program2 : 1;
-    unsigned NV_fragment_program4 : 1;
-    unsigned NV_fragment_program_option : 1;
-    unsigned NV_fragment_shader_barycentric : 1;
-    unsigned NV_fragment_shader_interlock : 1;
-    unsigned NV_framebuffer_mixed_samples : 1;
-    unsigned NV_framebuffer_multisample_coverage : 1;
-    unsigned NV_geometry_program4 : 1;
-    unsigned NV_geometry_shader4 : 1;
-    unsigned NV_geometry_shader_passthrough : 1;
-    unsigned NV_gpu_multicast : 1;
-    unsigned NV_gpu_program4 : 1;
-    unsigned NV_gpu_program5 : 1;
-    unsigned NV_gpu_program5_mem_extended : 1;
-    unsigned NV_gpu_shader5 : 1;
-    unsigned NV_half_float : 1;
-    unsigned NV_internalformat_sample_query : 1;
-    unsigned NV_light_max_exponent : 1;
-    unsigned NV_memory_attachment : 1;
-    unsigned NV_memory_object_sparse : 1;
-    unsigned NV_mesh_shader : 1;
-    unsigned NV_multisample_coverage : 1;
-    unsigned NV_multisample_filter_hint : 1;
-    unsigned NV_occlusion_query : 1;
-    unsigned NV_packed_depth_stencil : 1;
-    unsigned NV_parameter_buffer_object : 1;
-    unsigned NV_parameter_buffer_object2 : 1;
-    unsigned NV_path_rendering : 1;
-    unsigned NV_path_rendering_shared_edge : 1;
-    unsigned NV_pixel_data_range : 1;
-    unsigned NV_point_sprite : 1;
-    unsigned NV_present_video : 1;
-    unsigned NV_primitive_restart : 1;
-    unsigned NV_primitive_shading_rate : 1;
-    unsigned NV_query_resource : 1;
-    unsigned NV_query_resource_tag : 1;
-    unsigned NV_ray_tracing : 1;
-    unsigned NV_ray_tracing_motion_blur : 1;
-    unsigned NV_register_combiners : 1;
-    unsigned NV_register_combiners2 : 1;
-    unsigned NV_representative_fragment_test : 1;
-    unsigned NV_robustness_video_memory_purge : 1;
-    unsigned NV_sample_locations : 1;
-    unsigned NV_sample_mask_override_coverage : 1;
-    unsigned NV_scissor_exclusive : 1;
-    unsigned NV_shader_atomic_counters : 1;
-    unsigned NV_shader_atomic_float : 1;
-    unsigned NV_shader_atomic_float64 : 1;
-    unsigned NV_shader_atomic_fp16_vector : 1;
-    unsigned NV_shader_atomic_int64 : 1;
-    unsigned NV_shader_buffer_load : 1;
-    unsigned NV_shader_buffer_store : 1;
-    unsigned NV_shader_sm_builtins : 1;
-    unsigned NV_shader_storage_buffer_object : 1;
-    unsigned NV_shader_subgroup_partitioned : 1;
-    unsigned NV_shader_texture_footprint : 1;
-    unsigned NV_shader_thread_group : 1;
-    unsigned NV_shader_thread_shuffle : 1;
-    unsigned NV_shading_rate_image : 1;
-    unsigned NV_stereo_view_rendering : 1;
-    unsigned NV_tessellation_program5 : 1;
-    unsigned NV_texgen_emboss : 1;
-    unsigned NV_texgen_reflection : 1;
-    unsigned NV_texture_barrier : 1;
-    unsigned NV_texture_compression_vtc : 1;
-    unsigned NV_texture_env_combine4 : 1;
-    unsigned NV_texture_expand_normal : 1;
-    unsigned NV_texture_multisample : 1;
-    unsigned NV_texture_rectangle : 1;
-    unsigned NV_texture_rectangle_compressed : 1;
-    unsigned NV_texture_shader : 1;
-    unsigned NV_texture_shader2 : 1;
-    unsigned NV_texture_shader3 : 1;
-    unsigned NV_timeline_semaphore : 1;
-    unsigned NV_transform_feedback : 1;
-    unsigned NV_transform_feedback2 : 1;
-    unsigned NV_uniform_buffer_std430_layout : 1;
-    unsigned NV_uniform_buffer_unified_memory : 1;
-    unsigned NV_vdpau_interop : 1;
-    unsigned NV_vdpau_interop2 : 1;
-    unsigned NV_vertex_array_range : 1;
-    unsigned NV_vertex_array_range2 : 1;
-    unsigned NV_vertex_attrib_integer_64bit : 1;
-    unsigned NV_vertex_buffer_unified_memory : 1;
-    unsigned NV_vertex_program : 1;
-    unsigned NV_vertex_program1_1 : 1;
-    unsigned NV_vertex_program2 : 1;
-    unsigned NV_vertex_program2_option : 1;
-    unsigned NV_vertex_program3 : 1;
-    unsigned NV_vertex_program4 : 1;
-    unsigned NV_video_capture : 1;
-    unsigned NV_viewport_array2 : 1;
-    unsigned NV_viewport_swizzle : 1;
-    unsigned OES_byte_coordinates : 1;
-    unsigned OES_compressed_paletted_texture : 1;
-    unsigned OES_fixed_point : 1;
-    unsigned OES_query_matrix : 1;
-    unsigned OES_read_format : 1;
-    unsigned OES_single_precision : 1;
-    unsigned OML_interlace : 1;
-    unsigned OML_resample : 1;
-    unsigned OML_subsample : 1;
-    unsigned OVR_multiview : 1;
-    unsigned OVR_multiview2 : 1;
-    unsigned PGI_misc_hints : 1;
-    unsigned PGI_vertex_hints : 1;
-    unsigned REND_screen_coordinates : 1;
-    unsigned S3_s3tc : 1;
-    unsigned SGIS_detail_texture : 1;
-    unsigned SGIS_fog_function : 1;
-    unsigned SGIS_generate_mipmap : 1;
-    unsigned SGIS_multisample : 1;
-    unsigned SGIS_pixel_texture : 1;
-    unsigned SGIS_point_line_texgen : 1;
-    unsigned SGIS_point_parameters : 1;
-    unsigned SGIS_sharpen_texture : 1;
-    unsigned SGIS_texture4D : 1;
-    unsigned SGIS_texture_border_clamp : 1;
-    unsigned SGIS_texture_color_mask : 1;
-    unsigned SGIS_texture_edge_clamp : 1;
-    unsigned SGIS_texture_filter4 : 1;
-    unsigned SGIS_texture_lod : 1;
-    unsigned SGIS_texture_select : 1;
-    unsigned SGIX_async : 1;
-    unsigned SGIX_async_histogram : 1;
-    unsigned SGIX_async_pixel : 1;
-    unsigned SGIX_blend_alpha_minmax : 1;
-    unsigned SGIX_calligraphic_fragment : 1;
-    unsigned SGIX_clipmap : 1;
-    unsigned SGIX_convolution_accuracy : 1;
-    unsigned SGIX_depth_pass_instrument : 1;
-    unsigned SGIX_depth_texture : 1;
-    unsigned SGIX_flush_raster : 1;
-    unsigned SGIX_fog_offset : 1;
-    unsigned SGIX_fragment_lighting : 1;
-    unsigned SGIX_framezoom : 1;
-    unsigned SGIX_igloo_interface : 1;
-    unsigned SGIX_instruments : 1;
-    unsigned SGIX_interlace : 1;
-    unsigned SGIX_ir_instrument1 : 1;
-    unsigned SGIX_list_priority : 1;
-    unsigned SGIX_pixel_texture : 1;
-    unsigned SGIX_pixel_tiles : 1;
-    unsigned SGIX_polynomial_ffd : 1;
-    unsigned SGIX_reference_plane : 1;
-    unsigned SGIX_resample : 1;
-    unsigned SGIX_scalebias_hint : 1;
-    unsigned SGIX_shadow : 1;
-    unsigned SGIX_shadow_ambient : 1;
-    unsigned SGIX_sprite : 1;
-    unsigned SGIX_subsample : 1;
-    unsigned SGIX_tag_sample_buffer : 1;
-    unsigned SGIX_texture_add_env : 1;
-    unsigned SGIX_texture_coordinate_clamp : 1;
-    unsigned SGIX_texture_lod_bias : 1;
-    unsigned SGIX_texture_multi_buffer : 1;
-    unsigned SGIX_texture_scale_bias : 1;
-    unsigned SGIX_vertex_preclip : 1;
-    unsigned SGIX_ycrcb : 1;
-    unsigned SGIX_ycrcb_subsample : 1;
-    unsigned SGIX_ycrcba : 1;
-    unsigned SGI_color_matrix : 1;
-    unsigned SGI_color_table : 1;
-    unsigned SGI_texture_color_table : 1;
-    unsigned SUNX_constant_data : 1;
-    unsigned SUN_convolution_border_modes : 1;
-    unsigned SUN_global_alpha : 1;
-    unsigned SUN_mesh_array : 1;
-    unsigned SUN_slice_accum : 1;
-    unsigned SUN_triangle_list : 1;
-    unsigned SUN_vertex : 1;
-    unsigned WIN_phong_shading : 1;
-    unsigned WIN_specular_fog : 1;
-    unsigned AMD_compressed_3DC_texture : 1;
-    unsigned AMD_compressed_ATC_texture : 1;
-    unsigned AMD_program_binary_Z400 : 1;
-    unsigned ANDROID_extension_pack_es31a : 1;
-    unsigned ANGLE_base_vertex_base_instance : 1;
-    unsigned ANGLE_client_arrays : 1;
-    unsigned ANGLE_clip_cull_distance : 1;
-    unsigned ANGLE_copy_texture_3d : 1;
-    unsigned ANGLE_depth_texture : 1;
-    unsigned ANGLE_framebuffer_blit : 1;
-    unsigned ANGLE_framebuffer_multisample : 1;
-    unsigned ANGLE_get_image : 1;
-    unsigned ANGLE_get_serialized_context_string : 1;
-    unsigned ANGLE_get_tex_level_parameter : 1;
-    unsigned ANGLE_instanced_arrays : 1;
-    unsigned ANGLE_logic_op : 1;
-    unsigned ANGLE_lossy_etc_decode : 1;
-    unsigned ANGLE_memory_size : 1;
-    unsigned ANGLE_multi_draw : 1;
-    unsigned ANGLE_pack_reverse_row_order : 1;
-    unsigned ANGLE_polygon_mode : 1;
-    unsigned ANGLE_program_binary : 1;
-    unsigned ANGLE_program_cache_control : 1;
-    unsigned ANGLE_provoking_vertex : 1;
-    unsigned ANGLE_renderability_validation : 1;
-    unsigned ANGLE_request_extension : 1;
-    unsigned ANGLE_rgbx_internal_format : 1;
-    unsigned ANGLE_robust_client_memory : 1;
-    unsigned ANGLE_robust_fragment_shader_output : 1;
-    unsigned ANGLE_robust_resource_initialization : 1;
-    unsigned ANGLE_shader_pixel_local_storage : 1;
-    unsigned ANGLE_stencil_texturing : 1;
-    unsigned ANGLE_texture_compression_dxt3 : 1;
-    unsigned ANGLE_texture_compression_dxt5 : 1;
-    unsigned ANGLE_texture_multisample : 1;
-    unsigned ANGLE_texture_usage : 1;
-    unsigned ANGLE_timer_query : 1;
-    unsigned ANGLE_translated_shader_source : 1;
-    unsigned ANGLE_vulkan_image : 1;
-    unsigned ANGLE_yuv_internal_format : 1;
-    unsigned APPLE_clip_distance : 1;
-    unsigned APPLE_color_buffer_packed_float : 1;
-    unsigned APPLE_copy_texture_levels : 1;
-    unsigned APPLE_framebuffer_multisample : 1;
-    unsigned APPLE_sync : 1;
-    unsigned APPLE_texture_format_BGRA8888 : 1;
-    unsigned APPLE_texture_max_level : 1;
-    unsigned APPLE_texture_packed_float : 1;
-    unsigned ARM_mali_program_binary : 1;
-    unsigned ARM_mali_shader_binary : 1;
-    unsigned ARM_rgba8 : 1;
-    unsigned ARM_shader_core_properties : 1;
-    unsigned ARM_shader_framebuffer_fetch : 1;
-    unsigned ARM_shader_framebuffer_fetch_depth_stencil : 1;
-    unsigned ARM_texture_unnormalized_coordinates : 1;
-    unsigned CHROMIUM_bind_uniform_location : 1;
-    unsigned CHROMIUM_copy_compressed_texture : 1;
-    unsigned CHROMIUM_copy_texture : 1;
-    unsigned CHROMIUM_framebuffer_mixed_samples : 1;
-    unsigned CHROMIUM_lose_context : 1;
-    unsigned DMP_program_binary : 1;
-    unsigned DMP_shader_binary : 1;
-    unsigned EXT_EGL_image_array : 1;
-    unsigned EXT_EGL_image_storage_compression : 1;
-    unsigned EXT_YUV_target : 1;
-    unsigned EXT_base_instance : 1;
-    unsigned EXT_blend_func_extended : 1;
-    unsigned EXT_buffer_storage : 1;
-    unsigned EXT_clear_texture : 1;
-    unsigned EXT_clip_control : 1;
-    unsigned EXT_clip_cull_distance : 1;
-    unsigned EXT_color_buffer_float : 1;
-    unsigned EXT_color_buffer_half_float : 1;
-    unsigned EXT_conservative_depth : 1;
-    unsigned EXT_copy_image : 1;
-    unsigned EXT_depth_clamp : 1;
-    unsigned EXT_discard_framebuffer : 1;
-    unsigned EXT_disjoint_timer_query : 1;
-    unsigned EXT_draw_buffers : 1;
-    unsigned EXT_draw_buffers_indexed : 1;
-    unsigned EXT_draw_elements_base_vertex : 1;
-    unsigned EXT_draw_transform_feedback : 1;
-    unsigned EXT_float_blend : 1;
-    unsigned EXT_fragment_shading_rate : 1;
-    unsigned EXT_geometry_point_size : 1;
-    unsigned EXT_geometry_shader : 1;
-    unsigned EXT_gpu_shader5 : 1;
-    unsigned EXT_instanced_arrays : 1;
-    unsigned EXT_map_buffer_range : 1;
-    unsigned EXT_multi_draw_indirect : 1;
-    unsigned EXT_multisampled_compatibility : 1;
-    unsigned EXT_multisampled_render_to_texture : 1;
-    unsigned EXT_multisampled_render_to_texture2 : 1;
-    unsigned EXT_multiview_draw_buffers : 1;
-    unsigned EXT_occlusion_query_boolean : 1;
-    unsigned EXT_primitive_bounding_box : 1;
-    unsigned EXT_protected_textures : 1;
-    unsigned EXT_pvrtc_sRGB : 1;
-    unsigned EXT_read_format_bgra : 1;
-    unsigned EXT_render_snorm : 1;
-    unsigned EXT_robustness : 1;
-    unsigned EXT_sRGB : 1;
-    unsigned EXT_sRGB_write_control : 1;
-    unsigned EXT_separate_depth_stencil : 1;
-    unsigned EXT_shader_group_vote : 1;
-    unsigned EXT_shader_implicit_conversions : 1;
-    unsigned EXT_shader_io_blocks : 1;
-    unsigned EXT_shader_non_constant_global_initializers : 1;
-    unsigned EXT_shader_pixel_local_storage : 1;
-    unsigned EXT_shader_pixel_local_storage2 : 1;
-    unsigned EXT_shader_texture_lod : 1;
-    unsigned EXT_shadow_samplers : 1;
-    unsigned EXT_sparse_texture : 1;
-    unsigned EXT_tessellation_point_size : 1;
-    unsigned EXT_tessellation_shader : 1;
-    unsigned EXT_texture_border_clamp : 1;
-    unsigned EXT_texture_buffer : 1;
-    unsigned EXT_texture_compression_astc_decode_mode : 1;
-    unsigned EXT_texture_compression_bptc : 1;
-    unsigned EXT_texture_compression_dxt1 : 1;
-    unsigned EXT_texture_compression_s3tc_srgb : 1;
-    unsigned EXT_texture_cube_map_array : 1;
-    unsigned EXT_texture_format_BGRA8888 : 1;
-    unsigned EXT_texture_format_sRGB_override : 1;
-    unsigned EXT_texture_mirror_clamp_to_edge : 1;
-    unsigned EXT_texture_norm16 : 1;
-    unsigned EXT_texture_query_lod : 1;
-    unsigned EXT_texture_rg : 1;
-    unsigned EXT_texture_storage_compression : 1;
-    unsigned EXT_texture_type_2_10_10_10_REV : 1;
-    unsigned EXT_texture_view : 1;
-    unsigned EXT_unpack_subimage : 1;
-    unsigned FJ_shader_binary_GCCSO : 1;
-    unsigned IMG_bindless_texture : 1;
-    unsigned IMG_framebuffer_downsample : 1;
-    unsigned IMG_multisampled_render_to_texture : 1;
-    unsigned IMG_program_binary : 1;
-    unsigned IMG_read_format : 1;
-    unsigned IMG_shader_binary : 1;
-    unsigned IMG_texture_compression_pvrtc : 1;
-    unsigned IMG_texture_compression_pvrtc2 : 1;
-    unsigned IMG_texture_filter_cubic : 1;
-    unsigned MESA_bgra : 1;
-    unsigned MESA_sampler_objects : 1;
-    unsigned NV_copy_buffer : 1;
-    unsigned NV_coverage_sample : 1;
-    unsigned NV_depth_nonlinear : 1;
-    unsigned NV_draw_buffers : 1;
-    unsigned NV_draw_instanced : 1;
-    unsigned NV_explicit_attrib_location : 1;
-    unsigned NV_fbo_color_attachments : 1;
-    unsigned NV_framebuffer_blit : 1;
-    unsigned NV_framebuffer_multisample : 1;
-    unsigned NV_generate_mipmap_sRGB : 1;
-    unsigned NV_image_formats : 1;
-    unsigned NV_instanced_arrays : 1;
-    unsigned NV_non_square_matrices : 1;
-    unsigned NV_pack_subimage : 1;
-    unsigned NV_pixel_buffer_object : 1;
-    unsigned NV_polygon_mode : 1;
-    unsigned NV_read_buffer : 1;
-    unsigned NV_read_buffer_front : 1;
-    unsigned NV_read_depth : 1;
-    unsigned NV_read_depth_stencil : 1;
-    unsigned NV_read_stencil : 1;
-    unsigned NV_sRGB_formats : 1;
-    unsigned NV_shader_noperspective_interpolation : 1;
-    unsigned NV_shadow_samplers_array : 1;
-    unsigned NV_shadow_samplers_cube : 1;
-    unsigned NV_texture_border_clamp : 1;
-    unsigned NV_texture_compression_s3tc_update : 1;
-    unsigned NV_texture_npot_2D_mipmap : 1;
-    unsigned NV_viewport_array : 1;
-    unsigned OES_EGL_image : 1;
-    unsigned OES_EGL_image_external : 1;
-    unsigned OES_EGL_image_external_essl3 : 1;
-    unsigned OES_compressed_ETC1_RGB8_sub_texture : 1;
-    unsigned OES_compressed_ETC1_RGB8_texture : 1;
-    unsigned OES_copy_image : 1;
-    unsigned OES_depth24 : 1;
-    unsigned OES_depth32 : 1;
-    unsigned OES_depth_texture : 1;
-    unsigned OES_draw_buffers_indexed : 1;
-    unsigned OES_draw_elements_base_vertex : 1;
-    unsigned OES_element_index_uint : 1;
-    unsigned OES_fbo_render_mipmap : 1;
-    unsigned OES_fragment_precision_high : 1;
-    unsigned OES_geometry_point_size : 1;
-    unsigned OES_geometry_shader : 1;
-    unsigned OES_get_program_binary : 1;
-    unsigned OES_gpu_shader5 : 1;
-    unsigned OES_mapbuffer : 1;
-    unsigned OES_packed_depth_stencil : 1;
-    unsigned OES_primitive_bounding_box : 1;
-    unsigned OES_required_internalformat : 1;
-    unsigned OES_rgb8_rgba8 : 1;
-    unsigned OES_sample_shading : 1;
-    unsigned OES_sample_variables : 1;
-    unsigned OES_shader_image_atomic : 1;
-    unsigned OES_shader_io_blocks : 1;
-    unsigned OES_shader_multisample_interpolation : 1;
-    unsigned OES_standard_derivatives : 1;
-    unsigned OES_stencil1 : 1;
-    unsigned OES_stencil4 : 1;
-    unsigned OES_surfaceless_context : 1;
-    unsigned OES_tessellation_point_size : 1;
-    unsigned OES_tessellation_shader : 1;
-    unsigned OES_texture_3D : 1;
-    unsigned OES_texture_border_clamp : 1;
-    unsigned OES_texture_buffer : 1;
-    unsigned OES_texture_compression_astc : 1;
-    unsigned OES_texture_cube_map_array : 1;
-    unsigned OES_texture_float : 1;
-    unsigned OES_texture_float_linear : 1;
-    unsigned OES_texture_half_float : 1;
-    unsigned OES_texture_half_float_linear : 1;
-    unsigned OES_texture_npot : 1;
-    unsigned OES_texture_stencil8 : 1;
-    unsigned OES_texture_storage_multisample_2d_array : 1;
-    unsigned OES_texture_view : 1;
-    unsigned OES_vertex_array_object : 1;
-    unsigned OES_vertex_half_float : 1;
-    unsigned OES_vertex_type_10_10_10_2 : 1;
-    unsigned OES_viewport_array : 1;
-    unsigned OVR_multiview_multisampled_render_to_texture : 1;
-    unsigned QCOM_YUV_texture_gather : 1;
-    unsigned QCOM_alpha_test : 1;
-    unsigned QCOM_binning_control : 1;
-    unsigned QCOM_driver_control : 1;
-    unsigned QCOM_extended_get : 1;
-    unsigned QCOM_extended_get2 : 1;
-    unsigned QCOM_frame_extrapolation : 1;
-    unsigned QCOM_framebuffer_foveated : 1;
-    unsigned QCOM_motion_estimation : 1;
-    unsigned QCOM_perfmon_global_mode : 1;
-    unsigned QCOM_render_sRGB_R8_RG8 : 1;
-    unsigned QCOM_render_shared_exponent : 1;
-    unsigned QCOM_shader_framebuffer_fetch_noncoherent : 1;
-    unsigned QCOM_shader_framebuffer_fetch_rate : 1;
-    unsigned QCOM_shading_rate : 1;
-    unsigned QCOM_texture_foveated : 1;
-    unsigned QCOM_texture_foveated2 : 1;
-    unsigned QCOM_texture_foveated_subsampled_layout : 1;
-    unsigned QCOM_texture_lod_bias : 1;
-    unsigned QCOM_tiled_rendering : 1;
-    unsigned QCOM_writeonly_rendering : 1;
-    unsigned VIV_shader_binary : 1;
+    unsigned char VERSION_1_0;
+    unsigned char VERSION_1_1;
+    unsigned char VERSION_1_2;
+    unsigned char VERSION_1_3;
+    unsigned char VERSION_1_4;
+    unsigned char VERSION_1_5;
+    unsigned char VERSION_2_0;
+    unsigned char VERSION_2_1;
+    unsigned char VERSION_3_0;
+    unsigned char VERSION_3_1;
+    unsigned char VERSION_3_2;
+    unsigned char VERSION_3_3;
+    unsigned char VERSION_4_0;
+    unsigned char VERSION_4_1;
+    unsigned char VERSION_4_2;
+    unsigned char VERSION_4_3;
+    unsigned char VERSION_4_4;
+    unsigned char VERSION_4_5;
+    unsigned char VERSION_4_6;
+    unsigned char ES_VERSION_2_0;
+    unsigned char ES_VERSION_3_0;
+    unsigned char ES_VERSION_3_1;
+    unsigned char ES_VERSION_3_2;
 
-    PFNGLACCUMXOESPROC AccumxOES;
-    PFNGLACQUIREKEYEDMUTEXWIN32EXTPROC AcquireKeyedMutexWin32EXT;
-    PFNGLACTIVEPROGRAMEXTPROC ActiveProgramEXT;
-    PFNGLACTIVESHADERPROGRAMPROC ActiveShaderProgram;
-    PFNGLACTIVESTENCILFACEEXTPROC ActiveStencilFaceEXT;
-    PFNGLACTIVETEXTUREPROC ActiveTexture;
-    PFNGLACTIVETEXTUREARBPROC ActiveTextureARB;
-    PFNGLACTIVEVARYINGNVPROC ActiveVaryingNV;
-    PFNGLALPHAFRAGMENTOP1ATIPROC AlphaFragmentOp1ATI;
-    PFNGLALPHAFRAGMENTOP2ATIPROC AlphaFragmentOp2ATI;
-    PFNGLALPHAFRAGMENTOP3ATIPROC AlphaFragmentOp3ATI;
-    PFNGLALPHAFUNCXOESPROC AlphaFuncxOES;
-    PFNGLALPHATOCOVERAGEDITHERCONTROLNVPROC AlphaToCoverageDitherControlNV;
-    PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC ApplyFramebufferAttachmentCMAAINTEL;
-    PFNGLAPPLYTEXTUREEXTPROC ApplyTextureEXT;
-    PFNGLAREPROGRAMSRESIDENTNVPROC AreProgramsResidentNV;
-    PFNGLARETEXTURESRESIDENTEXTPROC AreTexturesResidentEXT;
-    PFNGLARRAYELEMENTEXTPROC ArrayElementEXT;
-    PFNGLARRAYOBJECTATIPROC ArrayObjectATI;
-    PFNGLASYNCCOPYBUFFERSUBDATANVXPROC AsyncCopyBufferSubDataNVX;
-    PFNGLASYNCCOPYIMAGESUBDATANVXPROC AsyncCopyImageSubDataNVX;
-    PFNGLASYNCMARKERSGIXPROC AsyncMarkerSGIX;
-    PFNGLATTACHOBJECTARBPROC AttachObjectARB;
-    PFNGLATTACHSHADERPROC AttachShader;
-    PFNGLBEGINCONDITIONALRENDERPROC BeginConditionalRender;
-    PFNGLBEGINCONDITIONALRENDERNVPROC BeginConditionalRenderNV;
-    PFNGLBEGINCONDITIONALRENDERNVXPROC BeginConditionalRenderNVX;
-    PFNGLBEGINFRAGMENTSHADERATIPROC BeginFragmentShaderATI;
-    PFNGLBEGINOCCLUSIONQUERYNVPROC BeginOcclusionQueryNV;
-    PFNGLBEGINPERFMONITORAMDPROC BeginPerfMonitorAMD;
-    PFNGLBEGINPERFQUERYINTELPROC BeginPerfQueryINTEL;
-    PFNGLBEGINQUERYPROC BeginQuery;
-    PFNGLBEGINQUERYARBPROC BeginQueryARB;
-    PFNGLBEGINQUERYINDEXEDPROC BeginQueryIndexed;
-    PFNGLBEGINTRANSFORMFEEDBACKPROC BeginTransformFeedback;
-    PFNGLBEGINTRANSFORMFEEDBACKEXTPROC BeginTransformFeedbackEXT;
-    PFNGLBEGINTRANSFORMFEEDBACKNVPROC BeginTransformFeedbackNV;
-    PFNGLBEGINVERTEXSHADEREXTPROC BeginVertexShaderEXT;
-    PFNGLBEGINVIDEOCAPTURENVPROC BeginVideoCaptureNV;
-    PFNGLBINDATTRIBLOCATIONPROC BindAttribLocation;
-    PFNGLBINDATTRIBLOCATIONARBPROC BindAttribLocationARB;
-    PFNGLBINDBUFFERPROC BindBuffer;
-    PFNGLBINDBUFFERARBPROC BindBufferARB;
-    PFNGLBINDBUFFERBASEPROC BindBufferBase;
-    PFNGLBINDBUFFERBASEEXTPROC BindBufferBaseEXT;
-    PFNGLBINDBUFFERBASENVPROC BindBufferBaseNV;
-    PFNGLBINDBUFFEROFFSETEXTPROC BindBufferOffsetEXT;
-    PFNGLBINDBUFFEROFFSETNVPROC BindBufferOffsetNV;
-    PFNGLBINDBUFFERRANGEPROC BindBufferRange;
-    PFNGLBINDBUFFERRANGEEXTPROC BindBufferRangeEXT;
-    PFNGLBINDBUFFERRANGENVPROC BindBufferRangeNV;
-    PFNGLBINDBUFFERSBASEPROC BindBuffersBase;
-    PFNGLBINDBUFFERSRANGEPROC BindBuffersRange;
-    PFNGLBINDFRAGDATALOCATIONPROC BindFragDataLocation;
-    PFNGLBINDFRAGDATALOCATIONEXTPROC BindFragDataLocationEXT;
-    PFNGLBINDFRAGDATALOCATIONINDEXEDPROC BindFragDataLocationIndexed;
-    PFNGLBINDFRAGMENTSHADERATIPROC BindFragmentShaderATI;
-    PFNGLBINDFRAMEBUFFERPROC BindFramebuffer;
-    PFNGLBINDFRAMEBUFFEREXTPROC BindFramebufferEXT;
-    PFNGLBINDIMAGETEXTUREPROC BindImageTexture;
-    PFNGLBINDIMAGETEXTUREEXTPROC BindImageTextureEXT;
-    PFNGLBINDIMAGETEXTURESPROC BindImageTextures;
-    PFNGLBINDLIGHTPARAMETEREXTPROC BindLightParameterEXT;
-    PFNGLBINDMATERIALPARAMETEREXTPROC BindMaterialParameterEXT;
-    PFNGLBINDMULTITEXTUREEXTPROC BindMultiTextureEXT;
-    PFNGLBINDPARAMETEREXTPROC BindParameterEXT;
-    PFNGLBINDPROGRAMARBPROC BindProgramARB;
-    PFNGLBINDPROGRAMNVPROC BindProgramNV;
-    PFNGLBINDPROGRAMPIPELINEPROC BindProgramPipeline;
-    PFNGLBINDRENDERBUFFERPROC BindRenderbuffer;
-    PFNGLBINDRENDERBUFFEREXTPROC BindRenderbufferEXT;
-    PFNGLBINDSAMPLERPROC BindSampler;
-    PFNGLBINDSAMPLERSPROC BindSamplers;
-    PFNGLBINDSHADINGRATEIMAGENVPROC BindShadingRateImageNV;
-    PFNGLBINDTEXGENPARAMETEREXTPROC BindTexGenParameterEXT;
-    PFNGLBINDTEXTUREPROC BindTexture;
-    PFNGLBINDTEXTUREEXTPROC BindTextureEXT;
-    PFNGLBINDTEXTUREUNITPROC BindTextureUnit;
-    PFNGLBINDTEXTUREUNITPARAMETEREXTPROC BindTextureUnitParameterEXT;
-    PFNGLBINDTEXTURESPROC BindTextures;
-    PFNGLBINDTRANSFORMFEEDBACKPROC BindTransformFeedback;
-    PFNGLBINDTRANSFORMFEEDBACKNVPROC BindTransformFeedbackNV;
-    PFNGLBINDVERTEXARRAYPROC BindVertexArray;
-    PFNGLBINDVERTEXARRAYAPPLEPROC BindVertexArrayAPPLE;
-    PFNGLBINDVERTEXBUFFERPROC BindVertexBuffer;
-    PFNGLBINDVERTEXBUFFERSPROC BindVertexBuffers;
-    PFNGLBINDVERTEXSHADEREXTPROC BindVertexShaderEXT;
-    PFNGLBINDVIDEOCAPTURESTREAMBUFFERNVPROC BindVideoCaptureStreamBufferNV;
-    PFNGLBINDVIDEOCAPTURESTREAMTEXTURENVPROC BindVideoCaptureStreamTextureNV;
-    PFNGLBINORMAL3BEXTPROC Binormal3bEXT;
-    PFNGLBINORMAL3BVEXTPROC Binormal3bvEXT;
-    PFNGLBINORMAL3DEXTPROC Binormal3dEXT;
-    PFNGLBINORMAL3DVEXTPROC Binormal3dvEXT;
-    PFNGLBINORMAL3FEXTPROC Binormal3fEXT;
-    PFNGLBINORMAL3FVEXTPROC Binormal3fvEXT;
-    PFNGLBINORMAL3IEXTPROC Binormal3iEXT;
-    PFNGLBINORMAL3IVEXTPROC Binormal3ivEXT;
-    PFNGLBINORMAL3SEXTPROC Binormal3sEXT;
-    PFNGLBINORMAL3SVEXTPROC Binormal3svEXT;
-    PFNGLBINORMALPOINTEREXTPROC BinormalPointerEXT;
-    PFNGLBITMAPXOESPROC BitmapxOES;
-    PFNGLBLENDBARRIERKHRPROC BlendBarrierKHR;
-    PFNGLBLENDBARRIERNVPROC BlendBarrierNV;
-    PFNGLBLENDCOLORPROC BlendColor;
-    PFNGLBLENDCOLOREXTPROC BlendColorEXT;
-    PFNGLBLENDCOLORXOESPROC BlendColorxOES;
-    PFNGLBLENDEQUATIONPROC BlendEquation;
-    PFNGLBLENDEQUATIONEXTPROC BlendEquationEXT;
-    PFNGLBLENDEQUATIONINDEXEDAMDPROC BlendEquationIndexedAMD;
-    PFNGLBLENDEQUATIONSEPARATEPROC BlendEquationSeparate;
-    PFNGLBLENDEQUATIONSEPARATEEXTPROC BlendEquationSeparateEXT;
-    PFNGLBLENDEQUATIONSEPARATEINDEXEDAMDPROC BlendEquationSeparateIndexedAMD;
-    PFNGLBLENDEQUATIONSEPARATEIPROC BlendEquationSeparatei;
-    PFNGLBLENDEQUATIONSEPARATEIARBPROC BlendEquationSeparateiARB;
-    PFNGLBLENDEQUATIONIPROC BlendEquationi;
-    PFNGLBLENDEQUATIONIARBPROC BlendEquationiARB;
-    PFNGLBLENDFUNCPROC BlendFunc;
-    PFNGLBLENDFUNCINDEXEDAMDPROC BlendFuncIndexedAMD;
-    PFNGLBLENDFUNCSEPARATEPROC BlendFuncSeparate;
-    PFNGLBLENDFUNCSEPARATEEXTPROC BlendFuncSeparateEXT;
-    PFNGLBLENDFUNCSEPARATEINGRPROC BlendFuncSeparateINGR;
-    PFNGLBLENDFUNCSEPARATEINDEXEDAMDPROC BlendFuncSeparateIndexedAMD;
-    PFNGLBLENDFUNCSEPARATEIPROC BlendFuncSeparatei;
-    PFNGLBLENDFUNCSEPARATEIARBPROC BlendFuncSeparateiARB;
-    PFNGLBLENDFUNCIPROC BlendFunci;
-    PFNGLBLENDFUNCIARBPROC BlendFunciARB;
-    PFNGLBLENDPARAMETERINVPROC BlendParameteriNV;
-    PFNGLBLITFRAMEBUFFERPROC BlitFramebuffer;
-    PFNGLBLITFRAMEBUFFEREXTPROC BlitFramebufferEXT;
-    PFNGLBLITFRAMEBUFFERLAYEREXTPROC BlitFramebufferLayerEXT;
-    PFNGLBLITFRAMEBUFFERLAYERSEXTPROC BlitFramebufferLayersEXT;
-    PFNGLBLITNAMEDFRAMEBUFFERPROC BlitNamedFramebuffer;
-    PFNGLBUFFERADDRESSRANGENVPROC BufferAddressRangeNV;
-    PFNGLBUFFERATTACHMEMORYNVPROC BufferAttachMemoryNV;
-    PFNGLBUFFERDATAPROC BufferData;
-    PFNGLBUFFERDATAARBPROC BufferDataARB;
-    PFNGLBUFFERPAGECOMMITMENTARBPROC BufferPageCommitmentARB;
-    PFNGLBUFFERPAGECOMMITMENTMEMNVPROC BufferPageCommitmentMemNV;
-    PFNGLBUFFERPARAMETERIAPPLEPROC BufferParameteriAPPLE;
-    PFNGLBUFFERSTORAGEPROC BufferStorage;
-    PFNGLBUFFERSTORAGEEXTERNALEXTPROC BufferStorageExternalEXT;
-    PFNGLBUFFERSTORAGEMEMEXTPROC BufferStorageMemEXT;
-    PFNGLBUFFERSUBDATAPROC BufferSubData;
-    PFNGLBUFFERSUBDATAARBPROC BufferSubDataARB;
-    PFNGLCALLCOMMANDLISTNVPROC CallCommandListNV;
-    PFNGLCHECKFRAMEBUFFERSTATUSPROC CheckFramebufferStatus;
-    PFNGLCHECKFRAMEBUFFERSTATUSEXTPROC CheckFramebufferStatusEXT;
-    PFNGLCHECKNAMEDFRAMEBUFFERSTATUSPROC CheckNamedFramebufferStatus;
-    PFNGLCHECKNAMEDFRAMEBUFFERSTATUSEXTPROC CheckNamedFramebufferStatusEXT;
-    PFNGLCLAMPCOLORPROC ClampColor;
-    PFNGLCLAMPCOLORARBPROC ClampColorARB;
-    PFNGLCLEARPROC Clear;
-    PFNGLCLEARACCUMXOESPROC ClearAccumxOES;
-    PFNGLCLEARBUFFERDATAPROC ClearBufferData;
-    PFNGLCLEARBUFFERSUBDATAPROC ClearBufferSubData;
-    PFNGLCLEARBUFFERFIPROC ClearBufferfi;
-    PFNGLCLEARBUFFERFVPROC ClearBufferfv;
-    PFNGLCLEARBUFFERIVPROC ClearBufferiv;
-    PFNGLCLEARBUFFERUIVPROC ClearBufferuiv;
-    PFNGLCLEARCOLORPROC ClearColor;
-    PFNGLCLEARCOLORIIEXTPROC ClearColorIiEXT;
-    PFNGLCLEARCOLORIUIEXTPROC ClearColorIuiEXT;
-    PFNGLCLEARCOLORXOESPROC ClearColorxOES;
-    PFNGLCLEARDEPTHPROC ClearDepth;
-    PFNGLCLEARDEPTHDNVPROC ClearDepthdNV;
-    PFNGLCLEARDEPTHFPROC ClearDepthf;
-    PFNGLCLEARDEPTHFOESPROC ClearDepthfOES;
-    PFNGLCLEARDEPTHXOESPROC ClearDepthxOES;
-    PFNGLCLEARNAMEDBUFFERDATAPROC ClearNamedBufferData;
-    PFNGLCLEARNAMEDBUFFERDATAEXTPROC ClearNamedBufferDataEXT;
-    PFNGLCLEARNAMEDBUFFERSUBDATAPROC ClearNamedBufferSubData;
-    PFNGLCLEARNAMEDBUFFERSUBDATAEXTPROC ClearNamedBufferSubDataEXT;
-    PFNGLCLEARNAMEDFRAMEBUFFERFIPROC ClearNamedFramebufferfi;
-    PFNGLCLEARNAMEDFRAMEBUFFERFVPROC ClearNamedFramebufferfv;
-    PFNGLCLEARNAMEDFRAMEBUFFERIVPROC ClearNamedFramebufferiv;
-    PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC ClearNamedFramebufferuiv;
-    PFNGLCLEARSTENCILPROC ClearStencil;
-    PFNGLCLEARTEXIMAGEPROC ClearTexImage;
-    PFNGLCLEARTEXSUBIMAGEPROC ClearTexSubImage;
-    PFNGLCLIENTACTIVETEXTUREARBPROC ClientActiveTextureARB;
-    PFNGLCLIENTACTIVEVERTEXSTREAMATIPROC ClientActiveVertexStreamATI;
-    PFNGLCLIENTATTRIBDEFAULTEXTPROC ClientAttribDefaultEXT;
-    PFNGLCLIENTWAITSEMAPHOREUI64NVXPROC ClientWaitSemaphoreui64NVX;
-    PFNGLCLIENTWAITSYNCPROC ClientWaitSync;
-    PFNGLCLIPCONTROLPROC ClipControl;
-    PFNGLCLIPPLANEFOESPROC ClipPlanefOES;
-    PFNGLCLIPPLANEXOESPROC ClipPlanexOES;
-    PFNGLCOLOR3FVERTEX3FSUNPROC Color3fVertex3fSUN;
-    PFNGLCOLOR3FVERTEX3FVSUNPROC Color3fVertex3fvSUN;
-    PFNGLCOLOR3HNVPROC Color3hNV;
-    PFNGLCOLOR3HVNVPROC Color3hvNV;
-    PFNGLCOLOR3XOESPROC Color3xOES;
-    PFNGLCOLOR3XVOESPROC Color3xvOES;
-    PFNGLCOLOR4FNORMAL3FVERTEX3FSUNPROC Color4fNormal3fVertex3fSUN;
-    PFNGLCOLOR4FNORMAL3FVERTEX3FVSUNPROC Color4fNormal3fVertex3fvSUN;
-    PFNGLCOLOR4HNVPROC Color4hNV;
-    PFNGLCOLOR4HVNVPROC Color4hvNV;
-    PFNGLCOLOR4UBVERTEX2FSUNPROC Color4ubVertex2fSUN;
-    PFNGLCOLOR4UBVERTEX2FVSUNPROC Color4ubVertex2fvSUN;
-    PFNGLCOLOR4UBVERTEX3FSUNPROC Color4ubVertex3fSUN;
-    PFNGLCOLOR4UBVERTEX3FVSUNPROC Color4ubVertex3fvSUN;
-    PFNGLCOLOR4XOESPROC Color4xOES;
-    PFNGLCOLOR4XVOESPROC Color4xvOES;
-    PFNGLCOLORFORMATNVPROC ColorFormatNV;
-    PFNGLCOLORFRAGMENTOP1ATIPROC ColorFragmentOp1ATI;
-    PFNGLCOLORFRAGMENTOP2ATIPROC ColorFragmentOp2ATI;
-    PFNGLCOLORFRAGMENTOP3ATIPROC ColorFragmentOp3ATI;
-    PFNGLCOLORMASKPROC ColorMask;
-    PFNGLCOLORMASKINDEXEDEXTPROC ColorMaskIndexedEXT;
-    PFNGLCOLORMASKIPROC ColorMaski;
-    PFNGLCOLORPOINTEREXTPROC ColorPointerEXT;
-    PFNGLCOLORPOINTERLISTIBMPROC ColorPointerListIBM;
-    PFNGLCOLORPOINTERVINTELPROC ColorPointervINTEL;
-    PFNGLCOLORSUBTABLEEXTPROC ColorSubTableEXT;
-    PFNGLCOLORTABLEEXTPROC ColorTableEXT;
-    PFNGLCOLORTABLEPARAMETERFVSGIPROC ColorTableParameterfvSGI;
-    PFNGLCOLORTABLEPARAMETERIVSGIPROC ColorTableParameterivSGI;
-    PFNGLCOLORTABLESGIPROC ColorTableSGI;
-    PFNGLCOMBINERINPUTNVPROC CombinerInputNV;
-    PFNGLCOMBINEROUTPUTNVPROC CombinerOutputNV;
-    PFNGLCOMBINERPARAMETERFNVPROC CombinerParameterfNV;
-    PFNGLCOMBINERPARAMETERFVNVPROC CombinerParameterfvNV;
-    PFNGLCOMBINERPARAMETERINVPROC CombinerParameteriNV;
-    PFNGLCOMBINERPARAMETERIVNVPROC CombinerParameterivNV;
-    PFNGLCOMBINERSTAGEPARAMETERFVNVPROC CombinerStageParameterfvNV;
-    PFNGLCOMMANDLISTSEGMENTSNVPROC CommandListSegmentsNV;
-    PFNGLCOMPILECOMMANDLISTNVPROC CompileCommandListNV;
-    PFNGLCOMPILESHADERPROC CompileShader;
-    PFNGLCOMPILESHADERARBPROC CompileShaderARB;
-    PFNGLCOMPILESHADERINCLUDEARBPROC CompileShaderIncludeARB;
-    PFNGLCOMPRESSEDMULTITEXIMAGE1DEXTPROC CompressedMultiTexImage1DEXT;
-    PFNGLCOMPRESSEDMULTITEXIMAGE2DEXTPROC CompressedMultiTexImage2DEXT;
-    PFNGLCOMPRESSEDMULTITEXIMAGE3DEXTPROC CompressedMultiTexImage3DEXT;
-    PFNGLCOMPRESSEDMULTITEXSUBIMAGE1DEXTPROC CompressedMultiTexSubImage1DEXT;
-    PFNGLCOMPRESSEDMULTITEXSUBIMAGE2DEXTPROC CompressedMultiTexSubImage2DEXT;
-    PFNGLCOMPRESSEDMULTITEXSUBIMAGE3DEXTPROC CompressedMultiTexSubImage3DEXT;
-    PFNGLCOMPRESSEDTEXIMAGE1DPROC CompressedTexImage1D;
-    PFNGLCOMPRESSEDTEXIMAGE1DARBPROC CompressedTexImage1DARB;
-    PFNGLCOMPRESSEDTEXIMAGE2DPROC CompressedTexImage2D;
-    PFNGLCOMPRESSEDTEXIMAGE2DARBPROC CompressedTexImage2DARB;
-    PFNGLCOMPRESSEDTEXIMAGE3DPROC CompressedTexImage3D;
-    PFNGLCOMPRESSEDTEXIMAGE3DARBPROC CompressedTexImage3DARB;
-    PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC CompressedTexSubImage1D;
-    PFNGLCOMPRESSEDTEXSUBIMAGE1DARBPROC CompressedTexSubImage1DARB;
-    PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC CompressedTexSubImage2D;
-    PFNGLCOMPRESSEDTEXSUBIMAGE2DARBPROC CompressedTexSubImage2DARB;
-    PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC CompressedTexSubImage3D;
-    PFNGLCOMPRESSEDTEXSUBIMAGE3DARBPROC CompressedTexSubImage3DARB;
-    PFNGLCOMPRESSEDTEXTUREIMAGE1DEXTPROC CompressedTextureImage1DEXT;
-    PFNGLCOMPRESSEDTEXTUREIMAGE2DEXTPROC CompressedTextureImage2DEXT;
-    PFNGLCOMPRESSEDTEXTUREIMAGE3DEXTPROC CompressedTextureImage3DEXT;
-    PFNGLCOMPRESSEDTEXTURESUBIMAGE1DPROC CompressedTextureSubImage1D;
-    PFNGLCOMPRESSEDTEXTURESUBIMAGE1DEXTPROC CompressedTextureSubImage1DEXT;
-    PFNGLCOMPRESSEDTEXTURESUBIMAGE2DPROC CompressedTextureSubImage2D;
-    PFNGLCOMPRESSEDTEXTURESUBIMAGE2DEXTPROC CompressedTextureSubImage2DEXT;
-    PFNGLCOMPRESSEDTEXTURESUBIMAGE3DPROC CompressedTextureSubImage3D;
-    PFNGLCOMPRESSEDTEXTURESUBIMAGE3DEXTPROC CompressedTextureSubImage3DEXT;
-    PFNGLCONSERVATIVERASTERPARAMETERFNVPROC ConservativeRasterParameterfNV;
-    PFNGLCONSERVATIVERASTERPARAMETERINVPROC ConservativeRasterParameteriNV;
-    PFNGLCONVOLUTIONFILTER1DEXTPROC ConvolutionFilter1DEXT;
-    PFNGLCONVOLUTIONFILTER2DEXTPROC ConvolutionFilter2DEXT;
-    PFNGLCONVOLUTIONPARAMETERFEXTPROC ConvolutionParameterfEXT;
-    PFNGLCONVOLUTIONPARAMETERFVEXTPROC ConvolutionParameterfvEXT;
-    PFNGLCONVOLUTIONPARAMETERIEXTPROC ConvolutionParameteriEXT;
-    PFNGLCONVOLUTIONPARAMETERIVEXTPROC ConvolutionParameterivEXT;
-    PFNGLCONVOLUTIONPARAMETERXOESPROC ConvolutionParameterxOES;
-    PFNGLCONVOLUTIONPARAMETERXVOESPROC ConvolutionParameterxvOES;
-    PFNGLCOPYBUFFERSUBDATAPROC CopyBufferSubData;
-    PFNGLCOPYCOLORSUBTABLEEXTPROC CopyColorSubTableEXT;
-    PFNGLCOPYCOLORTABLESGIPROC CopyColorTableSGI;
-    PFNGLCOPYCONVOLUTIONFILTER1DEXTPROC CopyConvolutionFilter1DEXT;
-    PFNGLCOPYCONVOLUTIONFILTER2DEXTPROC CopyConvolutionFilter2DEXT;
-    PFNGLCOPYIMAGESUBDATAPROC CopyImageSubData;
-    PFNGLCOPYIMAGESUBDATANVPROC CopyImageSubDataNV;
-    PFNGLCOPYMULTITEXIMAGE1DEXTPROC CopyMultiTexImage1DEXT;
-    PFNGLCOPYMULTITEXIMAGE2DEXTPROC CopyMultiTexImage2DEXT;
-    PFNGLCOPYMULTITEXSUBIMAGE1DEXTPROC CopyMultiTexSubImage1DEXT;
-    PFNGLCOPYMULTITEXSUBIMAGE2DEXTPROC CopyMultiTexSubImage2DEXT;
-    PFNGLCOPYMULTITEXSUBIMAGE3DEXTPROC CopyMultiTexSubImage3DEXT;
-    PFNGLCOPYNAMEDBUFFERSUBDATAPROC CopyNamedBufferSubData;
-    PFNGLCOPYPATHNVPROC CopyPathNV;
-    PFNGLCOPYTEXIMAGE1DPROC CopyTexImage1D;
-    PFNGLCOPYTEXIMAGE1DEXTPROC CopyTexImage1DEXT;
-    PFNGLCOPYTEXIMAGE2DPROC CopyTexImage2D;
-    PFNGLCOPYTEXIMAGE2DEXTPROC CopyTexImage2DEXT;
-    PFNGLCOPYTEXSUBIMAGE1DPROC CopyTexSubImage1D;
-    PFNGLCOPYTEXSUBIMAGE1DEXTPROC CopyTexSubImage1DEXT;
-    PFNGLCOPYTEXSUBIMAGE2DPROC CopyTexSubImage2D;
-    PFNGLCOPYTEXSUBIMAGE2DEXTPROC CopyTexSubImage2DEXT;
-    PFNGLCOPYTEXSUBIMAGE3DPROC CopyTexSubImage3D;
-    PFNGLCOPYTEXSUBIMAGE3DEXTPROC CopyTexSubImage3DEXT;
-    PFNGLCOPYTEXTUREIMAGE1DEXTPROC CopyTextureImage1DEXT;
-    PFNGLCOPYTEXTUREIMAGE2DEXTPROC CopyTextureImage2DEXT;
-    PFNGLCOPYTEXTURESUBIMAGE1DPROC CopyTextureSubImage1D;
-    PFNGLCOPYTEXTURESUBIMAGE1DEXTPROC CopyTextureSubImage1DEXT;
-    PFNGLCOPYTEXTURESUBIMAGE2DPROC CopyTextureSubImage2D;
-    PFNGLCOPYTEXTURESUBIMAGE2DEXTPROC CopyTextureSubImage2DEXT;
-    PFNGLCOPYTEXTURESUBIMAGE3DPROC CopyTextureSubImage3D;
-    PFNGLCOPYTEXTURESUBIMAGE3DEXTPROC CopyTextureSubImage3DEXT;
-    PFNGLCOVERFILLPATHINSTANCEDNVPROC CoverFillPathInstancedNV;
-    PFNGLCOVERFILLPATHNVPROC CoverFillPathNV;
-    PFNGLCOVERSTROKEPATHINSTANCEDNVPROC CoverStrokePathInstancedNV;
-    PFNGLCOVERSTROKEPATHNVPROC CoverStrokePathNV;
-    PFNGLCOVERAGEMODULATIONNVPROC CoverageModulationNV;
-    PFNGLCOVERAGEMODULATIONTABLENVPROC CoverageModulationTableNV;
-    PFNGLCREATEBUFFERSPROC CreateBuffers;
-    PFNGLCREATECOMMANDLISTSNVPROC CreateCommandListsNV;
-    PFNGLCREATEFRAMEBUFFERSPROC CreateFramebuffers;
-    PFNGLCREATEMEMORYOBJECTSEXTPROC CreateMemoryObjectsEXT;
-    PFNGLCREATEPERFQUERYINTELPROC CreatePerfQueryINTEL;
-    PFNGLCREATEPROGRAMPROC CreateProgram;
-    PFNGLCREATEPROGRAMOBJECTARBPROC CreateProgramObjectARB;
-    PFNGLCREATEPROGRAMPIPELINESPROC CreateProgramPipelines;
-    PFNGLCREATEPROGRESSFENCENVXPROC CreateProgressFenceNVX;
-    PFNGLCREATEQUERIESPROC CreateQueries;
-    PFNGLCREATERENDERBUFFERSPROC CreateRenderbuffers;
-    PFNGLCREATESAMPLERSPROC CreateSamplers;
-    PFNGLCREATESEMAPHORESNVPROC CreateSemaphoresNV;
-    PFNGLCREATESHADERPROC CreateShader;
-    PFNGLCREATESHADEROBJECTARBPROC CreateShaderObjectARB;
-    PFNGLCREATESHADERPROGRAMEXTPROC CreateShaderProgramEXT;
-    PFNGLCREATESHADERPROGRAMVPROC CreateShaderProgramv;
-    PFNGLCREATESTATESNVPROC CreateStatesNV;
-    PFNGLCREATESYNCFROMCLEVENTARBPROC CreateSyncFromCLeventARB;
-    PFNGLCREATETEXTURESPROC CreateTextures;
-    PFNGLCREATETRANSFORMFEEDBACKSPROC CreateTransformFeedbacks;
-    PFNGLCREATEVERTEXARRAYSPROC CreateVertexArrays;
-    PFNGLCULLFACEPROC CullFace;
-    PFNGLCULLPARAMETERDVEXTPROC CullParameterdvEXT;
-    PFNGLCULLPARAMETERFVEXTPROC CullParameterfvEXT;
-    PFNGLCURRENTPALETTEMATRIXARBPROC CurrentPaletteMatrixARB;
-    PFNGLDEBUGMESSAGECALLBACKPROC DebugMessageCallback;
-    PFNGLDEBUGMESSAGECALLBACKAMDPROC DebugMessageCallbackAMD;
-    PFNGLDEBUGMESSAGECALLBACKARBPROC DebugMessageCallbackARB;
-    PFNGLDEBUGMESSAGECONTROLPROC DebugMessageControl;
-    PFNGLDEBUGMESSAGECONTROLARBPROC DebugMessageControlARB;
-    PFNGLDEBUGMESSAGEENABLEAMDPROC DebugMessageEnableAMD;
-    PFNGLDEBUGMESSAGEINSERTPROC DebugMessageInsert;
-    PFNGLDEBUGMESSAGEINSERTAMDPROC DebugMessageInsertAMD;
-    PFNGLDEBUGMESSAGEINSERTARBPROC DebugMessageInsertARB;
-    PFNGLDEFORMSGIXPROC DeformSGIX;
-    PFNGLDEFORMATIONMAP3DSGIXPROC DeformationMap3dSGIX;
-    PFNGLDEFORMATIONMAP3FSGIXPROC DeformationMap3fSGIX;
-    PFNGLDELETEASYNCMARKERSSGIXPROC DeleteAsyncMarkersSGIX;
-    PFNGLDELETEBUFFERSPROC DeleteBuffers;
-    PFNGLDELETEBUFFERSARBPROC DeleteBuffersARB;
-    PFNGLDELETECOMMANDLISTSNVPROC DeleteCommandListsNV;
-    PFNGLDELETEFENCESAPPLEPROC DeleteFencesAPPLE;
-    PFNGLDELETEFENCESNVPROC DeleteFencesNV;
-    PFNGLDELETEFRAGMENTSHADERATIPROC DeleteFragmentShaderATI;
-    PFNGLDELETEFRAMEBUFFERSPROC DeleteFramebuffers;
-    PFNGLDELETEFRAMEBUFFERSEXTPROC DeleteFramebuffersEXT;
-    PFNGLDELETEMEMORYOBJECTSEXTPROC DeleteMemoryObjectsEXT;
-    PFNGLDELETENAMEDSTRINGARBPROC DeleteNamedStringARB;
-    PFNGLDELETENAMESAMDPROC DeleteNamesAMD;
-    PFNGLDELETEOBJECTARBPROC DeleteObjectARB;
-    PFNGLDELETEOCCLUSIONQUERIESNVPROC DeleteOcclusionQueriesNV;
-    PFNGLDELETEPATHSNVPROC DeletePathsNV;
-    PFNGLDELETEPERFMONITORSAMDPROC DeletePerfMonitorsAMD;
-    PFNGLDELETEPERFQUERYINTELPROC DeletePerfQueryINTEL;
-    PFNGLDELETEPROGRAMPROC DeleteProgram;
-    PFNGLDELETEPROGRAMPIPELINESPROC DeleteProgramPipelines;
-    PFNGLDELETEPROGRAMSARBPROC DeleteProgramsARB;
-    PFNGLDELETEPROGRAMSNVPROC DeleteProgramsNV;
-    PFNGLDELETEQUERIESPROC DeleteQueries;
-    PFNGLDELETEQUERIESARBPROC DeleteQueriesARB;
-    PFNGLDELETEQUERYRESOURCETAGNVPROC DeleteQueryResourceTagNV;
-    PFNGLDELETERENDERBUFFERSPROC DeleteRenderbuffers;
-    PFNGLDELETERENDERBUFFERSEXTPROC DeleteRenderbuffersEXT;
-    PFNGLDELETESAMPLERSPROC DeleteSamplers;
-    PFNGLDELETESEMAPHORESEXTPROC DeleteSemaphoresEXT;
-    PFNGLDELETESHADERPROC DeleteShader;
-    PFNGLDELETESTATESNVPROC DeleteStatesNV;
-    PFNGLDELETESYNCPROC DeleteSync;
-    PFNGLDELETETEXTURESPROC DeleteTextures;
-    PFNGLDELETETEXTURESEXTPROC DeleteTexturesEXT;
-    PFNGLDELETETRANSFORMFEEDBACKSPROC DeleteTransformFeedbacks;
-    PFNGLDELETETRANSFORMFEEDBACKSNVPROC DeleteTransformFeedbacksNV;
-    PFNGLDELETEVERTEXARRAYSPROC DeleteVertexArrays;
-    PFNGLDELETEVERTEXARRAYSAPPLEPROC DeleteVertexArraysAPPLE;
-    PFNGLDELETEVERTEXSHADEREXTPROC DeleteVertexShaderEXT;
-    PFNGLDEPTHBOUNDSEXTPROC DepthBoundsEXT;
-    PFNGLDEPTHBOUNDSDNVPROC DepthBoundsdNV;
-    PFNGLDEPTHFUNCPROC DepthFunc;
-    PFNGLDEPTHMASKPROC DepthMask;
-    PFNGLDEPTHRANGEPROC DepthRange;
-    PFNGLDEPTHRANGEARRAYDVNVPROC DepthRangeArraydvNV;
-    PFNGLDEPTHRANGEARRAYVPROC DepthRangeArrayv;
-    PFNGLDEPTHRANGEINDEXEDPROC DepthRangeIndexed;
-    PFNGLDEPTHRANGEINDEXEDDNVPROC DepthRangeIndexeddNV;
-    PFNGLDEPTHRANGEDNVPROC DepthRangedNV;
-    PFNGLDEPTHRANGEFPROC DepthRangef;
-    PFNGLDEPTHRANGEFOESPROC DepthRangefOES;
-    PFNGLDEPTHRANGEXOESPROC DepthRangexOES;
-    PFNGLDETACHOBJECTARBPROC DetachObjectARB;
-    PFNGLDETACHSHADERPROC DetachShader;
-    PFNGLDETAILTEXFUNCSGISPROC DetailTexFuncSGIS;
-    PFNGLDISABLEPROC Disable;
-    PFNGLDISABLECLIENTSTATEINDEXEDEXTPROC DisableClientStateIndexedEXT;
-    PFNGLDISABLECLIENTSTATEIEXTPROC DisableClientStateiEXT;
-    PFNGLDISABLEINDEXEDEXTPROC DisableIndexedEXT;
-    PFNGLDISABLEVARIANTCLIENTSTATEEXTPROC DisableVariantClientStateEXT;
-    PFNGLDISABLEVERTEXARRAYATTRIBPROC DisableVertexArrayAttrib;
-    PFNGLDISABLEVERTEXARRAYATTRIBEXTPROC DisableVertexArrayAttribEXT;
-    PFNGLDISABLEVERTEXARRAYEXTPROC DisableVertexArrayEXT;
-    PFNGLDISABLEVERTEXATTRIBAPPLEPROC DisableVertexAttribAPPLE;
-    PFNGLDISABLEVERTEXATTRIBARRAYPROC DisableVertexAttribArray;
-    PFNGLDISABLEVERTEXATTRIBARRAYARBPROC DisableVertexAttribArrayARB;
-    PFNGLDISABLEIPROC Disablei;
-    PFNGLDISPATCHCOMPUTEPROC DispatchCompute;
-    PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC DispatchComputeGroupSizeARB;
-    PFNGLDISPATCHCOMPUTEINDIRECTPROC DispatchComputeIndirect;
-    PFNGLDRAWARRAYSPROC DrawArrays;
-    PFNGLDRAWARRAYSEXTPROC DrawArraysEXT;
-    PFNGLDRAWARRAYSINDIRECTPROC DrawArraysIndirect;
-    PFNGLDRAWARRAYSINSTANCEDPROC DrawArraysInstanced;
-    PFNGLDRAWARRAYSINSTANCEDARBPROC DrawArraysInstancedARB;
-    PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC DrawArraysInstancedBaseInstance;
-    PFNGLDRAWARRAYSINSTANCEDEXTPROC DrawArraysInstancedEXT;
-    PFNGLDRAWBUFFERPROC DrawBuffer;
-    PFNGLDRAWBUFFERSPROC DrawBuffers;
-    PFNGLDRAWBUFFERSARBPROC DrawBuffersARB;
-    PFNGLDRAWBUFFERSATIPROC DrawBuffersATI;
-    PFNGLDRAWCOMMANDSADDRESSNVPROC DrawCommandsAddressNV;
-    PFNGLDRAWCOMMANDSNVPROC DrawCommandsNV;
-    PFNGLDRAWCOMMANDSSTATESADDRESSNVPROC DrawCommandsStatesAddressNV;
-    PFNGLDRAWCOMMANDSSTATESNVPROC DrawCommandsStatesNV;
-    PFNGLDRAWELEMENTARRAYAPPLEPROC DrawElementArrayAPPLE;
-    PFNGLDRAWELEMENTARRAYATIPROC DrawElementArrayATI;
-    PFNGLDRAWELEMENTSPROC DrawElements;
-    PFNGLDRAWELEMENTSBASEVERTEXPROC DrawElementsBaseVertex;
-    PFNGLDRAWELEMENTSINDIRECTPROC DrawElementsIndirect;
-    PFNGLDRAWELEMENTSINSTANCEDPROC DrawElementsInstanced;
-    PFNGLDRAWELEMENTSINSTANCEDARBPROC DrawElementsInstancedARB;
-    PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC DrawElementsInstancedBaseInstance;
-    PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC DrawElementsInstancedBaseVertex;
-    PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC DrawElementsInstancedBaseVertexBaseInstance;
-    PFNGLDRAWELEMENTSINSTANCEDEXTPROC DrawElementsInstancedEXT;
-    PFNGLDRAWMESHARRAYSSUNPROC DrawMeshArraysSUN;
-    PFNGLDRAWMESHTASKSINDIRECTNVPROC DrawMeshTasksIndirectNV;
-    PFNGLDRAWMESHTASKSNVPROC DrawMeshTasksNV;
-    PFNGLDRAWRANGEELEMENTARRAYAPPLEPROC DrawRangeElementArrayAPPLE;
-    PFNGLDRAWRANGEELEMENTARRAYATIPROC DrawRangeElementArrayATI;
-    PFNGLDRAWRANGEELEMENTSPROC DrawRangeElements;
-    PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC DrawRangeElementsBaseVertex;
-    PFNGLDRAWRANGEELEMENTSEXTPROC DrawRangeElementsEXT;
-    PFNGLDRAWTEXTURENVPROC DrawTextureNV;
-    PFNGLDRAWTRANSFORMFEEDBACKPROC DrawTransformFeedback;
-    PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC DrawTransformFeedbackInstanced;
-    PFNGLDRAWTRANSFORMFEEDBACKNVPROC DrawTransformFeedbackNV;
-    PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC DrawTransformFeedbackStream;
-    PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC DrawTransformFeedbackStreamInstanced;
-    PFNGLDRAWVKIMAGENVPROC DrawVkImageNV;
-    PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC EGLImageTargetTexStorageEXT;
-    PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC EGLImageTargetTextureStorageEXT;
-    PFNGLEDGEFLAGFORMATNVPROC EdgeFlagFormatNV;
-    PFNGLEDGEFLAGPOINTEREXTPROC EdgeFlagPointerEXT;
-    PFNGLEDGEFLAGPOINTERLISTIBMPROC EdgeFlagPointerListIBM;
-    PFNGLELEMENTPOINTERAPPLEPROC ElementPointerAPPLE;
-    PFNGLELEMENTPOINTERATIPROC ElementPointerATI;
-    PFNGLENABLEPROC Enable;
-    PFNGLENABLECLIENTSTATEINDEXEDEXTPROC EnableClientStateIndexedEXT;
-    PFNGLENABLECLIENTSTATEIEXTPROC EnableClientStateiEXT;
-    PFNGLENABLEINDEXEDEXTPROC EnableIndexedEXT;
-    PFNGLENABLEVARIANTCLIENTSTATEEXTPROC EnableVariantClientStateEXT;
-    PFNGLENABLEVERTEXARRAYATTRIBPROC EnableVertexArrayAttrib;
-    PFNGLENABLEVERTEXARRAYATTRIBEXTPROC EnableVertexArrayAttribEXT;
-    PFNGLENABLEVERTEXARRAYEXTPROC EnableVertexArrayEXT;
-    PFNGLENABLEVERTEXATTRIBAPPLEPROC EnableVertexAttribAPPLE;
-    PFNGLENABLEVERTEXATTRIBARRAYPROC EnableVertexAttribArray;
-    PFNGLENABLEVERTEXATTRIBARRAYARBPROC EnableVertexAttribArrayARB;
-    PFNGLENABLEIPROC Enablei;
-    PFNGLENDCONDITIONALRENDERPROC EndConditionalRender;
-    PFNGLENDCONDITIONALRENDERNVPROC EndConditionalRenderNV;
-    PFNGLENDCONDITIONALRENDERNVXPROC EndConditionalRenderNVX;
-    PFNGLENDFRAGMENTSHADERATIPROC EndFragmentShaderATI;
-    PFNGLENDOCCLUSIONQUERYNVPROC EndOcclusionQueryNV;
-    PFNGLENDPERFMONITORAMDPROC EndPerfMonitorAMD;
-    PFNGLENDPERFQUERYINTELPROC EndPerfQueryINTEL;
-    PFNGLENDQUERYPROC EndQuery;
-    PFNGLENDQUERYARBPROC EndQueryARB;
-    PFNGLENDQUERYINDEXEDPROC EndQueryIndexed;
-    PFNGLENDTRANSFORMFEEDBACKPROC EndTransformFeedback;
-    PFNGLENDTRANSFORMFEEDBACKEXTPROC EndTransformFeedbackEXT;
-    PFNGLENDTRANSFORMFEEDBACKNVPROC EndTransformFeedbackNV;
-    PFNGLENDVERTEXSHADEREXTPROC EndVertexShaderEXT;
-    PFNGLENDVIDEOCAPTURENVPROC EndVideoCaptureNV;
-    PFNGLEVALCOORD1XOESPROC EvalCoord1xOES;
-    PFNGLEVALCOORD1XVOESPROC EvalCoord1xvOES;
-    PFNGLEVALCOORD2XOESPROC EvalCoord2xOES;
-    PFNGLEVALCOORD2XVOESPROC EvalCoord2xvOES;
-    PFNGLEVALMAPSNVPROC EvalMapsNV;
-    PFNGLEVALUATEDEPTHVALUESARBPROC EvaluateDepthValuesARB;
-    PFNGLEXECUTEPROGRAMNVPROC ExecuteProgramNV;
-    PFNGLEXTRACTCOMPONENTEXTPROC ExtractComponentEXT;
-    PFNGLFEEDBACKBUFFERXOESPROC FeedbackBufferxOES;
-    PFNGLFENCESYNCPROC FenceSync;
-    PFNGLFINALCOMBINERINPUTNVPROC FinalCombinerInputNV;
-    PFNGLFINISHPROC Finish;
-    PFNGLFINISHASYNCSGIXPROC FinishAsyncSGIX;
-    PFNGLFINISHFENCEAPPLEPROC FinishFenceAPPLE;
-    PFNGLFINISHFENCENVPROC FinishFenceNV;
-    PFNGLFINISHOBJECTAPPLEPROC FinishObjectAPPLE;
-    PFNGLFINISHTEXTURESUNXPROC FinishTextureSUNX;
-    PFNGLFLUSHPROC Flush;
-    PFNGLFLUSHMAPPEDBUFFERRANGEPROC FlushMappedBufferRange;
-    PFNGLFLUSHMAPPEDBUFFERRANGEAPPLEPROC FlushMappedBufferRangeAPPLE;
-    PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEPROC FlushMappedNamedBufferRange;
-    PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEEXTPROC FlushMappedNamedBufferRangeEXT;
-    PFNGLFLUSHPIXELDATARANGENVPROC FlushPixelDataRangeNV;
-    PFNGLFLUSHRASTERSGIXPROC FlushRasterSGIX;
-    PFNGLFLUSHSTATICDATAIBMPROC FlushStaticDataIBM;
-    PFNGLFLUSHVERTEXARRAYRANGEAPPLEPROC FlushVertexArrayRangeAPPLE;
-    PFNGLFLUSHVERTEXARRAYRANGENVPROC FlushVertexArrayRangeNV;
-    PFNGLFOGCOORDFORMATNVPROC FogCoordFormatNV;
-    PFNGLFOGCOORDPOINTEREXTPROC FogCoordPointerEXT;
-    PFNGLFOGCOORDPOINTERLISTIBMPROC FogCoordPointerListIBM;
-    PFNGLFOGCOORDDEXTPROC FogCoorddEXT;
-    PFNGLFOGCOORDDVEXTPROC FogCoorddvEXT;
-    PFNGLFOGCOORDFEXTPROC FogCoordfEXT;
-    PFNGLFOGCOORDFVEXTPROC FogCoordfvEXT;
-    PFNGLFOGCOORDHNVPROC FogCoordhNV;
-    PFNGLFOGCOORDHVNVPROC FogCoordhvNV;
-    PFNGLFOGFUNCSGISPROC FogFuncSGIS;
-    PFNGLFOGXOESPROC FogxOES;
-    PFNGLFOGXVOESPROC FogxvOES;
-    PFNGLFRAGMENTCOLORMATERIALSGIXPROC FragmentColorMaterialSGIX;
-    PFNGLFRAGMENTCOVERAGECOLORNVPROC FragmentCoverageColorNV;
-    PFNGLFRAGMENTLIGHTMODELFSGIXPROC FragmentLightModelfSGIX;
-    PFNGLFRAGMENTLIGHTMODELFVSGIXPROC FragmentLightModelfvSGIX;
-    PFNGLFRAGMENTLIGHTMODELISGIXPROC FragmentLightModeliSGIX;
-    PFNGLFRAGMENTLIGHTMODELIVSGIXPROC FragmentLightModelivSGIX;
-    PFNGLFRAGMENTLIGHTFSGIXPROC FragmentLightfSGIX;
-    PFNGLFRAGMENTLIGHTFVSGIXPROC FragmentLightfvSGIX;
-    PFNGLFRAGMENTLIGHTISGIXPROC FragmentLightiSGIX;
-    PFNGLFRAGMENTLIGHTIVSGIXPROC FragmentLightivSGIX;
-    PFNGLFRAGMENTMATERIALFSGIXPROC FragmentMaterialfSGIX;
-    PFNGLFRAGMENTMATERIALFVSGIXPROC FragmentMaterialfvSGIX;
-    PFNGLFRAGMENTMATERIALISGIXPROC FragmentMaterialiSGIX;
-    PFNGLFRAGMENTMATERIALIVSGIXPROC FragmentMaterialivSGIX;
-    PFNGLFRAMETERMINATORGREMEDYPROC FrameTerminatorGREMEDY;
-    PFNGLFRAMEZOOMSGIXPROC FrameZoomSGIX;
-    PFNGLFRAMEBUFFERDRAWBUFFEREXTPROC FramebufferDrawBufferEXT;
-    PFNGLFRAMEBUFFERDRAWBUFFERSEXTPROC FramebufferDrawBuffersEXT;
-    PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC FramebufferFetchBarrierEXT;
-    PFNGLFRAMEBUFFERPARAMETERIPROC FramebufferParameteri;
-    PFNGLFRAMEBUFFERPARAMETERIMESAPROC FramebufferParameteriMESA;
-    PFNGLFRAMEBUFFERREADBUFFEREXTPROC FramebufferReadBufferEXT;
-    PFNGLFRAMEBUFFERRENDERBUFFERPROC FramebufferRenderbuffer;
-    PFNGLFRAMEBUFFERRENDERBUFFEREXTPROC FramebufferRenderbufferEXT;
-    PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC FramebufferSampleLocationsfvARB;
-    PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC FramebufferSampleLocationsfvNV;
-    PFNGLFRAMEBUFFERSAMPLEPOSITIONSFVAMDPROC FramebufferSamplePositionsfvAMD;
-    PFNGLFRAMEBUFFERTEXTUREPROC FramebufferTexture;
-    PFNGLFRAMEBUFFERTEXTURE1DPROC FramebufferTexture1D;
-    PFNGLFRAMEBUFFERTEXTURE1DEXTPROC FramebufferTexture1DEXT;
-    PFNGLFRAMEBUFFERTEXTURE2DPROC FramebufferTexture2D;
-    PFNGLFRAMEBUFFERTEXTURE2DEXTPROC FramebufferTexture2DEXT;
-    PFNGLFRAMEBUFFERTEXTURE3DPROC FramebufferTexture3D;
-    PFNGLFRAMEBUFFERTEXTURE3DEXTPROC FramebufferTexture3DEXT;
-    PFNGLFRAMEBUFFERTEXTUREARBPROC FramebufferTextureARB;
-    PFNGLFRAMEBUFFERTEXTUREEXTPROC FramebufferTextureEXT;
-    PFNGLFRAMEBUFFERTEXTUREFACEARBPROC FramebufferTextureFaceARB;
-    PFNGLFRAMEBUFFERTEXTUREFACEEXTPROC FramebufferTextureFaceEXT;
-    PFNGLFRAMEBUFFERTEXTURELAYERPROC FramebufferTextureLayer;
-    PFNGLFRAMEBUFFERTEXTURELAYERARBPROC FramebufferTextureLayerARB;
-    PFNGLFRAMEBUFFERTEXTURELAYEREXTPROC FramebufferTextureLayerEXT;
-    PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC FramebufferTextureMultiviewOVR;
-    PFNGLFREEOBJECTBUFFERATIPROC FreeObjectBufferATI;
-    PFNGLFRONTFACEPROC FrontFace;
-    PFNGLFRUSTUMFOESPROC FrustumfOES;
-    PFNGLFRUSTUMXOESPROC FrustumxOES;
-    PFNGLGENASYNCMARKERSSGIXPROC GenAsyncMarkersSGIX;
-    PFNGLGENBUFFERSPROC GenBuffers;
-    PFNGLGENBUFFERSARBPROC GenBuffersARB;
-    PFNGLGENFENCESAPPLEPROC GenFencesAPPLE;
-    PFNGLGENFENCESNVPROC GenFencesNV;
-    PFNGLGENFRAGMENTSHADERSATIPROC GenFragmentShadersATI;
-    PFNGLGENFRAMEBUFFERSPROC GenFramebuffers;
-    PFNGLGENFRAMEBUFFERSEXTPROC GenFramebuffersEXT;
-    PFNGLGENNAMESAMDPROC GenNamesAMD;
-    PFNGLGENOCCLUSIONQUERIESNVPROC GenOcclusionQueriesNV;
-    PFNGLGENPATHSNVPROC GenPathsNV;
-    PFNGLGENPERFMONITORSAMDPROC GenPerfMonitorsAMD;
-    PFNGLGENPROGRAMPIPELINESPROC GenProgramPipelines;
-    PFNGLGENPROGRAMSARBPROC GenProgramsARB;
-    PFNGLGENPROGRAMSNVPROC GenProgramsNV;
-    PFNGLGENQUERIESPROC GenQueries;
-    PFNGLGENQUERIESARBPROC GenQueriesARB;
-    PFNGLGENQUERYRESOURCETAGNVPROC GenQueryResourceTagNV;
-    PFNGLGENRENDERBUFFERSPROC GenRenderbuffers;
-    PFNGLGENRENDERBUFFERSEXTPROC GenRenderbuffersEXT;
-    PFNGLGENSAMPLERSPROC GenSamplers;
-    PFNGLGENSEMAPHORESEXTPROC GenSemaphoresEXT;
-    PFNGLGENSYMBOLSEXTPROC GenSymbolsEXT;
-    PFNGLGENTEXTURESPROC GenTextures;
-    PFNGLGENTEXTURESEXTPROC GenTexturesEXT;
-    PFNGLGENTRANSFORMFEEDBACKSPROC GenTransformFeedbacks;
-    PFNGLGENTRANSFORMFEEDBACKSNVPROC GenTransformFeedbacksNV;
-    PFNGLGENVERTEXARRAYSPROC GenVertexArrays;
-    PFNGLGENVERTEXARRAYSAPPLEPROC GenVertexArraysAPPLE;
-    PFNGLGENVERTEXSHADERSEXTPROC GenVertexShadersEXT;
-    PFNGLGENERATEMIPMAPPROC GenerateMipmap;
-    PFNGLGENERATEMIPMAPEXTPROC GenerateMipmapEXT;
-    PFNGLGENERATEMULTITEXMIPMAPEXTPROC GenerateMultiTexMipmapEXT;
-    PFNGLGENERATETEXTUREMIPMAPPROC GenerateTextureMipmap;
-    PFNGLGENERATETEXTUREMIPMAPEXTPROC GenerateTextureMipmapEXT;
-    PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC GetActiveAtomicCounterBufferiv;
-    PFNGLGETACTIVEATTRIBPROC GetActiveAttrib;
-    PFNGLGETACTIVEATTRIBARBPROC GetActiveAttribARB;
-    PFNGLGETACTIVESUBROUTINENAMEPROC GetActiveSubroutineName;
-    PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC GetActiveSubroutineUniformName;
-    PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC GetActiveSubroutineUniformiv;
-    PFNGLGETACTIVEUNIFORMPROC GetActiveUniform;
-    PFNGLGETACTIVEUNIFORMARBPROC GetActiveUniformARB;
-    PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC GetActiveUniformBlockName;
-    PFNGLGETACTIVEUNIFORMBLOCKIVPROC GetActiveUniformBlockiv;
-    PFNGLGETACTIVEUNIFORMNAMEPROC GetActiveUniformName;
-    PFNGLGETACTIVEUNIFORMSIVPROC GetActiveUniformsiv;
-    PFNGLGETACTIVEVARYINGNVPROC GetActiveVaryingNV;
-    PFNGLGETARRAYOBJECTFVATIPROC GetArrayObjectfvATI;
-    PFNGLGETARRAYOBJECTIVATIPROC GetArrayObjectivATI;
-    PFNGLGETATTACHEDOBJECTSARBPROC GetAttachedObjectsARB;
-    PFNGLGETATTACHEDSHADERSPROC GetAttachedShaders;
-    PFNGLGETATTRIBLOCATIONPROC GetAttribLocation;
-    PFNGLGETATTRIBLOCATIONARBPROC GetAttribLocationARB;
-    PFNGLGETBOOLEANINDEXEDVEXTPROC GetBooleanIndexedvEXT;
-    PFNGLGETBOOLEANI_VPROC GetBooleani_v;
-    PFNGLGETBOOLEANVPROC GetBooleanv;
-    PFNGLGETBUFFERPARAMETERI64VPROC GetBufferParameteri64v;
-    PFNGLGETBUFFERPARAMETERIVPROC GetBufferParameteriv;
-    PFNGLGETBUFFERPARAMETERIVARBPROC GetBufferParameterivARB;
-    PFNGLGETBUFFERPARAMETERUI64VNVPROC GetBufferParameterui64vNV;
-    PFNGLGETBUFFERPOINTERVPROC GetBufferPointerv;
-    PFNGLGETBUFFERPOINTERVARBPROC GetBufferPointervARB;
-    PFNGLGETBUFFERSUBDATAPROC GetBufferSubData;
-    PFNGLGETBUFFERSUBDATAARBPROC GetBufferSubDataARB;
-    PFNGLGETCLIPPLANEFOESPROC GetClipPlanefOES;
-    PFNGLGETCLIPPLANEXOESPROC GetClipPlanexOES;
-    PFNGLGETCOLORTABLEEXTPROC GetColorTableEXT;
-    PFNGLGETCOLORTABLEPARAMETERFVEXTPROC GetColorTableParameterfvEXT;
-    PFNGLGETCOLORTABLEPARAMETERFVSGIPROC GetColorTableParameterfvSGI;
-    PFNGLGETCOLORTABLEPARAMETERIVEXTPROC GetColorTableParameterivEXT;
-    PFNGLGETCOLORTABLEPARAMETERIVSGIPROC GetColorTableParameterivSGI;
-    PFNGLGETCOLORTABLESGIPROC GetColorTableSGI;
-    PFNGLGETCOMBINERINPUTPARAMETERFVNVPROC GetCombinerInputParameterfvNV;
-    PFNGLGETCOMBINERINPUTPARAMETERIVNVPROC GetCombinerInputParameterivNV;
-    PFNGLGETCOMBINEROUTPUTPARAMETERFVNVPROC GetCombinerOutputParameterfvNV;
-    PFNGLGETCOMBINEROUTPUTPARAMETERIVNVPROC GetCombinerOutputParameterivNV;
-    PFNGLGETCOMBINERSTAGEPARAMETERFVNVPROC GetCombinerStageParameterfvNV;
-    PFNGLGETCOMMANDHEADERNVPROC GetCommandHeaderNV;
-    PFNGLGETCOMPRESSEDMULTITEXIMAGEEXTPROC GetCompressedMultiTexImageEXT;
-    PFNGLGETCOMPRESSEDTEXIMAGEPROC GetCompressedTexImage;
-    PFNGLGETCOMPRESSEDTEXIMAGEARBPROC GetCompressedTexImageARB;
-    PFNGLGETCOMPRESSEDTEXTUREIMAGEPROC GetCompressedTextureImage;
-    PFNGLGETCOMPRESSEDTEXTUREIMAGEEXTPROC GetCompressedTextureImageEXT;
-    PFNGLGETCOMPRESSEDTEXTURESUBIMAGEPROC GetCompressedTextureSubImage;
-    PFNGLGETCONVOLUTIONFILTEREXTPROC GetConvolutionFilterEXT;
-    PFNGLGETCONVOLUTIONPARAMETERFVEXTPROC GetConvolutionParameterfvEXT;
-    PFNGLGETCONVOLUTIONPARAMETERIVEXTPROC GetConvolutionParameterivEXT;
-    PFNGLGETCONVOLUTIONPARAMETERXVOESPROC GetConvolutionParameterxvOES;
-    PFNGLGETCOVERAGEMODULATIONTABLENVPROC GetCoverageModulationTableNV;
-    PFNGLGETDEBUGMESSAGELOGPROC GetDebugMessageLog;
-    PFNGLGETDEBUGMESSAGELOGAMDPROC GetDebugMessageLogAMD;
-    PFNGLGETDEBUGMESSAGELOGARBPROC GetDebugMessageLogARB;
-    PFNGLGETDETAILTEXFUNCSGISPROC GetDetailTexFuncSGIS;
-    PFNGLGETDOUBLEINDEXEDVEXTPROC GetDoubleIndexedvEXT;
-    PFNGLGETDOUBLEI_VPROC GetDoublei_v;
-    PFNGLGETDOUBLEI_VEXTPROC GetDoublei_vEXT;
-    PFNGLGETDOUBLEVPROC GetDoublev;
-    PFNGLGETERRORPROC GetError;
-    PFNGLGETFENCEIVNVPROC GetFenceivNV;
-    PFNGLGETFINALCOMBINERINPUTPARAMETERFVNVPROC GetFinalCombinerInputParameterfvNV;
-    PFNGLGETFINALCOMBINERINPUTPARAMETERIVNVPROC GetFinalCombinerInputParameterivNV;
-    PFNGLGETFIRSTPERFQUERYIDINTELPROC GetFirstPerfQueryIdINTEL;
-    PFNGLGETFIXEDVOESPROC GetFixedvOES;
-    PFNGLGETFLOATINDEXEDVEXTPROC GetFloatIndexedvEXT;
-    PFNGLGETFLOATI_VPROC GetFloati_v;
-    PFNGLGETFLOATI_VEXTPROC GetFloati_vEXT;
-    PFNGLGETFLOATVPROC GetFloatv;
-    PFNGLGETFOGFUNCSGISPROC GetFogFuncSGIS;
-    PFNGLGETFRAGDATAINDEXPROC GetFragDataIndex;
-    PFNGLGETFRAGDATALOCATIONPROC GetFragDataLocation;
-    PFNGLGETFRAGDATALOCATIONEXTPROC GetFragDataLocationEXT;
-    PFNGLGETFRAGMENTLIGHTFVSGIXPROC GetFragmentLightfvSGIX;
-    PFNGLGETFRAGMENTLIGHTIVSGIXPROC GetFragmentLightivSGIX;
-    PFNGLGETFRAGMENTMATERIALFVSGIXPROC GetFragmentMaterialfvSGIX;
-    PFNGLGETFRAGMENTMATERIALIVSGIXPROC GetFragmentMaterialivSGIX;
-    PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC GetFramebufferAttachmentParameteriv;
-    PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC GetFramebufferAttachmentParameterivEXT;
-    PFNGLGETFRAMEBUFFERPARAMETERFVAMDPROC GetFramebufferParameterfvAMD;
-    PFNGLGETFRAMEBUFFERPARAMETERIVPROC GetFramebufferParameteriv;
-    PFNGLGETFRAMEBUFFERPARAMETERIVEXTPROC GetFramebufferParameterivEXT;
-    PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC GetFramebufferParameterivMESA;
-    PFNGLGETGRAPHICSRESETSTATUSPROC GetGraphicsResetStatus;
-    PFNGLGETGRAPHICSRESETSTATUSARBPROC GetGraphicsResetStatusARB;
-    PFNGLGETHANDLEARBPROC GetHandleARB;
-    PFNGLGETHISTOGRAMEXTPROC GetHistogramEXT;
-    PFNGLGETHISTOGRAMPARAMETERFVEXTPROC GetHistogramParameterfvEXT;
-    PFNGLGETHISTOGRAMPARAMETERIVEXTPROC GetHistogramParameterivEXT;
-    PFNGLGETHISTOGRAMPARAMETERXVOESPROC GetHistogramParameterxvOES;
-    PFNGLGETIMAGEHANDLEARBPROC GetImageHandleARB;
-    PFNGLGETIMAGEHANDLENVPROC GetImageHandleNV;
-    PFNGLGETIMAGETRANSFORMPARAMETERFVHPPROC GetImageTransformParameterfvHP;
-    PFNGLGETIMAGETRANSFORMPARAMETERIVHPPROC GetImageTransformParameterivHP;
-    PFNGLGETINFOLOGARBPROC GetInfoLogARB;
-    PFNGLGETINSTRUMENTSSGIXPROC GetInstrumentsSGIX;
-    PFNGLGETINTEGER64I_VPROC GetInteger64i_v;
-    PFNGLGETINTEGER64VPROC GetInteger64v;
-    PFNGLGETINTEGERINDEXEDVEXTPROC GetIntegerIndexedvEXT;
-    PFNGLGETINTEGERI_VPROC GetIntegeri_v;
-    PFNGLGETINTEGERUI64I_VNVPROC GetIntegerui64i_vNV;
-    PFNGLGETINTEGERUI64VNVPROC GetIntegerui64vNV;
-    PFNGLGETINTEGERVPROC GetIntegerv;
-    PFNGLGETINTERNALFORMATSAMPLEIVNVPROC GetInternalformatSampleivNV;
-    PFNGLGETINTERNALFORMATI64VPROC GetInternalformati64v;
-    PFNGLGETINTERNALFORMATIVPROC GetInternalformativ;
-    PFNGLGETINVARIANTBOOLEANVEXTPROC GetInvariantBooleanvEXT;
-    PFNGLGETINVARIANTFLOATVEXTPROC GetInvariantFloatvEXT;
-    PFNGLGETINVARIANTINTEGERVEXTPROC GetInvariantIntegervEXT;
-    PFNGLGETLIGHTXOESPROC GetLightxOES;
-    PFNGLGETLISTPARAMETERFVSGIXPROC GetListParameterfvSGIX;
-    PFNGLGETLISTPARAMETERIVSGIXPROC GetListParameterivSGIX;
-    PFNGLGETLOCALCONSTANTBOOLEANVEXTPROC GetLocalConstantBooleanvEXT;
-    PFNGLGETLOCALCONSTANTFLOATVEXTPROC GetLocalConstantFloatvEXT;
-    PFNGLGETLOCALCONSTANTINTEGERVEXTPROC GetLocalConstantIntegervEXT;
-    PFNGLGETMAPATTRIBPARAMETERFVNVPROC GetMapAttribParameterfvNV;
-    PFNGLGETMAPATTRIBPARAMETERIVNVPROC GetMapAttribParameterivNV;
-    PFNGLGETMAPCONTROLPOINTSNVPROC GetMapControlPointsNV;
-    PFNGLGETMAPPARAMETERFVNVPROC GetMapParameterfvNV;
-    PFNGLGETMAPPARAMETERIVNVPROC GetMapParameterivNV;
-    PFNGLGETMAPXVOESPROC GetMapxvOES;
-    PFNGLGETMATERIALXOESPROC GetMaterialxOES;
-    PFNGLGETMEMORYOBJECTDETACHEDRESOURCESUIVNVPROC GetMemoryObjectDetachedResourcesuivNV;
-    PFNGLGETMEMORYOBJECTPARAMETERIVEXTPROC GetMemoryObjectParameterivEXT;
-    PFNGLGETMINMAXEXTPROC GetMinmaxEXT;
-    PFNGLGETMINMAXPARAMETERFVEXTPROC GetMinmaxParameterfvEXT;
-    PFNGLGETMINMAXPARAMETERIVEXTPROC GetMinmaxParameterivEXT;
-    PFNGLGETMULTITEXENVFVEXTPROC GetMultiTexEnvfvEXT;
-    PFNGLGETMULTITEXENVIVEXTPROC GetMultiTexEnvivEXT;
-    PFNGLGETMULTITEXGENDVEXTPROC GetMultiTexGendvEXT;
-    PFNGLGETMULTITEXGENFVEXTPROC GetMultiTexGenfvEXT;
-    PFNGLGETMULTITEXGENIVEXTPROC GetMultiTexGenivEXT;
-    PFNGLGETMULTITEXIMAGEEXTPROC GetMultiTexImageEXT;
-    PFNGLGETMULTITEXLEVELPARAMETERFVEXTPROC GetMultiTexLevelParameterfvEXT;
-    PFNGLGETMULTITEXLEVELPARAMETERIVEXTPROC GetMultiTexLevelParameterivEXT;
-    PFNGLGETMULTITEXPARAMETERIIVEXTPROC GetMultiTexParameterIivEXT;
-    PFNGLGETMULTITEXPARAMETERIUIVEXTPROC GetMultiTexParameterIuivEXT;
-    PFNGLGETMULTITEXPARAMETERFVEXTPROC GetMultiTexParameterfvEXT;
-    PFNGLGETMULTITEXPARAMETERIVEXTPROC GetMultiTexParameterivEXT;
-    PFNGLGETMULTISAMPLEFVPROC GetMultisamplefv;
-    PFNGLGETMULTISAMPLEFVNVPROC GetMultisamplefvNV;
-    PFNGLGETNAMEDBUFFERPARAMETERI64VPROC GetNamedBufferParameteri64v;
-    PFNGLGETNAMEDBUFFERPARAMETERIVPROC GetNamedBufferParameteriv;
-    PFNGLGETNAMEDBUFFERPARAMETERIVEXTPROC GetNamedBufferParameterivEXT;
-    PFNGLGETNAMEDBUFFERPARAMETERUI64VNVPROC GetNamedBufferParameterui64vNV;
-    PFNGLGETNAMEDBUFFERPOINTERVPROC GetNamedBufferPointerv;
-    PFNGLGETNAMEDBUFFERPOINTERVEXTPROC GetNamedBufferPointervEXT;
-    PFNGLGETNAMEDBUFFERSUBDATAPROC GetNamedBufferSubData;
-    PFNGLGETNAMEDBUFFERSUBDATAEXTPROC GetNamedBufferSubDataEXT;
-    PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVPROC GetNamedFramebufferAttachmentParameteriv;
-    PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC GetNamedFramebufferAttachmentParameterivEXT;
-    PFNGLGETNAMEDFRAMEBUFFERPARAMETERFVAMDPROC GetNamedFramebufferParameterfvAMD;
-    PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVPROC GetNamedFramebufferParameteriv;
-    PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVEXTPROC GetNamedFramebufferParameterivEXT;
-    PFNGLGETNAMEDPROGRAMLOCALPARAMETERIIVEXTPROC GetNamedProgramLocalParameterIivEXT;
-    PFNGLGETNAMEDPROGRAMLOCALPARAMETERIUIVEXTPROC GetNamedProgramLocalParameterIuivEXT;
-    PFNGLGETNAMEDPROGRAMLOCALPARAMETERDVEXTPROC GetNamedProgramLocalParameterdvEXT;
-    PFNGLGETNAMEDPROGRAMLOCALPARAMETERFVEXTPROC GetNamedProgramLocalParameterfvEXT;
-    PFNGLGETNAMEDPROGRAMSTRINGEXTPROC GetNamedProgramStringEXT;
-    PFNGLGETNAMEDPROGRAMIVEXTPROC GetNamedProgramivEXT;
-    PFNGLGETNAMEDRENDERBUFFERPARAMETERIVPROC GetNamedRenderbufferParameteriv;
-    PFNGLGETNAMEDRENDERBUFFERPARAMETERIVEXTPROC GetNamedRenderbufferParameterivEXT;
-    PFNGLGETNAMEDSTRINGARBPROC GetNamedStringARB;
-    PFNGLGETNAMEDSTRINGIVARBPROC GetNamedStringivARB;
-    PFNGLGETNEXTPERFQUERYIDINTELPROC GetNextPerfQueryIdINTEL;
-    PFNGLGETOBJECTBUFFERFVATIPROC GetObjectBufferfvATI;
-    PFNGLGETOBJECTBUFFERIVATIPROC GetObjectBufferivATI;
-    PFNGLGETOBJECTLABELPROC GetObjectLabel;
-    PFNGLGETOBJECTLABELEXTPROC GetObjectLabelEXT;
-    PFNGLGETOBJECTPARAMETERFVARBPROC GetObjectParameterfvARB;
-    PFNGLGETOBJECTPARAMETERIVAPPLEPROC GetObjectParameterivAPPLE;
-    PFNGLGETOBJECTPARAMETERIVARBPROC GetObjectParameterivARB;
-    PFNGLGETOBJECTPTRLABELPROC GetObjectPtrLabel;
-    PFNGLGETOCCLUSIONQUERYIVNVPROC GetOcclusionQueryivNV;
-    PFNGLGETOCCLUSIONQUERYUIVNVPROC GetOcclusionQueryuivNV;
-    PFNGLGETPATHCOMMANDSNVPROC GetPathCommandsNV;
-    PFNGLGETPATHCOORDSNVPROC GetPathCoordsNV;
-    PFNGLGETPATHDASHARRAYNVPROC GetPathDashArrayNV;
-    PFNGLGETPATHLENGTHNVPROC GetPathLengthNV;
-    PFNGLGETPATHMETRICRANGENVPROC GetPathMetricRangeNV;
-    PFNGLGETPATHMETRICSNVPROC GetPathMetricsNV;
-    PFNGLGETPATHPARAMETERFVNVPROC GetPathParameterfvNV;
-    PFNGLGETPATHPARAMETERIVNVPROC GetPathParameterivNV;
-    PFNGLGETPATHSPACINGNVPROC GetPathSpacingNV;
-    PFNGLGETPERFCOUNTERINFOINTELPROC GetPerfCounterInfoINTEL;
-    PFNGLGETPERFMONITORCOUNTERDATAAMDPROC GetPerfMonitorCounterDataAMD;
-    PFNGLGETPERFMONITORCOUNTERINFOAMDPROC GetPerfMonitorCounterInfoAMD;
-    PFNGLGETPERFMONITORCOUNTERSTRINGAMDPROC GetPerfMonitorCounterStringAMD;
-    PFNGLGETPERFMONITORCOUNTERSAMDPROC GetPerfMonitorCountersAMD;
-    PFNGLGETPERFMONITORGROUPSTRINGAMDPROC GetPerfMonitorGroupStringAMD;
-    PFNGLGETPERFMONITORGROUPSAMDPROC GetPerfMonitorGroupsAMD;
-    PFNGLGETPERFQUERYDATAINTELPROC GetPerfQueryDataINTEL;
-    PFNGLGETPERFQUERYIDBYNAMEINTELPROC GetPerfQueryIdByNameINTEL;
-    PFNGLGETPERFQUERYINFOINTELPROC GetPerfQueryInfoINTEL;
-    PFNGLGETPIXELMAPXVPROC GetPixelMapxv;
-    PFNGLGETPIXELTEXGENPARAMETERFVSGISPROC GetPixelTexGenParameterfvSGIS;
-    PFNGLGETPIXELTEXGENPARAMETERIVSGISPROC GetPixelTexGenParameterivSGIS;
-    PFNGLGETPIXELTRANSFORMPARAMETERFVEXTPROC GetPixelTransformParameterfvEXT;
-    PFNGLGETPIXELTRANSFORMPARAMETERIVEXTPROC GetPixelTransformParameterivEXT;
-    PFNGLGETPOINTERINDEXEDVEXTPROC GetPointerIndexedvEXT;
-    PFNGLGETPOINTERI_VEXTPROC GetPointeri_vEXT;
-    PFNGLGETPOINTERVPROC GetPointerv;
-    PFNGLGETPOINTERVEXTPROC GetPointervEXT;
-    PFNGLGETPROGRAMBINARYPROC GetProgramBinary;
-    PFNGLGETPROGRAMENVPARAMETERIIVNVPROC GetProgramEnvParameterIivNV;
-    PFNGLGETPROGRAMENVPARAMETERIUIVNVPROC GetProgramEnvParameterIuivNV;
-    PFNGLGETPROGRAMENVPARAMETERDVARBPROC GetProgramEnvParameterdvARB;
-    PFNGLGETPROGRAMENVPARAMETERFVARBPROC GetProgramEnvParameterfvARB;
-    PFNGLGETPROGRAMINFOLOGPROC GetProgramInfoLog;
-    PFNGLGETPROGRAMINTERFACEIVPROC GetProgramInterfaceiv;
-    PFNGLGETPROGRAMLOCALPARAMETERIIVNVPROC GetProgramLocalParameterIivNV;
-    PFNGLGETPROGRAMLOCALPARAMETERIUIVNVPROC GetProgramLocalParameterIuivNV;
-    PFNGLGETPROGRAMLOCALPARAMETERDVARBPROC GetProgramLocalParameterdvARB;
-    PFNGLGETPROGRAMLOCALPARAMETERFVARBPROC GetProgramLocalParameterfvARB;
-    PFNGLGETPROGRAMNAMEDPARAMETERDVNVPROC GetProgramNamedParameterdvNV;
-    PFNGLGETPROGRAMNAMEDPARAMETERFVNVPROC GetProgramNamedParameterfvNV;
-    PFNGLGETPROGRAMPARAMETERDVNVPROC GetProgramParameterdvNV;
-    PFNGLGETPROGRAMPARAMETERFVNVPROC GetProgramParameterfvNV;
-    PFNGLGETPROGRAMPIPELINEINFOLOGPROC GetProgramPipelineInfoLog;
-    PFNGLGETPROGRAMPIPELINEIVPROC GetProgramPipelineiv;
-    PFNGLGETPROGRAMRESOURCEINDEXPROC GetProgramResourceIndex;
-    PFNGLGETPROGRAMRESOURCELOCATIONPROC GetProgramResourceLocation;
-    PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC GetProgramResourceLocationIndex;
-    PFNGLGETPROGRAMRESOURCENAMEPROC GetProgramResourceName;
-    PFNGLGETPROGRAMRESOURCEFVNVPROC GetProgramResourcefvNV;
-    PFNGLGETPROGRAMRESOURCEIVPROC GetProgramResourceiv;
-    PFNGLGETPROGRAMSTAGEIVPROC GetProgramStageiv;
-    PFNGLGETPROGRAMSTRINGARBPROC GetProgramStringARB;
-    PFNGLGETPROGRAMSTRINGNVPROC GetProgramStringNV;
-    PFNGLGETPROGRAMSUBROUTINEPARAMETERUIVNVPROC GetProgramSubroutineParameteruivNV;
-    PFNGLGETPROGRAMIVPROC GetProgramiv;
-    PFNGLGETPROGRAMIVARBPROC GetProgramivARB;
-    PFNGLGETPROGRAMIVNVPROC GetProgramivNV;
-    PFNGLGETQUERYBUFFEROBJECTI64VPROC GetQueryBufferObjecti64v;
-    PFNGLGETQUERYBUFFEROBJECTIVPROC GetQueryBufferObjectiv;
-    PFNGLGETQUERYBUFFEROBJECTUI64VPROC GetQueryBufferObjectui64v;
-    PFNGLGETQUERYBUFFEROBJECTUIVPROC GetQueryBufferObjectuiv;
-    PFNGLGETQUERYINDEXEDIVPROC GetQueryIndexediv;
-    PFNGLGETQUERYOBJECTI64VPROC GetQueryObjecti64v;
-    PFNGLGETQUERYOBJECTI64VEXTPROC GetQueryObjecti64vEXT;
-    PFNGLGETQUERYOBJECTIVPROC GetQueryObjectiv;
-    PFNGLGETQUERYOBJECTIVARBPROC GetQueryObjectivARB;
-    PFNGLGETQUERYOBJECTUI64VPROC GetQueryObjectui64v;
-    PFNGLGETQUERYOBJECTUI64VEXTPROC GetQueryObjectui64vEXT;
-    PFNGLGETQUERYOBJECTUIVPROC GetQueryObjectuiv;
-    PFNGLGETQUERYOBJECTUIVARBPROC GetQueryObjectuivARB;
-    PFNGLGETQUERYIVPROC GetQueryiv;
-    PFNGLGETQUERYIVARBPROC GetQueryivARB;
-    PFNGLGETRENDERBUFFERPARAMETERIVPROC GetRenderbufferParameteriv;
-    PFNGLGETRENDERBUFFERPARAMETERIVEXTPROC GetRenderbufferParameterivEXT;
-    PFNGLGETSAMPLERPARAMETERIIVPROC GetSamplerParameterIiv;
-    PFNGLGETSAMPLERPARAMETERIUIVPROC GetSamplerParameterIuiv;
-    PFNGLGETSAMPLERPARAMETERFVPROC GetSamplerParameterfv;
-    PFNGLGETSAMPLERPARAMETERIVPROC GetSamplerParameteriv;
-    PFNGLGETSEMAPHOREPARAMETERIVNVPROC GetSemaphoreParameterivNV;
-    PFNGLGETSEMAPHOREPARAMETERUI64VEXTPROC GetSemaphoreParameterui64vEXT;
-    PFNGLGETSEPARABLEFILTEREXTPROC GetSeparableFilterEXT;
-    PFNGLGETSHADERINFOLOGPROC GetShaderInfoLog;
-    PFNGLGETSHADERPRECISIONFORMATPROC GetShaderPrecisionFormat;
-    PFNGLGETSHADERSOURCEPROC GetShaderSource;
-    PFNGLGETSHADERSOURCEARBPROC GetShaderSourceARB;
-    PFNGLGETSHADERIVPROC GetShaderiv;
-    PFNGLGETSHADINGRATEIMAGEPALETTENVPROC GetShadingRateImagePaletteNV;
-    PFNGLGETSHADINGRATESAMPLELOCATIONIVNVPROC GetShadingRateSampleLocationivNV;
-    PFNGLGETSHARPENTEXFUNCSGISPROC GetSharpenTexFuncSGIS;
-    PFNGLGETSTAGEINDEXNVPROC GetStageIndexNV;
-    PFNGLGETSTRINGPROC GetString;
-    PFNGLGETSTRINGIPROC GetStringi;
-    PFNGLGETSUBROUTINEINDEXPROC GetSubroutineIndex;
-    PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC GetSubroutineUniformLocation;
-    PFNGLGETSYNCIVPROC GetSynciv;
-    PFNGLGETTEXBUMPPARAMETERFVATIPROC GetTexBumpParameterfvATI;
-    PFNGLGETTEXBUMPPARAMETERIVATIPROC GetTexBumpParameterivATI;
-    PFNGLGETTEXENVXVOESPROC GetTexEnvxvOES;
-    PFNGLGETTEXFILTERFUNCSGISPROC GetTexFilterFuncSGIS;
-    PFNGLGETTEXGENXVOESPROC GetTexGenxvOES;
-    PFNGLGETTEXIMAGEPROC GetTexImage;
-    PFNGLGETTEXLEVELPARAMETERFVPROC GetTexLevelParameterfv;
-    PFNGLGETTEXLEVELPARAMETERIVPROC GetTexLevelParameteriv;
-    PFNGLGETTEXLEVELPARAMETERXVOESPROC GetTexLevelParameterxvOES;
-    PFNGLGETTEXPARAMETERIIVPROC GetTexParameterIiv;
-    PFNGLGETTEXPARAMETERIIVEXTPROC GetTexParameterIivEXT;
-    PFNGLGETTEXPARAMETERIUIVPROC GetTexParameterIuiv;
-    PFNGLGETTEXPARAMETERIUIVEXTPROC GetTexParameterIuivEXT;
-    PFNGLGETTEXPARAMETERPOINTERVAPPLEPROC GetTexParameterPointervAPPLE;
-    PFNGLGETTEXPARAMETERFVPROC GetTexParameterfv;
-    PFNGLGETTEXPARAMETERIVPROC GetTexParameteriv;
-    PFNGLGETTEXPARAMETERXVOESPROC GetTexParameterxvOES;
-    PFNGLGETTEXTUREHANDLEARBPROC GetTextureHandleARB;
-    PFNGLGETTEXTUREHANDLENVPROC GetTextureHandleNV;
-    PFNGLGETTEXTUREIMAGEPROC GetTextureImage;
-    PFNGLGETTEXTUREIMAGEEXTPROC GetTextureImageEXT;
-    PFNGLGETTEXTURELEVELPARAMETERFVPROC GetTextureLevelParameterfv;
-    PFNGLGETTEXTURELEVELPARAMETERFVEXTPROC GetTextureLevelParameterfvEXT;
-    PFNGLGETTEXTURELEVELPARAMETERIVPROC GetTextureLevelParameteriv;
-    PFNGLGETTEXTURELEVELPARAMETERIVEXTPROC GetTextureLevelParameterivEXT;
-    PFNGLGETTEXTUREPARAMETERIIVPROC GetTextureParameterIiv;
-    PFNGLGETTEXTUREPARAMETERIIVEXTPROC GetTextureParameterIivEXT;
-    PFNGLGETTEXTUREPARAMETERIUIVPROC GetTextureParameterIuiv;
-    PFNGLGETTEXTUREPARAMETERIUIVEXTPROC GetTextureParameterIuivEXT;
-    PFNGLGETTEXTUREPARAMETERFVPROC GetTextureParameterfv;
-    PFNGLGETTEXTUREPARAMETERFVEXTPROC GetTextureParameterfvEXT;
-    PFNGLGETTEXTUREPARAMETERIVPROC GetTextureParameteriv;
-    PFNGLGETTEXTUREPARAMETERIVEXTPROC GetTextureParameterivEXT;
-    PFNGLGETTEXTURESAMPLERHANDLEARBPROC GetTextureSamplerHandleARB;
-    PFNGLGETTEXTURESAMPLERHANDLENVPROC GetTextureSamplerHandleNV;
-    PFNGLGETTEXTURESUBIMAGEPROC GetTextureSubImage;
-    PFNGLGETTRACKMATRIXIVNVPROC GetTrackMatrixivNV;
-    PFNGLGETTRANSFORMFEEDBACKVARYINGPROC GetTransformFeedbackVarying;
-    PFNGLGETTRANSFORMFEEDBACKVARYINGEXTPROC GetTransformFeedbackVaryingEXT;
-    PFNGLGETTRANSFORMFEEDBACKVARYINGNVPROC GetTransformFeedbackVaryingNV;
-    PFNGLGETTRANSFORMFEEDBACKI64_VPROC GetTransformFeedbacki64_v;
-    PFNGLGETTRANSFORMFEEDBACKI_VPROC GetTransformFeedbacki_v;
-    PFNGLGETTRANSFORMFEEDBACKIVPROC GetTransformFeedbackiv;
-    PFNGLGETUNIFORMBLOCKINDEXPROC GetUniformBlockIndex;
-    PFNGLGETUNIFORMBUFFERSIZEEXTPROC GetUniformBufferSizeEXT;
-    PFNGLGETUNIFORMINDICESPROC GetUniformIndices;
-    PFNGLGETUNIFORMLOCATIONPROC GetUniformLocation;
-    PFNGLGETUNIFORMLOCATIONARBPROC GetUniformLocationARB;
-    PFNGLGETUNIFORMOFFSETEXTPROC GetUniformOffsetEXT;
-    PFNGLGETUNIFORMSUBROUTINEUIVPROC GetUniformSubroutineuiv;
-    PFNGLGETUNIFORMDVPROC GetUniformdv;
-    PFNGLGETUNIFORMFVPROC GetUniformfv;
-    PFNGLGETUNIFORMFVARBPROC GetUniformfvARB;
-    PFNGLGETUNIFORMI64VARBPROC GetUniformi64vARB;
-    PFNGLGETUNIFORMI64VNVPROC GetUniformi64vNV;
-    PFNGLGETUNIFORMIVPROC GetUniformiv;
-    PFNGLGETUNIFORMIVARBPROC GetUniformivARB;
-    PFNGLGETUNIFORMUI64VARBPROC GetUniformui64vARB;
-    PFNGLGETUNIFORMUI64VNVPROC GetUniformui64vNV;
-    PFNGLGETUNIFORMUIVPROC GetUniformuiv;
-    PFNGLGETUNIFORMUIVEXTPROC GetUniformuivEXT;
-    PFNGLGETUNSIGNEDBYTEI_VEXTPROC GetUnsignedBytei_vEXT;
-    PFNGLGETUNSIGNEDBYTEVEXTPROC GetUnsignedBytevEXT;
-    PFNGLGETVARIANTARRAYOBJECTFVATIPROC GetVariantArrayObjectfvATI;
-    PFNGLGETVARIANTARRAYOBJECTIVATIPROC GetVariantArrayObjectivATI;
-    PFNGLGETVARIANTBOOLEANVEXTPROC GetVariantBooleanvEXT;
-    PFNGLGETVARIANTFLOATVEXTPROC GetVariantFloatvEXT;
-    PFNGLGETVARIANTINTEGERVEXTPROC GetVariantIntegervEXT;
-    PFNGLGETVARIANTPOINTERVEXTPROC GetVariantPointervEXT;
-    PFNGLGETVARYINGLOCATIONNVPROC GetVaryingLocationNV;
-    PFNGLGETVERTEXARRAYINDEXED64IVPROC GetVertexArrayIndexed64iv;
-    PFNGLGETVERTEXARRAYINDEXEDIVPROC GetVertexArrayIndexediv;
-    PFNGLGETVERTEXARRAYINTEGERI_VEXTPROC GetVertexArrayIntegeri_vEXT;
-    PFNGLGETVERTEXARRAYINTEGERVEXTPROC GetVertexArrayIntegervEXT;
-    PFNGLGETVERTEXARRAYPOINTERI_VEXTPROC GetVertexArrayPointeri_vEXT;
-    PFNGLGETVERTEXARRAYPOINTERVEXTPROC GetVertexArrayPointervEXT;
-    PFNGLGETVERTEXARRAYIVPROC GetVertexArrayiv;
-    PFNGLGETVERTEXATTRIBARRAYOBJECTFVATIPROC GetVertexAttribArrayObjectfvATI;
-    PFNGLGETVERTEXATTRIBARRAYOBJECTIVATIPROC GetVertexAttribArrayObjectivATI;
-    PFNGLGETVERTEXATTRIBIIVPROC GetVertexAttribIiv;
-    PFNGLGETVERTEXATTRIBIIVEXTPROC GetVertexAttribIivEXT;
-    PFNGLGETVERTEXATTRIBIUIVPROC GetVertexAttribIuiv;
-    PFNGLGETVERTEXATTRIBIUIVEXTPROC GetVertexAttribIuivEXT;
-    PFNGLGETVERTEXATTRIBLDVPROC GetVertexAttribLdv;
-    PFNGLGETVERTEXATTRIBLDVEXTPROC GetVertexAttribLdvEXT;
-    PFNGLGETVERTEXATTRIBLI64VNVPROC GetVertexAttribLi64vNV;
-    PFNGLGETVERTEXATTRIBLUI64VARBPROC GetVertexAttribLui64vARB;
-    PFNGLGETVERTEXATTRIBLUI64VNVPROC GetVertexAttribLui64vNV;
-    PFNGLGETVERTEXATTRIBPOINTERVPROC GetVertexAttribPointerv;
-    PFNGLGETVERTEXATTRIBPOINTERVARBPROC GetVertexAttribPointervARB;
-    PFNGLGETVERTEXATTRIBPOINTERVNVPROC GetVertexAttribPointervNV;
-    PFNGLGETVERTEXATTRIBDVPROC GetVertexAttribdv;
-    PFNGLGETVERTEXATTRIBDVARBPROC GetVertexAttribdvARB;
-    PFNGLGETVERTEXATTRIBDVNVPROC GetVertexAttribdvNV;
-    PFNGLGETVERTEXATTRIBFVPROC GetVertexAttribfv;
-    PFNGLGETVERTEXATTRIBFVARBPROC GetVertexAttribfvARB;
-    PFNGLGETVERTEXATTRIBFVNVPROC GetVertexAttribfvNV;
-    PFNGLGETVERTEXATTRIBIVPROC GetVertexAttribiv;
-    PFNGLGETVERTEXATTRIBIVARBPROC GetVertexAttribivARB;
-    PFNGLGETVERTEXATTRIBIVNVPROC GetVertexAttribivNV;
-    PFNGLGETVIDEOCAPTURESTREAMDVNVPROC GetVideoCaptureStreamdvNV;
-    PFNGLGETVIDEOCAPTURESTREAMFVNVPROC GetVideoCaptureStreamfvNV;
-    PFNGLGETVIDEOCAPTURESTREAMIVNVPROC GetVideoCaptureStreamivNV;
-    PFNGLGETVIDEOCAPTUREIVNVPROC GetVideoCaptureivNV;
-    PFNGLGETVIDEOI64VNVPROC GetVideoi64vNV;
-    PFNGLGETVIDEOIVNVPROC GetVideoivNV;
-    PFNGLGETVIDEOUI64VNVPROC GetVideoui64vNV;
-    PFNGLGETVIDEOUIVNVPROC GetVideouivNV;
-    PFNGLGETVKPROCADDRNVPROC GetVkProcAddrNV;
-    PFNGLGETNCOMPRESSEDTEXIMAGEPROC GetnCompressedTexImage;
-    PFNGLGETNCOMPRESSEDTEXIMAGEARBPROC GetnCompressedTexImageARB;
-    PFNGLGETNTEXIMAGEPROC GetnTexImage;
-    PFNGLGETNTEXIMAGEARBPROC GetnTexImageARB;
-    PFNGLGETNUNIFORMDVPROC GetnUniformdv;
-    PFNGLGETNUNIFORMDVARBPROC GetnUniformdvARB;
-    PFNGLGETNUNIFORMFVPROC GetnUniformfv;
-    PFNGLGETNUNIFORMFVARBPROC GetnUniformfvARB;
-    PFNGLGETNUNIFORMI64VARBPROC GetnUniformi64vARB;
-    PFNGLGETNUNIFORMIVPROC GetnUniformiv;
-    PFNGLGETNUNIFORMIVARBPROC GetnUniformivARB;
-    PFNGLGETNUNIFORMUI64VARBPROC GetnUniformui64vARB;
-    PFNGLGETNUNIFORMUIVPROC GetnUniformuiv;
-    PFNGLGETNUNIFORMUIVARBPROC GetnUniformuivARB;
-    PFNGLGLOBALALPHAFACTORBSUNPROC GlobalAlphaFactorbSUN;
-    PFNGLGLOBALALPHAFACTORDSUNPROC GlobalAlphaFactordSUN;
-    PFNGLGLOBALALPHAFACTORFSUNPROC GlobalAlphaFactorfSUN;
-    PFNGLGLOBALALPHAFACTORISUNPROC GlobalAlphaFactoriSUN;
-    PFNGLGLOBALALPHAFACTORSSUNPROC GlobalAlphaFactorsSUN;
-    PFNGLGLOBALALPHAFACTORUBSUNPROC GlobalAlphaFactorubSUN;
-    PFNGLGLOBALALPHAFACTORUISUNPROC GlobalAlphaFactoruiSUN;
-    PFNGLGLOBALALPHAFACTORUSSUNPROC GlobalAlphaFactorusSUN;
-    PFNGLHINTPROC Hint;
-    PFNGLHINTPGIPROC HintPGI;
-    PFNGLHISTOGRAMEXTPROC HistogramEXT;
-    PFNGLIGLOOINTERFACESGIXPROC IglooInterfaceSGIX;
-    PFNGLIMAGETRANSFORMPARAMETERFHPPROC ImageTransformParameterfHP;
-    PFNGLIMAGETRANSFORMPARAMETERFVHPPROC ImageTransformParameterfvHP;
-    PFNGLIMAGETRANSFORMPARAMETERIHPPROC ImageTransformParameteriHP;
-    PFNGLIMAGETRANSFORMPARAMETERIVHPPROC ImageTransformParameterivHP;
-    PFNGLIMPORTMEMORYFDEXTPROC ImportMemoryFdEXT;
-    PFNGLIMPORTMEMORYWIN32HANDLEEXTPROC ImportMemoryWin32HandleEXT;
-    PFNGLIMPORTMEMORYWIN32NAMEEXTPROC ImportMemoryWin32NameEXT;
-    PFNGLIMPORTMEMORYZIRCONHANDLEANGLEPROC ImportMemoryZirconHandleANGLE;
-    PFNGLIMPORTSEMAPHOREFDEXTPROC ImportSemaphoreFdEXT;
-    PFNGLIMPORTSEMAPHOREWIN32HANDLEEXTPROC ImportSemaphoreWin32HandleEXT;
-    PFNGLIMPORTSEMAPHOREWIN32NAMEEXTPROC ImportSemaphoreWin32NameEXT;
-    PFNGLIMPORTSEMAPHOREZIRCONHANDLEANGLEPROC ImportSemaphoreZirconHandleANGLE;
-    PFNGLIMPORTSYNCEXTPROC ImportSyncEXT;
-    PFNGLINDEXFORMATNVPROC IndexFormatNV;
-    PFNGLINDEXFUNCEXTPROC IndexFuncEXT;
-    PFNGLINDEXMATERIALEXTPROC IndexMaterialEXT;
-    PFNGLINDEXPOINTEREXTPROC IndexPointerEXT;
-    PFNGLINDEXPOINTERLISTIBMPROC IndexPointerListIBM;
-    PFNGLINDEXXOESPROC IndexxOES;
-    PFNGLINDEXXVOESPROC IndexxvOES;
-    PFNGLINSERTCOMPONENTEXTPROC InsertComponentEXT;
-    PFNGLINSERTEVENTMARKEREXTPROC InsertEventMarkerEXT;
-    PFNGLINSTRUMENTSBUFFERSGIXPROC InstrumentsBufferSGIX;
-    PFNGLINTERPOLATEPATHSNVPROC InterpolatePathsNV;
-    PFNGLINVALIDATEBUFFERDATAPROC InvalidateBufferData;
-    PFNGLINVALIDATEBUFFERSUBDATAPROC InvalidateBufferSubData;
-    PFNGLINVALIDATEFRAMEBUFFERPROC InvalidateFramebuffer;
-    PFNGLINVALIDATENAMEDFRAMEBUFFERDATAPROC InvalidateNamedFramebufferData;
-    PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC InvalidateNamedFramebufferSubData;
-    PFNGLINVALIDATESUBFRAMEBUFFERPROC InvalidateSubFramebuffer;
-    PFNGLINVALIDATETEXIMAGEPROC InvalidateTexImage;
-    PFNGLINVALIDATETEXSUBIMAGEPROC InvalidateTexSubImage;
-    PFNGLINVALIDATETEXTUREANGLEPROC InvalidateTextureANGLE;
-    PFNGLISASYNCMARKERSGIXPROC IsAsyncMarkerSGIX;
-    PFNGLISBUFFERPROC IsBuffer;
-    PFNGLISBUFFERARBPROC IsBufferARB;
-    PFNGLISBUFFERRESIDENTNVPROC IsBufferResidentNV;
-    PFNGLISCOMMANDLISTNVPROC IsCommandListNV;
-    PFNGLISENABLEDPROC IsEnabled;
-    PFNGLISENABLEDINDEXEDEXTPROC IsEnabledIndexedEXT;
-    PFNGLISENABLEDIPROC IsEnabledi;
-    PFNGLISFENCEAPPLEPROC IsFenceAPPLE;
-    PFNGLISFENCENVPROC IsFenceNV;
-    PFNGLISFRAMEBUFFERPROC IsFramebuffer;
-    PFNGLISFRAMEBUFFEREXTPROC IsFramebufferEXT;
-    PFNGLISIMAGEHANDLERESIDENTARBPROC IsImageHandleResidentARB;
-    PFNGLISIMAGEHANDLERESIDENTNVPROC IsImageHandleResidentNV;
-    PFNGLISMEMORYOBJECTEXTPROC IsMemoryObjectEXT;
-    PFNGLISNAMEAMDPROC IsNameAMD;
-    PFNGLISNAMEDBUFFERRESIDENTNVPROC IsNamedBufferResidentNV;
-    PFNGLISNAMEDSTRINGARBPROC IsNamedStringARB;
-    PFNGLISOBJECTBUFFERATIPROC IsObjectBufferATI;
-    PFNGLISOCCLUSIONQUERYNVPROC IsOcclusionQueryNV;
-    PFNGLISPATHNVPROC IsPathNV;
-    PFNGLISPOINTINFILLPATHNVPROC IsPointInFillPathNV;
-    PFNGLISPOINTINSTROKEPATHNVPROC IsPointInStrokePathNV;
-    PFNGLISPROGRAMPROC IsProgram;
-    PFNGLISPROGRAMARBPROC IsProgramARB;
-    PFNGLISPROGRAMNVPROC IsProgramNV;
-    PFNGLISPROGRAMPIPELINEPROC IsProgramPipeline;
-    PFNGLISQUERYPROC IsQuery;
-    PFNGLISQUERYARBPROC IsQueryARB;
-    PFNGLISRENDERBUFFERPROC IsRenderbuffer;
-    PFNGLISRENDERBUFFEREXTPROC IsRenderbufferEXT;
-    PFNGLISSAMPLERPROC IsSampler;
-    PFNGLISSEMAPHOREEXTPROC IsSemaphoreEXT;
-    PFNGLISSHADERPROC IsShader;
-    PFNGLISSTATENVPROC IsStateNV;
-    PFNGLISSYNCPROC IsSync;
-    PFNGLISTEXTUREPROC IsTexture;
-    PFNGLISTEXTUREEXTPROC IsTextureEXT;
-    PFNGLISTEXTUREHANDLERESIDENTARBPROC IsTextureHandleResidentARB;
-    PFNGLISTEXTUREHANDLERESIDENTNVPROC IsTextureHandleResidentNV;
-    PFNGLISTRANSFORMFEEDBACKPROC IsTransformFeedback;
-    PFNGLISTRANSFORMFEEDBACKNVPROC IsTransformFeedbackNV;
-    PFNGLISVARIANTENABLEDEXTPROC IsVariantEnabledEXT;
-    PFNGLISVERTEXARRAYPROC IsVertexArray;
-    PFNGLISVERTEXARRAYAPPLEPROC IsVertexArrayAPPLE;
-    PFNGLISVERTEXATTRIBENABLEDAPPLEPROC IsVertexAttribEnabledAPPLE;
-    PFNGLLGPUCOPYIMAGESUBDATANVXPROC LGPUCopyImageSubDataNVX;
-    PFNGLLGPUINTERLOCKNVXPROC LGPUInterlockNVX;
-    PFNGLLGPUNAMEDBUFFERSUBDATANVXPROC LGPUNamedBufferSubDataNVX;
-    PFNGLLABELOBJECTEXTPROC LabelObjectEXT;
-    PFNGLLIGHTENVISGIXPROC LightEnviSGIX;
-    PFNGLLIGHTMODELXOESPROC LightModelxOES;
-    PFNGLLIGHTMODELXVOESPROC LightModelxvOES;
-    PFNGLLIGHTXOESPROC LightxOES;
-    PFNGLLIGHTXVOESPROC LightxvOES;
-    PFNGLLINEWIDTHPROC LineWidth;
-    PFNGLLINEWIDTHXOESPROC LineWidthxOES;
-    PFNGLLINKPROGRAMPROC LinkProgram;
-    PFNGLLINKPROGRAMARBPROC LinkProgramARB;
-    PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC ListDrawCommandsStatesClientNV;
-    PFNGLLISTPARAMETERFSGIXPROC ListParameterfSGIX;
-    PFNGLLISTPARAMETERFVSGIXPROC ListParameterfvSGIX;
-    PFNGLLISTPARAMETERISGIXPROC ListParameteriSGIX;
-    PFNGLLISTPARAMETERIVSGIXPROC ListParameterivSGIX;
-    PFNGLLOADIDENTITYDEFORMATIONMAPSGIXPROC LoadIdentityDeformationMapSGIX;
-    PFNGLLOADMATRIXXOESPROC LoadMatrixxOES;
-    PFNGLLOADPROGRAMNVPROC LoadProgramNV;
-    PFNGLLOADTRANSPOSEMATRIXDARBPROC LoadTransposeMatrixdARB;
-    PFNGLLOADTRANSPOSEMATRIXFARBPROC LoadTransposeMatrixfARB;
-    PFNGLLOADTRANSPOSEMATRIXXOESPROC LoadTransposeMatrixxOES;
-    PFNGLLOCKARRAYSEXTPROC LockArraysEXT;
-    PFNGLLOGICOPPROC LogicOp;
-    PFNGLMAKEBUFFERNONRESIDENTNVPROC MakeBufferNonResidentNV;
-    PFNGLMAKEBUFFERRESIDENTNVPROC MakeBufferResidentNV;
-    PFNGLMAKEIMAGEHANDLENONRESIDENTARBPROC MakeImageHandleNonResidentARB;
-    PFNGLMAKEIMAGEHANDLENONRESIDENTNVPROC MakeImageHandleNonResidentNV;
-    PFNGLMAKEIMAGEHANDLERESIDENTARBPROC MakeImageHandleResidentARB;
-    PFNGLMAKEIMAGEHANDLERESIDENTNVPROC MakeImageHandleResidentNV;
-    PFNGLMAKENAMEDBUFFERNONRESIDENTNVPROC MakeNamedBufferNonResidentNV;
-    PFNGLMAKENAMEDBUFFERRESIDENTNVPROC MakeNamedBufferResidentNV;
-    PFNGLMAKETEXTUREHANDLENONRESIDENTARBPROC MakeTextureHandleNonResidentARB;
-    PFNGLMAKETEXTUREHANDLENONRESIDENTNVPROC MakeTextureHandleNonResidentNV;
-    PFNGLMAKETEXTUREHANDLERESIDENTARBPROC MakeTextureHandleResidentARB;
-    PFNGLMAKETEXTUREHANDLERESIDENTNVPROC MakeTextureHandleResidentNV;
-    PFNGLMAP1XOESPROC Map1xOES;
-    PFNGLMAP2XOESPROC Map2xOES;
-    PFNGLMAPBUFFERPROC MapBuffer;
-    PFNGLMAPBUFFERARBPROC MapBufferARB;
-    PFNGLMAPBUFFERRANGEPROC MapBufferRange;
-    PFNGLMAPCONTROLPOINTSNVPROC MapControlPointsNV;
-    PFNGLMAPGRID1XOESPROC MapGrid1xOES;
-    PFNGLMAPGRID2XOESPROC MapGrid2xOES;
-    PFNGLMAPNAMEDBUFFERPROC MapNamedBuffer;
-    PFNGLMAPNAMEDBUFFEREXTPROC MapNamedBufferEXT;
-    PFNGLMAPNAMEDBUFFERRANGEPROC MapNamedBufferRange;
-    PFNGLMAPNAMEDBUFFERRANGEEXTPROC MapNamedBufferRangeEXT;
-    PFNGLMAPOBJECTBUFFERATIPROC MapObjectBufferATI;
-    PFNGLMAPPARAMETERFVNVPROC MapParameterfvNV;
-    PFNGLMAPPARAMETERIVNVPROC MapParameterivNV;
-    PFNGLMAPTEXTURE2DINTELPROC MapTexture2DINTEL;
-    PFNGLMAPVERTEXATTRIB1DAPPLEPROC MapVertexAttrib1dAPPLE;
-    PFNGLMAPVERTEXATTRIB1FAPPLEPROC MapVertexAttrib1fAPPLE;
-    PFNGLMAPVERTEXATTRIB2DAPPLEPROC MapVertexAttrib2dAPPLE;
-    PFNGLMAPVERTEXATTRIB2FAPPLEPROC MapVertexAttrib2fAPPLE;
-    PFNGLMATERIALXOESPROC MaterialxOES;
-    PFNGLMATERIALXVOESPROC MaterialxvOES;
-    PFNGLMATRIXFRUSTUMEXTPROC MatrixFrustumEXT;
-    PFNGLMATRIXINDEXPOINTERARBPROC MatrixIndexPointerARB;
-    PFNGLMATRIXINDEXUBVARBPROC MatrixIndexubvARB;
-    PFNGLMATRIXINDEXUIVARBPROC MatrixIndexuivARB;
-    PFNGLMATRIXINDEXUSVARBPROC MatrixIndexusvARB;
-    PFNGLMATRIXLOAD3X2FNVPROC MatrixLoad3x2fNV;
-    PFNGLMATRIXLOAD3X3FNVPROC MatrixLoad3x3fNV;
-    PFNGLMATRIXLOADIDENTITYEXTPROC MatrixLoadIdentityEXT;
-    PFNGLMATRIXLOADTRANSPOSE3X3FNVPROC MatrixLoadTranspose3x3fNV;
-    PFNGLMATRIXLOADTRANSPOSEDEXTPROC MatrixLoadTransposedEXT;
-    PFNGLMATRIXLOADTRANSPOSEFEXTPROC MatrixLoadTransposefEXT;
-    PFNGLMATRIXLOADDEXTPROC MatrixLoaddEXT;
-    PFNGLMATRIXLOADFEXTPROC MatrixLoadfEXT;
-    PFNGLMATRIXMULT3X2FNVPROC MatrixMult3x2fNV;
-    PFNGLMATRIXMULT3X3FNVPROC MatrixMult3x3fNV;
-    PFNGLMATRIXMULTTRANSPOSE3X3FNVPROC MatrixMultTranspose3x3fNV;
-    PFNGLMATRIXMULTTRANSPOSEDEXTPROC MatrixMultTransposedEXT;
-    PFNGLMATRIXMULTTRANSPOSEFEXTPROC MatrixMultTransposefEXT;
-    PFNGLMATRIXMULTDEXTPROC MatrixMultdEXT;
-    PFNGLMATRIXMULTFEXTPROC MatrixMultfEXT;
-    PFNGLMATRIXORTHOEXTPROC MatrixOrthoEXT;
-    PFNGLMATRIXPOPEXTPROC MatrixPopEXT;
-    PFNGLMATRIXPUSHEXTPROC MatrixPushEXT;
-    PFNGLMATRIXROTATEDEXTPROC MatrixRotatedEXT;
-    PFNGLMATRIXROTATEFEXTPROC MatrixRotatefEXT;
-    PFNGLMATRIXSCALEDEXTPROC MatrixScaledEXT;
-    PFNGLMATRIXSCALEFEXTPROC MatrixScalefEXT;
-    PFNGLMATRIXTRANSLATEDEXTPROC MatrixTranslatedEXT;
-    PFNGLMATRIXTRANSLATEFEXTPROC MatrixTranslatefEXT;
-    PFNGLMAXSHADERCOMPILERTHREADSARBPROC MaxShaderCompilerThreadsARB;
-    PFNGLMAXSHADERCOMPILERTHREADSKHRPROC MaxShaderCompilerThreadsKHR;
-    PFNGLMEMORYBARRIERPROC MemoryBarrier;
-    PFNGLMEMORYBARRIERBYREGIONPROC MemoryBarrierByRegion;
-    PFNGLMEMORYBARRIEREXTPROC MemoryBarrierEXT;
-    PFNGLMEMORYOBJECTPARAMETERIVEXTPROC MemoryObjectParameterivEXT;
-    PFNGLMINSAMPLESHADINGPROC MinSampleShading;
-    PFNGLMINSAMPLESHADINGARBPROC MinSampleShadingARB;
-    PFNGLMINMAXEXTPROC MinmaxEXT;
-    PFNGLMULTMATRIXXOESPROC MultMatrixxOES;
-    PFNGLMULTTRANSPOSEMATRIXDARBPROC MultTransposeMatrixdARB;
-    PFNGLMULTTRANSPOSEMATRIXFARBPROC MultTransposeMatrixfARB;
-    PFNGLMULTTRANSPOSEMATRIXXOESPROC MultTransposeMatrixxOES;
-    PFNGLMULTIDRAWARRAYSPROC MultiDrawArrays;
-    PFNGLMULTIDRAWARRAYSEXTPROC MultiDrawArraysEXT;
-    PFNGLMULTIDRAWARRAYSINDIRECTPROC MultiDrawArraysIndirect;
-    PFNGLMULTIDRAWARRAYSINDIRECTAMDPROC MultiDrawArraysIndirectAMD;
-    PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC MultiDrawArraysIndirectBindlessCountNV;
-    PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC MultiDrawArraysIndirectBindlessNV;
-    PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC MultiDrawArraysIndirectCount;
-    PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC MultiDrawArraysIndirectCountARB;
-    PFNGLMULTIDRAWELEMENTARRAYAPPLEPROC MultiDrawElementArrayAPPLE;
-    PFNGLMULTIDRAWELEMENTSPROC MultiDrawElements;
-    PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC MultiDrawElementsBaseVertex;
-    PFNGLMULTIDRAWELEMENTSEXTPROC MultiDrawElementsEXT;
-    PFNGLMULTIDRAWELEMENTSINDIRECTPROC MultiDrawElementsIndirect;
-    PFNGLMULTIDRAWELEMENTSINDIRECTAMDPROC MultiDrawElementsIndirectAMD;
-    PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC MultiDrawElementsIndirectBindlessCountNV;
-    PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC MultiDrawElementsIndirectBindlessNV;
-    PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTPROC MultiDrawElementsIndirectCount;
-    PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC MultiDrawElementsIndirectCountARB;
-    PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC MultiDrawMeshTasksIndirectCountNV;
-    PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC MultiDrawMeshTasksIndirectNV;
-    PFNGLMULTIDRAWRANGEELEMENTARRAYAPPLEPROC MultiDrawRangeElementArrayAPPLE;
-    PFNGLMULTIMODEDRAWARRAYSIBMPROC MultiModeDrawArraysIBM;
-    PFNGLMULTIMODEDRAWELEMENTSIBMPROC MultiModeDrawElementsIBM;
-    PFNGLMULTITEXBUFFEREXTPROC MultiTexBufferEXT;
-    PFNGLMULTITEXCOORD1BOESPROC MultiTexCoord1bOES;
-    PFNGLMULTITEXCOORD1BVOESPROC MultiTexCoord1bvOES;
-    PFNGLMULTITEXCOORD1DARBPROC MultiTexCoord1dARB;
-    PFNGLMULTITEXCOORD1DVARBPROC MultiTexCoord1dvARB;
-    PFNGLMULTITEXCOORD1FARBPROC MultiTexCoord1fARB;
-    PFNGLMULTITEXCOORD1FVARBPROC MultiTexCoord1fvARB;
-    PFNGLMULTITEXCOORD1HNVPROC MultiTexCoord1hNV;
-    PFNGLMULTITEXCOORD1HVNVPROC MultiTexCoord1hvNV;
-    PFNGLMULTITEXCOORD1IARBPROC MultiTexCoord1iARB;
-    PFNGLMULTITEXCOORD1IVARBPROC MultiTexCoord1ivARB;
-    PFNGLMULTITEXCOORD1SARBPROC MultiTexCoord1sARB;
-    PFNGLMULTITEXCOORD1SVARBPROC MultiTexCoord1svARB;
-    PFNGLMULTITEXCOORD1XOESPROC MultiTexCoord1xOES;
-    PFNGLMULTITEXCOORD1XVOESPROC MultiTexCoord1xvOES;
-    PFNGLMULTITEXCOORD2BOESPROC MultiTexCoord2bOES;
-    PFNGLMULTITEXCOORD2BVOESPROC MultiTexCoord2bvOES;
-    PFNGLMULTITEXCOORD2DARBPROC MultiTexCoord2dARB;
-    PFNGLMULTITEXCOORD2DVARBPROC MultiTexCoord2dvARB;
-    PFNGLMULTITEXCOORD2FARBPROC MultiTexCoord2fARB;
-    PFNGLMULTITEXCOORD2FVARBPROC MultiTexCoord2fvARB;
-    PFNGLMULTITEXCOORD2HNVPROC MultiTexCoord2hNV;
-    PFNGLMULTITEXCOORD2HVNVPROC MultiTexCoord2hvNV;
-    PFNGLMULTITEXCOORD2IARBPROC MultiTexCoord2iARB;
-    PFNGLMULTITEXCOORD2IVARBPROC MultiTexCoord2ivARB;
-    PFNGLMULTITEXCOORD2SARBPROC MultiTexCoord2sARB;
-    PFNGLMULTITEXCOORD2SVARBPROC MultiTexCoord2svARB;
-    PFNGLMULTITEXCOORD2XOESPROC MultiTexCoord2xOES;
-    PFNGLMULTITEXCOORD2XVOESPROC MultiTexCoord2xvOES;
-    PFNGLMULTITEXCOORD3BOESPROC MultiTexCoord3bOES;
-    PFNGLMULTITEXCOORD3BVOESPROC MultiTexCoord3bvOES;
-    PFNGLMULTITEXCOORD3DARBPROC MultiTexCoord3dARB;
-    PFNGLMULTITEXCOORD3DVARBPROC MultiTexCoord3dvARB;
-    PFNGLMULTITEXCOORD3FARBPROC MultiTexCoord3fARB;
-    PFNGLMULTITEXCOORD3FVARBPROC MultiTexCoord3fvARB;
-    PFNGLMULTITEXCOORD3HNVPROC MultiTexCoord3hNV;
-    PFNGLMULTITEXCOORD3HVNVPROC MultiTexCoord3hvNV;
-    PFNGLMULTITEXCOORD3IARBPROC MultiTexCoord3iARB;
-    PFNGLMULTITEXCOORD3IVARBPROC MultiTexCoord3ivARB;
-    PFNGLMULTITEXCOORD3SARBPROC MultiTexCoord3sARB;
-    PFNGLMULTITEXCOORD3SVARBPROC MultiTexCoord3svARB;
-    PFNGLMULTITEXCOORD3XOESPROC MultiTexCoord3xOES;
-    PFNGLMULTITEXCOORD3XVOESPROC MultiTexCoord3xvOES;
-    PFNGLMULTITEXCOORD4BOESPROC MultiTexCoord4bOES;
-    PFNGLMULTITEXCOORD4BVOESPROC MultiTexCoord4bvOES;
-    PFNGLMULTITEXCOORD4DARBPROC MultiTexCoord4dARB;
-    PFNGLMULTITEXCOORD4DVARBPROC MultiTexCoord4dvARB;
-    PFNGLMULTITEXCOORD4FARBPROC MultiTexCoord4fARB;
-    PFNGLMULTITEXCOORD4FVARBPROC MultiTexCoord4fvARB;
-    PFNGLMULTITEXCOORD4HNVPROC MultiTexCoord4hNV;
-    PFNGLMULTITEXCOORD4HVNVPROC MultiTexCoord4hvNV;
-    PFNGLMULTITEXCOORD4IARBPROC MultiTexCoord4iARB;
-    PFNGLMULTITEXCOORD4IVARBPROC MultiTexCoord4ivARB;
-    PFNGLMULTITEXCOORD4SARBPROC MultiTexCoord4sARB;
-    PFNGLMULTITEXCOORD4SVARBPROC MultiTexCoord4svARB;
-    PFNGLMULTITEXCOORD4XOESPROC MultiTexCoord4xOES;
-    PFNGLMULTITEXCOORD4XVOESPROC MultiTexCoord4xvOES;
-    PFNGLMULTITEXCOORDPOINTEREXTPROC MultiTexCoordPointerEXT;
-    PFNGLMULTITEXENVFEXTPROC MultiTexEnvfEXT;
-    PFNGLMULTITEXENVFVEXTPROC MultiTexEnvfvEXT;
-    PFNGLMULTITEXENVIEXTPROC MultiTexEnviEXT;
-    PFNGLMULTITEXENVIVEXTPROC MultiTexEnvivEXT;
-    PFNGLMULTITEXGENDEXTPROC MultiTexGendEXT;
-    PFNGLMULTITEXGENDVEXTPROC MultiTexGendvEXT;
-    PFNGLMULTITEXGENFEXTPROC MultiTexGenfEXT;
-    PFNGLMULTITEXGENFVEXTPROC MultiTexGenfvEXT;
-    PFNGLMULTITEXGENIEXTPROC MultiTexGeniEXT;
-    PFNGLMULTITEXGENIVEXTPROC MultiTexGenivEXT;
-    PFNGLMULTITEXIMAGE1DEXTPROC MultiTexImage1DEXT;
-    PFNGLMULTITEXIMAGE2DEXTPROC MultiTexImage2DEXT;
-    PFNGLMULTITEXIMAGE3DEXTPROC MultiTexImage3DEXT;
-    PFNGLMULTITEXPARAMETERIIVEXTPROC MultiTexParameterIivEXT;
-    PFNGLMULTITEXPARAMETERIUIVEXTPROC MultiTexParameterIuivEXT;
-    PFNGLMULTITEXPARAMETERFEXTPROC MultiTexParameterfEXT;
-    PFNGLMULTITEXPARAMETERFVEXTPROC MultiTexParameterfvEXT;
-    PFNGLMULTITEXPARAMETERIEXTPROC MultiTexParameteriEXT;
-    PFNGLMULTITEXPARAMETERIVEXTPROC MultiTexParameterivEXT;
-    PFNGLMULTITEXRENDERBUFFEREXTPROC MultiTexRenderbufferEXT;
-    PFNGLMULTITEXSUBIMAGE1DEXTPROC MultiTexSubImage1DEXT;
-    PFNGLMULTITEXSUBIMAGE2DEXTPROC MultiTexSubImage2DEXT;
-    PFNGLMULTITEXSUBIMAGE3DEXTPROC MultiTexSubImage3DEXT;
-    PFNGLMULTICASTBARRIERNVPROC MulticastBarrierNV;
-    PFNGLMULTICASTBLITFRAMEBUFFERNVPROC MulticastBlitFramebufferNV;
-    PFNGLMULTICASTBUFFERSUBDATANVPROC MulticastBufferSubDataNV;
-    PFNGLMULTICASTCOPYBUFFERSUBDATANVPROC MulticastCopyBufferSubDataNV;
-    PFNGLMULTICASTCOPYIMAGESUBDATANVPROC MulticastCopyImageSubDataNV;
-    PFNGLMULTICASTFRAMEBUFFERSAMPLELOCATIONSFVNVPROC MulticastFramebufferSampleLocationsfvNV;
-    PFNGLMULTICASTGETQUERYOBJECTI64VNVPROC MulticastGetQueryObjecti64vNV;
-    PFNGLMULTICASTGETQUERYOBJECTIVNVPROC MulticastGetQueryObjectivNV;
-    PFNGLMULTICASTGETQUERYOBJECTUI64VNVPROC MulticastGetQueryObjectui64vNV;
-    PFNGLMULTICASTGETQUERYOBJECTUIVNVPROC MulticastGetQueryObjectuivNV;
-    PFNGLMULTICASTSCISSORARRAYVNVXPROC MulticastScissorArrayvNVX;
-    PFNGLMULTICASTVIEWPORTARRAYVNVXPROC MulticastViewportArrayvNVX;
-    PFNGLMULTICASTVIEWPORTPOSITIONWSCALENVXPROC MulticastViewportPositionWScaleNVX;
-    PFNGLMULTICASTWAITSYNCNVPROC MulticastWaitSyncNV;
-    PFNGLNAMEDBUFFERATTACHMEMORYNVPROC NamedBufferAttachMemoryNV;
-    PFNGLNAMEDBUFFERDATAPROC NamedBufferData;
-    PFNGLNAMEDBUFFERDATAEXTPROC NamedBufferDataEXT;
-    PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC NamedBufferPageCommitmentARB;
-    PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC NamedBufferPageCommitmentEXT;
-    PFNGLNAMEDBUFFERPAGECOMMITMENTMEMNVPROC NamedBufferPageCommitmentMemNV;
-    PFNGLNAMEDBUFFERSTORAGEPROC NamedBufferStorage;
-    PFNGLNAMEDBUFFERSTORAGEEXTPROC NamedBufferStorageEXT;
-    PFNGLNAMEDBUFFERSTORAGEEXTERNALEXTPROC NamedBufferStorageExternalEXT;
-    PFNGLNAMEDBUFFERSTORAGEMEMEXTPROC NamedBufferStorageMemEXT;
-    PFNGLNAMEDBUFFERSUBDATAPROC NamedBufferSubData;
-    PFNGLNAMEDBUFFERSUBDATAEXTPROC NamedBufferSubDataEXT;
-    PFNGLNAMEDCOPYBUFFERSUBDATAEXTPROC NamedCopyBufferSubDataEXT;
-    PFNGLNAMEDFRAMEBUFFERDRAWBUFFERPROC NamedFramebufferDrawBuffer;
-    PFNGLNAMEDFRAMEBUFFERDRAWBUFFERSPROC NamedFramebufferDrawBuffers;
-    PFNGLNAMEDFRAMEBUFFERPARAMETERIPROC NamedFramebufferParameteri;
-    PFNGLNAMEDFRAMEBUFFERPARAMETERIEXTPROC NamedFramebufferParameteriEXT;
-    PFNGLNAMEDFRAMEBUFFERREADBUFFERPROC NamedFramebufferReadBuffer;
-    PFNGLNAMEDFRAMEBUFFERRENDERBUFFERPROC NamedFramebufferRenderbuffer;
-    PFNGLNAMEDFRAMEBUFFERRENDERBUFFEREXTPROC NamedFramebufferRenderbufferEXT;
-    PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC NamedFramebufferSampleLocationsfvARB;
-    PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC NamedFramebufferSampleLocationsfvNV;
-    PFNGLNAMEDFRAMEBUFFERSAMPLEPOSITIONSFVAMDPROC NamedFramebufferSamplePositionsfvAMD;
-    PFNGLNAMEDFRAMEBUFFERTEXTUREPROC NamedFramebufferTexture;
-    PFNGLNAMEDFRAMEBUFFERTEXTURE1DEXTPROC NamedFramebufferTexture1DEXT;
-    PFNGLNAMEDFRAMEBUFFERTEXTURE2DEXTPROC NamedFramebufferTexture2DEXT;
-    PFNGLNAMEDFRAMEBUFFERTEXTURE3DEXTPROC NamedFramebufferTexture3DEXT;
-    PFNGLNAMEDFRAMEBUFFERTEXTUREEXTPROC NamedFramebufferTextureEXT;
-    PFNGLNAMEDFRAMEBUFFERTEXTUREFACEEXTPROC NamedFramebufferTextureFaceEXT;
-    PFNGLNAMEDFRAMEBUFFERTEXTURELAYERPROC NamedFramebufferTextureLayer;
-    PFNGLNAMEDFRAMEBUFFERTEXTURELAYEREXTPROC NamedFramebufferTextureLayerEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETER4DEXTPROC NamedProgramLocalParameter4dEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETER4DVEXTPROC NamedProgramLocalParameter4dvEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETER4FEXTPROC NamedProgramLocalParameter4fEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETER4FVEXTPROC NamedProgramLocalParameter4fvEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETERI4IEXTPROC NamedProgramLocalParameterI4iEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETERI4IVEXTPROC NamedProgramLocalParameterI4ivEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIEXTPROC NamedProgramLocalParameterI4uiEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIVEXTPROC NamedProgramLocalParameterI4uivEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETERS4FVEXTPROC NamedProgramLocalParameters4fvEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETERSI4IVEXTPROC NamedProgramLocalParametersI4ivEXT;
-    PFNGLNAMEDPROGRAMLOCALPARAMETERSI4UIVEXTPROC NamedProgramLocalParametersI4uivEXT;
-    PFNGLNAMEDPROGRAMSTRINGEXTPROC NamedProgramStringEXT;
-    PFNGLNAMEDRENDERBUFFERSTORAGEPROC NamedRenderbufferStorage;
-    PFNGLNAMEDRENDERBUFFERSTORAGEEXTPROC NamedRenderbufferStorageEXT;
-    PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEPROC NamedRenderbufferStorageMultisample;
-    PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC NamedRenderbufferStorageMultisampleAdvancedAMD;
-    PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLECOVERAGEEXTPROC NamedRenderbufferStorageMultisampleCoverageEXT;
-    PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC NamedRenderbufferStorageMultisampleEXT;
-    PFNGLNAMEDSTRINGARBPROC NamedStringARB;
-    PFNGLNEWOBJECTBUFFERATIPROC NewObjectBufferATI;
-    PFNGLNORMAL3FVERTEX3FSUNPROC Normal3fVertex3fSUN;
-    PFNGLNORMAL3FVERTEX3FVSUNPROC Normal3fVertex3fvSUN;
-    PFNGLNORMAL3HNVPROC Normal3hNV;
-    PFNGLNORMAL3HVNVPROC Normal3hvNV;
-    PFNGLNORMAL3XOESPROC Normal3xOES;
-    PFNGLNORMAL3XVOESPROC Normal3xvOES;
-    PFNGLNORMALFORMATNVPROC NormalFormatNV;
-    PFNGLNORMALPOINTEREXTPROC NormalPointerEXT;
-    PFNGLNORMALPOINTERLISTIBMPROC NormalPointerListIBM;
-    PFNGLNORMALPOINTERVINTELPROC NormalPointervINTEL;
-    PFNGLNORMALSTREAM3BATIPROC NormalStream3bATI;
-    PFNGLNORMALSTREAM3BVATIPROC NormalStream3bvATI;
-    PFNGLNORMALSTREAM3DATIPROC NormalStream3dATI;
-    PFNGLNORMALSTREAM3DVATIPROC NormalStream3dvATI;
-    PFNGLNORMALSTREAM3FATIPROC NormalStream3fATI;
-    PFNGLNORMALSTREAM3FVATIPROC NormalStream3fvATI;
-    PFNGLNORMALSTREAM3IATIPROC NormalStream3iATI;
-    PFNGLNORMALSTREAM3IVATIPROC NormalStream3ivATI;
-    PFNGLNORMALSTREAM3SATIPROC NormalStream3sATI;
-    PFNGLNORMALSTREAM3SVATIPROC NormalStream3svATI;
-    PFNGLOBJECTLABELPROC ObjectLabel;
-    PFNGLOBJECTPTRLABELPROC ObjectPtrLabel;
-    PFNGLOBJECTPURGEABLEAPPLEPROC ObjectPurgeableAPPLE;
-    PFNGLOBJECTUNPURGEABLEAPPLEPROC ObjectUnpurgeableAPPLE;
-    PFNGLORTHOFOESPROC OrthofOES;
-    PFNGLORTHOXOESPROC OrthoxOES;
-    PFNGLPNTRIANGLESFATIPROC PNTrianglesfATI;
-    PFNGLPNTRIANGLESIATIPROC PNTrianglesiATI;
-    PFNGLPASSTEXCOORDATIPROC PassTexCoordATI;
-    PFNGLPASSTHROUGHXOESPROC PassThroughxOES;
-    PFNGLPATCHPARAMETERFVPROC PatchParameterfv;
-    PFNGLPATCHPARAMETERIPROC PatchParameteri;
-    PFNGLPATHCOMMANDSNVPROC PathCommandsNV;
-    PFNGLPATHCOORDSNVPROC PathCoordsNV;
-    PFNGLPATHCOVERDEPTHFUNCNVPROC PathCoverDepthFuncNV;
-    PFNGLPATHDASHARRAYNVPROC PathDashArrayNV;
-    PFNGLPATHGLYPHINDEXARRAYNVPROC PathGlyphIndexArrayNV;
-    PFNGLPATHGLYPHINDEXRANGENVPROC PathGlyphIndexRangeNV;
-    PFNGLPATHGLYPHRANGENVPROC PathGlyphRangeNV;
-    PFNGLPATHGLYPHSNVPROC PathGlyphsNV;
-    PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC PathMemoryGlyphIndexArrayNV;
-    PFNGLPATHPARAMETERFNVPROC PathParameterfNV;
-    PFNGLPATHPARAMETERFVNVPROC PathParameterfvNV;
-    PFNGLPATHPARAMETERINVPROC PathParameteriNV;
-    PFNGLPATHPARAMETERIVNVPROC PathParameterivNV;
-    PFNGLPATHSTENCILDEPTHOFFSETNVPROC PathStencilDepthOffsetNV;
-    PFNGLPATHSTENCILFUNCNVPROC PathStencilFuncNV;
-    PFNGLPATHSTRINGNVPROC PathStringNV;
-    PFNGLPATHSUBCOMMANDSNVPROC PathSubCommandsNV;
-    PFNGLPATHSUBCOORDSNVPROC PathSubCoordsNV;
-    PFNGLPAUSETRANSFORMFEEDBACKPROC PauseTransformFeedback;
-    PFNGLPAUSETRANSFORMFEEDBACKNVPROC PauseTransformFeedbackNV;
-    PFNGLPIXELDATARANGENVPROC PixelDataRangeNV;
-    PFNGLPIXELMAPXPROC PixelMapx;
-    PFNGLPIXELSTOREFPROC PixelStoref;
-    PFNGLPIXELSTOREIPROC PixelStorei;
-    PFNGLPIXELSTOREXPROC PixelStorex;
-    PFNGLPIXELTEXGENPARAMETERFSGISPROC PixelTexGenParameterfSGIS;
-    PFNGLPIXELTEXGENPARAMETERFVSGISPROC PixelTexGenParameterfvSGIS;
-    PFNGLPIXELTEXGENPARAMETERISGISPROC PixelTexGenParameteriSGIS;
-    PFNGLPIXELTEXGENPARAMETERIVSGISPROC PixelTexGenParameterivSGIS;
-    PFNGLPIXELTEXGENSGIXPROC PixelTexGenSGIX;
-    PFNGLPIXELTRANSFERXOESPROC PixelTransferxOES;
-    PFNGLPIXELTRANSFORMPARAMETERFEXTPROC PixelTransformParameterfEXT;
-    PFNGLPIXELTRANSFORMPARAMETERFVEXTPROC PixelTransformParameterfvEXT;
-    PFNGLPIXELTRANSFORMPARAMETERIEXTPROC PixelTransformParameteriEXT;
-    PFNGLPIXELTRANSFORMPARAMETERIVEXTPROC PixelTransformParameterivEXT;
-    PFNGLPIXELZOOMXOESPROC PixelZoomxOES;
-    PFNGLPOINTALONGPATHNVPROC PointAlongPathNV;
-    PFNGLPOINTPARAMETERFPROC PointParameterf;
-    PFNGLPOINTPARAMETERFARBPROC PointParameterfARB;
-    PFNGLPOINTPARAMETERFEXTPROC PointParameterfEXT;
-    PFNGLPOINTPARAMETERFSGISPROC PointParameterfSGIS;
-    PFNGLPOINTPARAMETERFVPROC PointParameterfv;
-    PFNGLPOINTPARAMETERFVARBPROC PointParameterfvARB;
-    PFNGLPOINTPARAMETERFVEXTPROC PointParameterfvEXT;
-    PFNGLPOINTPARAMETERFVSGISPROC PointParameterfvSGIS;
-    PFNGLPOINTPARAMETERIPROC PointParameteri;
-    PFNGLPOINTPARAMETERINVPROC PointParameteriNV;
-    PFNGLPOINTPARAMETERIVPROC PointParameteriv;
-    PFNGLPOINTPARAMETERIVNVPROC PointParameterivNV;
-    PFNGLPOINTPARAMETERXVOESPROC PointParameterxvOES;
-    PFNGLPOINTSIZEPROC PointSize;
-    PFNGLPOINTSIZEXOESPROC PointSizexOES;
-    PFNGLPOLLASYNCSGIXPROC PollAsyncSGIX;
-    PFNGLPOLLINSTRUMENTSSGIXPROC PollInstrumentsSGIX;
-    PFNGLPOLYGONMODEPROC PolygonMode;
-    PFNGLPOLYGONOFFSETPROC PolygonOffset;
-    PFNGLPOLYGONOFFSETCLAMPPROC PolygonOffsetClamp;
-    PFNGLPOLYGONOFFSETCLAMPEXTPROC PolygonOffsetClampEXT;
-    PFNGLPOLYGONOFFSETEXTPROC PolygonOffsetEXT;
-    PFNGLPOLYGONOFFSETXOESPROC PolygonOffsetxOES;
-    PFNGLPOPDEBUGGROUPPROC PopDebugGroup;
-    PFNGLPOPGROUPMARKEREXTPROC PopGroupMarkerEXT;
-    PFNGLPRESENTFRAMEDUALFILLNVPROC PresentFrameDualFillNV;
-    PFNGLPRESENTFRAMEKEYEDNVPROC PresentFrameKeyedNV;
-    PFNGLPRIMITIVEBOUNDINGBOXARBPROC PrimitiveBoundingBoxARB;
-    PFNGLPRIMITIVERESTARTINDEXPROC PrimitiveRestartIndex;
-    PFNGLPRIMITIVERESTARTINDEXNVPROC PrimitiveRestartIndexNV;
-    PFNGLPRIMITIVERESTARTNVPROC PrimitiveRestartNV;
-    PFNGLPRIORITIZETEXTURESEXTPROC PrioritizeTexturesEXT;
-    PFNGLPRIORITIZETEXTURESXOESPROC PrioritizeTexturesxOES;
-    PFNGLPROGRAMBINARYPROC ProgramBinary;
-    PFNGLPROGRAMBUFFERPARAMETERSIIVNVPROC ProgramBufferParametersIivNV;
-    PFNGLPROGRAMBUFFERPARAMETERSIUIVNVPROC ProgramBufferParametersIuivNV;
-    PFNGLPROGRAMBUFFERPARAMETERSFVNVPROC ProgramBufferParametersfvNV;
-    PFNGLPROGRAMENVPARAMETER4DARBPROC ProgramEnvParameter4dARB;
-    PFNGLPROGRAMENVPARAMETER4DVARBPROC ProgramEnvParameter4dvARB;
-    PFNGLPROGRAMENVPARAMETER4FARBPROC ProgramEnvParameter4fARB;
-    PFNGLPROGRAMENVPARAMETER4FVARBPROC ProgramEnvParameter4fvARB;
-    PFNGLPROGRAMENVPARAMETERI4INVPROC ProgramEnvParameterI4iNV;
-    PFNGLPROGRAMENVPARAMETERI4IVNVPROC ProgramEnvParameterI4ivNV;
-    PFNGLPROGRAMENVPARAMETERI4UINVPROC ProgramEnvParameterI4uiNV;
-    PFNGLPROGRAMENVPARAMETERI4UIVNVPROC ProgramEnvParameterI4uivNV;
-    PFNGLPROGRAMENVPARAMETERS4FVEXTPROC ProgramEnvParameters4fvEXT;
-    PFNGLPROGRAMENVPARAMETERSI4IVNVPROC ProgramEnvParametersI4ivNV;
-    PFNGLPROGRAMENVPARAMETERSI4UIVNVPROC ProgramEnvParametersI4uivNV;
-    PFNGLPROGRAMLOCALPARAMETER4DARBPROC ProgramLocalParameter4dARB;
-    PFNGLPROGRAMLOCALPARAMETER4DVARBPROC ProgramLocalParameter4dvARB;
-    PFNGLPROGRAMLOCALPARAMETER4FARBPROC ProgramLocalParameter4fARB;
-    PFNGLPROGRAMLOCALPARAMETER4FVARBPROC ProgramLocalParameter4fvARB;
-    PFNGLPROGRAMLOCALPARAMETERI4INVPROC ProgramLocalParameterI4iNV;
-    PFNGLPROGRAMLOCALPARAMETERI4IVNVPROC ProgramLocalParameterI4ivNV;
-    PFNGLPROGRAMLOCALPARAMETERI4UINVPROC ProgramLocalParameterI4uiNV;
-    PFNGLPROGRAMLOCALPARAMETERI4UIVNVPROC ProgramLocalParameterI4uivNV;
-    PFNGLPROGRAMLOCALPARAMETERS4FVEXTPROC ProgramLocalParameters4fvEXT;
-    PFNGLPROGRAMLOCALPARAMETERSI4IVNVPROC ProgramLocalParametersI4ivNV;
-    PFNGLPROGRAMLOCALPARAMETERSI4UIVNVPROC ProgramLocalParametersI4uivNV;
-    PFNGLPROGRAMNAMEDPARAMETER4DNVPROC ProgramNamedParameter4dNV;
-    PFNGLPROGRAMNAMEDPARAMETER4DVNVPROC ProgramNamedParameter4dvNV;
-    PFNGLPROGRAMNAMEDPARAMETER4FNVPROC ProgramNamedParameter4fNV;
-    PFNGLPROGRAMNAMEDPARAMETER4FVNVPROC ProgramNamedParameter4fvNV;
-    PFNGLPROGRAMPARAMETER4DNVPROC ProgramParameter4dNV;
-    PFNGLPROGRAMPARAMETER4DVNVPROC ProgramParameter4dvNV;
-    PFNGLPROGRAMPARAMETER4FNVPROC ProgramParameter4fNV;
-    PFNGLPROGRAMPARAMETER4FVNVPROC ProgramParameter4fvNV;
-    PFNGLPROGRAMPARAMETERIPROC ProgramParameteri;
-    PFNGLPROGRAMPARAMETERIARBPROC ProgramParameteriARB;
-    PFNGLPROGRAMPARAMETERIEXTPROC ProgramParameteriEXT;
-    PFNGLPROGRAMPARAMETERS4DVNVPROC ProgramParameters4dvNV;
-    PFNGLPROGRAMPARAMETERS4FVNVPROC ProgramParameters4fvNV;
-    PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC ProgramPathFragmentInputGenNV;
-    PFNGLPROGRAMSTRINGARBPROC ProgramStringARB;
-    PFNGLPROGRAMSUBROUTINEPARAMETERSUIVNVPROC ProgramSubroutineParametersuivNV;
-    PFNGLPROGRAMUNIFORM1DPROC ProgramUniform1d;
-    PFNGLPROGRAMUNIFORM1DEXTPROC ProgramUniform1dEXT;
-    PFNGLPROGRAMUNIFORM1DVPROC ProgramUniform1dv;
-    PFNGLPROGRAMUNIFORM1DVEXTPROC ProgramUniform1dvEXT;
-    PFNGLPROGRAMUNIFORM1FPROC ProgramUniform1f;
-    PFNGLPROGRAMUNIFORM1FEXTPROC ProgramUniform1fEXT;
-    PFNGLPROGRAMUNIFORM1FVPROC ProgramUniform1fv;
-    PFNGLPROGRAMUNIFORM1FVEXTPROC ProgramUniform1fvEXT;
-    PFNGLPROGRAMUNIFORM1IPROC ProgramUniform1i;
-    PFNGLPROGRAMUNIFORM1I64ARBPROC ProgramUniform1i64ARB;
-    PFNGLPROGRAMUNIFORM1I64NVPROC ProgramUniform1i64NV;
-    PFNGLPROGRAMUNIFORM1I64VARBPROC ProgramUniform1i64vARB;
-    PFNGLPROGRAMUNIFORM1I64VNVPROC ProgramUniform1i64vNV;
-    PFNGLPROGRAMUNIFORM1IEXTPROC ProgramUniform1iEXT;
-    PFNGLPROGRAMUNIFORM1IVPROC ProgramUniform1iv;
-    PFNGLPROGRAMUNIFORM1IVEXTPROC ProgramUniform1ivEXT;
-    PFNGLPROGRAMUNIFORM1UIPROC ProgramUniform1ui;
-    PFNGLPROGRAMUNIFORM1UI64ARBPROC ProgramUniform1ui64ARB;
-    PFNGLPROGRAMUNIFORM1UI64NVPROC ProgramUniform1ui64NV;
-    PFNGLPROGRAMUNIFORM1UI64VARBPROC ProgramUniform1ui64vARB;
-    PFNGLPROGRAMUNIFORM1UI64VNVPROC ProgramUniform1ui64vNV;
-    PFNGLPROGRAMUNIFORM1UIEXTPROC ProgramUniform1uiEXT;
-    PFNGLPROGRAMUNIFORM1UIVPROC ProgramUniform1uiv;
-    PFNGLPROGRAMUNIFORM1UIVEXTPROC ProgramUniform1uivEXT;
-    PFNGLPROGRAMUNIFORM2DPROC ProgramUniform2d;
-    PFNGLPROGRAMUNIFORM2DEXTPROC ProgramUniform2dEXT;
-    PFNGLPROGRAMUNIFORM2DVPROC ProgramUniform2dv;
-    PFNGLPROGRAMUNIFORM2DVEXTPROC ProgramUniform2dvEXT;
-    PFNGLPROGRAMUNIFORM2FPROC ProgramUniform2f;
-    PFNGLPROGRAMUNIFORM2FEXTPROC ProgramUniform2fEXT;
-    PFNGLPROGRAMUNIFORM2FVPROC ProgramUniform2fv;
-    PFNGLPROGRAMUNIFORM2FVEXTPROC ProgramUniform2fvEXT;
-    PFNGLPROGRAMUNIFORM2IPROC ProgramUniform2i;
-    PFNGLPROGRAMUNIFORM2I64ARBPROC ProgramUniform2i64ARB;
-    PFNGLPROGRAMUNIFORM2I64NVPROC ProgramUniform2i64NV;
-    PFNGLPROGRAMUNIFORM2I64VARBPROC ProgramUniform2i64vARB;
-    PFNGLPROGRAMUNIFORM2I64VNVPROC ProgramUniform2i64vNV;
-    PFNGLPROGRAMUNIFORM2IEXTPROC ProgramUniform2iEXT;
-    PFNGLPROGRAMUNIFORM2IVPROC ProgramUniform2iv;
-    PFNGLPROGRAMUNIFORM2IVEXTPROC ProgramUniform2ivEXT;
-    PFNGLPROGRAMUNIFORM2UIPROC ProgramUniform2ui;
-    PFNGLPROGRAMUNIFORM2UI64ARBPROC ProgramUniform2ui64ARB;
-    PFNGLPROGRAMUNIFORM2UI64NVPROC ProgramUniform2ui64NV;
-    PFNGLPROGRAMUNIFORM2UI64VARBPROC ProgramUniform2ui64vARB;
-    PFNGLPROGRAMUNIFORM2UI64VNVPROC ProgramUniform2ui64vNV;
-    PFNGLPROGRAMUNIFORM2UIEXTPROC ProgramUniform2uiEXT;
-    PFNGLPROGRAMUNIFORM2UIVPROC ProgramUniform2uiv;
-    PFNGLPROGRAMUNIFORM2UIVEXTPROC ProgramUniform2uivEXT;
-    PFNGLPROGRAMUNIFORM3DPROC ProgramUniform3d;
-    PFNGLPROGRAMUNIFORM3DEXTPROC ProgramUniform3dEXT;
-    PFNGLPROGRAMUNIFORM3DVPROC ProgramUniform3dv;
-    PFNGLPROGRAMUNIFORM3DVEXTPROC ProgramUniform3dvEXT;
-    PFNGLPROGRAMUNIFORM3FPROC ProgramUniform3f;
-    PFNGLPROGRAMUNIFORM3FEXTPROC ProgramUniform3fEXT;
-    PFNGLPROGRAMUNIFORM3FVPROC ProgramUniform3fv;
-    PFNGLPROGRAMUNIFORM3FVEXTPROC ProgramUniform3fvEXT;
-    PFNGLPROGRAMUNIFORM3IPROC ProgramUniform3i;
-    PFNGLPROGRAMUNIFORM3I64ARBPROC ProgramUniform3i64ARB;
-    PFNGLPROGRAMUNIFORM3I64NVPROC ProgramUniform3i64NV;
-    PFNGLPROGRAMUNIFORM3I64VARBPROC ProgramUniform3i64vARB;
-    PFNGLPROGRAMUNIFORM3I64VNVPROC ProgramUniform3i64vNV;
-    PFNGLPROGRAMUNIFORM3IEXTPROC ProgramUniform3iEXT;
-    PFNGLPROGRAMUNIFORM3IVPROC ProgramUniform3iv;
-    PFNGLPROGRAMUNIFORM3IVEXTPROC ProgramUniform3ivEXT;
-    PFNGLPROGRAMUNIFORM3UIPROC ProgramUniform3ui;
-    PFNGLPROGRAMUNIFORM3UI64ARBPROC ProgramUniform3ui64ARB;
-    PFNGLPROGRAMUNIFORM3UI64NVPROC ProgramUniform3ui64NV;
-    PFNGLPROGRAMUNIFORM3UI64VARBPROC ProgramUniform3ui64vARB;
-    PFNGLPROGRAMUNIFORM3UI64VNVPROC ProgramUniform3ui64vNV;
-    PFNGLPROGRAMUNIFORM3UIEXTPROC ProgramUniform3uiEXT;
-    PFNGLPROGRAMUNIFORM3UIVPROC ProgramUniform3uiv;
-    PFNGLPROGRAMUNIFORM3UIVEXTPROC ProgramUniform3uivEXT;
-    PFNGLPROGRAMUNIFORM4DPROC ProgramUniform4d;
-    PFNGLPROGRAMUNIFORM4DEXTPROC ProgramUniform4dEXT;
-    PFNGLPROGRAMUNIFORM4DVPROC ProgramUniform4dv;
-    PFNGLPROGRAMUNIFORM4DVEXTPROC ProgramUniform4dvEXT;
-    PFNGLPROGRAMUNIFORM4FPROC ProgramUniform4f;
-    PFNGLPROGRAMUNIFORM4FEXTPROC ProgramUniform4fEXT;
-    PFNGLPROGRAMUNIFORM4FVPROC ProgramUniform4fv;
-    PFNGLPROGRAMUNIFORM4FVEXTPROC ProgramUniform4fvEXT;
-    PFNGLPROGRAMUNIFORM4IPROC ProgramUniform4i;
-    PFNGLPROGRAMUNIFORM4I64ARBPROC ProgramUniform4i64ARB;
-    PFNGLPROGRAMUNIFORM4I64NVPROC ProgramUniform4i64NV;
-    PFNGLPROGRAMUNIFORM4I64VARBPROC ProgramUniform4i64vARB;
-    PFNGLPROGRAMUNIFORM4I64VNVPROC ProgramUniform4i64vNV;
-    PFNGLPROGRAMUNIFORM4IEXTPROC ProgramUniform4iEXT;
-    PFNGLPROGRAMUNIFORM4IVPROC ProgramUniform4iv;
-    PFNGLPROGRAMUNIFORM4IVEXTPROC ProgramUniform4ivEXT;
-    PFNGLPROGRAMUNIFORM4UIPROC ProgramUniform4ui;
-    PFNGLPROGRAMUNIFORM4UI64ARBPROC ProgramUniform4ui64ARB;
-    PFNGLPROGRAMUNIFORM4UI64NVPROC ProgramUniform4ui64NV;
-    PFNGLPROGRAMUNIFORM4UI64VARBPROC ProgramUniform4ui64vARB;
-    PFNGLPROGRAMUNIFORM4UI64VNVPROC ProgramUniform4ui64vNV;
-    PFNGLPROGRAMUNIFORM4UIEXTPROC ProgramUniform4uiEXT;
-    PFNGLPROGRAMUNIFORM4UIVPROC ProgramUniform4uiv;
-    PFNGLPROGRAMUNIFORM4UIVEXTPROC ProgramUniform4uivEXT;
-    PFNGLPROGRAMUNIFORMHANDLEUI64ARBPROC ProgramUniformHandleui64ARB;
-    PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC ProgramUniformHandleui64NV;
-    PFNGLPROGRAMUNIFORMHANDLEUI64VARBPROC ProgramUniformHandleui64vARB;
-    PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC ProgramUniformHandleui64vNV;
-    PFNGLPROGRAMUNIFORMMATRIX2DVPROC ProgramUniformMatrix2dv;
-    PFNGLPROGRAMUNIFORMMATRIX2DVEXTPROC ProgramUniformMatrix2dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX2FVPROC ProgramUniformMatrix2fv;
-    PFNGLPROGRAMUNIFORMMATRIX2FVEXTPROC ProgramUniformMatrix2fvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC ProgramUniformMatrix2x3dv;
-    PFNGLPROGRAMUNIFORMMATRIX2X3DVEXTPROC ProgramUniformMatrix2x3dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC ProgramUniformMatrix2x3fv;
-    PFNGLPROGRAMUNIFORMMATRIX2X3FVEXTPROC ProgramUniformMatrix2x3fvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC ProgramUniformMatrix2x4dv;
-    PFNGLPROGRAMUNIFORMMATRIX2X4DVEXTPROC ProgramUniformMatrix2x4dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC ProgramUniformMatrix2x4fv;
-    PFNGLPROGRAMUNIFORMMATRIX2X4FVEXTPROC ProgramUniformMatrix2x4fvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX3DVPROC ProgramUniformMatrix3dv;
-    PFNGLPROGRAMUNIFORMMATRIX3DVEXTPROC ProgramUniformMatrix3dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX3FVPROC ProgramUniformMatrix3fv;
-    PFNGLPROGRAMUNIFORMMATRIX3FVEXTPROC ProgramUniformMatrix3fvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC ProgramUniformMatrix3x2dv;
-    PFNGLPROGRAMUNIFORMMATRIX3X2DVEXTPROC ProgramUniformMatrix3x2dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC ProgramUniformMatrix3x2fv;
-    PFNGLPROGRAMUNIFORMMATRIX3X2FVEXTPROC ProgramUniformMatrix3x2fvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC ProgramUniformMatrix3x4dv;
-    PFNGLPROGRAMUNIFORMMATRIX3X4DVEXTPROC ProgramUniformMatrix3x4dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC ProgramUniformMatrix3x4fv;
-    PFNGLPROGRAMUNIFORMMATRIX3X4FVEXTPROC ProgramUniformMatrix3x4fvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX4DVPROC ProgramUniformMatrix4dv;
-    PFNGLPROGRAMUNIFORMMATRIX4DVEXTPROC ProgramUniformMatrix4dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX4FVPROC ProgramUniformMatrix4fv;
-    PFNGLPROGRAMUNIFORMMATRIX4FVEXTPROC ProgramUniformMatrix4fvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC ProgramUniformMatrix4x2dv;
-    PFNGLPROGRAMUNIFORMMATRIX4X2DVEXTPROC ProgramUniformMatrix4x2dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC ProgramUniformMatrix4x2fv;
-    PFNGLPROGRAMUNIFORMMATRIX4X2FVEXTPROC ProgramUniformMatrix4x2fvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC ProgramUniformMatrix4x3dv;
-    PFNGLPROGRAMUNIFORMMATRIX4X3DVEXTPROC ProgramUniformMatrix4x3dvEXT;
-    PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC ProgramUniformMatrix4x3fv;
-    PFNGLPROGRAMUNIFORMMATRIX4X3FVEXTPROC ProgramUniformMatrix4x3fvEXT;
-    PFNGLPROGRAMUNIFORMUI64NVPROC ProgramUniformui64NV;
-    PFNGLPROGRAMUNIFORMUI64VNVPROC ProgramUniformui64vNV;
-    PFNGLPROGRAMVERTEXLIMITNVPROC ProgramVertexLimitNV;
-    PFNGLPROVOKINGVERTEXPROC ProvokingVertex;
-    PFNGLPROVOKINGVERTEXEXTPROC ProvokingVertexEXT;
-    PFNGLPUSHCLIENTATTRIBDEFAULTEXTPROC PushClientAttribDefaultEXT;
-    PFNGLPUSHDEBUGGROUPPROC PushDebugGroup;
-    PFNGLPUSHGROUPMARKEREXTPROC PushGroupMarkerEXT;
-    PFNGLQUERYCOUNTERPROC QueryCounter;
-    PFNGLQUERYMATRIXXOESPROC QueryMatrixxOES;
-    PFNGLQUERYOBJECTPARAMETERUIAMDPROC QueryObjectParameteruiAMD;
-    PFNGLQUERYRESOURCENVPROC QueryResourceNV;
-    PFNGLQUERYRESOURCETAGNVPROC QueryResourceTagNV;
-    PFNGLRASTERPOS2XOESPROC RasterPos2xOES;
-    PFNGLRASTERPOS2XVOESPROC RasterPos2xvOES;
-    PFNGLRASTERPOS3XOESPROC RasterPos3xOES;
-    PFNGLRASTERPOS3XVOESPROC RasterPos3xvOES;
-    PFNGLRASTERPOS4XOESPROC RasterPos4xOES;
-    PFNGLRASTERPOS4XVOESPROC RasterPos4xvOES;
-    PFNGLRASTERSAMPLESEXTPROC RasterSamplesEXT;
-    PFNGLREADBUFFERPROC ReadBuffer;
-    PFNGLREADINSTRUMENTSSGIXPROC ReadInstrumentsSGIX;
-    PFNGLREADPIXELSPROC ReadPixels;
-    PFNGLREADNPIXELSPROC ReadnPixels;
-    PFNGLREADNPIXELSARBPROC ReadnPixelsARB;
-    PFNGLRECTXOESPROC RectxOES;
-    PFNGLRECTXVOESPROC RectxvOES;
-    PFNGLREFERENCEPLANESGIXPROC ReferencePlaneSGIX;
-    PFNGLRELEASEKEYEDMUTEXWIN32EXTPROC ReleaseKeyedMutexWin32EXT;
-    PFNGLRELEASESHADERCOMPILERPROC ReleaseShaderCompiler;
-    PFNGLRENDERGPUMASKNVPROC RenderGpuMaskNV;
-    PFNGLRENDERBUFFERSTORAGEPROC RenderbufferStorage;
-    PFNGLRENDERBUFFERSTORAGEEXTPROC RenderbufferStorageEXT;
-    PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC RenderbufferStorageMultisample;
-    PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC RenderbufferStorageMultisampleAdvancedAMD;
-    PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC RenderbufferStorageMultisampleCoverageNV;
-    PFNGLRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC RenderbufferStorageMultisampleEXT;
-    PFNGLREPLACEMENTCODEPOINTERSUNPROC ReplacementCodePointerSUN;
-    PFNGLREPLACEMENTCODEUBSUNPROC ReplacementCodeubSUN;
-    PFNGLREPLACEMENTCODEUBVSUNPROC ReplacementCodeubvSUN;
-    PFNGLREPLACEMENTCODEUICOLOR3FVERTEX3FSUNPROC ReplacementCodeuiColor3fVertex3fSUN;
-    PFNGLREPLACEMENTCODEUICOLOR3FVERTEX3FVSUNPROC ReplacementCodeuiColor3fVertex3fvSUN;
-    PFNGLREPLACEMENTCODEUICOLOR4FNORMAL3FVERTEX3FSUNPROC ReplacementCodeuiColor4fNormal3fVertex3fSUN;
-    PFNGLREPLACEMENTCODEUICOLOR4FNORMAL3FVERTEX3FVSUNPROC ReplacementCodeuiColor4fNormal3fVertex3fvSUN;
-    PFNGLREPLACEMENTCODEUICOLOR4UBVERTEX3FSUNPROC ReplacementCodeuiColor4ubVertex3fSUN;
-    PFNGLREPLACEMENTCODEUICOLOR4UBVERTEX3FVSUNPROC ReplacementCodeuiColor4ubVertex3fvSUN;
-    PFNGLREPLACEMENTCODEUINORMAL3FVERTEX3FSUNPROC ReplacementCodeuiNormal3fVertex3fSUN;
-    PFNGLREPLACEMENTCODEUINORMAL3FVERTEX3FVSUNPROC ReplacementCodeuiNormal3fVertex3fvSUN;
-    PFNGLREPLACEMENTCODEUISUNPROC ReplacementCodeuiSUN;
-    PFNGLREPLACEMENTCODEUITEXCOORD2FCOLOR4FNORMAL3FVERTEX3FSUNPROC ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN;
-    PFNGLREPLACEMENTCODEUITEXCOORD2FCOLOR4FNORMAL3FVERTEX3FVSUNPROC ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN;
-    PFNGLREPLACEMENTCODEUITEXCOORD2FNORMAL3FVERTEX3FSUNPROC ReplacementCodeuiTexCoord2fNormal3fVertex3fSUN;
-    PFNGLREPLACEMENTCODEUITEXCOORD2FNORMAL3FVERTEX3FVSUNPROC ReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN;
-    PFNGLREPLACEMENTCODEUITEXCOORD2FVERTEX3FSUNPROC ReplacementCodeuiTexCoord2fVertex3fSUN;
-    PFNGLREPLACEMENTCODEUITEXCOORD2FVERTEX3FVSUNPROC ReplacementCodeuiTexCoord2fVertex3fvSUN;
-    PFNGLREPLACEMENTCODEUIVERTEX3FSUNPROC ReplacementCodeuiVertex3fSUN;
-    PFNGLREPLACEMENTCODEUIVERTEX3FVSUNPROC ReplacementCodeuiVertex3fvSUN;
-    PFNGLREPLACEMENTCODEUIVSUNPROC ReplacementCodeuivSUN;
-    PFNGLREPLACEMENTCODEUSSUNPROC ReplacementCodeusSUN;
-    PFNGLREPLACEMENTCODEUSVSUNPROC ReplacementCodeusvSUN;
-    PFNGLREQUESTRESIDENTPROGRAMSNVPROC RequestResidentProgramsNV;
-    PFNGLRESETHISTOGRAMEXTPROC ResetHistogramEXT;
-    PFNGLRESETMEMORYOBJECTPARAMETERNVPROC ResetMemoryObjectParameterNV;
-    PFNGLRESETMINMAXEXTPROC ResetMinmaxEXT;
-    PFNGLRESIZEBUFFERSMESAPROC ResizeBuffersMESA;
-    PFNGLRESOLVEDEPTHVALUESNVPROC ResolveDepthValuesNV;
-    PFNGLRESUMETRANSFORMFEEDBACKPROC ResumeTransformFeedback;
-    PFNGLRESUMETRANSFORMFEEDBACKNVPROC ResumeTransformFeedbackNV;
-    PFNGLROTATEXOESPROC RotatexOES;
-    PFNGLSAMPLECOVERAGEPROC SampleCoverage;
-    PFNGLSAMPLECOVERAGEARBPROC SampleCoverageARB;
-    PFNGLSAMPLEMAPATIPROC SampleMapATI;
-    PFNGLSAMPLEMASKEXTPROC SampleMaskEXT;
-    PFNGLSAMPLEMASKINDEXEDNVPROC SampleMaskIndexedNV;
-    PFNGLSAMPLEMASKSGISPROC SampleMaskSGIS;
-    PFNGLSAMPLEMASKIPROC SampleMaski;
-    PFNGLSAMPLEPATTERNEXTPROC SamplePatternEXT;
-    PFNGLSAMPLEPATTERNSGISPROC SamplePatternSGIS;
-    PFNGLSAMPLERPARAMETERIIVPROC SamplerParameterIiv;
-    PFNGLSAMPLERPARAMETERIUIVPROC SamplerParameterIuiv;
-    PFNGLSAMPLERPARAMETERFPROC SamplerParameterf;
-    PFNGLSAMPLERPARAMETERFVPROC SamplerParameterfv;
-    PFNGLSAMPLERPARAMETERIPROC SamplerParameteri;
-    PFNGLSAMPLERPARAMETERIVPROC SamplerParameteriv;
-    PFNGLSCALEXOESPROC ScalexOES;
-    PFNGLSCISSORPROC Scissor;
-    PFNGLSCISSORARRAYVPROC ScissorArrayv;
-    PFNGLSCISSOREXCLUSIVEARRAYVNVPROC ScissorExclusiveArrayvNV;
-    PFNGLSCISSOREXCLUSIVENVPROC ScissorExclusiveNV;
-    PFNGLSCISSORINDEXEDPROC ScissorIndexed;
-    PFNGLSCISSORINDEXEDVPROC ScissorIndexedv;
-    PFNGLSECONDARYCOLOR3BEXTPROC SecondaryColor3bEXT;
-    PFNGLSECONDARYCOLOR3BVEXTPROC SecondaryColor3bvEXT;
-    PFNGLSECONDARYCOLOR3DEXTPROC SecondaryColor3dEXT;
-    PFNGLSECONDARYCOLOR3DVEXTPROC SecondaryColor3dvEXT;
-    PFNGLSECONDARYCOLOR3FEXTPROC SecondaryColor3fEXT;
-    PFNGLSECONDARYCOLOR3FVEXTPROC SecondaryColor3fvEXT;
-    PFNGLSECONDARYCOLOR3HNVPROC SecondaryColor3hNV;
-    PFNGLSECONDARYCOLOR3HVNVPROC SecondaryColor3hvNV;
-    PFNGLSECONDARYCOLOR3IEXTPROC SecondaryColor3iEXT;
-    PFNGLSECONDARYCOLOR3IVEXTPROC SecondaryColor3ivEXT;
-    PFNGLSECONDARYCOLOR3SEXTPROC SecondaryColor3sEXT;
-    PFNGLSECONDARYCOLOR3SVEXTPROC SecondaryColor3svEXT;
-    PFNGLSECONDARYCOLOR3UBEXTPROC SecondaryColor3ubEXT;
-    PFNGLSECONDARYCOLOR3UBVEXTPROC SecondaryColor3ubvEXT;
-    PFNGLSECONDARYCOLOR3UIEXTPROC SecondaryColor3uiEXT;
-    PFNGLSECONDARYCOLOR3UIVEXTPROC SecondaryColor3uivEXT;
-    PFNGLSECONDARYCOLOR3USEXTPROC SecondaryColor3usEXT;
-    PFNGLSECONDARYCOLOR3USVEXTPROC SecondaryColor3usvEXT;
-    PFNGLSECONDARYCOLORFORMATNVPROC SecondaryColorFormatNV;
-    PFNGLSECONDARYCOLORPOINTEREXTPROC SecondaryColorPointerEXT;
-    PFNGLSECONDARYCOLORPOINTERLISTIBMPROC SecondaryColorPointerListIBM;
-    PFNGLSELECTPERFMONITORCOUNTERSAMDPROC SelectPerfMonitorCountersAMD;
-    PFNGLSEMAPHOREPARAMETERIVNVPROC SemaphoreParameterivNV;
-    PFNGLSEMAPHOREPARAMETERUI64VEXTPROC SemaphoreParameterui64vEXT;
-    PFNGLSEPARABLEFILTER2DEXTPROC SeparableFilter2DEXT;
-    PFNGLSETFENCEAPPLEPROC SetFenceAPPLE;
-    PFNGLSETFENCENVPROC SetFenceNV;
-    PFNGLSETFRAGMENTSHADERCONSTANTATIPROC SetFragmentShaderConstantATI;
-    PFNGLSETINVARIANTEXTPROC SetInvariantEXT;
-    PFNGLSETLOCALCONSTANTEXTPROC SetLocalConstantEXT;
-    PFNGLSETMULTISAMPLEFVAMDPROC SetMultisamplefvAMD;
-    PFNGLSHADERBINARYPROC ShaderBinary;
-    PFNGLSHADEROP1EXTPROC ShaderOp1EXT;
-    PFNGLSHADEROP2EXTPROC ShaderOp2EXT;
-    PFNGLSHADEROP3EXTPROC ShaderOp3EXT;
-    PFNGLSHADERSOURCEPROC ShaderSource;
-    PFNGLSHADERSOURCEARBPROC ShaderSourceARB;
-    PFNGLSHADERSTORAGEBLOCKBINDINGPROC ShaderStorageBlockBinding;
-    PFNGLSHADINGRATEIMAGEBARRIERNVPROC ShadingRateImageBarrierNV;
-    PFNGLSHADINGRATEIMAGEPALETTENVPROC ShadingRateImagePaletteNV;
-    PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC ShadingRateSampleOrderCustomNV;
-    PFNGLSHADINGRATESAMPLEORDERNVPROC ShadingRateSampleOrderNV;
-    PFNGLSHARPENTEXFUNCSGISPROC SharpenTexFuncSGIS;
-    PFNGLSIGNALSEMAPHOREEXTPROC SignalSemaphoreEXT;
-    PFNGLSIGNALSEMAPHOREUI64NVXPROC SignalSemaphoreui64NVX;
-    PFNGLSIGNALVKFENCENVPROC SignalVkFenceNV;
-    PFNGLSIGNALVKSEMAPHORENVPROC SignalVkSemaphoreNV;
-    PFNGLSPECIALIZESHADERPROC SpecializeShader;
-    PFNGLSPECIALIZESHADERARBPROC SpecializeShaderARB;
-    PFNGLSPRITEPARAMETERFSGIXPROC SpriteParameterfSGIX;
-    PFNGLSPRITEPARAMETERFVSGIXPROC SpriteParameterfvSGIX;
-    PFNGLSPRITEPARAMETERISGIXPROC SpriteParameteriSGIX;
-    PFNGLSPRITEPARAMETERIVSGIXPROC SpriteParameterivSGIX;
-    PFNGLSTARTINSTRUMENTSSGIXPROC StartInstrumentsSGIX;
-    PFNGLSTATECAPTURENVPROC StateCaptureNV;
-    PFNGLSTENCILCLEARTAGEXTPROC StencilClearTagEXT;
-    PFNGLSTENCILFILLPATHINSTANCEDNVPROC StencilFillPathInstancedNV;
-    PFNGLSTENCILFILLPATHNVPROC StencilFillPathNV;
-    PFNGLSTENCILFUNCPROC StencilFunc;
-    PFNGLSTENCILFUNCSEPARATEPROC StencilFuncSeparate;
-    PFNGLSTENCILFUNCSEPARATEATIPROC StencilFuncSeparateATI;
-    PFNGLSTENCILMASKPROC StencilMask;
-    PFNGLSTENCILMASKSEPARATEPROC StencilMaskSeparate;
-    PFNGLSTENCILOPPROC StencilOp;
-    PFNGLSTENCILOPSEPARATEPROC StencilOpSeparate;
-    PFNGLSTENCILOPSEPARATEATIPROC StencilOpSeparateATI;
-    PFNGLSTENCILOPVALUEAMDPROC StencilOpValueAMD;
-    PFNGLSTENCILSTROKEPATHINSTANCEDNVPROC StencilStrokePathInstancedNV;
-    PFNGLSTENCILSTROKEPATHNVPROC StencilStrokePathNV;
-    PFNGLSTENCILTHENCOVERFILLPATHINSTANCEDNVPROC StencilThenCoverFillPathInstancedNV;
-    PFNGLSTENCILTHENCOVERFILLPATHNVPROC StencilThenCoverFillPathNV;
-    PFNGLSTENCILTHENCOVERSTROKEPATHINSTANCEDNVPROC StencilThenCoverStrokePathInstancedNV;
-    PFNGLSTENCILTHENCOVERSTROKEPATHNVPROC StencilThenCoverStrokePathNV;
-    PFNGLSTOPINSTRUMENTSSGIXPROC StopInstrumentsSGIX;
-    PFNGLSTRINGMARKERGREMEDYPROC StringMarkerGREMEDY;
-    PFNGLSUBPIXELPRECISIONBIASNVPROC SubpixelPrecisionBiasNV;
-    PFNGLSWIZZLEEXTPROC SwizzleEXT;
-    PFNGLSYNCTEXTUREINTELPROC SyncTextureINTEL;
-    PFNGLTAGSAMPLEBUFFERSGIXPROC TagSampleBufferSGIX;
-    PFNGLTANGENT3BEXTPROC Tangent3bEXT;
-    PFNGLTANGENT3BVEXTPROC Tangent3bvEXT;
-    PFNGLTANGENT3DEXTPROC Tangent3dEXT;
-    PFNGLTANGENT3DVEXTPROC Tangent3dvEXT;
-    PFNGLTANGENT3FEXTPROC Tangent3fEXT;
-    PFNGLTANGENT3FVEXTPROC Tangent3fvEXT;
-    PFNGLTANGENT3IEXTPROC Tangent3iEXT;
-    PFNGLTANGENT3IVEXTPROC Tangent3ivEXT;
-    PFNGLTANGENT3SEXTPROC Tangent3sEXT;
-    PFNGLTANGENT3SVEXTPROC Tangent3svEXT;
-    PFNGLTANGENTPOINTEREXTPROC TangentPointerEXT;
-    PFNGLTBUFFERMASK3DFXPROC TbufferMask3DFX;
-    PFNGLTESSELLATIONFACTORAMDPROC TessellationFactorAMD;
-    PFNGLTESSELLATIONMODEAMDPROC TessellationModeAMD;
-    PFNGLTESTFENCEAPPLEPROC TestFenceAPPLE;
-    PFNGLTESTFENCENVPROC TestFenceNV;
-    PFNGLTESTOBJECTAPPLEPROC TestObjectAPPLE;
-    PFNGLTEXATTACHMEMORYNVPROC TexAttachMemoryNV;
-    PFNGLTEXBUFFERPROC TexBuffer;
-    PFNGLTEXBUFFERARBPROC TexBufferARB;
-    PFNGLTEXBUFFEREXTPROC TexBufferEXT;
-    PFNGLTEXBUFFERRANGEPROC TexBufferRange;
-    PFNGLTEXBUMPPARAMETERFVATIPROC TexBumpParameterfvATI;
-    PFNGLTEXBUMPPARAMETERIVATIPROC TexBumpParameterivATI;
-    PFNGLTEXCOORD1BOESPROC TexCoord1bOES;
-    PFNGLTEXCOORD1BVOESPROC TexCoord1bvOES;
-    PFNGLTEXCOORD1HNVPROC TexCoord1hNV;
-    PFNGLTEXCOORD1HVNVPROC TexCoord1hvNV;
-    PFNGLTEXCOORD1XOESPROC TexCoord1xOES;
-    PFNGLTEXCOORD1XVOESPROC TexCoord1xvOES;
-    PFNGLTEXCOORD2BOESPROC TexCoord2bOES;
-    PFNGLTEXCOORD2BVOESPROC TexCoord2bvOES;
-    PFNGLTEXCOORD2FCOLOR3FVERTEX3FSUNPROC TexCoord2fColor3fVertex3fSUN;
-    PFNGLTEXCOORD2FCOLOR3FVERTEX3FVSUNPROC TexCoord2fColor3fVertex3fvSUN;
-    PFNGLTEXCOORD2FCOLOR4FNORMAL3FVERTEX3FSUNPROC TexCoord2fColor4fNormal3fVertex3fSUN;
-    PFNGLTEXCOORD2FCOLOR4FNORMAL3FVERTEX3FVSUNPROC TexCoord2fColor4fNormal3fVertex3fvSUN;
-    PFNGLTEXCOORD2FCOLOR4UBVERTEX3FSUNPROC TexCoord2fColor4ubVertex3fSUN;
-    PFNGLTEXCOORD2FCOLOR4UBVERTEX3FVSUNPROC TexCoord2fColor4ubVertex3fvSUN;
-    PFNGLTEXCOORD2FNORMAL3FVERTEX3FSUNPROC TexCoord2fNormal3fVertex3fSUN;
-    PFNGLTEXCOORD2FNORMAL3FVERTEX3FVSUNPROC TexCoord2fNormal3fVertex3fvSUN;
-    PFNGLTEXCOORD2FVERTEX3FSUNPROC TexCoord2fVertex3fSUN;
-    PFNGLTEXCOORD2FVERTEX3FVSUNPROC TexCoord2fVertex3fvSUN;
-    PFNGLTEXCOORD2HNVPROC TexCoord2hNV;
-    PFNGLTEXCOORD2HVNVPROC TexCoord2hvNV;
-    PFNGLTEXCOORD2XOESPROC TexCoord2xOES;
-    PFNGLTEXCOORD2XVOESPROC TexCoord2xvOES;
-    PFNGLTEXCOORD3BOESPROC TexCoord3bOES;
-    PFNGLTEXCOORD3BVOESPROC TexCoord3bvOES;
-    PFNGLTEXCOORD3HNVPROC TexCoord3hNV;
-    PFNGLTEXCOORD3HVNVPROC TexCoord3hvNV;
-    PFNGLTEXCOORD3XOESPROC TexCoord3xOES;
-    PFNGLTEXCOORD3XVOESPROC TexCoord3xvOES;
-    PFNGLTEXCOORD4BOESPROC TexCoord4bOES;
-    PFNGLTEXCOORD4BVOESPROC TexCoord4bvOES;
-    PFNGLTEXCOORD4FCOLOR4FNORMAL3FVERTEX4FSUNPROC TexCoord4fColor4fNormal3fVertex4fSUN;
-    PFNGLTEXCOORD4FCOLOR4FNORMAL3FVERTEX4FVSUNPROC TexCoord4fColor4fNormal3fVertex4fvSUN;
-    PFNGLTEXCOORD4FVERTEX4FSUNPROC TexCoord4fVertex4fSUN;
-    PFNGLTEXCOORD4FVERTEX4FVSUNPROC TexCoord4fVertex4fvSUN;
-    PFNGLTEXCOORD4HNVPROC TexCoord4hNV;
-    PFNGLTEXCOORD4HVNVPROC TexCoord4hvNV;
-    PFNGLTEXCOORD4XOESPROC TexCoord4xOES;
-    PFNGLTEXCOORD4XVOESPROC TexCoord4xvOES;
-    PFNGLTEXCOORDFORMATNVPROC TexCoordFormatNV;
-    PFNGLTEXCOORDPOINTEREXTPROC TexCoordPointerEXT;
-    PFNGLTEXCOORDPOINTERLISTIBMPROC TexCoordPointerListIBM;
-    PFNGLTEXCOORDPOINTERVINTELPROC TexCoordPointervINTEL;
-    PFNGLTEXENVXOESPROC TexEnvxOES;
-    PFNGLTEXENVXVOESPROC TexEnvxvOES;
-    PFNGLTEXFILTERFUNCSGISPROC TexFilterFuncSGIS;
-    PFNGLTEXGENXOESPROC TexGenxOES;
-    PFNGLTEXGENXVOESPROC TexGenxvOES;
-    PFNGLTEXIMAGE1DPROC TexImage1D;
-    PFNGLTEXIMAGE2DPROC TexImage2D;
-    PFNGLTEXIMAGE2DEXTERNALANGLEPROC TexImage2DExternalANGLE;
-    PFNGLTEXIMAGE2DMULTISAMPLEPROC TexImage2DMultisample;
-    PFNGLTEXIMAGE2DMULTISAMPLECOVERAGENVPROC TexImage2DMultisampleCoverageNV;
-    PFNGLTEXIMAGE3DPROC TexImage3D;
-    PFNGLTEXIMAGE3DEXTPROC TexImage3DEXT;
-    PFNGLTEXIMAGE3DMULTISAMPLEPROC TexImage3DMultisample;
-    PFNGLTEXIMAGE3DMULTISAMPLECOVERAGENVPROC TexImage3DMultisampleCoverageNV;
-    PFNGLTEXIMAGE4DSGISPROC TexImage4DSGIS;
-    PFNGLTEXPAGECOMMITMENTARBPROC TexPageCommitmentARB;
-    PFNGLTEXPAGECOMMITMENTMEMNVPROC TexPageCommitmentMemNV;
-    PFNGLTEXPARAMETERIIVPROC TexParameterIiv;
-    PFNGLTEXPARAMETERIIVEXTPROC TexParameterIivEXT;
-    PFNGLTEXPARAMETERIUIVPROC TexParameterIuiv;
-    PFNGLTEXPARAMETERIUIVEXTPROC TexParameterIuivEXT;
-    PFNGLTEXPARAMETERFPROC TexParameterf;
-    PFNGLTEXPARAMETERFVPROC TexParameterfv;
-    PFNGLTEXPARAMETERIPROC TexParameteri;
-    PFNGLTEXPARAMETERIVPROC TexParameteriv;
-    PFNGLTEXPARAMETERXOESPROC TexParameterxOES;
-    PFNGLTEXPARAMETERXVOESPROC TexParameterxvOES;
-    PFNGLTEXRENDERBUFFERNVPROC TexRenderbufferNV;
-    PFNGLTEXSTORAGE1DPROC TexStorage1D;
-    PFNGLTEXSTORAGE1DEXTPROC TexStorage1DEXT;
-    PFNGLTEXSTORAGE2DPROC TexStorage2D;
-    PFNGLTEXSTORAGE2DEXTPROC TexStorage2DEXT;
-    PFNGLTEXSTORAGE2DMULTISAMPLEPROC TexStorage2DMultisample;
-    PFNGLTEXSTORAGE3DPROC TexStorage3D;
-    PFNGLTEXSTORAGE3DEXTPROC TexStorage3DEXT;
-    PFNGLTEXSTORAGE3DMULTISAMPLEPROC TexStorage3DMultisample;
-    PFNGLTEXSTORAGEMEM1DEXTPROC TexStorageMem1DEXT;
-    PFNGLTEXSTORAGEMEM2DEXTPROC TexStorageMem2DEXT;
-    PFNGLTEXSTORAGEMEM2DMULTISAMPLEEXTPROC TexStorageMem2DMultisampleEXT;
-    PFNGLTEXSTORAGEMEM3DEXTPROC TexStorageMem3DEXT;
-    PFNGLTEXSTORAGEMEM3DMULTISAMPLEEXTPROC TexStorageMem3DMultisampleEXT;
-    PFNGLTEXSTORAGEMEMFLAGS2DANGLEPROC TexStorageMemFlags2DANGLE;
-    PFNGLTEXSTORAGEMEMFLAGS2DMULTISAMPLEANGLEPROC TexStorageMemFlags2DMultisampleANGLE;
-    PFNGLTEXSTORAGEMEMFLAGS3DANGLEPROC TexStorageMemFlags3DANGLE;
-    PFNGLTEXSTORAGEMEMFLAGS3DMULTISAMPLEANGLEPROC TexStorageMemFlags3DMultisampleANGLE;
-    PFNGLTEXSTORAGESPARSEAMDPROC TexStorageSparseAMD;
-    PFNGLTEXSUBIMAGE1DPROC TexSubImage1D;
-    PFNGLTEXSUBIMAGE1DEXTPROC TexSubImage1DEXT;
-    PFNGLTEXSUBIMAGE2DPROC TexSubImage2D;
-    PFNGLTEXSUBIMAGE2DEXTPROC TexSubImage2DEXT;
-    PFNGLTEXSUBIMAGE3DPROC TexSubImage3D;
-    PFNGLTEXSUBIMAGE3DEXTPROC TexSubImage3DEXT;
-    PFNGLTEXSUBIMAGE4DSGISPROC TexSubImage4DSGIS;
-    PFNGLTEXTUREATTACHMEMORYNVPROC TextureAttachMemoryNV;
-    PFNGLTEXTUREBARRIERPROC TextureBarrier;
-    PFNGLTEXTUREBARRIERNVPROC TextureBarrierNV;
-    PFNGLTEXTUREBUFFERPROC TextureBuffer;
-    PFNGLTEXTUREBUFFEREXTPROC TextureBufferEXT;
-    PFNGLTEXTUREBUFFERRANGEPROC TextureBufferRange;
-    PFNGLTEXTUREBUFFERRANGEEXTPROC TextureBufferRangeEXT;
-    PFNGLTEXTURECOLORMASKSGISPROC TextureColorMaskSGIS;
-    PFNGLTEXTUREIMAGE1DEXTPROC TextureImage1DEXT;
-    PFNGLTEXTUREIMAGE2DEXTPROC TextureImage2DEXT;
-    PFNGLTEXTUREIMAGE2DMULTISAMPLECOVERAGENVPROC TextureImage2DMultisampleCoverageNV;
-    PFNGLTEXTUREIMAGE2DMULTISAMPLENVPROC TextureImage2DMultisampleNV;
-    PFNGLTEXTUREIMAGE3DEXTPROC TextureImage3DEXT;
-    PFNGLTEXTUREIMAGE3DMULTISAMPLECOVERAGENVPROC TextureImage3DMultisampleCoverageNV;
-    PFNGLTEXTUREIMAGE3DMULTISAMPLENVPROC TextureImage3DMultisampleNV;
-    PFNGLTEXTURELIGHTEXTPROC TextureLightEXT;
-    PFNGLTEXTUREMATERIALEXTPROC TextureMaterialEXT;
-    PFNGLTEXTURENORMALEXTPROC TextureNormalEXT;
-    PFNGLTEXTUREPAGECOMMITMENTEXTPROC TexturePageCommitmentEXT;
-    PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC TexturePageCommitmentMemNV;
-    PFNGLTEXTUREPARAMETERIIVPROC TextureParameterIiv;
-    PFNGLTEXTUREPARAMETERIIVEXTPROC TextureParameterIivEXT;
-    PFNGLTEXTUREPARAMETERIUIVPROC TextureParameterIuiv;
-    PFNGLTEXTUREPARAMETERIUIVEXTPROC TextureParameterIuivEXT;
-    PFNGLTEXTUREPARAMETERFPROC TextureParameterf;
-    PFNGLTEXTUREPARAMETERFEXTPROC TextureParameterfEXT;
-    PFNGLTEXTUREPARAMETERFVPROC TextureParameterfv;
-    PFNGLTEXTUREPARAMETERFVEXTPROC TextureParameterfvEXT;
-    PFNGLTEXTUREPARAMETERIPROC TextureParameteri;
-    PFNGLTEXTUREPARAMETERIEXTPROC TextureParameteriEXT;
-    PFNGLTEXTUREPARAMETERIVPROC TextureParameteriv;
-    PFNGLTEXTUREPARAMETERIVEXTPROC TextureParameterivEXT;
-    PFNGLTEXTURERANGEAPPLEPROC TextureRangeAPPLE;
-    PFNGLTEXTURERENDERBUFFEREXTPROC TextureRenderbufferEXT;
-    PFNGLTEXTURESTORAGE1DPROC TextureStorage1D;
-    PFNGLTEXTURESTORAGE1DEXTPROC TextureStorage1DEXT;
-    PFNGLTEXTURESTORAGE2DPROC TextureStorage2D;
-    PFNGLTEXTURESTORAGE2DEXTPROC TextureStorage2DEXT;
-    PFNGLTEXTURESTORAGE2DMULTISAMPLEPROC TextureStorage2DMultisample;
-    PFNGLTEXTURESTORAGE2DMULTISAMPLEEXTPROC TextureStorage2DMultisampleEXT;
-    PFNGLTEXTURESTORAGE3DPROC TextureStorage3D;
-    PFNGLTEXTURESTORAGE3DEXTPROC TextureStorage3DEXT;
-    PFNGLTEXTURESTORAGE3DMULTISAMPLEPROC TextureStorage3DMultisample;
-    PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC TextureStorage3DMultisampleEXT;
-    PFNGLTEXTURESTORAGEMEM1DEXTPROC TextureStorageMem1DEXT;
-    PFNGLTEXTURESTORAGEMEM2DEXTPROC TextureStorageMem2DEXT;
-    PFNGLTEXTURESTORAGEMEM2DMULTISAMPLEEXTPROC TextureStorageMem2DMultisampleEXT;
-    PFNGLTEXTURESTORAGEMEM3DEXTPROC TextureStorageMem3DEXT;
-    PFNGLTEXTURESTORAGEMEM3DMULTISAMPLEEXTPROC TextureStorageMem3DMultisampleEXT;
-    PFNGLTEXTURESTORAGESPARSEAMDPROC TextureStorageSparseAMD;
-    PFNGLTEXTURESUBIMAGE1DPROC TextureSubImage1D;
-    PFNGLTEXTURESUBIMAGE1DEXTPROC TextureSubImage1DEXT;
-    PFNGLTEXTURESUBIMAGE2DPROC TextureSubImage2D;
-    PFNGLTEXTURESUBIMAGE2DEXTPROC TextureSubImage2DEXT;
-    PFNGLTEXTURESUBIMAGE3DPROC TextureSubImage3D;
-    PFNGLTEXTURESUBIMAGE3DEXTPROC TextureSubImage3DEXT;
-    PFNGLTEXTUREVIEWPROC TextureView;
-    PFNGLTRACKMATRIXNVPROC TrackMatrixNV;
-    PFNGLTRANSFORMFEEDBACKATTRIBSNVPROC TransformFeedbackAttribsNV;
-    PFNGLTRANSFORMFEEDBACKBUFFERBASEPROC TransformFeedbackBufferBase;
-    PFNGLTRANSFORMFEEDBACKBUFFERRANGEPROC TransformFeedbackBufferRange;
-    PFNGLTRANSFORMFEEDBACKSTREAMATTRIBSNVPROC TransformFeedbackStreamAttribsNV;
-    PFNGLTRANSFORMFEEDBACKVARYINGSPROC TransformFeedbackVaryings;
-    PFNGLTRANSFORMFEEDBACKVARYINGSEXTPROC TransformFeedbackVaryingsEXT;
-    PFNGLTRANSFORMFEEDBACKVARYINGSNVPROC TransformFeedbackVaryingsNV;
-    PFNGLTRANSFORMPATHNVPROC TransformPathNV;
-    PFNGLTRANSLATEXOESPROC TranslatexOES;
-    PFNGLUNIFORM1DPROC Uniform1d;
-    PFNGLUNIFORM1DVPROC Uniform1dv;
-    PFNGLUNIFORM1FPROC Uniform1f;
-    PFNGLUNIFORM1FARBPROC Uniform1fARB;
-    PFNGLUNIFORM1FVPROC Uniform1fv;
-    PFNGLUNIFORM1FVARBPROC Uniform1fvARB;
-    PFNGLUNIFORM1IPROC Uniform1i;
-    PFNGLUNIFORM1I64ARBPROC Uniform1i64ARB;
-    PFNGLUNIFORM1I64NVPROC Uniform1i64NV;
-    PFNGLUNIFORM1I64VARBPROC Uniform1i64vARB;
-    PFNGLUNIFORM1I64VNVPROC Uniform1i64vNV;
-    PFNGLUNIFORM1IARBPROC Uniform1iARB;
-    PFNGLUNIFORM1IVPROC Uniform1iv;
-    PFNGLUNIFORM1IVARBPROC Uniform1ivARB;
-    PFNGLUNIFORM1UIPROC Uniform1ui;
-    PFNGLUNIFORM1UI64ARBPROC Uniform1ui64ARB;
-    PFNGLUNIFORM1UI64NVPROC Uniform1ui64NV;
-    PFNGLUNIFORM1UI64VARBPROC Uniform1ui64vARB;
-    PFNGLUNIFORM1UI64VNVPROC Uniform1ui64vNV;
-    PFNGLUNIFORM1UIEXTPROC Uniform1uiEXT;
-    PFNGLUNIFORM1UIVPROC Uniform1uiv;
-    PFNGLUNIFORM1UIVEXTPROC Uniform1uivEXT;
-    PFNGLUNIFORM2DPROC Uniform2d;
-    PFNGLUNIFORM2DVPROC Uniform2dv;
-    PFNGLUNIFORM2FPROC Uniform2f;
-    PFNGLUNIFORM2FARBPROC Uniform2fARB;
-    PFNGLUNIFORM2FVPROC Uniform2fv;
-    PFNGLUNIFORM2FVARBPROC Uniform2fvARB;
-    PFNGLUNIFORM2IPROC Uniform2i;
-    PFNGLUNIFORM2I64ARBPROC Uniform2i64ARB;
-    PFNGLUNIFORM2I64NVPROC Uniform2i64NV;
-    PFNGLUNIFORM2I64VARBPROC Uniform2i64vARB;
-    PFNGLUNIFORM2I64VNVPROC Uniform2i64vNV;
-    PFNGLUNIFORM2IARBPROC Uniform2iARB;
-    PFNGLUNIFORM2IVPROC Uniform2iv;
-    PFNGLUNIFORM2IVARBPROC Uniform2ivARB;
-    PFNGLUNIFORM2UIPROC Uniform2ui;
-    PFNGLUNIFORM2UI64ARBPROC Uniform2ui64ARB;
-    PFNGLUNIFORM2UI64NVPROC Uniform2ui64NV;
-    PFNGLUNIFORM2UI64VARBPROC Uniform2ui64vARB;
-    PFNGLUNIFORM2UI64VNVPROC Uniform2ui64vNV;
-    PFNGLUNIFORM2UIEXTPROC Uniform2uiEXT;
-    PFNGLUNIFORM2UIVPROC Uniform2uiv;
-    PFNGLUNIFORM2UIVEXTPROC Uniform2uivEXT;
-    PFNGLUNIFORM3DPROC Uniform3d;
-    PFNGLUNIFORM3DVPROC Uniform3dv;
-    PFNGLUNIFORM3FPROC Uniform3f;
-    PFNGLUNIFORM3FARBPROC Uniform3fARB;
-    PFNGLUNIFORM3FVPROC Uniform3fv;
-    PFNGLUNIFORM3FVARBPROC Uniform3fvARB;
-    PFNGLUNIFORM3IPROC Uniform3i;
-    PFNGLUNIFORM3I64ARBPROC Uniform3i64ARB;
-    PFNGLUNIFORM3I64NVPROC Uniform3i64NV;
-    PFNGLUNIFORM3I64VARBPROC Uniform3i64vARB;
-    PFNGLUNIFORM3I64VNVPROC Uniform3i64vNV;
-    PFNGLUNIFORM3IARBPROC Uniform3iARB;
-    PFNGLUNIFORM3IVPROC Uniform3iv;
-    PFNGLUNIFORM3IVARBPROC Uniform3ivARB;
-    PFNGLUNIFORM3UIPROC Uniform3ui;
-    PFNGLUNIFORM3UI64ARBPROC Uniform3ui64ARB;
-    PFNGLUNIFORM3UI64NVPROC Uniform3ui64NV;
-    PFNGLUNIFORM3UI64VARBPROC Uniform3ui64vARB;
-    PFNGLUNIFORM3UI64VNVPROC Uniform3ui64vNV;
-    PFNGLUNIFORM3UIEXTPROC Uniform3uiEXT;
-    PFNGLUNIFORM3UIVPROC Uniform3uiv;
-    PFNGLUNIFORM3UIVEXTPROC Uniform3uivEXT;
-    PFNGLUNIFORM4DPROC Uniform4d;
-    PFNGLUNIFORM4DVPROC Uniform4dv;
-    PFNGLUNIFORM4FPROC Uniform4f;
-    PFNGLUNIFORM4FARBPROC Uniform4fARB;
-    PFNGLUNIFORM4FVPROC Uniform4fv;
-    PFNGLUNIFORM4FVARBPROC Uniform4fvARB;
-    PFNGLUNIFORM4IPROC Uniform4i;
-    PFNGLUNIFORM4I64ARBPROC Uniform4i64ARB;
-    PFNGLUNIFORM4I64NVPROC Uniform4i64NV;
-    PFNGLUNIFORM4I64VARBPROC Uniform4i64vARB;
-    PFNGLUNIFORM4I64VNVPROC Uniform4i64vNV;
-    PFNGLUNIFORM4IARBPROC Uniform4iARB;
-    PFNGLUNIFORM4IVPROC Uniform4iv;
-    PFNGLUNIFORM4IVARBPROC Uniform4ivARB;
-    PFNGLUNIFORM4UIPROC Uniform4ui;
-    PFNGLUNIFORM4UI64ARBPROC Uniform4ui64ARB;
-    PFNGLUNIFORM4UI64NVPROC Uniform4ui64NV;
-    PFNGLUNIFORM4UI64VARBPROC Uniform4ui64vARB;
-    PFNGLUNIFORM4UI64VNVPROC Uniform4ui64vNV;
-    PFNGLUNIFORM4UIEXTPROC Uniform4uiEXT;
-    PFNGLUNIFORM4UIVPROC Uniform4uiv;
-    PFNGLUNIFORM4UIVEXTPROC Uniform4uivEXT;
-    PFNGLUNIFORMBLOCKBINDINGPROC UniformBlockBinding;
-    PFNGLUNIFORMBUFFEREXTPROC UniformBufferEXT;
-    PFNGLUNIFORMHANDLEUI64ARBPROC UniformHandleui64ARB;
-    PFNGLUNIFORMHANDLEUI64NVPROC UniformHandleui64NV;
-    PFNGLUNIFORMHANDLEUI64VARBPROC UniformHandleui64vARB;
-    PFNGLUNIFORMHANDLEUI64VNVPROC UniformHandleui64vNV;
-    PFNGLUNIFORMMATRIX2DVPROC UniformMatrix2dv;
-    PFNGLUNIFORMMATRIX2FVPROC UniformMatrix2fv;
-    PFNGLUNIFORMMATRIX2FVARBPROC UniformMatrix2fvARB;
-    PFNGLUNIFORMMATRIX2X3DVPROC UniformMatrix2x3dv;
-    PFNGLUNIFORMMATRIX2X3FVPROC UniformMatrix2x3fv;
-    PFNGLUNIFORMMATRIX2X4DVPROC UniformMatrix2x4dv;
-    PFNGLUNIFORMMATRIX2X4FVPROC UniformMatrix2x4fv;
-    PFNGLUNIFORMMATRIX3DVPROC UniformMatrix3dv;
-    PFNGLUNIFORMMATRIX3FVPROC UniformMatrix3fv;
-    PFNGLUNIFORMMATRIX3FVARBPROC UniformMatrix3fvARB;
-    PFNGLUNIFORMMATRIX3X2DVPROC UniformMatrix3x2dv;
-    PFNGLUNIFORMMATRIX3X2FVPROC UniformMatrix3x2fv;
-    PFNGLUNIFORMMATRIX3X4DVPROC UniformMatrix3x4dv;
-    PFNGLUNIFORMMATRIX3X4FVPROC UniformMatrix3x4fv;
-    PFNGLUNIFORMMATRIX4DVPROC UniformMatrix4dv;
-    PFNGLUNIFORMMATRIX4FVPROC UniformMatrix4fv;
-    PFNGLUNIFORMMATRIX4FVARBPROC UniformMatrix4fvARB;
-    PFNGLUNIFORMMATRIX4X2DVPROC UniformMatrix4x2dv;
-    PFNGLUNIFORMMATRIX4X2FVPROC UniformMatrix4x2fv;
-    PFNGLUNIFORMMATRIX4X3DVPROC UniformMatrix4x3dv;
-    PFNGLUNIFORMMATRIX4X3FVPROC UniformMatrix4x3fv;
-    PFNGLUNIFORMSUBROUTINESUIVPROC UniformSubroutinesuiv;
-    PFNGLUNIFORMUI64NVPROC Uniformui64NV;
-    PFNGLUNIFORMUI64VNVPROC Uniformui64vNV;
-    PFNGLUNLOCKARRAYSEXTPROC UnlockArraysEXT;
-    PFNGLUNMAPBUFFERPROC UnmapBuffer;
-    PFNGLUNMAPBUFFERARBPROC UnmapBufferARB;
-    PFNGLUNMAPNAMEDBUFFERPROC UnmapNamedBuffer;
-    PFNGLUNMAPNAMEDBUFFEREXTPROC UnmapNamedBufferEXT;
-    PFNGLUNMAPOBJECTBUFFERATIPROC UnmapObjectBufferATI;
-    PFNGLUNMAPTEXTURE2DINTELPROC UnmapTexture2DINTEL;
-    PFNGLUPDATEOBJECTBUFFERATIPROC UpdateObjectBufferATI;
-    PFNGLUPLOADGPUMASKNVXPROC UploadGpuMaskNVX;
-    PFNGLUSEPROGRAMPROC UseProgram;
-    PFNGLUSEPROGRAMOBJECTARBPROC UseProgramObjectARB;
-    PFNGLUSEPROGRAMSTAGESPROC UseProgramStages;
-    PFNGLUSESHADERPROGRAMEXTPROC UseShaderProgramEXT;
-    PFNGLVDPAUFININVPROC VDPAUFiniNV;
-    PFNGLVDPAUGETSURFACEIVNVPROC VDPAUGetSurfaceivNV;
-    PFNGLVDPAUINITNVPROC VDPAUInitNV;
-    PFNGLVDPAUISSURFACENVPROC VDPAUIsSurfaceNV;
-    PFNGLVDPAUMAPSURFACESNVPROC VDPAUMapSurfacesNV;
-    PFNGLVDPAUREGISTEROUTPUTSURFACENVPROC VDPAURegisterOutputSurfaceNV;
-    PFNGLVDPAUREGISTERVIDEOSURFACENVPROC VDPAURegisterVideoSurfaceNV;
-    PFNGLVDPAUREGISTERVIDEOSURFACEWITHPICTURESTRUCTURENVPROC VDPAURegisterVideoSurfaceWithPictureStructureNV;
-    PFNGLVDPAUSURFACEACCESSNVPROC VDPAUSurfaceAccessNV;
-    PFNGLVDPAUUNMAPSURFACESNVPROC VDPAUUnmapSurfacesNV;
-    PFNGLVDPAUUNREGISTERSURFACENVPROC VDPAUUnregisterSurfaceNV;
-    PFNGLVALIDATEPROGRAMPROC ValidateProgram;
-    PFNGLVALIDATEPROGRAMARBPROC ValidateProgramARB;
-    PFNGLVALIDATEPROGRAMPIPELINEPROC ValidateProgramPipeline;
-    PFNGLVARIANTARRAYOBJECTATIPROC VariantArrayObjectATI;
-    PFNGLVARIANTPOINTEREXTPROC VariantPointerEXT;
-    PFNGLVARIANTBVEXTPROC VariantbvEXT;
-    PFNGLVARIANTDVEXTPROC VariantdvEXT;
-    PFNGLVARIANTFVEXTPROC VariantfvEXT;
-    PFNGLVARIANTIVEXTPROC VariantivEXT;
-    PFNGLVARIANTSVEXTPROC VariantsvEXT;
-    PFNGLVARIANTUBVEXTPROC VariantubvEXT;
-    PFNGLVARIANTUIVEXTPROC VariantuivEXT;
-    PFNGLVARIANTUSVEXTPROC VariantusvEXT;
-    PFNGLVERTEX2BOESPROC Vertex2bOES;
-    PFNGLVERTEX2BVOESPROC Vertex2bvOES;
-    PFNGLVERTEX2HNVPROC Vertex2hNV;
-    PFNGLVERTEX2HVNVPROC Vertex2hvNV;
-    PFNGLVERTEX2XOESPROC Vertex2xOES;
-    PFNGLVERTEX2XVOESPROC Vertex2xvOES;
-    PFNGLVERTEX3BOESPROC Vertex3bOES;
-    PFNGLVERTEX3BVOESPROC Vertex3bvOES;
-    PFNGLVERTEX3HNVPROC Vertex3hNV;
-    PFNGLVERTEX3HVNVPROC Vertex3hvNV;
-    PFNGLVERTEX3XOESPROC Vertex3xOES;
-    PFNGLVERTEX3XVOESPROC Vertex3xvOES;
-    PFNGLVERTEX4BOESPROC Vertex4bOES;
-    PFNGLVERTEX4BVOESPROC Vertex4bvOES;
-    PFNGLVERTEX4HNVPROC Vertex4hNV;
-    PFNGLVERTEX4HVNVPROC Vertex4hvNV;
-    PFNGLVERTEX4XOESPROC Vertex4xOES;
-    PFNGLVERTEX4XVOESPROC Vertex4xvOES;
-    PFNGLVERTEXARRAYATTRIBBINDINGPROC VertexArrayAttribBinding;
-    PFNGLVERTEXARRAYATTRIBFORMATPROC VertexArrayAttribFormat;
-    PFNGLVERTEXARRAYATTRIBIFORMATPROC VertexArrayAttribIFormat;
-    PFNGLVERTEXARRAYATTRIBLFORMATPROC VertexArrayAttribLFormat;
-    PFNGLVERTEXARRAYBINDVERTEXBUFFEREXTPROC VertexArrayBindVertexBufferEXT;
-    PFNGLVERTEXARRAYBINDINGDIVISORPROC VertexArrayBindingDivisor;
-    PFNGLVERTEXARRAYCOLOROFFSETEXTPROC VertexArrayColorOffsetEXT;
-    PFNGLVERTEXARRAYEDGEFLAGOFFSETEXTPROC VertexArrayEdgeFlagOffsetEXT;
-    PFNGLVERTEXARRAYELEMENTBUFFERPROC VertexArrayElementBuffer;
-    PFNGLVERTEXARRAYFOGCOORDOFFSETEXTPROC VertexArrayFogCoordOffsetEXT;
-    PFNGLVERTEXARRAYINDEXOFFSETEXTPROC VertexArrayIndexOffsetEXT;
-    PFNGLVERTEXARRAYMULTITEXCOORDOFFSETEXTPROC VertexArrayMultiTexCoordOffsetEXT;
-    PFNGLVERTEXARRAYNORMALOFFSETEXTPROC VertexArrayNormalOffsetEXT;
-    PFNGLVERTEXARRAYPARAMETERIAPPLEPROC VertexArrayParameteriAPPLE;
-    PFNGLVERTEXARRAYRANGEAPPLEPROC VertexArrayRangeAPPLE;
-    PFNGLVERTEXARRAYRANGENVPROC VertexArrayRangeNV;
-    PFNGLVERTEXARRAYSECONDARYCOLOROFFSETEXTPROC VertexArraySecondaryColorOffsetEXT;
-    PFNGLVERTEXARRAYTEXCOORDOFFSETEXTPROC VertexArrayTexCoordOffsetEXT;
-    PFNGLVERTEXARRAYVERTEXATTRIBBINDINGEXTPROC VertexArrayVertexAttribBindingEXT;
-    PFNGLVERTEXARRAYVERTEXATTRIBDIVISOREXTPROC VertexArrayVertexAttribDivisorEXT;
-    PFNGLVERTEXARRAYVERTEXATTRIBFORMATEXTPROC VertexArrayVertexAttribFormatEXT;
-    PFNGLVERTEXARRAYVERTEXATTRIBIFORMATEXTPROC VertexArrayVertexAttribIFormatEXT;
-    PFNGLVERTEXARRAYVERTEXATTRIBIOFFSETEXTPROC VertexArrayVertexAttribIOffsetEXT;
-    PFNGLVERTEXARRAYVERTEXATTRIBLFORMATEXTPROC VertexArrayVertexAttribLFormatEXT;
-    PFNGLVERTEXARRAYVERTEXATTRIBLOFFSETEXTPROC VertexArrayVertexAttribLOffsetEXT;
-    PFNGLVERTEXARRAYVERTEXATTRIBOFFSETEXTPROC VertexArrayVertexAttribOffsetEXT;
-    PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC VertexArrayVertexBindingDivisorEXT;
-    PFNGLVERTEXARRAYVERTEXBUFFERPROC VertexArrayVertexBuffer;
-    PFNGLVERTEXARRAYVERTEXBUFFERSPROC VertexArrayVertexBuffers;
-    PFNGLVERTEXARRAYVERTEXOFFSETEXTPROC VertexArrayVertexOffsetEXT;
-    PFNGLVERTEXATTRIB1DPROC VertexAttrib1d;
-    PFNGLVERTEXATTRIB1DARBPROC VertexAttrib1dARB;
-    PFNGLVERTEXATTRIB1DNVPROC VertexAttrib1dNV;
-    PFNGLVERTEXATTRIB1DVPROC VertexAttrib1dv;
-    PFNGLVERTEXATTRIB1DVARBPROC VertexAttrib1dvARB;
-    PFNGLVERTEXATTRIB1DVNVPROC VertexAttrib1dvNV;
-    PFNGLVERTEXATTRIB1FPROC VertexAttrib1f;
-    PFNGLVERTEXATTRIB1FARBPROC VertexAttrib1fARB;
-    PFNGLVERTEXATTRIB1FNVPROC VertexAttrib1fNV;
-    PFNGLVERTEXATTRIB1FVPROC VertexAttrib1fv;
-    PFNGLVERTEXATTRIB1FVARBPROC VertexAttrib1fvARB;
-    PFNGLVERTEXATTRIB1FVNVPROC VertexAttrib1fvNV;
-    PFNGLVERTEXATTRIB1HNVPROC VertexAttrib1hNV;
-    PFNGLVERTEXATTRIB1HVNVPROC VertexAttrib1hvNV;
-    PFNGLVERTEXATTRIB1SPROC VertexAttrib1s;
-    PFNGLVERTEXATTRIB1SARBPROC VertexAttrib1sARB;
-    PFNGLVERTEXATTRIB1SNVPROC VertexAttrib1sNV;
-    PFNGLVERTEXATTRIB1SVPROC VertexAttrib1sv;
-    PFNGLVERTEXATTRIB1SVARBPROC VertexAttrib1svARB;
-    PFNGLVERTEXATTRIB1SVNVPROC VertexAttrib1svNV;
-    PFNGLVERTEXATTRIB2DPROC VertexAttrib2d;
-    PFNGLVERTEXATTRIB2DARBPROC VertexAttrib2dARB;
-    PFNGLVERTEXATTRIB2DNVPROC VertexAttrib2dNV;
-    PFNGLVERTEXATTRIB2DVPROC VertexAttrib2dv;
-    PFNGLVERTEXATTRIB2DVARBPROC VertexAttrib2dvARB;
-    PFNGLVERTEXATTRIB2DVNVPROC VertexAttrib2dvNV;
-    PFNGLVERTEXATTRIB2FPROC VertexAttrib2f;
-    PFNGLVERTEXATTRIB2FARBPROC VertexAttrib2fARB;
-    PFNGLVERTEXATTRIB2FNVPROC VertexAttrib2fNV;
-    PFNGLVERTEXATTRIB2FVPROC VertexAttrib2fv;
-    PFNGLVERTEXATTRIB2FVARBPROC VertexAttrib2fvARB;
-    PFNGLVERTEXATTRIB2FVNVPROC VertexAttrib2fvNV;
-    PFNGLVERTEXATTRIB2HNVPROC VertexAttrib2hNV;
-    PFNGLVERTEXATTRIB2HVNVPROC VertexAttrib2hvNV;
-    PFNGLVERTEXATTRIB2SPROC VertexAttrib2s;
-    PFNGLVERTEXATTRIB2SARBPROC VertexAttrib2sARB;
-    PFNGLVERTEXATTRIB2SNVPROC VertexAttrib2sNV;
-    PFNGLVERTEXATTRIB2SVPROC VertexAttrib2sv;
-    PFNGLVERTEXATTRIB2SVARBPROC VertexAttrib2svARB;
-    PFNGLVERTEXATTRIB2SVNVPROC VertexAttrib2svNV;
-    PFNGLVERTEXATTRIB3DPROC VertexAttrib3d;
-    PFNGLVERTEXATTRIB3DARBPROC VertexAttrib3dARB;
-    PFNGLVERTEXATTRIB3DNVPROC VertexAttrib3dNV;
-    PFNGLVERTEXATTRIB3DVPROC VertexAttrib3dv;
-    PFNGLVERTEXATTRIB3DVARBPROC VertexAttrib3dvARB;
-    PFNGLVERTEXATTRIB3DVNVPROC VertexAttrib3dvNV;
-    PFNGLVERTEXATTRIB3FPROC VertexAttrib3f;
-    PFNGLVERTEXATTRIB3FARBPROC VertexAttrib3fARB;
-    PFNGLVERTEXATTRIB3FNVPROC VertexAttrib3fNV;
-    PFNGLVERTEXATTRIB3FVPROC VertexAttrib3fv;
-    PFNGLVERTEXATTRIB3FVARBPROC VertexAttrib3fvARB;
-    PFNGLVERTEXATTRIB3FVNVPROC VertexAttrib3fvNV;
-    PFNGLVERTEXATTRIB3HNVPROC VertexAttrib3hNV;
-    PFNGLVERTEXATTRIB3HVNVPROC VertexAttrib3hvNV;
-    PFNGLVERTEXATTRIB3SPROC VertexAttrib3s;
-    PFNGLVERTEXATTRIB3SARBPROC VertexAttrib3sARB;
-    PFNGLVERTEXATTRIB3SNVPROC VertexAttrib3sNV;
-    PFNGLVERTEXATTRIB3SVPROC VertexAttrib3sv;
-    PFNGLVERTEXATTRIB3SVARBPROC VertexAttrib3svARB;
-    PFNGLVERTEXATTRIB3SVNVPROC VertexAttrib3svNV;
-    PFNGLVERTEXATTRIB4NBVPROC VertexAttrib4Nbv;
-    PFNGLVERTEXATTRIB4NBVARBPROC VertexAttrib4NbvARB;
-    PFNGLVERTEXATTRIB4NIVPROC VertexAttrib4Niv;
-    PFNGLVERTEXATTRIB4NIVARBPROC VertexAttrib4NivARB;
-    PFNGLVERTEXATTRIB4NSVPROC VertexAttrib4Nsv;
-    PFNGLVERTEXATTRIB4NSVARBPROC VertexAttrib4NsvARB;
-    PFNGLVERTEXATTRIB4NUBPROC VertexAttrib4Nub;
-    PFNGLVERTEXATTRIB4NUBARBPROC VertexAttrib4NubARB;
-    PFNGLVERTEXATTRIB4NUBVPROC VertexAttrib4Nubv;
-    PFNGLVERTEXATTRIB4NUBVARBPROC VertexAttrib4NubvARB;
-    PFNGLVERTEXATTRIB4NUIVPROC VertexAttrib4Nuiv;
-    PFNGLVERTEXATTRIB4NUIVARBPROC VertexAttrib4NuivARB;
-    PFNGLVERTEXATTRIB4NUSVPROC VertexAttrib4Nusv;
-    PFNGLVERTEXATTRIB4NUSVARBPROC VertexAttrib4NusvARB;
-    PFNGLVERTEXATTRIB4BVPROC VertexAttrib4bv;
-    PFNGLVERTEXATTRIB4BVARBPROC VertexAttrib4bvARB;
-    PFNGLVERTEXATTRIB4DPROC VertexAttrib4d;
-    PFNGLVERTEXATTRIB4DARBPROC VertexAttrib4dARB;
-    PFNGLVERTEXATTRIB4DNVPROC VertexAttrib4dNV;
-    PFNGLVERTEXATTRIB4DVPROC VertexAttrib4dv;
-    PFNGLVERTEXATTRIB4DVARBPROC VertexAttrib4dvARB;
-    PFNGLVERTEXATTRIB4DVNVPROC VertexAttrib4dvNV;
-    PFNGLVERTEXATTRIB4FPROC VertexAttrib4f;
-    PFNGLVERTEXATTRIB4FARBPROC VertexAttrib4fARB;
-    PFNGLVERTEXATTRIB4FNVPROC VertexAttrib4fNV;
-    PFNGLVERTEXATTRIB4FVPROC VertexAttrib4fv;
-    PFNGLVERTEXATTRIB4FVARBPROC VertexAttrib4fvARB;
-    PFNGLVERTEXATTRIB4FVNVPROC VertexAttrib4fvNV;
-    PFNGLVERTEXATTRIB4HNVPROC VertexAttrib4hNV;
-    PFNGLVERTEXATTRIB4HVNVPROC VertexAttrib4hvNV;
-    PFNGLVERTEXATTRIB4IVPROC VertexAttrib4iv;
-    PFNGLVERTEXATTRIB4IVARBPROC VertexAttrib4ivARB;
-    PFNGLVERTEXATTRIB4SPROC VertexAttrib4s;
-    PFNGLVERTEXATTRIB4SARBPROC VertexAttrib4sARB;
-    PFNGLVERTEXATTRIB4SNVPROC VertexAttrib4sNV;
-    PFNGLVERTEXATTRIB4SVPROC VertexAttrib4sv;
-    PFNGLVERTEXATTRIB4SVARBPROC VertexAttrib4svARB;
-    PFNGLVERTEXATTRIB4SVNVPROC VertexAttrib4svNV;
-    PFNGLVERTEXATTRIB4UBNVPROC VertexAttrib4ubNV;
-    PFNGLVERTEXATTRIB4UBVPROC VertexAttrib4ubv;
-    PFNGLVERTEXATTRIB4UBVARBPROC VertexAttrib4ubvARB;
-    PFNGLVERTEXATTRIB4UBVNVPROC VertexAttrib4ubvNV;
-    PFNGLVERTEXATTRIB4UIVPROC VertexAttrib4uiv;
-    PFNGLVERTEXATTRIB4UIVARBPROC VertexAttrib4uivARB;
-    PFNGLVERTEXATTRIB4USVPROC VertexAttrib4usv;
-    PFNGLVERTEXATTRIB4USVARBPROC VertexAttrib4usvARB;
-    PFNGLVERTEXATTRIBARRAYOBJECTATIPROC VertexAttribArrayObjectATI;
-    PFNGLVERTEXATTRIBBINDINGPROC VertexAttribBinding;
-    PFNGLVERTEXATTRIBDIVISORPROC VertexAttribDivisor;
-    PFNGLVERTEXATTRIBDIVISORARBPROC VertexAttribDivisorARB;
-    PFNGLVERTEXATTRIBFORMATPROC VertexAttribFormat;
-    PFNGLVERTEXATTRIBFORMATNVPROC VertexAttribFormatNV;
-    PFNGLVERTEXATTRIBI1IPROC VertexAttribI1i;
-    PFNGLVERTEXATTRIBI1IEXTPROC VertexAttribI1iEXT;
-    PFNGLVERTEXATTRIBI1IVPROC VertexAttribI1iv;
-    PFNGLVERTEXATTRIBI1IVEXTPROC VertexAttribI1ivEXT;
-    PFNGLVERTEXATTRIBI1UIPROC VertexAttribI1ui;
-    PFNGLVERTEXATTRIBI1UIEXTPROC VertexAttribI1uiEXT;
-    PFNGLVERTEXATTRIBI1UIVPROC VertexAttribI1uiv;
-    PFNGLVERTEXATTRIBI1UIVEXTPROC VertexAttribI1uivEXT;
-    PFNGLVERTEXATTRIBI2IPROC VertexAttribI2i;
-    PFNGLVERTEXATTRIBI2IEXTPROC VertexAttribI2iEXT;
-    PFNGLVERTEXATTRIBI2IVPROC VertexAttribI2iv;
-    PFNGLVERTEXATTRIBI2IVEXTPROC VertexAttribI2ivEXT;
-    PFNGLVERTEXATTRIBI2UIPROC VertexAttribI2ui;
-    PFNGLVERTEXATTRIBI2UIEXTPROC VertexAttribI2uiEXT;
-    PFNGLVERTEXATTRIBI2UIVPROC VertexAttribI2uiv;
-    PFNGLVERTEXATTRIBI2UIVEXTPROC VertexAttribI2uivEXT;
-    PFNGLVERTEXATTRIBI3IPROC VertexAttribI3i;
-    PFNGLVERTEXATTRIBI3IEXTPROC VertexAttribI3iEXT;
-    PFNGLVERTEXATTRIBI3IVPROC VertexAttribI3iv;
-    PFNGLVERTEXATTRIBI3IVEXTPROC VertexAttribI3ivEXT;
-    PFNGLVERTEXATTRIBI3UIPROC VertexAttribI3ui;
-    PFNGLVERTEXATTRIBI3UIEXTPROC VertexAttribI3uiEXT;
-    PFNGLVERTEXATTRIBI3UIVPROC VertexAttribI3uiv;
-    PFNGLVERTEXATTRIBI3UIVEXTPROC VertexAttribI3uivEXT;
-    PFNGLVERTEXATTRIBI4BVPROC VertexAttribI4bv;
-    PFNGLVERTEXATTRIBI4BVEXTPROC VertexAttribI4bvEXT;
-    PFNGLVERTEXATTRIBI4IPROC VertexAttribI4i;
-    PFNGLVERTEXATTRIBI4IEXTPROC VertexAttribI4iEXT;
-    PFNGLVERTEXATTRIBI4IVPROC VertexAttribI4iv;
-    PFNGLVERTEXATTRIBI4IVEXTPROC VertexAttribI4ivEXT;
-    PFNGLVERTEXATTRIBI4SVPROC VertexAttribI4sv;
-    PFNGLVERTEXATTRIBI4SVEXTPROC VertexAttribI4svEXT;
-    PFNGLVERTEXATTRIBI4UBVPROC VertexAttribI4ubv;
-    PFNGLVERTEXATTRIBI4UBVEXTPROC VertexAttribI4ubvEXT;
-    PFNGLVERTEXATTRIBI4UIPROC VertexAttribI4ui;
-    PFNGLVERTEXATTRIBI4UIEXTPROC VertexAttribI4uiEXT;
-    PFNGLVERTEXATTRIBI4UIVPROC VertexAttribI4uiv;
-    PFNGLVERTEXATTRIBI4UIVEXTPROC VertexAttribI4uivEXT;
-    PFNGLVERTEXATTRIBI4USVPROC VertexAttribI4usv;
-    PFNGLVERTEXATTRIBI4USVEXTPROC VertexAttribI4usvEXT;
-    PFNGLVERTEXATTRIBIFORMATPROC VertexAttribIFormat;
-    PFNGLVERTEXATTRIBIFORMATNVPROC VertexAttribIFormatNV;
-    PFNGLVERTEXATTRIBIPOINTERPROC VertexAttribIPointer;
-    PFNGLVERTEXATTRIBIPOINTEREXTPROC VertexAttribIPointerEXT;
-    PFNGLVERTEXATTRIBL1DPROC VertexAttribL1d;
-    PFNGLVERTEXATTRIBL1DEXTPROC VertexAttribL1dEXT;
-    PFNGLVERTEXATTRIBL1DVPROC VertexAttribL1dv;
-    PFNGLVERTEXATTRIBL1DVEXTPROC VertexAttribL1dvEXT;
-    PFNGLVERTEXATTRIBL1I64NVPROC VertexAttribL1i64NV;
-    PFNGLVERTEXATTRIBL1I64VNVPROC VertexAttribL1i64vNV;
-    PFNGLVERTEXATTRIBL1UI64ARBPROC VertexAttribL1ui64ARB;
-    PFNGLVERTEXATTRIBL1UI64NVPROC VertexAttribL1ui64NV;
-    PFNGLVERTEXATTRIBL1UI64VARBPROC VertexAttribL1ui64vARB;
-    PFNGLVERTEXATTRIBL1UI64VNVPROC VertexAttribL1ui64vNV;
-    PFNGLVERTEXATTRIBL2DPROC VertexAttribL2d;
-    PFNGLVERTEXATTRIBL2DEXTPROC VertexAttribL2dEXT;
-    PFNGLVERTEXATTRIBL2DVPROC VertexAttribL2dv;
-    PFNGLVERTEXATTRIBL2DVEXTPROC VertexAttribL2dvEXT;
-    PFNGLVERTEXATTRIBL2I64NVPROC VertexAttribL2i64NV;
-    PFNGLVERTEXATTRIBL2I64VNVPROC VertexAttribL2i64vNV;
-    PFNGLVERTEXATTRIBL2UI64NVPROC VertexAttribL2ui64NV;
-    PFNGLVERTEXATTRIBL2UI64VNVPROC VertexAttribL2ui64vNV;
-    PFNGLVERTEXATTRIBL3DPROC VertexAttribL3d;
-    PFNGLVERTEXATTRIBL3DEXTPROC VertexAttribL3dEXT;
-    PFNGLVERTEXATTRIBL3DVPROC VertexAttribL3dv;
-    PFNGLVERTEXATTRIBL3DVEXTPROC VertexAttribL3dvEXT;
-    PFNGLVERTEXATTRIBL3I64NVPROC VertexAttribL3i64NV;
-    PFNGLVERTEXATTRIBL3I64VNVPROC VertexAttribL3i64vNV;
-    PFNGLVERTEXATTRIBL3UI64NVPROC VertexAttribL3ui64NV;
-    PFNGLVERTEXATTRIBL3UI64VNVPROC VertexAttribL3ui64vNV;
-    PFNGLVERTEXATTRIBL4DPROC VertexAttribL4d;
-    PFNGLVERTEXATTRIBL4DEXTPROC VertexAttribL4dEXT;
-    PFNGLVERTEXATTRIBL4DVPROC VertexAttribL4dv;
-    PFNGLVERTEXATTRIBL4DVEXTPROC VertexAttribL4dvEXT;
-    PFNGLVERTEXATTRIBL4I64NVPROC VertexAttribL4i64NV;
-    PFNGLVERTEXATTRIBL4I64VNVPROC VertexAttribL4i64vNV;
-    PFNGLVERTEXATTRIBL4UI64NVPROC VertexAttribL4ui64NV;
-    PFNGLVERTEXATTRIBL4UI64VNVPROC VertexAttribL4ui64vNV;
-    PFNGLVERTEXATTRIBLFORMATPROC VertexAttribLFormat;
-    PFNGLVERTEXATTRIBLFORMATNVPROC VertexAttribLFormatNV;
-    PFNGLVERTEXATTRIBLPOINTERPROC VertexAttribLPointer;
-    PFNGLVERTEXATTRIBLPOINTEREXTPROC VertexAttribLPointerEXT;
-    PFNGLVERTEXATTRIBP1UIPROC VertexAttribP1ui;
-    PFNGLVERTEXATTRIBP1UIVPROC VertexAttribP1uiv;
-    PFNGLVERTEXATTRIBP2UIPROC VertexAttribP2ui;
-    PFNGLVERTEXATTRIBP2UIVPROC VertexAttribP2uiv;
-    PFNGLVERTEXATTRIBP3UIPROC VertexAttribP3ui;
-    PFNGLVERTEXATTRIBP3UIVPROC VertexAttribP3uiv;
-    PFNGLVERTEXATTRIBP4UIPROC VertexAttribP4ui;
-    PFNGLVERTEXATTRIBP4UIVPROC VertexAttribP4uiv;
-    PFNGLVERTEXATTRIBPARAMETERIAMDPROC VertexAttribParameteriAMD;
-    PFNGLVERTEXATTRIBPOINTERPROC VertexAttribPointer;
-    PFNGLVERTEXATTRIBPOINTERARBPROC VertexAttribPointerARB;
-    PFNGLVERTEXATTRIBPOINTERNVPROC VertexAttribPointerNV;
-    PFNGLVERTEXATTRIBS1DVNVPROC VertexAttribs1dvNV;
-    PFNGLVERTEXATTRIBS1FVNVPROC VertexAttribs1fvNV;
-    PFNGLVERTEXATTRIBS1HVNVPROC VertexAttribs1hvNV;
-    PFNGLVERTEXATTRIBS1SVNVPROC VertexAttribs1svNV;
-    PFNGLVERTEXATTRIBS2DVNVPROC VertexAttribs2dvNV;
-    PFNGLVERTEXATTRIBS2FVNVPROC VertexAttribs2fvNV;
-    PFNGLVERTEXATTRIBS2HVNVPROC VertexAttribs2hvNV;
-    PFNGLVERTEXATTRIBS2SVNVPROC VertexAttribs2svNV;
-    PFNGLVERTEXATTRIBS3DVNVPROC VertexAttribs3dvNV;
-    PFNGLVERTEXATTRIBS3FVNVPROC VertexAttribs3fvNV;
-    PFNGLVERTEXATTRIBS3HVNVPROC VertexAttribs3hvNV;
-    PFNGLVERTEXATTRIBS3SVNVPROC VertexAttribs3svNV;
-    PFNGLVERTEXATTRIBS4DVNVPROC VertexAttribs4dvNV;
-    PFNGLVERTEXATTRIBS4FVNVPROC VertexAttribs4fvNV;
-    PFNGLVERTEXATTRIBS4HVNVPROC VertexAttribs4hvNV;
-    PFNGLVERTEXATTRIBS4SVNVPROC VertexAttribs4svNV;
-    PFNGLVERTEXATTRIBS4UBVNVPROC VertexAttribs4ubvNV;
-    PFNGLVERTEXBINDINGDIVISORPROC VertexBindingDivisor;
-    PFNGLVERTEXBLENDARBPROC VertexBlendARB;
-    PFNGLVERTEXBLENDENVFATIPROC VertexBlendEnvfATI;
-    PFNGLVERTEXBLENDENVIATIPROC VertexBlendEnviATI;
-    PFNGLVERTEXFORMATNVPROC VertexFormatNV;
-    PFNGLVERTEXPOINTEREXTPROC VertexPointerEXT;
-    PFNGLVERTEXPOINTERLISTIBMPROC VertexPointerListIBM;
-    PFNGLVERTEXPOINTERVINTELPROC VertexPointervINTEL;
-    PFNGLVERTEXSTREAM1DATIPROC VertexStream1dATI;
-    PFNGLVERTEXSTREAM1DVATIPROC VertexStream1dvATI;
-    PFNGLVERTEXSTREAM1FATIPROC VertexStream1fATI;
-    PFNGLVERTEXSTREAM1FVATIPROC VertexStream1fvATI;
-    PFNGLVERTEXSTREAM1IATIPROC VertexStream1iATI;
-    PFNGLVERTEXSTREAM1IVATIPROC VertexStream1ivATI;
-    PFNGLVERTEXSTREAM1SATIPROC VertexStream1sATI;
-    PFNGLVERTEXSTREAM1SVATIPROC VertexStream1svATI;
-    PFNGLVERTEXSTREAM2DATIPROC VertexStream2dATI;
-    PFNGLVERTEXSTREAM2DVATIPROC VertexStream2dvATI;
-    PFNGLVERTEXSTREAM2FATIPROC VertexStream2fATI;
-    PFNGLVERTEXSTREAM2FVATIPROC VertexStream2fvATI;
-    PFNGLVERTEXSTREAM2IATIPROC VertexStream2iATI;
-    PFNGLVERTEXSTREAM2IVATIPROC VertexStream2ivATI;
-    PFNGLVERTEXSTREAM2SATIPROC VertexStream2sATI;
-    PFNGLVERTEXSTREAM2SVATIPROC VertexStream2svATI;
-    PFNGLVERTEXSTREAM3DATIPROC VertexStream3dATI;
-    PFNGLVERTEXSTREAM3DVATIPROC VertexStream3dvATI;
-    PFNGLVERTEXSTREAM3FATIPROC VertexStream3fATI;
-    PFNGLVERTEXSTREAM3FVATIPROC VertexStream3fvATI;
-    PFNGLVERTEXSTREAM3IATIPROC VertexStream3iATI;
-    PFNGLVERTEXSTREAM3IVATIPROC VertexStream3ivATI;
-    PFNGLVERTEXSTREAM3SATIPROC VertexStream3sATI;
-    PFNGLVERTEXSTREAM3SVATIPROC VertexStream3svATI;
-    PFNGLVERTEXSTREAM4DATIPROC VertexStream4dATI;
-    PFNGLVERTEXSTREAM4DVATIPROC VertexStream4dvATI;
-    PFNGLVERTEXSTREAM4FATIPROC VertexStream4fATI;
-    PFNGLVERTEXSTREAM4FVATIPROC VertexStream4fvATI;
-    PFNGLVERTEXSTREAM4IATIPROC VertexStream4iATI;
-    PFNGLVERTEXSTREAM4IVATIPROC VertexStream4ivATI;
-    PFNGLVERTEXSTREAM4SATIPROC VertexStream4sATI;
-    PFNGLVERTEXSTREAM4SVATIPROC VertexStream4svATI;
-    PFNGLVERTEXWEIGHTPOINTEREXTPROC VertexWeightPointerEXT;
-    PFNGLVERTEXWEIGHTFEXTPROC VertexWeightfEXT;
-    PFNGLVERTEXWEIGHTFVEXTPROC VertexWeightfvEXT;
-    PFNGLVERTEXWEIGHTHNVPROC VertexWeighthNV;
-    PFNGLVERTEXWEIGHTHVNVPROC VertexWeighthvNV;
-    PFNGLVIDEOCAPTURENVPROC VideoCaptureNV;
-    PFNGLVIDEOCAPTURESTREAMPARAMETERDVNVPROC VideoCaptureStreamParameterdvNV;
-    PFNGLVIDEOCAPTURESTREAMPARAMETERFVNVPROC VideoCaptureStreamParameterfvNV;
-    PFNGLVIDEOCAPTURESTREAMPARAMETERIVNVPROC VideoCaptureStreamParameterivNV;
-    PFNGLVIEWPORTPROC Viewport;
-    PFNGLVIEWPORTARRAYVPROC ViewportArrayv;
-    PFNGLVIEWPORTINDEXEDFPROC ViewportIndexedf;
-    PFNGLVIEWPORTINDEXEDFVPROC ViewportIndexedfv;
-    PFNGLVIEWPORTPOSITIONWSCALENVPROC ViewportPositionWScaleNV;
-    PFNGLVIEWPORTSWIZZLENVPROC ViewportSwizzleNV;
-    PFNGLWAITSEMAPHOREEXTPROC WaitSemaphoreEXT;
-    PFNGLWAITSEMAPHOREUI64NVXPROC WaitSemaphoreui64NVX;
-    PFNGLWAITSYNCPROC WaitSync;
-    PFNGLWAITVKSEMAPHORENVPROC WaitVkSemaphoreNV;
-    PFNGLWEIGHTPATHSNVPROC WeightPathsNV;
-    PFNGLWEIGHTPOINTERARBPROC WeightPointerARB;
-    PFNGLWEIGHTBVARBPROC WeightbvARB;
-    PFNGLWEIGHTDVARBPROC WeightdvARB;
-    PFNGLWEIGHTFVARBPROC WeightfvARB;
-    PFNGLWEIGHTIVARBPROC WeightivARB;
-    PFNGLWEIGHTSVARBPROC WeightsvARB;
-    PFNGLWEIGHTUBVARBPROC WeightubvARB;
-    PFNGLWEIGHTUIVARBPROC WeightuivARB;
-    PFNGLWEIGHTUSVARBPROC WeightusvARB;
-    PFNGLWINDOWPOS2DARBPROC WindowPos2dARB;
-    PFNGLWINDOWPOS2DMESAPROC WindowPos2dMESA;
-    PFNGLWINDOWPOS2DVARBPROC WindowPos2dvARB;
-    PFNGLWINDOWPOS2DVMESAPROC WindowPos2dvMESA;
-    PFNGLWINDOWPOS2FARBPROC WindowPos2fARB;
-    PFNGLWINDOWPOS2FMESAPROC WindowPos2fMESA;
-    PFNGLWINDOWPOS2FVARBPROC WindowPos2fvARB;
-    PFNGLWINDOWPOS2FVMESAPROC WindowPos2fvMESA;
-    PFNGLWINDOWPOS2IARBPROC WindowPos2iARB;
-    PFNGLWINDOWPOS2IMESAPROC WindowPos2iMESA;
-    PFNGLWINDOWPOS2IVARBPROC WindowPos2ivARB;
-    PFNGLWINDOWPOS2IVMESAPROC WindowPos2ivMESA;
-    PFNGLWINDOWPOS2SARBPROC WindowPos2sARB;
-    PFNGLWINDOWPOS2SMESAPROC WindowPos2sMESA;
-    PFNGLWINDOWPOS2SVARBPROC WindowPos2svARB;
-    PFNGLWINDOWPOS2SVMESAPROC WindowPos2svMESA;
-    PFNGLWINDOWPOS3DARBPROC WindowPos3dARB;
-    PFNGLWINDOWPOS3DMESAPROC WindowPos3dMESA;
-    PFNGLWINDOWPOS3DVARBPROC WindowPos3dvARB;
-    PFNGLWINDOWPOS3DVMESAPROC WindowPos3dvMESA;
-    PFNGLWINDOWPOS3FARBPROC WindowPos3fARB;
-    PFNGLWINDOWPOS3FMESAPROC WindowPos3fMESA;
-    PFNGLWINDOWPOS3FVARBPROC WindowPos3fvARB;
-    PFNGLWINDOWPOS3FVMESAPROC WindowPos3fvMESA;
-    PFNGLWINDOWPOS3IARBPROC WindowPos3iARB;
-    PFNGLWINDOWPOS3IMESAPROC WindowPos3iMESA;
-    PFNGLWINDOWPOS3IVARBPROC WindowPos3ivARB;
-    PFNGLWINDOWPOS3IVMESAPROC WindowPos3ivMESA;
-    PFNGLWINDOWPOS3SARBPROC WindowPos3sARB;
-    PFNGLWINDOWPOS3SMESAPROC WindowPos3sMESA;
-    PFNGLWINDOWPOS3SVARBPROC WindowPos3svARB;
-    PFNGLWINDOWPOS3SVMESAPROC WindowPos3svMESA;
-    PFNGLWINDOWPOS4DMESAPROC WindowPos4dMESA;
-    PFNGLWINDOWPOS4DVMESAPROC WindowPos4dvMESA;
-    PFNGLWINDOWPOS4FMESAPROC WindowPos4fMESA;
-    PFNGLWINDOWPOS4FVMESAPROC WindowPos4fvMESA;
-    PFNGLWINDOWPOS4IMESAPROC WindowPos4iMESA;
-    PFNGLWINDOWPOS4IVMESAPROC WindowPos4ivMESA;
-    PFNGLWINDOWPOS4SMESAPROC WindowPos4sMESA;
-    PFNGLWINDOWPOS4SVMESAPROC WindowPos4svMESA;
-    PFNGLWINDOWRECTANGLESEXTPROC WindowRectanglesEXT;
-    PFNGLWRITEMASKEXTPROC WriteMaskEXT;
-    PFNGLACQUIRETEXTURESANGLEPROC AcquireTexturesANGLE;
-    PFNGLACTIVESHADERPROGRAMEXTPROC ActiveShaderProgramEXT;
-    PFNGLALPHAFUNCQCOMPROC AlphaFuncQCOM;
-    PFNGLBEGINPIXELLOCALSTORAGEANGLEPROC BeginPixelLocalStorageANGLE;
-    PFNGLBEGINQUERYEXTPROC BeginQueryEXT;
-    PFNGLBINDFRAGDATALOCATIONINDEXEDEXTPROC BindFragDataLocationIndexedEXT;
-    PFNGLBINDPROGRAMPIPELINEEXTPROC BindProgramPipelineEXT;
-    PFNGLBINDUNIFORMLOCATIONCHROMIUMPROC BindUniformLocationCHROMIUM;
-    PFNGLBINDVERTEXARRAYOESPROC BindVertexArrayOES;
-    PFNGLBLENDBARRIERPROC BlendBarrier;
-    PFNGLBLENDEQUATIONSEPARATEIEXTPROC BlendEquationSeparateiEXT;
-    PFNGLBLENDEQUATIONSEPARATEIOESPROC BlendEquationSeparateiOES;
-    PFNGLBLENDEQUATIONIEXTPROC BlendEquationiEXT;
-    PFNGLBLENDEQUATIONIOESPROC BlendEquationiOES;
-    PFNGLBLENDFUNCSEPARATEIEXTPROC BlendFuncSeparateiEXT;
-    PFNGLBLENDFUNCSEPARATEIOESPROC BlendFuncSeparateiOES;
-    PFNGLBLENDFUNCIEXTPROC BlendFunciEXT;
-    PFNGLBLENDFUNCIOESPROC BlendFunciOES;
-    PFNGLBLITFRAMEBUFFERANGLEPROC BlitFramebufferANGLE;
-    PFNGLBLITFRAMEBUFFERNVPROC BlitFramebufferNV;
-    PFNGLBUFFERSTORAGEEXTPROC BufferStorageEXT;
-    PFNGLCLEARPIXELLOCALSTORAGEUIEXTPROC ClearPixelLocalStorageuiEXT;
-    PFNGLCLEARTEXIMAGEEXTPROC ClearTexImageEXT;
-    PFNGLCLEARTEXSUBIMAGEEXTPROC ClearTexSubImageEXT;
-    PFNGLCLIENTWAITSYNCAPPLEPROC ClientWaitSyncAPPLE;
-    PFNGLCLIPCONTROLEXTPROC ClipControlEXT;
-    PFNGLCOLORMASKIEXTPROC ColorMaskiEXT;
-    PFNGLCOLORMASKIOESPROC ColorMaskiOES;
-    PFNGLCOMPRESSEDCOPYTEXTURECHROMIUMPROC CompressedCopyTextureCHROMIUM;
-    PFNGLCOMPRESSEDTEXIMAGE2DROBUSTANGLEPROC CompressedTexImage2DRobustANGLE;
-    PFNGLCOMPRESSEDTEXIMAGE3DOESPROC CompressedTexImage3DOES;
-    PFNGLCOMPRESSEDTEXIMAGE3DROBUSTANGLEPROC CompressedTexImage3DRobustANGLE;
-    PFNGLCOMPRESSEDTEXSUBIMAGE2DROBUSTANGLEPROC CompressedTexSubImage2DRobustANGLE;
-    PFNGLCOMPRESSEDTEXSUBIMAGE3DOESPROC CompressedTexSubImage3DOES;
-    PFNGLCOMPRESSEDTEXSUBIMAGE3DROBUSTANGLEPROC CompressedTexSubImage3DRobustANGLE;
-    PFNGLCOPYBUFFERSUBDATANVPROC CopyBufferSubDataNV;
-    PFNGLCOPYIMAGESUBDATAEXTPROC CopyImageSubDataEXT;
-    PFNGLCOPYIMAGESUBDATAOESPROC CopyImageSubDataOES;
-    PFNGLCOPYSUBTEXTURE3DANGLEPROC CopySubTexture3DANGLE;
-    PFNGLCOPYSUBTEXTURECHROMIUMPROC CopySubTextureCHROMIUM;
-    PFNGLCOPYTEXSUBIMAGE3DOESPROC CopyTexSubImage3DOES;
-    PFNGLCOPYTEXTURE3DANGLEPROC CopyTexture3DANGLE;
-    PFNGLCOPYTEXTURECHROMIUMPROC CopyTextureCHROMIUM;
-    PFNGLCOPYTEXTURELEVELSAPPLEPROC CopyTextureLevelsAPPLE;
-    PFNGLCOVERAGEMASKNVPROC CoverageMaskNV;
-    PFNGLCOVERAGEMODULATIONCHROMIUMPROC CoverageModulationCHROMIUM;
-    PFNGLCOVERAGEOPERATIONNVPROC CoverageOperationNV;
-    PFNGLCREATESHADERPROGRAMVEXTPROC CreateShaderProgramvEXT;
-    PFNGLDEBUGMESSAGECALLBACKKHRPROC DebugMessageCallbackKHR;
-    PFNGLDEBUGMESSAGECONTROLKHRPROC DebugMessageControlKHR;
-    PFNGLDEBUGMESSAGEINSERTKHRPROC DebugMessageInsertKHR;
-    PFNGLDELETEPROGRAMPIPELINESEXTPROC DeleteProgramPipelinesEXT;
-    PFNGLDELETEQUERIESEXTPROC DeleteQueriesEXT;
-    PFNGLDELETESYNCAPPLEPROC DeleteSyncAPPLE;
-    PFNGLDELETEVERTEXARRAYSOESPROC DeleteVertexArraysOES;
-    PFNGLDEPTHRANGEARRAYFVNVPROC DepthRangeArrayfvNV;
-    PFNGLDEPTHRANGEARRAYFVOESPROC DepthRangeArrayfvOES;
-    PFNGLDEPTHRANGEINDEXEDFNVPROC DepthRangeIndexedfNV;
-    PFNGLDEPTHRANGEINDEXEDFOESPROC DepthRangeIndexedfOES;
-    PFNGLDISABLEDRIVERCONTROLQCOMPROC DisableDriverControlQCOM;
-    PFNGLDISABLEEXTENSIONANGLEPROC DisableExtensionANGLE;
-    PFNGLDISABLEIEXTPROC DisableiEXT;
-    PFNGLDISABLEINVPROC DisableiNV;
-    PFNGLDISABLEIOESPROC DisableiOES;
-    PFNGLDISCARDFRAMEBUFFEREXTPROC DiscardFramebufferEXT;
-    PFNGLDRAWARRAYSINSTANCEDANGLEPROC DrawArraysInstancedANGLE;
-    PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEANGLEPROC DrawArraysInstancedBaseInstanceANGLE;
-    PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEEXTPROC DrawArraysInstancedBaseInstanceEXT;
-    PFNGLDRAWARRAYSINSTANCEDNVPROC DrawArraysInstancedNV;
-    PFNGLDRAWBUFFERSEXTPROC DrawBuffersEXT;
-    PFNGLDRAWBUFFERSINDEXEDEXTPROC DrawBuffersIndexedEXT;
-    PFNGLDRAWBUFFERSNVPROC DrawBuffersNV;
-    PFNGLDRAWELEMENTSBASEVERTEXEXTPROC DrawElementsBaseVertexEXT;
-    PFNGLDRAWELEMENTSBASEVERTEXOESPROC DrawElementsBaseVertexOES;
-    PFNGLDRAWELEMENTSINSTANCEDANGLEPROC DrawElementsInstancedANGLE;
-    PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEEXTPROC DrawElementsInstancedBaseInstanceEXT;
-    PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEANGLEPROC DrawElementsInstancedBaseVertexBaseInstanceANGLE;
-    PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEEXTPROC DrawElementsInstancedBaseVertexBaseInstanceEXT;
-    PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXEXTPROC DrawElementsInstancedBaseVertexEXT;
-    PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXOESPROC DrawElementsInstancedBaseVertexOES;
-    PFNGLDRAWELEMENTSINSTANCEDNVPROC DrawElementsInstancedNV;
-    PFNGLDRAWRANGEELEMENTSBASEVERTEXEXTPROC DrawRangeElementsBaseVertexEXT;
-    PFNGLDRAWRANGEELEMENTSBASEVERTEXOESPROC DrawRangeElementsBaseVertexOES;
-    PFNGLDRAWTRANSFORMFEEDBACKEXTPROC DrawTransformFeedbackEXT;
-    PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDEXTPROC DrawTransformFeedbackInstancedEXT;
-    PFNGLEGLIMAGETARGETRENDERBUFFERSTORAGEOESPROC EGLImageTargetRenderbufferStorageOES;
-    PFNGLEGLIMAGETARGETTEXTURE2DOESPROC EGLImageTargetTexture2DOES;
-    PFNGLENABLEDRIVERCONTROLQCOMPROC EnableDriverControlQCOM;
-    PFNGLENABLEIEXTPROC EnableiEXT;
-    PFNGLENABLEINVPROC EnableiNV;
-    PFNGLENABLEIOESPROC EnableiOES;
-    PFNGLENDPIXELLOCALSTORAGEANGLEPROC EndPixelLocalStorageANGLE;
-    PFNGLENDQUERYEXTPROC EndQueryEXT;
-    PFNGLENDTILINGQCOMPROC EndTilingQCOM;
-    PFNGLEXTGETBUFFERPOINTERVQCOMPROC ExtGetBufferPointervQCOM;
-    PFNGLEXTGETBUFFERSQCOMPROC ExtGetBuffersQCOM;
-    PFNGLEXTGETFRAMEBUFFERSQCOMPROC ExtGetFramebuffersQCOM;
-    PFNGLEXTGETPROGRAMBINARYSOURCEQCOMPROC ExtGetProgramBinarySourceQCOM;
-    PFNGLEXTGETPROGRAMSQCOMPROC ExtGetProgramsQCOM;
-    PFNGLEXTGETRENDERBUFFERSQCOMPROC ExtGetRenderbuffersQCOM;
-    PFNGLEXTGETSHADERSQCOMPROC ExtGetShadersQCOM;
-    PFNGLEXTGETTEXLEVELPARAMETERIVQCOMPROC ExtGetTexLevelParameterivQCOM;
-    PFNGLEXTGETTEXSUBIMAGEQCOMPROC ExtGetTexSubImageQCOM;
-    PFNGLEXTGETTEXTURESQCOMPROC ExtGetTexturesQCOM;
-    PFNGLEXTISPROGRAMBINARYQCOMPROC ExtIsProgramBinaryQCOM;
-    PFNGLEXTTEXOBJECTSTATEOVERRIDEIQCOMPROC ExtTexObjectStateOverrideiQCOM;
-    PFNGLEXTRAPOLATETEX2DQCOMPROC ExtrapolateTex2DQCOM;
-    PFNGLFENCESYNCAPPLEPROC FenceSyncAPPLE;
-    PFNGLFLUSHMAPPEDBUFFERRANGEEXTPROC FlushMappedBufferRangeEXT;
-    PFNGLFRAMEBUFFERFETCHBARRIERQCOMPROC FramebufferFetchBarrierQCOM;
-    PFNGLFRAMEBUFFERFOVEATIONCONFIGQCOMPROC FramebufferFoveationConfigQCOM;
-    PFNGLFRAMEBUFFERFOVEATIONPARAMETERSQCOMPROC FramebufferFoveationParametersQCOM;
-    PFNGLFRAMEBUFFERMEMORYLESSPIXELLOCALSTORAGEANGLEPROC FramebufferMemorylessPixelLocalStorageANGLE;
-    PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEFVANGLEPROC FramebufferPixelLocalClearValuefvANGLE;
-    PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEIVANGLEPROC FramebufferPixelLocalClearValueivANGLE;
-    PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEUIVANGLEPROC FramebufferPixelLocalClearValueuivANGLE;
-    PFNGLFRAMEBUFFERPIXELLOCALSTORAGEINTERRUPTANGLEPROC FramebufferPixelLocalStorageInterruptANGLE;
-    PFNGLFRAMEBUFFERPIXELLOCALSTORAGERESTOREANGLEPROC FramebufferPixelLocalStorageRestoreANGLE;
-    PFNGLFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC FramebufferPixelLocalStorageSizeEXT;
-    PFNGLFRAMEBUFFERSHADINGRATEEXTPROC FramebufferShadingRateEXT;
-    PFNGLFRAMEBUFFERTEXTURE2DDOWNSAMPLEIMGPROC FramebufferTexture2DDownsampleIMG;
-    PFNGLFRAMEBUFFERTEXTURE2DMULTISAMPLEEXTPROC FramebufferTexture2DMultisampleEXT;
-    PFNGLFRAMEBUFFERTEXTURE2DMULTISAMPLEIMGPROC FramebufferTexture2DMultisampleIMG;
-    PFNGLFRAMEBUFFERTEXTURE3DOESPROC FramebufferTexture3DOES;
-    PFNGLFRAMEBUFFERTEXTURELAYERDOWNSAMPLEIMGPROC FramebufferTextureLayerDownsampleIMG;
-    PFNGLFRAMEBUFFERTEXTUREMULTISAMPLEMULTIVIEWOVRPROC FramebufferTextureMultisampleMultiviewOVR;
-    PFNGLFRAMEBUFFERTEXTUREOESPROC FramebufferTextureOES;
-    PFNGLFRAMEBUFFERTEXTUREPIXELLOCALSTORAGEANGLEPROC FramebufferTexturePixelLocalStorageANGLE;
-    PFNGLGENPROGRAMPIPELINESEXTPROC GenProgramPipelinesEXT;
-    PFNGLGENQUERIESEXTPROC GenQueriesEXT;
-    PFNGLGENVERTEXARRAYSOESPROC GenVertexArraysOES;
-    PFNGLGETACTIVEUNIFORMBLOCKIVROBUSTANGLEPROC GetActiveUniformBlockivRobustANGLE;
-    PFNGLGETBOOLEANI_VROBUSTANGLEPROC GetBooleani_vRobustANGLE;
-    PFNGLGETBOOLEANVROBUSTANGLEPROC GetBooleanvRobustANGLE;
-    PFNGLGETBUFFERPARAMETERI64VROBUSTANGLEPROC GetBufferParameteri64vRobustANGLE;
-    PFNGLGETBUFFERPARAMETERIVROBUSTANGLEPROC GetBufferParameterivRobustANGLE;
-    PFNGLGETBUFFERPOINTERVOESPROC GetBufferPointervOES;
-    PFNGLGETBUFFERPOINTERVROBUSTANGLEPROC GetBufferPointervRobustANGLE;
-    PFNGLGETCOMPRESSEDTEXIMAGEANGLEPROC GetCompressedTexImageANGLE;
-    PFNGLGETDEBUGMESSAGELOGKHRPROC GetDebugMessageLogKHR;
-    PFNGLGETDRIVERCONTROLSTRINGQCOMPROC GetDriverControlStringQCOM;
-    PFNGLGETDRIVERCONTROLSQCOMPROC GetDriverControlsQCOM;
-    PFNGLGETFLOATI_VNVPROC GetFloati_vNV;
-    PFNGLGETFLOATI_VOESPROC GetFloati_vOES;
-    PFNGLGETFLOATVROBUSTANGLEPROC GetFloatvRobustANGLE;
-    PFNGLGETFRAGDATAINDEXEXTPROC GetFragDataIndexEXT;
-    PFNGLGETFRAGMENTSHADINGRATESEXTPROC GetFragmentShadingRatesEXT;
-    PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVROBUSTANGLEPROC GetFramebufferAttachmentParameterivRobustANGLE;
-    PFNGLGETFRAMEBUFFERPARAMETERIVROBUSTANGLEPROC GetFramebufferParameterivRobustANGLE;
-    PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERFVANGLEPROC GetFramebufferPixelLocalStorageParameterfvANGLE;
-    PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERFVROBUSTANGLEPROC GetFramebufferPixelLocalStorageParameterfvRobustANGLE;
-    PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVANGLEPROC GetFramebufferPixelLocalStorageParameterivANGLE;
-    PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVROBUSTANGLEPROC GetFramebufferPixelLocalStorageParameterivRobustANGLE;
-    PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC GetFramebufferPixelLocalStorageSizeEXT;
-    PFNGLGETGRAPHICSRESETSTATUSEXTPROC GetGraphicsResetStatusEXT;
-    PFNGLGETGRAPHICSRESETSTATUSKHRPROC GetGraphicsResetStatusKHR;
-    PFNGLGETINTEGER64I_VROBUSTANGLEPROC GetInteger64i_vRobustANGLE;
-    PFNGLGETINTEGER64VAPPLEPROC GetInteger64vAPPLE;
-    PFNGLGETINTEGER64VEXTPROC GetInteger64vEXT;
-    PFNGLGETINTEGER64VROBUSTANGLEPROC GetInteger64vRobustANGLE;
-    PFNGLGETINTEGERI_VEXTPROC GetIntegeri_vEXT;
-    PFNGLGETINTEGERI_VROBUSTANGLEPROC GetIntegeri_vRobustANGLE;
-    PFNGLGETINTEGERVROBUSTANGLEPROC GetIntegervRobustANGLE;
-    PFNGLGETINTERNALFORMATIVROBUSTANGLEPROC GetInternalformativRobustANGLE;
-    PFNGLGETMULTISAMPLEFVANGLEPROC GetMultisamplefvANGLE;
-    PFNGLGETMULTISAMPLEFVROBUSTANGLEPROC GetMultisamplefvRobustANGLE;
-    PFNGLGETOBJECTLABELKHRPROC GetObjectLabelKHR;
-    PFNGLGETOBJECTPTRLABELKHRPROC GetObjectPtrLabelKHR;
-    PFNGLGETPOINTERVKHRPROC GetPointervKHR;
-    PFNGLGETPOINTERVROBUSTANGLEROBUSTANGLEPROC GetPointervRobustANGLERobustANGLE;
-    PFNGLGETPROGRAMBINARYOESPROC GetProgramBinaryOES;
-    PFNGLGETPROGRAMINTERFACEIVROBUSTANGLEPROC GetProgramInterfaceivRobustANGLE;
-    PFNGLGETPROGRAMPIPELINEINFOLOGEXTPROC GetProgramPipelineInfoLogEXT;
-    PFNGLGETPROGRAMPIPELINEIVEXTPROC GetProgramPipelineivEXT;
-    PFNGLGETPROGRAMRESOURCELOCATIONINDEXEXTPROC GetProgramResourceLocationIndexEXT;
-    PFNGLGETPROGRAMIVROBUSTANGLEPROC GetProgramivRobustANGLE;
-    PFNGLGETQUERYOBJECTI64VROBUSTANGLEPROC GetQueryObjecti64vRobustANGLE;
-    PFNGLGETQUERYOBJECTIVEXTPROC GetQueryObjectivEXT;
-    PFNGLGETQUERYOBJECTIVROBUSTANGLEPROC GetQueryObjectivRobustANGLE;
-    PFNGLGETQUERYOBJECTUI64VROBUSTANGLEPROC GetQueryObjectui64vRobustANGLE;
-    PFNGLGETQUERYOBJECTUIVEXTPROC GetQueryObjectuivEXT;
-    PFNGLGETQUERYOBJECTUIVROBUSTANGLEPROC GetQueryObjectuivRobustANGLE;
-    PFNGLGETQUERYIVEXTPROC GetQueryivEXT;
-    PFNGLGETQUERYIVROBUSTANGLEPROC GetQueryivRobustANGLE;
-    PFNGLGETRENDERBUFFERIMAGEANGLEPROC GetRenderbufferImageANGLE;
-    PFNGLGETRENDERBUFFERPARAMETERIVROBUSTANGLEPROC GetRenderbufferParameterivRobustANGLE;
-    PFNGLGETSAMPLERPARAMETERIIVEXTPROC GetSamplerParameterIivEXT;
-    PFNGLGETSAMPLERPARAMETERIIVOESPROC GetSamplerParameterIivOES;
-    PFNGLGETSAMPLERPARAMETERIIVROBUSTANGLEPROC GetSamplerParameterIivRobustANGLE;
-    PFNGLGETSAMPLERPARAMETERIUIVEXTPROC GetSamplerParameterIuivEXT;
-    PFNGLGETSAMPLERPARAMETERIUIVOESPROC GetSamplerParameterIuivOES;
-    PFNGLGETSAMPLERPARAMETERIUIVROBUSTANGLEPROC GetSamplerParameterIuivRobustANGLE;
-    PFNGLGETSAMPLERPARAMETERFVROBUSTANGLEPROC GetSamplerParameterfvRobustANGLE;
-    PFNGLGETSAMPLERPARAMETERIVROBUSTANGLEPROC GetSamplerParameterivRobustANGLE;
-    PFNGLGETSHADERIVROBUSTANGLEPROC GetShaderivRobustANGLE;
-    PFNGLGETSYNCIVAPPLEPROC GetSyncivAPPLE;
-    PFNGLGETTEXIMAGEANGLEPROC GetTexImageANGLE;
-    PFNGLGETTEXLEVELPARAMETERFVANGLEPROC GetTexLevelParameterfvANGLE;
-    PFNGLGETTEXLEVELPARAMETERFVROBUSTANGLEPROC GetTexLevelParameterfvRobustANGLE;
-    PFNGLGETTEXLEVELPARAMETERIVANGLEPROC GetTexLevelParameterivANGLE;
-    PFNGLGETTEXLEVELPARAMETERIVROBUSTANGLEPROC GetTexLevelParameterivRobustANGLE;
-    PFNGLGETTEXPARAMETERIIVOESPROC GetTexParameterIivOES;
-    PFNGLGETTEXPARAMETERIIVROBUSTANGLEPROC GetTexParameterIivRobustANGLE;
-    PFNGLGETTEXPARAMETERIUIVOESPROC GetTexParameterIuivOES;
-    PFNGLGETTEXPARAMETERIUIVROBUSTANGLEPROC GetTexParameterIuivRobustANGLE;
-    PFNGLGETTEXPARAMETERFVROBUSTANGLEPROC GetTexParameterfvRobustANGLE;
-    PFNGLGETTEXPARAMETERIVROBUSTANGLEPROC GetTexParameterivRobustANGLE;
-    PFNGLGETTEXTUREHANDLEIMGPROC GetTextureHandleIMG;
-    PFNGLGETTEXTURESAMPLERHANDLEIMGPROC GetTextureSamplerHandleIMG;
-    PFNGLGETTRANSLATEDSHADERSOURCEANGLEPROC GetTranslatedShaderSourceANGLE;
-    PFNGLGETUNIFORMFVROBUSTANGLEPROC GetUniformfvRobustANGLE;
-    PFNGLGETUNIFORMIVROBUSTANGLEPROC GetUniformivRobustANGLE;
-    PFNGLGETUNIFORMUIVROBUSTANGLEPROC GetUniformuivRobustANGLE;
-    PFNGLGETVERTEXATTRIBIIVROBUSTANGLEPROC GetVertexAttribIivRobustANGLE;
-    PFNGLGETVERTEXATTRIBIUIVROBUSTANGLEPROC GetVertexAttribIuivRobustANGLE;
-    PFNGLGETVERTEXATTRIBPOINTERVROBUSTANGLEPROC GetVertexAttribPointervRobustANGLE;
-    PFNGLGETVERTEXATTRIBFVROBUSTANGLEPROC GetVertexAttribfvRobustANGLE;
-    PFNGLGETVERTEXATTRIBIVROBUSTANGLEPROC GetVertexAttribivRobustANGLE;
-    PFNGLGETNUNIFORMFVEXTPROC GetnUniformfvEXT;
-    PFNGLGETNUNIFORMFVKHRPROC GetnUniformfvKHR;
-    PFNGLGETNUNIFORMFVROBUSTANGLEPROC GetnUniformfvRobustANGLE;
-    PFNGLGETNUNIFORMIVEXTPROC GetnUniformivEXT;
-    PFNGLGETNUNIFORMIVKHRPROC GetnUniformivKHR;
-    PFNGLGETNUNIFORMIVROBUSTANGLEPROC GetnUniformivRobustANGLE;
-    PFNGLGETNUNIFORMUIVKHRPROC GetnUniformuivKHR;
-    PFNGLGETNUNIFORMUIVROBUSTANGLEPROC GetnUniformuivRobustANGLE;
-    PFNGLISENABLEDIEXTPROC IsEnablediEXT;
-    PFNGLISENABLEDINVPROC IsEnablediNV;
-    PFNGLISENABLEDIOESPROC IsEnablediOES;
-    PFNGLISPROGRAMPIPELINEEXTPROC IsProgramPipelineEXT;
-    PFNGLISQUERYEXTPROC IsQueryEXT;
-    PFNGLISSYNCAPPLEPROC IsSyncAPPLE;
-    PFNGLISVERTEXARRAYOESPROC IsVertexArrayOES;
-    PFNGLLOGICOPANGLEPROC LogicOpANGLE;
-    PFNGLLOSECONTEXTCHROMIUMPROC LoseContextCHROMIUM;
-    PFNGLMAPBUFFEROESPROC MapBufferOES;
-    PFNGLMAPBUFFERRANGEEXTPROC MapBufferRangeEXT;
-    PFNGLMAXACTIVESHADERCORESARMPROC MaxActiveShaderCoresARM;
-    PFNGLMINSAMPLESHADINGOESPROC MinSampleShadingOES;
-    PFNGLMULTIDRAWARRAYSANGLEPROC MultiDrawArraysANGLE;
-    PFNGLMULTIDRAWARRAYSINDIRECTEXTPROC MultiDrawArraysIndirectEXT;
-    PFNGLMULTIDRAWARRAYSINSTANCEDANGLEPROC MultiDrawArraysInstancedANGLE;
-    PFNGLMULTIDRAWARRAYSINSTANCEDBASEINSTANCEANGLEPROC MultiDrawArraysInstancedBaseInstanceANGLE;
-    PFNGLMULTIDRAWELEMENTSANGLEPROC MultiDrawElementsANGLE;
-    PFNGLMULTIDRAWELEMENTSBASEVERTEXEXTPROC MultiDrawElementsBaseVertexEXT;
-    PFNGLMULTIDRAWELEMENTSINDIRECTEXTPROC MultiDrawElementsIndirectEXT;
-    PFNGLMULTIDRAWELEMENTSINSTANCEDANGLEPROC MultiDrawElementsInstancedANGLE;
-    PFNGLMULTIDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEANGLEPROC MultiDrawElementsInstancedBaseVertexBaseInstanceANGLE;
-    PFNGLOBJECTLABELKHRPROC ObjectLabelKHR;
-    PFNGLOBJECTPTRLABELKHRPROC ObjectPtrLabelKHR;
-    PFNGLPATCHPARAMETERIEXTPROC PatchParameteriEXT;
-    PFNGLPATCHPARAMETERIOESPROC PatchParameteriOES;
-    PFNGLPIXELLOCALSTORAGEBARRIERANGLEPROC PixelLocalStorageBarrierANGLE;
-    PFNGLPOLYGONMODEANGLEPROC PolygonModeANGLE;
-    PFNGLPOLYGONMODENVPROC PolygonModeNV;
-    PFNGLPOPDEBUGGROUPKHRPROC PopDebugGroupKHR;
-    PFNGLPRIMITIVEBOUNDINGBOXPROC PrimitiveBoundingBox;
-    PFNGLPRIMITIVEBOUNDINGBOXEXTPROC PrimitiveBoundingBoxEXT;
-    PFNGLPRIMITIVEBOUNDINGBOXOESPROC PrimitiveBoundingBoxOES;
-    PFNGLPROGRAMBINARYOESPROC ProgramBinaryOES;
-    PFNGLPROGRAMUNIFORMHANDLEUI64IMGPROC ProgramUniformHandleui64IMG;
-    PFNGLPROGRAMUNIFORMHANDLEUI64VIMGPROC ProgramUniformHandleui64vIMG;
-    PFNGLPROVOKINGVERTEXANGLEPROC ProvokingVertexANGLE;
-    PFNGLPUSHDEBUGGROUPKHRPROC PushDebugGroupKHR;
-    PFNGLQUERYCOUNTEREXTPROC QueryCounterEXT;
-    PFNGLREADBUFFERINDEXEDEXTPROC ReadBufferIndexedEXT;
-    PFNGLREADBUFFERNVPROC ReadBufferNV;
-    PFNGLREADPIXELSROBUSTANGLEPROC ReadPixelsRobustANGLE;
-    PFNGLREADNPIXELSEXTPROC ReadnPixelsEXT;
-    PFNGLREADNPIXELSKHRPROC ReadnPixelsKHR;
-    PFNGLREADNPIXELSROBUSTANGLEPROC ReadnPixelsRobustANGLE;
-    PFNGLRELEASETEXTURESANGLEPROC ReleaseTexturesANGLE;
-    PFNGLRENDERBUFFERSTORAGEMULTISAMPLEANGLEPROC RenderbufferStorageMultisampleANGLE;
-    PFNGLRENDERBUFFERSTORAGEMULTISAMPLEAPPLEPROC RenderbufferStorageMultisampleAPPLE;
-    PFNGLRENDERBUFFERSTORAGEMULTISAMPLEIMGPROC RenderbufferStorageMultisampleIMG;
-    PFNGLRENDERBUFFERSTORAGEMULTISAMPLENVPROC RenderbufferStorageMultisampleNV;
-    PFNGLREQUESTEXTENSIONANGLEPROC RequestExtensionANGLE;
-    PFNGLRESOLVEMULTISAMPLEFRAMEBUFFERAPPLEPROC ResolveMultisampleFramebufferAPPLE;
-    PFNGLSAMPLEMASKIANGLEPROC SampleMaskiANGLE;
-    PFNGLSAMPLERPARAMETERIIVEXTPROC SamplerParameterIivEXT;
-    PFNGLSAMPLERPARAMETERIIVOESPROC SamplerParameterIivOES;
-    PFNGLSAMPLERPARAMETERIIVROBUSTANGLEPROC SamplerParameterIivRobustANGLE;
-    PFNGLSAMPLERPARAMETERIUIVEXTPROC SamplerParameterIuivEXT;
-    PFNGLSAMPLERPARAMETERIUIVOESPROC SamplerParameterIuivOES;
-    PFNGLSAMPLERPARAMETERIUIVROBUSTANGLEPROC SamplerParameterIuivRobustANGLE;
-    PFNGLSAMPLERPARAMETERFVROBUSTANGLEPROC SamplerParameterfvRobustANGLE;
-    PFNGLSAMPLERPARAMETERIVROBUSTANGLEPROC SamplerParameterivRobustANGLE;
-    PFNGLSCISSORARRAYVNVPROC ScissorArrayvNV;
-    PFNGLSCISSORARRAYVOESPROC ScissorArrayvOES;
-    PFNGLSCISSORINDEXEDNVPROC ScissorIndexedNV;
-    PFNGLSCISSORINDEXEDOESPROC ScissorIndexedOES;
-    PFNGLSCISSORINDEXEDVNVPROC ScissorIndexedvNV;
-    PFNGLSCISSORINDEXEDVOESPROC ScissorIndexedvOES;
-    PFNGLSHADINGRATECOMBINEROPSEXTPROC ShadingRateCombinerOpsEXT;
-    PFNGLSHADINGRATEEXTPROC ShadingRateEXT;
-    PFNGLSHADINGRATEQCOMPROC ShadingRateQCOM;
-    PFNGLSTARTTILINGQCOMPROC StartTilingQCOM;
-    PFNGLTEXBUFFEROESPROC TexBufferOES;
-    PFNGLTEXBUFFERRANGEEXTPROC TexBufferRangeEXT;
-    PFNGLTEXBUFFERRANGEOESPROC TexBufferRangeOES;
-    PFNGLTEXESTIMATEMOTIONQCOMPROC TexEstimateMotionQCOM;
-    PFNGLTEXESTIMATEMOTIONREGIONSQCOMPROC TexEstimateMotionRegionsQCOM;
-    PFNGLTEXIMAGE2DROBUSTANGLEPROC TexImage2DRobustANGLE;
-    PFNGLTEXIMAGE3DOESPROC TexImage3DOES;
-    PFNGLTEXIMAGE3DROBUSTANGLEPROC TexImage3DRobustANGLE;
-    PFNGLTEXPAGECOMMITMENTEXTPROC TexPageCommitmentEXT;
-    PFNGLTEXPARAMETERIIVOESPROC TexParameterIivOES;
-    PFNGLTEXPARAMETERIIVROBUSTANGLEPROC TexParameterIivRobustANGLE;
-    PFNGLTEXPARAMETERIUIVOESPROC TexParameterIuivOES;
-    PFNGLTEXPARAMETERIUIVROBUSTANGLEPROC TexParameterIuivRobustANGLE;
-    PFNGLTEXPARAMETERFVROBUSTANGLEPROC TexParameterfvRobustANGLE;
-    PFNGLTEXPARAMETERIVROBUSTANGLEPROC TexParameterivRobustANGLE;
-    PFNGLTEXSTORAGE2DMULTISAMPLEANGLEPROC TexStorage2DMultisampleANGLE;
-    PFNGLTEXSTORAGE3DMULTISAMPLEOESPROC TexStorage3DMultisampleOES;
-    PFNGLTEXSTORAGEATTRIBS2DEXTPROC TexStorageAttribs2DEXT;
-    PFNGLTEXSTORAGEATTRIBS3DEXTPROC TexStorageAttribs3DEXT;
-    PFNGLTEXSUBIMAGE2DROBUSTANGLEPROC TexSubImage2DRobustANGLE;
-    PFNGLTEXSUBIMAGE3DOESPROC TexSubImage3DOES;
-    PFNGLTEXSUBIMAGE3DROBUSTANGLEPROC TexSubImage3DRobustANGLE;
-    PFNGLTEXTUREFOVEATIONPARAMETERSQCOMPROC TextureFoveationParametersQCOM;
-    PFNGLTEXTUREVIEWEXTPROC TextureViewEXT;
-    PFNGLTEXTUREVIEWOESPROC TextureViewOES;
-    PFNGLUNIFORMHANDLEUI64IMGPROC UniformHandleui64IMG;
-    PFNGLUNIFORMHANDLEUI64VIMGPROC UniformHandleui64vIMG;
-    PFNGLUNIFORMMATRIX2X3FVNVPROC UniformMatrix2x3fvNV;
-    PFNGLUNIFORMMATRIX2X4FVNVPROC UniformMatrix2x4fvNV;
-    PFNGLUNIFORMMATRIX3X2FVNVPROC UniformMatrix3x2fvNV;
-    PFNGLUNIFORMMATRIX3X4FVNVPROC UniformMatrix3x4fvNV;
-    PFNGLUNIFORMMATRIX4X2FVNVPROC UniformMatrix4x2fvNV;
-    PFNGLUNIFORMMATRIX4X3FVNVPROC UniformMatrix4x3fvNV;
-    PFNGLUNMAPBUFFEROESPROC UnmapBufferOES;
-    PFNGLUSEPROGRAMSTAGESEXTPROC UseProgramStagesEXT;
-    PFNGLVALIDATEPROGRAMPIPELINEEXTPROC ValidateProgramPipelineEXT;
-    PFNGLVERTEXATTRIBDIVISORANGLEPROC VertexAttribDivisorANGLE;
-    PFNGLVERTEXATTRIBDIVISOREXTPROC VertexAttribDivisorEXT;
-    PFNGLVERTEXATTRIBDIVISORNVPROC VertexAttribDivisorNV;
-    PFNGLVIEWPORTARRAYVNVPROC ViewportArrayvNV;
-    PFNGLVIEWPORTARRAYVOESPROC ViewportArrayvOES;
-    PFNGLVIEWPORTINDEXEDFNVPROC ViewportIndexedfNV;
-    PFNGLVIEWPORTINDEXEDFOESPROC ViewportIndexedfOES;
-    PFNGLVIEWPORTINDEXEDFVNVPROC ViewportIndexedfvNV;
-    PFNGLVIEWPORTINDEXEDFVOESPROC ViewportIndexedfvOES;
-    PFNGLWAITSYNCAPPLEPROC WaitSyncAPPLE;
+    union {
+        unsigned char extArray[905];
+        struct {
+            unsigned char _3DFX_multisample; // 0
+            unsigned char _3DFX_tbuffer; // 1
+            unsigned char _3DFX_texture_compression_FXT1; // 2
+            unsigned char AMD_blend_minmax_factor; // 3
+            unsigned char AMD_conservative_depth; // 4
+            unsigned char AMD_debug_output; // 5
+            unsigned char AMD_depth_clamp_separate; // 6
+            unsigned char AMD_draw_buffers_blend; // 7
+            unsigned char AMD_framebuffer_multisample_advanced; // 8
+            unsigned char AMD_framebuffer_sample_positions; // 9
+            unsigned char AMD_gcn_shader; // 10
+            unsigned char AMD_gpu_shader_half_float; // 11
+            unsigned char AMD_gpu_shader_int16; // 12
+            unsigned char AMD_gpu_shader_int64; // 13
+            unsigned char AMD_interleaved_elements; // 14
+            unsigned char AMD_multi_draw_indirect; // 15
+            unsigned char AMD_name_gen_delete; // 16
+            unsigned char AMD_occlusion_query_event; // 17
+            unsigned char AMD_performance_monitor; // 18
+            unsigned char AMD_pinned_memory; // 19
+            unsigned char AMD_query_buffer_object; // 20
+            unsigned char AMD_sample_positions; // 21
+            unsigned char AMD_seamless_cubemap_per_texture; // 22
+            unsigned char AMD_shader_atomic_counter_ops; // 23
+            unsigned char AMD_shader_ballot; // 24
+            unsigned char AMD_shader_explicit_vertex_parameter; // 25
+            unsigned char AMD_shader_fragment_mask; // 26
+            unsigned char AMD_shader_gpu_shader_half_float_fetch; // 27
+            unsigned char AMD_shader_image_load_store_lod; // 28
+            unsigned char AMD_shader_stencil_export; // 29
+            unsigned char AMD_shader_trinary_minmax; // 30
+            unsigned char AMD_sparse_texture; // 31
+            unsigned char AMD_stencil_operation_extended; // 32
+            unsigned char AMD_texture_gather_bias_lod; // 33
+            unsigned char AMD_texture_texture4; // 34
+            unsigned char AMD_transform_feedback3_lines_triangles; // 35
+            unsigned char AMD_transform_feedback4; // 36
+            unsigned char AMD_vertex_shader_layer; // 37
+            unsigned char AMD_vertex_shader_tessellator; // 38
+            unsigned char AMD_vertex_shader_viewport_index; // 39
+            unsigned char ANGLE_memory_object_flags; // 40
+            unsigned char ANGLE_memory_object_fuchsia; // 41
+            unsigned char ANGLE_semaphore_fuchsia; // 42
+            unsigned char ANGLE_texture_compression_dxt; // 43
+            unsigned char ANGLE_texture_external_update; // 44
+            unsigned char APPLE_aux_depth_stencil; // 45
+            unsigned char APPLE_client_storage; // 46
+            unsigned char APPLE_element_array; // 47
+            unsigned char APPLE_fence; // 48
+            unsigned char APPLE_float_pixels; // 49
+            unsigned char APPLE_flush_buffer_range; // 50
+            unsigned char APPLE_object_purgeable; // 51
+            unsigned char APPLE_rgb_422; // 52
+            unsigned char APPLE_row_bytes; // 53
+            unsigned char APPLE_specular_vector; // 54
+            unsigned char APPLE_texture_range; // 55
+            unsigned char APPLE_transform_hint; // 56
+            unsigned char APPLE_vertex_array_object; // 57
+            unsigned char APPLE_vertex_array_range; // 58
+            unsigned char APPLE_vertex_program_evaluators; // 59
+            unsigned char APPLE_ycbcr_422; // 60
+            unsigned char ARB_ES2_compatibility; // 61
+            unsigned char ARB_ES3_1_compatibility; // 62
+            unsigned char ARB_ES3_2_compatibility; // 63
+            unsigned char ARB_ES3_compatibility; // 64
+            unsigned char ARB_arrays_of_arrays; // 65
+            unsigned char ARB_base_instance; // 66
+            unsigned char ARB_bindless_texture; // 67
+            unsigned char ARB_blend_func_extended; // 68
+            unsigned char ARB_buffer_storage; // 69
+            unsigned char ARB_cl_event; // 70
+            unsigned char ARB_clear_buffer_object; // 71
+            unsigned char ARB_clear_texture; // 72
+            unsigned char ARB_clip_control; // 73
+            unsigned char ARB_color_buffer_float; // 74
+            unsigned char ARB_compatibility; // 75
+            unsigned char ARB_compressed_texture_pixel_storage; // 76
+            unsigned char ARB_compute_shader; // 77
+            unsigned char ARB_compute_variable_group_size; // 78
+            unsigned char ARB_conditional_render_inverted; // 79
+            unsigned char ARB_conservative_depth; // 80
+            unsigned char ARB_copy_buffer; // 81
+            unsigned char ARB_copy_image; // 82
+            unsigned char ARB_cull_distance; // 83
+            unsigned char ARB_debug_output; // 84
+            unsigned char ARB_depth_buffer_float; // 85
+            unsigned char ARB_depth_clamp; // 86
+            unsigned char ARB_depth_texture; // 87
+            unsigned char ARB_derivative_control; // 88
+            unsigned char ARB_direct_state_access; // 89
+            unsigned char ARB_draw_buffers; // 90
+            unsigned char ARB_draw_buffers_blend; // 91
+            unsigned char ARB_draw_elements_base_vertex; // 92
+            unsigned char ARB_draw_indirect; // 93
+            unsigned char ARB_draw_instanced; // 94
+            unsigned char ARB_enhanced_layouts; // 95
+            unsigned char ARB_explicit_attrib_location; // 96
+            unsigned char ARB_explicit_uniform_location; // 97
+            unsigned char ARB_fragment_coord_conventions; // 98
+            unsigned char ARB_fragment_layer_viewport; // 99
+            unsigned char ARB_fragment_program; // 100
+            unsigned char ARB_fragment_program_shadow; // 101
+            unsigned char ARB_fragment_shader; // 102
+            unsigned char ARB_fragment_shader_interlock; // 103
+            unsigned char ARB_framebuffer_no_attachments; // 104
+            unsigned char ARB_framebuffer_object; // 105
+            unsigned char ARB_framebuffer_sRGB; // 106
+            unsigned char ARB_geometry_shader4; // 107
+            unsigned char ARB_get_program_binary; // 108
+            unsigned char ARB_get_texture_sub_image; // 109
+            unsigned char ARB_gl_spirv; // 110
+            unsigned char ARB_gpu_shader5; // 111
+            unsigned char ARB_gpu_shader_fp64; // 112
+            unsigned char ARB_gpu_shader_int64; // 113
+            unsigned char ARB_half_float_pixel; // 114
+            unsigned char ARB_half_float_vertex; // 115
+            unsigned char ARB_imaging; // 116
+            unsigned char ARB_indirect_parameters; // 117
+            unsigned char ARB_instanced_arrays; // 118
+            unsigned char ARB_internalformat_query; // 119
+            unsigned char ARB_internalformat_query2; // 120
+            unsigned char ARB_invalidate_subdata; // 121
+            unsigned char ARB_map_buffer_alignment; // 122
+            unsigned char ARB_map_buffer_range; // 123
+            unsigned char ARB_matrix_palette; // 124
+            unsigned char ARB_multi_bind; // 125
+            unsigned char ARB_multi_draw_indirect; // 126
+            unsigned char ARB_multisample; // 127
+            unsigned char ARB_multitexture; // 128
+            unsigned char ARB_occlusion_query; // 129
+            unsigned char ARB_occlusion_query2; // 130
+            unsigned char ARB_parallel_shader_compile; // 131
+            unsigned char ARB_pipeline_statistics_query; // 132
+            unsigned char ARB_pixel_buffer_object; // 133
+            unsigned char ARB_point_parameters; // 134
+            unsigned char ARB_point_sprite; // 135
+            unsigned char ARB_polygon_offset_clamp; // 136
+            unsigned char ARB_post_depth_coverage; // 137
+            unsigned char ARB_program_interface_query; // 138
+            unsigned char ARB_provoking_vertex; // 139
+            unsigned char ARB_query_buffer_object; // 140
+            unsigned char ARB_robust_buffer_access_behavior; // 141
+            unsigned char ARB_robustness; // 142
+            unsigned char ARB_robustness_isolation; // 143
+            unsigned char ARB_sample_locations; // 144
+            unsigned char ARB_sample_shading; // 145
+            unsigned char ARB_sampler_objects; // 146
+            unsigned char ARB_seamless_cube_map; // 147
+            unsigned char ARB_seamless_cubemap_per_texture; // 148
+            unsigned char ARB_separate_shader_objects; // 149
+            unsigned char ARB_shader_atomic_counter_ops; // 150
+            unsigned char ARB_shader_atomic_counters; // 151
+            unsigned char ARB_shader_ballot; // 152
+            unsigned char ARB_shader_bit_encoding; // 153
+            unsigned char ARB_shader_clock; // 154
+            unsigned char ARB_shader_draw_parameters; // 155
+            unsigned char ARB_shader_group_vote; // 156
+            unsigned char ARB_shader_image_load_store; // 157
+            unsigned char ARB_shader_image_size; // 158
+            unsigned char ARB_shader_objects; // 159
+            unsigned char ARB_shader_precision; // 160
+            unsigned char ARB_shader_stencil_export; // 161
+            unsigned char ARB_shader_storage_buffer_object; // 162
+            unsigned char ARB_shader_subroutine; // 163
+            unsigned char ARB_shader_texture_image_samples; // 164
+            unsigned char ARB_shader_texture_lod; // 165
+            unsigned char ARB_shader_viewport_layer_array; // 166
+            unsigned char ARB_shading_language_100; // 167
+            unsigned char ARB_shading_language_420pack; // 168
+            unsigned char ARB_shading_language_include; // 169
+            unsigned char ARB_shading_language_packing; // 170
+            unsigned char ARB_shadow; // 171
+            unsigned char ARB_shadow_ambient; // 172
+            unsigned char ARB_sparse_buffer; // 173
+            unsigned char ARB_sparse_texture; // 174
+            unsigned char ARB_sparse_texture2; // 175
+            unsigned char ARB_sparse_texture_clamp; // 176
+            unsigned char ARB_spirv_extensions; // 177
+            unsigned char ARB_stencil_texturing; // 178
+            unsigned char ARB_sync; // 179
+            unsigned char ARB_tessellation_shader; // 180
+            unsigned char ARB_texture_barrier; // 181
+            unsigned char ARB_texture_border_clamp; // 182
+            unsigned char ARB_texture_buffer_object; // 183
+            unsigned char ARB_texture_buffer_object_rgb32; // 184
+            unsigned char ARB_texture_buffer_range; // 185
+            unsigned char ARB_texture_compression; // 186
+            unsigned char ARB_texture_compression_bptc; // 187
+            unsigned char ARB_texture_compression_rgtc; // 188
+            unsigned char ARB_texture_cube_map; // 189
+            unsigned char ARB_texture_cube_map_array; // 190
+            unsigned char ARB_texture_env_add; // 191
+            unsigned char ARB_texture_env_combine; // 192
+            unsigned char ARB_texture_env_crossbar; // 193
+            unsigned char ARB_texture_env_dot3; // 194
+            unsigned char ARB_texture_filter_anisotropic; // 195
+            unsigned char ARB_texture_filter_minmax; // 196
+            unsigned char ARB_texture_float; // 197
+            unsigned char ARB_texture_gather; // 198
+            unsigned char ARB_texture_mirror_clamp_to_edge; // 199
+            unsigned char ARB_texture_mirrored_repeat; // 200
+            unsigned char ARB_texture_multisample; // 201
+            unsigned char ARB_texture_non_power_of_two; // 202
+            unsigned char ARB_texture_query_levels; // 203
+            unsigned char ARB_texture_query_lod; // 204
+            unsigned char ARB_texture_rectangle; // 205
+            unsigned char ARB_texture_rg; // 206
+            unsigned char ARB_texture_rgb10_a2ui; // 207
+            unsigned char ARB_texture_stencil8; // 208
+            unsigned char ARB_texture_storage; // 209
+            unsigned char ARB_texture_storage_multisample; // 210
+            unsigned char ARB_texture_swizzle; // 211
+            unsigned char ARB_texture_view; // 212
+            unsigned char ARB_timer_query; // 213
+            unsigned char ARB_transform_feedback2; // 214
+            unsigned char ARB_transform_feedback3; // 215
+            unsigned char ARB_transform_feedback_instanced; // 216
+            unsigned char ARB_transform_feedback_overflow_query; // 217
+            unsigned char ARB_transpose_matrix; // 218
+            unsigned char ARB_uniform_buffer_object; // 219
+            unsigned char ARB_vertex_array_bgra; // 220
+            unsigned char ARB_vertex_array_object; // 221
+            unsigned char ARB_vertex_attrib_64bit; // 222
+            unsigned char ARB_vertex_attrib_binding; // 223
+            unsigned char ARB_vertex_blend; // 224
+            unsigned char ARB_vertex_buffer_object; // 225
+            unsigned char ARB_vertex_program; // 226
+            unsigned char ARB_vertex_shader; // 227
+            unsigned char ARB_vertex_type_10f_11f_11f_rev; // 228
+            unsigned char ARB_vertex_type_2_10_10_10_rev; // 229
+            unsigned char ARB_viewport_array; // 230
+            unsigned char ARB_window_pos; // 231
+            unsigned char ATI_draw_buffers; // 232
+            unsigned char ATI_element_array; // 233
+            unsigned char ATI_envmap_bumpmap; // 234
+            unsigned char ATI_fragment_shader; // 235
+            unsigned char ATI_map_object_buffer; // 236
+            unsigned char ATI_meminfo; // 237
+            unsigned char ATI_pixel_format_float; // 238
+            unsigned char ATI_pn_triangles; // 239
+            unsigned char ATI_separate_stencil; // 240
+            unsigned char ATI_text_fragment_shader; // 241
+            unsigned char ATI_texture_env_combine3; // 242
+            unsigned char ATI_texture_float; // 243
+            unsigned char ATI_texture_mirror_once; // 244
+            unsigned char ATI_vertex_array_object; // 245
+            unsigned char ATI_vertex_attrib_array_object; // 246
+            unsigned char ATI_vertex_streams; // 247
+            unsigned char EXT_422_pixels; // 248
+            unsigned char EXT_EGL_image_storage; // 249
+            unsigned char EXT_EGL_sync; // 250
+            unsigned char EXT_abgr; // 251
+            unsigned char EXT_bgra; // 252
+            unsigned char EXT_bindable_uniform; // 253
+            unsigned char EXT_blend_color; // 254
+            unsigned char EXT_blend_equation_separate; // 255
+            unsigned char EXT_blend_func_separate; // 256
+            unsigned char EXT_blend_logic_op; // 257
+            unsigned char EXT_blend_minmax; // 258
+            unsigned char EXT_blend_subtract; // 259
+            unsigned char EXT_buffer_reference; // 260
+            unsigned char EXT_buffer_reference2; // 261
+            unsigned char EXT_clip_volume_hint; // 262
+            unsigned char EXT_cmyka; // 263
+            unsigned char EXT_color_subtable; // 264
+            unsigned char EXT_compiled_vertex_array; // 265
+            unsigned char EXT_control_flow_attributes; // 266
+            unsigned char EXT_convolution; // 267
+            unsigned char EXT_coordinate_frame; // 268
+            unsigned char EXT_copy_texture; // 269
+            unsigned char EXT_cull_vertex; // 270
+            unsigned char EXT_debug_label; // 271
+            unsigned char EXT_debug_marker; // 272
+            unsigned char EXT_debug_printf; // 273
+            unsigned char EXT_demote_to_helper_invocation; // 274
+            unsigned char EXT_depth_bounds_test; // 275
+            unsigned char EXT_device_group; // 276
+            unsigned char EXT_direct_state_access; // 277
+            unsigned char EXT_draw_buffers2; // 278
+            unsigned char EXT_draw_instanced; // 279
+            unsigned char EXT_draw_range_elements; // 280
+            unsigned char EXT_external_buffer; // 281
+            unsigned char EXT_fog_coord; // 282
+            unsigned char EXT_fragment_invocation_density; // 283
+            unsigned char EXT_fragment_shader_barycentric; // 284
+            unsigned char EXT_framebuffer_blit; // 285
+            unsigned char EXT_framebuffer_blit_layers; // 286
+            unsigned char EXT_framebuffer_multisample; // 287
+            unsigned char EXT_framebuffer_multisample_blit_scaled; // 288
+            unsigned char EXT_framebuffer_object; // 289
+            unsigned char EXT_framebuffer_sRGB; // 290
+            unsigned char EXT_geometry_shader4; // 291
+            unsigned char EXT_gpu_program_parameters; // 292
+            unsigned char EXT_gpu_shader4; // 293
+            unsigned char EXT_histogram; // 294
+            unsigned char EXT_index_array_formats; // 295
+            unsigned char EXT_index_func; // 296
+            unsigned char EXT_index_material; // 297
+            unsigned char EXT_index_texture; // 298
+            unsigned char EXT_light_texture; // 299
+            unsigned char EXT_memory_object; // 300
+            unsigned char EXT_memory_object_fd; // 301
+            unsigned char EXT_memory_object_win32; // 302
+            unsigned char EXT_misc_attribute; // 303
+            unsigned char EXT_multi_draw_arrays; // 304
+            unsigned char EXT_multisample; // 305
+            unsigned char EXT_multiview_tessellation_geometry_shader; // 306
+            unsigned char EXT_multiview_texture_multisample; // 307
+            unsigned char EXT_multiview_timer_query; // 308
+            unsigned char EXT_nonuniform_qualifier; // 309
+            unsigned char EXT_packed_depth_stencil; // 310
+            unsigned char EXT_packed_float; // 311
+            unsigned char EXT_packed_pixels; // 312
+            unsigned char EXT_paletted_texture; // 313
+            unsigned char EXT_pixel_buffer_object; // 314
+            unsigned char EXT_pixel_transform; // 315
+            unsigned char EXT_pixel_transform_color_table; // 316
+            unsigned char EXT_point_parameters; // 317
+            unsigned char EXT_polygon_offset; // 318
+            unsigned char EXT_polygon_offset_clamp; // 319
+            unsigned char EXT_post_depth_coverage; // 320
+            unsigned char EXT_provoking_vertex; // 321
+            unsigned char EXT_raster_multisample; // 322
+            unsigned char EXT_ray_cull_mask; // 323
+            unsigned char EXT_ray_flags_primitive_culling; // 324
+            unsigned char EXT_ray_query; // 325
+            unsigned char EXT_ray_tracing; // 326
+            unsigned char EXT_rescale_normal; // 327
+            unsigned char EXT_samplerless_texture_functions; // 328
+            unsigned char EXT_scalar_block_layout; // 329
+            unsigned char EXT_secondary_color; // 330
+            unsigned char EXT_semaphore; // 331
+            unsigned char EXT_semaphore_fd; // 332
+            unsigned char EXT_semaphore_win32; // 333
+            unsigned char EXT_separate_shader_objects; // 334
+            unsigned char EXT_separate_specular_color; // 335
+            unsigned char EXT_shader_16bit_storage; // 336
+            unsigned char EXT_shader_atomic_float; // 337
+            unsigned char EXT_shader_explicit_arithmetic_types; // 338
+            unsigned char EXT_shader_framebuffer_fetch; // 339
+            unsigned char EXT_shader_framebuffer_fetch_non_coherent; // 340
+            unsigned char EXT_shader_image_int64; // 341
+            unsigned char EXT_shader_image_load_formatted; // 342
+            unsigned char EXT_shader_image_load_store; // 343
+            unsigned char EXT_shader_integer_mix; // 344
+            unsigned char EXT_shader_realtime_clock; // 345
+            unsigned char EXT_shader_samples_identical; // 346
+            unsigned char EXT_shader_subgroup_extended_types; // 347
+            unsigned char EXT_shadow_funcs; // 348
+            unsigned char EXT_shared_memory_block; // 349
+            unsigned char EXT_shared_texture_palette; // 350
+            unsigned char EXT_sparse_texture2; // 351
+            unsigned char EXT_stencil_clear_tag; // 352
+            unsigned char EXT_stencil_two_side; // 353
+            unsigned char EXT_stencil_wrap; // 354
+            unsigned char EXT_subgroup_uniform_control_flow; // 355
+            unsigned char EXT_subgroupuniform_qualifier; // 356
+            unsigned char EXT_subtexture; // 357
+            unsigned char EXT_texture; // 358
+            unsigned char EXT_texture3D; // 359
+            unsigned char EXT_texture_array; // 360
+            unsigned char EXT_texture_buffer_object; // 361
+            unsigned char EXT_texture_compression_latc; // 362
+            unsigned char EXT_texture_compression_rgtc; // 363
+            unsigned char EXT_texture_compression_s3tc; // 364
+            unsigned char EXT_texture_cube_map; // 365
+            unsigned char EXT_texture_env_add; // 366
+            unsigned char EXT_texture_env_combine; // 367
+            unsigned char EXT_texture_env_dot3; // 368
+            unsigned char EXT_texture_filter_anisotropic; // 369
+            unsigned char EXT_texture_filter_minmax; // 370
+            unsigned char EXT_texture_integer; // 371
+            unsigned char EXT_texture_lod_bias; // 372
+            unsigned char EXT_texture_mirror_clamp; // 373
+            unsigned char EXT_texture_object; // 374
+            unsigned char EXT_texture_perturb_normal; // 375
+            unsigned char EXT_texture_sRGB; // 376
+            unsigned char EXT_texture_sRGB_R8; // 377
+            unsigned char EXT_texture_sRGB_RG8; // 378
+            unsigned char EXT_texture_sRGB_decode; // 379
+            unsigned char EXT_texture_shadow_lod; // 380
+            unsigned char EXT_texture_shared_exponent; // 381
+            unsigned char EXT_texture_snorm; // 382
+            unsigned char EXT_texture_storage; // 383
+            unsigned char EXT_texture_swizzle; // 384
+            unsigned char EXT_timer_query; // 385
+            unsigned char EXT_transform_feedback; // 386
+            unsigned char EXT_vertex_array; // 387
+            unsigned char EXT_vertex_array_bgra; // 388
+            unsigned char EXT_vertex_attrib_64bit; // 389
+            unsigned char EXT_vertex_shader; // 390
+            unsigned char EXT_vertex_weighting; // 391
+            unsigned char EXT_vulkan_glsl_relaxed; // 392
+            unsigned char EXT_win32_keyed_mutex; // 393
+            unsigned char EXT_window_rectangles; // 394
+            unsigned char EXT_x11_sync_object; // 395
+            unsigned char GREMEDY_frame_terminator; // 396
+            unsigned char GREMEDY_string_marker; // 397
+            unsigned char HP_convolution_border_modes; // 398
+            unsigned char HP_image_transform; // 399
+            unsigned char HP_occlusion_test; // 400
+            unsigned char HP_texture_lighting; // 401
+            unsigned char HUAWEI_subpass_shading; // 402
+            unsigned char IBM_cull_vertex; // 403
+            unsigned char IBM_multimode_draw_arrays; // 404
+            unsigned char IBM_rasterpos_clip; // 405
+            unsigned char IBM_static_data; // 406
+            unsigned char IBM_texture_mirrored_repeat; // 407
+            unsigned char IBM_vertex_array_lists; // 408
+            unsigned char INGR_blend_func_separate; // 409
+            unsigned char INGR_color_clamp; // 410
+            unsigned char INGR_interlace_read; // 411
+            unsigned char INTEL_blackhole_render; // 412
+            unsigned char INTEL_conservative_rasterization; // 413
+            unsigned char INTEL_fragment_shader_ordering; // 414
+            unsigned char INTEL_framebuffer_CMAA; // 415
+            unsigned char INTEL_map_texture; // 416
+            unsigned char INTEL_parallel_arrays; // 417
+            unsigned char INTEL_performance_query; // 418
+            unsigned char KHR_blend_equation_advanced; // 419
+            unsigned char KHR_blend_equation_advanced_coherent; // 420
+            unsigned char KHR_context_flush_control; // 421
+            unsigned char KHR_debug; // 422
+            unsigned char KHR_memory_scope_semantics; // 423
+            unsigned char KHR_no_error; // 424
+            unsigned char KHR_parallel_shader_compile; // 425
+            unsigned char KHR_robust_buffer_access_behavior; // 426
+            unsigned char KHR_robustness; // 427
+            unsigned char KHR_shader_subgroup; // 428
+            unsigned char KHR_texture_compression_astc_hdr; // 429
+            unsigned char KHR_texture_compression_astc_ldr; // 430
+            unsigned char KHR_texture_compression_astc_sliced_3d; // 431
+            unsigned char KHR_vulkan_glsl; // 432
+            unsigned char MESAX_texture_stack; // 433
+            unsigned char MESA_framebuffer_flip_x; // 434
+            unsigned char MESA_framebuffer_flip_y; // 435
+            unsigned char MESA_framebuffer_swap_xy; // 436
+            unsigned char MESA_pack_invert; // 437
+            unsigned char MESA_program_binary_formats; // 438
+            unsigned char MESA_resize_buffers; // 439
+            unsigned char MESA_shader_integer_functions; // 440
+            unsigned char MESA_tile_raster_order; // 441
+            unsigned char MESA_window_pos; // 442
+            unsigned char MESA_ycbcr_texture; // 443
+            unsigned char NVX_blend_equation_advanced_multi_draw_buffers; // 444
+            unsigned char NVX_conditional_render; // 445
+            unsigned char NVX_gpu_memory_info; // 446
+            unsigned char NVX_gpu_multicast2; // 447
+            unsigned char NVX_linked_gpu_multicast; // 448
+            unsigned char NVX_multiview_per_view_attributes; // 449
+            unsigned char NVX_progress_fence; // 450
+            unsigned char NV_alpha_to_coverage_dither_control; // 451
+            unsigned char NV_bindless_multi_draw_indirect; // 452
+            unsigned char NV_bindless_multi_draw_indirect_count; // 453
+            unsigned char NV_bindless_texture; // 454
+            unsigned char NV_blend_equation_advanced; // 455
+            unsigned char NV_blend_equation_advanced_coherent; // 456
+            unsigned char NV_blend_minmax_factor; // 457
+            unsigned char NV_blend_square; // 458
+            unsigned char NV_clip_space_w_scaling; // 459
+            unsigned char NV_command_list; // 460
+            unsigned char NV_compute_program5; // 461
+            unsigned char NV_compute_shader_derivatives; // 462
+            unsigned char NV_conditional_render; // 463
+            unsigned char NV_conservative_raster; // 464
+            unsigned char NV_conservative_raster_dilate; // 465
+            unsigned char NV_conservative_raster_pre_snap; // 466
+            unsigned char NV_conservative_raster_pre_snap_triangles; // 467
+            unsigned char NV_conservative_raster_underestimation; // 468
+            unsigned char NV_cooperative_matrix; // 469
+            unsigned char NV_copy_depth_to_color; // 470
+            unsigned char NV_copy_image; // 471
+            unsigned char NV_deep_texture3D; // 472
+            unsigned char NV_depth_buffer_float; // 473
+            unsigned char NV_depth_clamp; // 474
+            unsigned char NV_draw_texture; // 475
+            unsigned char NV_draw_vulkan_image; // 476
+            unsigned char NV_evaluators; // 477
+            unsigned char NV_explicit_multisample; // 478
+            unsigned char NV_fence; // 479
+            unsigned char NV_fill_rectangle; // 480
+            unsigned char NV_float_buffer; // 481
+            unsigned char NV_fog_distance; // 482
+            unsigned char NV_fragment_coverage_to_color; // 483
+            unsigned char NV_fragment_program; // 484
+            unsigned char NV_fragment_program2; // 485
+            unsigned char NV_fragment_program4; // 486
+            unsigned char NV_fragment_program_option; // 487
+            unsigned char NV_fragment_shader_barycentric; // 488
+            unsigned char NV_fragment_shader_interlock; // 489
+            unsigned char NV_framebuffer_mixed_samples; // 490
+            unsigned char NV_framebuffer_multisample_coverage; // 491
+            unsigned char NV_geometry_program4; // 492
+            unsigned char NV_geometry_shader4; // 493
+            unsigned char NV_geometry_shader_passthrough; // 494
+            unsigned char NV_gpu_multicast; // 495
+            unsigned char NV_gpu_program4; // 496
+            unsigned char NV_gpu_program5; // 497
+            unsigned char NV_gpu_program5_mem_extended; // 498
+            unsigned char NV_gpu_shader5; // 499
+            unsigned char NV_half_float; // 500
+            unsigned char NV_internalformat_sample_query; // 501
+            unsigned char NV_light_max_exponent; // 502
+            unsigned char NV_memory_attachment; // 503
+            unsigned char NV_memory_object_sparse; // 504
+            unsigned char NV_mesh_shader; // 505
+            unsigned char NV_multisample_coverage; // 506
+            unsigned char NV_multisample_filter_hint; // 507
+            unsigned char NV_occlusion_query; // 508
+            unsigned char NV_packed_depth_stencil; // 509
+            unsigned char NV_parameter_buffer_object; // 510
+            unsigned char NV_parameter_buffer_object2; // 511
+            unsigned char NV_path_rendering; // 512
+            unsigned char NV_path_rendering_shared_edge; // 513
+            unsigned char NV_pixel_data_range; // 514
+            unsigned char NV_point_sprite; // 515
+            unsigned char NV_present_video; // 516
+            unsigned char NV_primitive_restart; // 517
+            unsigned char NV_primitive_shading_rate; // 518
+            unsigned char NV_query_resource; // 519
+            unsigned char NV_query_resource_tag; // 520
+            unsigned char NV_ray_tracing; // 521
+            unsigned char NV_ray_tracing_motion_blur; // 522
+            unsigned char NV_register_combiners; // 523
+            unsigned char NV_register_combiners2; // 524
+            unsigned char NV_representative_fragment_test; // 525
+            unsigned char NV_robustness_video_memory_purge; // 526
+            unsigned char NV_sample_locations; // 527
+            unsigned char NV_sample_mask_override_coverage; // 528
+            unsigned char NV_scissor_exclusive; // 529
+            unsigned char NV_shader_atomic_counters; // 530
+            unsigned char NV_shader_atomic_float; // 531
+            unsigned char NV_shader_atomic_float64; // 532
+            unsigned char NV_shader_atomic_fp16_vector; // 533
+            unsigned char NV_shader_atomic_int64; // 534
+            unsigned char NV_shader_buffer_load; // 535
+            unsigned char NV_shader_buffer_store; // 536
+            unsigned char NV_shader_sm_builtins; // 537
+            unsigned char NV_shader_storage_buffer_object; // 538
+            unsigned char NV_shader_subgroup_partitioned; // 539
+            unsigned char NV_shader_texture_footprint; // 540
+            unsigned char NV_shader_thread_group; // 541
+            unsigned char NV_shader_thread_shuffle; // 542
+            unsigned char NV_shading_rate_image; // 543
+            unsigned char NV_stereo_view_rendering; // 544
+            unsigned char NV_tessellation_program5; // 545
+            unsigned char NV_texgen_emboss; // 546
+            unsigned char NV_texgen_reflection; // 547
+            unsigned char NV_texture_barrier; // 548
+            unsigned char NV_texture_compression_vtc; // 549
+            unsigned char NV_texture_env_combine4; // 550
+            unsigned char NV_texture_expand_normal; // 551
+            unsigned char NV_texture_multisample; // 552
+            unsigned char NV_texture_rectangle; // 553
+            unsigned char NV_texture_rectangle_compressed; // 554
+            unsigned char NV_texture_shader; // 555
+            unsigned char NV_texture_shader2; // 556
+            unsigned char NV_texture_shader3; // 557
+            unsigned char NV_timeline_semaphore; // 558
+            unsigned char NV_transform_feedback; // 559
+            unsigned char NV_transform_feedback2; // 560
+            unsigned char NV_uniform_buffer_std430_layout; // 561
+            unsigned char NV_uniform_buffer_unified_memory; // 562
+            unsigned char NV_vdpau_interop; // 563
+            unsigned char NV_vdpau_interop2; // 564
+            unsigned char NV_vertex_array_range; // 565
+            unsigned char NV_vertex_array_range2; // 566
+            unsigned char NV_vertex_attrib_integer_64bit; // 567
+            unsigned char NV_vertex_buffer_unified_memory; // 568
+            unsigned char NV_vertex_program; // 569
+            unsigned char NV_vertex_program1_1; // 570
+            unsigned char NV_vertex_program2; // 571
+            unsigned char NV_vertex_program2_option; // 572
+            unsigned char NV_vertex_program3; // 573
+            unsigned char NV_vertex_program4; // 574
+            unsigned char NV_video_capture; // 575
+            unsigned char NV_viewport_array2; // 576
+            unsigned char NV_viewport_swizzle; // 577
+            unsigned char OES_byte_coordinates; // 578
+            unsigned char OES_compressed_paletted_texture; // 579
+            unsigned char OES_fixed_point; // 580
+            unsigned char OES_query_matrix; // 581
+            unsigned char OES_read_format; // 582
+            unsigned char OES_single_precision; // 583
+            unsigned char OML_interlace; // 584
+            unsigned char OML_resample; // 585
+            unsigned char OML_subsample; // 586
+            unsigned char OVR_multiview; // 587
+            unsigned char OVR_multiview2; // 588
+            unsigned char PGI_misc_hints; // 589
+            unsigned char PGI_vertex_hints; // 590
+            unsigned char REND_screen_coordinates; // 591
+            unsigned char S3_s3tc; // 592
+            unsigned char SGIS_detail_texture; // 593
+            unsigned char SGIS_fog_function; // 594
+            unsigned char SGIS_generate_mipmap; // 595
+            unsigned char SGIS_multisample; // 596
+            unsigned char SGIS_pixel_texture; // 597
+            unsigned char SGIS_point_line_texgen; // 598
+            unsigned char SGIS_point_parameters; // 599
+            unsigned char SGIS_sharpen_texture; // 600
+            unsigned char SGIS_texture4D; // 601
+            unsigned char SGIS_texture_border_clamp; // 602
+            unsigned char SGIS_texture_color_mask; // 603
+            unsigned char SGIS_texture_edge_clamp; // 604
+            unsigned char SGIS_texture_filter4; // 605
+            unsigned char SGIS_texture_lod; // 606
+            unsigned char SGIS_texture_select; // 607
+            unsigned char SGIX_async; // 608
+            unsigned char SGIX_async_histogram; // 609
+            unsigned char SGIX_async_pixel; // 610
+            unsigned char SGIX_blend_alpha_minmax; // 611
+            unsigned char SGIX_calligraphic_fragment; // 612
+            unsigned char SGIX_clipmap; // 613
+            unsigned char SGIX_convolution_accuracy; // 614
+            unsigned char SGIX_depth_pass_instrument; // 615
+            unsigned char SGIX_depth_texture; // 616
+            unsigned char SGIX_flush_raster; // 617
+            unsigned char SGIX_fog_offset; // 618
+            unsigned char SGIX_fragment_lighting; // 619
+            unsigned char SGIX_framezoom; // 620
+            unsigned char SGIX_igloo_interface; // 621
+            unsigned char SGIX_instruments; // 622
+            unsigned char SGIX_interlace; // 623
+            unsigned char SGIX_ir_instrument1; // 624
+            unsigned char SGIX_list_priority; // 625
+            unsigned char SGIX_pixel_texture; // 626
+            unsigned char SGIX_pixel_tiles; // 627
+            unsigned char SGIX_polynomial_ffd; // 628
+            unsigned char SGIX_reference_plane; // 629
+            unsigned char SGIX_resample; // 630
+            unsigned char SGIX_scalebias_hint; // 631
+            unsigned char SGIX_shadow; // 632
+            unsigned char SGIX_shadow_ambient; // 633
+            unsigned char SGIX_sprite; // 634
+            unsigned char SGIX_subsample; // 635
+            unsigned char SGIX_tag_sample_buffer; // 636
+            unsigned char SGIX_texture_add_env; // 637
+            unsigned char SGIX_texture_coordinate_clamp; // 638
+            unsigned char SGIX_texture_lod_bias; // 639
+            unsigned char SGIX_texture_multi_buffer; // 640
+            unsigned char SGIX_texture_scale_bias; // 641
+            unsigned char SGIX_vertex_preclip; // 642
+            unsigned char SGIX_ycrcb; // 643
+            unsigned char SGIX_ycrcb_subsample; // 644
+            unsigned char SGIX_ycrcba; // 645
+            unsigned char SGI_color_matrix; // 646
+            unsigned char SGI_color_table; // 647
+            unsigned char SGI_texture_color_table; // 648
+            unsigned char SUNX_constant_data; // 649
+            unsigned char SUN_convolution_border_modes; // 650
+            unsigned char SUN_global_alpha; // 651
+            unsigned char SUN_mesh_array; // 652
+            unsigned char SUN_slice_accum; // 653
+            unsigned char SUN_triangle_list; // 654
+            unsigned char SUN_vertex; // 655
+            unsigned char WIN_phong_shading; // 656
+            unsigned char WIN_specular_fog; // 657
+            unsigned char AMD_compressed_3DC_texture; // 658
+            unsigned char AMD_compressed_ATC_texture; // 659
+            unsigned char AMD_program_binary_Z400; // 660
+            unsigned char ANDROID_extension_pack_es31a; // 661
+            unsigned char ANGLE_base_vertex_base_instance; // 662
+            unsigned char ANGLE_client_arrays; // 663
+            unsigned char ANGLE_clip_cull_distance; // 664
+            unsigned char ANGLE_copy_texture_3d; // 665
+            unsigned char ANGLE_depth_texture; // 666
+            unsigned char ANGLE_framebuffer_blit; // 667
+            unsigned char ANGLE_framebuffer_multisample; // 668
+            unsigned char ANGLE_get_image; // 669
+            unsigned char ANGLE_get_serialized_context_string; // 670
+            unsigned char ANGLE_get_tex_level_parameter; // 671
+            unsigned char ANGLE_instanced_arrays; // 672
+            unsigned char ANGLE_logic_op; // 673
+            unsigned char ANGLE_lossy_etc_decode; // 674
+            unsigned char ANGLE_memory_size; // 675
+            unsigned char ANGLE_multi_draw; // 676
+            unsigned char ANGLE_pack_reverse_row_order; // 677
+            unsigned char ANGLE_polygon_mode; // 678
+            unsigned char ANGLE_program_binary; // 679
+            unsigned char ANGLE_program_cache_control; // 680
+            unsigned char ANGLE_provoking_vertex; // 681
+            unsigned char ANGLE_renderability_validation; // 682
+            unsigned char ANGLE_request_extension; // 683
+            unsigned char ANGLE_rgbx_internal_format; // 684
+            unsigned char ANGLE_robust_client_memory; // 685
+            unsigned char ANGLE_robust_fragment_shader_output; // 686
+            unsigned char ANGLE_robust_resource_initialization; // 687
+            unsigned char ANGLE_shader_pixel_local_storage; // 688
+            unsigned char ANGLE_stencil_texturing; // 689
+            unsigned char ANGLE_texture_compression_dxt3; // 690
+            unsigned char ANGLE_texture_compression_dxt5; // 691
+            unsigned char ANGLE_texture_multisample; // 692
+            unsigned char ANGLE_texture_usage; // 693
+            unsigned char ANGLE_timer_query; // 694
+            unsigned char ANGLE_translated_shader_source; // 695
+            unsigned char ANGLE_vulkan_image; // 696
+            unsigned char ANGLE_yuv_internal_format; // 697
+            unsigned char APPLE_clip_distance; // 698
+            unsigned char APPLE_color_buffer_packed_float; // 699
+            unsigned char APPLE_copy_texture_levels; // 700
+            unsigned char APPLE_framebuffer_multisample; // 701
+            unsigned char APPLE_sync; // 702
+            unsigned char APPLE_texture_format_BGRA8888; // 703
+            unsigned char APPLE_texture_max_level; // 704
+            unsigned char APPLE_texture_packed_float; // 705
+            unsigned char ARM_mali_program_binary; // 706
+            unsigned char ARM_mali_shader_binary; // 707
+            unsigned char ARM_rgba8; // 708
+            unsigned char ARM_shader_core_properties; // 709
+            unsigned char ARM_shader_framebuffer_fetch; // 710
+            unsigned char ARM_shader_framebuffer_fetch_depth_stencil; // 711
+            unsigned char ARM_texture_unnormalized_coordinates; // 712
+            unsigned char CHROMIUM_bind_uniform_location; // 713
+            unsigned char CHROMIUM_copy_compressed_texture; // 714
+            unsigned char CHROMIUM_copy_texture; // 715
+            unsigned char CHROMIUM_framebuffer_mixed_samples; // 716
+            unsigned char CHROMIUM_lose_context; // 717
+            unsigned char DMP_program_binary; // 718
+            unsigned char DMP_shader_binary; // 719
+            unsigned char EXT_EGL_image_array; // 720
+            unsigned char EXT_EGL_image_storage_compression; // 721
+            unsigned char EXT_YUV_target; // 722
+            unsigned char EXT_base_instance; // 723
+            unsigned char EXT_blend_func_extended; // 724
+            unsigned char EXT_buffer_storage; // 725
+            unsigned char EXT_clear_texture; // 726
+            unsigned char EXT_clip_control; // 727
+            unsigned char EXT_clip_cull_distance; // 728
+            unsigned char EXT_color_buffer_float; // 729
+            unsigned char EXT_color_buffer_half_float; // 730
+            unsigned char EXT_conservative_depth; // 731
+            unsigned char EXT_copy_image; // 732
+            unsigned char EXT_depth_clamp; // 733
+            unsigned char EXT_discard_framebuffer; // 734
+            unsigned char EXT_disjoint_timer_query; // 735
+            unsigned char EXT_draw_buffers; // 736
+            unsigned char EXT_draw_buffers_indexed; // 737
+            unsigned char EXT_draw_elements_base_vertex; // 738
+            unsigned char EXT_draw_transform_feedback; // 739
+            unsigned char EXT_float_blend; // 740
+            unsigned char EXT_fragment_shading_rate; // 741
+            unsigned char EXT_geometry_point_size; // 742
+            unsigned char EXT_geometry_shader; // 743
+            unsigned char EXT_gpu_shader5; // 744
+            unsigned char EXT_instanced_arrays; // 745
+            unsigned char EXT_map_buffer_range; // 746
+            unsigned char EXT_multi_draw_indirect; // 747
+            unsigned char EXT_multisampled_compatibility; // 748
+            unsigned char EXT_multisampled_render_to_texture; // 749
+            unsigned char EXT_multisampled_render_to_texture2; // 750
+            unsigned char EXT_multiview_draw_buffers; // 751
+            unsigned char EXT_occlusion_query_boolean; // 752
+            unsigned char EXT_primitive_bounding_box; // 753
+            unsigned char EXT_protected_textures; // 754
+            unsigned char EXT_pvrtc_sRGB; // 755
+            unsigned char EXT_read_format_bgra; // 756
+            unsigned char EXT_render_snorm; // 757
+            unsigned char EXT_robustness; // 758
+            unsigned char EXT_sRGB; // 759
+            unsigned char EXT_sRGB_write_control; // 760
+            unsigned char EXT_separate_depth_stencil; // 761
+            unsigned char EXT_shader_group_vote; // 762
+            unsigned char EXT_shader_implicit_conversions; // 763
+            unsigned char EXT_shader_io_blocks; // 764
+            unsigned char EXT_shader_non_constant_global_initializers; // 765
+            unsigned char EXT_shader_pixel_local_storage; // 766
+            unsigned char EXT_shader_pixel_local_storage2; // 767
+            unsigned char EXT_shader_texture_lod; // 768
+            unsigned char EXT_shadow_samplers; // 769
+            unsigned char EXT_sparse_texture; // 770
+            unsigned char EXT_tessellation_point_size; // 771
+            unsigned char EXT_tessellation_shader; // 772
+            unsigned char EXT_texture_border_clamp; // 773
+            unsigned char EXT_texture_buffer; // 774
+            unsigned char EXT_texture_compression_astc_decode_mode; // 775
+            unsigned char EXT_texture_compression_bptc; // 776
+            unsigned char EXT_texture_compression_dxt1; // 777
+            unsigned char EXT_texture_compression_s3tc_srgb; // 778
+            unsigned char EXT_texture_cube_map_array; // 779
+            unsigned char EXT_texture_format_BGRA8888; // 780
+            unsigned char EXT_texture_format_sRGB_override; // 781
+            unsigned char EXT_texture_mirror_clamp_to_edge; // 782
+            unsigned char EXT_texture_norm16; // 783
+            unsigned char EXT_texture_query_lod; // 784
+            unsigned char EXT_texture_rg; // 785
+            unsigned char EXT_texture_storage_compression; // 786
+            unsigned char EXT_texture_type_2_10_10_10_REV; // 787
+            unsigned char EXT_texture_view; // 788
+            unsigned char EXT_unpack_subimage; // 789
+            unsigned char FJ_shader_binary_GCCSO; // 790
+            unsigned char IMG_bindless_texture; // 791
+            unsigned char IMG_framebuffer_downsample; // 792
+            unsigned char IMG_multisampled_render_to_texture; // 793
+            unsigned char IMG_program_binary; // 794
+            unsigned char IMG_read_format; // 795
+            unsigned char IMG_shader_binary; // 796
+            unsigned char IMG_texture_compression_pvrtc; // 797
+            unsigned char IMG_texture_compression_pvrtc2; // 798
+            unsigned char IMG_texture_filter_cubic; // 799
+            unsigned char MESA_bgra; // 800
+            unsigned char MESA_sampler_objects; // 801
+            unsigned char NV_copy_buffer; // 802
+            unsigned char NV_coverage_sample; // 803
+            unsigned char NV_depth_nonlinear; // 804
+            unsigned char NV_draw_buffers; // 805
+            unsigned char NV_draw_instanced; // 806
+            unsigned char NV_explicit_attrib_location; // 807
+            unsigned char NV_fbo_color_attachments; // 808
+            unsigned char NV_framebuffer_blit; // 809
+            unsigned char NV_framebuffer_multisample; // 810
+            unsigned char NV_generate_mipmap_sRGB; // 811
+            unsigned char NV_image_formats; // 812
+            unsigned char NV_instanced_arrays; // 813
+            unsigned char NV_non_square_matrices; // 814
+            unsigned char NV_pack_subimage; // 815
+            unsigned char NV_pixel_buffer_object; // 816
+            unsigned char NV_polygon_mode; // 817
+            unsigned char NV_read_buffer; // 818
+            unsigned char NV_read_buffer_front; // 819
+            unsigned char NV_read_depth; // 820
+            unsigned char NV_read_depth_stencil; // 821
+            unsigned char NV_read_stencil; // 822
+            unsigned char NV_sRGB_formats; // 823
+            unsigned char NV_shader_noperspective_interpolation; // 824
+            unsigned char NV_shadow_samplers_array; // 825
+            unsigned char NV_shadow_samplers_cube; // 826
+            unsigned char NV_texture_border_clamp; // 827
+            unsigned char NV_texture_compression_s3tc_update; // 828
+            unsigned char NV_texture_npot_2D_mipmap; // 829
+            unsigned char NV_viewport_array; // 830
+            unsigned char OES_EGL_image; // 831
+            unsigned char OES_EGL_image_external; // 832
+            unsigned char OES_EGL_image_external_essl3; // 833
+            unsigned char OES_compressed_ETC1_RGB8_sub_texture; // 834
+            unsigned char OES_compressed_ETC1_RGB8_texture; // 835
+            unsigned char OES_copy_image; // 836
+            unsigned char OES_depth24; // 837
+            unsigned char OES_depth32; // 838
+            unsigned char OES_depth_texture; // 839
+            unsigned char OES_draw_buffers_indexed; // 840
+            unsigned char OES_draw_elements_base_vertex; // 841
+            unsigned char OES_element_index_uint; // 842
+            unsigned char OES_fbo_render_mipmap; // 843
+            unsigned char OES_fragment_precision_high; // 844
+            unsigned char OES_geometry_point_size; // 845
+            unsigned char OES_geometry_shader; // 846
+            unsigned char OES_get_program_binary; // 847
+            unsigned char OES_gpu_shader5; // 848
+            unsigned char OES_mapbuffer; // 849
+            unsigned char OES_packed_depth_stencil; // 850
+            unsigned char OES_primitive_bounding_box; // 851
+            unsigned char OES_required_internalformat; // 852
+            unsigned char OES_rgb8_rgba8; // 853
+            unsigned char OES_sample_shading; // 854
+            unsigned char OES_sample_variables; // 855
+            unsigned char OES_shader_image_atomic; // 856
+            unsigned char OES_shader_io_blocks; // 857
+            unsigned char OES_shader_multisample_interpolation; // 858
+            unsigned char OES_standard_derivatives; // 859
+            unsigned char OES_stencil1; // 860
+            unsigned char OES_stencil4; // 861
+            unsigned char OES_surfaceless_context; // 862
+            unsigned char OES_tessellation_point_size; // 863
+            unsigned char OES_tessellation_shader; // 864
+            unsigned char OES_texture_3D; // 865
+            unsigned char OES_texture_border_clamp; // 866
+            unsigned char OES_texture_buffer; // 867
+            unsigned char OES_texture_compression_astc; // 868
+            unsigned char OES_texture_cube_map_array; // 869
+            unsigned char OES_texture_float; // 870
+            unsigned char OES_texture_float_linear; // 871
+            unsigned char OES_texture_half_float; // 872
+            unsigned char OES_texture_half_float_linear; // 873
+            unsigned char OES_texture_npot; // 874
+            unsigned char OES_texture_stencil8; // 875
+            unsigned char OES_texture_storage_multisample_2d_array; // 876
+            unsigned char OES_texture_view; // 877
+            unsigned char OES_vertex_array_object; // 878
+            unsigned char OES_vertex_half_float; // 879
+            unsigned char OES_vertex_type_10_10_10_2; // 880
+            unsigned char OES_viewport_array; // 881
+            unsigned char OVR_multiview_multisampled_render_to_texture; // 882
+            unsigned char QCOM_YUV_texture_gather; // 883
+            unsigned char QCOM_alpha_test; // 884
+            unsigned char QCOM_binning_control; // 885
+            unsigned char QCOM_driver_control; // 886
+            unsigned char QCOM_extended_get; // 887
+            unsigned char QCOM_extended_get2; // 888
+            unsigned char QCOM_frame_extrapolation; // 889
+            unsigned char QCOM_framebuffer_foveated; // 890
+            unsigned char QCOM_motion_estimation; // 891
+            unsigned char QCOM_perfmon_global_mode; // 892
+            unsigned char QCOM_render_sRGB_R8_RG8; // 893
+            unsigned char QCOM_render_shared_exponent; // 894
+            unsigned char QCOM_shader_framebuffer_fetch_noncoherent; // 895
+            unsigned char QCOM_shader_framebuffer_fetch_rate; // 896
+            unsigned char QCOM_shading_rate; // 897
+            unsigned char QCOM_texture_foveated; // 898
+            unsigned char QCOM_texture_foveated2; // 899
+            unsigned char QCOM_texture_foveated_subsampled_layout; // 900
+            unsigned char QCOM_texture_lod_bias; // 901
+            unsigned char QCOM_tiled_rendering; // 902
+            unsigned char QCOM_writeonly_rendering; // 903
+            unsigned char VIV_shader_binary; // 904
+        };
+    };
+
+    union {
+        void *pfnArray[2883];
+        struct {
+            PFNGLACCUMXOESPROC AccumxOES; // 0
+            PFNGLACQUIREKEYEDMUTEXWIN32EXTPROC AcquireKeyedMutexWin32EXT; // 1
+            PFNGLACTIVEPROGRAMEXTPROC ActiveProgramEXT; // 2
+            PFNGLACTIVESHADERPROGRAMPROC ActiveShaderProgram; // 3
+            PFNGLACTIVESTENCILFACEEXTPROC ActiveStencilFaceEXT; // 4
+            PFNGLACTIVETEXTUREPROC ActiveTexture; // 5
+            PFNGLACTIVETEXTUREARBPROC ActiveTextureARB; // 6
+            PFNGLACTIVEVARYINGNVPROC ActiveVaryingNV; // 7
+            PFNGLALPHAFRAGMENTOP1ATIPROC AlphaFragmentOp1ATI; // 8
+            PFNGLALPHAFRAGMENTOP2ATIPROC AlphaFragmentOp2ATI; // 9
+            PFNGLALPHAFRAGMENTOP3ATIPROC AlphaFragmentOp3ATI; // 10
+            PFNGLALPHAFUNCXOESPROC AlphaFuncxOES; // 11
+            PFNGLALPHATOCOVERAGEDITHERCONTROLNVPROC AlphaToCoverageDitherControlNV; // 12
+            PFNGLAPPLYFRAMEBUFFERATTACHMENTCMAAINTELPROC ApplyFramebufferAttachmentCMAAINTEL; // 13
+            PFNGLAPPLYTEXTUREEXTPROC ApplyTextureEXT; // 14
+            PFNGLAREPROGRAMSRESIDENTNVPROC AreProgramsResidentNV; // 15
+            PFNGLARETEXTURESRESIDENTEXTPROC AreTexturesResidentEXT; // 16
+            PFNGLARRAYELEMENTEXTPROC ArrayElementEXT; // 17
+            PFNGLARRAYOBJECTATIPROC ArrayObjectATI; // 18
+            PFNGLASYNCCOPYBUFFERSUBDATANVXPROC AsyncCopyBufferSubDataNVX; // 19
+            PFNGLASYNCCOPYIMAGESUBDATANVXPROC AsyncCopyImageSubDataNVX; // 20
+            PFNGLASYNCMARKERSGIXPROC AsyncMarkerSGIX; // 21
+            PFNGLATTACHOBJECTARBPROC AttachObjectARB; // 22
+            PFNGLATTACHSHADERPROC AttachShader; // 23
+            PFNGLBEGINCONDITIONALRENDERPROC BeginConditionalRender; // 24
+            PFNGLBEGINCONDITIONALRENDERNVPROC BeginConditionalRenderNV; // 25
+            PFNGLBEGINCONDITIONALRENDERNVXPROC BeginConditionalRenderNVX; // 26
+            PFNGLBEGINFRAGMENTSHADERATIPROC BeginFragmentShaderATI; // 27
+            PFNGLBEGINOCCLUSIONQUERYNVPROC BeginOcclusionQueryNV; // 28
+            PFNGLBEGINPERFMONITORAMDPROC BeginPerfMonitorAMD; // 29
+            PFNGLBEGINPERFQUERYINTELPROC BeginPerfQueryINTEL; // 30
+            PFNGLBEGINQUERYPROC BeginQuery; // 31
+            PFNGLBEGINQUERYARBPROC BeginQueryARB; // 32
+            PFNGLBEGINQUERYINDEXEDPROC BeginQueryIndexed; // 33
+            PFNGLBEGINTRANSFORMFEEDBACKPROC BeginTransformFeedback; // 34
+            PFNGLBEGINTRANSFORMFEEDBACKEXTPROC BeginTransformFeedbackEXT; // 35
+            PFNGLBEGINTRANSFORMFEEDBACKNVPROC BeginTransformFeedbackNV; // 36
+            PFNGLBEGINVERTEXSHADEREXTPROC BeginVertexShaderEXT; // 37
+            PFNGLBEGINVIDEOCAPTURENVPROC BeginVideoCaptureNV; // 38
+            PFNGLBINDATTRIBLOCATIONPROC BindAttribLocation; // 39
+            PFNGLBINDATTRIBLOCATIONARBPROC BindAttribLocationARB; // 40
+            PFNGLBINDBUFFERPROC BindBuffer; // 41
+            PFNGLBINDBUFFERARBPROC BindBufferARB; // 42
+            PFNGLBINDBUFFERBASEPROC BindBufferBase; // 43
+            PFNGLBINDBUFFERBASEEXTPROC BindBufferBaseEXT; // 44
+            PFNGLBINDBUFFERBASENVPROC BindBufferBaseNV; // 45
+            PFNGLBINDBUFFEROFFSETEXTPROC BindBufferOffsetEXT; // 46
+            PFNGLBINDBUFFEROFFSETNVPROC BindBufferOffsetNV; // 47
+            PFNGLBINDBUFFERRANGEPROC BindBufferRange; // 48
+            PFNGLBINDBUFFERRANGEEXTPROC BindBufferRangeEXT; // 49
+            PFNGLBINDBUFFERRANGENVPROC BindBufferRangeNV; // 50
+            PFNGLBINDBUFFERSBASEPROC BindBuffersBase; // 51
+            PFNGLBINDBUFFERSRANGEPROC BindBuffersRange; // 52
+            PFNGLBINDFRAGDATALOCATIONPROC BindFragDataLocation; // 53
+            PFNGLBINDFRAGDATALOCATIONEXTPROC BindFragDataLocationEXT; // 54
+            PFNGLBINDFRAGDATALOCATIONINDEXEDPROC BindFragDataLocationIndexed; // 55
+            PFNGLBINDFRAGMENTSHADERATIPROC BindFragmentShaderATI; // 56
+            PFNGLBINDFRAMEBUFFERPROC BindFramebuffer; // 57
+            PFNGLBINDFRAMEBUFFEREXTPROC BindFramebufferEXT; // 58
+            PFNGLBINDIMAGETEXTUREPROC BindImageTexture; // 59
+            PFNGLBINDIMAGETEXTUREEXTPROC BindImageTextureEXT; // 60
+            PFNGLBINDIMAGETEXTURESPROC BindImageTextures; // 61
+            PFNGLBINDLIGHTPARAMETEREXTPROC BindLightParameterEXT; // 62
+            PFNGLBINDMATERIALPARAMETEREXTPROC BindMaterialParameterEXT; // 63
+            PFNGLBINDMULTITEXTUREEXTPROC BindMultiTextureEXT; // 64
+            PFNGLBINDPARAMETEREXTPROC BindParameterEXT; // 65
+            PFNGLBINDPROGRAMARBPROC BindProgramARB; // 66
+            PFNGLBINDPROGRAMNVPROC BindProgramNV; // 67
+            PFNGLBINDPROGRAMPIPELINEPROC BindProgramPipeline; // 68
+            PFNGLBINDRENDERBUFFERPROC BindRenderbuffer; // 69
+            PFNGLBINDRENDERBUFFEREXTPROC BindRenderbufferEXT; // 70
+            PFNGLBINDSAMPLERPROC BindSampler; // 71
+            PFNGLBINDSAMPLERSPROC BindSamplers; // 72
+            PFNGLBINDSHADINGRATEIMAGENVPROC BindShadingRateImageNV; // 73
+            PFNGLBINDTEXGENPARAMETEREXTPROC BindTexGenParameterEXT; // 74
+            PFNGLBINDTEXTUREPROC BindTexture; // 75
+            PFNGLBINDTEXTUREEXTPROC BindTextureEXT; // 76
+            PFNGLBINDTEXTUREUNITPROC BindTextureUnit; // 77
+            PFNGLBINDTEXTUREUNITPARAMETEREXTPROC BindTextureUnitParameterEXT; // 78
+            PFNGLBINDTEXTURESPROC BindTextures; // 79
+            PFNGLBINDTRANSFORMFEEDBACKPROC BindTransformFeedback; // 80
+            PFNGLBINDTRANSFORMFEEDBACKNVPROC BindTransformFeedbackNV; // 81
+            PFNGLBINDVERTEXARRAYPROC BindVertexArray; // 82
+            PFNGLBINDVERTEXARRAYAPPLEPROC BindVertexArrayAPPLE; // 83
+            PFNGLBINDVERTEXBUFFERPROC BindVertexBuffer; // 84
+            PFNGLBINDVERTEXBUFFERSPROC BindVertexBuffers; // 85
+            PFNGLBINDVERTEXSHADEREXTPROC BindVertexShaderEXT; // 86
+            PFNGLBINDVIDEOCAPTURESTREAMBUFFERNVPROC BindVideoCaptureStreamBufferNV; // 87
+            PFNGLBINDVIDEOCAPTURESTREAMTEXTURENVPROC BindVideoCaptureStreamTextureNV; // 88
+            PFNGLBINORMAL3BEXTPROC Binormal3bEXT; // 89
+            PFNGLBINORMAL3BVEXTPROC Binormal3bvEXT; // 90
+            PFNGLBINORMAL3DEXTPROC Binormal3dEXT; // 91
+            PFNGLBINORMAL3DVEXTPROC Binormal3dvEXT; // 92
+            PFNGLBINORMAL3FEXTPROC Binormal3fEXT; // 93
+            PFNGLBINORMAL3FVEXTPROC Binormal3fvEXT; // 94
+            PFNGLBINORMAL3IEXTPROC Binormal3iEXT; // 95
+            PFNGLBINORMAL3IVEXTPROC Binormal3ivEXT; // 96
+            PFNGLBINORMAL3SEXTPROC Binormal3sEXT; // 97
+            PFNGLBINORMAL3SVEXTPROC Binormal3svEXT; // 98
+            PFNGLBINORMALPOINTEREXTPROC BinormalPointerEXT; // 99
+            PFNGLBITMAPXOESPROC BitmapxOES; // 100
+            PFNGLBLENDBARRIERKHRPROC BlendBarrierKHR; // 101
+            PFNGLBLENDBARRIERNVPROC BlendBarrierNV; // 102
+            PFNGLBLENDCOLORPROC BlendColor; // 103
+            PFNGLBLENDCOLOREXTPROC BlendColorEXT; // 104
+            PFNGLBLENDCOLORXOESPROC BlendColorxOES; // 105
+            PFNGLBLENDEQUATIONPROC BlendEquation; // 106
+            PFNGLBLENDEQUATIONEXTPROC BlendEquationEXT; // 107
+            PFNGLBLENDEQUATIONINDEXEDAMDPROC BlendEquationIndexedAMD; // 108
+            PFNGLBLENDEQUATIONSEPARATEPROC BlendEquationSeparate; // 109
+            PFNGLBLENDEQUATIONSEPARATEEXTPROC BlendEquationSeparateEXT; // 110
+            PFNGLBLENDEQUATIONSEPARATEINDEXEDAMDPROC BlendEquationSeparateIndexedAMD; // 111
+            PFNGLBLENDEQUATIONSEPARATEIPROC BlendEquationSeparatei; // 112
+            PFNGLBLENDEQUATIONSEPARATEIARBPROC BlendEquationSeparateiARB; // 113
+            PFNGLBLENDEQUATIONIPROC BlendEquationi; // 114
+            PFNGLBLENDEQUATIONIARBPROC BlendEquationiARB; // 115
+            PFNGLBLENDFUNCPROC BlendFunc; // 116
+            PFNGLBLENDFUNCINDEXEDAMDPROC BlendFuncIndexedAMD; // 117
+            PFNGLBLENDFUNCSEPARATEPROC BlendFuncSeparate; // 118
+            PFNGLBLENDFUNCSEPARATEEXTPROC BlendFuncSeparateEXT; // 119
+            PFNGLBLENDFUNCSEPARATEINGRPROC BlendFuncSeparateINGR; // 120
+            PFNGLBLENDFUNCSEPARATEINDEXEDAMDPROC BlendFuncSeparateIndexedAMD; // 121
+            PFNGLBLENDFUNCSEPARATEIPROC BlendFuncSeparatei; // 122
+            PFNGLBLENDFUNCSEPARATEIARBPROC BlendFuncSeparateiARB; // 123
+            PFNGLBLENDFUNCIPROC BlendFunci; // 124
+            PFNGLBLENDFUNCIARBPROC BlendFunciARB; // 125
+            PFNGLBLENDPARAMETERINVPROC BlendParameteriNV; // 126
+            PFNGLBLITFRAMEBUFFERPROC BlitFramebuffer; // 127
+            PFNGLBLITFRAMEBUFFEREXTPROC BlitFramebufferEXT; // 128
+            PFNGLBLITFRAMEBUFFERLAYEREXTPROC BlitFramebufferLayerEXT; // 129
+            PFNGLBLITFRAMEBUFFERLAYERSEXTPROC BlitFramebufferLayersEXT; // 130
+            PFNGLBLITNAMEDFRAMEBUFFERPROC BlitNamedFramebuffer; // 131
+            PFNGLBUFFERADDRESSRANGENVPROC BufferAddressRangeNV; // 132
+            PFNGLBUFFERATTACHMEMORYNVPROC BufferAttachMemoryNV; // 133
+            PFNGLBUFFERDATAPROC BufferData; // 134
+            PFNGLBUFFERDATAARBPROC BufferDataARB; // 135
+            PFNGLBUFFERPAGECOMMITMENTARBPROC BufferPageCommitmentARB; // 136
+            PFNGLBUFFERPAGECOMMITMENTMEMNVPROC BufferPageCommitmentMemNV; // 137
+            PFNGLBUFFERPARAMETERIAPPLEPROC BufferParameteriAPPLE; // 138
+            PFNGLBUFFERSTORAGEPROC BufferStorage; // 139
+            PFNGLBUFFERSTORAGEEXTERNALEXTPROC BufferStorageExternalEXT; // 140
+            PFNGLBUFFERSTORAGEMEMEXTPROC BufferStorageMemEXT; // 141
+            PFNGLBUFFERSUBDATAPROC BufferSubData; // 142
+            PFNGLBUFFERSUBDATAARBPROC BufferSubDataARB; // 143
+            PFNGLCALLCOMMANDLISTNVPROC CallCommandListNV; // 144
+            PFNGLCHECKFRAMEBUFFERSTATUSPROC CheckFramebufferStatus; // 145
+            PFNGLCHECKFRAMEBUFFERSTATUSEXTPROC CheckFramebufferStatusEXT; // 146
+            PFNGLCHECKNAMEDFRAMEBUFFERSTATUSPROC CheckNamedFramebufferStatus; // 147
+            PFNGLCHECKNAMEDFRAMEBUFFERSTATUSEXTPROC CheckNamedFramebufferStatusEXT; // 148
+            PFNGLCLAMPCOLORPROC ClampColor; // 149
+            PFNGLCLAMPCOLORARBPROC ClampColorARB; // 150
+            PFNGLCLEARPROC Clear; // 151
+            PFNGLCLEARACCUMXOESPROC ClearAccumxOES; // 152
+            PFNGLCLEARBUFFERDATAPROC ClearBufferData; // 153
+            PFNGLCLEARBUFFERSUBDATAPROC ClearBufferSubData; // 154
+            PFNGLCLEARBUFFERFIPROC ClearBufferfi; // 155
+            PFNGLCLEARBUFFERFVPROC ClearBufferfv; // 156
+            PFNGLCLEARBUFFERIVPROC ClearBufferiv; // 157
+            PFNGLCLEARBUFFERUIVPROC ClearBufferuiv; // 158
+            PFNGLCLEARCOLORPROC ClearColor; // 159
+            PFNGLCLEARCOLORIIEXTPROC ClearColorIiEXT; // 160
+            PFNGLCLEARCOLORIUIEXTPROC ClearColorIuiEXT; // 161
+            PFNGLCLEARCOLORXOESPROC ClearColorxOES; // 162
+            PFNGLCLEARDEPTHPROC ClearDepth; // 163
+            PFNGLCLEARDEPTHDNVPROC ClearDepthdNV; // 164
+            PFNGLCLEARDEPTHFPROC ClearDepthf; // 165
+            PFNGLCLEARDEPTHFOESPROC ClearDepthfOES; // 166
+            PFNGLCLEARDEPTHXOESPROC ClearDepthxOES; // 167
+            PFNGLCLEARNAMEDBUFFERDATAPROC ClearNamedBufferData; // 168
+            PFNGLCLEARNAMEDBUFFERDATAEXTPROC ClearNamedBufferDataEXT; // 169
+            PFNGLCLEARNAMEDBUFFERSUBDATAPROC ClearNamedBufferSubData; // 170
+            PFNGLCLEARNAMEDBUFFERSUBDATAEXTPROC ClearNamedBufferSubDataEXT; // 171
+            PFNGLCLEARNAMEDFRAMEBUFFERFIPROC ClearNamedFramebufferfi; // 172
+            PFNGLCLEARNAMEDFRAMEBUFFERFVPROC ClearNamedFramebufferfv; // 173
+            PFNGLCLEARNAMEDFRAMEBUFFERIVPROC ClearNamedFramebufferiv; // 174
+            PFNGLCLEARNAMEDFRAMEBUFFERUIVPROC ClearNamedFramebufferuiv; // 175
+            PFNGLCLEARSTENCILPROC ClearStencil; // 176
+            PFNGLCLEARTEXIMAGEPROC ClearTexImage; // 177
+            PFNGLCLEARTEXSUBIMAGEPROC ClearTexSubImage; // 178
+            PFNGLCLIENTACTIVETEXTUREARBPROC ClientActiveTextureARB; // 179
+            PFNGLCLIENTACTIVEVERTEXSTREAMATIPROC ClientActiveVertexStreamATI; // 180
+            PFNGLCLIENTATTRIBDEFAULTEXTPROC ClientAttribDefaultEXT; // 181
+            PFNGLCLIENTWAITSEMAPHOREUI64NVXPROC ClientWaitSemaphoreui64NVX; // 182
+            PFNGLCLIENTWAITSYNCPROC ClientWaitSync; // 183
+            PFNGLCLIPCONTROLPROC ClipControl; // 184
+            PFNGLCLIPPLANEFOESPROC ClipPlanefOES; // 185
+            PFNGLCLIPPLANEXOESPROC ClipPlanexOES; // 186
+            PFNGLCOLOR3FVERTEX3FSUNPROC Color3fVertex3fSUN; // 187
+            PFNGLCOLOR3FVERTEX3FVSUNPROC Color3fVertex3fvSUN; // 188
+            PFNGLCOLOR3HNVPROC Color3hNV; // 189
+            PFNGLCOLOR3HVNVPROC Color3hvNV; // 190
+            PFNGLCOLOR3XOESPROC Color3xOES; // 191
+            PFNGLCOLOR3XVOESPROC Color3xvOES; // 192
+            PFNGLCOLOR4FNORMAL3FVERTEX3FSUNPROC Color4fNormal3fVertex3fSUN; // 193
+            PFNGLCOLOR4FNORMAL3FVERTEX3FVSUNPROC Color4fNormal3fVertex3fvSUN; // 194
+            PFNGLCOLOR4HNVPROC Color4hNV; // 195
+            PFNGLCOLOR4HVNVPROC Color4hvNV; // 196
+            PFNGLCOLOR4UBVERTEX2FSUNPROC Color4ubVertex2fSUN; // 197
+            PFNGLCOLOR4UBVERTEX2FVSUNPROC Color4ubVertex2fvSUN; // 198
+            PFNGLCOLOR4UBVERTEX3FSUNPROC Color4ubVertex3fSUN; // 199
+            PFNGLCOLOR4UBVERTEX3FVSUNPROC Color4ubVertex3fvSUN; // 200
+            PFNGLCOLOR4XOESPROC Color4xOES; // 201
+            PFNGLCOLOR4XVOESPROC Color4xvOES; // 202
+            PFNGLCOLORFORMATNVPROC ColorFormatNV; // 203
+            PFNGLCOLORFRAGMENTOP1ATIPROC ColorFragmentOp1ATI; // 204
+            PFNGLCOLORFRAGMENTOP2ATIPROC ColorFragmentOp2ATI; // 205
+            PFNGLCOLORFRAGMENTOP3ATIPROC ColorFragmentOp3ATI; // 206
+            PFNGLCOLORMASKPROC ColorMask; // 207
+            PFNGLCOLORMASKINDEXEDEXTPROC ColorMaskIndexedEXT; // 208
+            PFNGLCOLORMASKIPROC ColorMaski; // 209
+            PFNGLCOLORPOINTEREXTPROC ColorPointerEXT; // 210
+            PFNGLCOLORPOINTERLISTIBMPROC ColorPointerListIBM; // 211
+            PFNGLCOLORPOINTERVINTELPROC ColorPointervINTEL; // 212
+            PFNGLCOLORSUBTABLEEXTPROC ColorSubTableEXT; // 213
+            PFNGLCOLORTABLEEXTPROC ColorTableEXT; // 214
+            PFNGLCOLORTABLEPARAMETERFVSGIPROC ColorTableParameterfvSGI; // 215
+            PFNGLCOLORTABLEPARAMETERIVSGIPROC ColorTableParameterivSGI; // 216
+            PFNGLCOLORTABLESGIPROC ColorTableSGI; // 217
+            PFNGLCOMBINERINPUTNVPROC CombinerInputNV; // 218
+            PFNGLCOMBINEROUTPUTNVPROC CombinerOutputNV; // 219
+            PFNGLCOMBINERPARAMETERFNVPROC CombinerParameterfNV; // 220
+            PFNGLCOMBINERPARAMETERFVNVPROC CombinerParameterfvNV; // 221
+            PFNGLCOMBINERPARAMETERINVPROC CombinerParameteriNV; // 222
+            PFNGLCOMBINERPARAMETERIVNVPROC CombinerParameterivNV; // 223
+            PFNGLCOMBINERSTAGEPARAMETERFVNVPROC CombinerStageParameterfvNV; // 224
+            PFNGLCOMMANDLISTSEGMENTSNVPROC CommandListSegmentsNV; // 225
+            PFNGLCOMPILECOMMANDLISTNVPROC CompileCommandListNV; // 226
+            PFNGLCOMPILESHADERPROC CompileShader; // 227
+            PFNGLCOMPILESHADERARBPROC CompileShaderARB; // 228
+            PFNGLCOMPILESHADERINCLUDEARBPROC CompileShaderIncludeARB; // 229
+            PFNGLCOMPRESSEDMULTITEXIMAGE1DEXTPROC CompressedMultiTexImage1DEXT; // 230
+            PFNGLCOMPRESSEDMULTITEXIMAGE2DEXTPROC CompressedMultiTexImage2DEXT; // 231
+            PFNGLCOMPRESSEDMULTITEXIMAGE3DEXTPROC CompressedMultiTexImage3DEXT; // 232
+            PFNGLCOMPRESSEDMULTITEXSUBIMAGE1DEXTPROC CompressedMultiTexSubImage1DEXT; // 233
+            PFNGLCOMPRESSEDMULTITEXSUBIMAGE2DEXTPROC CompressedMultiTexSubImage2DEXT; // 234
+            PFNGLCOMPRESSEDMULTITEXSUBIMAGE3DEXTPROC CompressedMultiTexSubImage3DEXT; // 235
+            PFNGLCOMPRESSEDTEXIMAGE1DPROC CompressedTexImage1D; // 236
+            PFNGLCOMPRESSEDTEXIMAGE1DARBPROC CompressedTexImage1DARB; // 237
+            PFNGLCOMPRESSEDTEXIMAGE2DPROC CompressedTexImage2D; // 238
+            PFNGLCOMPRESSEDTEXIMAGE2DARBPROC CompressedTexImage2DARB; // 239
+            PFNGLCOMPRESSEDTEXIMAGE3DPROC CompressedTexImage3D; // 240
+            PFNGLCOMPRESSEDTEXIMAGE3DARBPROC CompressedTexImage3DARB; // 241
+            PFNGLCOMPRESSEDTEXSUBIMAGE1DPROC CompressedTexSubImage1D; // 242
+            PFNGLCOMPRESSEDTEXSUBIMAGE1DARBPROC CompressedTexSubImage1DARB; // 243
+            PFNGLCOMPRESSEDTEXSUBIMAGE2DPROC CompressedTexSubImage2D; // 244
+            PFNGLCOMPRESSEDTEXSUBIMAGE2DARBPROC CompressedTexSubImage2DARB; // 245
+            PFNGLCOMPRESSEDTEXSUBIMAGE3DPROC CompressedTexSubImage3D; // 246
+            PFNGLCOMPRESSEDTEXSUBIMAGE3DARBPROC CompressedTexSubImage3DARB; // 247
+            PFNGLCOMPRESSEDTEXTUREIMAGE1DEXTPROC CompressedTextureImage1DEXT; // 248
+            PFNGLCOMPRESSEDTEXTUREIMAGE2DEXTPROC CompressedTextureImage2DEXT; // 249
+            PFNGLCOMPRESSEDTEXTUREIMAGE3DEXTPROC CompressedTextureImage3DEXT; // 250
+            PFNGLCOMPRESSEDTEXTURESUBIMAGE1DPROC CompressedTextureSubImage1D; // 251
+            PFNGLCOMPRESSEDTEXTURESUBIMAGE1DEXTPROC CompressedTextureSubImage1DEXT; // 252
+            PFNGLCOMPRESSEDTEXTURESUBIMAGE2DPROC CompressedTextureSubImage2D; // 253
+            PFNGLCOMPRESSEDTEXTURESUBIMAGE2DEXTPROC CompressedTextureSubImage2DEXT; // 254
+            PFNGLCOMPRESSEDTEXTURESUBIMAGE3DPROC CompressedTextureSubImage3D; // 255
+            PFNGLCOMPRESSEDTEXTURESUBIMAGE3DEXTPROC CompressedTextureSubImage3DEXT; // 256
+            PFNGLCONSERVATIVERASTERPARAMETERFNVPROC ConservativeRasterParameterfNV; // 257
+            PFNGLCONSERVATIVERASTERPARAMETERINVPROC ConservativeRasterParameteriNV; // 258
+            PFNGLCONVOLUTIONFILTER1DEXTPROC ConvolutionFilter1DEXT; // 259
+            PFNGLCONVOLUTIONFILTER2DEXTPROC ConvolutionFilter2DEXT; // 260
+            PFNGLCONVOLUTIONPARAMETERFEXTPROC ConvolutionParameterfEXT; // 261
+            PFNGLCONVOLUTIONPARAMETERFVEXTPROC ConvolutionParameterfvEXT; // 262
+            PFNGLCONVOLUTIONPARAMETERIEXTPROC ConvolutionParameteriEXT; // 263
+            PFNGLCONVOLUTIONPARAMETERIVEXTPROC ConvolutionParameterivEXT; // 264
+            PFNGLCONVOLUTIONPARAMETERXOESPROC ConvolutionParameterxOES; // 265
+            PFNGLCONVOLUTIONPARAMETERXVOESPROC ConvolutionParameterxvOES; // 266
+            PFNGLCOPYBUFFERSUBDATAPROC CopyBufferSubData; // 267
+            PFNGLCOPYCOLORSUBTABLEEXTPROC CopyColorSubTableEXT; // 268
+            PFNGLCOPYCOLORTABLESGIPROC CopyColorTableSGI; // 269
+            PFNGLCOPYCONVOLUTIONFILTER1DEXTPROC CopyConvolutionFilter1DEXT; // 270
+            PFNGLCOPYCONVOLUTIONFILTER2DEXTPROC CopyConvolutionFilter2DEXT; // 271
+            PFNGLCOPYIMAGESUBDATAPROC CopyImageSubData; // 272
+            PFNGLCOPYIMAGESUBDATANVPROC CopyImageSubDataNV; // 273
+            PFNGLCOPYMULTITEXIMAGE1DEXTPROC CopyMultiTexImage1DEXT; // 274
+            PFNGLCOPYMULTITEXIMAGE2DEXTPROC CopyMultiTexImage2DEXT; // 275
+            PFNGLCOPYMULTITEXSUBIMAGE1DEXTPROC CopyMultiTexSubImage1DEXT; // 276
+            PFNGLCOPYMULTITEXSUBIMAGE2DEXTPROC CopyMultiTexSubImage2DEXT; // 277
+            PFNGLCOPYMULTITEXSUBIMAGE3DEXTPROC CopyMultiTexSubImage3DEXT; // 278
+            PFNGLCOPYNAMEDBUFFERSUBDATAPROC CopyNamedBufferSubData; // 279
+            PFNGLCOPYPATHNVPROC CopyPathNV; // 280
+            PFNGLCOPYTEXIMAGE1DPROC CopyTexImage1D; // 281
+            PFNGLCOPYTEXIMAGE1DEXTPROC CopyTexImage1DEXT; // 282
+            PFNGLCOPYTEXIMAGE2DPROC CopyTexImage2D; // 283
+            PFNGLCOPYTEXIMAGE2DEXTPROC CopyTexImage2DEXT; // 284
+            PFNGLCOPYTEXSUBIMAGE1DPROC CopyTexSubImage1D; // 285
+            PFNGLCOPYTEXSUBIMAGE1DEXTPROC CopyTexSubImage1DEXT; // 286
+            PFNGLCOPYTEXSUBIMAGE2DPROC CopyTexSubImage2D; // 287
+            PFNGLCOPYTEXSUBIMAGE2DEXTPROC CopyTexSubImage2DEXT; // 288
+            PFNGLCOPYTEXSUBIMAGE3DPROC CopyTexSubImage3D; // 289
+            PFNGLCOPYTEXSUBIMAGE3DEXTPROC CopyTexSubImage3DEXT; // 290
+            PFNGLCOPYTEXTUREIMAGE1DEXTPROC CopyTextureImage1DEXT; // 291
+            PFNGLCOPYTEXTUREIMAGE2DEXTPROC CopyTextureImage2DEXT; // 292
+            PFNGLCOPYTEXTURESUBIMAGE1DPROC CopyTextureSubImage1D; // 293
+            PFNGLCOPYTEXTURESUBIMAGE1DEXTPROC CopyTextureSubImage1DEXT; // 294
+            PFNGLCOPYTEXTURESUBIMAGE2DPROC CopyTextureSubImage2D; // 295
+            PFNGLCOPYTEXTURESUBIMAGE2DEXTPROC CopyTextureSubImage2DEXT; // 296
+            PFNGLCOPYTEXTURESUBIMAGE3DPROC CopyTextureSubImage3D; // 297
+            PFNGLCOPYTEXTURESUBIMAGE3DEXTPROC CopyTextureSubImage3DEXT; // 298
+            PFNGLCOVERFILLPATHINSTANCEDNVPROC CoverFillPathInstancedNV; // 299
+            PFNGLCOVERFILLPATHNVPROC CoverFillPathNV; // 300
+            PFNGLCOVERSTROKEPATHINSTANCEDNVPROC CoverStrokePathInstancedNV; // 301
+            PFNGLCOVERSTROKEPATHNVPROC CoverStrokePathNV; // 302
+            PFNGLCOVERAGEMODULATIONNVPROC CoverageModulationNV; // 303
+            PFNGLCOVERAGEMODULATIONTABLENVPROC CoverageModulationTableNV; // 304
+            PFNGLCREATEBUFFERSPROC CreateBuffers; // 305
+            PFNGLCREATECOMMANDLISTSNVPROC CreateCommandListsNV; // 306
+            PFNGLCREATEFRAMEBUFFERSPROC CreateFramebuffers; // 307
+            PFNGLCREATEMEMORYOBJECTSEXTPROC CreateMemoryObjectsEXT; // 308
+            PFNGLCREATEPERFQUERYINTELPROC CreatePerfQueryINTEL; // 309
+            PFNGLCREATEPROGRAMPROC CreateProgram; // 310
+            PFNGLCREATEPROGRAMOBJECTARBPROC CreateProgramObjectARB; // 311
+            PFNGLCREATEPROGRAMPIPELINESPROC CreateProgramPipelines; // 312
+            PFNGLCREATEPROGRESSFENCENVXPROC CreateProgressFenceNVX; // 313
+            PFNGLCREATEQUERIESPROC CreateQueries; // 314
+            PFNGLCREATERENDERBUFFERSPROC CreateRenderbuffers; // 315
+            PFNGLCREATESAMPLERSPROC CreateSamplers; // 316
+            PFNGLCREATESEMAPHORESNVPROC CreateSemaphoresNV; // 317
+            PFNGLCREATESHADERPROC CreateShader; // 318
+            PFNGLCREATESHADEROBJECTARBPROC CreateShaderObjectARB; // 319
+            PFNGLCREATESHADERPROGRAMEXTPROC CreateShaderProgramEXT; // 320
+            PFNGLCREATESHADERPROGRAMVPROC CreateShaderProgramv; // 321
+            PFNGLCREATESTATESNVPROC CreateStatesNV; // 322
+            PFNGLCREATESYNCFROMCLEVENTARBPROC CreateSyncFromCLeventARB; // 323
+            PFNGLCREATETEXTURESPROC CreateTextures; // 324
+            PFNGLCREATETRANSFORMFEEDBACKSPROC CreateTransformFeedbacks; // 325
+            PFNGLCREATEVERTEXARRAYSPROC CreateVertexArrays; // 326
+            PFNGLCULLFACEPROC CullFace; // 327
+            PFNGLCULLPARAMETERDVEXTPROC CullParameterdvEXT; // 328
+            PFNGLCULLPARAMETERFVEXTPROC CullParameterfvEXT; // 329
+            PFNGLCURRENTPALETTEMATRIXARBPROC CurrentPaletteMatrixARB; // 330
+            PFNGLDEBUGMESSAGECALLBACKPROC DebugMessageCallback; // 331
+            PFNGLDEBUGMESSAGECALLBACKAMDPROC DebugMessageCallbackAMD; // 332
+            PFNGLDEBUGMESSAGECALLBACKARBPROC DebugMessageCallbackARB; // 333
+            PFNGLDEBUGMESSAGECONTROLPROC DebugMessageControl; // 334
+            PFNGLDEBUGMESSAGECONTROLARBPROC DebugMessageControlARB; // 335
+            PFNGLDEBUGMESSAGEENABLEAMDPROC DebugMessageEnableAMD; // 336
+            PFNGLDEBUGMESSAGEINSERTPROC DebugMessageInsert; // 337
+            PFNGLDEBUGMESSAGEINSERTAMDPROC DebugMessageInsertAMD; // 338
+            PFNGLDEBUGMESSAGEINSERTARBPROC DebugMessageInsertARB; // 339
+            PFNGLDEFORMSGIXPROC DeformSGIX; // 340
+            PFNGLDEFORMATIONMAP3DSGIXPROC DeformationMap3dSGIX; // 341
+            PFNGLDEFORMATIONMAP3FSGIXPROC DeformationMap3fSGIX; // 342
+            PFNGLDELETEASYNCMARKERSSGIXPROC DeleteAsyncMarkersSGIX; // 343
+            PFNGLDELETEBUFFERSPROC DeleteBuffers; // 344
+            PFNGLDELETEBUFFERSARBPROC DeleteBuffersARB; // 345
+            PFNGLDELETECOMMANDLISTSNVPROC DeleteCommandListsNV; // 346
+            PFNGLDELETEFENCESAPPLEPROC DeleteFencesAPPLE; // 347
+            PFNGLDELETEFENCESNVPROC DeleteFencesNV; // 348
+            PFNGLDELETEFRAGMENTSHADERATIPROC DeleteFragmentShaderATI; // 349
+            PFNGLDELETEFRAMEBUFFERSPROC DeleteFramebuffers; // 350
+            PFNGLDELETEFRAMEBUFFERSEXTPROC DeleteFramebuffersEXT; // 351
+            PFNGLDELETEMEMORYOBJECTSEXTPROC DeleteMemoryObjectsEXT; // 352
+            PFNGLDELETENAMEDSTRINGARBPROC DeleteNamedStringARB; // 353
+            PFNGLDELETENAMESAMDPROC DeleteNamesAMD; // 354
+            PFNGLDELETEOBJECTARBPROC DeleteObjectARB; // 355
+            PFNGLDELETEOCCLUSIONQUERIESNVPROC DeleteOcclusionQueriesNV; // 356
+            PFNGLDELETEPATHSNVPROC DeletePathsNV; // 357
+            PFNGLDELETEPERFMONITORSAMDPROC DeletePerfMonitorsAMD; // 358
+            PFNGLDELETEPERFQUERYINTELPROC DeletePerfQueryINTEL; // 359
+            PFNGLDELETEPROGRAMPROC DeleteProgram; // 360
+            PFNGLDELETEPROGRAMPIPELINESPROC DeleteProgramPipelines; // 361
+            PFNGLDELETEPROGRAMSARBPROC DeleteProgramsARB; // 362
+            PFNGLDELETEPROGRAMSNVPROC DeleteProgramsNV; // 363
+            PFNGLDELETEQUERIESPROC DeleteQueries; // 364
+            PFNGLDELETEQUERIESARBPROC DeleteQueriesARB; // 365
+            PFNGLDELETEQUERYRESOURCETAGNVPROC DeleteQueryResourceTagNV; // 366
+            PFNGLDELETERENDERBUFFERSPROC DeleteRenderbuffers; // 367
+            PFNGLDELETERENDERBUFFERSEXTPROC DeleteRenderbuffersEXT; // 368
+            PFNGLDELETESAMPLERSPROC DeleteSamplers; // 369
+            PFNGLDELETESEMAPHORESEXTPROC DeleteSemaphoresEXT; // 370
+            PFNGLDELETESHADERPROC DeleteShader; // 371
+            PFNGLDELETESTATESNVPROC DeleteStatesNV; // 372
+            PFNGLDELETESYNCPROC DeleteSync; // 373
+            PFNGLDELETETEXTURESPROC DeleteTextures; // 374
+            PFNGLDELETETEXTURESEXTPROC DeleteTexturesEXT; // 375
+            PFNGLDELETETRANSFORMFEEDBACKSPROC DeleteTransformFeedbacks; // 376
+            PFNGLDELETETRANSFORMFEEDBACKSNVPROC DeleteTransformFeedbacksNV; // 377
+            PFNGLDELETEVERTEXARRAYSPROC DeleteVertexArrays; // 378
+            PFNGLDELETEVERTEXARRAYSAPPLEPROC DeleteVertexArraysAPPLE; // 379
+            PFNGLDELETEVERTEXSHADEREXTPROC DeleteVertexShaderEXT; // 380
+            PFNGLDEPTHBOUNDSEXTPROC DepthBoundsEXT; // 381
+            PFNGLDEPTHBOUNDSDNVPROC DepthBoundsdNV; // 382
+            PFNGLDEPTHFUNCPROC DepthFunc; // 383
+            PFNGLDEPTHMASKPROC DepthMask; // 384
+            PFNGLDEPTHRANGEPROC DepthRange; // 385
+            PFNGLDEPTHRANGEARRAYDVNVPROC DepthRangeArraydvNV; // 386
+            PFNGLDEPTHRANGEARRAYVPROC DepthRangeArrayv; // 387
+            PFNGLDEPTHRANGEINDEXEDPROC DepthRangeIndexed; // 388
+            PFNGLDEPTHRANGEINDEXEDDNVPROC DepthRangeIndexeddNV; // 389
+            PFNGLDEPTHRANGEDNVPROC DepthRangedNV; // 390
+            PFNGLDEPTHRANGEFPROC DepthRangef; // 391
+            PFNGLDEPTHRANGEFOESPROC DepthRangefOES; // 392
+            PFNGLDEPTHRANGEXOESPROC DepthRangexOES; // 393
+            PFNGLDETACHOBJECTARBPROC DetachObjectARB; // 394
+            PFNGLDETACHSHADERPROC DetachShader; // 395
+            PFNGLDETAILTEXFUNCSGISPROC DetailTexFuncSGIS; // 396
+            PFNGLDISABLEPROC Disable; // 397
+            PFNGLDISABLECLIENTSTATEINDEXEDEXTPROC DisableClientStateIndexedEXT; // 398
+            PFNGLDISABLECLIENTSTATEIEXTPROC DisableClientStateiEXT; // 399
+            PFNGLDISABLEINDEXEDEXTPROC DisableIndexedEXT; // 400
+            PFNGLDISABLEVARIANTCLIENTSTATEEXTPROC DisableVariantClientStateEXT; // 401
+            PFNGLDISABLEVERTEXARRAYATTRIBPROC DisableVertexArrayAttrib; // 402
+            PFNGLDISABLEVERTEXARRAYATTRIBEXTPROC DisableVertexArrayAttribEXT; // 403
+            PFNGLDISABLEVERTEXARRAYEXTPROC DisableVertexArrayEXT; // 404
+            PFNGLDISABLEVERTEXATTRIBAPPLEPROC DisableVertexAttribAPPLE; // 405
+            PFNGLDISABLEVERTEXATTRIBARRAYPROC DisableVertexAttribArray; // 406
+            PFNGLDISABLEVERTEXATTRIBARRAYARBPROC DisableVertexAttribArrayARB; // 407
+            PFNGLDISABLEIPROC Disablei; // 408
+            PFNGLDISPATCHCOMPUTEPROC DispatchCompute; // 409
+            PFNGLDISPATCHCOMPUTEGROUPSIZEARBPROC DispatchComputeGroupSizeARB; // 410
+            PFNGLDISPATCHCOMPUTEINDIRECTPROC DispatchComputeIndirect; // 411
+            PFNGLDRAWARRAYSPROC DrawArrays; // 412
+            PFNGLDRAWARRAYSEXTPROC DrawArraysEXT; // 413
+            PFNGLDRAWARRAYSINDIRECTPROC DrawArraysIndirect; // 414
+            PFNGLDRAWARRAYSINSTANCEDPROC DrawArraysInstanced; // 415
+            PFNGLDRAWARRAYSINSTANCEDARBPROC DrawArraysInstancedARB; // 416
+            PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEPROC DrawArraysInstancedBaseInstance; // 417
+            PFNGLDRAWARRAYSINSTANCEDEXTPROC DrawArraysInstancedEXT; // 418
+            PFNGLDRAWBUFFERPROC DrawBuffer; // 419
+            PFNGLDRAWBUFFERSPROC DrawBuffers; // 420
+            PFNGLDRAWBUFFERSARBPROC DrawBuffersARB; // 421
+            PFNGLDRAWBUFFERSATIPROC DrawBuffersATI; // 422
+            PFNGLDRAWCOMMANDSADDRESSNVPROC DrawCommandsAddressNV; // 423
+            PFNGLDRAWCOMMANDSNVPROC DrawCommandsNV; // 424
+            PFNGLDRAWCOMMANDSSTATESADDRESSNVPROC DrawCommandsStatesAddressNV; // 425
+            PFNGLDRAWCOMMANDSSTATESNVPROC DrawCommandsStatesNV; // 426
+            PFNGLDRAWELEMENTARRAYAPPLEPROC DrawElementArrayAPPLE; // 427
+            PFNGLDRAWELEMENTARRAYATIPROC DrawElementArrayATI; // 428
+            PFNGLDRAWELEMENTSPROC DrawElements; // 429
+            PFNGLDRAWELEMENTSBASEVERTEXPROC DrawElementsBaseVertex; // 430
+            PFNGLDRAWELEMENTSINDIRECTPROC DrawElementsIndirect; // 431
+            PFNGLDRAWELEMENTSINSTANCEDPROC DrawElementsInstanced; // 432
+            PFNGLDRAWELEMENTSINSTANCEDARBPROC DrawElementsInstancedARB; // 433
+            PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEPROC DrawElementsInstancedBaseInstance; // 434
+            PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXPROC DrawElementsInstancedBaseVertex; // 435
+            PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEPROC DrawElementsInstancedBaseVertexBaseInstance; // 436
+            PFNGLDRAWELEMENTSINSTANCEDEXTPROC DrawElementsInstancedEXT; // 437
+            PFNGLDRAWMESHARRAYSSUNPROC DrawMeshArraysSUN; // 438
+            PFNGLDRAWMESHTASKSINDIRECTNVPROC DrawMeshTasksIndirectNV; // 439
+            PFNGLDRAWMESHTASKSNVPROC DrawMeshTasksNV; // 440
+            PFNGLDRAWRANGEELEMENTARRAYAPPLEPROC DrawRangeElementArrayAPPLE; // 441
+            PFNGLDRAWRANGEELEMENTARRAYATIPROC DrawRangeElementArrayATI; // 442
+            PFNGLDRAWRANGEELEMENTSPROC DrawRangeElements; // 443
+            PFNGLDRAWRANGEELEMENTSBASEVERTEXPROC DrawRangeElementsBaseVertex; // 444
+            PFNGLDRAWRANGEELEMENTSEXTPROC DrawRangeElementsEXT; // 445
+            PFNGLDRAWTEXTURENVPROC DrawTextureNV; // 446
+            PFNGLDRAWTRANSFORMFEEDBACKPROC DrawTransformFeedback; // 447
+            PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDPROC DrawTransformFeedbackInstanced; // 448
+            PFNGLDRAWTRANSFORMFEEDBACKNVPROC DrawTransformFeedbackNV; // 449
+            PFNGLDRAWTRANSFORMFEEDBACKSTREAMPROC DrawTransformFeedbackStream; // 450
+            PFNGLDRAWTRANSFORMFEEDBACKSTREAMINSTANCEDPROC DrawTransformFeedbackStreamInstanced; // 451
+            PFNGLDRAWVKIMAGENVPROC DrawVkImageNV; // 452
+            PFNGLEGLIMAGETARGETTEXSTORAGEEXTPROC EGLImageTargetTexStorageEXT; // 453
+            PFNGLEGLIMAGETARGETTEXTURESTORAGEEXTPROC EGLImageTargetTextureStorageEXT; // 454
+            PFNGLEDGEFLAGFORMATNVPROC EdgeFlagFormatNV; // 455
+            PFNGLEDGEFLAGPOINTEREXTPROC EdgeFlagPointerEXT; // 456
+            PFNGLEDGEFLAGPOINTERLISTIBMPROC EdgeFlagPointerListIBM; // 457
+            PFNGLELEMENTPOINTERAPPLEPROC ElementPointerAPPLE; // 458
+            PFNGLELEMENTPOINTERATIPROC ElementPointerATI; // 459
+            PFNGLENABLEPROC Enable; // 460
+            PFNGLENABLECLIENTSTATEINDEXEDEXTPROC EnableClientStateIndexedEXT; // 461
+            PFNGLENABLECLIENTSTATEIEXTPROC EnableClientStateiEXT; // 462
+            PFNGLENABLEINDEXEDEXTPROC EnableIndexedEXT; // 463
+            PFNGLENABLEVARIANTCLIENTSTATEEXTPROC EnableVariantClientStateEXT; // 464
+            PFNGLENABLEVERTEXARRAYATTRIBPROC EnableVertexArrayAttrib; // 465
+            PFNGLENABLEVERTEXARRAYATTRIBEXTPROC EnableVertexArrayAttribEXT; // 466
+            PFNGLENABLEVERTEXARRAYEXTPROC EnableVertexArrayEXT; // 467
+            PFNGLENABLEVERTEXATTRIBAPPLEPROC EnableVertexAttribAPPLE; // 468
+            PFNGLENABLEVERTEXATTRIBARRAYPROC EnableVertexAttribArray; // 469
+            PFNGLENABLEVERTEXATTRIBARRAYARBPROC EnableVertexAttribArrayARB; // 470
+            PFNGLENABLEIPROC Enablei; // 471
+            PFNGLENDCONDITIONALRENDERPROC EndConditionalRender; // 472
+            PFNGLENDCONDITIONALRENDERNVPROC EndConditionalRenderNV; // 473
+            PFNGLENDCONDITIONALRENDERNVXPROC EndConditionalRenderNVX; // 474
+            PFNGLENDFRAGMENTSHADERATIPROC EndFragmentShaderATI; // 475
+            PFNGLENDOCCLUSIONQUERYNVPROC EndOcclusionQueryNV; // 476
+            PFNGLENDPERFMONITORAMDPROC EndPerfMonitorAMD; // 477
+            PFNGLENDPERFQUERYINTELPROC EndPerfQueryINTEL; // 478
+            PFNGLENDQUERYPROC EndQuery; // 479
+            PFNGLENDQUERYARBPROC EndQueryARB; // 480
+            PFNGLENDQUERYINDEXEDPROC EndQueryIndexed; // 481
+            PFNGLENDTRANSFORMFEEDBACKPROC EndTransformFeedback; // 482
+            PFNGLENDTRANSFORMFEEDBACKEXTPROC EndTransformFeedbackEXT; // 483
+            PFNGLENDTRANSFORMFEEDBACKNVPROC EndTransformFeedbackNV; // 484
+            PFNGLENDVERTEXSHADEREXTPROC EndVertexShaderEXT; // 485
+            PFNGLENDVIDEOCAPTURENVPROC EndVideoCaptureNV; // 486
+            PFNGLEVALCOORD1XOESPROC EvalCoord1xOES; // 487
+            PFNGLEVALCOORD1XVOESPROC EvalCoord1xvOES; // 488
+            PFNGLEVALCOORD2XOESPROC EvalCoord2xOES; // 489
+            PFNGLEVALCOORD2XVOESPROC EvalCoord2xvOES; // 490
+            PFNGLEVALMAPSNVPROC EvalMapsNV; // 491
+            PFNGLEVALUATEDEPTHVALUESARBPROC EvaluateDepthValuesARB; // 492
+            PFNGLEXECUTEPROGRAMNVPROC ExecuteProgramNV; // 493
+            PFNGLEXTRACTCOMPONENTEXTPROC ExtractComponentEXT; // 494
+            PFNGLFEEDBACKBUFFERXOESPROC FeedbackBufferxOES; // 495
+            PFNGLFENCESYNCPROC FenceSync; // 496
+            PFNGLFINALCOMBINERINPUTNVPROC FinalCombinerInputNV; // 497
+            PFNGLFINISHPROC Finish; // 498
+            PFNGLFINISHASYNCSGIXPROC FinishAsyncSGIX; // 499
+            PFNGLFINISHFENCEAPPLEPROC FinishFenceAPPLE; // 500
+            PFNGLFINISHFENCENVPROC FinishFenceNV; // 501
+            PFNGLFINISHOBJECTAPPLEPROC FinishObjectAPPLE; // 502
+            PFNGLFINISHTEXTURESUNXPROC FinishTextureSUNX; // 503
+            PFNGLFLUSHPROC Flush; // 504
+            PFNGLFLUSHMAPPEDBUFFERRANGEPROC FlushMappedBufferRange; // 505
+            PFNGLFLUSHMAPPEDBUFFERRANGEAPPLEPROC FlushMappedBufferRangeAPPLE; // 506
+            PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEPROC FlushMappedNamedBufferRange; // 507
+            PFNGLFLUSHMAPPEDNAMEDBUFFERRANGEEXTPROC FlushMappedNamedBufferRangeEXT; // 508
+            PFNGLFLUSHPIXELDATARANGENVPROC FlushPixelDataRangeNV; // 509
+            PFNGLFLUSHRASTERSGIXPROC FlushRasterSGIX; // 510
+            PFNGLFLUSHSTATICDATAIBMPROC FlushStaticDataIBM; // 511
+            PFNGLFLUSHVERTEXARRAYRANGEAPPLEPROC FlushVertexArrayRangeAPPLE; // 512
+            PFNGLFLUSHVERTEXARRAYRANGENVPROC FlushVertexArrayRangeNV; // 513
+            PFNGLFOGCOORDFORMATNVPROC FogCoordFormatNV; // 514
+            PFNGLFOGCOORDPOINTEREXTPROC FogCoordPointerEXT; // 515
+            PFNGLFOGCOORDPOINTERLISTIBMPROC FogCoordPointerListIBM; // 516
+            PFNGLFOGCOORDDEXTPROC FogCoorddEXT; // 517
+            PFNGLFOGCOORDDVEXTPROC FogCoorddvEXT; // 518
+            PFNGLFOGCOORDFEXTPROC FogCoordfEXT; // 519
+            PFNGLFOGCOORDFVEXTPROC FogCoordfvEXT; // 520
+            PFNGLFOGCOORDHNVPROC FogCoordhNV; // 521
+            PFNGLFOGCOORDHVNVPROC FogCoordhvNV; // 522
+            PFNGLFOGFUNCSGISPROC FogFuncSGIS; // 523
+            PFNGLFOGXOESPROC FogxOES; // 524
+            PFNGLFOGXVOESPROC FogxvOES; // 525
+            PFNGLFRAGMENTCOLORMATERIALSGIXPROC FragmentColorMaterialSGIX; // 526
+            PFNGLFRAGMENTCOVERAGECOLORNVPROC FragmentCoverageColorNV; // 527
+            PFNGLFRAGMENTLIGHTMODELFSGIXPROC FragmentLightModelfSGIX; // 528
+            PFNGLFRAGMENTLIGHTMODELFVSGIXPROC FragmentLightModelfvSGIX; // 529
+            PFNGLFRAGMENTLIGHTMODELISGIXPROC FragmentLightModeliSGIX; // 530
+            PFNGLFRAGMENTLIGHTMODELIVSGIXPROC FragmentLightModelivSGIX; // 531
+            PFNGLFRAGMENTLIGHTFSGIXPROC FragmentLightfSGIX; // 532
+            PFNGLFRAGMENTLIGHTFVSGIXPROC FragmentLightfvSGIX; // 533
+            PFNGLFRAGMENTLIGHTISGIXPROC FragmentLightiSGIX; // 534
+            PFNGLFRAGMENTLIGHTIVSGIXPROC FragmentLightivSGIX; // 535
+            PFNGLFRAGMENTMATERIALFSGIXPROC FragmentMaterialfSGIX; // 536
+            PFNGLFRAGMENTMATERIALFVSGIXPROC FragmentMaterialfvSGIX; // 537
+            PFNGLFRAGMENTMATERIALISGIXPROC FragmentMaterialiSGIX; // 538
+            PFNGLFRAGMENTMATERIALIVSGIXPROC FragmentMaterialivSGIX; // 539
+            PFNGLFRAMETERMINATORGREMEDYPROC FrameTerminatorGREMEDY; // 540
+            PFNGLFRAMEZOOMSGIXPROC FrameZoomSGIX; // 541
+            PFNGLFRAMEBUFFERDRAWBUFFEREXTPROC FramebufferDrawBufferEXT; // 542
+            PFNGLFRAMEBUFFERDRAWBUFFERSEXTPROC FramebufferDrawBuffersEXT; // 543
+            PFNGLFRAMEBUFFERFETCHBARRIEREXTPROC FramebufferFetchBarrierEXT; // 544
+            PFNGLFRAMEBUFFERPARAMETERIPROC FramebufferParameteri; // 545
+            PFNGLFRAMEBUFFERPARAMETERIMESAPROC FramebufferParameteriMESA; // 546
+            PFNGLFRAMEBUFFERREADBUFFEREXTPROC FramebufferReadBufferEXT; // 547
+            PFNGLFRAMEBUFFERRENDERBUFFERPROC FramebufferRenderbuffer; // 548
+            PFNGLFRAMEBUFFERRENDERBUFFEREXTPROC FramebufferRenderbufferEXT; // 549
+            PFNGLFRAMEBUFFERSAMPLELOCATIONSFVARBPROC FramebufferSampleLocationsfvARB; // 550
+            PFNGLFRAMEBUFFERSAMPLELOCATIONSFVNVPROC FramebufferSampleLocationsfvNV; // 551
+            PFNGLFRAMEBUFFERSAMPLEPOSITIONSFVAMDPROC FramebufferSamplePositionsfvAMD; // 552
+            PFNGLFRAMEBUFFERTEXTUREPROC FramebufferTexture; // 553
+            PFNGLFRAMEBUFFERTEXTURE1DPROC FramebufferTexture1D; // 554
+            PFNGLFRAMEBUFFERTEXTURE1DEXTPROC FramebufferTexture1DEXT; // 555
+            PFNGLFRAMEBUFFERTEXTURE2DPROC FramebufferTexture2D; // 556
+            PFNGLFRAMEBUFFERTEXTURE2DEXTPROC FramebufferTexture2DEXT; // 557
+            PFNGLFRAMEBUFFERTEXTURE3DPROC FramebufferTexture3D; // 558
+            PFNGLFRAMEBUFFERTEXTURE3DEXTPROC FramebufferTexture3DEXT; // 559
+            PFNGLFRAMEBUFFERTEXTUREARBPROC FramebufferTextureARB; // 560
+            PFNGLFRAMEBUFFERTEXTUREEXTPROC FramebufferTextureEXT; // 561
+            PFNGLFRAMEBUFFERTEXTUREFACEARBPROC FramebufferTextureFaceARB; // 562
+            PFNGLFRAMEBUFFERTEXTUREFACEEXTPROC FramebufferTextureFaceEXT; // 563
+            PFNGLFRAMEBUFFERTEXTURELAYERPROC FramebufferTextureLayer; // 564
+            PFNGLFRAMEBUFFERTEXTURELAYERARBPROC FramebufferTextureLayerARB; // 565
+            PFNGLFRAMEBUFFERTEXTURELAYEREXTPROC FramebufferTextureLayerEXT; // 566
+            PFNGLFRAMEBUFFERTEXTUREMULTIVIEWOVRPROC FramebufferTextureMultiviewOVR; // 567
+            PFNGLFREEOBJECTBUFFERATIPROC FreeObjectBufferATI; // 568
+            PFNGLFRONTFACEPROC FrontFace; // 569
+            PFNGLFRUSTUMFOESPROC FrustumfOES; // 570
+            PFNGLFRUSTUMXOESPROC FrustumxOES; // 571
+            PFNGLGENASYNCMARKERSSGIXPROC GenAsyncMarkersSGIX; // 572
+            PFNGLGENBUFFERSPROC GenBuffers; // 573
+            PFNGLGENBUFFERSARBPROC GenBuffersARB; // 574
+            PFNGLGENFENCESAPPLEPROC GenFencesAPPLE; // 575
+            PFNGLGENFENCESNVPROC GenFencesNV; // 576
+            PFNGLGENFRAGMENTSHADERSATIPROC GenFragmentShadersATI; // 577
+            PFNGLGENFRAMEBUFFERSPROC GenFramebuffers; // 578
+            PFNGLGENFRAMEBUFFERSEXTPROC GenFramebuffersEXT; // 579
+            PFNGLGENNAMESAMDPROC GenNamesAMD; // 580
+            PFNGLGENOCCLUSIONQUERIESNVPROC GenOcclusionQueriesNV; // 581
+            PFNGLGENPATHSNVPROC GenPathsNV; // 582
+            PFNGLGENPERFMONITORSAMDPROC GenPerfMonitorsAMD; // 583
+            PFNGLGENPROGRAMPIPELINESPROC GenProgramPipelines; // 584
+            PFNGLGENPROGRAMSARBPROC GenProgramsARB; // 585
+            PFNGLGENPROGRAMSNVPROC GenProgramsNV; // 586
+            PFNGLGENQUERIESPROC GenQueries; // 587
+            PFNGLGENQUERIESARBPROC GenQueriesARB; // 588
+            PFNGLGENQUERYRESOURCETAGNVPROC GenQueryResourceTagNV; // 589
+            PFNGLGENRENDERBUFFERSPROC GenRenderbuffers; // 590
+            PFNGLGENRENDERBUFFERSEXTPROC GenRenderbuffersEXT; // 591
+            PFNGLGENSAMPLERSPROC GenSamplers; // 592
+            PFNGLGENSEMAPHORESEXTPROC GenSemaphoresEXT; // 593
+            PFNGLGENSYMBOLSEXTPROC GenSymbolsEXT; // 594
+            PFNGLGENTEXTURESPROC GenTextures; // 595
+            PFNGLGENTEXTURESEXTPROC GenTexturesEXT; // 596
+            PFNGLGENTRANSFORMFEEDBACKSPROC GenTransformFeedbacks; // 597
+            PFNGLGENTRANSFORMFEEDBACKSNVPROC GenTransformFeedbacksNV; // 598
+            PFNGLGENVERTEXARRAYSPROC GenVertexArrays; // 599
+            PFNGLGENVERTEXARRAYSAPPLEPROC GenVertexArraysAPPLE; // 600
+            PFNGLGENVERTEXSHADERSEXTPROC GenVertexShadersEXT; // 601
+            PFNGLGENERATEMIPMAPPROC GenerateMipmap; // 602
+            PFNGLGENERATEMIPMAPEXTPROC GenerateMipmapEXT; // 603
+            PFNGLGENERATEMULTITEXMIPMAPEXTPROC GenerateMultiTexMipmapEXT; // 604
+            PFNGLGENERATETEXTUREMIPMAPPROC GenerateTextureMipmap; // 605
+            PFNGLGENERATETEXTUREMIPMAPEXTPROC GenerateTextureMipmapEXT; // 606
+            PFNGLGETACTIVEATOMICCOUNTERBUFFERIVPROC GetActiveAtomicCounterBufferiv; // 607
+            PFNGLGETACTIVEATTRIBPROC GetActiveAttrib; // 608
+            PFNGLGETACTIVEATTRIBARBPROC GetActiveAttribARB; // 609
+            PFNGLGETACTIVESUBROUTINENAMEPROC GetActiveSubroutineName; // 610
+            PFNGLGETACTIVESUBROUTINEUNIFORMNAMEPROC GetActiveSubroutineUniformName; // 611
+            PFNGLGETACTIVESUBROUTINEUNIFORMIVPROC GetActiveSubroutineUniformiv; // 612
+            PFNGLGETACTIVEUNIFORMPROC GetActiveUniform; // 613
+            PFNGLGETACTIVEUNIFORMARBPROC GetActiveUniformARB; // 614
+            PFNGLGETACTIVEUNIFORMBLOCKNAMEPROC GetActiveUniformBlockName; // 615
+            PFNGLGETACTIVEUNIFORMBLOCKIVPROC GetActiveUniformBlockiv; // 616
+            PFNGLGETACTIVEUNIFORMNAMEPROC GetActiveUniformName; // 617
+            PFNGLGETACTIVEUNIFORMSIVPROC GetActiveUniformsiv; // 618
+            PFNGLGETACTIVEVARYINGNVPROC GetActiveVaryingNV; // 619
+            PFNGLGETARRAYOBJECTFVATIPROC GetArrayObjectfvATI; // 620
+            PFNGLGETARRAYOBJECTIVATIPROC GetArrayObjectivATI; // 621
+            PFNGLGETATTACHEDOBJECTSARBPROC GetAttachedObjectsARB; // 622
+            PFNGLGETATTACHEDSHADERSPROC GetAttachedShaders; // 623
+            PFNGLGETATTRIBLOCATIONPROC GetAttribLocation; // 624
+            PFNGLGETATTRIBLOCATIONARBPROC GetAttribLocationARB; // 625
+            PFNGLGETBOOLEANINDEXEDVEXTPROC GetBooleanIndexedvEXT; // 626
+            PFNGLGETBOOLEANI_VPROC GetBooleani_v; // 627
+            PFNGLGETBOOLEANVPROC GetBooleanv; // 628
+            PFNGLGETBUFFERPARAMETERI64VPROC GetBufferParameteri64v; // 629
+            PFNGLGETBUFFERPARAMETERIVPROC GetBufferParameteriv; // 630
+            PFNGLGETBUFFERPARAMETERIVARBPROC GetBufferParameterivARB; // 631
+            PFNGLGETBUFFERPARAMETERUI64VNVPROC GetBufferParameterui64vNV; // 632
+            PFNGLGETBUFFERPOINTERVPROC GetBufferPointerv; // 633
+            PFNGLGETBUFFERPOINTERVARBPROC GetBufferPointervARB; // 634
+            PFNGLGETBUFFERSUBDATAPROC GetBufferSubData; // 635
+            PFNGLGETBUFFERSUBDATAARBPROC GetBufferSubDataARB; // 636
+            PFNGLGETCLIPPLANEFOESPROC GetClipPlanefOES; // 637
+            PFNGLGETCLIPPLANEXOESPROC GetClipPlanexOES; // 638
+            PFNGLGETCOLORTABLEEXTPROC GetColorTableEXT; // 639
+            PFNGLGETCOLORTABLEPARAMETERFVEXTPROC GetColorTableParameterfvEXT; // 640
+            PFNGLGETCOLORTABLEPARAMETERFVSGIPROC GetColorTableParameterfvSGI; // 641
+            PFNGLGETCOLORTABLEPARAMETERIVEXTPROC GetColorTableParameterivEXT; // 642
+            PFNGLGETCOLORTABLEPARAMETERIVSGIPROC GetColorTableParameterivSGI; // 643
+            PFNGLGETCOLORTABLESGIPROC GetColorTableSGI; // 644
+            PFNGLGETCOMBINERINPUTPARAMETERFVNVPROC GetCombinerInputParameterfvNV; // 645
+            PFNGLGETCOMBINERINPUTPARAMETERIVNVPROC GetCombinerInputParameterivNV; // 646
+            PFNGLGETCOMBINEROUTPUTPARAMETERFVNVPROC GetCombinerOutputParameterfvNV; // 647
+            PFNGLGETCOMBINEROUTPUTPARAMETERIVNVPROC GetCombinerOutputParameterivNV; // 648
+            PFNGLGETCOMBINERSTAGEPARAMETERFVNVPROC GetCombinerStageParameterfvNV; // 649
+            PFNGLGETCOMMANDHEADERNVPROC GetCommandHeaderNV; // 650
+            PFNGLGETCOMPRESSEDMULTITEXIMAGEEXTPROC GetCompressedMultiTexImageEXT; // 651
+            PFNGLGETCOMPRESSEDTEXIMAGEPROC GetCompressedTexImage; // 652
+            PFNGLGETCOMPRESSEDTEXIMAGEARBPROC GetCompressedTexImageARB; // 653
+            PFNGLGETCOMPRESSEDTEXTUREIMAGEPROC GetCompressedTextureImage; // 654
+            PFNGLGETCOMPRESSEDTEXTUREIMAGEEXTPROC GetCompressedTextureImageEXT; // 655
+            PFNGLGETCOMPRESSEDTEXTURESUBIMAGEPROC GetCompressedTextureSubImage; // 656
+            PFNGLGETCONVOLUTIONFILTEREXTPROC GetConvolutionFilterEXT; // 657
+            PFNGLGETCONVOLUTIONPARAMETERFVEXTPROC GetConvolutionParameterfvEXT; // 658
+            PFNGLGETCONVOLUTIONPARAMETERIVEXTPROC GetConvolutionParameterivEXT; // 659
+            PFNGLGETCONVOLUTIONPARAMETERXVOESPROC GetConvolutionParameterxvOES; // 660
+            PFNGLGETCOVERAGEMODULATIONTABLENVPROC GetCoverageModulationTableNV; // 661
+            PFNGLGETDEBUGMESSAGELOGPROC GetDebugMessageLog; // 662
+            PFNGLGETDEBUGMESSAGELOGAMDPROC GetDebugMessageLogAMD; // 663
+            PFNGLGETDEBUGMESSAGELOGARBPROC GetDebugMessageLogARB; // 664
+            PFNGLGETDETAILTEXFUNCSGISPROC GetDetailTexFuncSGIS; // 665
+            PFNGLGETDOUBLEINDEXEDVEXTPROC GetDoubleIndexedvEXT; // 666
+            PFNGLGETDOUBLEI_VPROC GetDoublei_v; // 667
+            PFNGLGETDOUBLEI_VEXTPROC GetDoublei_vEXT; // 668
+            PFNGLGETDOUBLEVPROC GetDoublev; // 669
+            PFNGLGETERRORPROC GetError; // 670
+            PFNGLGETFENCEIVNVPROC GetFenceivNV; // 671
+            PFNGLGETFINALCOMBINERINPUTPARAMETERFVNVPROC GetFinalCombinerInputParameterfvNV; // 672
+            PFNGLGETFINALCOMBINERINPUTPARAMETERIVNVPROC GetFinalCombinerInputParameterivNV; // 673
+            PFNGLGETFIRSTPERFQUERYIDINTELPROC GetFirstPerfQueryIdINTEL; // 674
+            PFNGLGETFIXEDVOESPROC GetFixedvOES; // 675
+            PFNGLGETFLOATINDEXEDVEXTPROC GetFloatIndexedvEXT; // 676
+            PFNGLGETFLOATI_VPROC GetFloati_v; // 677
+            PFNGLGETFLOATI_VEXTPROC GetFloati_vEXT; // 678
+            PFNGLGETFLOATVPROC GetFloatv; // 679
+            PFNGLGETFOGFUNCSGISPROC GetFogFuncSGIS; // 680
+            PFNGLGETFRAGDATAINDEXPROC GetFragDataIndex; // 681
+            PFNGLGETFRAGDATALOCATIONPROC GetFragDataLocation; // 682
+            PFNGLGETFRAGDATALOCATIONEXTPROC GetFragDataLocationEXT; // 683
+            PFNGLGETFRAGMENTLIGHTFVSGIXPROC GetFragmentLightfvSGIX; // 684
+            PFNGLGETFRAGMENTLIGHTIVSGIXPROC GetFragmentLightivSGIX; // 685
+            PFNGLGETFRAGMENTMATERIALFVSGIXPROC GetFragmentMaterialfvSGIX; // 686
+            PFNGLGETFRAGMENTMATERIALIVSGIXPROC GetFragmentMaterialivSGIX; // 687
+            PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVPROC GetFramebufferAttachmentParameteriv; // 688
+            PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC GetFramebufferAttachmentParameterivEXT; // 689
+            PFNGLGETFRAMEBUFFERPARAMETERFVAMDPROC GetFramebufferParameterfvAMD; // 690
+            PFNGLGETFRAMEBUFFERPARAMETERIVPROC GetFramebufferParameteriv; // 691
+            PFNGLGETFRAMEBUFFERPARAMETERIVEXTPROC GetFramebufferParameterivEXT; // 692
+            PFNGLGETFRAMEBUFFERPARAMETERIVMESAPROC GetFramebufferParameterivMESA; // 693
+            PFNGLGETGRAPHICSRESETSTATUSPROC GetGraphicsResetStatus; // 694
+            PFNGLGETGRAPHICSRESETSTATUSARBPROC GetGraphicsResetStatusARB; // 695
+            PFNGLGETHANDLEARBPROC GetHandleARB; // 696
+            PFNGLGETHISTOGRAMEXTPROC GetHistogramEXT; // 697
+            PFNGLGETHISTOGRAMPARAMETERFVEXTPROC GetHistogramParameterfvEXT; // 698
+            PFNGLGETHISTOGRAMPARAMETERIVEXTPROC GetHistogramParameterivEXT; // 699
+            PFNGLGETHISTOGRAMPARAMETERXVOESPROC GetHistogramParameterxvOES; // 700
+            PFNGLGETIMAGEHANDLEARBPROC GetImageHandleARB; // 701
+            PFNGLGETIMAGEHANDLENVPROC GetImageHandleNV; // 702
+            PFNGLGETIMAGETRANSFORMPARAMETERFVHPPROC GetImageTransformParameterfvHP; // 703
+            PFNGLGETIMAGETRANSFORMPARAMETERIVHPPROC GetImageTransformParameterivHP; // 704
+            PFNGLGETINFOLOGARBPROC GetInfoLogARB; // 705
+            PFNGLGETINSTRUMENTSSGIXPROC GetInstrumentsSGIX; // 706
+            PFNGLGETINTEGER64I_VPROC GetInteger64i_v; // 707
+            PFNGLGETINTEGER64VPROC GetInteger64v; // 708
+            PFNGLGETINTEGERINDEXEDVEXTPROC GetIntegerIndexedvEXT; // 709
+            PFNGLGETINTEGERI_VPROC GetIntegeri_v; // 710
+            PFNGLGETINTEGERUI64I_VNVPROC GetIntegerui64i_vNV; // 711
+            PFNGLGETINTEGERUI64VNVPROC GetIntegerui64vNV; // 712
+            PFNGLGETINTEGERVPROC GetIntegerv; // 713
+            PFNGLGETINTERNALFORMATSAMPLEIVNVPROC GetInternalformatSampleivNV; // 714
+            PFNGLGETINTERNALFORMATI64VPROC GetInternalformati64v; // 715
+            PFNGLGETINTERNALFORMATIVPROC GetInternalformativ; // 716
+            PFNGLGETINVARIANTBOOLEANVEXTPROC GetInvariantBooleanvEXT; // 717
+            PFNGLGETINVARIANTFLOATVEXTPROC GetInvariantFloatvEXT; // 718
+            PFNGLGETINVARIANTINTEGERVEXTPROC GetInvariantIntegervEXT; // 719
+            PFNGLGETLIGHTXOESPROC GetLightxOES; // 720
+            PFNGLGETLISTPARAMETERFVSGIXPROC GetListParameterfvSGIX; // 721
+            PFNGLGETLISTPARAMETERIVSGIXPROC GetListParameterivSGIX; // 722
+            PFNGLGETLOCALCONSTANTBOOLEANVEXTPROC GetLocalConstantBooleanvEXT; // 723
+            PFNGLGETLOCALCONSTANTFLOATVEXTPROC GetLocalConstantFloatvEXT; // 724
+            PFNGLGETLOCALCONSTANTINTEGERVEXTPROC GetLocalConstantIntegervEXT; // 725
+            PFNGLGETMAPATTRIBPARAMETERFVNVPROC GetMapAttribParameterfvNV; // 726
+            PFNGLGETMAPATTRIBPARAMETERIVNVPROC GetMapAttribParameterivNV; // 727
+            PFNGLGETMAPCONTROLPOINTSNVPROC GetMapControlPointsNV; // 728
+            PFNGLGETMAPPARAMETERFVNVPROC GetMapParameterfvNV; // 729
+            PFNGLGETMAPPARAMETERIVNVPROC GetMapParameterivNV; // 730
+            PFNGLGETMAPXVOESPROC GetMapxvOES; // 731
+            PFNGLGETMATERIALXOESPROC GetMaterialxOES; // 732
+            PFNGLGETMEMORYOBJECTDETACHEDRESOURCESUIVNVPROC GetMemoryObjectDetachedResourcesuivNV; // 733
+            PFNGLGETMEMORYOBJECTPARAMETERIVEXTPROC GetMemoryObjectParameterivEXT; // 734
+            PFNGLGETMINMAXEXTPROC GetMinmaxEXT; // 735
+            PFNGLGETMINMAXPARAMETERFVEXTPROC GetMinmaxParameterfvEXT; // 736
+            PFNGLGETMINMAXPARAMETERIVEXTPROC GetMinmaxParameterivEXT; // 737
+            PFNGLGETMULTITEXENVFVEXTPROC GetMultiTexEnvfvEXT; // 738
+            PFNGLGETMULTITEXENVIVEXTPROC GetMultiTexEnvivEXT; // 739
+            PFNGLGETMULTITEXGENDVEXTPROC GetMultiTexGendvEXT; // 740
+            PFNGLGETMULTITEXGENFVEXTPROC GetMultiTexGenfvEXT; // 741
+            PFNGLGETMULTITEXGENIVEXTPROC GetMultiTexGenivEXT; // 742
+            PFNGLGETMULTITEXIMAGEEXTPROC GetMultiTexImageEXT; // 743
+            PFNGLGETMULTITEXLEVELPARAMETERFVEXTPROC GetMultiTexLevelParameterfvEXT; // 744
+            PFNGLGETMULTITEXLEVELPARAMETERIVEXTPROC GetMultiTexLevelParameterivEXT; // 745
+            PFNGLGETMULTITEXPARAMETERIIVEXTPROC GetMultiTexParameterIivEXT; // 746
+            PFNGLGETMULTITEXPARAMETERIUIVEXTPROC GetMultiTexParameterIuivEXT; // 747
+            PFNGLGETMULTITEXPARAMETERFVEXTPROC GetMultiTexParameterfvEXT; // 748
+            PFNGLGETMULTITEXPARAMETERIVEXTPROC GetMultiTexParameterivEXT; // 749
+            PFNGLGETMULTISAMPLEFVPROC GetMultisamplefv; // 750
+            PFNGLGETMULTISAMPLEFVNVPROC GetMultisamplefvNV; // 751
+            PFNGLGETNAMEDBUFFERPARAMETERI64VPROC GetNamedBufferParameteri64v; // 752
+            PFNGLGETNAMEDBUFFERPARAMETERIVPROC GetNamedBufferParameteriv; // 753
+            PFNGLGETNAMEDBUFFERPARAMETERIVEXTPROC GetNamedBufferParameterivEXT; // 754
+            PFNGLGETNAMEDBUFFERPARAMETERUI64VNVPROC GetNamedBufferParameterui64vNV; // 755
+            PFNGLGETNAMEDBUFFERPOINTERVPROC GetNamedBufferPointerv; // 756
+            PFNGLGETNAMEDBUFFERPOINTERVEXTPROC GetNamedBufferPointervEXT; // 757
+            PFNGLGETNAMEDBUFFERSUBDATAPROC GetNamedBufferSubData; // 758
+            PFNGLGETNAMEDBUFFERSUBDATAEXTPROC GetNamedBufferSubDataEXT; // 759
+            PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVPROC GetNamedFramebufferAttachmentParameteriv; // 760
+            PFNGLGETNAMEDFRAMEBUFFERATTACHMENTPARAMETERIVEXTPROC GetNamedFramebufferAttachmentParameterivEXT; // 761
+            PFNGLGETNAMEDFRAMEBUFFERPARAMETERFVAMDPROC GetNamedFramebufferParameterfvAMD; // 762
+            PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVPROC GetNamedFramebufferParameteriv; // 763
+            PFNGLGETNAMEDFRAMEBUFFERPARAMETERIVEXTPROC GetNamedFramebufferParameterivEXT; // 764
+            PFNGLGETNAMEDPROGRAMLOCALPARAMETERIIVEXTPROC GetNamedProgramLocalParameterIivEXT; // 765
+            PFNGLGETNAMEDPROGRAMLOCALPARAMETERIUIVEXTPROC GetNamedProgramLocalParameterIuivEXT; // 766
+            PFNGLGETNAMEDPROGRAMLOCALPARAMETERDVEXTPROC GetNamedProgramLocalParameterdvEXT; // 767
+            PFNGLGETNAMEDPROGRAMLOCALPARAMETERFVEXTPROC GetNamedProgramLocalParameterfvEXT; // 768
+            PFNGLGETNAMEDPROGRAMSTRINGEXTPROC GetNamedProgramStringEXT; // 769
+            PFNGLGETNAMEDPROGRAMIVEXTPROC GetNamedProgramivEXT; // 770
+            PFNGLGETNAMEDRENDERBUFFERPARAMETERIVPROC GetNamedRenderbufferParameteriv; // 771
+            PFNGLGETNAMEDRENDERBUFFERPARAMETERIVEXTPROC GetNamedRenderbufferParameterivEXT; // 772
+            PFNGLGETNAMEDSTRINGARBPROC GetNamedStringARB; // 773
+            PFNGLGETNAMEDSTRINGIVARBPROC GetNamedStringivARB; // 774
+            PFNGLGETNEXTPERFQUERYIDINTELPROC GetNextPerfQueryIdINTEL; // 775
+            PFNGLGETOBJECTBUFFERFVATIPROC GetObjectBufferfvATI; // 776
+            PFNGLGETOBJECTBUFFERIVATIPROC GetObjectBufferivATI; // 777
+            PFNGLGETOBJECTLABELPROC GetObjectLabel; // 778
+            PFNGLGETOBJECTLABELEXTPROC GetObjectLabelEXT; // 779
+            PFNGLGETOBJECTPARAMETERFVARBPROC GetObjectParameterfvARB; // 780
+            PFNGLGETOBJECTPARAMETERIVAPPLEPROC GetObjectParameterivAPPLE; // 781
+            PFNGLGETOBJECTPARAMETERIVARBPROC GetObjectParameterivARB; // 782
+            PFNGLGETOBJECTPTRLABELPROC GetObjectPtrLabel; // 783
+            PFNGLGETOCCLUSIONQUERYIVNVPROC GetOcclusionQueryivNV; // 784
+            PFNGLGETOCCLUSIONQUERYUIVNVPROC GetOcclusionQueryuivNV; // 785
+            PFNGLGETPATHCOMMANDSNVPROC GetPathCommandsNV; // 786
+            PFNGLGETPATHCOORDSNVPROC GetPathCoordsNV; // 787
+            PFNGLGETPATHDASHARRAYNVPROC GetPathDashArrayNV; // 788
+            PFNGLGETPATHLENGTHNVPROC GetPathLengthNV; // 789
+            PFNGLGETPATHMETRICRANGENVPROC GetPathMetricRangeNV; // 790
+            PFNGLGETPATHMETRICSNVPROC GetPathMetricsNV; // 791
+            PFNGLGETPATHPARAMETERFVNVPROC GetPathParameterfvNV; // 792
+            PFNGLGETPATHPARAMETERIVNVPROC GetPathParameterivNV; // 793
+            PFNGLGETPATHSPACINGNVPROC GetPathSpacingNV; // 794
+            PFNGLGETPERFCOUNTERINFOINTELPROC GetPerfCounterInfoINTEL; // 795
+            PFNGLGETPERFMONITORCOUNTERDATAAMDPROC GetPerfMonitorCounterDataAMD; // 796
+            PFNGLGETPERFMONITORCOUNTERINFOAMDPROC GetPerfMonitorCounterInfoAMD; // 797
+            PFNGLGETPERFMONITORCOUNTERSTRINGAMDPROC GetPerfMonitorCounterStringAMD; // 798
+            PFNGLGETPERFMONITORCOUNTERSAMDPROC GetPerfMonitorCountersAMD; // 799
+            PFNGLGETPERFMONITORGROUPSTRINGAMDPROC GetPerfMonitorGroupStringAMD; // 800
+            PFNGLGETPERFMONITORGROUPSAMDPROC GetPerfMonitorGroupsAMD; // 801
+            PFNGLGETPERFQUERYDATAINTELPROC GetPerfQueryDataINTEL; // 802
+            PFNGLGETPERFQUERYIDBYNAMEINTELPROC GetPerfQueryIdByNameINTEL; // 803
+            PFNGLGETPERFQUERYINFOINTELPROC GetPerfQueryInfoINTEL; // 804
+            PFNGLGETPIXELMAPXVPROC GetPixelMapxv; // 805
+            PFNGLGETPIXELTEXGENPARAMETERFVSGISPROC GetPixelTexGenParameterfvSGIS; // 806
+            PFNGLGETPIXELTEXGENPARAMETERIVSGISPROC GetPixelTexGenParameterivSGIS; // 807
+            PFNGLGETPIXELTRANSFORMPARAMETERFVEXTPROC GetPixelTransformParameterfvEXT; // 808
+            PFNGLGETPIXELTRANSFORMPARAMETERIVEXTPROC GetPixelTransformParameterivEXT; // 809
+            PFNGLGETPOINTERINDEXEDVEXTPROC GetPointerIndexedvEXT; // 810
+            PFNGLGETPOINTERI_VEXTPROC GetPointeri_vEXT; // 811
+            PFNGLGETPOINTERVPROC GetPointerv; // 812
+            PFNGLGETPOINTERVEXTPROC GetPointervEXT; // 813
+            PFNGLGETPROGRAMBINARYPROC GetProgramBinary; // 814
+            PFNGLGETPROGRAMENVPARAMETERIIVNVPROC GetProgramEnvParameterIivNV; // 815
+            PFNGLGETPROGRAMENVPARAMETERIUIVNVPROC GetProgramEnvParameterIuivNV; // 816
+            PFNGLGETPROGRAMENVPARAMETERDVARBPROC GetProgramEnvParameterdvARB; // 817
+            PFNGLGETPROGRAMENVPARAMETERFVARBPROC GetProgramEnvParameterfvARB; // 818
+            PFNGLGETPROGRAMINFOLOGPROC GetProgramInfoLog; // 819
+            PFNGLGETPROGRAMINTERFACEIVPROC GetProgramInterfaceiv; // 820
+            PFNGLGETPROGRAMLOCALPARAMETERIIVNVPROC GetProgramLocalParameterIivNV; // 821
+            PFNGLGETPROGRAMLOCALPARAMETERIUIVNVPROC GetProgramLocalParameterIuivNV; // 822
+            PFNGLGETPROGRAMLOCALPARAMETERDVARBPROC GetProgramLocalParameterdvARB; // 823
+            PFNGLGETPROGRAMLOCALPARAMETERFVARBPROC GetProgramLocalParameterfvARB; // 824
+            PFNGLGETPROGRAMNAMEDPARAMETERDVNVPROC GetProgramNamedParameterdvNV; // 825
+            PFNGLGETPROGRAMNAMEDPARAMETERFVNVPROC GetProgramNamedParameterfvNV; // 826
+            PFNGLGETPROGRAMPARAMETERDVNVPROC GetProgramParameterdvNV; // 827
+            PFNGLGETPROGRAMPARAMETERFVNVPROC GetProgramParameterfvNV; // 828
+            PFNGLGETPROGRAMPIPELINEINFOLOGPROC GetProgramPipelineInfoLog; // 829
+            PFNGLGETPROGRAMPIPELINEIVPROC GetProgramPipelineiv; // 830
+            PFNGLGETPROGRAMRESOURCEINDEXPROC GetProgramResourceIndex; // 831
+            PFNGLGETPROGRAMRESOURCELOCATIONPROC GetProgramResourceLocation; // 832
+            PFNGLGETPROGRAMRESOURCELOCATIONINDEXPROC GetProgramResourceLocationIndex; // 833
+            PFNGLGETPROGRAMRESOURCENAMEPROC GetProgramResourceName; // 834
+            PFNGLGETPROGRAMRESOURCEFVNVPROC GetProgramResourcefvNV; // 835
+            PFNGLGETPROGRAMRESOURCEIVPROC GetProgramResourceiv; // 836
+            PFNGLGETPROGRAMSTAGEIVPROC GetProgramStageiv; // 837
+            PFNGLGETPROGRAMSTRINGARBPROC GetProgramStringARB; // 838
+            PFNGLGETPROGRAMSTRINGNVPROC GetProgramStringNV; // 839
+            PFNGLGETPROGRAMSUBROUTINEPARAMETERUIVNVPROC GetProgramSubroutineParameteruivNV; // 840
+            PFNGLGETPROGRAMIVPROC GetProgramiv; // 841
+            PFNGLGETPROGRAMIVARBPROC GetProgramivARB; // 842
+            PFNGLGETPROGRAMIVNVPROC GetProgramivNV; // 843
+            PFNGLGETQUERYBUFFEROBJECTI64VPROC GetQueryBufferObjecti64v; // 844
+            PFNGLGETQUERYBUFFEROBJECTIVPROC GetQueryBufferObjectiv; // 845
+            PFNGLGETQUERYBUFFEROBJECTUI64VPROC GetQueryBufferObjectui64v; // 846
+            PFNGLGETQUERYBUFFEROBJECTUIVPROC GetQueryBufferObjectuiv; // 847
+            PFNGLGETQUERYINDEXEDIVPROC GetQueryIndexediv; // 848
+            PFNGLGETQUERYOBJECTI64VPROC GetQueryObjecti64v; // 849
+            PFNGLGETQUERYOBJECTI64VEXTPROC GetQueryObjecti64vEXT; // 850
+            PFNGLGETQUERYOBJECTIVPROC GetQueryObjectiv; // 851
+            PFNGLGETQUERYOBJECTIVARBPROC GetQueryObjectivARB; // 852
+            PFNGLGETQUERYOBJECTUI64VPROC GetQueryObjectui64v; // 853
+            PFNGLGETQUERYOBJECTUI64VEXTPROC GetQueryObjectui64vEXT; // 854
+            PFNGLGETQUERYOBJECTUIVPROC GetQueryObjectuiv; // 855
+            PFNGLGETQUERYOBJECTUIVARBPROC GetQueryObjectuivARB; // 856
+            PFNGLGETQUERYIVPROC GetQueryiv; // 857
+            PFNGLGETQUERYIVARBPROC GetQueryivARB; // 858
+            PFNGLGETRENDERBUFFERPARAMETERIVPROC GetRenderbufferParameteriv; // 859
+            PFNGLGETRENDERBUFFERPARAMETERIVEXTPROC GetRenderbufferParameterivEXT; // 860
+            PFNGLGETSAMPLERPARAMETERIIVPROC GetSamplerParameterIiv; // 861
+            PFNGLGETSAMPLERPARAMETERIUIVPROC GetSamplerParameterIuiv; // 862
+            PFNGLGETSAMPLERPARAMETERFVPROC GetSamplerParameterfv; // 863
+            PFNGLGETSAMPLERPARAMETERIVPROC GetSamplerParameteriv; // 864
+            PFNGLGETSEMAPHOREPARAMETERIVNVPROC GetSemaphoreParameterivNV; // 865
+            PFNGLGETSEMAPHOREPARAMETERUI64VEXTPROC GetSemaphoreParameterui64vEXT; // 866
+            PFNGLGETSEPARABLEFILTEREXTPROC GetSeparableFilterEXT; // 867
+            PFNGLGETSHADERINFOLOGPROC GetShaderInfoLog; // 868
+            PFNGLGETSHADERPRECISIONFORMATPROC GetShaderPrecisionFormat; // 869
+            PFNGLGETSHADERSOURCEPROC GetShaderSource; // 870
+            PFNGLGETSHADERSOURCEARBPROC GetShaderSourceARB; // 871
+            PFNGLGETSHADERIVPROC GetShaderiv; // 872
+            PFNGLGETSHADINGRATEIMAGEPALETTENVPROC GetShadingRateImagePaletteNV; // 873
+            PFNGLGETSHADINGRATESAMPLELOCATIONIVNVPROC GetShadingRateSampleLocationivNV; // 874
+            PFNGLGETSHARPENTEXFUNCSGISPROC GetSharpenTexFuncSGIS; // 875
+            PFNGLGETSTAGEINDEXNVPROC GetStageIndexNV; // 876
+            PFNGLGETSTRINGPROC GetString; // 877
+            PFNGLGETSTRINGIPROC GetStringi; // 878
+            PFNGLGETSUBROUTINEINDEXPROC GetSubroutineIndex; // 879
+            PFNGLGETSUBROUTINEUNIFORMLOCATIONPROC GetSubroutineUniformLocation; // 880
+            PFNGLGETSYNCIVPROC GetSynciv; // 881
+            PFNGLGETTEXBUMPPARAMETERFVATIPROC GetTexBumpParameterfvATI; // 882
+            PFNGLGETTEXBUMPPARAMETERIVATIPROC GetTexBumpParameterivATI; // 883
+            PFNGLGETTEXENVXVOESPROC GetTexEnvxvOES; // 884
+            PFNGLGETTEXFILTERFUNCSGISPROC GetTexFilterFuncSGIS; // 885
+            PFNGLGETTEXGENXVOESPROC GetTexGenxvOES; // 886
+            PFNGLGETTEXIMAGEPROC GetTexImage; // 887
+            PFNGLGETTEXLEVELPARAMETERFVPROC GetTexLevelParameterfv; // 888
+            PFNGLGETTEXLEVELPARAMETERIVPROC GetTexLevelParameteriv; // 889
+            PFNGLGETTEXLEVELPARAMETERXVOESPROC GetTexLevelParameterxvOES; // 890
+            PFNGLGETTEXPARAMETERIIVPROC GetTexParameterIiv; // 891
+            PFNGLGETTEXPARAMETERIIVEXTPROC GetTexParameterIivEXT; // 892
+            PFNGLGETTEXPARAMETERIUIVPROC GetTexParameterIuiv; // 893
+            PFNGLGETTEXPARAMETERIUIVEXTPROC GetTexParameterIuivEXT; // 894
+            PFNGLGETTEXPARAMETERPOINTERVAPPLEPROC GetTexParameterPointervAPPLE; // 895
+            PFNGLGETTEXPARAMETERFVPROC GetTexParameterfv; // 896
+            PFNGLGETTEXPARAMETERIVPROC GetTexParameteriv; // 897
+            PFNGLGETTEXPARAMETERXVOESPROC GetTexParameterxvOES; // 898
+            PFNGLGETTEXTUREHANDLEARBPROC GetTextureHandleARB; // 899
+            PFNGLGETTEXTUREHANDLENVPROC GetTextureHandleNV; // 900
+            PFNGLGETTEXTUREIMAGEPROC GetTextureImage; // 901
+            PFNGLGETTEXTUREIMAGEEXTPROC GetTextureImageEXT; // 902
+            PFNGLGETTEXTURELEVELPARAMETERFVPROC GetTextureLevelParameterfv; // 903
+            PFNGLGETTEXTURELEVELPARAMETERFVEXTPROC GetTextureLevelParameterfvEXT; // 904
+            PFNGLGETTEXTURELEVELPARAMETERIVPROC GetTextureLevelParameteriv; // 905
+            PFNGLGETTEXTURELEVELPARAMETERIVEXTPROC GetTextureLevelParameterivEXT; // 906
+            PFNGLGETTEXTUREPARAMETERIIVPROC GetTextureParameterIiv; // 907
+            PFNGLGETTEXTUREPARAMETERIIVEXTPROC GetTextureParameterIivEXT; // 908
+            PFNGLGETTEXTUREPARAMETERIUIVPROC GetTextureParameterIuiv; // 909
+            PFNGLGETTEXTUREPARAMETERIUIVEXTPROC GetTextureParameterIuivEXT; // 910
+            PFNGLGETTEXTUREPARAMETERFVPROC GetTextureParameterfv; // 911
+            PFNGLGETTEXTUREPARAMETERFVEXTPROC GetTextureParameterfvEXT; // 912
+            PFNGLGETTEXTUREPARAMETERIVPROC GetTextureParameteriv; // 913
+            PFNGLGETTEXTUREPARAMETERIVEXTPROC GetTextureParameterivEXT; // 914
+            PFNGLGETTEXTURESAMPLERHANDLEARBPROC GetTextureSamplerHandleARB; // 915
+            PFNGLGETTEXTURESAMPLERHANDLENVPROC GetTextureSamplerHandleNV; // 916
+            PFNGLGETTEXTURESUBIMAGEPROC GetTextureSubImage; // 917
+            PFNGLGETTRACKMATRIXIVNVPROC GetTrackMatrixivNV; // 918
+            PFNGLGETTRANSFORMFEEDBACKVARYINGPROC GetTransformFeedbackVarying; // 919
+            PFNGLGETTRANSFORMFEEDBACKVARYINGEXTPROC GetTransformFeedbackVaryingEXT; // 920
+            PFNGLGETTRANSFORMFEEDBACKVARYINGNVPROC GetTransformFeedbackVaryingNV; // 921
+            PFNGLGETTRANSFORMFEEDBACKI64_VPROC GetTransformFeedbacki64_v; // 922
+            PFNGLGETTRANSFORMFEEDBACKI_VPROC GetTransformFeedbacki_v; // 923
+            PFNGLGETTRANSFORMFEEDBACKIVPROC GetTransformFeedbackiv; // 924
+            PFNGLGETUNIFORMBLOCKINDEXPROC GetUniformBlockIndex; // 925
+            PFNGLGETUNIFORMBUFFERSIZEEXTPROC GetUniformBufferSizeEXT; // 926
+            PFNGLGETUNIFORMINDICESPROC GetUniformIndices; // 927
+            PFNGLGETUNIFORMLOCATIONPROC GetUniformLocation; // 928
+            PFNGLGETUNIFORMLOCATIONARBPROC GetUniformLocationARB; // 929
+            PFNGLGETUNIFORMOFFSETEXTPROC GetUniformOffsetEXT; // 930
+            PFNGLGETUNIFORMSUBROUTINEUIVPROC GetUniformSubroutineuiv; // 931
+            PFNGLGETUNIFORMDVPROC GetUniformdv; // 932
+            PFNGLGETUNIFORMFVPROC GetUniformfv; // 933
+            PFNGLGETUNIFORMFVARBPROC GetUniformfvARB; // 934
+            PFNGLGETUNIFORMI64VARBPROC GetUniformi64vARB; // 935
+            PFNGLGETUNIFORMI64VNVPROC GetUniformi64vNV; // 936
+            PFNGLGETUNIFORMIVPROC GetUniformiv; // 937
+            PFNGLGETUNIFORMIVARBPROC GetUniformivARB; // 938
+            PFNGLGETUNIFORMUI64VARBPROC GetUniformui64vARB; // 939
+            PFNGLGETUNIFORMUI64VNVPROC GetUniformui64vNV; // 940
+            PFNGLGETUNIFORMUIVPROC GetUniformuiv; // 941
+            PFNGLGETUNIFORMUIVEXTPROC GetUniformuivEXT; // 942
+            PFNGLGETUNSIGNEDBYTEI_VEXTPROC GetUnsignedBytei_vEXT; // 943
+            PFNGLGETUNSIGNEDBYTEVEXTPROC GetUnsignedBytevEXT; // 944
+            PFNGLGETVARIANTARRAYOBJECTFVATIPROC GetVariantArrayObjectfvATI; // 945
+            PFNGLGETVARIANTARRAYOBJECTIVATIPROC GetVariantArrayObjectivATI; // 946
+            PFNGLGETVARIANTBOOLEANVEXTPROC GetVariantBooleanvEXT; // 947
+            PFNGLGETVARIANTFLOATVEXTPROC GetVariantFloatvEXT; // 948
+            PFNGLGETVARIANTINTEGERVEXTPROC GetVariantIntegervEXT; // 949
+            PFNGLGETVARIANTPOINTERVEXTPROC GetVariantPointervEXT; // 950
+            PFNGLGETVARYINGLOCATIONNVPROC GetVaryingLocationNV; // 951
+            PFNGLGETVERTEXARRAYINDEXED64IVPROC GetVertexArrayIndexed64iv; // 952
+            PFNGLGETVERTEXARRAYINDEXEDIVPROC GetVertexArrayIndexediv; // 953
+            PFNGLGETVERTEXARRAYINTEGERI_VEXTPROC GetVertexArrayIntegeri_vEXT; // 954
+            PFNGLGETVERTEXARRAYINTEGERVEXTPROC GetVertexArrayIntegervEXT; // 955
+            PFNGLGETVERTEXARRAYPOINTERI_VEXTPROC GetVertexArrayPointeri_vEXT; // 956
+            PFNGLGETVERTEXARRAYPOINTERVEXTPROC GetVertexArrayPointervEXT; // 957
+            PFNGLGETVERTEXARRAYIVPROC GetVertexArrayiv; // 958
+            PFNGLGETVERTEXATTRIBARRAYOBJECTFVATIPROC GetVertexAttribArrayObjectfvATI; // 959
+            PFNGLGETVERTEXATTRIBARRAYOBJECTIVATIPROC GetVertexAttribArrayObjectivATI; // 960
+            PFNGLGETVERTEXATTRIBIIVPROC GetVertexAttribIiv; // 961
+            PFNGLGETVERTEXATTRIBIIVEXTPROC GetVertexAttribIivEXT; // 962
+            PFNGLGETVERTEXATTRIBIUIVPROC GetVertexAttribIuiv; // 963
+            PFNGLGETVERTEXATTRIBIUIVEXTPROC GetVertexAttribIuivEXT; // 964
+            PFNGLGETVERTEXATTRIBLDVPROC GetVertexAttribLdv; // 965
+            PFNGLGETVERTEXATTRIBLDVEXTPROC GetVertexAttribLdvEXT; // 966
+            PFNGLGETVERTEXATTRIBLI64VNVPROC GetVertexAttribLi64vNV; // 967
+            PFNGLGETVERTEXATTRIBLUI64VARBPROC GetVertexAttribLui64vARB; // 968
+            PFNGLGETVERTEXATTRIBLUI64VNVPROC GetVertexAttribLui64vNV; // 969
+            PFNGLGETVERTEXATTRIBPOINTERVPROC GetVertexAttribPointerv; // 970
+            PFNGLGETVERTEXATTRIBPOINTERVARBPROC GetVertexAttribPointervARB; // 971
+            PFNGLGETVERTEXATTRIBPOINTERVNVPROC GetVertexAttribPointervNV; // 972
+            PFNGLGETVERTEXATTRIBDVPROC GetVertexAttribdv; // 973
+            PFNGLGETVERTEXATTRIBDVARBPROC GetVertexAttribdvARB; // 974
+            PFNGLGETVERTEXATTRIBDVNVPROC GetVertexAttribdvNV; // 975
+            PFNGLGETVERTEXATTRIBFVPROC GetVertexAttribfv; // 976
+            PFNGLGETVERTEXATTRIBFVARBPROC GetVertexAttribfvARB; // 977
+            PFNGLGETVERTEXATTRIBFVNVPROC GetVertexAttribfvNV; // 978
+            PFNGLGETVERTEXATTRIBIVPROC GetVertexAttribiv; // 979
+            PFNGLGETVERTEXATTRIBIVARBPROC GetVertexAttribivARB; // 980
+            PFNGLGETVERTEXATTRIBIVNVPROC GetVertexAttribivNV; // 981
+            PFNGLGETVIDEOCAPTURESTREAMDVNVPROC GetVideoCaptureStreamdvNV; // 982
+            PFNGLGETVIDEOCAPTURESTREAMFVNVPROC GetVideoCaptureStreamfvNV; // 983
+            PFNGLGETVIDEOCAPTURESTREAMIVNVPROC GetVideoCaptureStreamivNV; // 984
+            PFNGLGETVIDEOCAPTUREIVNVPROC GetVideoCaptureivNV; // 985
+            PFNGLGETVIDEOI64VNVPROC GetVideoi64vNV; // 986
+            PFNGLGETVIDEOIVNVPROC GetVideoivNV; // 987
+            PFNGLGETVIDEOUI64VNVPROC GetVideoui64vNV; // 988
+            PFNGLGETVIDEOUIVNVPROC GetVideouivNV; // 989
+            PFNGLGETVKPROCADDRNVPROC GetVkProcAddrNV; // 990
+            PFNGLGETNCOMPRESSEDTEXIMAGEPROC GetnCompressedTexImage; // 991
+            PFNGLGETNCOMPRESSEDTEXIMAGEARBPROC GetnCompressedTexImageARB; // 992
+            PFNGLGETNTEXIMAGEPROC GetnTexImage; // 993
+            PFNGLGETNTEXIMAGEARBPROC GetnTexImageARB; // 994
+            PFNGLGETNUNIFORMDVPROC GetnUniformdv; // 995
+            PFNGLGETNUNIFORMDVARBPROC GetnUniformdvARB; // 996
+            PFNGLGETNUNIFORMFVPROC GetnUniformfv; // 997
+            PFNGLGETNUNIFORMFVARBPROC GetnUniformfvARB; // 998
+            PFNGLGETNUNIFORMI64VARBPROC GetnUniformi64vARB; // 999
+            PFNGLGETNUNIFORMIVPROC GetnUniformiv; // 1000
+            PFNGLGETNUNIFORMIVARBPROC GetnUniformivARB; // 1001
+            PFNGLGETNUNIFORMUI64VARBPROC GetnUniformui64vARB; // 1002
+            PFNGLGETNUNIFORMUIVPROC GetnUniformuiv; // 1003
+            PFNGLGETNUNIFORMUIVARBPROC GetnUniformuivARB; // 1004
+            PFNGLGLOBALALPHAFACTORBSUNPROC GlobalAlphaFactorbSUN; // 1005
+            PFNGLGLOBALALPHAFACTORDSUNPROC GlobalAlphaFactordSUN; // 1006
+            PFNGLGLOBALALPHAFACTORFSUNPROC GlobalAlphaFactorfSUN; // 1007
+            PFNGLGLOBALALPHAFACTORISUNPROC GlobalAlphaFactoriSUN; // 1008
+            PFNGLGLOBALALPHAFACTORSSUNPROC GlobalAlphaFactorsSUN; // 1009
+            PFNGLGLOBALALPHAFACTORUBSUNPROC GlobalAlphaFactorubSUN; // 1010
+            PFNGLGLOBALALPHAFACTORUISUNPROC GlobalAlphaFactoruiSUN; // 1011
+            PFNGLGLOBALALPHAFACTORUSSUNPROC GlobalAlphaFactorusSUN; // 1012
+            PFNGLHINTPROC Hint; // 1013
+            PFNGLHINTPGIPROC HintPGI; // 1014
+            PFNGLHISTOGRAMEXTPROC HistogramEXT; // 1015
+            PFNGLIGLOOINTERFACESGIXPROC IglooInterfaceSGIX; // 1016
+            PFNGLIMAGETRANSFORMPARAMETERFHPPROC ImageTransformParameterfHP; // 1017
+            PFNGLIMAGETRANSFORMPARAMETERFVHPPROC ImageTransformParameterfvHP; // 1018
+            PFNGLIMAGETRANSFORMPARAMETERIHPPROC ImageTransformParameteriHP; // 1019
+            PFNGLIMAGETRANSFORMPARAMETERIVHPPROC ImageTransformParameterivHP; // 1020
+            PFNGLIMPORTMEMORYFDEXTPROC ImportMemoryFdEXT; // 1021
+            PFNGLIMPORTMEMORYWIN32HANDLEEXTPROC ImportMemoryWin32HandleEXT; // 1022
+            PFNGLIMPORTMEMORYWIN32NAMEEXTPROC ImportMemoryWin32NameEXT; // 1023
+            PFNGLIMPORTMEMORYZIRCONHANDLEANGLEPROC ImportMemoryZirconHandleANGLE; // 1024
+            PFNGLIMPORTSEMAPHOREFDEXTPROC ImportSemaphoreFdEXT; // 1025
+            PFNGLIMPORTSEMAPHOREWIN32HANDLEEXTPROC ImportSemaphoreWin32HandleEXT; // 1026
+            PFNGLIMPORTSEMAPHOREWIN32NAMEEXTPROC ImportSemaphoreWin32NameEXT; // 1027
+            PFNGLIMPORTSEMAPHOREZIRCONHANDLEANGLEPROC ImportSemaphoreZirconHandleANGLE; // 1028
+            PFNGLIMPORTSYNCEXTPROC ImportSyncEXT; // 1029
+            PFNGLINDEXFORMATNVPROC IndexFormatNV; // 1030
+            PFNGLINDEXFUNCEXTPROC IndexFuncEXT; // 1031
+            PFNGLINDEXMATERIALEXTPROC IndexMaterialEXT; // 1032
+            PFNGLINDEXPOINTEREXTPROC IndexPointerEXT; // 1033
+            PFNGLINDEXPOINTERLISTIBMPROC IndexPointerListIBM; // 1034
+            PFNGLINDEXXOESPROC IndexxOES; // 1035
+            PFNGLINDEXXVOESPROC IndexxvOES; // 1036
+            PFNGLINSERTCOMPONENTEXTPROC InsertComponentEXT; // 1037
+            PFNGLINSERTEVENTMARKEREXTPROC InsertEventMarkerEXT; // 1038
+            PFNGLINSTRUMENTSBUFFERSGIXPROC InstrumentsBufferSGIX; // 1039
+            PFNGLINTERPOLATEPATHSNVPROC InterpolatePathsNV; // 1040
+            PFNGLINVALIDATEBUFFERDATAPROC InvalidateBufferData; // 1041
+            PFNGLINVALIDATEBUFFERSUBDATAPROC InvalidateBufferSubData; // 1042
+            PFNGLINVALIDATEFRAMEBUFFERPROC InvalidateFramebuffer; // 1043
+            PFNGLINVALIDATENAMEDFRAMEBUFFERDATAPROC InvalidateNamedFramebufferData; // 1044
+            PFNGLINVALIDATENAMEDFRAMEBUFFERSUBDATAPROC InvalidateNamedFramebufferSubData; // 1045
+            PFNGLINVALIDATESUBFRAMEBUFFERPROC InvalidateSubFramebuffer; // 1046
+            PFNGLINVALIDATETEXIMAGEPROC InvalidateTexImage; // 1047
+            PFNGLINVALIDATETEXSUBIMAGEPROC InvalidateTexSubImage; // 1048
+            PFNGLINVALIDATETEXTUREANGLEPROC InvalidateTextureANGLE; // 1049
+            PFNGLISASYNCMARKERSGIXPROC IsAsyncMarkerSGIX; // 1050
+            PFNGLISBUFFERPROC IsBuffer; // 1051
+            PFNGLISBUFFERARBPROC IsBufferARB; // 1052
+            PFNGLISBUFFERRESIDENTNVPROC IsBufferResidentNV; // 1053
+            PFNGLISCOMMANDLISTNVPROC IsCommandListNV; // 1054
+            PFNGLISENABLEDPROC IsEnabled; // 1055
+            PFNGLISENABLEDINDEXEDEXTPROC IsEnabledIndexedEXT; // 1056
+            PFNGLISENABLEDIPROC IsEnabledi; // 1057
+            PFNGLISFENCEAPPLEPROC IsFenceAPPLE; // 1058
+            PFNGLISFENCENVPROC IsFenceNV; // 1059
+            PFNGLISFRAMEBUFFERPROC IsFramebuffer; // 1060
+            PFNGLISFRAMEBUFFEREXTPROC IsFramebufferEXT; // 1061
+            PFNGLISIMAGEHANDLERESIDENTARBPROC IsImageHandleResidentARB; // 1062
+            PFNGLISIMAGEHANDLERESIDENTNVPROC IsImageHandleResidentNV; // 1063
+            PFNGLISMEMORYOBJECTEXTPROC IsMemoryObjectEXT; // 1064
+            PFNGLISNAMEAMDPROC IsNameAMD; // 1065
+            PFNGLISNAMEDBUFFERRESIDENTNVPROC IsNamedBufferResidentNV; // 1066
+            PFNGLISNAMEDSTRINGARBPROC IsNamedStringARB; // 1067
+            PFNGLISOBJECTBUFFERATIPROC IsObjectBufferATI; // 1068
+            PFNGLISOCCLUSIONQUERYNVPROC IsOcclusionQueryNV; // 1069
+            PFNGLISPATHNVPROC IsPathNV; // 1070
+            PFNGLISPOINTINFILLPATHNVPROC IsPointInFillPathNV; // 1071
+            PFNGLISPOINTINSTROKEPATHNVPROC IsPointInStrokePathNV; // 1072
+            PFNGLISPROGRAMPROC IsProgram; // 1073
+            PFNGLISPROGRAMARBPROC IsProgramARB; // 1074
+            PFNGLISPROGRAMNVPROC IsProgramNV; // 1075
+            PFNGLISPROGRAMPIPELINEPROC IsProgramPipeline; // 1076
+            PFNGLISQUERYPROC IsQuery; // 1077
+            PFNGLISQUERYARBPROC IsQueryARB; // 1078
+            PFNGLISRENDERBUFFERPROC IsRenderbuffer; // 1079
+            PFNGLISRENDERBUFFEREXTPROC IsRenderbufferEXT; // 1080
+            PFNGLISSAMPLERPROC IsSampler; // 1081
+            PFNGLISSEMAPHOREEXTPROC IsSemaphoreEXT; // 1082
+            PFNGLISSHADERPROC IsShader; // 1083
+            PFNGLISSTATENVPROC IsStateNV; // 1084
+            PFNGLISSYNCPROC IsSync; // 1085
+            PFNGLISTEXTUREPROC IsTexture; // 1086
+            PFNGLISTEXTUREEXTPROC IsTextureEXT; // 1087
+            PFNGLISTEXTUREHANDLERESIDENTARBPROC IsTextureHandleResidentARB; // 1088
+            PFNGLISTEXTUREHANDLERESIDENTNVPROC IsTextureHandleResidentNV; // 1089
+            PFNGLISTRANSFORMFEEDBACKPROC IsTransformFeedback; // 1090
+            PFNGLISTRANSFORMFEEDBACKNVPROC IsTransformFeedbackNV; // 1091
+            PFNGLISVARIANTENABLEDEXTPROC IsVariantEnabledEXT; // 1092
+            PFNGLISVERTEXARRAYPROC IsVertexArray; // 1093
+            PFNGLISVERTEXARRAYAPPLEPROC IsVertexArrayAPPLE; // 1094
+            PFNGLISVERTEXATTRIBENABLEDAPPLEPROC IsVertexAttribEnabledAPPLE; // 1095
+            PFNGLLGPUCOPYIMAGESUBDATANVXPROC LGPUCopyImageSubDataNVX; // 1096
+            PFNGLLGPUINTERLOCKNVXPROC LGPUInterlockNVX; // 1097
+            PFNGLLGPUNAMEDBUFFERSUBDATANVXPROC LGPUNamedBufferSubDataNVX; // 1098
+            PFNGLLABELOBJECTEXTPROC LabelObjectEXT; // 1099
+            PFNGLLIGHTENVISGIXPROC LightEnviSGIX; // 1100
+            PFNGLLIGHTMODELXOESPROC LightModelxOES; // 1101
+            PFNGLLIGHTMODELXVOESPROC LightModelxvOES; // 1102
+            PFNGLLIGHTXOESPROC LightxOES; // 1103
+            PFNGLLIGHTXVOESPROC LightxvOES; // 1104
+            PFNGLLINEWIDTHPROC LineWidth; // 1105
+            PFNGLLINEWIDTHXOESPROC LineWidthxOES; // 1106
+            PFNGLLINKPROGRAMPROC LinkProgram; // 1107
+            PFNGLLINKPROGRAMARBPROC LinkProgramARB; // 1108
+            PFNGLLISTDRAWCOMMANDSSTATESCLIENTNVPROC ListDrawCommandsStatesClientNV; // 1109
+            PFNGLLISTPARAMETERFSGIXPROC ListParameterfSGIX; // 1110
+            PFNGLLISTPARAMETERFVSGIXPROC ListParameterfvSGIX; // 1111
+            PFNGLLISTPARAMETERISGIXPROC ListParameteriSGIX; // 1112
+            PFNGLLISTPARAMETERIVSGIXPROC ListParameterivSGIX; // 1113
+            PFNGLLOADIDENTITYDEFORMATIONMAPSGIXPROC LoadIdentityDeformationMapSGIX; // 1114
+            PFNGLLOADMATRIXXOESPROC LoadMatrixxOES; // 1115
+            PFNGLLOADPROGRAMNVPROC LoadProgramNV; // 1116
+            PFNGLLOADTRANSPOSEMATRIXDARBPROC LoadTransposeMatrixdARB; // 1117
+            PFNGLLOADTRANSPOSEMATRIXFARBPROC LoadTransposeMatrixfARB; // 1118
+            PFNGLLOADTRANSPOSEMATRIXXOESPROC LoadTransposeMatrixxOES; // 1119
+            PFNGLLOCKARRAYSEXTPROC LockArraysEXT; // 1120
+            PFNGLLOGICOPPROC LogicOp; // 1121
+            PFNGLMAKEBUFFERNONRESIDENTNVPROC MakeBufferNonResidentNV; // 1122
+            PFNGLMAKEBUFFERRESIDENTNVPROC MakeBufferResidentNV; // 1123
+            PFNGLMAKEIMAGEHANDLENONRESIDENTARBPROC MakeImageHandleNonResidentARB; // 1124
+            PFNGLMAKEIMAGEHANDLENONRESIDENTNVPROC MakeImageHandleNonResidentNV; // 1125
+            PFNGLMAKEIMAGEHANDLERESIDENTARBPROC MakeImageHandleResidentARB; // 1126
+            PFNGLMAKEIMAGEHANDLERESIDENTNVPROC MakeImageHandleResidentNV; // 1127
+            PFNGLMAKENAMEDBUFFERNONRESIDENTNVPROC MakeNamedBufferNonResidentNV; // 1128
+            PFNGLMAKENAMEDBUFFERRESIDENTNVPROC MakeNamedBufferResidentNV; // 1129
+            PFNGLMAKETEXTUREHANDLENONRESIDENTARBPROC MakeTextureHandleNonResidentARB; // 1130
+            PFNGLMAKETEXTUREHANDLENONRESIDENTNVPROC MakeTextureHandleNonResidentNV; // 1131
+            PFNGLMAKETEXTUREHANDLERESIDENTARBPROC MakeTextureHandleResidentARB; // 1132
+            PFNGLMAKETEXTUREHANDLERESIDENTNVPROC MakeTextureHandleResidentNV; // 1133
+            PFNGLMAP1XOESPROC Map1xOES; // 1134
+            PFNGLMAP2XOESPROC Map2xOES; // 1135
+            PFNGLMAPBUFFERPROC MapBuffer; // 1136
+            PFNGLMAPBUFFERARBPROC MapBufferARB; // 1137
+            PFNGLMAPBUFFERRANGEPROC MapBufferRange; // 1138
+            PFNGLMAPCONTROLPOINTSNVPROC MapControlPointsNV; // 1139
+            PFNGLMAPGRID1XOESPROC MapGrid1xOES; // 1140
+            PFNGLMAPGRID2XOESPROC MapGrid2xOES; // 1141
+            PFNGLMAPNAMEDBUFFERPROC MapNamedBuffer; // 1142
+            PFNGLMAPNAMEDBUFFEREXTPROC MapNamedBufferEXT; // 1143
+            PFNGLMAPNAMEDBUFFERRANGEPROC MapNamedBufferRange; // 1144
+            PFNGLMAPNAMEDBUFFERRANGEEXTPROC MapNamedBufferRangeEXT; // 1145
+            PFNGLMAPOBJECTBUFFERATIPROC MapObjectBufferATI; // 1146
+            PFNGLMAPPARAMETERFVNVPROC MapParameterfvNV; // 1147
+            PFNGLMAPPARAMETERIVNVPROC MapParameterivNV; // 1148
+            PFNGLMAPTEXTURE2DINTELPROC MapTexture2DINTEL; // 1149
+            PFNGLMAPVERTEXATTRIB1DAPPLEPROC MapVertexAttrib1dAPPLE; // 1150
+            PFNGLMAPVERTEXATTRIB1FAPPLEPROC MapVertexAttrib1fAPPLE; // 1151
+            PFNGLMAPVERTEXATTRIB2DAPPLEPROC MapVertexAttrib2dAPPLE; // 1152
+            PFNGLMAPVERTEXATTRIB2FAPPLEPROC MapVertexAttrib2fAPPLE; // 1153
+            PFNGLMATERIALXOESPROC MaterialxOES; // 1154
+            PFNGLMATERIALXVOESPROC MaterialxvOES; // 1155
+            PFNGLMATRIXFRUSTUMEXTPROC MatrixFrustumEXT; // 1156
+            PFNGLMATRIXINDEXPOINTERARBPROC MatrixIndexPointerARB; // 1157
+            PFNGLMATRIXINDEXUBVARBPROC MatrixIndexubvARB; // 1158
+            PFNGLMATRIXINDEXUIVARBPROC MatrixIndexuivARB; // 1159
+            PFNGLMATRIXINDEXUSVARBPROC MatrixIndexusvARB; // 1160
+            PFNGLMATRIXLOAD3X2FNVPROC MatrixLoad3x2fNV; // 1161
+            PFNGLMATRIXLOAD3X3FNVPROC MatrixLoad3x3fNV; // 1162
+            PFNGLMATRIXLOADIDENTITYEXTPROC MatrixLoadIdentityEXT; // 1163
+            PFNGLMATRIXLOADTRANSPOSE3X3FNVPROC MatrixLoadTranspose3x3fNV; // 1164
+            PFNGLMATRIXLOADTRANSPOSEDEXTPROC MatrixLoadTransposedEXT; // 1165
+            PFNGLMATRIXLOADTRANSPOSEFEXTPROC MatrixLoadTransposefEXT; // 1166
+            PFNGLMATRIXLOADDEXTPROC MatrixLoaddEXT; // 1167
+            PFNGLMATRIXLOADFEXTPROC MatrixLoadfEXT; // 1168
+            PFNGLMATRIXMULT3X2FNVPROC MatrixMult3x2fNV; // 1169
+            PFNGLMATRIXMULT3X3FNVPROC MatrixMult3x3fNV; // 1170
+            PFNGLMATRIXMULTTRANSPOSE3X3FNVPROC MatrixMultTranspose3x3fNV; // 1171
+            PFNGLMATRIXMULTTRANSPOSEDEXTPROC MatrixMultTransposedEXT; // 1172
+            PFNGLMATRIXMULTTRANSPOSEFEXTPROC MatrixMultTransposefEXT; // 1173
+            PFNGLMATRIXMULTDEXTPROC MatrixMultdEXT; // 1174
+            PFNGLMATRIXMULTFEXTPROC MatrixMultfEXT; // 1175
+            PFNGLMATRIXORTHOEXTPROC MatrixOrthoEXT; // 1176
+            PFNGLMATRIXPOPEXTPROC MatrixPopEXT; // 1177
+            PFNGLMATRIXPUSHEXTPROC MatrixPushEXT; // 1178
+            PFNGLMATRIXROTATEDEXTPROC MatrixRotatedEXT; // 1179
+            PFNGLMATRIXROTATEFEXTPROC MatrixRotatefEXT; // 1180
+            PFNGLMATRIXSCALEDEXTPROC MatrixScaledEXT; // 1181
+            PFNGLMATRIXSCALEFEXTPROC MatrixScalefEXT; // 1182
+            PFNGLMATRIXTRANSLATEDEXTPROC MatrixTranslatedEXT; // 1183
+            PFNGLMATRIXTRANSLATEFEXTPROC MatrixTranslatefEXT; // 1184
+            PFNGLMAXSHADERCOMPILERTHREADSARBPROC MaxShaderCompilerThreadsARB; // 1185
+            PFNGLMAXSHADERCOMPILERTHREADSKHRPROC MaxShaderCompilerThreadsKHR; // 1186
+            PFNGLMEMORYBARRIERPROC MemoryBarrier; // 1187
+            PFNGLMEMORYBARRIERBYREGIONPROC MemoryBarrierByRegion; // 1188
+            PFNGLMEMORYBARRIEREXTPROC MemoryBarrierEXT; // 1189
+            PFNGLMEMORYOBJECTPARAMETERIVEXTPROC MemoryObjectParameterivEXT; // 1190
+            PFNGLMINSAMPLESHADINGPROC MinSampleShading; // 1191
+            PFNGLMINSAMPLESHADINGARBPROC MinSampleShadingARB; // 1192
+            PFNGLMINMAXEXTPROC MinmaxEXT; // 1193
+            PFNGLMULTMATRIXXOESPROC MultMatrixxOES; // 1194
+            PFNGLMULTTRANSPOSEMATRIXDARBPROC MultTransposeMatrixdARB; // 1195
+            PFNGLMULTTRANSPOSEMATRIXFARBPROC MultTransposeMatrixfARB; // 1196
+            PFNGLMULTTRANSPOSEMATRIXXOESPROC MultTransposeMatrixxOES; // 1197
+            PFNGLMULTIDRAWARRAYSPROC MultiDrawArrays; // 1198
+            PFNGLMULTIDRAWARRAYSEXTPROC MultiDrawArraysEXT; // 1199
+            PFNGLMULTIDRAWARRAYSINDIRECTPROC MultiDrawArraysIndirect; // 1200
+            PFNGLMULTIDRAWARRAYSINDIRECTAMDPROC MultiDrawArraysIndirectAMD; // 1201
+            PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSCOUNTNVPROC MultiDrawArraysIndirectBindlessCountNV; // 1202
+            PFNGLMULTIDRAWARRAYSINDIRECTBINDLESSNVPROC MultiDrawArraysIndirectBindlessNV; // 1203
+            PFNGLMULTIDRAWARRAYSINDIRECTCOUNTPROC MultiDrawArraysIndirectCount; // 1204
+            PFNGLMULTIDRAWARRAYSINDIRECTCOUNTARBPROC MultiDrawArraysIndirectCountARB; // 1205
+            PFNGLMULTIDRAWELEMENTARRAYAPPLEPROC MultiDrawElementArrayAPPLE; // 1206
+            PFNGLMULTIDRAWELEMENTSPROC MultiDrawElements; // 1207
+            PFNGLMULTIDRAWELEMENTSBASEVERTEXPROC MultiDrawElementsBaseVertex; // 1208
+            PFNGLMULTIDRAWELEMENTSEXTPROC MultiDrawElementsEXT; // 1209
+            PFNGLMULTIDRAWELEMENTSINDIRECTPROC MultiDrawElementsIndirect; // 1210
+            PFNGLMULTIDRAWELEMENTSINDIRECTAMDPROC MultiDrawElementsIndirectAMD; // 1211
+            PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSCOUNTNVPROC MultiDrawElementsIndirectBindlessCountNV; // 1212
+            PFNGLMULTIDRAWELEMENTSINDIRECTBINDLESSNVPROC MultiDrawElementsIndirectBindlessNV; // 1213
+            PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTPROC MultiDrawElementsIndirectCount; // 1214
+            PFNGLMULTIDRAWELEMENTSINDIRECTCOUNTARBPROC MultiDrawElementsIndirectCountARB; // 1215
+            PFNGLMULTIDRAWMESHTASKSINDIRECTCOUNTNVPROC MultiDrawMeshTasksIndirectCountNV; // 1216
+            PFNGLMULTIDRAWMESHTASKSINDIRECTNVPROC MultiDrawMeshTasksIndirectNV; // 1217
+            PFNGLMULTIDRAWRANGEELEMENTARRAYAPPLEPROC MultiDrawRangeElementArrayAPPLE; // 1218
+            PFNGLMULTIMODEDRAWARRAYSIBMPROC MultiModeDrawArraysIBM; // 1219
+            PFNGLMULTIMODEDRAWELEMENTSIBMPROC MultiModeDrawElementsIBM; // 1220
+            PFNGLMULTITEXBUFFEREXTPROC MultiTexBufferEXT; // 1221
+            PFNGLMULTITEXCOORD1BOESPROC MultiTexCoord1bOES; // 1222
+            PFNGLMULTITEXCOORD1BVOESPROC MultiTexCoord1bvOES; // 1223
+            PFNGLMULTITEXCOORD1DARBPROC MultiTexCoord1dARB; // 1224
+            PFNGLMULTITEXCOORD1DVARBPROC MultiTexCoord1dvARB; // 1225
+            PFNGLMULTITEXCOORD1FARBPROC MultiTexCoord1fARB; // 1226
+            PFNGLMULTITEXCOORD1FVARBPROC MultiTexCoord1fvARB; // 1227
+            PFNGLMULTITEXCOORD1HNVPROC MultiTexCoord1hNV; // 1228
+            PFNGLMULTITEXCOORD1HVNVPROC MultiTexCoord1hvNV; // 1229
+            PFNGLMULTITEXCOORD1IARBPROC MultiTexCoord1iARB; // 1230
+            PFNGLMULTITEXCOORD1IVARBPROC MultiTexCoord1ivARB; // 1231
+            PFNGLMULTITEXCOORD1SARBPROC MultiTexCoord1sARB; // 1232
+            PFNGLMULTITEXCOORD1SVARBPROC MultiTexCoord1svARB; // 1233
+            PFNGLMULTITEXCOORD1XOESPROC MultiTexCoord1xOES; // 1234
+            PFNGLMULTITEXCOORD1XVOESPROC MultiTexCoord1xvOES; // 1235
+            PFNGLMULTITEXCOORD2BOESPROC MultiTexCoord2bOES; // 1236
+            PFNGLMULTITEXCOORD2BVOESPROC MultiTexCoord2bvOES; // 1237
+            PFNGLMULTITEXCOORD2DARBPROC MultiTexCoord2dARB; // 1238
+            PFNGLMULTITEXCOORD2DVARBPROC MultiTexCoord2dvARB; // 1239
+            PFNGLMULTITEXCOORD2FARBPROC MultiTexCoord2fARB; // 1240
+            PFNGLMULTITEXCOORD2FVARBPROC MultiTexCoord2fvARB; // 1241
+            PFNGLMULTITEXCOORD2HNVPROC MultiTexCoord2hNV; // 1242
+            PFNGLMULTITEXCOORD2HVNVPROC MultiTexCoord2hvNV; // 1243
+            PFNGLMULTITEXCOORD2IARBPROC MultiTexCoord2iARB; // 1244
+            PFNGLMULTITEXCOORD2IVARBPROC MultiTexCoord2ivARB; // 1245
+            PFNGLMULTITEXCOORD2SARBPROC MultiTexCoord2sARB; // 1246
+            PFNGLMULTITEXCOORD2SVARBPROC MultiTexCoord2svARB; // 1247
+            PFNGLMULTITEXCOORD2XOESPROC MultiTexCoord2xOES; // 1248
+            PFNGLMULTITEXCOORD2XVOESPROC MultiTexCoord2xvOES; // 1249
+            PFNGLMULTITEXCOORD3BOESPROC MultiTexCoord3bOES; // 1250
+            PFNGLMULTITEXCOORD3BVOESPROC MultiTexCoord3bvOES; // 1251
+            PFNGLMULTITEXCOORD3DARBPROC MultiTexCoord3dARB; // 1252
+            PFNGLMULTITEXCOORD3DVARBPROC MultiTexCoord3dvARB; // 1253
+            PFNGLMULTITEXCOORD3FARBPROC MultiTexCoord3fARB; // 1254
+            PFNGLMULTITEXCOORD3FVARBPROC MultiTexCoord3fvARB; // 1255
+            PFNGLMULTITEXCOORD3HNVPROC MultiTexCoord3hNV; // 1256
+            PFNGLMULTITEXCOORD3HVNVPROC MultiTexCoord3hvNV; // 1257
+            PFNGLMULTITEXCOORD3IARBPROC MultiTexCoord3iARB; // 1258
+            PFNGLMULTITEXCOORD3IVARBPROC MultiTexCoord3ivARB; // 1259
+            PFNGLMULTITEXCOORD3SARBPROC MultiTexCoord3sARB; // 1260
+            PFNGLMULTITEXCOORD3SVARBPROC MultiTexCoord3svARB; // 1261
+            PFNGLMULTITEXCOORD3XOESPROC MultiTexCoord3xOES; // 1262
+            PFNGLMULTITEXCOORD3XVOESPROC MultiTexCoord3xvOES; // 1263
+            PFNGLMULTITEXCOORD4BOESPROC MultiTexCoord4bOES; // 1264
+            PFNGLMULTITEXCOORD4BVOESPROC MultiTexCoord4bvOES; // 1265
+            PFNGLMULTITEXCOORD4DARBPROC MultiTexCoord4dARB; // 1266
+            PFNGLMULTITEXCOORD4DVARBPROC MultiTexCoord4dvARB; // 1267
+            PFNGLMULTITEXCOORD4FARBPROC MultiTexCoord4fARB; // 1268
+            PFNGLMULTITEXCOORD4FVARBPROC MultiTexCoord4fvARB; // 1269
+            PFNGLMULTITEXCOORD4HNVPROC MultiTexCoord4hNV; // 1270
+            PFNGLMULTITEXCOORD4HVNVPROC MultiTexCoord4hvNV; // 1271
+            PFNGLMULTITEXCOORD4IARBPROC MultiTexCoord4iARB; // 1272
+            PFNGLMULTITEXCOORD4IVARBPROC MultiTexCoord4ivARB; // 1273
+            PFNGLMULTITEXCOORD4SARBPROC MultiTexCoord4sARB; // 1274
+            PFNGLMULTITEXCOORD4SVARBPROC MultiTexCoord4svARB; // 1275
+            PFNGLMULTITEXCOORD4XOESPROC MultiTexCoord4xOES; // 1276
+            PFNGLMULTITEXCOORD4XVOESPROC MultiTexCoord4xvOES; // 1277
+            PFNGLMULTITEXCOORDPOINTEREXTPROC MultiTexCoordPointerEXT; // 1278
+            PFNGLMULTITEXENVFEXTPROC MultiTexEnvfEXT; // 1279
+            PFNGLMULTITEXENVFVEXTPROC MultiTexEnvfvEXT; // 1280
+            PFNGLMULTITEXENVIEXTPROC MultiTexEnviEXT; // 1281
+            PFNGLMULTITEXENVIVEXTPROC MultiTexEnvivEXT; // 1282
+            PFNGLMULTITEXGENDEXTPROC MultiTexGendEXT; // 1283
+            PFNGLMULTITEXGENDVEXTPROC MultiTexGendvEXT; // 1284
+            PFNGLMULTITEXGENFEXTPROC MultiTexGenfEXT; // 1285
+            PFNGLMULTITEXGENFVEXTPROC MultiTexGenfvEXT; // 1286
+            PFNGLMULTITEXGENIEXTPROC MultiTexGeniEXT; // 1287
+            PFNGLMULTITEXGENIVEXTPROC MultiTexGenivEXT; // 1288
+            PFNGLMULTITEXIMAGE1DEXTPROC MultiTexImage1DEXT; // 1289
+            PFNGLMULTITEXIMAGE2DEXTPROC MultiTexImage2DEXT; // 1290
+            PFNGLMULTITEXIMAGE3DEXTPROC MultiTexImage3DEXT; // 1291
+            PFNGLMULTITEXPARAMETERIIVEXTPROC MultiTexParameterIivEXT; // 1292
+            PFNGLMULTITEXPARAMETERIUIVEXTPROC MultiTexParameterIuivEXT; // 1293
+            PFNGLMULTITEXPARAMETERFEXTPROC MultiTexParameterfEXT; // 1294
+            PFNGLMULTITEXPARAMETERFVEXTPROC MultiTexParameterfvEXT; // 1295
+            PFNGLMULTITEXPARAMETERIEXTPROC MultiTexParameteriEXT; // 1296
+            PFNGLMULTITEXPARAMETERIVEXTPROC MultiTexParameterivEXT; // 1297
+            PFNGLMULTITEXRENDERBUFFEREXTPROC MultiTexRenderbufferEXT; // 1298
+            PFNGLMULTITEXSUBIMAGE1DEXTPROC MultiTexSubImage1DEXT; // 1299
+            PFNGLMULTITEXSUBIMAGE2DEXTPROC MultiTexSubImage2DEXT; // 1300
+            PFNGLMULTITEXSUBIMAGE3DEXTPROC MultiTexSubImage3DEXT; // 1301
+            PFNGLMULTICASTBARRIERNVPROC MulticastBarrierNV; // 1302
+            PFNGLMULTICASTBLITFRAMEBUFFERNVPROC MulticastBlitFramebufferNV; // 1303
+            PFNGLMULTICASTBUFFERSUBDATANVPROC MulticastBufferSubDataNV; // 1304
+            PFNGLMULTICASTCOPYBUFFERSUBDATANVPROC MulticastCopyBufferSubDataNV; // 1305
+            PFNGLMULTICASTCOPYIMAGESUBDATANVPROC MulticastCopyImageSubDataNV; // 1306
+            PFNGLMULTICASTFRAMEBUFFERSAMPLELOCATIONSFVNVPROC MulticastFramebufferSampleLocationsfvNV; // 1307
+            PFNGLMULTICASTGETQUERYOBJECTI64VNVPROC MulticastGetQueryObjecti64vNV; // 1308
+            PFNGLMULTICASTGETQUERYOBJECTIVNVPROC MulticastGetQueryObjectivNV; // 1309
+            PFNGLMULTICASTGETQUERYOBJECTUI64VNVPROC MulticastGetQueryObjectui64vNV; // 1310
+            PFNGLMULTICASTGETQUERYOBJECTUIVNVPROC MulticastGetQueryObjectuivNV; // 1311
+            PFNGLMULTICASTSCISSORARRAYVNVXPROC MulticastScissorArrayvNVX; // 1312
+            PFNGLMULTICASTVIEWPORTARRAYVNVXPROC MulticastViewportArrayvNVX; // 1313
+            PFNGLMULTICASTVIEWPORTPOSITIONWSCALENVXPROC MulticastViewportPositionWScaleNVX; // 1314
+            PFNGLMULTICASTWAITSYNCNVPROC MulticastWaitSyncNV; // 1315
+            PFNGLNAMEDBUFFERATTACHMEMORYNVPROC NamedBufferAttachMemoryNV; // 1316
+            PFNGLNAMEDBUFFERDATAPROC NamedBufferData; // 1317
+            PFNGLNAMEDBUFFERDATAEXTPROC NamedBufferDataEXT; // 1318
+            PFNGLNAMEDBUFFERPAGECOMMITMENTARBPROC NamedBufferPageCommitmentARB; // 1319
+            PFNGLNAMEDBUFFERPAGECOMMITMENTEXTPROC NamedBufferPageCommitmentEXT; // 1320
+            PFNGLNAMEDBUFFERPAGECOMMITMENTMEMNVPROC NamedBufferPageCommitmentMemNV; // 1321
+            PFNGLNAMEDBUFFERSTORAGEPROC NamedBufferStorage; // 1322
+            PFNGLNAMEDBUFFERSTORAGEEXTPROC NamedBufferStorageEXT; // 1323
+            PFNGLNAMEDBUFFERSTORAGEEXTERNALEXTPROC NamedBufferStorageExternalEXT; // 1324
+            PFNGLNAMEDBUFFERSTORAGEMEMEXTPROC NamedBufferStorageMemEXT; // 1325
+            PFNGLNAMEDBUFFERSUBDATAPROC NamedBufferSubData; // 1326
+            PFNGLNAMEDBUFFERSUBDATAEXTPROC NamedBufferSubDataEXT; // 1327
+            PFNGLNAMEDCOPYBUFFERSUBDATAEXTPROC NamedCopyBufferSubDataEXT; // 1328
+            PFNGLNAMEDFRAMEBUFFERDRAWBUFFERPROC NamedFramebufferDrawBuffer; // 1329
+            PFNGLNAMEDFRAMEBUFFERDRAWBUFFERSPROC NamedFramebufferDrawBuffers; // 1330
+            PFNGLNAMEDFRAMEBUFFERPARAMETERIPROC NamedFramebufferParameteri; // 1331
+            PFNGLNAMEDFRAMEBUFFERPARAMETERIEXTPROC NamedFramebufferParameteriEXT; // 1332
+            PFNGLNAMEDFRAMEBUFFERREADBUFFERPROC NamedFramebufferReadBuffer; // 1333
+            PFNGLNAMEDFRAMEBUFFERRENDERBUFFERPROC NamedFramebufferRenderbuffer; // 1334
+            PFNGLNAMEDFRAMEBUFFERRENDERBUFFEREXTPROC NamedFramebufferRenderbufferEXT; // 1335
+            PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVARBPROC NamedFramebufferSampleLocationsfvARB; // 1336
+            PFNGLNAMEDFRAMEBUFFERSAMPLELOCATIONSFVNVPROC NamedFramebufferSampleLocationsfvNV; // 1337
+            PFNGLNAMEDFRAMEBUFFERSAMPLEPOSITIONSFVAMDPROC NamedFramebufferSamplePositionsfvAMD; // 1338
+            PFNGLNAMEDFRAMEBUFFERTEXTUREPROC NamedFramebufferTexture; // 1339
+            PFNGLNAMEDFRAMEBUFFERTEXTURE1DEXTPROC NamedFramebufferTexture1DEXT; // 1340
+            PFNGLNAMEDFRAMEBUFFERTEXTURE2DEXTPROC NamedFramebufferTexture2DEXT; // 1341
+            PFNGLNAMEDFRAMEBUFFERTEXTURE3DEXTPROC NamedFramebufferTexture3DEXT; // 1342
+            PFNGLNAMEDFRAMEBUFFERTEXTUREEXTPROC NamedFramebufferTextureEXT; // 1343
+            PFNGLNAMEDFRAMEBUFFERTEXTUREFACEEXTPROC NamedFramebufferTextureFaceEXT; // 1344
+            PFNGLNAMEDFRAMEBUFFERTEXTURELAYERPROC NamedFramebufferTextureLayer; // 1345
+            PFNGLNAMEDFRAMEBUFFERTEXTURELAYEREXTPROC NamedFramebufferTextureLayerEXT; // 1346
+            PFNGLNAMEDPROGRAMLOCALPARAMETER4DEXTPROC NamedProgramLocalParameter4dEXT; // 1347
+            PFNGLNAMEDPROGRAMLOCALPARAMETER4DVEXTPROC NamedProgramLocalParameter4dvEXT; // 1348
+            PFNGLNAMEDPROGRAMLOCALPARAMETER4FEXTPROC NamedProgramLocalParameter4fEXT; // 1349
+            PFNGLNAMEDPROGRAMLOCALPARAMETER4FVEXTPROC NamedProgramLocalParameter4fvEXT; // 1350
+            PFNGLNAMEDPROGRAMLOCALPARAMETERI4IEXTPROC NamedProgramLocalParameterI4iEXT; // 1351
+            PFNGLNAMEDPROGRAMLOCALPARAMETERI4IVEXTPROC NamedProgramLocalParameterI4ivEXT; // 1352
+            PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIEXTPROC NamedProgramLocalParameterI4uiEXT; // 1353
+            PFNGLNAMEDPROGRAMLOCALPARAMETERI4UIVEXTPROC NamedProgramLocalParameterI4uivEXT; // 1354
+            PFNGLNAMEDPROGRAMLOCALPARAMETERS4FVEXTPROC NamedProgramLocalParameters4fvEXT; // 1355
+            PFNGLNAMEDPROGRAMLOCALPARAMETERSI4IVEXTPROC NamedProgramLocalParametersI4ivEXT; // 1356
+            PFNGLNAMEDPROGRAMLOCALPARAMETERSI4UIVEXTPROC NamedProgramLocalParametersI4uivEXT; // 1357
+            PFNGLNAMEDPROGRAMSTRINGEXTPROC NamedProgramStringEXT; // 1358
+            PFNGLNAMEDRENDERBUFFERSTORAGEPROC NamedRenderbufferStorage; // 1359
+            PFNGLNAMEDRENDERBUFFERSTORAGEEXTPROC NamedRenderbufferStorageEXT; // 1360
+            PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEPROC NamedRenderbufferStorageMultisample; // 1361
+            PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC NamedRenderbufferStorageMultisampleAdvancedAMD; // 1362
+            PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLECOVERAGEEXTPROC NamedRenderbufferStorageMultisampleCoverageEXT; // 1363
+            PFNGLNAMEDRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC NamedRenderbufferStorageMultisampleEXT; // 1364
+            PFNGLNAMEDSTRINGARBPROC NamedStringARB; // 1365
+            PFNGLNEWOBJECTBUFFERATIPROC NewObjectBufferATI; // 1366
+            PFNGLNORMAL3FVERTEX3FSUNPROC Normal3fVertex3fSUN; // 1367
+            PFNGLNORMAL3FVERTEX3FVSUNPROC Normal3fVertex3fvSUN; // 1368
+            PFNGLNORMAL3HNVPROC Normal3hNV; // 1369
+            PFNGLNORMAL3HVNVPROC Normal3hvNV; // 1370
+            PFNGLNORMAL3XOESPROC Normal3xOES; // 1371
+            PFNGLNORMAL3XVOESPROC Normal3xvOES; // 1372
+            PFNGLNORMALFORMATNVPROC NormalFormatNV; // 1373
+            PFNGLNORMALPOINTEREXTPROC NormalPointerEXT; // 1374
+            PFNGLNORMALPOINTERLISTIBMPROC NormalPointerListIBM; // 1375
+            PFNGLNORMALPOINTERVINTELPROC NormalPointervINTEL; // 1376
+            PFNGLNORMALSTREAM3BATIPROC NormalStream3bATI; // 1377
+            PFNGLNORMALSTREAM3BVATIPROC NormalStream3bvATI; // 1378
+            PFNGLNORMALSTREAM3DATIPROC NormalStream3dATI; // 1379
+            PFNGLNORMALSTREAM3DVATIPROC NormalStream3dvATI; // 1380
+            PFNGLNORMALSTREAM3FATIPROC NormalStream3fATI; // 1381
+            PFNGLNORMALSTREAM3FVATIPROC NormalStream3fvATI; // 1382
+            PFNGLNORMALSTREAM3IATIPROC NormalStream3iATI; // 1383
+            PFNGLNORMALSTREAM3IVATIPROC NormalStream3ivATI; // 1384
+            PFNGLNORMALSTREAM3SATIPROC NormalStream3sATI; // 1385
+            PFNGLNORMALSTREAM3SVATIPROC NormalStream3svATI; // 1386
+            PFNGLOBJECTLABELPROC ObjectLabel; // 1387
+            PFNGLOBJECTPTRLABELPROC ObjectPtrLabel; // 1388
+            PFNGLOBJECTPURGEABLEAPPLEPROC ObjectPurgeableAPPLE; // 1389
+            PFNGLOBJECTUNPURGEABLEAPPLEPROC ObjectUnpurgeableAPPLE; // 1390
+            PFNGLORTHOFOESPROC OrthofOES; // 1391
+            PFNGLORTHOXOESPROC OrthoxOES; // 1392
+            PFNGLPNTRIANGLESFATIPROC PNTrianglesfATI; // 1393
+            PFNGLPNTRIANGLESIATIPROC PNTrianglesiATI; // 1394
+            PFNGLPASSTEXCOORDATIPROC PassTexCoordATI; // 1395
+            PFNGLPASSTHROUGHXOESPROC PassThroughxOES; // 1396
+            PFNGLPATCHPARAMETERFVPROC PatchParameterfv; // 1397
+            PFNGLPATCHPARAMETERIPROC PatchParameteri; // 1398
+            PFNGLPATHCOMMANDSNVPROC PathCommandsNV; // 1399
+            PFNGLPATHCOORDSNVPROC PathCoordsNV; // 1400
+            PFNGLPATHCOVERDEPTHFUNCNVPROC PathCoverDepthFuncNV; // 1401
+            PFNGLPATHDASHARRAYNVPROC PathDashArrayNV; // 1402
+            PFNGLPATHGLYPHINDEXARRAYNVPROC PathGlyphIndexArrayNV; // 1403
+            PFNGLPATHGLYPHINDEXRANGENVPROC PathGlyphIndexRangeNV; // 1404
+            PFNGLPATHGLYPHRANGENVPROC PathGlyphRangeNV; // 1405
+            PFNGLPATHGLYPHSNVPROC PathGlyphsNV; // 1406
+            PFNGLPATHMEMORYGLYPHINDEXARRAYNVPROC PathMemoryGlyphIndexArrayNV; // 1407
+            PFNGLPATHPARAMETERFNVPROC PathParameterfNV; // 1408
+            PFNGLPATHPARAMETERFVNVPROC PathParameterfvNV; // 1409
+            PFNGLPATHPARAMETERINVPROC PathParameteriNV; // 1410
+            PFNGLPATHPARAMETERIVNVPROC PathParameterivNV; // 1411
+            PFNGLPATHSTENCILDEPTHOFFSETNVPROC PathStencilDepthOffsetNV; // 1412
+            PFNGLPATHSTENCILFUNCNVPROC PathStencilFuncNV; // 1413
+            PFNGLPATHSTRINGNVPROC PathStringNV; // 1414
+            PFNGLPATHSUBCOMMANDSNVPROC PathSubCommandsNV; // 1415
+            PFNGLPATHSUBCOORDSNVPROC PathSubCoordsNV; // 1416
+            PFNGLPAUSETRANSFORMFEEDBACKPROC PauseTransformFeedback; // 1417
+            PFNGLPAUSETRANSFORMFEEDBACKNVPROC PauseTransformFeedbackNV; // 1418
+            PFNGLPIXELDATARANGENVPROC PixelDataRangeNV; // 1419
+            PFNGLPIXELMAPXPROC PixelMapx; // 1420
+            PFNGLPIXELSTOREFPROC PixelStoref; // 1421
+            PFNGLPIXELSTOREIPROC PixelStorei; // 1422
+            PFNGLPIXELSTOREXPROC PixelStorex; // 1423
+            PFNGLPIXELTEXGENPARAMETERFSGISPROC PixelTexGenParameterfSGIS; // 1424
+            PFNGLPIXELTEXGENPARAMETERFVSGISPROC PixelTexGenParameterfvSGIS; // 1425
+            PFNGLPIXELTEXGENPARAMETERISGISPROC PixelTexGenParameteriSGIS; // 1426
+            PFNGLPIXELTEXGENPARAMETERIVSGISPROC PixelTexGenParameterivSGIS; // 1427
+            PFNGLPIXELTEXGENSGIXPROC PixelTexGenSGIX; // 1428
+            PFNGLPIXELTRANSFERXOESPROC PixelTransferxOES; // 1429
+            PFNGLPIXELTRANSFORMPARAMETERFEXTPROC PixelTransformParameterfEXT; // 1430
+            PFNGLPIXELTRANSFORMPARAMETERFVEXTPROC PixelTransformParameterfvEXT; // 1431
+            PFNGLPIXELTRANSFORMPARAMETERIEXTPROC PixelTransformParameteriEXT; // 1432
+            PFNGLPIXELTRANSFORMPARAMETERIVEXTPROC PixelTransformParameterivEXT; // 1433
+            PFNGLPIXELZOOMXOESPROC PixelZoomxOES; // 1434
+            PFNGLPOINTALONGPATHNVPROC PointAlongPathNV; // 1435
+            PFNGLPOINTPARAMETERFPROC PointParameterf; // 1436
+            PFNGLPOINTPARAMETERFARBPROC PointParameterfARB; // 1437
+            PFNGLPOINTPARAMETERFEXTPROC PointParameterfEXT; // 1438
+            PFNGLPOINTPARAMETERFSGISPROC PointParameterfSGIS; // 1439
+            PFNGLPOINTPARAMETERFVPROC PointParameterfv; // 1440
+            PFNGLPOINTPARAMETERFVARBPROC PointParameterfvARB; // 1441
+            PFNGLPOINTPARAMETERFVEXTPROC PointParameterfvEXT; // 1442
+            PFNGLPOINTPARAMETERFVSGISPROC PointParameterfvSGIS; // 1443
+            PFNGLPOINTPARAMETERIPROC PointParameteri; // 1444
+            PFNGLPOINTPARAMETERINVPROC PointParameteriNV; // 1445
+            PFNGLPOINTPARAMETERIVPROC PointParameteriv; // 1446
+            PFNGLPOINTPARAMETERIVNVPROC PointParameterivNV; // 1447
+            PFNGLPOINTPARAMETERXVOESPROC PointParameterxvOES; // 1448
+            PFNGLPOINTSIZEPROC PointSize; // 1449
+            PFNGLPOINTSIZEXOESPROC PointSizexOES; // 1450
+            PFNGLPOLLASYNCSGIXPROC PollAsyncSGIX; // 1451
+            PFNGLPOLLINSTRUMENTSSGIXPROC PollInstrumentsSGIX; // 1452
+            PFNGLPOLYGONMODEPROC PolygonMode; // 1453
+            PFNGLPOLYGONOFFSETPROC PolygonOffset; // 1454
+            PFNGLPOLYGONOFFSETCLAMPPROC PolygonOffsetClamp; // 1455
+            PFNGLPOLYGONOFFSETCLAMPEXTPROC PolygonOffsetClampEXT; // 1456
+            PFNGLPOLYGONOFFSETEXTPROC PolygonOffsetEXT; // 1457
+            PFNGLPOLYGONOFFSETXOESPROC PolygonOffsetxOES; // 1458
+            PFNGLPOPDEBUGGROUPPROC PopDebugGroup; // 1459
+            PFNGLPOPGROUPMARKEREXTPROC PopGroupMarkerEXT; // 1460
+            PFNGLPRESENTFRAMEDUALFILLNVPROC PresentFrameDualFillNV; // 1461
+            PFNGLPRESENTFRAMEKEYEDNVPROC PresentFrameKeyedNV; // 1462
+            PFNGLPRIMITIVEBOUNDINGBOXARBPROC PrimitiveBoundingBoxARB; // 1463
+            PFNGLPRIMITIVERESTARTINDEXPROC PrimitiveRestartIndex; // 1464
+            PFNGLPRIMITIVERESTARTINDEXNVPROC PrimitiveRestartIndexNV; // 1465
+            PFNGLPRIMITIVERESTARTNVPROC PrimitiveRestartNV; // 1466
+            PFNGLPRIORITIZETEXTURESEXTPROC PrioritizeTexturesEXT; // 1467
+            PFNGLPRIORITIZETEXTURESXOESPROC PrioritizeTexturesxOES; // 1468
+            PFNGLPROGRAMBINARYPROC ProgramBinary; // 1469
+            PFNGLPROGRAMBUFFERPARAMETERSIIVNVPROC ProgramBufferParametersIivNV; // 1470
+            PFNGLPROGRAMBUFFERPARAMETERSIUIVNVPROC ProgramBufferParametersIuivNV; // 1471
+            PFNGLPROGRAMBUFFERPARAMETERSFVNVPROC ProgramBufferParametersfvNV; // 1472
+            PFNGLPROGRAMENVPARAMETER4DARBPROC ProgramEnvParameter4dARB; // 1473
+            PFNGLPROGRAMENVPARAMETER4DVARBPROC ProgramEnvParameter4dvARB; // 1474
+            PFNGLPROGRAMENVPARAMETER4FARBPROC ProgramEnvParameter4fARB; // 1475
+            PFNGLPROGRAMENVPARAMETER4FVARBPROC ProgramEnvParameter4fvARB; // 1476
+            PFNGLPROGRAMENVPARAMETERI4INVPROC ProgramEnvParameterI4iNV; // 1477
+            PFNGLPROGRAMENVPARAMETERI4IVNVPROC ProgramEnvParameterI4ivNV; // 1478
+            PFNGLPROGRAMENVPARAMETERI4UINVPROC ProgramEnvParameterI4uiNV; // 1479
+            PFNGLPROGRAMENVPARAMETERI4UIVNVPROC ProgramEnvParameterI4uivNV; // 1480
+            PFNGLPROGRAMENVPARAMETERS4FVEXTPROC ProgramEnvParameters4fvEXT; // 1481
+            PFNGLPROGRAMENVPARAMETERSI4IVNVPROC ProgramEnvParametersI4ivNV; // 1482
+            PFNGLPROGRAMENVPARAMETERSI4UIVNVPROC ProgramEnvParametersI4uivNV; // 1483
+            PFNGLPROGRAMLOCALPARAMETER4DARBPROC ProgramLocalParameter4dARB; // 1484
+            PFNGLPROGRAMLOCALPARAMETER4DVARBPROC ProgramLocalParameter4dvARB; // 1485
+            PFNGLPROGRAMLOCALPARAMETER4FARBPROC ProgramLocalParameter4fARB; // 1486
+            PFNGLPROGRAMLOCALPARAMETER4FVARBPROC ProgramLocalParameter4fvARB; // 1487
+            PFNGLPROGRAMLOCALPARAMETERI4INVPROC ProgramLocalParameterI4iNV; // 1488
+            PFNGLPROGRAMLOCALPARAMETERI4IVNVPROC ProgramLocalParameterI4ivNV; // 1489
+            PFNGLPROGRAMLOCALPARAMETERI4UINVPROC ProgramLocalParameterI4uiNV; // 1490
+            PFNGLPROGRAMLOCALPARAMETERI4UIVNVPROC ProgramLocalParameterI4uivNV; // 1491
+            PFNGLPROGRAMLOCALPARAMETERS4FVEXTPROC ProgramLocalParameters4fvEXT; // 1492
+            PFNGLPROGRAMLOCALPARAMETERSI4IVNVPROC ProgramLocalParametersI4ivNV; // 1493
+            PFNGLPROGRAMLOCALPARAMETERSI4UIVNVPROC ProgramLocalParametersI4uivNV; // 1494
+            PFNGLPROGRAMNAMEDPARAMETER4DNVPROC ProgramNamedParameter4dNV; // 1495
+            PFNGLPROGRAMNAMEDPARAMETER4DVNVPROC ProgramNamedParameter4dvNV; // 1496
+            PFNGLPROGRAMNAMEDPARAMETER4FNVPROC ProgramNamedParameter4fNV; // 1497
+            PFNGLPROGRAMNAMEDPARAMETER4FVNVPROC ProgramNamedParameter4fvNV; // 1498
+            PFNGLPROGRAMPARAMETER4DNVPROC ProgramParameter4dNV; // 1499
+            PFNGLPROGRAMPARAMETER4DVNVPROC ProgramParameter4dvNV; // 1500
+            PFNGLPROGRAMPARAMETER4FNVPROC ProgramParameter4fNV; // 1501
+            PFNGLPROGRAMPARAMETER4FVNVPROC ProgramParameter4fvNV; // 1502
+            PFNGLPROGRAMPARAMETERIPROC ProgramParameteri; // 1503
+            PFNGLPROGRAMPARAMETERIARBPROC ProgramParameteriARB; // 1504
+            PFNGLPROGRAMPARAMETERIEXTPROC ProgramParameteriEXT; // 1505
+            PFNGLPROGRAMPARAMETERS4DVNVPROC ProgramParameters4dvNV; // 1506
+            PFNGLPROGRAMPARAMETERS4FVNVPROC ProgramParameters4fvNV; // 1507
+            PFNGLPROGRAMPATHFRAGMENTINPUTGENNVPROC ProgramPathFragmentInputGenNV; // 1508
+            PFNGLPROGRAMSTRINGARBPROC ProgramStringARB; // 1509
+            PFNGLPROGRAMSUBROUTINEPARAMETERSUIVNVPROC ProgramSubroutineParametersuivNV; // 1510
+            PFNGLPROGRAMUNIFORM1DPROC ProgramUniform1d; // 1511
+            PFNGLPROGRAMUNIFORM1DEXTPROC ProgramUniform1dEXT; // 1512
+            PFNGLPROGRAMUNIFORM1DVPROC ProgramUniform1dv; // 1513
+            PFNGLPROGRAMUNIFORM1DVEXTPROC ProgramUniform1dvEXT; // 1514
+            PFNGLPROGRAMUNIFORM1FPROC ProgramUniform1f; // 1515
+            PFNGLPROGRAMUNIFORM1FEXTPROC ProgramUniform1fEXT; // 1516
+            PFNGLPROGRAMUNIFORM1FVPROC ProgramUniform1fv; // 1517
+            PFNGLPROGRAMUNIFORM1FVEXTPROC ProgramUniform1fvEXT; // 1518
+            PFNGLPROGRAMUNIFORM1IPROC ProgramUniform1i; // 1519
+            PFNGLPROGRAMUNIFORM1I64ARBPROC ProgramUniform1i64ARB; // 1520
+            PFNGLPROGRAMUNIFORM1I64NVPROC ProgramUniform1i64NV; // 1521
+            PFNGLPROGRAMUNIFORM1I64VARBPROC ProgramUniform1i64vARB; // 1522
+            PFNGLPROGRAMUNIFORM1I64VNVPROC ProgramUniform1i64vNV; // 1523
+            PFNGLPROGRAMUNIFORM1IEXTPROC ProgramUniform1iEXT; // 1524
+            PFNGLPROGRAMUNIFORM1IVPROC ProgramUniform1iv; // 1525
+            PFNGLPROGRAMUNIFORM1IVEXTPROC ProgramUniform1ivEXT; // 1526
+            PFNGLPROGRAMUNIFORM1UIPROC ProgramUniform1ui; // 1527
+            PFNGLPROGRAMUNIFORM1UI64ARBPROC ProgramUniform1ui64ARB; // 1528
+            PFNGLPROGRAMUNIFORM1UI64NVPROC ProgramUniform1ui64NV; // 1529
+            PFNGLPROGRAMUNIFORM1UI64VARBPROC ProgramUniform1ui64vARB; // 1530
+            PFNGLPROGRAMUNIFORM1UI64VNVPROC ProgramUniform1ui64vNV; // 1531
+            PFNGLPROGRAMUNIFORM1UIEXTPROC ProgramUniform1uiEXT; // 1532
+            PFNGLPROGRAMUNIFORM1UIVPROC ProgramUniform1uiv; // 1533
+            PFNGLPROGRAMUNIFORM1UIVEXTPROC ProgramUniform1uivEXT; // 1534
+            PFNGLPROGRAMUNIFORM2DPROC ProgramUniform2d; // 1535
+            PFNGLPROGRAMUNIFORM2DEXTPROC ProgramUniform2dEXT; // 1536
+            PFNGLPROGRAMUNIFORM2DVPROC ProgramUniform2dv; // 1537
+            PFNGLPROGRAMUNIFORM2DVEXTPROC ProgramUniform2dvEXT; // 1538
+            PFNGLPROGRAMUNIFORM2FPROC ProgramUniform2f; // 1539
+            PFNGLPROGRAMUNIFORM2FEXTPROC ProgramUniform2fEXT; // 1540
+            PFNGLPROGRAMUNIFORM2FVPROC ProgramUniform2fv; // 1541
+            PFNGLPROGRAMUNIFORM2FVEXTPROC ProgramUniform2fvEXT; // 1542
+            PFNGLPROGRAMUNIFORM2IPROC ProgramUniform2i; // 1543
+            PFNGLPROGRAMUNIFORM2I64ARBPROC ProgramUniform2i64ARB; // 1544
+            PFNGLPROGRAMUNIFORM2I64NVPROC ProgramUniform2i64NV; // 1545
+            PFNGLPROGRAMUNIFORM2I64VARBPROC ProgramUniform2i64vARB; // 1546
+            PFNGLPROGRAMUNIFORM2I64VNVPROC ProgramUniform2i64vNV; // 1547
+            PFNGLPROGRAMUNIFORM2IEXTPROC ProgramUniform2iEXT; // 1548
+            PFNGLPROGRAMUNIFORM2IVPROC ProgramUniform2iv; // 1549
+            PFNGLPROGRAMUNIFORM2IVEXTPROC ProgramUniform2ivEXT; // 1550
+            PFNGLPROGRAMUNIFORM2UIPROC ProgramUniform2ui; // 1551
+            PFNGLPROGRAMUNIFORM2UI64ARBPROC ProgramUniform2ui64ARB; // 1552
+            PFNGLPROGRAMUNIFORM2UI64NVPROC ProgramUniform2ui64NV; // 1553
+            PFNGLPROGRAMUNIFORM2UI64VARBPROC ProgramUniform2ui64vARB; // 1554
+            PFNGLPROGRAMUNIFORM2UI64VNVPROC ProgramUniform2ui64vNV; // 1555
+            PFNGLPROGRAMUNIFORM2UIEXTPROC ProgramUniform2uiEXT; // 1556
+            PFNGLPROGRAMUNIFORM2UIVPROC ProgramUniform2uiv; // 1557
+            PFNGLPROGRAMUNIFORM2UIVEXTPROC ProgramUniform2uivEXT; // 1558
+            PFNGLPROGRAMUNIFORM3DPROC ProgramUniform3d; // 1559
+            PFNGLPROGRAMUNIFORM3DEXTPROC ProgramUniform3dEXT; // 1560
+            PFNGLPROGRAMUNIFORM3DVPROC ProgramUniform3dv; // 1561
+            PFNGLPROGRAMUNIFORM3DVEXTPROC ProgramUniform3dvEXT; // 1562
+            PFNGLPROGRAMUNIFORM3FPROC ProgramUniform3f; // 1563
+            PFNGLPROGRAMUNIFORM3FEXTPROC ProgramUniform3fEXT; // 1564
+            PFNGLPROGRAMUNIFORM3FVPROC ProgramUniform3fv; // 1565
+            PFNGLPROGRAMUNIFORM3FVEXTPROC ProgramUniform3fvEXT; // 1566
+            PFNGLPROGRAMUNIFORM3IPROC ProgramUniform3i; // 1567
+            PFNGLPROGRAMUNIFORM3I64ARBPROC ProgramUniform3i64ARB; // 1568
+            PFNGLPROGRAMUNIFORM3I64NVPROC ProgramUniform3i64NV; // 1569
+            PFNGLPROGRAMUNIFORM3I64VARBPROC ProgramUniform3i64vARB; // 1570
+            PFNGLPROGRAMUNIFORM3I64VNVPROC ProgramUniform3i64vNV; // 1571
+            PFNGLPROGRAMUNIFORM3IEXTPROC ProgramUniform3iEXT; // 1572
+            PFNGLPROGRAMUNIFORM3IVPROC ProgramUniform3iv; // 1573
+            PFNGLPROGRAMUNIFORM3IVEXTPROC ProgramUniform3ivEXT; // 1574
+            PFNGLPROGRAMUNIFORM3UIPROC ProgramUniform3ui; // 1575
+            PFNGLPROGRAMUNIFORM3UI64ARBPROC ProgramUniform3ui64ARB; // 1576
+            PFNGLPROGRAMUNIFORM3UI64NVPROC ProgramUniform3ui64NV; // 1577
+            PFNGLPROGRAMUNIFORM3UI64VARBPROC ProgramUniform3ui64vARB; // 1578
+            PFNGLPROGRAMUNIFORM3UI64VNVPROC ProgramUniform3ui64vNV; // 1579
+            PFNGLPROGRAMUNIFORM3UIEXTPROC ProgramUniform3uiEXT; // 1580
+            PFNGLPROGRAMUNIFORM3UIVPROC ProgramUniform3uiv; // 1581
+            PFNGLPROGRAMUNIFORM3UIVEXTPROC ProgramUniform3uivEXT; // 1582
+            PFNGLPROGRAMUNIFORM4DPROC ProgramUniform4d; // 1583
+            PFNGLPROGRAMUNIFORM4DEXTPROC ProgramUniform4dEXT; // 1584
+            PFNGLPROGRAMUNIFORM4DVPROC ProgramUniform4dv; // 1585
+            PFNGLPROGRAMUNIFORM4DVEXTPROC ProgramUniform4dvEXT; // 1586
+            PFNGLPROGRAMUNIFORM4FPROC ProgramUniform4f; // 1587
+            PFNGLPROGRAMUNIFORM4FEXTPROC ProgramUniform4fEXT; // 1588
+            PFNGLPROGRAMUNIFORM4FVPROC ProgramUniform4fv; // 1589
+            PFNGLPROGRAMUNIFORM4FVEXTPROC ProgramUniform4fvEXT; // 1590
+            PFNGLPROGRAMUNIFORM4IPROC ProgramUniform4i; // 1591
+            PFNGLPROGRAMUNIFORM4I64ARBPROC ProgramUniform4i64ARB; // 1592
+            PFNGLPROGRAMUNIFORM4I64NVPROC ProgramUniform4i64NV; // 1593
+            PFNGLPROGRAMUNIFORM4I64VARBPROC ProgramUniform4i64vARB; // 1594
+            PFNGLPROGRAMUNIFORM4I64VNVPROC ProgramUniform4i64vNV; // 1595
+            PFNGLPROGRAMUNIFORM4IEXTPROC ProgramUniform4iEXT; // 1596
+            PFNGLPROGRAMUNIFORM4IVPROC ProgramUniform4iv; // 1597
+            PFNGLPROGRAMUNIFORM4IVEXTPROC ProgramUniform4ivEXT; // 1598
+            PFNGLPROGRAMUNIFORM4UIPROC ProgramUniform4ui; // 1599
+            PFNGLPROGRAMUNIFORM4UI64ARBPROC ProgramUniform4ui64ARB; // 1600
+            PFNGLPROGRAMUNIFORM4UI64NVPROC ProgramUniform4ui64NV; // 1601
+            PFNGLPROGRAMUNIFORM4UI64VARBPROC ProgramUniform4ui64vARB; // 1602
+            PFNGLPROGRAMUNIFORM4UI64VNVPROC ProgramUniform4ui64vNV; // 1603
+            PFNGLPROGRAMUNIFORM4UIEXTPROC ProgramUniform4uiEXT; // 1604
+            PFNGLPROGRAMUNIFORM4UIVPROC ProgramUniform4uiv; // 1605
+            PFNGLPROGRAMUNIFORM4UIVEXTPROC ProgramUniform4uivEXT; // 1606
+            PFNGLPROGRAMUNIFORMHANDLEUI64ARBPROC ProgramUniformHandleui64ARB; // 1607
+            PFNGLPROGRAMUNIFORMHANDLEUI64NVPROC ProgramUniformHandleui64NV; // 1608
+            PFNGLPROGRAMUNIFORMHANDLEUI64VARBPROC ProgramUniformHandleui64vARB; // 1609
+            PFNGLPROGRAMUNIFORMHANDLEUI64VNVPROC ProgramUniformHandleui64vNV; // 1610
+            PFNGLPROGRAMUNIFORMMATRIX2DVPROC ProgramUniformMatrix2dv; // 1611
+            PFNGLPROGRAMUNIFORMMATRIX2DVEXTPROC ProgramUniformMatrix2dvEXT; // 1612
+            PFNGLPROGRAMUNIFORMMATRIX2FVPROC ProgramUniformMatrix2fv; // 1613
+            PFNGLPROGRAMUNIFORMMATRIX2FVEXTPROC ProgramUniformMatrix2fvEXT; // 1614
+            PFNGLPROGRAMUNIFORMMATRIX2X3DVPROC ProgramUniformMatrix2x3dv; // 1615
+            PFNGLPROGRAMUNIFORMMATRIX2X3DVEXTPROC ProgramUniformMatrix2x3dvEXT; // 1616
+            PFNGLPROGRAMUNIFORMMATRIX2X3FVPROC ProgramUniformMatrix2x3fv; // 1617
+            PFNGLPROGRAMUNIFORMMATRIX2X3FVEXTPROC ProgramUniformMatrix2x3fvEXT; // 1618
+            PFNGLPROGRAMUNIFORMMATRIX2X4DVPROC ProgramUniformMatrix2x4dv; // 1619
+            PFNGLPROGRAMUNIFORMMATRIX2X4DVEXTPROC ProgramUniformMatrix2x4dvEXT; // 1620
+            PFNGLPROGRAMUNIFORMMATRIX2X4FVPROC ProgramUniformMatrix2x4fv; // 1621
+            PFNGLPROGRAMUNIFORMMATRIX2X4FVEXTPROC ProgramUniformMatrix2x4fvEXT; // 1622
+            PFNGLPROGRAMUNIFORMMATRIX3DVPROC ProgramUniformMatrix3dv; // 1623
+            PFNGLPROGRAMUNIFORMMATRIX3DVEXTPROC ProgramUniformMatrix3dvEXT; // 1624
+            PFNGLPROGRAMUNIFORMMATRIX3FVPROC ProgramUniformMatrix3fv; // 1625
+            PFNGLPROGRAMUNIFORMMATRIX3FVEXTPROC ProgramUniformMatrix3fvEXT; // 1626
+            PFNGLPROGRAMUNIFORMMATRIX3X2DVPROC ProgramUniformMatrix3x2dv; // 1627
+            PFNGLPROGRAMUNIFORMMATRIX3X2DVEXTPROC ProgramUniformMatrix3x2dvEXT; // 1628
+            PFNGLPROGRAMUNIFORMMATRIX3X2FVPROC ProgramUniformMatrix3x2fv; // 1629
+            PFNGLPROGRAMUNIFORMMATRIX3X2FVEXTPROC ProgramUniformMatrix3x2fvEXT; // 1630
+            PFNGLPROGRAMUNIFORMMATRIX3X4DVPROC ProgramUniformMatrix3x4dv; // 1631
+            PFNGLPROGRAMUNIFORMMATRIX3X4DVEXTPROC ProgramUniformMatrix3x4dvEXT; // 1632
+            PFNGLPROGRAMUNIFORMMATRIX3X4FVPROC ProgramUniformMatrix3x4fv; // 1633
+            PFNGLPROGRAMUNIFORMMATRIX3X4FVEXTPROC ProgramUniformMatrix3x4fvEXT; // 1634
+            PFNGLPROGRAMUNIFORMMATRIX4DVPROC ProgramUniformMatrix4dv; // 1635
+            PFNGLPROGRAMUNIFORMMATRIX4DVEXTPROC ProgramUniformMatrix4dvEXT; // 1636
+            PFNGLPROGRAMUNIFORMMATRIX4FVPROC ProgramUniformMatrix4fv; // 1637
+            PFNGLPROGRAMUNIFORMMATRIX4FVEXTPROC ProgramUniformMatrix4fvEXT; // 1638
+            PFNGLPROGRAMUNIFORMMATRIX4X2DVPROC ProgramUniformMatrix4x2dv; // 1639
+            PFNGLPROGRAMUNIFORMMATRIX4X2DVEXTPROC ProgramUniformMatrix4x2dvEXT; // 1640
+            PFNGLPROGRAMUNIFORMMATRIX4X2FVPROC ProgramUniformMatrix4x2fv; // 1641
+            PFNGLPROGRAMUNIFORMMATRIX4X2FVEXTPROC ProgramUniformMatrix4x2fvEXT; // 1642
+            PFNGLPROGRAMUNIFORMMATRIX4X3DVPROC ProgramUniformMatrix4x3dv; // 1643
+            PFNGLPROGRAMUNIFORMMATRIX4X3DVEXTPROC ProgramUniformMatrix4x3dvEXT; // 1644
+            PFNGLPROGRAMUNIFORMMATRIX4X3FVPROC ProgramUniformMatrix4x3fv; // 1645
+            PFNGLPROGRAMUNIFORMMATRIX4X3FVEXTPROC ProgramUniformMatrix4x3fvEXT; // 1646
+            PFNGLPROGRAMUNIFORMUI64NVPROC ProgramUniformui64NV; // 1647
+            PFNGLPROGRAMUNIFORMUI64VNVPROC ProgramUniformui64vNV; // 1648
+            PFNGLPROGRAMVERTEXLIMITNVPROC ProgramVertexLimitNV; // 1649
+            PFNGLPROVOKINGVERTEXPROC ProvokingVertex; // 1650
+            PFNGLPROVOKINGVERTEXEXTPROC ProvokingVertexEXT; // 1651
+            PFNGLPUSHCLIENTATTRIBDEFAULTEXTPROC PushClientAttribDefaultEXT; // 1652
+            PFNGLPUSHDEBUGGROUPPROC PushDebugGroup; // 1653
+            PFNGLPUSHGROUPMARKEREXTPROC PushGroupMarkerEXT; // 1654
+            PFNGLQUERYCOUNTERPROC QueryCounter; // 1655
+            PFNGLQUERYMATRIXXOESPROC QueryMatrixxOES; // 1656
+            PFNGLQUERYOBJECTPARAMETERUIAMDPROC QueryObjectParameteruiAMD; // 1657
+            PFNGLQUERYRESOURCENVPROC QueryResourceNV; // 1658
+            PFNGLQUERYRESOURCETAGNVPROC QueryResourceTagNV; // 1659
+            PFNGLRASTERPOS2XOESPROC RasterPos2xOES; // 1660
+            PFNGLRASTERPOS2XVOESPROC RasterPos2xvOES; // 1661
+            PFNGLRASTERPOS3XOESPROC RasterPos3xOES; // 1662
+            PFNGLRASTERPOS3XVOESPROC RasterPos3xvOES; // 1663
+            PFNGLRASTERPOS4XOESPROC RasterPos4xOES; // 1664
+            PFNGLRASTERPOS4XVOESPROC RasterPos4xvOES; // 1665
+            PFNGLRASTERSAMPLESEXTPROC RasterSamplesEXT; // 1666
+            PFNGLREADBUFFERPROC ReadBuffer; // 1667
+            PFNGLREADINSTRUMENTSSGIXPROC ReadInstrumentsSGIX; // 1668
+            PFNGLREADPIXELSPROC ReadPixels; // 1669
+            PFNGLREADNPIXELSPROC ReadnPixels; // 1670
+            PFNGLREADNPIXELSARBPROC ReadnPixelsARB; // 1671
+            PFNGLRECTXOESPROC RectxOES; // 1672
+            PFNGLRECTXVOESPROC RectxvOES; // 1673
+            PFNGLREFERENCEPLANESGIXPROC ReferencePlaneSGIX; // 1674
+            PFNGLRELEASEKEYEDMUTEXWIN32EXTPROC ReleaseKeyedMutexWin32EXT; // 1675
+            PFNGLRELEASESHADERCOMPILERPROC ReleaseShaderCompiler; // 1676
+            PFNGLRENDERGPUMASKNVPROC RenderGpuMaskNV; // 1677
+            PFNGLRENDERBUFFERSTORAGEPROC RenderbufferStorage; // 1678
+            PFNGLRENDERBUFFERSTORAGEEXTPROC RenderbufferStorageEXT; // 1679
+            PFNGLRENDERBUFFERSTORAGEMULTISAMPLEPROC RenderbufferStorageMultisample; // 1680
+            PFNGLRENDERBUFFERSTORAGEMULTISAMPLEADVANCEDAMDPROC RenderbufferStorageMultisampleAdvancedAMD; // 1681
+            PFNGLRENDERBUFFERSTORAGEMULTISAMPLECOVERAGENVPROC RenderbufferStorageMultisampleCoverageNV; // 1682
+            PFNGLRENDERBUFFERSTORAGEMULTISAMPLEEXTPROC RenderbufferStorageMultisampleEXT; // 1683
+            PFNGLREPLACEMENTCODEPOINTERSUNPROC ReplacementCodePointerSUN; // 1684
+            PFNGLREPLACEMENTCODEUBSUNPROC ReplacementCodeubSUN; // 1685
+            PFNGLREPLACEMENTCODEUBVSUNPROC ReplacementCodeubvSUN; // 1686
+            PFNGLREPLACEMENTCODEUICOLOR3FVERTEX3FSUNPROC ReplacementCodeuiColor3fVertex3fSUN; // 1687
+            PFNGLREPLACEMENTCODEUICOLOR3FVERTEX3FVSUNPROC ReplacementCodeuiColor3fVertex3fvSUN; // 1688
+            PFNGLREPLACEMENTCODEUICOLOR4FNORMAL3FVERTEX3FSUNPROC ReplacementCodeuiColor4fNormal3fVertex3fSUN; // 1689
+            PFNGLREPLACEMENTCODEUICOLOR4FNORMAL3FVERTEX3FVSUNPROC ReplacementCodeuiColor4fNormal3fVertex3fvSUN; // 1690
+            PFNGLREPLACEMENTCODEUICOLOR4UBVERTEX3FSUNPROC ReplacementCodeuiColor4ubVertex3fSUN; // 1691
+            PFNGLREPLACEMENTCODEUICOLOR4UBVERTEX3FVSUNPROC ReplacementCodeuiColor4ubVertex3fvSUN; // 1692
+            PFNGLREPLACEMENTCODEUINORMAL3FVERTEX3FSUNPROC ReplacementCodeuiNormal3fVertex3fSUN; // 1693
+            PFNGLREPLACEMENTCODEUINORMAL3FVERTEX3FVSUNPROC ReplacementCodeuiNormal3fVertex3fvSUN; // 1694
+            PFNGLREPLACEMENTCODEUISUNPROC ReplacementCodeuiSUN; // 1695
+            PFNGLREPLACEMENTCODEUITEXCOORD2FCOLOR4FNORMAL3FVERTEX3FSUNPROC ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN; // 1696
+            PFNGLREPLACEMENTCODEUITEXCOORD2FCOLOR4FNORMAL3FVERTEX3FVSUNPROC ReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN; // 1697
+            PFNGLREPLACEMENTCODEUITEXCOORD2FNORMAL3FVERTEX3FSUNPROC ReplacementCodeuiTexCoord2fNormal3fVertex3fSUN; // 1698
+            PFNGLREPLACEMENTCODEUITEXCOORD2FNORMAL3FVERTEX3FVSUNPROC ReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN; // 1699
+            PFNGLREPLACEMENTCODEUITEXCOORD2FVERTEX3FSUNPROC ReplacementCodeuiTexCoord2fVertex3fSUN; // 1700
+            PFNGLREPLACEMENTCODEUITEXCOORD2FVERTEX3FVSUNPROC ReplacementCodeuiTexCoord2fVertex3fvSUN; // 1701
+            PFNGLREPLACEMENTCODEUIVERTEX3FSUNPROC ReplacementCodeuiVertex3fSUN; // 1702
+            PFNGLREPLACEMENTCODEUIVERTEX3FVSUNPROC ReplacementCodeuiVertex3fvSUN; // 1703
+            PFNGLREPLACEMENTCODEUIVSUNPROC ReplacementCodeuivSUN; // 1704
+            PFNGLREPLACEMENTCODEUSSUNPROC ReplacementCodeusSUN; // 1705
+            PFNGLREPLACEMENTCODEUSVSUNPROC ReplacementCodeusvSUN; // 1706
+            PFNGLREQUESTRESIDENTPROGRAMSNVPROC RequestResidentProgramsNV; // 1707
+            PFNGLRESETHISTOGRAMEXTPROC ResetHistogramEXT; // 1708
+            PFNGLRESETMEMORYOBJECTPARAMETERNVPROC ResetMemoryObjectParameterNV; // 1709
+            PFNGLRESETMINMAXEXTPROC ResetMinmaxEXT; // 1710
+            PFNGLRESIZEBUFFERSMESAPROC ResizeBuffersMESA; // 1711
+            PFNGLRESOLVEDEPTHVALUESNVPROC ResolveDepthValuesNV; // 1712
+            PFNGLRESUMETRANSFORMFEEDBACKPROC ResumeTransformFeedback; // 1713
+            PFNGLRESUMETRANSFORMFEEDBACKNVPROC ResumeTransformFeedbackNV; // 1714
+            PFNGLROTATEXOESPROC RotatexOES; // 1715
+            PFNGLSAMPLECOVERAGEPROC SampleCoverage; // 1716
+            PFNGLSAMPLECOVERAGEARBPROC SampleCoverageARB; // 1717
+            PFNGLSAMPLEMAPATIPROC SampleMapATI; // 1718
+            PFNGLSAMPLEMASKEXTPROC SampleMaskEXT; // 1719
+            PFNGLSAMPLEMASKINDEXEDNVPROC SampleMaskIndexedNV; // 1720
+            PFNGLSAMPLEMASKSGISPROC SampleMaskSGIS; // 1721
+            PFNGLSAMPLEMASKIPROC SampleMaski; // 1722
+            PFNGLSAMPLEPATTERNEXTPROC SamplePatternEXT; // 1723
+            PFNGLSAMPLEPATTERNSGISPROC SamplePatternSGIS; // 1724
+            PFNGLSAMPLERPARAMETERIIVPROC SamplerParameterIiv; // 1725
+            PFNGLSAMPLERPARAMETERIUIVPROC SamplerParameterIuiv; // 1726
+            PFNGLSAMPLERPARAMETERFPROC SamplerParameterf; // 1727
+            PFNGLSAMPLERPARAMETERFVPROC SamplerParameterfv; // 1728
+            PFNGLSAMPLERPARAMETERIPROC SamplerParameteri; // 1729
+            PFNGLSAMPLERPARAMETERIVPROC SamplerParameteriv; // 1730
+            PFNGLSCALEXOESPROC ScalexOES; // 1731
+            PFNGLSCISSORPROC Scissor; // 1732
+            PFNGLSCISSORARRAYVPROC ScissorArrayv; // 1733
+            PFNGLSCISSOREXCLUSIVEARRAYVNVPROC ScissorExclusiveArrayvNV; // 1734
+            PFNGLSCISSOREXCLUSIVENVPROC ScissorExclusiveNV; // 1735
+            PFNGLSCISSORINDEXEDPROC ScissorIndexed; // 1736
+            PFNGLSCISSORINDEXEDVPROC ScissorIndexedv; // 1737
+            PFNGLSECONDARYCOLOR3BEXTPROC SecondaryColor3bEXT; // 1738
+            PFNGLSECONDARYCOLOR3BVEXTPROC SecondaryColor3bvEXT; // 1739
+            PFNGLSECONDARYCOLOR3DEXTPROC SecondaryColor3dEXT; // 1740
+            PFNGLSECONDARYCOLOR3DVEXTPROC SecondaryColor3dvEXT; // 1741
+            PFNGLSECONDARYCOLOR3FEXTPROC SecondaryColor3fEXT; // 1742
+            PFNGLSECONDARYCOLOR3FVEXTPROC SecondaryColor3fvEXT; // 1743
+            PFNGLSECONDARYCOLOR3HNVPROC SecondaryColor3hNV; // 1744
+            PFNGLSECONDARYCOLOR3HVNVPROC SecondaryColor3hvNV; // 1745
+            PFNGLSECONDARYCOLOR3IEXTPROC SecondaryColor3iEXT; // 1746
+            PFNGLSECONDARYCOLOR3IVEXTPROC SecondaryColor3ivEXT; // 1747
+            PFNGLSECONDARYCOLOR3SEXTPROC SecondaryColor3sEXT; // 1748
+            PFNGLSECONDARYCOLOR3SVEXTPROC SecondaryColor3svEXT; // 1749
+            PFNGLSECONDARYCOLOR3UBEXTPROC SecondaryColor3ubEXT; // 1750
+            PFNGLSECONDARYCOLOR3UBVEXTPROC SecondaryColor3ubvEXT; // 1751
+            PFNGLSECONDARYCOLOR3UIEXTPROC SecondaryColor3uiEXT; // 1752
+            PFNGLSECONDARYCOLOR3UIVEXTPROC SecondaryColor3uivEXT; // 1753
+            PFNGLSECONDARYCOLOR3USEXTPROC SecondaryColor3usEXT; // 1754
+            PFNGLSECONDARYCOLOR3USVEXTPROC SecondaryColor3usvEXT; // 1755
+            PFNGLSECONDARYCOLORFORMATNVPROC SecondaryColorFormatNV; // 1756
+            PFNGLSECONDARYCOLORPOINTEREXTPROC SecondaryColorPointerEXT; // 1757
+            PFNGLSECONDARYCOLORPOINTERLISTIBMPROC SecondaryColorPointerListIBM; // 1758
+            PFNGLSELECTPERFMONITORCOUNTERSAMDPROC SelectPerfMonitorCountersAMD; // 1759
+            PFNGLSEMAPHOREPARAMETERIVNVPROC SemaphoreParameterivNV; // 1760
+            PFNGLSEMAPHOREPARAMETERUI64VEXTPROC SemaphoreParameterui64vEXT; // 1761
+            PFNGLSEPARABLEFILTER2DEXTPROC SeparableFilter2DEXT; // 1762
+            PFNGLSETFENCEAPPLEPROC SetFenceAPPLE; // 1763
+            PFNGLSETFENCENVPROC SetFenceNV; // 1764
+            PFNGLSETFRAGMENTSHADERCONSTANTATIPROC SetFragmentShaderConstantATI; // 1765
+            PFNGLSETINVARIANTEXTPROC SetInvariantEXT; // 1766
+            PFNGLSETLOCALCONSTANTEXTPROC SetLocalConstantEXT; // 1767
+            PFNGLSETMULTISAMPLEFVAMDPROC SetMultisamplefvAMD; // 1768
+            PFNGLSHADERBINARYPROC ShaderBinary; // 1769
+            PFNGLSHADEROP1EXTPROC ShaderOp1EXT; // 1770
+            PFNGLSHADEROP2EXTPROC ShaderOp2EXT; // 1771
+            PFNGLSHADEROP3EXTPROC ShaderOp3EXT; // 1772
+            PFNGLSHADERSOURCEPROC ShaderSource; // 1773
+            PFNGLSHADERSOURCEARBPROC ShaderSourceARB; // 1774
+            PFNGLSHADERSTORAGEBLOCKBINDINGPROC ShaderStorageBlockBinding; // 1775
+            PFNGLSHADINGRATEIMAGEBARRIERNVPROC ShadingRateImageBarrierNV; // 1776
+            PFNGLSHADINGRATEIMAGEPALETTENVPROC ShadingRateImagePaletteNV; // 1777
+            PFNGLSHADINGRATESAMPLEORDERCUSTOMNVPROC ShadingRateSampleOrderCustomNV; // 1778
+            PFNGLSHADINGRATESAMPLEORDERNVPROC ShadingRateSampleOrderNV; // 1779
+            PFNGLSHARPENTEXFUNCSGISPROC SharpenTexFuncSGIS; // 1780
+            PFNGLSIGNALSEMAPHOREEXTPROC SignalSemaphoreEXT; // 1781
+            PFNGLSIGNALSEMAPHOREUI64NVXPROC SignalSemaphoreui64NVX; // 1782
+            PFNGLSIGNALVKFENCENVPROC SignalVkFenceNV; // 1783
+            PFNGLSIGNALVKSEMAPHORENVPROC SignalVkSemaphoreNV; // 1784
+            PFNGLSPECIALIZESHADERPROC SpecializeShader; // 1785
+            PFNGLSPECIALIZESHADERARBPROC SpecializeShaderARB; // 1786
+            PFNGLSPRITEPARAMETERFSGIXPROC SpriteParameterfSGIX; // 1787
+            PFNGLSPRITEPARAMETERFVSGIXPROC SpriteParameterfvSGIX; // 1788
+            PFNGLSPRITEPARAMETERISGIXPROC SpriteParameteriSGIX; // 1789
+            PFNGLSPRITEPARAMETERIVSGIXPROC SpriteParameterivSGIX; // 1790
+            PFNGLSTARTINSTRUMENTSSGIXPROC StartInstrumentsSGIX; // 1791
+            PFNGLSTATECAPTURENVPROC StateCaptureNV; // 1792
+            PFNGLSTENCILCLEARTAGEXTPROC StencilClearTagEXT; // 1793
+            PFNGLSTENCILFILLPATHINSTANCEDNVPROC StencilFillPathInstancedNV; // 1794
+            PFNGLSTENCILFILLPATHNVPROC StencilFillPathNV; // 1795
+            PFNGLSTENCILFUNCPROC StencilFunc; // 1796
+            PFNGLSTENCILFUNCSEPARATEPROC StencilFuncSeparate; // 1797
+            PFNGLSTENCILFUNCSEPARATEATIPROC StencilFuncSeparateATI; // 1798
+            PFNGLSTENCILMASKPROC StencilMask; // 1799
+            PFNGLSTENCILMASKSEPARATEPROC StencilMaskSeparate; // 1800
+            PFNGLSTENCILOPPROC StencilOp; // 1801
+            PFNGLSTENCILOPSEPARATEPROC StencilOpSeparate; // 1802
+            PFNGLSTENCILOPSEPARATEATIPROC StencilOpSeparateATI; // 1803
+            PFNGLSTENCILOPVALUEAMDPROC StencilOpValueAMD; // 1804
+            PFNGLSTENCILSTROKEPATHINSTANCEDNVPROC StencilStrokePathInstancedNV; // 1805
+            PFNGLSTENCILSTROKEPATHNVPROC StencilStrokePathNV; // 1806
+            PFNGLSTENCILTHENCOVERFILLPATHINSTANCEDNVPROC StencilThenCoverFillPathInstancedNV; // 1807
+            PFNGLSTENCILTHENCOVERFILLPATHNVPROC StencilThenCoverFillPathNV; // 1808
+            PFNGLSTENCILTHENCOVERSTROKEPATHINSTANCEDNVPROC StencilThenCoverStrokePathInstancedNV; // 1809
+            PFNGLSTENCILTHENCOVERSTROKEPATHNVPROC StencilThenCoverStrokePathNV; // 1810
+            PFNGLSTOPINSTRUMENTSSGIXPROC StopInstrumentsSGIX; // 1811
+            PFNGLSTRINGMARKERGREMEDYPROC StringMarkerGREMEDY; // 1812
+            PFNGLSUBPIXELPRECISIONBIASNVPROC SubpixelPrecisionBiasNV; // 1813
+            PFNGLSWIZZLEEXTPROC SwizzleEXT; // 1814
+            PFNGLSYNCTEXTUREINTELPROC SyncTextureINTEL; // 1815
+            PFNGLTAGSAMPLEBUFFERSGIXPROC TagSampleBufferSGIX; // 1816
+            PFNGLTANGENT3BEXTPROC Tangent3bEXT; // 1817
+            PFNGLTANGENT3BVEXTPROC Tangent3bvEXT; // 1818
+            PFNGLTANGENT3DEXTPROC Tangent3dEXT; // 1819
+            PFNGLTANGENT3DVEXTPROC Tangent3dvEXT; // 1820
+            PFNGLTANGENT3FEXTPROC Tangent3fEXT; // 1821
+            PFNGLTANGENT3FVEXTPROC Tangent3fvEXT; // 1822
+            PFNGLTANGENT3IEXTPROC Tangent3iEXT; // 1823
+            PFNGLTANGENT3IVEXTPROC Tangent3ivEXT; // 1824
+            PFNGLTANGENT3SEXTPROC Tangent3sEXT; // 1825
+            PFNGLTANGENT3SVEXTPROC Tangent3svEXT; // 1826
+            PFNGLTANGENTPOINTEREXTPROC TangentPointerEXT; // 1827
+            PFNGLTBUFFERMASK3DFXPROC TbufferMask3DFX; // 1828
+            PFNGLTESSELLATIONFACTORAMDPROC TessellationFactorAMD; // 1829
+            PFNGLTESSELLATIONMODEAMDPROC TessellationModeAMD; // 1830
+            PFNGLTESTFENCEAPPLEPROC TestFenceAPPLE; // 1831
+            PFNGLTESTFENCENVPROC TestFenceNV; // 1832
+            PFNGLTESTOBJECTAPPLEPROC TestObjectAPPLE; // 1833
+            PFNGLTEXATTACHMEMORYNVPROC TexAttachMemoryNV; // 1834
+            PFNGLTEXBUFFERPROC TexBuffer; // 1835
+            PFNGLTEXBUFFERARBPROC TexBufferARB; // 1836
+            PFNGLTEXBUFFEREXTPROC TexBufferEXT; // 1837
+            PFNGLTEXBUFFERRANGEPROC TexBufferRange; // 1838
+            PFNGLTEXBUMPPARAMETERFVATIPROC TexBumpParameterfvATI; // 1839
+            PFNGLTEXBUMPPARAMETERIVATIPROC TexBumpParameterivATI; // 1840
+            PFNGLTEXCOORD1BOESPROC TexCoord1bOES; // 1841
+            PFNGLTEXCOORD1BVOESPROC TexCoord1bvOES; // 1842
+            PFNGLTEXCOORD1HNVPROC TexCoord1hNV; // 1843
+            PFNGLTEXCOORD1HVNVPROC TexCoord1hvNV; // 1844
+            PFNGLTEXCOORD1XOESPROC TexCoord1xOES; // 1845
+            PFNGLTEXCOORD1XVOESPROC TexCoord1xvOES; // 1846
+            PFNGLTEXCOORD2BOESPROC TexCoord2bOES; // 1847
+            PFNGLTEXCOORD2BVOESPROC TexCoord2bvOES; // 1848
+            PFNGLTEXCOORD2FCOLOR3FVERTEX3FSUNPROC TexCoord2fColor3fVertex3fSUN; // 1849
+            PFNGLTEXCOORD2FCOLOR3FVERTEX3FVSUNPROC TexCoord2fColor3fVertex3fvSUN; // 1850
+            PFNGLTEXCOORD2FCOLOR4FNORMAL3FVERTEX3FSUNPROC TexCoord2fColor4fNormal3fVertex3fSUN; // 1851
+            PFNGLTEXCOORD2FCOLOR4FNORMAL3FVERTEX3FVSUNPROC TexCoord2fColor4fNormal3fVertex3fvSUN; // 1852
+            PFNGLTEXCOORD2FCOLOR4UBVERTEX3FSUNPROC TexCoord2fColor4ubVertex3fSUN; // 1853
+            PFNGLTEXCOORD2FCOLOR4UBVERTEX3FVSUNPROC TexCoord2fColor4ubVertex3fvSUN; // 1854
+            PFNGLTEXCOORD2FNORMAL3FVERTEX3FSUNPROC TexCoord2fNormal3fVertex3fSUN; // 1855
+            PFNGLTEXCOORD2FNORMAL3FVERTEX3FVSUNPROC TexCoord2fNormal3fVertex3fvSUN; // 1856
+            PFNGLTEXCOORD2FVERTEX3FSUNPROC TexCoord2fVertex3fSUN; // 1857
+            PFNGLTEXCOORD2FVERTEX3FVSUNPROC TexCoord2fVertex3fvSUN; // 1858
+            PFNGLTEXCOORD2HNVPROC TexCoord2hNV; // 1859
+            PFNGLTEXCOORD2HVNVPROC TexCoord2hvNV; // 1860
+            PFNGLTEXCOORD2XOESPROC TexCoord2xOES; // 1861
+            PFNGLTEXCOORD2XVOESPROC TexCoord2xvOES; // 1862
+            PFNGLTEXCOORD3BOESPROC TexCoord3bOES; // 1863
+            PFNGLTEXCOORD3BVOESPROC TexCoord3bvOES; // 1864
+            PFNGLTEXCOORD3HNVPROC TexCoord3hNV; // 1865
+            PFNGLTEXCOORD3HVNVPROC TexCoord3hvNV; // 1866
+            PFNGLTEXCOORD3XOESPROC TexCoord3xOES; // 1867
+            PFNGLTEXCOORD3XVOESPROC TexCoord3xvOES; // 1868
+            PFNGLTEXCOORD4BOESPROC TexCoord4bOES; // 1869
+            PFNGLTEXCOORD4BVOESPROC TexCoord4bvOES; // 1870
+            PFNGLTEXCOORD4FCOLOR4FNORMAL3FVERTEX4FSUNPROC TexCoord4fColor4fNormal3fVertex4fSUN; // 1871
+            PFNGLTEXCOORD4FCOLOR4FNORMAL3FVERTEX4FVSUNPROC TexCoord4fColor4fNormal3fVertex4fvSUN; // 1872
+            PFNGLTEXCOORD4FVERTEX4FSUNPROC TexCoord4fVertex4fSUN; // 1873
+            PFNGLTEXCOORD4FVERTEX4FVSUNPROC TexCoord4fVertex4fvSUN; // 1874
+            PFNGLTEXCOORD4HNVPROC TexCoord4hNV; // 1875
+            PFNGLTEXCOORD4HVNVPROC TexCoord4hvNV; // 1876
+            PFNGLTEXCOORD4XOESPROC TexCoord4xOES; // 1877
+            PFNGLTEXCOORD4XVOESPROC TexCoord4xvOES; // 1878
+            PFNGLTEXCOORDFORMATNVPROC TexCoordFormatNV; // 1879
+            PFNGLTEXCOORDPOINTEREXTPROC TexCoordPointerEXT; // 1880
+            PFNGLTEXCOORDPOINTERLISTIBMPROC TexCoordPointerListIBM; // 1881
+            PFNGLTEXCOORDPOINTERVINTELPROC TexCoordPointervINTEL; // 1882
+            PFNGLTEXENVXOESPROC TexEnvxOES; // 1883
+            PFNGLTEXENVXVOESPROC TexEnvxvOES; // 1884
+            PFNGLTEXFILTERFUNCSGISPROC TexFilterFuncSGIS; // 1885
+            PFNGLTEXGENXOESPROC TexGenxOES; // 1886
+            PFNGLTEXGENXVOESPROC TexGenxvOES; // 1887
+            PFNGLTEXIMAGE1DPROC TexImage1D; // 1888
+            PFNGLTEXIMAGE2DPROC TexImage2D; // 1889
+            PFNGLTEXIMAGE2DEXTERNALANGLEPROC TexImage2DExternalANGLE; // 1890
+            PFNGLTEXIMAGE2DMULTISAMPLEPROC TexImage2DMultisample; // 1891
+            PFNGLTEXIMAGE2DMULTISAMPLECOVERAGENVPROC TexImage2DMultisampleCoverageNV; // 1892
+            PFNGLTEXIMAGE3DPROC TexImage3D; // 1893
+            PFNGLTEXIMAGE3DEXTPROC TexImage3DEXT; // 1894
+            PFNGLTEXIMAGE3DMULTISAMPLEPROC TexImage3DMultisample; // 1895
+            PFNGLTEXIMAGE3DMULTISAMPLECOVERAGENVPROC TexImage3DMultisampleCoverageNV; // 1896
+            PFNGLTEXIMAGE4DSGISPROC TexImage4DSGIS; // 1897
+            PFNGLTEXPAGECOMMITMENTARBPROC TexPageCommitmentARB; // 1898
+            PFNGLTEXPAGECOMMITMENTMEMNVPROC TexPageCommitmentMemNV; // 1899
+            PFNGLTEXPARAMETERIIVPROC TexParameterIiv; // 1900
+            PFNGLTEXPARAMETERIIVEXTPROC TexParameterIivEXT; // 1901
+            PFNGLTEXPARAMETERIUIVPROC TexParameterIuiv; // 1902
+            PFNGLTEXPARAMETERIUIVEXTPROC TexParameterIuivEXT; // 1903
+            PFNGLTEXPARAMETERFPROC TexParameterf; // 1904
+            PFNGLTEXPARAMETERFVPROC TexParameterfv; // 1905
+            PFNGLTEXPARAMETERIPROC TexParameteri; // 1906
+            PFNGLTEXPARAMETERIVPROC TexParameteriv; // 1907
+            PFNGLTEXPARAMETERXOESPROC TexParameterxOES; // 1908
+            PFNGLTEXPARAMETERXVOESPROC TexParameterxvOES; // 1909
+            PFNGLTEXRENDERBUFFERNVPROC TexRenderbufferNV; // 1910
+            PFNGLTEXSTORAGE1DPROC TexStorage1D; // 1911
+            PFNGLTEXSTORAGE1DEXTPROC TexStorage1DEXT; // 1912
+            PFNGLTEXSTORAGE2DPROC TexStorage2D; // 1913
+            PFNGLTEXSTORAGE2DEXTPROC TexStorage2DEXT; // 1914
+            PFNGLTEXSTORAGE2DMULTISAMPLEPROC TexStorage2DMultisample; // 1915
+            PFNGLTEXSTORAGE3DPROC TexStorage3D; // 1916
+            PFNGLTEXSTORAGE3DEXTPROC TexStorage3DEXT; // 1917
+            PFNGLTEXSTORAGE3DMULTISAMPLEPROC TexStorage3DMultisample; // 1918
+            PFNGLTEXSTORAGEMEM1DEXTPROC TexStorageMem1DEXT; // 1919
+            PFNGLTEXSTORAGEMEM2DEXTPROC TexStorageMem2DEXT; // 1920
+            PFNGLTEXSTORAGEMEM2DMULTISAMPLEEXTPROC TexStorageMem2DMultisampleEXT; // 1921
+            PFNGLTEXSTORAGEMEM3DEXTPROC TexStorageMem3DEXT; // 1922
+            PFNGLTEXSTORAGEMEM3DMULTISAMPLEEXTPROC TexStorageMem3DMultisampleEXT; // 1923
+            PFNGLTEXSTORAGEMEMFLAGS2DANGLEPROC TexStorageMemFlags2DANGLE; // 1924
+            PFNGLTEXSTORAGEMEMFLAGS2DMULTISAMPLEANGLEPROC TexStorageMemFlags2DMultisampleANGLE; // 1925
+            PFNGLTEXSTORAGEMEMFLAGS3DANGLEPROC TexStorageMemFlags3DANGLE; // 1926
+            PFNGLTEXSTORAGEMEMFLAGS3DMULTISAMPLEANGLEPROC TexStorageMemFlags3DMultisampleANGLE; // 1927
+            PFNGLTEXSTORAGESPARSEAMDPROC TexStorageSparseAMD; // 1928
+            PFNGLTEXSUBIMAGE1DPROC TexSubImage1D; // 1929
+            PFNGLTEXSUBIMAGE1DEXTPROC TexSubImage1DEXT; // 1930
+            PFNGLTEXSUBIMAGE2DPROC TexSubImage2D; // 1931
+            PFNGLTEXSUBIMAGE2DEXTPROC TexSubImage2DEXT; // 1932
+            PFNGLTEXSUBIMAGE3DPROC TexSubImage3D; // 1933
+            PFNGLTEXSUBIMAGE3DEXTPROC TexSubImage3DEXT; // 1934
+            PFNGLTEXSUBIMAGE4DSGISPROC TexSubImage4DSGIS; // 1935
+            PFNGLTEXTUREATTACHMEMORYNVPROC TextureAttachMemoryNV; // 1936
+            PFNGLTEXTUREBARRIERPROC TextureBarrier; // 1937
+            PFNGLTEXTUREBARRIERNVPROC TextureBarrierNV; // 1938
+            PFNGLTEXTUREBUFFERPROC TextureBuffer; // 1939
+            PFNGLTEXTUREBUFFEREXTPROC TextureBufferEXT; // 1940
+            PFNGLTEXTUREBUFFERRANGEPROC TextureBufferRange; // 1941
+            PFNGLTEXTUREBUFFERRANGEEXTPROC TextureBufferRangeEXT; // 1942
+            PFNGLTEXTURECOLORMASKSGISPROC TextureColorMaskSGIS; // 1943
+            PFNGLTEXTUREIMAGE1DEXTPROC TextureImage1DEXT; // 1944
+            PFNGLTEXTUREIMAGE2DEXTPROC TextureImage2DEXT; // 1945
+            PFNGLTEXTUREIMAGE2DMULTISAMPLECOVERAGENVPROC TextureImage2DMultisampleCoverageNV; // 1946
+            PFNGLTEXTUREIMAGE2DMULTISAMPLENVPROC TextureImage2DMultisampleNV; // 1947
+            PFNGLTEXTUREIMAGE3DEXTPROC TextureImage3DEXT; // 1948
+            PFNGLTEXTUREIMAGE3DMULTISAMPLECOVERAGENVPROC TextureImage3DMultisampleCoverageNV; // 1949
+            PFNGLTEXTUREIMAGE3DMULTISAMPLENVPROC TextureImage3DMultisampleNV; // 1950
+            PFNGLTEXTURELIGHTEXTPROC TextureLightEXT; // 1951
+            PFNGLTEXTUREMATERIALEXTPROC TextureMaterialEXT; // 1952
+            PFNGLTEXTURENORMALEXTPROC TextureNormalEXT; // 1953
+            PFNGLTEXTUREPAGECOMMITMENTEXTPROC TexturePageCommitmentEXT; // 1954
+            PFNGLTEXTUREPAGECOMMITMENTMEMNVPROC TexturePageCommitmentMemNV; // 1955
+            PFNGLTEXTUREPARAMETERIIVPROC TextureParameterIiv; // 1956
+            PFNGLTEXTUREPARAMETERIIVEXTPROC TextureParameterIivEXT; // 1957
+            PFNGLTEXTUREPARAMETERIUIVPROC TextureParameterIuiv; // 1958
+            PFNGLTEXTUREPARAMETERIUIVEXTPROC TextureParameterIuivEXT; // 1959
+            PFNGLTEXTUREPARAMETERFPROC TextureParameterf; // 1960
+            PFNGLTEXTUREPARAMETERFEXTPROC TextureParameterfEXT; // 1961
+            PFNGLTEXTUREPARAMETERFVPROC TextureParameterfv; // 1962
+            PFNGLTEXTUREPARAMETERFVEXTPROC TextureParameterfvEXT; // 1963
+            PFNGLTEXTUREPARAMETERIPROC TextureParameteri; // 1964
+            PFNGLTEXTUREPARAMETERIEXTPROC TextureParameteriEXT; // 1965
+            PFNGLTEXTUREPARAMETERIVPROC TextureParameteriv; // 1966
+            PFNGLTEXTUREPARAMETERIVEXTPROC TextureParameterivEXT; // 1967
+            PFNGLTEXTURERANGEAPPLEPROC TextureRangeAPPLE; // 1968
+            PFNGLTEXTURERENDERBUFFEREXTPROC TextureRenderbufferEXT; // 1969
+            PFNGLTEXTURESTORAGE1DPROC TextureStorage1D; // 1970
+            PFNGLTEXTURESTORAGE1DEXTPROC TextureStorage1DEXT; // 1971
+            PFNGLTEXTURESTORAGE2DPROC TextureStorage2D; // 1972
+            PFNGLTEXTURESTORAGE2DEXTPROC TextureStorage2DEXT; // 1973
+            PFNGLTEXTURESTORAGE2DMULTISAMPLEPROC TextureStorage2DMultisample; // 1974
+            PFNGLTEXTURESTORAGE2DMULTISAMPLEEXTPROC TextureStorage2DMultisampleEXT; // 1975
+            PFNGLTEXTURESTORAGE3DPROC TextureStorage3D; // 1976
+            PFNGLTEXTURESTORAGE3DEXTPROC TextureStorage3DEXT; // 1977
+            PFNGLTEXTURESTORAGE3DMULTISAMPLEPROC TextureStorage3DMultisample; // 1978
+            PFNGLTEXTURESTORAGE3DMULTISAMPLEEXTPROC TextureStorage3DMultisampleEXT; // 1979
+            PFNGLTEXTURESTORAGEMEM1DEXTPROC TextureStorageMem1DEXT; // 1980
+            PFNGLTEXTURESTORAGEMEM2DEXTPROC TextureStorageMem2DEXT; // 1981
+            PFNGLTEXTURESTORAGEMEM2DMULTISAMPLEEXTPROC TextureStorageMem2DMultisampleEXT; // 1982
+            PFNGLTEXTURESTORAGEMEM3DEXTPROC TextureStorageMem3DEXT; // 1983
+            PFNGLTEXTURESTORAGEMEM3DMULTISAMPLEEXTPROC TextureStorageMem3DMultisampleEXT; // 1984
+            PFNGLTEXTURESTORAGESPARSEAMDPROC TextureStorageSparseAMD; // 1985
+            PFNGLTEXTURESUBIMAGE1DPROC TextureSubImage1D; // 1986
+            PFNGLTEXTURESUBIMAGE1DEXTPROC TextureSubImage1DEXT; // 1987
+            PFNGLTEXTURESUBIMAGE2DPROC TextureSubImage2D; // 1988
+            PFNGLTEXTURESUBIMAGE2DEXTPROC TextureSubImage2DEXT; // 1989
+            PFNGLTEXTURESUBIMAGE3DPROC TextureSubImage3D; // 1990
+            PFNGLTEXTURESUBIMAGE3DEXTPROC TextureSubImage3DEXT; // 1991
+            PFNGLTEXTUREVIEWPROC TextureView; // 1992
+            PFNGLTRACKMATRIXNVPROC TrackMatrixNV; // 1993
+            PFNGLTRANSFORMFEEDBACKATTRIBSNVPROC TransformFeedbackAttribsNV; // 1994
+            PFNGLTRANSFORMFEEDBACKBUFFERBASEPROC TransformFeedbackBufferBase; // 1995
+            PFNGLTRANSFORMFEEDBACKBUFFERRANGEPROC TransformFeedbackBufferRange; // 1996
+            PFNGLTRANSFORMFEEDBACKSTREAMATTRIBSNVPROC TransformFeedbackStreamAttribsNV; // 1997
+            PFNGLTRANSFORMFEEDBACKVARYINGSPROC TransformFeedbackVaryings; // 1998
+            PFNGLTRANSFORMFEEDBACKVARYINGSEXTPROC TransformFeedbackVaryingsEXT; // 1999
+            PFNGLTRANSFORMFEEDBACKVARYINGSNVPROC TransformFeedbackVaryingsNV; // 2000
+            PFNGLTRANSFORMPATHNVPROC TransformPathNV; // 2001
+            PFNGLTRANSLATEXOESPROC TranslatexOES; // 2002
+            PFNGLUNIFORM1DPROC Uniform1d; // 2003
+            PFNGLUNIFORM1DVPROC Uniform1dv; // 2004
+            PFNGLUNIFORM1FPROC Uniform1f; // 2005
+            PFNGLUNIFORM1FARBPROC Uniform1fARB; // 2006
+            PFNGLUNIFORM1FVPROC Uniform1fv; // 2007
+            PFNGLUNIFORM1FVARBPROC Uniform1fvARB; // 2008
+            PFNGLUNIFORM1IPROC Uniform1i; // 2009
+            PFNGLUNIFORM1I64ARBPROC Uniform1i64ARB; // 2010
+            PFNGLUNIFORM1I64NVPROC Uniform1i64NV; // 2011
+            PFNGLUNIFORM1I64VARBPROC Uniform1i64vARB; // 2012
+            PFNGLUNIFORM1I64VNVPROC Uniform1i64vNV; // 2013
+            PFNGLUNIFORM1IARBPROC Uniform1iARB; // 2014
+            PFNGLUNIFORM1IVPROC Uniform1iv; // 2015
+            PFNGLUNIFORM1IVARBPROC Uniform1ivARB; // 2016
+            PFNGLUNIFORM1UIPROC Uniform1ui; // 2017
+            PFNGLUNIFORM1UI64ARBPROC Uniform1ui64ARB; // 2018
+            PFNGLUNIFORM1UI64NVPROC Uniform1ui64NV; // 2019
+            PFNGLUNIFORM1UI64VARBPROC Uniform1ui64vARB; // 2020
+            PFNGLUNIFORM1UI64VNVPROC Uniform1ui64vNV; // 2021
+            PFNGLUNIFORM1UIEXTPROC Uniform1uiEXT; // 2022
+            PFNGLUNIFORM1UIVPROC Uniform1uiv; // 2023
+            PFNGLUNIFORM1UIVEXTPROC Uniform1uivEXT; // 2024
+            PFNGLUNIFORM2DPROC Uniform2d; // 2025
+            PFNGLUNIFORM2DVPROC Uniform2dv; // 2026
+            PFNGLUNIFORM2FPROC Uniform2f; // 2027
+            PFNGLUNIFORM2FARBPROC Uniform2fARB; // 2028
+            PFNGLUNIFORM2FVPROC Uniform2fv; // 2029
+            PFNGLUNIFORM2FVARBPROC Uniform2fvARB; // 2030
+            PFNGLUNIFORM2IPROC Uniform2i; // 2031
+            PFNGLUNIFORM2I64ARBPROC Uniform2i64ARB; // 2032
+            PFNGLUNIFORM2I64NVPROC Uniform2i64NV; // 2033
+            PFNGLUNIFORM2I64VARBPROC Uniform2i64vARB; // 2034
+            PFNGLUNIFORM2I64VNVPROC Uniform2i64vNV; // 2035
+            PFNGLUNIFORM2IARBPROC Uniform2iARB; // 2036
+            PFNGLUNIFORM2IVPROC Uniform2iv; // 2037
+            PFNGLUNIFORM2IVARBPROC Uniform2ivARB; // 2038
+            PFNGLUNIFORM2UIPROC Uniform2ui; // 2039
+            PFNGLUNIFORM2UI64ARBPROC Uniform2ui64ARB; // 2040
+            PFNGLUNIFORM2UI64NVPROC Uniform2ui64NV; // 2041
+            PFNGLUNIFORM2UI64VARBPROC Uniform2ui64vARB; // 2042
+            PFNGLUNIFORM2UI64VNVPROC Uniform2ui64vNV; // 2043
+            PFNGLUNIFORM2UIEXTPROC Uniform2uiEXT; // 2044
+            PFNGLUNIFORM2UIVPROC Uniform2uiv; // 2045
+            PFNGLUNIFORM2UIVEXTPROC Uniform2uivEXT; // 2046
+            PFNGLUNIFORM3DPROC Uniform3d; // 2047
+            PFNGLUNIFORM3DVPROC Uniform3dv; // 2048
+            PFNGLUNIFORM3FPROC Uniform3f; // 2049
+            PFNGLUNIFORM3FARBPROC Uniform3fARB; // 2050
+            PFNGLUNIFORM3FVPROC Uniform3fv; // 2051
+            PFNGLUNIFORM3FVARBPROC Uniform3fvARB; // 2052
+            PFNGLUNIFORM3IPROC Uniform3i; // 2053
+            PFNGLUNIFORM3I64ARBPROC Uniform3i64ARB; // 2054
+            PFNGLUNIFORM3I64NVPROC Uniform3i64NV; // 2055
+            PFNGLUNIFORM3I64VARBPROC Uniform3i64vARB; // 2056
+            PFNGLUNIFORM3I64VNVPROC Uniform3i64vNV; // 2057
+            PFNGLUNIFORM3IARBPROC Uniform3iARB; // 2058
+            PFNGLUNIFORM3IVPROC Uniform3iv; // 2059
+            PFNGLUNIFORM3IVARBPROC Uniform3ivARB; // 2060
+            PFNGLUNIFORM3UIPROC Uniform3ui; // 2061
+            PFNGLUNIFORM3UI64ARBPROC Uniform3ui64ARB; // 2062
+            PFNGLUNIFORM3UI64NVPROC Uniform3ui64NV; // 2063
+            PFNGLUNIFORM3UI64VARBPROC Uniform3ui64vARB; // 2064
+            PFNGLUNIFORM3UI64VNVPROC Uniform3ui64vNV; // 2065
+            PFNGLUNIFORM3UIEXTPROC Uniform3uiEXT; // 2066
+            PFNGLUNIFORM3UIVPROC Uniform3uiv; // 2067
+            PFNGLUNIFORM3UIVEXTPROC Uniform3uivEXT; // 2068
+            PFNGLUNIFORM4DPROC Uniform4d; // 2069
+            PFNGLUNIFORM4DVPROC Uniform4dv; // 2070
+            PFNGLUNIFORM4FPROC Uniform4f; // 2071
+            PFNGLUNIFORM4FARBPROC Uniform4fARB; // 2072
+            PFNGLUNIFORM4FVPROC Uniform4fv; // 2073
+            PFNGLUNIFORM4FVARBPROC Uniform4fvARB; // 2074
+            PFNGLUNIFORM4IPROC Uniform4i; // 2075
+            PFNGLUNIFORM4I64ARBPROC Uniform4i64ARB; // 2076
+            PFNGLUNIFORM4I64NVPROC Uniform4i64NV; // 2077
+            PFNGLUNIFORM4I64VARBPROC Uniform4i64vARB; // 2078
+            PFNGLUNIFORM4I64VNVPROC Uniform4i64vNV; // 2079
+            PFNGLUNIFORM4IARBPROC Uniform4iARB; // 2080
+            PFNGLUNIFORM4IVPROC Uniform4iv; // 2081
+            PFNGLUNIFORM4IVARBPROC Uniform4ivARB; // 2082
+            PFNGLUNIFORM4UIPROC Uniform4ui; // 2083
+            PFNGLUNIFORM4UI64ARBPROC Uniform4ui64ARB; // 2084
+            PFNGLUNIFORM4UI64NVPROC Uniform4ui64NV; // 2085
+            PFNGLUNIFORM4UI64VARBPROC Uniform4ui64vARB; // 2086
+            PFNGLUNIFORM4UI64VNVPROC Uniform4ui64vNV; // 2087
+            PFNGLUNIFORM4UIEXTPROC Uniform4uiEXT; // 2088
+            PFNGLUNIFORM4UIVPROC Uniform4uiv; // 2089
+            PFNGLUNIFORM4UIVEXTPROC Uniform4uivEXT; // 2090
+            PFNGLUNIFORMBLOCKBINDINGPROC UniformBlockBinding; // 2091
+            PFNGLUNIFORMBUFFEREXTPROC UniformBufferEXT; // 2092
+            PFNGLUNIFORMHANDLEUI64ARBPROC UniformHandleui64ARB; // 2093
+            PFNGLUNIFORMHANDLEUI64NVPROC UniformHandleui64NV; // 2094
+            PFNGLUNIFORMHANDLEUI64VARBPROC UniformHandleui64vARB; // 2095
+            PFNGLUNIFORMHANDLEUI64VNVPROC UniformHandleui64vNV; // 2096
+            PFNGLUNIFORMMATRIX2DVPROC UniformMatrix2dv; // 2097
+            PFNGLUNIFORMMATRIX2FVPROC UniformMatrix2fv; // 2098
+            PFNGLUNIFORMMATRIX2FVARBPROC UniformMatrix2fvARB; // 2099
+            PFNGLUNIFORMMATRIX2X3DVPROC UniformMatrix2x3dv; // 2100
+            PFNGLUNIFORMMATRIX2X3FVPROC UniformMatrix2x3fv; // 2101
+            PFNGLUNIFORMMATRIX2X4DVPROC UniformMatrix2x4dv; // 2102
+            PFNGLUNIFORMMATRIX2X4FVPROC UniformMatrix2x4fv; // 2103
+            PFNGLUNIFORMMATRIX3DVPROC UniformMatrix3dv; // 2104
+            PFNGLUNIFORMMATRIX3FVPROC UniformMatrix3fv; // 2105
+            PFNGLUNIFORMMATRIX3FVARBPROC UniformMatrix3fvARB; // 2106
+            PFNGLUNIFORMMATRIX3X2DVPROC UniformMatrix3x2dv; // 2107
+            PFNGLUNIFORMMATRIX3X2FVPROC UniformMatrix3x2fv; // 2108
+            PFNGLUNIFORMMATRIX3X4DVPROC UniformMatrix3x4dv; // 2109
+            PFNGLUNIFORMMATRIX3X4FVPROC UniformMatrix3x4fv; // 2110
+            PFNGLUNIFORMMATRIX4DVPROC UniformMatrix4dv; // 2111
+            PFNGLUNIFORMMATRIX4FVPROC UniformMatrix4fv; // 2112
+            PFNGLUNIFORMMATRIX4FVARBPROC UniformMatrix4fvARB; // 2113
+            PFNGLUNIFORMMATRIX4X2DVPROC UniformMatrix4x2dv; // 2114
+            PFNGLUNIFORMMATRIX4X2FVPROC UniformMatrix4x2fv; // 2115
+            PFNGLUNIFORMMATRIX4X3DVPROC UniformMatrix4x3dv; // 2116
+            PFNGLUNIFORMMATRIX4X3FVPROC UniformMatrix4x3fv; // 2117
+            PFNGLUNIFORMSUBROUTINESUIVPROC UniformSubroutinesuiv; // 2118
+            PFNGLUNIFORMUI64NVPROC Uniformui64NV; // 2119
+            PFNGLUNIFORMUI64VNVPROC Uniformui64vNV; // 2120
+            PFNGLUNLOCKARRAYSEXTPROC UnlockArraysEXT; // 2121
+            PFNGLUNMAPBUFFERPROC UnmapBuffer; // 2122
+            PFNGLUNMAPBUFFERARBPROC UnmapBufferARB; // 2123
+            PFNGLUNMAPNAMEDBUFFERPROC UnmapNamedBuffer; // 2124
+            PFNGLUNMAPNAMEDBUFFEREXTPROC UnmapNamedBufferEXT; // 2125
+            PFNGLUNMAPOBJECTBUFFERATIPROC UnmapObjectBufferATI; // 2126
+            PFNGLUNMAPTEXTURE2DINTELPROC UnmapTexture2DINTEL; // 2127
+            PFNGLUPDATEOBJECTBUFFERATIPROC UpdateObjectBufferATI; // 2128
+            PFNGLUPLOADGPUMASKNVXPROC UploadGpuMaskNVX; // 2129
+            PFNGLUSEPROGRAMPROC UseProgram; // 2130
+            PFNGLUSEPROGRAMOBJECTARBPROC UseProgramObjectARB; // 2131
+            PFNGLUSEPROGRAMSTAGESPROC UseProgramStages; // 2132
+            PFNGLUSESHADERPROGRAMEXTPROC UseShaderProgramEXT; // 2133
+            PFNGLVDPAUFININVPROC VDPAUFiniNV; // 2134
+            PFNGLVDPAUGETSURFACEIVNVPROC VDPAUGetSurfaceivNV; // 2135
+            PFNGLVDPAUINITNVPROC VDPAUInitNV; // 2136
+            PFNGLVDPAUISSURFACENVPROC VDPAUIsSurfaceNV; // 2137
+            PFNGLVDPAUMAPSURFACESNVPROC VDPAUMapSurfacesNV; // 2138
+            PFNGLVDPAUREGISTEROUTPUTSURFACENVPROC VDPAURegisterOutputSurfaceNV; // 2139
+            PFNGLVDPAUREGISTERVIDEOSURFACENVPROC VDPAURegisterVideoSurfaceNV; // 2140
+            PFNGLVDPAUREGISTERVIDEOSURFACEWITHPICTURESTRUCTURENVPROC VDPAURegisterVideoSurfaceWithPictureStructureNV; // 2141
+            PFNGLVDPAUSURFACEACCESSNVPROC VDPAUSurfaceAccessNV; // 2142
+            PFNGLVDPAUUNMAPSURFACESNVPROC VDPAUUnmapSurfacesNV; // 2143
+            PFNGLVDPAUUNREGISTERSURFACENVPROC VDPAUUnregisterSurfaceNV; // 2144
+            PFNGLVALIDATEPROGRAMPROC ValidateProgram; // 2145
+            PFNGLVALIDATEPROGRAMARBPROC ValidateProgramARB; // 2146
+            PFNGLVALIDATEPROGRAMPIPELINEPROC ValidateProgramPipeline; // 2147
+            PFNGLVARIANTARRAYOBJECTATIPROC VariantArrayObjectATI; // 2148
+            PFNGLVARIANTPOINTEREXTPROC VariantPointerEXT; // 2149
+            PFNGLVARIANTBVEXTPROC VariantbvEXT; // 2150
+            PFNGLVARIANTDVEXTPROC VariantdvEXT; // 2151
+            PFNGLVARIANTFVEXTPROC VariantfvEXT; // 2152
+            PFNGLVARIANTIVEXTPROC VariantivEXT; // 2153
+            PFNGLVARIANTSVEXTPROC VariantsvEXT; // 2154
+            PFNGLVARIANTUBVEXTPROC VariantubvEXT; // 2155
+            PFNGLVARIANTUIVEXTPROC VariantuivEXT; // 2156
+            PFNGLVARIANTUSVEXTPROC VariantusvEXT; // 2157
+            PFNGLVERTEX2BOESPROC Vertex2bOES; // 2158
+            PFNGLVERTEX2BVOESPROC Vertex2bvOES; // 2159
+            PFNGLVERTEX2HNVPROC Vertex2hNV; // 2160
+            PFNGLVERTEX2HVNVPROC Vertex2hvNV; // 2161
+            PFNGLVERTEX2XOESPROC Vertex2xOES; // 2162
+            PFNGLVERTEX2XVOESPROC Vertex2xvOES; // 2163
+            PFNGLVERTEX3BOESPROC Vertex3bOES; // 2164
+            PFNGLVERTEX3BVOESPROC Vertex3bvOES; // 2165
+            PFNGLVERTEX3HNVPROC Vertex3hNV; // 2166
+            PFNGLVERTEX3HVNVPROC Vertex3hvNV; // 2167
+            PFNGLVERTEX3XOESPROC Vertex3xOES; // 2168
+            PFNGLVERTEX3XVOESPROC Vertex3xvOES; // 2169
+            PFNGLVERTEX4BOESPROC Vertex4bOES; // 2170
+            PFNGLVERTEX4BVOESPROC Vertex4bvOES; // 2171
+            PFNGLVERTEX4HNVPROC Vertex4hNV; // 2172
+            PFNGLVERTEX4HVNVPROC Vertex4hvNV; // 2173
+            PFNGLVERTEX4XOESPROC Vertex4xOES; // 2174
+            PFNGLVERTEX4XVOESPROC Vertex4xvOES; // 2175
+            PFNGLVERTEXARRAYATTRIBBINDINGPROC VertexArrayAttribBinding; // 2176
+            PFNGLVERTEXARRAYATTRIBFORMATPROC VertexArrayAttribFormat; // 2177
+            PFNGLVERTEXARRAYATTRIBIFORMATPROC VertexArrayAttribIFormat; // 2178
+            PFNGLVERTEXARRAYATTRIBLFORMATPROC VertexArrayAttribLFormat; // 2179
+            PFNGLVERTEXARRAYBINDVERTEXBUFFEREXTPROC VertexArrayBindVertexBufferEXT; // 2180
+            PFNGLVERTEXARRAYBINDINGDIVISORPROC VertexArrayBindingDivisor; // 2181
+            PFNGLVERTEXARRAYCOLOROFFSETEXTPROC VertexArrayColorOffsetEXT; // 2182
+            PFNGLVERTEXARRAYEDGEFLAGOFFSETEXTPROC VertexArrayEdgeFlagOffsetEXT; // 2183
+            PFNGLVERTEXARRAYELEMENTBUFFERPROC VertexArrayElementBuffer; // 2184
+            PFNGLVERTEXARRAYFOGCOORDOFFSETEXTPROC VertexArrayFogCoordOffsetEXT; // 2185
+            PFNGLVERTEXARRAYINDEXOFFSETEXTPROC VertexArrayIndexOffsetEXT; // 2186
+            PFNGLVERTEXARRAYMULTITEXCOORDOFFSETEXTPROC VertexArrayMultiTexCoordOffsetEXT; // 2187
+            PFNGLVERTEXARRAYNORMALOFFSETEXTPROC VertexArrayNormalOffsetEXT; // 2188
+            PFNGLVERTEXARRAYPARAMETERIAPPLEPROC VertexArrayParameteriAPPLE; // 2189
+            PFNGLVERTEXARRAYRANGEAPPLEPROC VertexArrayRangeAPPLE; // 2190
+            PFNGLVERTEXARRAYRANGENVPROC VertexArrayRangeNV; // 2191
+            PFNGLVERTEXARRAYSECONDARYCOLOROFFSETEXTPROC VertexArraySecondaryColorOffsetEXT; // 2192
+            PFNGLVERTEXARRAYTEXCOORDOFFSETEXTPROC VertexArrayTexCoordOffsetEXT; // 2193
+            PFNGLVERTEXARRAYVERTEXATTRIBBINDINGEXTPROC VertexArrayVertexAttribBindingEXT; // 2194
+            PFNGLVERTEXARRAYVERTEXATTRIBDIVISOREXTPROC VertexArrayVertexAttribDivisorEXT; // 2195
+            PFNGLVERTEXARRAYVERTEXATTRIBFORMATEXTPROC VertexArrayVertexAttribFormatEXT; // 2196
+            PFNGLVERTEXARRAYVERTEXATTRIBIFORMATEXTPROC VertexArrayVertexAttribIFormatEXT; // 2197
+            PFNGLVERTEXARRAYVERTEXATTRIBIOFFSETEXTPROC VertexArrayVertexAttribIOffsetEXT; // 2198
+            PFNGLVERTEXARRAYVERTEXATTRIBLFORMATEXTPROC VertexArrayVertexAttribLFormatEXT; // 2199
+            PFNGLVERTEXARRAYVERTEXATTRIBLOFFSETEXTPROC VertexArrayVertexAttribLOffsetEXT; // 2200
+            PFNGLVERTEXARRAYVERTEXATTRIBOFFSETEXTPROC VertexArrayVertexAttribOffsetEXT; // 2201
+            PFNGLVERTEXARRAYVERTEXBINDINGDIVISOREXTPROC VertexArrayVertexBindingDivisorEXT; // 2202
+            PFNGLVERTEXARRAYVERTEXBUFFERPROC VertexArrayVertexBuffer; // 2203
+            PFNGLVERTEXARRAYVERTEXBUFFERSPROC VertexArrayVertexBuffers; // 2204
+            PFNGLVERTEXARRAYVERTEXOFFSETEXTPROC VertexArrayVertexOffsetEXT; // 2205
+            PFNGLVERTEXATTRIB1DPROC VertexAttrib1d; // 2206
+            PFNGLVERTEXATTRIB1DARBPROC VertexAttrib1dARB; // 2207
+            PFNGLVERTEXATTRIB1DNVPROC VertexAttrib1dNV; // 2208
+            PFNGLVERTEXATTRIB1DVPROC VertexAttrib1dv; // 2209
+            PFNGLVERTEXATTRIB1DVARBPROC VertexAttrib1dvARB; // 2210
+            PFNGLVERTEXATTRIB1DVNVPROC VertexAttrib1dvNV; // 2211
+            PFNGLVERTEXATTRIB1FPROC VertexAttrib1f; // 2212
+            PFNGLVERTEXATTRIB1FARBPROC VertexAttrib1fARB; // 2213
+            PFNGLVERTEXATTRIB1FNVPROC VertexAttrib1fNV; // 2214
+            PFNGLVERTEXATTRIB1FVPROC VertexAttrib1fv; // 2215
+            PFNGLVERTEXATTRIB1FVARBPROC VertexAttrib1fvARB; // 2216
+            PFNGLVERTEXATTRIB1FVNVPROC VertexAttrib1fvNV; // 2217
+            PFNGLVERTEXATTRIB1HNVPROC VertexAttrib1hNV; // 2218
+            PFNGLVERTEXATTRIB1HVNVPROC VertexAttrib1hvNV; // 2219
+            PFNGLVERTEXATTRIB1SPROC VertexAttrib1s; // 2220
+            PFNGLVERTEXATTRIB1SARBPROC VertexAttrib1sARB; // 2221
+            PFNGLVERTEXATTRIB1SNVPROC VertexAttrib1sNV; // 2222
+            PFNGLVERTEXATTRIB1SVPROC VertexAttrib1sv; // 2223
+            PFNGLVERTEXATTRIB1SVARBPROC VertexAttrib1svARB; // 2224
+            PFNGLVERTEXATTRIB1SVNVPROC VertexAttrib1svNV; // 2225
+            PFNGLVERTEXATTRIB2DPROC VertexAttrib2d; // 2226
+            PFNGLVERTEXATTRIB2DARBPROC VertexAttrib2dARB; // 2227
+            PFNGLVERTEXATTRIB2DNVPROC VertexAttrib2dNV; // 2228
+            PFNGLVERTEXATTRIB2DVPROC VertexAttrib2dv; // 2229
+            PFNGLVERTEXATTRIB2DVARBPROC VertexAttrib2dvARB; // 2230
+            PFNGLVERTEXATTRIB2DVNVPROC VertexAttrib2dvNV; // 2231
+            PFNGLVERTEXATTRIB2FPROC VertexAttrib2f; // 2232
+            PFNGLVERTEXATTRIB2FARBPROC VertexAttrib2fARB; // 2233
+            PFNGLVERTEXATTRIB2FNVPROC VertexAttrib2fNV; // 2234
+            PFNGLVERTEXATTRIB2FVPROC VertexAttrib2fv; // 2235
+            PFNGLVERTEXATTRIB2FVARBPROC VertexAttrib2fvARB; // 2236
+            PFNGLVERTEXATTRIB2FVNVPROC VertexAttrib2fvNV; // 2237
+            PFNGLVERTEXATTRIB2HNVPROC VertexAttrib2hNV; // 2238
+            PFNGLVERTEXATTRIB2HVNVPROC VertexAttrib2hvNV; // 2239
+            PFNGLVERTEXATTRIB2SPROC VertexAttrib2s; // 2240
+            PFNGLVERTEXATTRIB2SARBPROC VertexAttrib2sARB; // 2241
+            PFNGLVERTEXATTRIB2SNVPROC VertexAttrib2sNV; // 2242
+            PFNGLVERTEXATTRIB2SVPROC VertexAttrib2sv; // 2243
+            PFNGLVERTEXATTRIB2SVARBPROC VertexAttrib2svARB; // 2244
+            PFNGLVERTEXATTRIB2SVNVPROC VertexAttrib2svNV; // 2245
+            PFNGLVERTEXATTRIB3DPROC VertexAttrib3d; // 2246
+            PFNGLVERTEXATTRIB3DARBPROC VertexAttrib3dARB; // 2247
+            PFNGLVERTEXATTRIB3DNVPROC VertexAttrib3dNV; // 2248
+            PFNGLVERTEXATTRIB3DVPROC VertexAttrib3dv; // 2249
+            PFNGLVERTEXATTRIB3DVARBPROC VertexAttrib3dvARB; // 2250
+            PFNGLVERTEXATTRIB3DVNVPROC VertexAttrib3dvNV; // 2251
+            PFNGLVERTEXATTRIB3FPROC VertexAttrib3f; // 2252
+            PFNGLVERTEXATTRIB3FARBPROC VertexAttrib3fARB; // 2253
+            PFNGLVERTEXATTRIB3FNVPROC VertexAttrib3fNV; // 2254
+            PFNGLVERTEXATTRIB3FVPROC VertexAttrib3fv; // 2255
+            PFNGLVERTEXATTRIB3FVARBPROC VertexAttrib3fvARB; // 2256
+            PFNGLVERTEXATTRIB3FVNVPROC VertexAttrib3fvNV; // 2257
+            PFNGLVERTEXATTRIB3HNVPROC VertexAttrib3hNV; // 2258
+            PFNGLVERTEXATTRIB3HVNVPROC VertexAttrib3hvNV; // 2259
+            PFNGLVERTEXATTRIB3SPROC VertexAttrib3s; // 2260
+            PFNGLVERTEXATTRIB3SARBPROC VertexAttrib3sARB; // 2261
+            PFNGLVERTEXATTRIB3SNVPROC VertexAttrib3sNV; // 2262
+            PFNGLVERTEXATTRIB3SVPROC VertexAttrib3sv; // 2263
+            PFNGLVERTEXATTRIB3SVARBPROC VertexAttrib3svARB; // 2264
+            PFNGLVERTEXATTRIB3SVNVPROC VertexAttrib3svNV; // 2265
+            PFNGLVERTEXATTRIB4NBVPROC VertexAttrib4Nbv; // 2266
+            PFNGLVERTEXATTRIB4NBVARBPROC VertexAttrib4NbvARB; // 2267
+            PFNGLVERTEXATTRIB4NIVPROC VertexAttrib4Niv; // 2268
+            PFNGLVERTEXATTRIB4NIVARBPROC VertexAttrib4NivARB; // 2269
+            PFNGLVERTEXATTRIB4NSVPROC VertexAttrib4Nsv; // 2270
+            PFNGLVERTEXATTRIB4NSVARBPROC VertexAttrib4NsvARB; // 2271
+            PFNGLVERTEXATTRIB4NUBPROC VertexAttrib4Nub; // 2272
+            PFNGLVERTEXATTRIB4NUBARBPROC VertexAttrib4NubARB; // 2273
+            PFNGLVERTEXATTRIB4NUBVPROC VertexAttrib4Nubv; // 2274
+            PFNGLVERTEXATTRIB4NUBVARBPROC VertexAttrib4NubvARB; // 2275
+            PFNGLVERTEXATTRIB4NUIVPROC VertexAttrib4Nuiv; // 2276
+            PFNGLVERTEXATTRIB4NUIVARBPROC VertexAttrib4NuivARB; // 2277
+            PFNGLVERTEXATTRIB4NUSVPROC VertexAttrib4Nusv; // 2278
+            PFNGLVERTEXATTRIB4NUSVARBPROC VertexAttrib4NusvARB; // 2279
+            PFNGLVERTEXATTRIB4BVPROC VertexAttrib4bv; // 2280
+            PFNGLVERTEXATTRIB4BVARBPROC VertexAttrib4bvARB; // 2281
+            PFNGLVERTEXATTRIB4DPROC VertexAttrib4d; // 2282
+            PFNGLVERTEXATTRIB4DARBPROC VertexAttrib4dARB; // 2283
+            PFNGLVERTEXATTRIB4DNVPROC VertexAttrib4dNV; // 2284
+            PFNGLVERTEXATTRIB4DVPROC VertexAttrib4dv; // 2285
+            PFNGLVERTEXATTRIB4DVARBPROC VertexAttrib4dvARB; // 2286
+            PFNGLVERTEXATTRIB4DVNVPROC VertexAttrib4dvNV; // 2287
+            PFNGLVERTEXATTRIB4FPROC VertexAttrib4f; // 2288
+            PFNGLVERTEXATTRIB4FARBPROC VertexAttrib4fARB; // 2289
+            PFNGLVERTEXATTRIB4FNVPROC VertexAttrib4fNV; // 2290
+            PFNGLVERTEXATTRIB4FVPROC VertexAttrib4fv; // 2291
+            PFNGLVERTEXATTRIB4FVARBPROC VertexAttrib4fvARB; // 2292
+            PFNGLVERTEXATTRIB4FVNVPROC VertexAttrib4fvNV; // 2293
+            PFNGLVERTEXATTRIB4HNVPROC VertexAttrib4hNV; // 2294
+            PFNGLVERTEXATTRIB4HVNVPROC VertexAttrib4hvNV; // 2295
+            PFNGLVERTEXATTRIB4IVPROC VertexAttrib4iv; // 2296
+            PFNGLVERTEXATTRIB4IVARBPROC VertexAttrib4ivARB; // 2297
+            PFNGLVERTEXATTRIB4SPROC VertexAttrib4s; // 2298
+            PFNGLVERTEXATTRIB4SARBPROC VertexAttrib4sARB; // 2299
+            PFNGLVERTEXATTRIB4SNVPROC VertexAttrib4sNV; // 2300
+            PFNGLVERTEXATTRIB4SVPROC VertexAttrib4sv; // 2301
+            PFNGLVERTEXATTRIB4SVARBPROC VertexAttrib4svARB; // 2302
+            PFNGLVERTEXATTRIB4SVNVPROC VertexAttrib4svNV; // 2303
+            PFNGLVERTEXATTRIB4UBNVPROC VertexAttrib4ubNV; // 2304
+            PFNGLVERTEXATTRIB4UBVPROC VertexAttrib4ubv; // 2305
+            PFNGLVERTEXATTRIB4UBVARBPROC VertexAttrib4ubvARB; // 2306
+            PFNGLVERTEXATTRIB4UBVNVPROC VertexAttrib4ubvNV; // 2307
+            PFNGLVERTEXATTRIB4UIVPROC VertexAttrib4uiv; // 2308
+            PFNGLVERTEXATTRIB4UIVARBPROC VertexAttrib4uivARB; // 2309
+            PFNGLVERTEXATTRIB4USVPROC VertexAttrib4usv; // 2310
+            PFNGLVERTEXATTRIB4USVARBPROC VertexAttrib4usvARB; // 2311
+            PFNGLVERTEXATTRIBARRAYOBJECTATIPROC VertexAttribArrayObjectATI; // 2312
+            PFNGLVERTEXATTRIBBINDINGPROC VertexAttribBinding; // 2313
+            PFNGLVERTEXATTRIBDIVISORPROC VertexAttribDivisor; // 2314
+            PFNGLVERTEXATTRIBDIVISORARBPROC VertexAttribDivisorARB; // 2315
+            PFNGLVERTEXATTRIBFORMATPROC VertexAttribFormat; // 2316
+            PFNGLVERTEXATTRIBFORMATNVPROC VertexAttribFormatNV; // 2317
+            PFNGLVERTEXATTRIBI1IPROC VertexAttribI1i; // 2318
+            PFNGLVERTEXATTRIBI1IEXTPROC VertexAttribI1iEXT; // 2319
+            PFNGLVERTEXATTRIBI1IVPROC VertexAttribI1iv; // 2320
+            PFNGLVERTEXATTRIBI1IVEXTPROC VertexAttribI1ivEXT; // 2321
+            PFNGLVERTEXATTRIBI1UIPROC VertexAttribI1ui; // 2322
+            PFNGLVERTEXATTRIBI1UIEXTPROC VertexAttribI1uiEXT; // 2323
+            PFNGLVERTEXATTRIBI1UIVPROC VertexAttribI1uiv; // 2324
+            PFNGLVERTEXATTRIBI1UIVEXTPROC VertexAttribI1uivEXT; // 2325
+            PFNGLVERTEXATTRIBI2IPROC VertexAttribI2i; // 2326
+            PFNGLVERTEXATTRIBI2IEXTPROC VertexAttribI2iEXT; // 2327
+            PFNGLVERTEXATTRIBI2IVPROC VertexAttribI2iv; // 2328
+            PFNGLVERTEXATTRIBI2IVEXTPROC VertexAttribI2ivEXT; // 2329
+            PFNGLVERTEXATTRIBI2UIPROC VertexAttribI2ui; // 2330
+            PFNGLVERTEXATTRIBI2UIEXTPROC VertexAttribI2uiEXT; // 2331
+            PFNGLVERTEXATTRIBI2UIVPROC VertexAttribI2uiv; // 2332
+            PFNGLVERTEXATTRIBI2UIVEXTPROC VertexAttribI2uivEXT; // 2333
+            PFNGLVERTEXATTRIBI3IPROC VertexAttribI3i; // 2334
+            PFNGLVERTEXATTRIBI3IEXTPROC VertexAttribI3iEXT; // 2335
+            PFNGLVERTEXATTRIBI3IVPROC VertexAttribI3iv; // 2336
+            PFNGLVERTEXATTRIBI3IVEXTPROC VertexAttribI3ivEXT; // 2337
+            PFNGLVERTEXATTRIBI3UIPROC VertexAttribI3ui; // 2338
+            PFNGLVERTEXATTRIBI3UIEXTPROC VertexAttribI3uiEXT; // 2339
+            PFNGLVERTEXATTRIBI3UIVPROC VertexAttribI3uiv; // 2340
+            PFNGLVERTEXATTRIBI3UIVEXTPROC VertexAttribI3uivEXT; // 2341
+            PFNGLVERTEXATTRIBI4BVPROC VertexAttribI4bv; // 2342
+            PFNGLVERTEXATTRIBI4BVEXTPROC VertexAttribI4bvEXT; // 2343
+            PFNGLVERTEXATTRIBI4IPROC VertexAttribI4i; // 2344
+            PFNGLVERTEXATTRIBI4IEXTPROC VertexAttribI4iEXT; // 2345
+            PFNGLVERTEXATTRIBI4IVPROC VertexAttribI4iv; // 2346
+            PFNGLVERTEXATTRIBI4IVEXTPROC VertexAttribI4ivEXT; // 2347
+            PFNGLVERTEXATTRIBI4SVPROC VertexAttribI4sv; // 2348
+            PFNGLVERTEXATTRIBI4SVEXTPROC VertexAttribI4svEXT; // 2349
+            PFNGLVERTEXATTRIBI4UBVPROC VertexAttribI4ubv; // 2350
+            PFNGLVERTEXATTRIBI4UBVEXTPROC VertexAttribI4ubvEXT; // 2351
+            PFNGLVERTEXATTRIBI4UIPROC VertexAttribI4ui; // 2352
+            PFNGLVERTEXATTRIBI4UIEXTPROC VertexAttribI4uiEXT; // 2353
+            PFNGLVERTEXATTRIBI4UIVPROC VertexAttribI4uiv; // 2354
+            PFNGLVERTEXATTRIBI4UIVEXTPROC VertexAttribI4uivEXT; // 2355
+            PFNGLVERTEXATTRIBI4USVPROC VertexAttribI4usv; // 2356
+            PFNGLVERTEXATTRIBI4USVEXTPROC VertexAttribI4usvEXT; // 2357
+            PFNGLVERTEXATTRIBIFORMATPROC VertexAttribIFormat; // 2358
+            PFNGLVERTEXATTRIBIFORMATNVPROC VertexAttribIFormatNV; // 2359
+            PFNGLVERTEXATTRIBIPOINTERPROC VertexAttribIPointer; // 2360
+            PFNGLVERTEXATTRIBIPOINTEREXTPROC VertexAttribIPointerEXT; // 2361
+            PFNGLVERTEXATTRIBL1DPROC VertexAttribL1d; // 2362
+            PFNGLVERTEXATTRIBL1DEXTPROC VertexAttribL1dEXT; // 2363
+            PFNGLVERTEXATTRIBL1DVPROC VertexAttribL1dv; // 2364
+            PFNGLVERTEXATTRIBL1DVEXTPROC VertexAttribL1dvEXT; // 2365
+            PFNGLVERTEXATTRIBL1I64NVPROC VertexAttribL1i64NV; // 2366
+            PFNGLVERTEXATTRIBL1I64VNVPROC VertexAttribL1i64vNV; // 2367
+            PFNGLVERTEXATTRIBL1UI64ARBPROC VertexAttribL1ui64ARB; // 2368
+            PFNGLVERTEXATTRIBL1UI64NVPROC VertexAttribL1ui64NV; // 2369
+            PFNGLVERTEXATTRIBL1UI64VARBPROC VertexAttribL1ui64vARB; // 2370
+            PFNGLVERTEXATTRIBL1UI64VNVPROC VertexAttribL1ui64vNV; // 2371
+            PFNGLVERTEXATTRIBL2DPROC VertexAttribL2d; // 2372
+            PFNGLVERTEXATTRIBL2DEXTPROC VertexAttribL2dEXT; // 2373
+            PFNGLVERTEXATTRIBL2DVPROC VertexAttribL2dv; // 2374
+            PFNGLVERTEXATTRIBL2DVEXTPROC VertexAttribL2dvEXT; // 2375
+            PFNGLVERTEXATTRIBL2I64NVPROC VertexAttribL2i64NV; // 2376
+            PFNGLVERTEXATTRIBL2I64VNVPROC VertexAttribL2i64vNV; // 2377
+            PFNGLVERTEXATTRIBL2UI64NVPROC VertexAttribL2ui64NV; // 2378
+            PFNGLVERTEXATTRIBL2UI64VNVPROC VertexAttribL2ui64vNV; // 2379
+            PFNGLVERTEXATTRIBL3DPROC VertexAttribL3d; // 2380
+            PFNGLVERTEXATTRIBL3DEXTPROC VertexAttribL3dEXT; // 2381
+            PFNGLVERTEXATTRIBL3DVPROC VertexAttribL3dv; // 2382
+            PFNGLVERTEXATTRIBL3DVEXTPROC VertexAttribL3dvEXT; // 2383
+            PFNGLVERTEXATTRIBL3I64NVPROC VertexAttribL3i64NV; // 2384
+            PFNGLVERTEXATTRIBL3I64VNVPROC VertexAttribL3i64vNV; // 2385
+            PFNGLVERTEXATTRIBL3UI64NVPROC VertexAttribL3ui64NV; // 2386
+            PFNGLVERTEXATTRIBL3UI64VNVPROC VertexAttribL3ui64vNV; // 2387
+            PFNGLVERTEXATTRIBL4DPROC VertexAttribL4d; // 2388
+            PFNGLVERTEXATTRIBL4DEXTPROC VertexAttribL4dEXT; // 2389
+            PFNGLVERTEXATTRIBL4DVPROC VertexAttribL4dv; // 2390
+            PFNGLVERTEXATTRIBL4DVEXTPROC VertexAttribL4dvEXT; // 2391
+            PFNGLVERTEXATTRIBL4I64NVPROC VertexAttribL4i64NV; // 2392
+            PFNGLVERTEXATTRIBL4I64VNVPROC VertexAttribL4i64vNV; // 2393
+            PFNGLVERTEXATTRIBL4UI64NVPROC VertexAttribL4ui64NV; // 2394
+            PFNGLVERTEXATTRIBL4UI64VNVPROC VertexAttribL4ui64vNV; // 2395
+            PFNGLVERTEXATTRIBLFORMATPROC VertexAttribLFormat; // 2396
+            PFNGLVERTEXATTRIBLFORMATNVPROC VertexAttribLFormatNV; // 2397
+            PFNGLVERTEXATTRIBLPOINTERPROC VertexAttribLPointer; // 2398
+            PFNGLVERTEXATTRIBLPOINTEREXTPROC VertexAttribLPointerEXT; // 2399
+            PFNGLVERTEXATTRIBP1UIPROC VertexAttribP1ui; // 2400
+            PFNGLVERTEXATTRIBP1UIVPROC VertexAttribP1uiv; // 2401
+            PFNGLVERTEXATTRIBP2UIPROC VertexAttribP2ui; // 2402
+            PFNGLVERTEXATTRIBP2UIVPROC VertexAttribP2uiv; // 2403
+            PFNGLVERTEXATTRIBP3UIPROC VertexAttribP3ui; // 2404
+            PFNGLVERTEXATTRIBP3UIVPROC VertexAttribP3uiv; // 2405
+            PFNGLVERTEXATTRIBP4UIPROC VertexAttribP4ui; // 2406
+            PFNGLVERTEXATTRIBP4UIVPROC VertexAttribP4uiv; // 2407
+            PFNGLVERTEXATTRIBPARAMETERIAMDPROC VertexAttribParameteriAMD; // 2408
+            PFNGLVERTEXATTRIBPOINTERPROC VertexAttribPointer; // 2409
+            PFNGLVERTEXATTRIBPOINTERARBPROC VertexAttribPointerARB; // 2410
+            PFNGLVERTEXATTRIBPOINTERNVPROC VertexAttribPointerNV; // 2411
+            PFNGLVERTEXATTRIBS1DVNVPROC VertexAttribs1dvNV; // 2412
+            PFNGLVERTEXATTRIBS1FVNVPROC VertexAttribs1fvNV; // 2413
+            PFNGLVERTEXATTRIBS1HVNVPROC VertexAttribs1hvNV; // 2414
+            PFNGLVERTEXATTRIBS1SVNVPROC VertexAttribs1svNV; // 2415
+            PFNGLVERTEXATTRIBS2DVNVPROC VertexAttribs2dvNV; // 2416
+            PFNGLVERTEXATTRIBS2FVNVPROC VertexAttribs2fvNV; // 2417
+            PFNGLVERTEXATTRIBS2HVNVPROC VertexAttribs2hvNV; // 2418
+            PFNGLVERTEXATTRIBS2SVNVPROC VertexAttribs2svNV; // 2419
+            PFNGLVERTEXATTRIBS3DVNVPROC VertexAttribs3dvNV; // 2420
+            PFNGLVERTEXATTRIBS3FVNVPROC VertexAttribs3fvNV; // 2421
+            PFNGLVERTEXATTRIBS3HVNVPROC VertexAttribs3hvNV; // 2422
+            PFNGLVERTEXATTRIBS3SVNVPROC VertexAttribs3svNV; // 2423
+            PFNGLVERTEXATTRIBS4DVNVPROC VertexAttribs4dvNV; // 2424
+            PFNGLVERTEXATTRIBS4FVNVPROC VertexAttribs4fvNV; // 2425
+            PFNGLVERTEXATTRIBS4HVNVPROC VertexAttribs4hvNV; // 2426
+            PFNGLVERTEXATTRIBS4SVNVPROC VertexAttribs4svNV; // 2427
+            PFNGLVERTEXATTRIBS4UBVNVPROC VertexAttribs4ubvNV; // 2428
+            PFNGLVERTEXBINDINGDIVISORPROC VertexBindingDivisor; // 2429
+            PFNGLVERTEXBLENDARBPROC VertexBlendARB; // 2430
+            PFNGLVERTEXBLENDENVFATIPROC VertexBlendEnvfATI; // 2431
+            PFNGLVERTEXBLENDENVIATIPROC VertexBlendEnviATI; // 2432
+            PFNGLVERTEXFORMATNVPROC VertexFormatNV; // 2433
+            PFNGLVERTEXPOINTEREXTPROC VertexPointerEXT; // 2434
+            PFNGLVERTEXPOINTERLISTIBMPROC VertexPointerListIBM; // 2435
+            PFNGLVERTEXPOINTERVINTELPROC VertexPointervINTEL; // 2436
+            PFNGLVERTEXSTREAM1DATIPROC VertexStream1dATI; // 2437
+            PFNGLVERTEXSTREAM1DVATIPROC VertexStream1dvATI; // 2438
+            PFNGLVERTEXSTREAM1FATIPROC VertexStream1fATI; // 2439
+            PFNGLVERTEXSTREAM1FVATIPROC VertexStream1fvATI; // 2440
+            PFNGLVERTEXSTREAM1IATIPROC VertexStream1iATI; // 2441
+            PFNGLVERTEXSTREAM1IVATIPROC VertexStream1ivATI; // 2442
+            PFNGLVERTEXSTREAM1SATIPROC VertexStream1sATI; // 2443
+            PFNGLVERTEXSTREAM1SVATIPROC VertexStream1svATI; // 2444
+            PFNGLVERTEXSTREAM2DATIPROC VertexStream2dATI; // 2445
+            PFNGLVERTEXSTREAM2DVATIPROC VertexStream2dvATI; // 2446
+            PFNGLVERTEXSTREAM2FATIPROC VertexStream2fATI; // 2447
+            PFNGLVERTEXSTREAM2FVATIPROC VertexStream2fvATI; // 2448
+            PFNGLVERTEXSTREAM2IATIPROC VertexStream2iATI; // 2449
+            PFNGLVERTEXSTREAM2IVATIPROC VertexStream2ivATI; // 2450
+            PFNGLVERTEXSTREAM2SATIPROC VertexStream2sATI; // 2451
+            PFNGLVERTEXSTREAM2SVATIPROC VertexStream2svATI; // 2452
+            PFNGLVERTEXSTREAM3DATIPROC VertexStream3dATI; // 2453
+            PFNGLVERTEXSTREAM3DVATIPROC VertexStream3dvATI; // 2454
+            PFNGLVERTEXSTREAM3FATIPROC VertexStream3fATI; // 2455
+            PFNGLVERTEXSTREAM3FVATIPROC VertexStream3fvATI; // 2456
+            PFNGLVERTEXSTREAM3IATIPROC VertexStream3iATI; // 2457
+            PFNGLVERTEXSTREAM3IVATIPROC VertexStream3ivATI; // 2458
+            PFNGLVERTEXSTREAM3SATIPROC VertexStream3sATI; // 2459
+            PFNGLVERTEXSTREAM3SVATIPROC VertexStream3svATI; // 2460
+            PFNGLVERTEXSTREAM4DATIPROC VertexStream4dATI; // 2461
+            PFNGLVERTEXSTREAM4DVATIPROC VertexStream4dvATI; // 2462
+            PFNGLVERTEXSTREAM4FATIPROC VertexStream4fATI; // 2463
+            PFNGLVERTEXSTREAM4FVATIPROC VertexStream4fvATI; // 2464
+            PFNGLVERTEXSTREAM4IATIPROC VertexStream4iATI; // 2465
+            PFNGLVERTEXSTREAM4IVATIPROC VertexStream4ivATI; // 2466
+            PFNGLVERTEXSTREAM4SATIPROC VertexStream4sATI; // 2467
+            PFNGLVERTEXSTREAM4SVATIPROC VertexStream4svATI; // 2468
+            PFNGLVERTEXWEIGHTPOINTEREXTPROC VertexWeightPointerEXT; // 2469
+            PFNGLVERTEXWEIGHTFEXTPROC VertexWeightfEXT; // 2470
+            PFNGLVERTEXWEIGHTFVEXTPROC VertexWeightfvEXT; // 2471
+            PFNGLVERTEXWEIGHTHNVPROC VertexWeighthNV; // 2472
+            PFNGLVERTEXWEIGHTHVNVPROC VertexWeighthvNV; // 2473
+            PFNGLVIDEOCAPTURENVPROC VideoCaptureNV; // 2474
+            PFNGLVIDEOCAPTURESTREAMPARAMETERDVNVPROC VideoCaptureStreamParameterdvNV; // 2475
+            PFNGLVIDEOCAPTURESTREAMPARAMETERFVNVPROC VideoCaptureStreamParameterfvNV; // 2476
+            PFNGLVIDEOCAPTURESTREAMPARAMETERIVNVPROC VideoCaptureStreamParameterivNV; // 2477
+            PFNGLVIEWPORTPROC Viewport; // 2478
+            PFNGLVIEWPORTARRAYVPROC ViewportArrayv; // 2479
+            PFNGLVIEWPORTINDEXEDFPROC ViewportIndexedf; // 2480
+            PFNGLVIEWPORTINDEXEDFVPROC ViewportIndexedfv; // 2481
+            PFNGLVIEWPORTPOSITIONWSCALENVPROC ViewportPositionWScaleNV; // 2482
+            PFNGLVIEWPORTSWIZZLENVPROC ViewportSwizzleNV; // 2483
+            PFNGLWAITSEMAPHOREEXTPROC WaitSemaphoreEXT; // 2484
+            PFNGLWAITSEMAPHOREUI64NVXPROC WaitSemaphoreui64NVX; // 2485
+            PFNGLWAITSYNCPROC WaitSync; // 2486
+            PFNGLWAITVKSEMAPHORENVPROC WaitVkSemaphoreNV; // 2487
+            PFNGLWEIGHTPATHSNVPROC WeightPathsNV; // 2488
+            PFNGLWEIGHTPOINTERARBPROC WeightPointerARB; // 2489
+            PFNGLWEIGHTBVARBPROC WeightbvARB; // 2490
+            PFNGLWEIGHTDVARBPROC WeightdvARB; // 2491
+            PFNGLWEIGHTFVARBPROC WeightfvARB; // 2492
+            PFNGLWEIGHTIVARBPROC WeightivARB; // 2493
+            PFNGLWEIGHTSVARBPROC WeightsvARB; // 2494
+            PFNGLWEIGHTUBVARBPROC WeightubvARB; // 2495
+            PFNGLWEIGHTUIVARBPROC WeightuivARB; // 2496
+            PFNGLWEIGHTUSVARBPROC WeightusvARB; // 2497
+            PFNGLWINDOWPOS2DARBPROC WindowPos2dARB; // 2498
+            PFNGLWINDOWPOS2DMESAPROC WindowPos2dMESA; // 2499
+            PFNGLWINDOWPOS2DVARBPROC WindowPos2dvARB; // 2500
+            PFNGLWINDOWPOS2DVMESAPROC WindowPos2dvMESA; // 2501
+            PFNGLWINDOWPOS2FARBPROC WindowPos2fARB; // 2502
+            PFNGLWINDOWPOS2FMESAPROC WindowPos2fMESA; // 2503
+            PFNGLWINDOWPOS2FVARBPROC WindowPos2fvARB; // 2504
+            PFNGLWINDOWPOS2FVMESAPROC WindowPos2fvMESA; // 2505
+            PFNGLWINDOWPOS2IARBPROC WindowPos2iARB; // 2506
+            PFNGLWINDOWPOS2IMESAPROC WindowPos2iMESA; // 2507
+            PFNGLWINDOWPOS2IVARBPROC WindowPos2ivARB; // 2508
+            PFNGLWINDOWPOS2IVMESAPROC WindowPos2ivMESA; // 2509
+            PFNGLWINDOWPOS2SARBPROC WindowPos2sARB; // 2510
+            PFNGLWINDOWPOS2SMESAPROC WindowPos2sMESA; // 2511
+            PFNGLWINDOWPOS2SVARBPROC WindowPos2svARB; // 2512
+            PFNGLWINDOWPOS2SVMESAPROC WindowPos2svMESA; // 2513
+            PFNGLWINDOWPOS3DARBPROC WindowPos3dARB; // 2514
+            PFNGLWINDOWPOS3DMESAPROC WindowPos3dMESA; // 2515
+            PFNGLWINDOWPOS3DVARBPROC WindowPos3dvARB; // 2516
+            PFNGLWINDOWPOS3DVMESAPROC WindowPos3dvMESA; // 2517
+            PFNGLWINDOWPOS3FARBPROC WindowPos3fARB; // 2518
+            PFNGLWINDOWPOS3FMESAPROC WindowPos3fMESA; // 2519
+            PFNGLWINDOWPOS3FVARBPROC WindowPos3fvARB; // 2520
+            PFNGLWINDOWPOS3FVMESAPROC WindowPos3fvMESA; // 2521
+            PFNGLWINDOWPOS3IARBPROC WindowPos3iARB; // 2522
+            PFNGLWINDOWPOS3IMESAPROC WindowPos3iMESA; // 2523
+            PFNGLWINDOWPOS3IVARBPROC WindowPos3ivARB; // 2524
+            PFNGLWINDOWPOS3IVMESAPROC WindowPos3ivMESA; // 2525
+            PFNGLWINDOWPOS3SARBPROC WindowPos3sARB; // 2526
+            PFNGLWINDOWPOS3SMESAPROC WindowPos3sMESA; // 2527
+            PFNGLWINDOWPOS3SVARBPROC WindowPos3svARB; // 2528
+            PFNGLWINDOWPOS3SVMESAPROC WindowPos3svMESA; // 2529
+            PFNGLWINDOWPOS4DMESAPROC WindowPos4dMESA; // 2530
+            PFNGLWINDOWPOS4DVMESAPROC WindowPos4dvMESA; // 2531
+            PFNGLWINDOWPOS4FMESAPROC WindowPos4fMESA; // 2532
+            PFNGLWINDOWPOS4FVMESAPROC WindowPos4fvMESA; // 2533
+            PFNGLWINDOWPOS4IMESAPROC WindowPos4iMESA; // 2534
+            PFNGLWINDOWPOS4IVMESAPROC WindowPos4ivMESA; // 2535
+            PFNGLWINDOWPOS4SMESAPROC WindowPos4sMESA; // 2536
+            PFNGLWINDOWPOS4SVMESAPROC WindowPos4svMESA; // 2537
+            PFNGLWINDOWRECTANGLESEXTPROC WindowRectanglesEXT; // 2538
+            PFNGLWRITEMASKEXTPROC WriteMaskEXT; // 2539
+            PFNGLACQUIRETEXTURESANGLEPROC AcquireTexturesANGLE; // 2540
+            PFNGLACTIVESHADERPROGRAMEXTPROC ActiveShaderProgramEXT; // 2541
+            PFNGLALPHAFUNCQCOMPROC AlphaFuncQCOM; // 2542
+            PFNGLBEGINPIXELLOCALSTORAGEANGLEPROC BeginPixelLocalStorageANGLE; // 2543
+            PFNGLBEGINQUERYEXTPROC BeginQueryEXT; // 2544
+            PFNGLBINDFRAGDATALOCATIONINDEXEDEXTPROC BindFragDataLocationIndexedEXT; // 2545
+            PFNGLBINDPROGRAMPIPELINEEXTPROC BindProgramPipelineEXT; // 2546
+            PFNGLBINDUNIFORMLOCATIONCHROMIUMPROC BindUniformLocationCHROMIUM; // 2547
+            PFNGLBINDVERTEXARRAYOESPROC BindVertexArrayOES; // 2548
+            PFNGLBLENDBARRIERPROC BlendBarrier; // 2549
+            PFNGLBLENDEQUATIONSEPARATEIEXTPROC BlendEquationSeparateiEXT; // 2550
+            PFNGLBLENDEQUATIONSEPARATEIOESPROC BlendEquationSeparateiOES; // 2551
+            PFNGLBLENDEQUATIONIEXTPROC BlendEquationiEXT; // 2552
+            PFNGLBLENDEQUATIONIOESPROC BlendEquationiOES; // 2553
+            PFNGLBLENDFUNCSEPARATEIEXTPROC BlendFuncSeparateiEXT; // 2554
+            PFNGLBLENDFUNCSEPARATEIOESPROC BlendFuncSeparateiOES; // 2555
+            PFNGLBLENDFUNCIEXTPROC BlendFunciEXT; // 2556
+            PFNGLBLENDFUNCIOESPROC BlendFunciOES; // 2557
+            PFNGLBLITFRAMEBUFFERANGLEPROC BlitFramebufferANGLE; // 2558
+            PFNGLBLITFRAMEBUFFERNVPROC BlitFramebufferNV; // 2559
+            PFNGLBUFFERSTORAGEEXTPROC BufferStorageEXT; // 2560
+            PFNGLCLEARPIXELLOCALSTORAGEUIEXTPROC ClearPixelLocalStorageuiEXT; // 2561
+            PFNGLCLEARTEXIMAGEEXTPROC ClearTexImageEXT; // 2562
+            PFNGLCLEARTEXSUBIMAGEEXTPROC ClearTexSubImageEXT; // 2563
+            PFNGLCLIENTWAITSYNCAPPLEPROC ClientWaitSyncAPPLE; // 2564
+            PFNGLCLIPCONTROLEXTPROC ClipControlEXT; // 2565
+            PFNGLCOLORMASKIEXTPROC ColorMaskiEXT; // 2566
+            PFNGLCOLORMASKIOESPROC ColorMaskiOES; // 2567
+            PFNGLCOMPRESSEDCOPYTEXTURECHROMIUMPROC CompressedCopyTextureCHROMIUM; // 2568
+            PFNGLCOMPRESSEDTEXIMAGE2DROBUSTANGLEPROC CompressedTexImage2DRobustANGLE; // 2569
+            PFNGLCOMPRESSEDTEXIMAGE3DOESPROC CompressedTexImage3DOES; // 2570
+            PFNGLCOMPRESSEDTEXIMAGE3DROBUSTANGLEPROC CompressedTexImage3DRobustANGLE; // 2571
+            PFNGLCOMPRESSEDTEXSUBIMAGE2DROBUSTANGLEPROC CompressedTexSubImage2DRobustANGLE; // 2572
+            PFNGLCOMPRESSEDTEXSUBIMAGE3DOESPROC CompressedTexSubImage3DOES; // 2573
+            PFNGLCOMPRESSEDTEXSUBIMAGE3DROBUSTANGLEPROC CompressedTexSubImage3DRobustANGLE; // 2574
+            PFNGLCOPYBUFFERSUBDATANVPROC CopyBufferSubDataNV; // 2575
+            PFNGLCOPYIMAGESUBDATAEXTPROC CopyImageSubDataEXT; // 2576
+            PFNGLCOPYIMAGESUBDATAOESPROC CopyImageSubDataOES; // 2577
+            PFNGLCOPYSUBTEXTURE3DANGLEPROC CopySubTexture3DANGLE; // 2578
+            PFNGLCOPYSUBTEXTURECHROMIUMPROC CopySubTextureCHROMIUM; // 2579
+            PFNGLCOPYTEXSUBIMAGE3DOESPROC CopyTexSubImage3DOES; // 2580
+            PFNGLCOPYTEXTURE3DANGLEPROC CopyTexture3DANGLE; // 2581
+            PFNGLCOPYTEXTURECHROMIUMPROC CopyTextureCHROMIUM; // 2582
+            PFNGLCOPYTEXTURELEVELSAPPLEPROC CopyTextureLevelsAPPLE; // 2583
+            PFNGLCOVERAGEMASKNVPROC CoverageMaskNV; // 2584
+            PFNGLCOVERAGEMODULATIONCHROMIUMPROC CoverageModulationCHROMIUM; // 2585
+            PFNGLCOVERAGEOPERATIONNVPROC CoverageOperationNV; // 2586
+            PFNGLCREATESHADERPROGRAMVEXTPROC CreateShaderProgramvEXT; // 2587
+            PFNGLDEBUGMESSAGECALLBACKKHRPROC DebugMessageCallbackKHR; // 2588
+            PFNGLDEBUGMESSAGECONTROLKHRPROC DebugMessageControlKHR; // 2589
+            PFNGLDEBUGMESSAGEINSERTKHRPROC DebugMessageInsertKHR; // 2590
+            PFNGLDELETEPROGRAMPIPELINESEXTPROC DeleteProgramPipelinesEXT; // 2591
+            PFNGLDELETEQUERIESEXTPROC DeleteQueriesEXT; // 2592
+            PFNGLDELETESYNCAPPLEPROC DeleteSyncAPPLE; // 2593
+            PFNGLDELETEVERTEXARRAYSOESPROC DeleteVertexArraysOES; // 2594
+            PFNGLDEPTHRANGEARRAYFVNVPROC DepthRangeArrayfvNV; // 2595
+            PFNGLDEPTHRANGEARRAYFVOESPROC DepthRangeArrayfvOES; // 2596
+            PFNGLDEPTHRANGEINDEXEDFNVPROC DepthRangeIndexedfNV; // 2597
+            PFNGLDEPTHRANGEINDEXEDFOESPROC DepthRangeIndexedfOES; // 2598
+            PFNGLDISABLEDRIVERCONTROLQCOMPROC DisableDriverControlQCOM; // 2599
+            PFNGLDISABLEEXTENSIONANGLEPROC DisableExtensionANGLE; // 2600
+            PFNGLDISABLEIEXTPROC DisableiEXT; // 2601
+            PFNGLDISABLEINVPROC DisableiNV; // 2602
+            PFNGLDISABLEIOESPROC DisableiOES; // 2603
+            PFNGLDISCARDFRAMEBUFFEREXTPROC DiscardFramebufferEXT; // 2604
+            PFNGLDRAWARRAYSINSTANCEDANGLEPROC DrawArraysInstancedANGLE; // 2605
+            PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEANGLEPROC DrawArraysInstancedBaseInstanceANGLE; // 2606
+            PFNGLDRAWARRAYSINSTANCEDBASEINSTANCEEXTPROC DrawArraysInstancedBaseInstanceEXT; // 2607
+            PFNGLDRAWARRAYSINSTANCEDNVPROC DrawArraysInstancedNV; // 2608
+            PFNGLDRAWBUFFERSEXTPROC DrawBuffersEXT; // 2609
+            PFNGLDRAWBUFFERSINDEXEDEXTPROC DrawBuffersIndexedEXT; // 2610
+            PFNGLDRAWBUFFERSNVPROC DrawBuffersNV; // 2611
+            PFNGLDRAWELEMENTSBASEVERTEXEXTPROC DrawElementsBaseVertexEXT; // 2612
+            PFNGLDRAWELEMENTSBASEVERTEXOESPROC DrawElementsBaseVertexOES; // 2613
+            PFNGLDRAWELEMENTSINSTANCEDANGLEPROC DrawElementsInstancedANGLE; // 2614
+            PFNGLDRAWELEMENTSINSTANCEDBASEINSTANCEEXTPROC DrawElementsInstancedBaseInstanceEXT; // 2615
+            PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEANGLEPROC DrawElementsInstancedBaseVertexBaseInstanceANGLE; // 2616
+            PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEEXTPROC DrawElementsInstancedBaseVertexBaseInstanceEXT; // 2617
+            PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXEXTPROC DrawElementsInstancedBaseVertexEXT; // 2618
+            PFNGLDRAWELEMENTSINSTANCEDBASEVERTEXOESPROC DrawElementsInstancedBaseVertexOES; // 2619
+            PFNGLDRAWELEMENTSINSTANCEDNVPROC DrawElementsInstancedNV; // 2620
+            PFNGLDRAWRANGEELEMENTSBASEVERTEXEXTPROC DrawRangeElementsBaseVertexEXT; // 2621
+            PFNGLDRAWRANGEELEMENTSBASEVERTEXOESPROC DrawRangeElementsBaseVertexOES; // 2622
+            PFNGLDRAWTRANSFORMFEEDBACKEXTPROC DrawTransformFeedbackEXT; // 2623
+            PFNGLDRAWTRANSFORMFEEDBACKINSTANCEDEXTPROC DrawTransformFeedbackInstancedEXT; // 2624
+            PFNGLEGLIMAGETARGETRENDERBUFFERSTORAGEOESPROC EGLImageTargetRenderbufferStorageOES; // 2625
+            PFNGLEGLIMAGETARGETTEXTURE2DOESPROC EGLImageTargetTexture2DOES; // 2626
+            PFNGLENABLEDRIVERCONTROLQCOMPROC EnableDriverControlQCOM; // 2627
+            PFNGLENABLEIEXTPROC EnableiEXT; // 2628
+            PFNGLENABLEINVPROC EnableiNV; // 2629
+            PFNGLENABLEIOESPROC EnableiOES; // 2630
+            PFNGLENDPIXELLOCALSTORAGEANGLEPROC EndPixelLocalStorageANGLE; // 2631
+            PFNGLENDQUERYEXTPROC EndQueryEXT; // 2632
+            PFNGLENDTILINGQCOMPROC EndTilingQCOM; // 2633
+            PFNGLEXTGETBUFFERPOINTERVQCOMPROC ExtGetBufferPointervQCOM; // 2634
+            PFNGLEXTGETBUFFERSQCOMPROC ExtGetBuffersQCOM; // 2635
+            PFNGLEXTGETFRAMEBUFFERSQCOMPROC ExtGetFramebuffersQCOM; // 2636
+            PFNGLEXTGETPROGRAMBINARYSOURCEQCOMPROC ExtGetProgramBinarySourceQCOM; // 2637
+            PFNGLEXTGETPROGRAMSQCOMPROC ExtGetProgramsQCOM; // 2638
+            PFNGLEXTGETRENDERBUFFERSQCOMPROC ExtGetRenderbuffersQCOM; // 2639
+            PFNGLEXTGETSHADERSQCOMPROC ExtGetShadersQCOM; // 2640
+            PFNGLEXTGETTEXLEVELPARAMETERIVQCOMPROC ExtGetTexLevelParameterivQCOM; // 2641
+            PFNGLEXTGETTEXSUBIMAGEQCOMPROC ExtGetTexSubImageQCOM; // 2642
+            PFNGLEXTGETTEXTURESQCOMPROC ExtGetTexturesQCOM; // 2643
+            PFNGLEXTISPROGRAMBINARYQCOMPROC ExtIsProgramBinaryQCOM; // 2644
+            PFNGLEXTTEXOBJECTSTATEOVERRIDEIQCOMPROC ExtTexObjectStateOverrideiQCOM; // 2645
+            PFNGLEXTRAPOLATETEX2DQCOMPROC ExtrapolateTex2DQCOM; // 2646
+            PFNGLFENCESYNCAPPLEPROC FenceSyncAPPLE; // 2647
+            PFNGLFLUSHMAPPEDBUFFERRANGEEXTPROC FlushMappedBufferRangeEXT; // 2648
+            PFNGLFRAMEBUFFERFETCHBARRIERQCOMPROC FramebufferFetchBarrierQCOM; // 2649
+            PFNGLFRAMEBUFFERFOVEATIONCONFIGQCOMPROC FramebufferFoveationConfigQCOM; // 2650
+            PFNGLFRAMEBUFFERFOVEATIONPARAMETERSQCOMPROC FramebufferFoveationParametersQCOM; // 2651
+            PFNGLFRAMEBUFFERMEMORYLESSPIXELLOCALSTORAGEANGLEPROC FramebufferMemorylessPixelLocalStorageANGLE; // 2652
+            PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEFVANGLEPROC FramebufferPixelLocalClearValuefvANGLE; // 2653
+            PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEIVANGLEPROC FramebufferPixelLocalClearValueivANGLE; // 2654
+            PFNGLFRAMEBUFFERPIXELLOCALCLEARVALUEUIVANGLEPROC FramebufferPixelLocalClearValueuivANGLE; // 2655
+            PFNGLFRAMEBUFFERPIXELLOCALSTORAGEINTERRUPTANGLEPROC FramebufferPixelLocalStorageInterruptANGLE; // 2656
+            PFNGLFRAMEBUFFERPIXELLOCALSTORAGERESTOREANGLEPROC FramebufferPixelLocalStorageRestoreANGLE; // 2657
+            PFNGLFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC FramebufferPixelLocalStorageSizeEXT; // 2658
+            PFNGLFRAMEBUFFERSHADINGRATEEXTPROC FramebufferShadingRateEXT; // 2659
+            PFNGLFRAMEBUFFERTEXTURE2DDOWNSAMPLEIMGPROC FramebufferTexture2DDownsampleIMG; // 2660
+            PFNGLFRAMEBUFFERTEXTURE2DMULTISAMPLEEXTPROC FramebufferTexture2DMultisampleEXT; // 2661
+            PFNGLFRAMEBUFFERTEXTURE2DMULTISAMPLEIMGPROC FramebufferTexture2DMultisampleIMG; // 2662
+            PFNGLFRAMEBUFFERTEXTURE3DOESPROC FramebufferTexture3DOES; // 2663
+            PFNGLFRAMEBUFFERTEXTURELAYERDOWNSAMPLEIMGPROC FramebufferTextureLayerDownsampleIMG; // 2664
+            PFNGLFRAMEBUFFERTEXTUREMULTISAMPLEMULTIVIEWOVRPROC FramebufferTextureMultisampleMultiviewOVR; // 2665
+            PFNGLFRAMEBUFFERTEXTUREOESPROC FramebufferTextureOES; // 2666
+            PFNGLFRAMEBUFFERTEXTUREPIXELLOCALSTORAGEANGLEPROC FramebufferTexturePixelLocalStorageANGLE; // 2667
+            PFNGLGENPROGRAMPIPELINESEXTPROC GenProgramPipelinesEXT; // 2668
+            PFNGLGENQUERIESEXTPROC GenQueriesEXT; // 2669
+            PFNGLGENVERTEXARRAYSOESPROC GenVertexArraysOES; // 2670
+            PFNGLGETACTIVEUNIFORMBLOCKIVROBUSTANGLEPROC GetActiveUniformBlockivRobustANGLE; // 2671
+            PFNGLGETBOOLEANI_VROBUSTANGLEPROC GetBooleani_vRobustANGLE; // 2672
+            PFNGLGETBOOLEANVROBUSTANGLEPROC GetBooleanvRobustANGLE; // 2673
+            PFNGLGETBUFFERPARAMETERI64VROBUSTANGLEPROC GetBufferParameteri64vRobustANGLE; // 2674
+            PFNGLGETBUFFERPARAMETERIVROBUSTANGLEPROC GetBufferParameterivRobustANGLE; // 2675
+            PFNGLGETBUFFERPOINTERVOESPROC GetBufferPointervOES; // 2676
+            PFNGLGETBUFFERPOINTERVROBUSTANGLEPROC GetBufferPointervRobustANGLE; // 2677
+            PFNGLGETCOMPRESSEDTEXIMAGEANGLEPROC GetCompressedTexImageANGLE; // 2678
+            PFNGLGETDEBUGMESSAGELOGKHRPROC GetDebugMessageLogKHR; // 2679
+            PFNGLGETDRIVERCONTROLSTRINGQCOMPROC GetDriverControlStringQCOM; // 2680
+            PFNGLGETDRIVERCONTROLSQCOMPROC GetDriverControlsQCOM; // 2681
+            PFNGLGETFLOATI_VNVPROC GetFloati_vNV; // 2682
+            PFNGLGETFLOATI_VOESPROC GetFloati_vOES; // 2683
+            PFNGLGETFLOATVROBUSTANGLEPROC GetFloatvRobustANGLE; // 2684
+            PFNGLGETFRAGDATAINDEXEXTPROC GetFragDataIndexEXT; // 2685
+            PFNGLGETFRAGMENTSHADINGRATESEXTPROC GetFragmentShadingRatesEXT; // 2686
+            PFNGLGETFRAMEBUFFERATTACHMENTPARAMETERIVROBUSTANGLEPROC GetFramebufferAttachmentParameterivRobustANGLE; // 2687
+            PFNGLGETFRAMEBUFFERPARAMETERIVROBUSTANGLEPROC GetFramebufferParameterivRobustANGLE; // 2688
+            PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERFVANGLEPROC GetFramebufferPixelLocalStorageParameterfvANGLE; // 2689
+            PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERFVROBUSTANGLEPROC GetFramebufferPixelLocalStorageParameterfvRobustANGLE; // 2690
+            PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVANGLEPROC GetFramebufferPixelLocalStorageParameterivANGLE; // 2691
+            PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGEPARAMETERIVROBUSTANGLEPROC GetFramebufferPixelLocalStorageParameterivRobustANGLE; // 2692
+            PFNGLGETFRAMEBUFFERPIXELLOCALSTORAGESIZEEXTPROC GetFramebufferPixelLocalStorageSizeEXT; // 2693
+            PFNGLGETGRAPHICSRESETSTATUSEXTPROC GetGraphicsResetStatusEXT; // 2694
+            PFNGLGETGRAPHICSRESETSTATUSKHRPROC GetGraphicsResetStatusKHR; // 2695
+            PFNGLGETINTEGER64I_VROBUSTANGLEPROC GetInteger64i_vRobustANGLE; // 2696
+            PFNGLGETINTEGER64VAPPLEPROC GetInteger64vAPPLE; // 2697
+            PFNGLGETINTEGER64VEXTPROC GetInteger64vEXT; // 2698
+            PFNGLGETINTEGER64VROBUSTANGLEPROC GetInteger64vRobustANGLE; // 2699
+            PFNGLGETINTEGERI_VEXTPROC GetIntegeri_vEXT; // 2700
+            PFNGLGETINTEGERI_VROBUSTANGLEPROC GetIntegeri_vRobustANGLE; // 2701
+            PFNGLGETINTEGERVROBUSTANGLEPROC GetIntegervRobustANGLE; // 2702
+            PFNGLGETINTERNALFORMATIVROBUSTANGLEPROC GetInternalformativRobustANGLE; // 2703
+            PFNGLGETMULTISAMPLEFVANGLEPROC GetMultisamplefvANGLE; // 2704
+            PFNGLGETMULTISAMPLEFVROBUSTANGLEPROC GetMultisamplefvRobustANGLE; // 2705
+            PFNGLGETOBJECTLABELKHRPROC GetObjectLabelKHR; // 2706
+            PFNGLGETOBJECTPTRLABELKHRPROC GetObjectPtrLabelKHR; // 2707
+            PFNGLGETPOINTERVKHRPROC GetPointervKHR; // 2708
+            PFNGLGETPOINTERVROBUSTANGLEROBUSTANGLEPROC GetPointervRobustANGLERobustANGLE; // 2709
+            PFNGLGETPROGRAMBINARYOESPROC GetProgramBinaryOES; // 2710
+            PFNGLGETPROGRAMINTERFACEIVROBUSTANGLEPROC GetProgramInterfaceivRobustANGLE; // 2711
+            PFNGLGETPROGRAMPIPELINEINFOLOGEXTPROC GetProgramPipelineInfoLogEXT; // 2712
+            PFNGLGETPROGRAMPIPELINEIVEXTPROC GetProgramPipelineivEXT; // 2713
+            PFNGLGETPROGRAMRESOURCELOCATIONINDEXEXTPROC GetProgramResourceLocationIndexEXT; // 2714
+            PFNGLGETPROGRAMIVROBUSTANGLEPROC GetProgramivRobustANGLE; // 2715
+            PFNGLGETQUERYOBJECTI64VROBUSTANGLEPROC GetQueryObjecti64vRobustANGLE; // 2716
+            PFNGLGETQUERYOBJECTIVEXTPROC GetQueryObjectivEXT; // 2717
+            PFNGLGETQUERYOBJECTIVROBUSTANGLEPROC GetQueryObjectivRobustANGLE; // 2718
+            PFNGLGETQUERYOBJECTUI64VROBUSTANGLEPROC GetQueryObjectui64vRobustANGLE; // 2719
+            PFNGLGETQUERYOBJECTUIVEXTPROC GetQueryObjectuivEXT; // 2720
+            PFNGLGETQUERYOBJECTUIVROBUSTANGLEPROC GetQueryObjectuivRobustANGLE; // 2721
+            PFNGLGETQUERYIVEXTPROC GetQueryivEXT; // 2722
+            PFNGLGETQUERYIVROBUSTANGLEPROC GetQueryivRobustANGLE; // 2723
+            PFNGLGETRENDERBUFFERIMAGEANGLEPROC GetRenderbufferImageANGLE; // 2724
+            PFNGLGETRENDERBUFFERPARAMETERIVROBUSTANGLEPROC GetRenderbufferParameterivRobustANGLE; // 2725
+            PFNGLGETSAMPLERPARAMETERIIVEXTPROC GetSamplerParameterIivEXT; // 2726
+            PFNGLGETSAMPLERPARAMETERIIVOESPROC GetSamplerParameterIivOES; // 2727
+            PFNGLGETSAMPLERPARAMETERIIVROBUSTANGLEPROC GetSamplerParameterIivRobustANGLE; // 2728
+            PFNGLGETSAMPLERPARAMETERIUIVEXTPROC GetSamplerParameterIuivEXT; // 2729
+            PFNGLGETSAMPLERPARAMETERIUIVOESPROC GetSamplerParameterIuivOES; // 2730
+            PFNGLGETSAMPLERPARAMETERIUIVROBUSTANGLEPROC GetSamplerParameterIuivRobustANGLE; // 2731
+            PFNGLGETSAMPLERPARAMETERFVROBUSTANGLEPROC GetSamplerParameterfvRobustANGLE; // 2732
+            PFNGLGETSAMPLERPARAMETERIVROBUSTANGLEPROC GetSamplerParameterivRobustANGLE; // 2733
+            PFNGLGETSHADERIVROBUSTANGLEPROC GetShaderivRobustANGLE; // 2734
+            PFNGLGETSYNCIVAPPLEPROC GetSyncivAPPLE; // 2735
+            PFNGLGETTEXIMAGEANGLEPROC GetTexImageANGLE; // 2736
+            PFNGLGETTEXLEVELPARAMETERFVANGLEPROC GetTexLevelParameterfvANGLE; // 2737
+            PFNGLGETTEXLEVELPARAMETERFVROBUSTANGLEPROC GetTexLevelParameterfvRobustANGLE; // 2738
+            PFNGLGETTEXLEVELPARAMETERIVANGLEPROC GetTexLevelParameterivANGLE; // 2739
+            PFNGLGETTEXLEVELPARAMETERIVROBUSTANGLEPROC GetTexLevelParameterivRobustANGLE; // 2740
+            PFNGLGETTEXPARAMETERIIVOESPROC GetTexParameterIivOES; // 2741
+            PFNGLGETTEXPARAMETERIIVROBUSTANGLEPROC GetTexParameterIivRobustANGLE; // 2742
+            PFNGLGETTEXPARAMETERIUIVOESPROC GetTexParameterIuivOES; // 2743
+            PFNGLGETTEXPARAMETERIUIVROBUSTANGLEPROC GetTexParameterIuivRobustANGLE; // 2744
+            PFNGLGETTEXPARAMETERFVROBUSTANGLEPROC GetTexParameterfvRobustANGLE; // 2745
+            PFNGLGETTEXPARAMETERIVROBUSTANGLEPROC GetTexParameterivRobustANGLE; // 2746
+            PFNGLGETTEXTUREHANDLEIMGPROC GetTextureHandleIMG; // 2747
+            PFNGLGETTEXTURESAMPLERHANDLEIMGPROC GetTextureSamplerHandleIMG; // 2748
+            PFNGLGETTRANSLATEDSHADERSOURCEANGLEPROC GetTranslatedShaderSourceANGLE; // 2749
+            PFNGLGETUNIFORMFVROBUSTANGLEPROC GetUniformfvRobustANGLE; // 2750
+            PFNGLGETUNIFORMIVROBUSTANGLEPROC GetUniformivRobustANGLE; // 2751
+            PFNGLGETUNIFORMUIVROBUSTANGLEPROC GetUniformuivRobustANGLE; // 2752
+            PFNGLGETVERTEXATTRIBIIVROBUSTANGLEPROC GetVertexAttribIivRobustANGLE; // 2753
+            PFNGLGETVERTEXATTRIBIUIVROBUSTANGLEPROC GetVertexAttribIuivRobustANGLE; // 2754
+            PFNGLGETVERTEXATTRIBPOINTERVROBUSTANGLEPROC GetVertexAttribPointervRobustANGLE; // 2755
+            PFNGLGETVERTEXATTRIBFVROBUSTANGLEPROC GetVertexAttribfvRobustANGLE; // 2756
+            PFNGLGETVERTEXATTRIBIVROBUSTANGLEPROC GetVertexAttribivRobustANGLE; // 2757
+            PFNGLGETNUNIFORMFVEXTPROC GetnUniformfvEXT; // 2758
+            PFNGLGETNUNIFORMFVKHRPROC GetnUniformfvKHR; // 2759
+            PFNGLGETNUNIFORMFVROBUSTANGLEPROC GetnUniformfvRobustANGLE; // 2760
+            PFNGLGETNUNIFORMIVEXTPROC GetnUniformivEXT; // 2761
+            PFNGLGETNUNIFORMIVKHRPROC GetnUniformivKHR; // 2762
+            PFNGLGETNUNIFORMIVROBUSTANGLEPROC GetnUniformivRobustANGLE; // 2763
+            PFNGLGETNUNIFORMUIVKHRPROC GetnUniformuivKHR; // 2764
+            PFNGLGETNUNIFORMUIVROBUSTANGLEPROC GetnUniformuivRobustANGLE; // 2765
+            PFNGLISENABLEDIEXTPROC IsEnablediEXT; // 2766
+            PFNGLISENABLEDINVPROC IsEnablediNV; // 2767
+            PFNGLISENABLEDIOESPROC IsEnablediOES; // 2768
+            PFNGLISPROGRAMPIPELINEEXTPROC IsProgramPipelineEXT; // 2769
+            PFNGLISQUERYEXTPROC IsQueryEXT; // 2770
+            PFNGLISSYNCAPPLEPROC IsSyncAPPLE; // 2771
+            PFNGLISVERTEXARRAYOESPROC IsVertexArrayOES; // 2772
+            PFNGLLOGICOPANGLEPROC LogicOpANGLE; // 2773
+            PFNGLLOSECONTEXTCHROMIUMPROC LoseContextCHROMIUM; // 2774
+            PFNGLMAPBUFFEROESPROC MapBufferOES; // 2775
+            PFNGLMAPBUFFERRANGEEXTPROC MapBufferRangeEXT; // 2776
+            PFNGLMAXACTIVESHADERCORESARMPROC MaxActiveShaderCoresARM; // 2777
+            PFNGLMINSAMPLESHADINGOESPROC MinSampleShadingOES; // 2778
+            PFNGLMULTIDRAWARRAYSANGLEPROC MultiDrawArraysANGLE; // 2779
+            PFNGLMULTIDRAWARRAYSINDIRECTEXTPROC MultiDrawArraysIndirectEXT; // 2780
+            PFNGLMULTIDRAWARRAYSINSTANCEDANGLEPROC MultiDrawArraysInstancedANGLE; // 2781
+            PFNGLMULTIDRAWARRAYSINSTANCEDBASEINSTANCEANGLEPROC MultiDrawArraysInstancedBaseInstanceANGLE; // 2782
+            PFNGLMULTIDRAWELEMENTSANGLEPROC MultiDrawElementsANGLE; // 2783
+            PFNGLMULTIDRAWELEMENTSBASEVERTEXEXTPROC MultiDrawElementsBaseVertexEXT; // 2784
+            PFNGLMULTIDRAWELEMENTSINDIRECTEXTPROC MultiDrawElementsIndirectEXT; // 2785
+            PFNGLMULTIDRAWELEMENTSINSTANCEDANGLEPROC MultiDrawElementsInstancedANGLE; // 2786
+            PFNGLMULTIDRAWELEMENTSINSTANCEDBASEVERTEXBASEINSTANCEANGLEPROC MultiDrawElementsInstancedBaseVertexBaseInstanceANGLE; // 2787
+            PFNGLOBJECTLABELKHRPROC ObjectLabelKHR; // 2788
+            PFNGLOBJECTPTRLABELKHRPROC ObjectPtrLabelKHR; // 2789
+            PFNGLPATCHPARAMETERIEXTPROC PatchParameteriEXT; // 2790
+            PFNGLPATCHPARAMETERIOESPROC PatchParameteriOES; // 2791
+            PFNGLPIXELLOCALSTORAGEBARRIERANGLEPROC PixelLocalStorageBarrierANGLE; // 2792
+            PFNGLPOLYGONMODEANGLEPROC PolygonModeANGLE; // 2793
+            PFNGLPOLYGONMODENVPROC PolygonModeNV; // 2794
+            PFNGLPOPDEBUGGROUPKHRPROC PopDebugGroupKHR; // 2795
+            PFNGLPRIMITIVEBOUNDINGBOXPROC PrimitiveBoundingBox; // 2796
+            PFNGLPRIMITIVEBOUNDINGBOXEXTPROC PrimitiveBoundingBoxEXT; // 2797
+            PFNGLPRIMITIVEBOUNDINGBOXOESPROC PrimitiveBoundingBoxOES; // 2798
+            PFNGLPROGRAMBINARYOESPROC ProgramBinaryOES; // 2799
+            PFNGLPROGRAMUNIFORMHANDLEUI64IMGPROC ProgramUniformHandleui64IMG; // 2800
+            PFNGLPROGRAMUNIFORMHANDLEUI64VIMGPROC ProgramUniformHandleui64vIMG; // 2801
+            PFNGLPROVOKINGVERTEXANGLEPROC ProvokingVertexANGLE; // 2802
+            PFNGLPUSHDEBUGGROUPKHRPROC PushDebugGroupKHR; // 2803
+            PFNGLQUERYCOUNTEREXTPROC QueryCounterEXT; // 2804
+            PFNGLREADBUFFERINDEXEDEXTPROC ReadBufferIndexedEXT; // 2805
+            PFNGLREADBUFFERNVPROC ReadBufferNV; // 2806
+            PFNGLREADPIXELSROBUSTANGLEPROC ReadPixelsRobustANGLE; // 2807
+            PFNGLREADNPIXELSEXTPROC ReadnPixelsEXT; // 2808
+            PFNGLREADNPIXELSKHRPROC ReadnPixelsKHR; // 2809
+            PFNGLREADNPIXELSROBUSTANGLEPROC ReadnPixelsRobustANGLE; // 2810
+            PFNGLRELEASETEXTURESANGLEPROC ReleaseTexturesANGLE; // 2811
+            PFNGLRENDERBUFFERSTORAGEMULTISAMPLEANGLEPROC RenderbufferStorageMultisampleANGLE; // 2812
+            PFNGLRENDERBUFFERSTORAGEMULTISAMPLEAPPLEPROC RenderbufferStorageMultisampleAPPLE; // 2813
+            PFNGLRENDERBUFFERSTORAGEMULTISAMPLEIMGPROC RenderbufferStorageMultisampleIMG; // 2814
+            PFNGLRENDERBUFFERSTORAGEMULTISAMPLENVPROC RenderbufferStorageMultisampleNV; // 2815
+            PFNGLREQUESTEXTENSIONANGLEPROC RequestExtensionANGLE; // 2816
+            PFNGLRESOLVEMULTISAMPLEFRAMEBUFFERAPPLEPROC ResolveMultisampleFramebufferAPPLE; // 2817
+            PFNGLSAMPLEMASKIANGLEPROC SampleMaskiANGLE; // 2818
+            PFNGLSAMPLERPARAMETERIIVEXTPROC SamplerParameterIivEXT; // 2819
+            PFNGLSAMPLERPARAMETERIIVOESPROC SamplerParameterIivOES; // 2820
+            PFNGLSAMPLERPARAMETERIIVROBUSTANGLEPROC SamplerParameterIivRobustANGLE; // 2821
+            PFNGLSAMPLERPARAMETERIUIVEXTPROC SamplerParameterIuivEXT; // 2822
+            PFNGLSAMPLERPARAMETERIUIVOESPROC SamplerParameterIuivOES; // 2823
+            PFNGLSAMPLERPARAMETERIUIVROBUSTANGLEPROC SamplerParameterIuivRobustANGLE; // 2824
+            PFNGLSAMPLERPARAMETERFVROBUSTANGLEPROC SamplerParameterfvRobustANGLE; // 2825
+            PFNGLSAMPLERPARAMETERIVROBUSTANGLEPROC SamplerParameterivRobustANGLE; // 2826
+            PFNGLSCISSORARRAYVNVPROC ScissorArrayvNV; // 2827
+            PFNGLSCISSORARRAYVOESPROC ScissorArrayvOES; // 2828
+            PFNGLSCISSORINDEXEDNVPROC ScissorIndexedNV; // 2829
+            PFNGLSCISSORINDEXEDOESPROC ScissorIndexedOES; // 2830
+            PFNGLSCISSORINDEXEDVNVPROC ScissorIndexedvNV; // 2831
+            PFNGLSCISSORINDEXEDVOESPROC ScissorIndexedvOES; // 2832
+            PFNGLSHADINGRATECOMBINEROPSEXTPROC ShadingRateCombinerOpsEXT; // 2833
+            PFNGLSHADINGRATEEXTPROC ShadingRateEXT; // 2834
+            PFNGLSHADINGRATEQCOMPROC ShadingRateQCOM; // 2835
+            PFNGLSTARTTILINGQCOMPROC StartTilingQCOM; // 2836
+            PFNGLTEXBUFFEROESPROC TexBufferOES; // 2837
+            PFNGLTEXBUFFERRANGEEXTPROC TexBufferRangeEXT; // 2838
+            PFNGLTEXBUFFERRANGEOESPROC TexBufferRangeOES; // 2839
+            PFNGLTEXESTIMATEMOTIONQCOMPROC TexEstimateMotionQCOM; // 2840
+            PFNGLTEXESTIMATEMOTIONREGIONSQCOMPROC TexEstimateMotionRegionsQCOM; // 2841
+            PFNGLTEXIMAGE2DROBUSTANGLEPROC TexImage2DRobustANGLE; // 2842
+            PFNGLTEXIMAGE3DOESPROC TexImage3DOES; // 2843
+            PFNGLTEXIMAGE3DROBUSTANGLEPROC TexImage3DRobustANGLE; // 2844
+            PFNGLTEXPAGECOMMITMENTEXTPROC TexPageCommitmentEXT; // 2845
+            PFNGLTEXPARAMETERIIVOESPROC TexParameterIivOES; // 2846
+            PFNGLTEXPARAMETERIIVROBUSTANGLEPROC TexParameterIivRobustANGLE; // 2847
+            PFNGLTEXPARAMETERIUIVOESPROC TexParameterIuivOES; // 2848
+            PFNGLTEXPARAMETERIUIVROBUSTANGLEPROC TexParameterIuivRobustANGLE; // 2849
+            PFNGLTEXPARAMETERFVROBUSTANGLEPROC TexParameterfvRobustANGLE; // 2850
+            PFNGLTEXPARAMETERIVROBUSTANGLEPROC TexParameterivRobustANGLE; // 2851
+            PFNGLTEXSTORAGE2DMULTISAMPLEANGLEPROC TexStorage2DMultisampleANGLE; // 2852
+            PFNGLTEXSTORAGE3DMULTISAMPLEOESPROC TexStorage3DMultisampleOES; // 2853
+            PFNGLTEXSTORAGEATTRIBS2DEXTPROC TexStorageAttribs2DEXT; // 2854
+            PFNGLTEXSTORAGEATTRIBS3DEXTPROC TexStorageAttribs3DEXT; // 2855
+            PFNGLTEXSUBIMAGE2DROBUSTANGLEPROC TexSubImage2DRobustANGLE; // 2856
+            PFNGLTEXSUBIMAGE3DOESPROC TexSubImage3DOES; // 2857
+            PFNGLTEXSUBIMAGE3DROBUSTANGLEPROC TexSubImage3DRobustANGLE; // 2858
+            PFNGLTEXTUREFOVEATIONPARAMETERSQCOMPROC TextureFoveationParametersQCOM; // 2859
+            PFNGLTEXTUREVIEWEXTPROC TextureViewEXT; // 2860
+            PFNGLTEXTUREVIEWOESPROC TextureViewOES; // 2861
+            PFNGLUNIFORMHANDLEUI64IMGPROC UniformHandleui64IMG; // 2862
+            PFNGLUNIFORMHANDLEUI64VIMGPROC UniformHandleui64vIMG; // 2863
+            PFNGLUNIFORMMATRIX2X3FVNVPROC UniformMatrix2x3fvNV; // 2864
+            PFNGLUNIFORMMATRIX2X4FVNVPROC UniformMatrix2x4fvNV; // 2865
+            PFNGLUNIFORMMATRIX3X2FVNVPROC UniformMatrix3x2fvNV; // 2866
+            PFNGLUNIFORMMATRIX3X4FVNVPROC UniformMatrix3x4fvNV; // 2867
+            PFNGLUNIFORMMATRIX4X2FVNVPROC UniformMatrix4x2fvNV; // 2868
+            PFNGLUNIFORMMATRIX4X3FVNVPROC UniformMatrix4x3fvNV; // 2869
+            PFNGLUNMAPBUFFEROESPROC UnmapBufferOES; // 2870
+            PFNGLUSEPROGRAMSTAGESEXTPROC UseProgramStagesEXT; // 2871
+            PFNGLVALIDATEPROGRAMPIPELINEEXTPROC ValidateProgramPipelineEXT; // 2872
+            PFNGLVERTEXATTRIBDIVISORANGLEPROC VertexAttribDivisorANGLE; // 2873
+            PFNGLVERTEXATTRIBDIVISOREXTPROC VertexAttribDivisorEXT; // 2874
+            PFNGLVERTEXATTRIBDIVISORNVPROC VertexAttribDivisorNV; // 2875
+            PFNGLVIEWPORTARRAYVNVPROC ViewportArrayvNV; // 2876
+            PFNGLVIEWPORTARRAYVOESPROC ViewportArrayvOES; // 2877
+            PFNGLVIEWPORTINDEXEDFNVPROC ViewportIndexedfNV; // 2878
+            PFNGLVIEWPORTINDEXEDFOESPROC ViewportIndexedfOES; // 2879
+            PFNGLVIEWPORTINDEXEDFVNVPROC ViewportIndexedfvNV; // 2880
+            PFNGLVIEWPORTINDEXEDFVOESPROC ViewportIndexedfvOES; // 2881
+            PFNGLWAITSYNCAPPLEPROC WaitSyncAPPLE; // 2882
+        };
+    };
 
     void* glad_loader_handle;
 } GladGLContext;

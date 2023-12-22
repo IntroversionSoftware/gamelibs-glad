@@ -35,6 +35,7 @@ EXTENSIONS=(
 	GL_ANGLE_texture_usage
 	GL_APPLE_clip_distance
 	GL_APPLE_texture_format_BGRA8888
+	GL_ARB_arrays_of_arrays
 	GL_ARB_base_instance
 	GL_ARB_buffer_storage
 	GL_ARB_clip_control
@@ -51,12 +52,14 @@ EXTENSIONS=(
 	GL_ARB_query_buffer_object
 	GL_ARB_sample_shading
 	GL_ARB_shading_language_packing
+	GL_ARB_shading_language_420pack
 	GL_ARB_texture_filter_anisotropic
 	GL_ARB_texture_gather
 	GL_ARB_texture_storage
 	GL_ARB_vertex_attrib_binding
 	GL_EXT_base_instance
 	GL_EXT_buffer_storage
+	GL_EXT_clear_texture
 	GL_EXT_clip_control
 	GL_EXT_clip_cull_distance
 	GL_EXT_debug_marker
@@ -79,6 +82,7 @@ EXTENSIONS=(
 	GL_KHR_parallel_shader_compile
 	GL_NV_fence
 	GL_NV_fragment_shader_barycentric
+	GL_OES_shader_image_atomic
 	GL_QCOM_shading_rate
 	VK_EXT_memory_budget
 	VK_KHR_get_physical_device_properties2
@@ -110,6 +114,18 @@ GLAD_ARGS=(
 	# bitfields) and simplifies context reset.
 	--mx --mx-global
 )
+
+# Faster profile for testing changes with the C generator
+#GLAD_ARGS=(
+#	--reproducible
+#	--api=glx
+#	--out-path="$PWD"
+#	--merge
+#	c
+#	--alias
+#	--loader
+#	--mx --mx-global
+#)
 
 #
 # NOTE: This 'glad' binary is from my fork of glad2
