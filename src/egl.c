@@ -463,8 +463,10 @@ static void glad_egl_load_EGL_VERSION_1_0(GladEGLContext *context, GLADuserptrlo
           174, // eglWaitGL
           175  // eglWaitNative
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_VERSION_1_1(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -475,8 +477,10 @@ static void glad_egl_load_EGL_VERSION_1_1(GladEGLContext *context, GLADuserptrlo
           161, // eglSurfaceAttrib
           168  // eglSwapInterval
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_VERSION_1_2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -488,8 +492,10 @@ static void glad_egl_load_EGL_VERSION_1_2(GladEGLContext *context, GLADuserptrlo
           140, // eglReleaseThread
           173  // eglWaitClient
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_VERSION_1_4(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -497,8 +503,10 @@ static void glad_egl_load_EGL_VERSION_1_4(GladEGLContext *context, GLADuserptrlo
     static const uint16_t s_pfnIdx[] = {
            64  // eglGetCurrentContext
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_VERSION_1_5(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -515,8 +523,10 @@ static void glad_egl_load_EGL_VERSION_1_5(GladEGLContext *context, GLADuserptrlo
            82, // eglGetSyncAttrib
           176  // eglWaitSync
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANDROID_blob_cache(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -524,8 +534,10 @@ static void glad_egl_load_EGL_ANDROID_blob_cache(GladEGLContext *context, GLADus
     static const uint16_t s_pfnIdx[] = {
           142  // eglSetBlobCacheFuncsANDROID
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANDROID_create_native_client_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -533,8 +545,10 @@ static void glad_egl_load_EGL_ANDROID_create_native_client_buffer(GladEGLContext
     static const uint16_t s_pfnIdx[] = {
            24  // eglCreateNativeClientBufferANDROID
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANDROID_get_frame_timestamps(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -546,8 +560,10 @@ static void glad_egl_load_EGL_ANDROID_get_frame_timestamps(GladEGLContext *conte
            72, // eglGetFrameTimestampsANDROID
            75  // eglGetNextFrameIdANDROID
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANDROID_get_native_client_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -555,8 +571,10 @@ static void glad_egl_load_EGL_ANDROID_get_native_client_buffer(GladEGLContext *c
     static const uint16_t s_pfnIdx[] = {
            74  // eglGetNativeClientBufferANDROID
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANDROID_native_fence_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -564,8 +582,10 @@ static void glad_egl_load_EGL_ANDROID_native_fence_sync(GladEGLContext *context,
     static const uint16_t s_pfnIdx[] = {
            53  // eglDupNativeFenceFDANDROID
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANDROID_presentation_time(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -573,8 +593,10 @@ static void glad_egl_load_EGL_ANDROID_presentation_time(GladEGLContext *context,
     static const uint16_t s_pfnIdx[] = {
            97  // eglPresentationTimeANDROID
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_device_creation(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -583,8 +605,10 @@ static void glad_egl_load_EGL_ANGLE_device_creation(GladEGLContext *context, GLA
            20, // eglCreateDeviceANGLE
           136  // eglReleaseDeviceANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_external_context_and_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -593,8 +617,10 @@ static void glad_egl_load_EGL_ANGLE_external_context_and_surface(GladEGLContext 
             0, // eglAcquireExternalContextANGLE
           137  // eglReleaseExternalContextANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_feature_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -603,8 +629,10 @@ static void glad_egl_load_EGL_ANGLE_feature_control(GladEGLContext *context, GLA
           109, // eglQueryDisplayAttribANGLE
           129  // eglQueryStringiANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_metal_shared_event_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -612,8 +640,10 @@ static void glad_egl_load_EGL_ANGLE_metal_shared_event_sync(GladEGLContext *cont
     static const uint16_t s_pfnIdx[] = {
            17  // eglCopyMetalSharedEventANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_power_preference(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -624,8 +654,10 @@ static void glad_egl_load_EGL_ANGLE_power_preference(GladEGLContext *context, GL
           135, // eglReacquireHighPowerGPUANGLE
           138  // eglReleaseHighPowerGPUANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_prepare_swap_buffers(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -633,8 +665,10 @@ static void glad_egl_load_EGL_ANGLE_prepare_swap_buffers(GladEGLContext *context
     static const uint16_t s_pfnIdx[] = {
            96  // eglPrepareSwapBuffersANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_program_cache_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -645,8 +679,10 @@ static void glad_egl_load_EGL_ANGLE_program_cache_control(GladEGLContext *contex
           100, // eglProgramCacheQueryANGLE
           101  // eglProgramCacheResizeANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_query_surface_pointer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -654,8 +690,10 @@ static void glad_egl_load_EGL_ANGLE_query_surface_pointer(GladEGLContext *contex
     static const uint16_t s_pfnIdx[] = {
           133  // eglQuerySurfacePointerANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_stream_producer_d3d_texture(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -664,8 +702,10 @@ static void glad_egl_load_EGL_ANGLE_stream_producer_d3d_texture(GladEGLContext *
            36, // eglCreateStreamProducerD3DTextureANGLE
           159  // eglStreamPostD3DTextureANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_swap_with_frame_token(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -673,8 +713,10 @@ static void glad_egl_load_EGL_ANGLE_swap_with_frame_token(GladEGLContext *contex
     static const uint16_t s_pfnIdx[] = {
           167  // eglSwapBuffersWithFrameTokenANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_sync_control_rate(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -682,8 +724,10 @@ static void glad_egl_load_EGL_ANGLE_sync_control_rate(GladEGLContext *context, G
     static const uint16_t s_pfnIdx[] = {
            73  // eglGetMscRateANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_vulkan_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -691,8 +735,10 @@ static void glad_egl_load_EGL_ANGLE_vulkan_image(GladEGLContext *context, GLADus
     static const uint16_t s_pfnIdx[] = {
            57  // eglExportVkImageANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -700,8 +746,10 @@ static void glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(GladEGLContext *co
     static const uint16_t s_pfnIdx[] = {
           178  // eglWaitUntilWorkScheduledANGLE
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_CHROMIUM_sync_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -709,8 +757,10 @@ static void glad_egl_load_EGL_CHROMIUM_sync_control(GladEGLContext *context, GLA
     static const uint16_t s_pfnIdx[] = {
            85  // eglGetSyncValuesCHROMIUM
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_client_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -718,8 +768,10 @@ static void glad_egl_load_EGL_EXT_client_sync(GladEGLContext *context, GLADuserp
     static const uint16_t s_pfnIdx[] = {
             5  // eglClientSignalSyncEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_compositor(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -733,8 +785,10 @@ static void glad_egl_load_EGL_EXT_compositor(GladEGLContext *context, GLADuserpt
            14, // eglCompositorSetWindowListEXT
            15  // eglCompositorSwapPolicyEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_device_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -745,8 +799,10 @@ static void glad_egl_load_EGL_EXT_device_base(GladEGLContext *context, GLADuserp
           108, // eglQueryDevicesEXT
           110  // eglQueryDisplayAttribEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_device_enumeration(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -754,8 +810,10 @@ static void glad_egl_load_EGL_EXT_device_enumeration(GladEGLContext *context, GL
     static const uint16_t s_pfnIdx[] = {
           108  // eglQueryDevicesEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_device_persistent_id(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -763,8 +821,10 @@ static void glad_egl_load_EGL_EXT_device_persistent_id(GladEGLContext *context, 
     static const uint16_t s_pfnIdx[] = {
           106  // eglQueryDeviceBinaryEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_device_query(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -774,8 +834,10 @@ static void glad_egl_load_EGL_EXT_device_query(GladEGLContext *context, GLADuser
           107, // eglQueryDeviceStringEXT
           110  // eglQueryDisplayAttribEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_image_dma_buf_import_modifiers(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -784,8 +846,10 @@ static void glad_egl_load_EGL_EXT_image_dma_buf_import_modifiers(GladEGLContext 
           113, // eglQueryDmaBufFormatsEXT
           114  // eglQueryDmaBufModifiersEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_output_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -800,8 +864,10 @@ static void glad_egl_load_EGL_EXT_output_base(GladEGLContext *context, GLADuserp
           120, // eglQueryOutputPortAttribEXT
           121  // eglQueryOutputPortStringEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_platform_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -811,8 +877,10 @@ static void glad_egl_load_EGL_EXT_platform_base(GladEGLContext *context, GLADuse
            32, // eglCreatePlatformWindowSurfaceEXT
            79  // eglGetPlatformDisplayEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_stream_consumer_egloutput(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -820,8 +888,10 @@ static void glad_egl_load_EGL_EXT_stream_consumer_egloutput(GladEGLContext *cont
     static const uint16_t s_pfnIdx[] = {
           154  // eglStreamConsumerOutputEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_surface_compression(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -829,8 +899,10 @@ static void glad_egl_load_EGL_EXT_surface_compression(GladEGLContext *context, G
     static const uint16_t s_pfnIdx[] = {
           130  // eglQuerySupportedCompressionRatesEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_swap_buffers_with_damage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -838,8 +910,10 @@ static void glad_egl_load_EGL_EXT_swap_buffers_with_damage(GladEGLContext *conte
     static const uint16_t s_pfnIdx[] = {
           165  // eglSwapBuffersWithDamageEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_EXT_sync_reuse(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -847,8 +921,10 @@ static void glad_egl_load_EGL_EXT_sync_reuse(GladEGLContext *context, GLADuserpt
     static const uint16_t s_pfnIdx[] = {
           172  // eglUnsignalSyncEXT
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_HI_clientpixmap(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -856,8 +932,10 @@ static void glad_egl_load_EGL_HI_clientpixmap(GladEGLContext *context, GLADuserp
     static const uint16_t s_pfnIdx[] = {
            28  // eglCreatePixmapSurfaceHI
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_cl_event2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -865,8 +943,10 @@ static void glad_egl_load_EGL_KHR_cl_event2(GladEGLContext *context, GLADuserptr
     static const uint16_t s_pfnIdx[] = {
            40  // eglCreateSync64KHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_debug(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -876,8 +956,10 @@ static void glad_egl_load_EGL_KHR_debug(GladEGLContext *context, GLADuserptrload
            90, // eglLabelObjectKHR
           104  // eglQueryDebugKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_display_reference(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -885,8 +967,10 @@ static void glad_egl_load_EGL_KHR_display_reference(GladEGLContext *context, GLA
     static const uint16_t s_pfnIdx[] = {
           111  // eglQueryDisplayAttribKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_fence_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -897,8 +981,10 @@ static void glad_egl_load_EGL_KHR_fence_sync(GladEGLContext *context, GLADuserpt
            51, // eglDestroySyncKHR
            83  // eglGetSyncAttribKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -907,8 +993,10 @@ static void glad_egl_load_EGL_KHR_image(GladEGLContext *context, GLADuserptrload
            23, // eglCreateImageKHR
            47  // eglDestroyImageKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_image_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -917,8 +1005,10 @@ static void glad_egl_load_EGL_KHR_image_base(GladEGLContext *context, GLADuserpt
            23, // eglCreateImageKHR
            47  // eglDestroyImageKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_lock_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -927,8 +1017,10 @@ static void glad_egl_load_EGL_KHR_lock_surface(GladEGLContext *context, GLADuser
            91, // eglLockSurfaceKHR
           171  // eglUnlockSurfaceKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_lock_surface3(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -938,8 +1030,10 @@ static void glad_egl_load_EGL_KHR_lock_surface3(GladEGLContext *context, GLADuse
           132, // eglQuerySurface64KHR
           171  // eglUnlockSurfaceKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_partial_update(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -947,8 +1041,10 @@ static void glad_egl_load_EGL_KHR_partial_update(GladEGLContext *context, GLADus
     static const uint16_t s_pfnIdx[] = {
           143  // eglSetDamageRegionKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_reusable_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -960,8 +1056,10 @@ static void glad_egl_load_EGL_KHR_reusable_sync(GladEGLContext *context, GLADuse
            83, // eglGetSyncAttribKHR
           146  // eglSignalSyncKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_stream(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -973,8 +1071,10 @@ static void glad_egl_load_EGL_KHR_stream(GladEGLContext *context, GLADuserptrloa
           127, // eglQueryStreamu64KHR
           149  // eglStreamAttribKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_stream_attrib(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -986,8 +1086,10 @@ static void glad_egl_load_EGL_KHR_stream_attrib(GladEGLContext *context, GLADuse
           150, // eglStreamConsumerAcquireAttribKHR
           155  // eglStreamConsumerReleaseAttribKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_stream_consumer_gltexture(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -997,8 +1099,10 @@ static void glad_egl_load_EGL_KHR_stream_consumer_gltexture(GladEGLContext *cont
           153, // eglStreamConsumerGLTextureExternalKHR
           156  // eglStreamConsumerReleaseKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_stream_cross_process_fd(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1007,8 +1111,10 @@ static void glad_egl_load_EGL_KHR_stream_cross_process_fd(GladEGLContext *contex
            34, // eglCreateStreamFromFileDescriptorKHR
            81  // eglGetStreamFileDescriptorKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_stream_fifo(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1016,8 +1122,10 @@ static void glad_egl_load_EGL_KHR_stream_fifo(GladEGLContext *context, GLADuserp
     static const uint16_t s_pfnIdx[] = {
           126  // eglQueryStreamTimeKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_stream_producer_eglsurface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1025,8 +1133,10 @@ static void glad_egl_load_EGL_KHR_stream_producer_eglsurface(GladEGLContext *con
     static const uint16_t s_pfnIdx[] = {
            37  // eglCreateStreamProducerSurfaceKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_swap_buffers_with_damage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1034,8 +1144,10 @@ static void glad_egl_load_EGL_KHR_swap_buffers_with_damage(GladEGLContext *conte
     static const uint16_t s_pfnIdx[] = {
           166  // eglSwapBuffersWithDamageKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_KHR_wait_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1043,8 +1155,10 @@ static void glad_egl_load_EGL_KHR_wait_sync(GladEGLContext *context, GLADuserptr
     static const uint16_t s_pfnIdx[] = {
           177  // eglWaitSyncKHR
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_MESA_drm_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1053,8 +1167,10 @@ static void glad_egl_load_EGL_MESA_drm_image(GladEGLContext *context, GLADuserpt
            19, // eglCreateDRMImageMESA
            56  // eglExportDRMImageMESA
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_MESA_image_dma_buf_export(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1063,8 +1179,10 @@ static void glad_egl_load_EGL_MESA_image_dma_buf_export(GladEGLContext *context,
            54, // eglExportDMABUFImageMESA
            55  // eglExportDMABUFImageQueryMESA
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_MESA_query_driver(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1073,8 +1191,10 @@ static void glad_egl_load_EGL_MESA_query_driver(GladEGLContext *context, GLADuse
            68, // eglGetDisplayDriverConfig
            69  // eglGetDisplayDriverName
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NOK_swap_region(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1082,8 +1202,10 @@ static void glad_egl_load_EGL_NOK_swap_region(GladEGLContext *context, GLADuserp
     static const uint16_t s_pfnIdx[] = {
           164  // eglSwapBuffersRegionNOK
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NOK_swap_region2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1091,8 +1213,10 @@ static void glad_egl_load_EGL_NOK_swap_region2(GladEGLContext *context, GLADuser
     static const uint16_t s_pfnIdx[] = {
           163  // eglSwapBuffersRegion2NOK
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_native_query(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1102,8 +1226,10 @@ static void glad_egl_load_EGL_NV_native_query(GladEGLContext *context, GLADuserp
           116, // eglQueryNativePixmapNV
           117  // eglQueryNativeWindowNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_post_sub_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1111,8 +1237,10 @@ static void glad_egl_load_EGL_NV_post_sub_buffer(GladEGLContext *context, GLADus
     static const uint16_t s_pfnIdx[] = {
            95  // eglPostSubBufferNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_stream_consumer_eglimage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1123,8 +1251,10 @@ static void glad_egl_load_EGL_NV_stream_consumer_eglimage(GladEGLContext *contex
           158, // eglStreamImageConsumerConnectNV
           160  // eglStreamReleaseImageNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_stream_consumer_gltexture_yuv(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1132,8 +1262,10 @@ static void glad_egl_load_EGL_NV_stream_consumer_gltexture_yuv(GladEGLContext *c
     static const uint16_t s_pfnIdx[] = {
           152  // eglStreamConsumerGLTextureExternalAttribsNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_stream_flush(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1141,8 +1273,10 @@ static void glad_egl_load_EGL_NV_stream_flush(GladEGLContext *context, GLADuserp
     static const uint16_t s_pfnIdx[] = {
           157  // eglStreamFlushNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_stream_metadata(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1152,8 +1286,10 @@ static void glad_egl_load_EGL_NV_stream_metadata(GladEGLContext *context, GLADus
           125, // eglQueryStreamMetadataNV
           145  // eglSetStreamMetadataNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_stream_reset(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1161,8 +1297,10 @@ static void glad_egl_load_EGL_NV_stream_reset(GladEGLContext *context, GLADuserp
     static const uint16_t s_pfnIdx[] = {
           141  // eglResetStreamNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_stream_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1170,8 +1308,10 @@ static void glad_egl_load_EGL_NV_stream_sync(GladEGLContext *context, GLADuserpt
     static const uint16_t s_pfnIdx[] = {
            38  // eglCreateStreamSyncNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1184,8 +1324,10 @@ static void glad_egl_load_EGL_NV_sync(GladEGLContext *context, GLADuserptrloadfu
            84, // eglGetSyncAttribNV
           147  // eglSignalSyncNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_NV_system_time(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1194,8 +1336,10 @@ static void glad_egl_load_EGL_NV_system_time(GladEGLContext *context, GLADuserpt
            86, // eglGetSystemTimeFrequencyNV
            87  // eglGetSystemTimeNV
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_WL_bind_wayland_display(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1205,8 +1349,10 @@ static void glad_egl_load_EGL_WL_bind_wayland_display(GladEGLContext *context, G
           134, // eglQueryWaylandBufferWL
           170  // eglUnbindWaylandDisplayWL
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_load_EGL_WL_create_wayland_buffer_from_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1214,8 +1360,10 @@ static void glad_egl_load_EGL_WL_create_wayland_buffer_from_image(GladEGLContext
     static const uint16_t s_pfnIdx[] = {
            42  // eglCreateWaylandBufferFromImageWL
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i)
-        context->pfnArray[s_pfnIdx[i]] = load(userptr, glad_pfn_names[s_pfnIdx[i]]);
+    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+    }
 }
 
 static void glad_egl_resolve_aliases(GladEGLContext *context) {
@@ -1237,10 +1385,14 @@ static void glad_egl_resolve_aliases(GladEGLContext *context) {
         { 0xFFFF, 0xFFFF }
     };
 
+    void **pfnArray = context->pfnArray;
+
     for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_aliases) - 1; ++i) {
         const GladAliasPair_t *pAlias = &s_aliases[i];
-        if (context->pfnArray[pAlias->first] == NULL && context->pfnArray[pAlias->second] != NULL) {
-            context->pfnArray[pAlias->first] = context->pfnArray[pAlias->second];
+        if (pfnArray[pAlias->first] == NULL && pfnArray[pAlias->second] != NULL) {
+            pfnArray[pAlias->first] = pfnArray[pAlias->second];
+        } else if (pfnArray[pAlias->second] == NULL && pfnArray[pAlias->first] != NULL) {
+            pfnArray[pAlias->second] = pfnArray[pAlias->first];
         }
     }
 }

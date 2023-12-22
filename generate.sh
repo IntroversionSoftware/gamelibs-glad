@@ -28,6 +28,7 @@ EXTENSIONS=(
 	EGL_KHR_gl_colorspace
 	GL_AMD_gpu_shader_half_float
 	GL_AMD_gpu_shader_int16
+	GL_AMD_query_buffer_object
 	GL_ANGLE_base_vertex_base_instance
 	GL_ANGLE_multi_draw
 	GL_ANGLE_provoking_vertex
@@ -49,6 +50,7 @@ EXTENSIONS=(
 	GL_ARB_multi_bind
 	GL_ARB_multi_draw_indirect
 	GL_ARB_multisample
+	GL_ARB_pixel_buffer_object
 	GL_ARB_query_buffer_object
 	GL_ARB_sample_shading
 	GL_ARB_shading_language_packing
