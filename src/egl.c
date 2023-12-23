@@ -5,6 +5,10 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define XXH_INLINE_ALL
+#include "xxhash.h"
+
 #include <glad/egl.h>
 
 #ifndef GLAD_IMPL_UTIL_C_
@@ -14,6 +18,13 @@
 #define GLAD_IMPL_UTIL_SSCANF sscanf_s
 #else
 #define GLAD_IMPL_UTIL_SSCANF sscanf
+#endif
+
+#undef GLAD_NO_INLINE
+#ifdef _MSC_VER
+#define GLAD_NO_INLINE __declspec(noinline)
+#else
+#define GLAD_NO_INLINE __attribute__((noinline))
 #endif
 
 #endif /* GLAD_IMPL_UTIL_C_ */
@@ -29,405 +40,441 @@ typedef struct {
     uint16_t second;
 } GladAliasPair_t;
 
-static const char *glad_pfn_names[] = {
-    "eglAcquireExternalContextANGLE", // 0
-    "eglBindAPI", // 1
-    "eglBindTexImage", // 2
-    "eglBindWaylandDisplayWL", // 3
-    "eglChooseConfig", // 4
-    "eglClientSignalSyncEXT", // 5
-    "eglClientWaitSync", // 6
-    "eglClientWaitSyncKHR", // 7
-    "eglClientWaitSyncNV", // 8
-    "eglCompositorBindTexWindowEXT", // 9
-    "eglCompositorSetContextAttributesEXT", // 10
-    "eglCompositorSetContextListEXT", // 11
-    "eglCompositorSetSizeEXT", // 12
-    "eglCompositorSetWindowAttributesEXT", // 13
-    "eglCompositorSetWindowListEXT", // 14
-    "eglCompositorSwapPolicyEXT", // 15
-    "eglCopyBuffers", // 16
-    "eglCopyMetalSharedEventANGLE", // 17
-    "eglCreateContext", // 18
-    "eglCreateDRMImageMESA", // 19
-    "eglCreateDeviceANGLE", // 20
-    "eglCreateFenceSyncNV", // 21
-    "eglCreateImage", // 22
-    "eglCreateImageKHR", // 23
-    "eglCreateNativeClientBufferANDROID", // 24
-    "eglCreatePbufferFromClientBuffer", // 25
-    "eglCreatePbufferSurface", // 26
-    "eglCreatePixmapSurface", // 27
-    "eglCreatePixmapSurfaceHI", // 28
-    "eglCreatePlatformPixmapSurface", // 29
-    "eglCreatePlatformPixmapSurfaceEXT", // 30
-    "eglCreatePlatformWindowSurface", // 31
-    "eglCreatePlatformWindowSurfaceEXT", // 32
-    "eglCreateStreamAttribKHR", // 33
-    "eglCreateStreamFromFileDescriptorKHR", // 34
-    "eglCreateStreamKHR", // 35
-    "eglCreateStreamProducerD3DTextureANGLE", // 36
-    "eglCreateStreamProducerSurfaceKHR", // 37
-    "eglCreateStreamSyncNV", // 38
-    "eglCreateSync", // 39
-    "eglCreateSync64KHR", // 40
-    "eglCreateSyncKHR", // 41
-    "eglCreateWaylandBufferFromImageWL", // 42
-    "eglCreateWindowSurface", // 43
-    "eglDebugMessageControlKHR", // 44
-    "eglDestroyContext", // 45
-    "eglDestroyImage", // 46
-    "eglDestroyImageKHR", // 47
-    "eglDestroyStreamKHR", // 48
-    "eglDestroySurface", // 49
-    "eglDestroySync", // 50
-    "eglDestroySyncKHR", // 51
-    "eglDestroySyncNV", // 52
-    "eglDupNativeFenceFDANDROID", // 53
-    "eglExportDMABUFImageMESA", // 54
-    "eglExportDMABUFImageQueryMESA", // 55
-    "eglExportDRMImageMESA", // 56
-    "eglExportVkImageANGLE", // 57
-    "eglFenceNV", // 58
-    "eglForceGPUSwitchANGLE", // 59
-    "eglGetCompositorTimingANDROID", // 60
-    "eglGetCompositorTimingSupportedANDROID", // 61
-    "eglGetConfigAttrib", // 62
-    "eglGetConfigs", // 63
-    "eglGetCurrentContext", // 64
-    "eglGetCurrentDisplay", // 65
-    "eglGetCurrentSurface", // 66
-    "eglGetDisplay", // 67
-    "eglGetDisplayDriverConfig", // 68
-    "eglGetDisplayDriverName", // 69
-    "eglGetError", // 70
-    "eglGetFrameTimestampSupportedANDROID", // 71
-    "eglGetFrameTimestampsANDROID", // 72
-    "eglGetMscRateANGLE", // 73
-    "eglGetNativeClientBufferANDROID", // 74
-    "eglGetNextFrameIdANDROID", // 75
-    "eglGetOutputLayersEXT", // 76
-    "eglGetOutputPortsEXT", // 77
-    "eglGetPlatformDisplay", // 78
-    "eglGetPlatformDisplayEXT", // 79
-    "eglGetProcAddress", // 80
-    "eglGetStreamFileDescriptorKHR", // 81
-    "eglGetSyncAttrib", // 82
-    "eglGetSyncAttribKHR", // 83
-    "eglGetSyncAttribNV", // 84
-    "eglGetSyncValuesCHROMIUM", // 85
-    "eglGetSystemTimeFrequencyNV", // 86
-    "eglGetSystemTimeNV", // 87
-    "eglHandleGPUSwitchANGLE", // 88
-    "eglInitialize", // 89
-    "eglLabelObjectKHR", // 90
-    "eglLockSurfaceKHR", // 91
-    "eglMakeCurrent", // 92
-    "eglOutputLayerAttribEXT", // 93
-    "eglOutputPortAttribEXT", // 94
-    "eglPostSubBufferNV", // 95
-    "eglPrepareSwapBuffersANGLE", // 96
-    "eglPresentationTimeANDROID", // 97
-    "eglProgramCacheGetAttribANGLE", // 98
-    "eglProgramCachePopulateANGLE", // 99
-    "eglProgramCacheQueryANGLE", // 100
-    "eglProgramCacheResizeANGLE", // 101
-    "eglQueryAPI", // 102
-    "eglQueryContext", // 103
-    "eglQueryDebugKHR", // 104
-    "eglQueryDeviceAttribEXT", // 105
-    "eglQueryDeviceBinaryEXT", // 106
-    "eglQueryDeviceStringEXT", // 107
-    "eglQueryDevicesEXT", // 108
-    "eglQueryDisplayAttribANGLE", // 109
-    "eglQueryDisplayAttribEXT", // 110
-    "eglQueryDisplayAttribKHR", // 111
-    "eglQueryDisplayAttribNV", // 112
-    "eglQueryDmaBufFormatsEXT", // 113
-    "eglQueryDmaBufModifiersEXT", // 114
-    "eglQueryNativeDisplayNV", // 115
-    "eglQueryNativePixmapNV", // 116
-    "eglQueryNativeWindowNV", // 117
-    "eglQueryOutputLayerAttribEXT", // 118
-    "eglQueryOutputLayerStringEXT", // 119
-    "eglQueryOutputPortAttribEXT", // 120
-    "eglQueryOutputPortStringEXT", // 121
-    "eglQueryStreamAttribKHR", // 122
-    "eglQueryStreamConsumerEventNV", // 123
-    "eglQueryStreamKHR", // 124
-    "eglQueryStreamMetadataNV", // 125
-    "eglQueryStreamTimeKHR", // 126
-    "eglQueryStreamu64KHR", // 127
-    "eglQueryString", // 128
-    "eglQueryStringiANGLE", // 129
-    "eglQuerySupportedCompressionRatesEXT", // 130
-    "eglQuerySurface", // 131
-    "eglQuerySurface64KHR", // 132
-    "eglQuerySurfacePointerANGLE", // 133
-    "eglQueryWaylandBufferWL", // 134
-    "eglReacquireHighPowerGPUANGLE", // 135
-    "eglReleaseDeviceANGLE", // 136
-    "eglReleaseExternalContextANGLE", // 137
-    "eglReleaseHighPowerGPUANGLE", // 138
-    "eglReleaseTexImage", // 139
-    "eglReleaseThread", // 140
-    "eglResetStreamNV", // 141
-    "eglSetBlobCacheFuncsANDROID", // 142
-    "eglSetDamageRegionKHR", // 143
-    "eglSetStreamAttribKHR", // 144
-    "eglSetStreamMetadataNV", // 145
-    "eglSignalSyncKHR", // 146
-    "eglSignalSyncNV", // 147
-    "eglStreamAcquireImageNV", // 148
-    "eglStreamAttribKHR", // 149
-    "eglStreamConsumerAcquireAttribKHR", // 150
-    "eglStreamConsumerAcquireKHR", // 151
-    "eglStreamConsumerGLTextureExternalAttribsNV", // 152
-    "eglStreamConsumerGLTextureExternalKHR", // 153
-    "eglStreamConsumerOutputEXT", // 154
-    "eglStreamConsumerReleaseAttribKHR", // 155
-    "eglStreamConsumerReleaseKHR", // 156
-    "eglStreamFlushNV", // 157
-    "eglStreamImageConsumerConnectNV", // 158
-    "eglStreamPostD3DTextureANGLE", // 159
-    "eglStreamReleaseImageNV", // 160
-    "eglSurfaceAttrib", // 161
-    "eglSwapBuffers", // 162
-    "eglSwapBuffersRegion2NOK", // 163
-    "eglSwapBuffersRegionNOK", // 164
-    "eglSwapBuffersWithDamageEXT", // 165
-    "eglSwapBuffersWithDamageKHR", // 166
-    "eglSwapBuffersWithFrameTokenANGLE", // 167
-    "eglSwapInterval", // 168
-    "eglTerminate", // 169
-    "eglUnbindWaylandDisplayWL", // 170
-    "eglUnlockSurfaceKHR", // 171
-    "eglUnsignalSyncEXT", // 172
-    "eglWaitClient", // 173
-    "eglWaitGL", // 174
-    "eglWaitNative", // 175
-    "eglWaitSync", // 176
-    "eglWaitSyncKHR", // 177
-    "eglWaitUntilWorkScheduledANGLE" // 178
+static const char *GLAD_EGL_fn_names[] = {
+    /*    0 */ "eglAcquireExternalContextANGLE",
+    /*    1 */ "eglBindAPI",
+    /*    2 */ "eglBindTexImage",
+    /*    3 */ "eglBindWaylandDisplayWL",
+    /*    4 */ "eglChooseConfig",
+    /*    5 */ "eglClientSignalSyncEXT",
+    /*    6 */ "eglClientWaitSync",
+    /*    7 */ "eglClientWaitSyncKHR",
+    /*    8 */ "eglClientWaitSyncNV",
+    /*    9 */ "eglCompositorBindTexWindowEXT",
+    /*   10 */ "eglCompositorSetContextAttributesEXT",
+    /*   11 */ "eglCompositorSetContextListEXT",
+    /*   12 */ "eglCompositorSetSizeEXT",
+    /*   13 */ "eglCompositorSetWindowAttributesEXT",
+    /*   14 */ "eglCompositorSetWindowListEXT",
+    /*   15 */ "eglCompositorSwapPolicyEXT",
+    /*   16 */ "eglCopyBuffers",
+    /*   17 */ "eglCopyMetalSharedEventANGLE",
+    /*   18 */ "eglCreateContext",
+    /*   19 */ "eglCreateDRMImageMESA",
+    /*   20 */ "eglCreateDeviceANGLE",
+    /*   21 */ "eglCreateFenceSyncNV",
+    /*   22 */ "eglCreateImage",
+    /*   23 */ "eglCreateImageKHR",
+    /*   24 */ "eglCreateNativeClientBufferANDROID",
+    /*   25 */ "eglCreatePbufferFromClientBuffer",
+    /*   26 */ "eglCreatePbufferSurface",
+    /*   27 */ "eglCreatePixmapSurface",
+    /*   28 */ "eglCreatePixmapSurfaceHI",
+    /*   29 */ "eglCreatePlatformPixmapSurface",
+    /*   30 */ "eglCreatePlatformPixmapSurfaceEXT",
+    /*   31 */ "eglCreatePlatformWindowSurface",
+    /*   32 */ "eglCreatePlatformWindowSurfaceEXT",
+    /*   33 */ "eglCreateStreamAttribKHR",
+    /*   34 */ "eglCreateStreamFromFileDescriptorKHR",
+    /*   35 */ "eglCreateStreamKHR",
+    /*   36 */ "eglCreateStreamProducerD3DTextureANGLE",
+    /*   37 */ "eglCreateStreamProducerSurfaceKHR",
+    /*   38 */ "eglCreateStreamSyncNV",
+    /*   39 */ "eglCreateSync",
+    /*   40 */ "eglCreateSync64KHR",
+    /*   41 */ "eglCreateSyncKHR",
+    /*   42 */ "eglCreateWaylandBufferFromImageWL",
+    /*   43 */ "eglCreateWindowSurface",
+    /*   44 */ "eglDebugMessageControlKHR",
+    /*   45 */ "eglDestroyContext",
+    /*   46 */ "eglDestroyImage",
+    /*   47 */ "eglDestroyImageKHR",
+    /*   48 */ "eglDestroyStreamKHR",
+    /*   49 */ "eglDestroySurface",
+    /*   50 */ "eglDestroySync",
+    /*   51 */ "eglDestroySyncKHR",
+    /*   52 */ "eglDestroySyncNV",
+    /*   53 */ "eglDupNativeFenceFDANDROID",
+    /*   54 */ "eglExportDMABUFImageMESA",
+    /*   55 */ "eglExportDMABUFImageQueryMESA",
+    /*   56 */ "eglExportDRMImageMESA",
+    /*   57 */ "eglExportVkImageANGLE",
+    /*   58 */ "eglFenceNV",
+    /*   59 */ "eglForceGPUSwitchANGLE",
+    /*   60 */ "eglGetCompositorTimingANDROID",
+    /*   61 */ "eglGetCompositorTimingSupportedANDROID",
+    /*   62 */ "eglGetConfigAttrib",
+    /*   63 */ "eglGetConfigs",
+    /*   64 */ "eglGetCurrentContext",
+    /*   65 */ "eglGetCurrentDisplay",
+    /*   66 */ "eglGetCurrentSurface",
+    /*   67 */ "eglGetDisplay",
+    /*   68 */ "eglGetDisplayDriverConfig",
+    /*   69 */ "eglGetDisplayDriverName",
+    /*   70 */ "eglGetError",
+    /*   71 */ "eglGetFrameTimestampSupportedANDROID",
+    /*   72 */ "eglGetFrameTimestampsANDROID",
+    /*   73 */ "eglGetMscRateANGLE",
+    /*   74 */ "eglGetNativeClientBufferANDROID",
+    /*   75 */ "eglGetNextFrameIdANDROID",
+    /*   76 */ "eglGetOutputLayersEXT",
+    /*   77 */ "eglGetOutputPortsEXT",
+    /*   78 */ "eglGetPlatformDisplay",
+    /*   79 */ "eglGetPlatformDisplayEXT",
+    /*   80 */ "eglGetProcAddress",
+    /*   81 */ "eglGetStreamFileDescriptorKHR",
+    /*   82 */ "eglGetSyncAttrib",
+    /*   83 */ "eglGetSyncAttribKHR",
+    /*   84 */ "eglGetSyncAttribNV",
+    /*   85 */ "eglGetSyncValuesCHROMIUM",
+    /*   86 */ "eglGetSystemTimeFrequencyNV",
+    /*   87 */ "eglGetSystemTimeNV",
+    /*   88 */ "eglHandleGPUSwitchANGLE",
+    /*   89 */ "eglInitialize",
+    /*   90 */ "eglLabelObjectKHR",
+    /*   91 */ "eglLockSurfaceKHR",
+    /*   92 */ "eglMakeCurrent",
+    /*   93 */ "eglOutputLayerAttribEXT",
+    /*   94 */ "eglOutputPortAttribEXT",
+    /*   95 */ "eglPostSubBufferNV",
+    /*   96 */ "eglPrepareSwapBuffersANGLE",
+    /*   97 */ "eglPresentationTimeANDROID",
+    /*   98 */ "eglProgramCacheGetAttribANGLE",
+    /*   99 */ "eglProgramCachePopulateANGLE",
+    /*  100 */ "eglProgramCacheQueryANGLE",
+    /*  101 */ "eglProgramCacheResizeANGLE",
+    /*  102 */ "eglQueryAPI",
+    /*  103 */ "eglQueryContext",
+    /*  104 */ "eglQueryDebugKHR",
+    /*  105 */ "eglQueryDeviceAttribEXT",
+    /*  106 */ "eglQueryDeviceBinaryEXT",
+    /*  107 */ "eglQueryDeviceStringEXT",
+    /*  108 */ "eglQueryDevicesEXT",
+    /*  109 */ "eglQueryDisplayAttribANGLE",
+    /*  110 */ "eglQueryDisplayAttribEXT",
+    /*  111 */ "eglQueryDisplayAttribKHR",
+    /*  112 */ "eglQueryDisplayAttribNV",
+    /*  113 */ "eglQueryDmaBufFormatsEXT",
+    /*  114 */ "eglQueryDmaBufModifiersEXT",
+    /*  115 */ "eglQueryNativeDisplayNV",
+    /*  116 */ "eglQueryNativePixmapNV",
+    /*  117 */ "eglQueryNativeWindowNV",
+    /*  118 */ "eglQueryOutputLayerAttribEXT",
+    /*  119 */ "eglQueryOutputLayerStringEXT",
+    /*  120 */ "eglQueryOutputPortAttribEXT",
+    /*  121 */ "eglQueryOutputPortStringEXT",
+    /*  122 */ "eglQueryStreamAttribKHR",
+    /*  123 */ "eglQueryStreamConsumerEventNV",
+    /*  124 */ "eglQueryStreamKHR",
+    /*  125 */ "eglQueryStreamMetadataNV",
+    /*  126 */ "eglQueryStreamTimeKHR",
+    /*  127 */ "eglQueryStreamu64KHR",
+    /*  128 */ "eglQueryString",
+    /*  129 */ "eglQueryStringiANGLE",
+    /*  130 */ "eglQuerySupportedCompressionRatesEXT",
+    /*  131 */ "eglQuerySurface",
+    /*  132 */ "eglQuerySurface64KHR",
+    /*  133 */ "eglQuerySurfacePointerANGLE",
+    /*  134 */ "eglQueryWaylandBufferWL",
+    /*  135 */ "eglReacquireHighPowerGPUANGLE",
+    /*  136 */ "eglReleaseDeviceANGLE",
+    /*  137 */ "eglReleaseExternalContextANGLE",
+    /*  138 */ "eglReleaseHighPowerGPUANGLE",
+    /*  139 */ "eglReleaseTexImage",
+    /*  140 */ "eglReleaseThread",
+    /*  141 */ "eglResetStreamNV",
+    /*  142 */ "eglSetBlobCacheFuncsANDROID",
+    /*  143 */ "eglSetDamageRegionKHR",
+    /*  144 */ "eglSetStreamAttribKHR",
+    /*  145 */ "eglSetStreamMetadataNV",
+    /*  146 */ "eglSignalSyncKHR",
+    /*  147 */ "eglSignalSyncNV",
+    /*  148 */ "eglStreamAcquireImageNV",
+    /*  149 */ "eglStreamAttribKHR",
+    /*  150 */ "eglStreamConsumerAcquireAttribKHR",
+    /*  151 */ "eglStreamConsumerAcquireKHR",
+    /*  152 */ "eglStreamConsumerGLTextureExternalAttribsNV",
+    /*  153 */ "eglStreamConsumerGLTextureExternalKHR",
+    /*  154 */ "eglStreamConsumerOutputEXT",
+    /*  155 */ "eglStreamConsumerReleaseAttribKHR",
+    /*  156 */ "eglStreamConsumerReleaseKHR",
+    /*  157 */ "eglStreamFlushNV",
+    /*  158 */ "eglStreamImageConsumerConnectNV",
+    /*  159 */ "eglStreamPostD3DTextureANGLE",
+    /*  160 */ "eglStreamReleaseImageNV",
+    /*  161 */ "eglSurfaceAttrib",
+    /*  162 */ "eglSwapBuffers",
+    /*  163 */ "eglSwapBuffersRegion2NOK",
+    /*  164 */ "eglSwapBuffersRegionNOK",
+    /*  165 */ "eglSwapBuffersWithDamageEXT",
+    /*  166 */ "eglSwapBuffersWithDamageKHR",
+    /*  167 */ "eglSwapBuffersWithFrameTokenANGLE",
+    /*  168 */ "eglSwapInterval",
+    /*  169 */ "eglTerminate",
+    /*  170 */ "eglUnbindWaylandDisplayWL",
+    /*  171 */ "eglUnlockSurfaceKHR",
+    /*  172 */ "eglUnsignalSyncEXT",
+    /*  173 */ "eglWaitClient",
+    /*  174 */ "eglWaitGL",
+    /*  175 */ "eglWaitNative",
+    /*  176 */ "eglWaitSync",
+    /*  177 */ "eglWaitSyncKHR",
+    /*  178 */ "eglWaitUntilWorkScheduledANGLE"
 };
 
-static const char *glad_ext_names[] = {
-    "EGL_ANDROID_GLES_layers", // 0
-    "EGL_ANDROID_blob_cache", // 1
-    "EGL_ANDROID_create_native_client_buffer", // 2
-    "EGL_ANDROID_framebuffer_target", // 3
-    "EGL_ANDROID_front_buffer_auto_refresh", // 4
-    "EGL_ANDROID_get_frame_timestamps", // 5
-    "EGL_ANDROID_get_native_client_buffer", // 6
-    "EGL_ANDROID_image_native_buffer", // 7
-    "EGL_ANDROID_native_fence_sync", // 8
-    "EGL_ANDROID_presentation_time", // 9
-    "EGL_ANDROID_recordable", // 10
-    "EGL_ANGLE_colorspace_attribute_passthrough", // 11
-    "EGL_ANGLE_context_virtualization", // 12
-    "EGL_ANGLE_create_context_backwards_compatible", // 13
-    "EGL_ANGLE_create_context_client_arrays", // 14
-    "EGL_ANGLE_create_context_extensions_enabled", // 15
-    "EGL_ANGLE_create_context_webgl_compatibility", // 16
-    "EGL_ANGLE_create_surface_swap_interval", // 17
-    "EGL_ANGLE_d3d_share_handle_client_buffer", // 18
-    "EGL_ANGLE_d3d_texture_client_buffer", // 19
-    "EGL_ANGLE_device_cgl", // 20
-    "EGL_ANGLE_device_creation", // 21
-    "EGL_ANGLE_device_d3d", // 22
-    "EGL_ANGLE_device_eagl", // 23
-    "EGL_ANGLE_device_metal", // 24
-    "EGL_ANGLE_device_vulkan", // 25
-    "EGL_ANGLE_direct_composition", // 26
-    "EGL_ANGLE_display_power_preference", // 27
-    "EGL_ANGLE_display_semaphore_share_group", // 28
-    "EGL_ANGLE_display_texture_share_group", // 29
-    "EGL_ANGLE_experimental_present_path", // 30
-    "EGL_ANGLE_external_context_and_surface", // 31
-    "EGL_ANGLE_feature_control", // 32
-    "EGL_ANGLE_ggp_stream_descriptor", // 33
-    "EGL_ANGLE_iosurface_client_buffer", // 34
-    "EGL_ANGLE_keyed_mutex", // 35
-    "EGL_ANGLE_metal_create_context_ownership_identity", // 36
-    "EGL_ANGLE_metal_shared_event_sync", // 37
-    "EGL_ANGLE_metal_texture_client_buffer", // 38
-    "EGL_ANGLE_platform_angle", // 39
-    "EGL_ANGLE_platform_angle_d3d", // 40
-    "EGL_ANGLE_platform_angle_d3d11on12", // 41
-    "EGL_ANGLE_platform_angle_d3d_luid", // 42
-    "EGL_ANGLE_platform_angle_device_context_volatile_cgl", // 43
-    "EGL_ANGLE_platform_angle_device_context_volatile_eagl", // 44
-    "EGL_ANGLE_platform_angle_device_id", // 45
-    "EGL_ANGLE_platform_angle_device_type_egl", // 46
-    "EGL_ANGLE_platform_angle_device_type_swiftshader", // 47
-    "EGL_ANGLE_platform_angle_metal", // 48
-    "EGL_ANGLE_platform_angle_null", // 49
-    "EGL_ANGLE_platform_angle_opengl", // 50
-    "EGL_ANGLE_platform_angle_vulkan", // 51
-    "EGL_ANGLE_power_preference", // 52
-    "EGL_ANGLE_prepare_swap_buffers", // 53
-    "EGL_ANGLE_program_cache_control", // 54
-    "EGL_ANGLE_query_surface_pointer", // 55
-    "EGL_ANGLE_robust_resource_initialization", // 56
-    "EGL_ANGLE_stream_producer_d3d_texture", // 57
-    "EGL_ANGLE_surface_d3d_texture_2d_share_handle", // 58
-    "EGL_ANGLE_surface_orientation", // 59
-    "EGL_ANGLE_swap_with_frame_token", // 60
-    "EGL_ANGLE_sync_control_rate", // 61
-    "EGL_ANGLE_vulkan_display", // 62
-    "EGL_ANGLE_vulkan_image", // 63
-    "EGL_ANGLE_wait_until_work_scheduled", // 64
-    "EGL_ANGLE_window_fixed_size", // 65
-    "EGL_ANGLE_x11_visual", // 66
-    "EGL_ARM_image_format", // 67
-    "EGL_ARM_implicit_external_sync", // 68
-    "EGL_ARM_pixmap_multisample_discard", // 69
-    "EGL_CHROMIUM_sync_control", // 70
-    "EGL_EXT_bind_to_front", // 71
-    "EGL_EXT_buffer_age", // 72
-    "EGL_EXT_client_extensions", // 73
-    "EGL_EXT_client_sync", // 74
-    "EGL_EXT_compositor", // 75
-    "EGL_EXT_config_select_group", // 76
-    "EGL_EXT_create_context_robustness", // 77
-    "EGL_EXT_device_base", // 78
-    "EGL_EXT_device_drm", // 79
-    "EGL_EXT_device_drm_render_node", // 80
-    "EGL_EXT_device_enumeration", // 81
-    "EGL_EXT_device_openwf", // 82
-    "EGL_EXT_device_persistent_id", // 83
-    "EGL_EXT_device_query", // 84
-    "EGL_EXT_device_query_name", // 85
-    "EGL_EXT_explicit_device", // 86
-    "EGL_EXT_gl_colorspace_bt2020_hlg", // 87
-    "EGL_EXT_gl_colorspace_bt2020_linear", // 88
-    "EGL_EXT_gl_colorspace_bt2020_pq", // 89
-    "EGL_EXT_gl_colorspace_display_p3", // 90
-    "EGL_EXT_gl_colorspace_display_p3_linear", // 91
-    "EGL_EXT_gl_colorspace_display_p3_passthrough", // 92
-    "EGL_EXT_gl_colorspace_scrgb", // 93
-    "EGL_EXT_gl_colorspace_scrgb_linear", // 94
-    "EGL_EXT_image_dma_buf_import", // 95
-    "EGL_EXT_image_dma_buf_import_modifiers", // 96
-    "EGL_EXT_image_gl_colorspace", // 97
-    "EGL_EXT_image_implicit_sync_control", // 98
-    "EGL_EXT_multiview_window", // 99
-    "EGL_EXT_output_base", // 100
-    "EGL_EXT_output_drm", // 101
-    "EGL_EXT_output_openwf", // 102
-    "EGL_EXT_pixel_format_float", // 103
-    "EGL_EXT_platform_base", // 104
-    "EGL_EXT_platform_device", // 105
-    "EGL_EXT_platform_wayland", // 106
-    "EGL_EXT_platform_x11", // 107
-    "EGL_EXT_platform_xcb", // 108
-    "EGL_EXT_present_opaque", // 109
-    "EGL_EXT_protected_content", // 110
-    "EGL_EXT_protected_surface", // 111
-    "EGL_EXT_query_reset_notification_strategy", // 112
-    "EGL_EXT_stream_consumer_egloutput", // 113
-    "EGL_EXT_surface_CTA861_3_metadata", // 114
-    "EGL_EXT_surface_SMPTE2086_metadata", // 115
-    "EGL_EXT_surface_compression", // 116
-    "EGL_EXT_swap_buffers_with_damage", // 117
-    "EGL_EXT_sync_reuse", // 118
-    "EGL_EXT_yuv_surface", // 119
-    "EGL_HI_clientpixmap", // 120
-    "EGL_HI_colorformats", // 121
-    "EGL_IMG_context_priority", // 122
-    "EGL_IMG_image_plane_attribs", // 123
-    "EGL_KHR_cl_event", // 124
-    "EGL_KHR_cl_event2", // 125
-    "EGL_KHR_client_get_all_proc_addresses", // 126
-    "EGL_KHR_config_attribs", // 127
-    "EGL_KHR_context_flush_control", // 128
-    "EGL_KHR_create_context", // 129
-    "EGL_KHR_create_context_no_error", // 130
-    "EGL_KHR_debug", // 131
-    "EGL_KHR_display_reference", // 132
-    "EGL_KHR_fence_sync", // 133
-    "EGL_KHR_get_all_proc_addresses", // 134
-    "EGL_KHR_gl_colorspace", // 135
-    "EGL_KHR_gl_renderbuffer_image", // 136
-    "EGL_KHR_gl_texture_2D_image", // 137
-    "EGL_KHR_gl_texture_3D_image", // 138
-    "EGL_KHR_gl_texture_cubemap_image", // 139
-    "EGL_KHR_image", // 140
-    "EGL_KHR_image_base", // 141
-    "EGL_KHR_image_pixmap", // 142
-    "EGL_KHR_lock_surface", // 143
-    "EGL_KHR_lock_surface2", // 144
-    "EGL_KHR_lock_surface3", // 145
-    "EGL_KHR_mutable_render_buffer", // 146
-    "EGL_KHR_no_config_context", // 147
-    "EGL_KHR_partial_update", // 148
-    "EGL_KHR_platform_android", // 149
-    "EGL_KHR_platform_gbm", // 150
-    "EGL_KHR_platform_wayland", // 151
-    "EGL_KHR_platform_x11", // 152
-    "EGL_KHR_reusable_sync", // 153
-    "EGL_KHR_stream", // 154
-    "EGL_KHR_stream_attrib", // 155
-    "EGL_KHR_stream_consumer_gltexture", // 156
-    "EGL_KHR_stream_cross_process_fd", // 157
-    "EGL_KHR_stream_fifo", // 158
-    "EGL_KHR_stream_producer_aldatalocator", // 159
-    "EGL_KHR_stream_producer_eglsurface", // 160
-    "EGL_KHR_surfaceless_context", // 161
-    "EGL_KHR_swap_buffers_with_damage", // 162
-    "EGL_KHR_vg_parent_image", // 163
-    "EGL_KHR_wait_sync", // 164
-    "EGL_MESA_drm_image", // 165
-    "EGL_MESA_image_dma_buf_export", // 166
-    "EGL_MESA_platform_gbm", // 167
-    "EGL_MESA_platform_surfaceless", // 168
-    "EGL_MESA_query_driver", // 169
-    "EGL_NOK_swap_region", // 170
-    "EGL_NOK_swap_region2", // 171
-    "EGL_NOK_texture_from_pixmap", // 172
-    "EGL_NV_3dvision_surface", // 173
-    "EGL_NV_context_priority_realtime", // 174
-    "EGL_NV_coverage_sample", // 175
-    "EGL_NV_coverage_sample_resolve", // 176
-    "EGL_NV_cuda_event", // 177
-    "EGL_NV_depth_nonlinear", // 178
-    "EGL_NV_device_cuda", // 179
-    "EGL_NV_native_query", // 180
-    "EGL_NV_post_convert_rounding", // 181
-    "EGL_NV_post_sub_buffer", // 182
-    "EGL_NV_quadruple_buffer", // 183
-    "EGL_NV_robustness_video_memory_purge", // 184
-    "EGL_NV_stream_consumer_eglimage", // 185
-    "EGL_NV_stream_consumer_eglimage_use_scanout_attrib", // 186
-    "EGL_NV_stream_consumer_gltexture_yuv", // 187
-    "EGL_NV_stream_cross_display", // 188
-    "EGL_NV_stream_cross_object", // 189
-    "EGL_NV_stream_cross_partition", // 190
-    "EGL_NV_stream_cross_process", // 191
-    "EGL_NV_stream_cross_system", // 192
-    "EGL_NV_stream_dma", // 193
-    "EGL_NV_stream_fifo_next", // 194
-    "EGL_NV_stream_fifo_synchronous", // 195
-    "EGL_NV_stream_flush", // 196
-    "EGL_NV_stream_frame_limits", // 197
-    "EGL_NV_stream_metadata", // 198
-    "EGL_NV_stream_origin", // 199
-    "EGL_NV_stream_remote", // 200
-    "EGL_NV_stream_reset", // 201
-    "EGL_NV_stream_socket", // 202
-    "EGL_NV_stream_socket_inet", // 203
-    "EGL_NV_stream_socket_unix", // 204
-    "EGL_NV_stream_sync", // 205
-    "EGL_NV_sync", // 206
-    "EGL_NV_system_time", // 207
-    "EGL_NV_triple_buffer", // 208
-    "EGL_QNX_image_native_buffer", // 209
-    "EGL_QNX_platform_screen", // 210
-    "EGL_TIZEN_image_native_buffer", // 211
-    "EGL_TIZEN_image_native_surface", // 212
-    "EGL_WL_bind_wayland_display", // 213
-    "EGL_WL_create_wayland_buffer_from_image" // 214
+static uint64_t GLAD_EGL_ext_hashes[] = {
+    /*    0 */ 0x2253fd149000c540, /* EGL_ANDROID_GLES_layers */
+    /*    1 */ 0xb309a80c1c4fc565, /* EGL_ANDROID_blob_cache */
+    /*    2 */ 0x88e2a3925c1f8e55, /* EGL_ANDROID_create_native_client_buffer */
+    /*    3 */ 0xe9b9bdc50ba8347c, /* EGL_ANDROID_framebuffer_target */
+    /*    4 */ 0xd7ca0046d8e351bd, /* EGL_ANDROID_front_buffer_auto_refresh */
+    /*    5 */ 0x16293db95b2e6807, /* EGL_ANDROID_get_frame_timestamps */
+    /*    6 */ 0x1d1cb192f9421f4c, /* EGL_ANDROID_get_native_client_buffer */
+    /*    7 */ 0xd2d9e8394e86467a, /* EGL_ANDROID_image_native_buffer */
+    /*    8 */ 0x7e099daa98cd547e, /* EGL_ANDROID_native_fence_sync */
+    /*    9 */ 0xe3ea63f73a400476, /* EGL_ANDROID_presentation_time */
+    /*   10 */ 0x3cc398fae4c2292e, /* EGL_ANDROID_recordable */
+    /*   11 */ 0xd59b8dcdd4961074, /* EGL_ANGLE_colorspace_attribute_passthrough */
+    /*   12 */ 0xe34ca55588e959e9, /* EGL_ANGLE_context_virtualization */
+    /*   13 */ 0x5ee453db857b3c29, /* EGL_ANGLE_create_context_backwards_compatible */
+    /*   14 */ 0xf2594fbcdfa3f545, /* EGL_ANGLE_create_context_client_arrays */
+    /*   15 */ 0x5f5244f40c7ef900, /* EGL_ANGLE_create_context_extensions_enabled */
+    /*   16 */ 0x4eac032f78eb1b97, /* EGL_ANGLE_create_context_webgl_compatibility */
+    /*   17 */ 0x3db394a57b9600ed, /* EGL_ANGLE_create_surface_swap_interval */
+    /*   18 */ 0x63dc3010a72f0f41, /* EGL_ANGLE_d3d_share_handle_client_buffer */
+    /*   19 */ 0x008d04b1748738c1, /* EGL_ANGLE_d3d_texture_client_buffer */
+    /*   20 */ 0xb9c6689d871a8219, /* EGL_ANGLE_device_cgl */
+    /*   21 */ 0xe481bb03dc3ffd32, /* EGL_ANGLE_device_creation */
+    /*   22 */ 0xa48498cc85257b13, /* EGL_ANGLE_device_d3d */
+    /*   23 */ 0x22f96d8668d51351, /* EGL_ANGLE_device_eagl */
+    /*   24 */ 0x00ba7a7f1c36e9e4, /* EGL_ANGLE_device_metal */
+    /*   25 */ 0x6f356a60670d8e5a, /* EGL_ANGLE_device_vulkan */
+    /*   26 */ 0xc9df550ac4a1ec30, /* EGL_ANGLE_direct_composition */
+    /*   27 */ 0x00a9cc6756852346, /* EGL_ANGLE_display_power_preference */
+    /*   28 */ 0xed1190e49710ebde, /* EGL_ANGLE_display_semaphore_share_group */
+    /*   29 */ 0x2c22f1ea2f02edae, /* EGL_ANGLE_display_texture_share_group */
+    /*   30 */ 0xc03ef8c49f8daf6e, /* EGL_ANGLE_experimental_present_path */
+    /*   31 */ 0x1160c225fe2a6bf5, /* EGL_ANGLE_external_context_and_surface */
+    /*   32 */ 0xf136655b938cfef7, /* EGL_ANGLE_feature_control */
+    /*   33 */ 0x5bbfac7136801d8f, /* EGL_ANGLE_ggp_stream_descriptor */
+    /*   34 */ 0x8247503770574a19, /* EGL_ANGLE_iosurface_client_buffer */
+    /*   35 */ 0x2050b7157f814d10, /* EGL_ANGLE_keyed_mutex */
+    /*   36 */ 0x5027858c4c30d226, /* EGL_ANGLE_metal_create_context_ownership_identity */
+    /*   37 */ 0x6e333abff6cec928, /* EGL_ANGLE_metal_shared_event_sync */
+    /*   38 */ 0xea85ee216b66aed6, /* EGL_ANGLE_metal_texture_client_buffer */
+    /*   39 */ 0x0e642f860b2670f4, /* EGL_ANGLE_platform_angle */
+    /*   40 */ 0xb3c6378facb30b47, /* EGL_ANGLE_platform_angle_d3d */
+    /*   41 */ 0x67363c4648bf01a6, /* EGL_ANGLE_platform_angle_d3d11on12 */
+    /*   42 */ 0x7404e65415e0cf49, /* EGL_ANGLE_platform_angle_d3d_luid */
+    /*   43 */ 0x5b49c1a91e2bcce3, /* EGL_ANGLE_platform_angle_device_context_volatile_cgl */
+    /*   44 */ 0xf27d356bb04d147d, /* EGL_ANGLE_platform_angle_device_context_volatile_eagl */
+    /*   45 */ 0x1d4a1428061a339a, /* EGL_ANGLE_platform_angle_device_id */
+    /*   46 */ 0xbe47353c1f13390b, /* EGL_ANGLE_platform_angle_device_type_egl */
+    /*   47 */ 0xe9d3e98ad0d51659, /* EGL_ANGLE_platform_angle_device_type_swiftshader */
+    /*   48 */ 0x98c1482cf6675807, /* EGL_ANGLE_platform_angle_metal */
+    /*   49 */ 0x6ab80514da15b6f9, /* EGL_ANGLE_platform_angle_null */
+    /*   50 */ 0xb419931c39c7f38a, /* EGL_ANGLE_platform_angle_opengl */
+    /*   51 */ 0xb2ad9cccda275eb4, /* EGL_ANGLE_platform_angle_vulkan */
+    /*   52 */ 0xaf2ad94baa465742, /* EGL_ANGLE_power_preference */
+    /*   53 */ 0x41534601630f79ce, /* EGL_ANGLE_prepare_swap_buffers */
+    /*   54 */ 0x15c4d55f4f359f01, /* EGL_ANGLE_program_cache_control */
+    /*   55 */ 0x655dcac0071412b7, /* EGL_ANGLE_query_surface_pointer */
+    /*   56 */ 0xbec48c7959021479, /* EGL_ANGLE_robust_resource_initialization */
+    /*   57 */ 0x9e02c97224491c29, /* EGL_ANGLE_stream_producer_d3d_texture */
+    /*   58 */ 0x460ce0075e78a2bd, /* EGL_ANGLE_surface_d3d_texture_2d_share_handle */
+    /*   59 */ 0xa388335593ecba25, /* EGL_ANGLE_surface_orientation */
+    /*   60 */ 0x4ad02aaf45a755ab, /* EGL_ANGLE_swap_with_frame_token */
+    /*   61 */ 0xcbc83f2fb8143390, /* EGL_ANGLE_sync_control_rate */
+    /*   62 */ 0x9b7afb42d23ff24a, /* EGL_ANGLE_vulkan_display */
+    /*   63 */ 0x3b9d20f1e7cea30c, /* EGL_ANGLE_vulkan_image */
+    /*   64 */ 0x32f27a4c7977f1cc, /* EGL_ANGLE_wait_until_work_scheduled */
+    /*   65 */ 0x584d724a2585416b, /* EGL_ANGLE_window_fixed_size */
+    /*   66 */ 0x7fd85a1fe267fe03, /* EGL_ANGLE_x11_visual */
+    /*   67 */ 0x79e92599e5906543, /* EGL_ARM_image_format */
+    /*   68 */ 0xe6b4aba5bdfeb761, /* EGL_ARM_implicit_external_sync */
+    /*   69 */ 0xae00b1c9df43676f, /* EGL_ARM_pixmap_multisample_discard */
+    /*   70 */ 0xff8aede3988df0ec, /* EGL_CHROMIUM_sync_control */
+    /*   71 */ 0x9c662d7d2c258a50, /* EGL_EXT_bind_to_front */
+    /*   72 */ 0x2aa08328d074a816, /* EGL_EXT_buffer_age */
+    /*   73 */ 0xa31e0274c2bcafb4, /* EGL_EXT_client_extensions */
+    /*   74 */ 0x0391123aa67cc9fd, /* EGL_EXT_client_sync */
+    /*   75 */ 0x7ad217dadabe87cc, /* EGL_EXT_compositor */
+    /*   76 */ 0x7a089e984094346a, /* EGL_EXT_config_select_group */
+    /*   77 */ 0x7150da6f49b30f3e, /* EGL_EXT_create_context_robustness */
+    /*   78 */ 0x2f6c882c1eab9296, /* EGL_EXT_device_base */
+    /*   79 */ 0x25ef29d5ba78dacb, /* EGL_EXT_device_drm */
+    /*   80 */ 0x85d84ed980a0f6c3, /* EGL_EXT_device_drm_render_node */
+    /*   81 */ 0xbf886c3682e570aa, /* EGL_EXT_device_enumeration */
+    /*   82 */ 0xbb95b050ecd18b71, /* EGL_EXT_device_openwf */
+    /*   83 */ 0x25e4685edc9371c5, /* EGL_EXT_device_persistent_id */
+    /*   84 */ 0x4c3836479bf75ba3, /* EGL_EXT_device_query */
+    /*   85 */ 0x0ec61ed2c29b6b7e, /* EGL_EXT_device_query_name */
+    /*   86 */ 0x1a98bf220bf010e1, /* EGL_EXT_explicit_device */
+    /*   87 */ 0x375b95889c713c9a, /* EGL_EXT_gl_colorspace_bt2020_hlg */
+    /*   88 */ 0x5091e9def2327eea, /* EGL_EXT_gl_colorspace_bt2020_linear */
+    /*   89 */ 0xfc5bf7ce45097f02, /* EGL_EXT_gl_colorspace_bt2020_pq */
+    /*   90 */ 0xd63b77d8efe7c73e, /* EGL_EXT_gl_colorspace_display_p3 */
+    /*   91 */ 0x24c124c0512e760a, /* EGL_EXT_gl_colorspace_display_p3_linear */
+    /*   92 */ 0x46817a7a0934b21a, /* EGL_EXT_gl_colorspace_display_p3_passthrough */
+    /*   93 */ 0x01e6ab8e204224c3, /* EGL_EXT_gl_colorspace_scrgb */
+    /*   94 */ 0x9d59eeae4c92e9f7, /* EGL_EXT_gl_colorspace_scrgb_linear */
+    /*   95 */ 0x0c3a9519d769be90, /* EGL_EXT_image_dma_buf_import */
+    /*   96 */ 0xa09fd39f9f1158a7, /* EGL_EXT_image_dma_buf_import_modifiers */
+    /*   97 */ 0x476226fa1413890a, /* EGL_EXT_image_gl_colorspace */
+    /*   98 */ 0xa5c94b3fdd6261da, /* EGL_EXT_image_implicit_sync_control */
+    /*   99 */ 0x9f0bdd4dde93e968, /* EGL_EXT_multiview_window */
+    /*  100 */ 0xd324b54bf6a35048, /* EGL_EXT_output_base */
+    /*  101 */ 0x0659adf490093fcb, /* EGL_EXT_output_drm */
+    /*  102 */ 0x53a0e0b8eb5f3f00, /* EGL_EXT_output_openwf */
+    /*  103 */ 0xefb059a6e6841776, /* EGL_EXT_pixel_format_float */
+    /*  104 */ 0xa841b196d3768c24, /* EGL_EXT_platform_base */
+    /*  105 */ 0x8df4a934a55860db, /* EGL_EXT_platform_device */
+    /*  106 */ 0x27716290eb920120, /* EGL_EXT_platform_wayland */
+    /*  107 */ 0xe548f3fc71409c63, /* EGL_EXT_platform_x11 */
+    /*  108 */ 0x6b5d9de25dfe7eba, /* EGL_EXT_platform_xcb */
+    /*  109 */ 0x5e7a56764d6c44b1, /* EGL_EXT_present_opaque */
+    /*  110 */ 0x91cb4ebfba10a35f, /* EGL_EXT_protected_content */
+    /*  111 */ 0x83f096c0f29ebb18, /* EGL_EXT_protected_surface */
+    /*  112 */ 0xfd8d9ef9e9360c00, /* EGL_EXT_query_reset_notification_strategy */
+    /*  113 */ 0xfbac73bd87a06d67, /* EGL_EXT_stream_consumer_egloutput */
+    /*  114 */ 0x5654a8bc12eeebab, /* EGL_EXT_surface_CTA861_3_metadata */
+    /*  115 */ 0x283ef3c9e93fa780, /* EGL_EXT_surface_SMPTE2086_metadata */
+    /*  116 */ 0x46e2ba77cc14c6da, /* EGL_EXT_surface_compression */
+    /*  117 */ 0xff56e7e2acee3106, /* EGL_EXT_swap_buffers_with_damage */
+    /*  118 */ 0x42a3ca98a3fcecb6, /* EGL_EXT_sync_reuse */
+    /*  119 */ 0x451b691d8d24df6c, /* EGL_EXT_yuv_surface */
+    /*  120 */ 0xdaf189f7653009bf, /* EGL_HI_clientpixmap */
+    /*  121 */ 0x066d89176cab3c2c, /* EGL_HI_colorformats */
+    /*  122 */ 0x0a76d8252afa230a, /* EGL_IMG_context_priority */
+    /*  123 */ 0x7084567bc80e8320, /* EGL_IMG_image_plane_attribs */
+    /*  124 */ 0x0b5d7506753789de, /* EGL_KHR_cl_event */
+    /*  125 */ 0x70fce70cba139c12, /* EGL_KHR_cl_event2 */
+    /*  126 */ 0xef7264f8eef3335b, /* EGL_KHR_client_get_all_proc_addresses */
+    /*  127 */ 0x270d8abedb2d3a6d, /* EGL_KHR_config_attribs */
+    /*  128 */ 0xda20b827ff8ca001, /* EGL_KHR_context_flush_control */
+    /*  129 */ 0x4e16c8c1f6a8131c, /* EGL_KHR_create_context */
+    /*  130 */ 0x7b8ef4b379c8f0fd, /* EGL_KHR_create_context_no_error */
+    /*  131 */ 0x5b61d2012f7861b3, /* EGL_KHR_debug */
+    /*  132 */ 0xfb4d4422d07bc81c, /* EGL_KHR_display_reference */
+    /*  133 */ 0x3fc685858cb02200, /* EGL_KHR_fence_sync */
+    /*  134 */ 0xcc74201669ca5b5d, /* EGL_KHR_get_all_proc_addresses */
+    /*  135 */ 0x0089c927779cc6ef, /* EGL_KHR_gl_colorspace */
+    /*  136 */ 0xf2fdf97c1361d5d7, /* EGL_KHR_gl_renderbuffer_image */
+    /*  137 */ 0x16756bf4b09c5e40, /* EGL_KHR_gl_texture_2D_image */
+    /*  138 */ 0x38fe09b43c8ef819, /* EGL_KHR_gl_texture_3D_image */
+    /*  139 */ 0x8da10d2afff88da2, /* EGL_KHR_gl_texture_cubemap_image */
+    /*  140 */ 0x871bd75821391394, /* EGL_KHR_image */
+    /*  141 */ 0xa2aecd33728540cb, /* EGL_KHR_image_base */
+    /*  142 */ 0x6d3e7071805da5a8, /* EGL_KHR_image_pixmap */
+    /*  143 */ 0xd1965fc59df1967c, /* EGL_KHR_lock_surface */
+    /*  144 */ 0x607598bc0d7426f5, /* EGL_KHR_lock_surface2 */
+    /*  145 */ 0xc5c0850bfdef920f, /* EGL_KHR_lock_surface3 */
+    /*  146 */ 0xf2c65c6b58412a19, /* EGL_KHR_mutable_render_buffer */
+    /*  147 */ 0xb04bf399be660bca, /* EGL_KHR_no_config_context */
+    /*  148 */ 0xbf10c896f39ac381, /* EGL_KHR_partial_update */
+    /*  149 */ 0x1b60d04af505e88c, /* EGL_KHR_platform_android */
+    /*  150 */ 0x92732717613804d7, /* EGL_KHR_platform_gbm */
+    /*  151 */ 0xa9c339bb0bd9f8ff, /* EGL_KHR_platform_wayland */
+    /*  152 */ 0xb95b474e87d914c0, /* EGL_KHR_platform_x11 */
+    /*  153 */ 0x3e707e46a988246f, /* EGL_KHR_reusable_sync */
+    /*  154 */ 0x16184f4f924509ef, /* EGL_KHR_stream */
+    /*  155 */ 0x9d0b59cf206f7842, /* EGL_KHR_stream_attrib */
+    /*  156 */ 0xd9b572ac9eb89474, /* EGL_KHR_stream_consumer_gltexture */
+    /*  157 */ 0x6e523fb6f05a3d29, /* EGL_KHR_stream_cross_process_fd */
+    /*  158 */ 0x3114241b811aadf2, /* EGL_KHR_stream_fifo */
+    /*  159 */ 0x4e02a91ae238a029, /* EGL_KHR_stream_producer_aldatalocator */
+    /*  160 */ 0x75e923758d9b47fb, /* EGL_KHR_stream_producer_eglsurface */
+    /*  161 */ 0x98778891a458759f, /* EGL_KHR_surfaceless_context */
+    /*  162 */ 0x836da10ce92250ef, /* EGL_KHR_swap_buffers_with_damage */
+    /*  163 */ 0xc795b75646aecc5b, /* EGL_KHR_vg_parent_image */
+    /*  164 */ 0x76eb9817e8dc6c57, /* EGL_KHR_wait_sync */
+    /*  165 */ 0x8a02851eceb4e60b, /* EGL_MESA_drm_image */
+    /*  166 */ 0xff40140d7e6b5b22, /* EGL_MESA_image_dma_buf_export */
+    /*  167 */ 0xcbf9865290d1d737, /* EGL_MESA_platform_gbm */
+    /*  168 */ 0xa718f1a00dfc77b2, /* EGL_MESA_platform_surfaceless */
+    /*  169 */ 0x205a0c44642ecfe4, /* EGL_MESA_query_driver */
+    /*  170 */ 0xc6c6646757ff2eb0, /* EGL_NOK_swap_region */
+    /*  171 */ 0xcacecd1071a7c53d, /* EGL_NOK_swap_region2 */
+    /*  172 */ 0x140a1d4d56e89998, /* EGL_NOK_texture_from_pixmap */
+    /*  173 */ 0x53d1f2866df11721, /* EGL_NV_3dvision_surface */
+    /*  174 */ 0x87d534f485d23e03, /* EGL_NV_context_priority_realtime */
+    /*  175 */ 0x29d02d6b41d01c44, /* EGL_NV_coverage_sample */
+    /*  176 */ 0xbf4228511c15c43e, /* EGL_NV_coverage_sample_resolve */
+    /*  177 */ 0xba24ab7c282aa98c, /* EGL_NV_cuda_event */
+    /*  178 */ 0x4f20169819f31a19, /* EGL_NV_depth_nonlinear */
+    /*  179 */ 0xb32a3dd6b03226f2, /* EGL_NV_device_cuda */
+    /*  180 */ 0x797c903a522c4c75, /* EGL_NV_native_query */
+    /*  181 */ 0xb151fe3f08ba15f6, /* EGL_NV_post_convert_rounding */
+    /*  182 */ 0xaad3806034d0954d, /* EGL_NV_post_sub_buffer */
+    /*  183 */ 0x37a228d0850f64a1, /* EGL_NV_quadruple_buffer */
+    /*  184 */ 0x74855b1caf0bb727, /* EGL_NV_robustness_video_memory_purge */
+    /*  185 */ 0x2db9bc2b87115201, /* EGL_NV_stream_consumer_eglimage */
+    /*  186 */ 0xd01bc63b758f4cb9, /* EGL_NV_stream_consumer_eglimage_use_scanout_attrib */
+    /*  187 */ 0x2baced719176deed, /* EGL_NV_stream_consumer_gltexture_yuv */
+    /*  188 */ 0xfc105cd6c3f68dbe, /* EGL_NV_stream_cross_display */
+    /*  189 */ 0x363e000d3383a473, /* EGL_NV_stream_cross_object */
+    /*  190 */ 0xac63132cd757c637, /* EGL_NV_stream_cross_partition */
+    /*  191 */ 0x2821ab7eeb491706, /* EGL_NV_stream_cross_process */
+    /*  192 */ 0x97b15fd0e09adf80, /* EGL_NV_stream_cross_system */
+    /*  193 */ 0x7ae84605ae3ae44a, /* EGL_NV_stream_dma */
+    /*  194 */ 0x450721831a3bcf73, /* EGL_NV_stream_fifo_next */
+    /*  195 */ 0x5dd63931ba6563fb, /* EGL_NV_stream_fifo_synchronous */
+    /*  196 */ 0x33597e019cc7811d, /* EGL_NV_stream_flush */
+    /*  197 */ 0x0c5d5d4b9e76b0d3, /* EGL_NV_stream_frame_limits */
+    /*  198 */ 0xd899fb78ae205e27, /* EGL_NV_stream_metadata */
+    /*  199 */ 0xcb6e884a7e412a07, /* EGL_NV_stream_origin */
+    /*  200 */ 0x817f41736f96de51, /* EGL_NV_stream_remote */
+    /*  201 */ 0x6ad8d08948340894, /* EGL_NV_stream_reset */
+    /*  202 */ 0xb46eaf4ddee294f4, /* EGL_NV_stream_socket */
+    /*  203 */ 0x7d669bb43a324d63, /* EGL_NV_stream_socket_inet */
+    /*  204 */ 0x55bf7befb5997e09, /* EGL_NV_stream_socket_unix */
+    /*  205 */ 0xdfb98789892372eb, /* EGL_NV_stream_sync */
+    /*  206 */ 0x5557f40f2ef2066c, /* EGL_NV_sync */
+    /*  207 */ 0xe1a6732356a0f69f, /* EGL_NV_system_time */
+    /*  208 */ 0xf2ec54e65029ed17, /* EGL_NV_triple_buffer */
+    /*  209 */ 0xaf15d314b7e55c0f, /* EGL_QNX_image_native_buffer */
+    /*  210 */ 0x8efc13d2448ab5b1, /* EGL_QNX_platform_screen */
+    /*  211 */ 0x71dbd1513b2ad7e5, /* EGL_TIZEN_image_native_buffer */
+    /*  212 */ 0x6d7cb4f9ba09cb5d, /* EGL_TIZEN_image_native_surface */
+    /*  213 */ 0xc81b6f913740e456, /* EGL_WL_bind_wayland_display */
+    /*  214 */ 0xa3002402543e70a5  /* EGL_WL_create_wayland_buffer_from_image */
 };
+
+static int32_t glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
+    int32_t left = 0;
+    int32_t right = (int32_t)size - 1;
+
+    while (left <= right) {
+        int32_t mid = left + (right - left) / 2;
+
+        if (arr[mid] == target) {
+            return mid;
+        }
+        if (arr[mid] < target) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
+}
+
+static int glad_hash_compare(const void *_l, const void *_r)
+{
+    const uint64_t l = *(const uint64_t *)_l;
+    const uint64_t r = *(const uint64_t *)_r;
+
+    if(l < r)      return -1;
+    else if(l > r) return 1;
+    return 0;
+}
+
+GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
+{
+    return XXH3_64bits(str, length);
+}
 
 #ifdef __cplusplus
 GladEGLContext glad_egl_context = {};
@@ -436,970 +483,1046 @@ GladEGLContext glad_egl_context = { 0 };
 #endif
 
 static void glad_egl_load_EGL_VERSION_1_0(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_0) return;
     static const uint16_t s_pfnIdx[] = {
-            4, // eglChooseConfig
-           16, // eglCopyBuffers
-           18, // eglCreateContext
-           26, // eglCreatePbufferSurface
-           27, // eglCreatePixmapSurface
-           43, // eglCreateWindowSurface
-           45, // eglDestroyContext
-           49, // eglDestroySurface
-           62, // eglGetConfigAttrib
-           63, // eglGetConfigs
-           65, // eglGetCurrentDisplay
-           66, // eglGetCurrentSurface
-           67, // eglGetDisplay
-           70, // eglGetError
-           80, // eglGetProcAddress
-           89, // eglInitialize
-           92, // eglMakeCurrent
-          103, // eglQueryContext
-          128, // eglQueryString
-          131, // eglQuerySurface
-          162, // eglSwapBuffers
-          169, // eglTerminate
-          174, // eglWaitGL
-          175  // eglWaitNative
+           4, /* eglChooseConfig */
+          16, /* eglCopyBuffers */
+          18, /* eglCreateContext */
+          26, /* eglCreatePbufferSurface */
+          27, /* eglCreatePixmapSurface */
+          43, /* eglCreateWindowSurface */
+          45, /* eglDestroyContext */
+          49, /* eglDestroySurface */
+          62, /* eglGetConfigAttrib */
+          63, /* eglGetConfigs */
+          65, /* eglGetCurrentDisplay */
+          66, /* eglGetCurrentSurface */
+          67, /* eglGetDisplay */
+          70, /* eglGetError */
+          80, /* eglGetProcAddress */
+          89, /* eglInitialize */
+          92, /* eglMakeCurrent */
+         103, /* eglQueryContext */
+         128, /* eglQueryString */
+         131, /* eglQuerySurface */
+         162, /* eglSwapBuffers */
+         169, /* eglTerminate */
+         174, /* eglWaitGL */
+         175  /* eglWaitNative */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_0) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_VERSION_1_1(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_1) return;
     static const uint16_t s_pfnIdx[] = {
-            2, // eglBindTexImage
-          139, // eglReleaseTexImage
-          161, // eglSurfaceAttrib
-          168  // eglSwapInterval
+           2, /* eglBindTexImage */
+         139, /* eglReleaseTexImage */
+         161, /* eglSurfaceAttrib */
+         168  /* eglSwapInterval */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_1) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_VERSION_1_2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_2) return;
     static const uint16_t s_pfnIdx[] = {
-            1, // eglBindAPI
-           25, // eglCreatePbufferFromClientBuffer
-          102, // eglQueryAPI
-          140, // eglReleaseThread
-          173  // eglWaitClient
+           1, /* eglBindAPI */
+          25, /* eglCreatePbufferFromClientBuffer */
+         102, /* eglQueryAPI */
+         140, /* eglReleaseThread */
+         173  /* eglWaitClient */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_2) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_VERSION_1_4(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_4) return;
     static const uint16_t s_pfnIdx[] = {
-           64  // eglGetCurrentContext
+          64  /* eglGetCurrentContext */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_4) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_VERSION_1_5(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_5) return;
     static const uint16_t s_pfnIdx[] = {
-            6, // eglClientWaitSync
-           22, // eglCreateImage
-           29, // eglCreatePlatformPixmapSurface
-           31, // eglCreatePlatformWindowSurface
-           39, // eglCreateSync
-           46, // eglDestroyImage
-           50, // eglDestroySync
-           78, // eglGetPlatformDisplay
-           82, // eglGetSyncAttrib
-          176  // eglWaitSync
+           6, /* eglClientWaitSync */
+          22, /* eglCreateImage */
+          29, /* eglCreatePlatformPixmapSurface */
+          31, /* eglCreatePlatformWindowSurface */
+          39, /* eglCreateSync */
+          46, /* eglDestroyImage */
+          50, /* eglDestroySync */
+          78, /* eglGetPlatformDisplay */
+          82, /* eglGetSyncAttrib */
+         176  /* eglWaitSync */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_5) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANDROID_blob_cache(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANDROID_blob_cache) return;
     static const uint16_t s_pfnIdx[] = {
-          142  // eglSetBlobCacheFuncsANDROID
+         142  /* eglSetBlobCacheFuncsANDROID */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANDROID_blob_cache) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANDROID_create_native_client_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANDROID_create_native_client_buffer) return;
     static const uint16_t s_pfnIdx[] = {
-           24  // eglCreateNativeClientBufferANDROID
+          24  /* eglCreateNativeClientBufferANDROID */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANDROID_create_native_client_buffer) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANDROID_get_frame_timestamps(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANDROID_get_frame_timestamps) return;
     static const uint16_t s_pfnIdx[] = {
-           60, // eglGetCompositorTimingANDROID
-           61, // eglGetCompositorTimingSupportedANDROID
-           71, // eglGetFrameTimestampSupportedANDROID
-           72, // eglGetFrameTimestampsANDROID
-           75  // eglGetNextFrameIdANDROID
+          60, /* eglGetCompositorTimingANDROID */
+          61, /* eglGetCompositorTimingSupportedANDROID */
+          71, /* eglGetFrameTimestampSupportedANDROID */
+          72, /* eglGetFrameTimestampsANDROID */
+          75  /* eglGetNextFrameIdANDROID */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANDROID_get_frame_timestamps) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANDROID_get_native_client_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANDROID_get_native_client_buffer) return;
     static const uint16_t s_pfnIdx[] = {
-           74  // eglGetNativeClientBufferANDROID
+          74  /* eglGetNativeClientBufferANDROID */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANDROID_get_native_client_buffer) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANDROID_native_fence_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANDROID_native_fence_sync) return;
     static const uint16_t s_pfnIdx[] = {
-           53  // eglDupNativeFenceFDANDROID
+          53  /* eglDupNativeFenceFDANDROID */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANDROID_native_fence_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANDROID_presentation_time(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANDROID_presentation_time) return;
     static const uint16_t s_pfnIdx[] = {
-           97  // eglPresentationTimeANDROID
+          97  /* eglPresentationTimeANDROID */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANDROID_presentation_time) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_device_creation(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_device_creation) return;
     static const uint16_t s_pfnIdx[] = {
-           20, // eglCreateDeviceANGLE
-          136  // eglReleaseDeviceANGLE
+          20, /* eglCreateDeviceANGLE */
+         136  /* eglReleaseDeviceANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_device_creation) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_external_context_and_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_external_context_and_surface) return;
     static const uint16_t s_pfnIdx[] = {
-            0, // eglAcquireExternalContextANGLE
-          137  // eglReleaseExternalContextANGLE
+           0, /* eglAcquireExternalContextANGLE */
+         137  /* eglReleaseExternalContextANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_external_context_and_surface) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_feature_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_feature_control) return;
     static const uint16_t s_pfnIdx[] = {
-          109, // eglQueryDisplayAttribANGLE
-          129  // eglQueryStringiANGLE
+         109, /* eglQueryDisplayAttribANGLE */
+         129  /* eglQueryStringiANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_feature_control) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_metal_shared_event_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_metal_shared_event_sync) return;
     static const uint16_t s_pfnIdx[] = {
-           17  // eglCopyMetalSharedEventANGLE
+          17  /* eglCopyMetalSharedEventANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_metal_shared_event_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_power_preference(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_power_preference) return;
     static const uint16_t s_pfnIdx[] = {
-           59, // eglForceGPUSwitchANGLE
-           88, // eglHandleGPUSwitchANGLE
-          135, // eglReacquireHighPowerGPUANGLE
-          138  // eglReleaseHighPowerGPUANGLE
+          59, /* eglForceGPUSwitchANGLE */
+          88, /* eglHandleGPUSwitchANGLE */
+         135, /* eglReacquireHighPowerGPUANGLE */
+         138  /* eglReleaseHighPowerGPUANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_power_preference) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_prepare_swap_buffers(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_prepare_swap_buffers) return;
     static const uint16_t s_pfnIdx[] = {
-           96  // eglPrepareSwapBuffersANGLE
+          96  /* eglPrepareSwapBuffersANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_prepare_swap_buffers) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_program_cache_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_program_cache_control) return;
     static const uint16_t s_pfnIdx[] = {
-           98, // eglProgramCacheGetAttribANGLE
-           99, // eglProgramCachePopulateANGLE
-          100, // eglProgramCacheQueryANGLE
-          101  // eglProgramCacheResizeANGLE
+          98, /* eglProgramCacheGetAttribANGLE */
+          99, /* eglProgramCachePopulateANGLE */
+         100, /* eglProgramCacheQueryANGLE */
+         101  /* eglProgramCacheResizeANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_program_cache_control) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_query_surface_pointer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_query_surface_pointer) return;
     static const uint16_t s_pfnIdx[] = {
-          133  // eglQuerySurfacePointerANGLE
+         133  /* eglQuerySurfacePointerANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_query_surface_pointer) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_stream_producer_d3d_texture(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_stream_producer_d3d_texture) return;
     static const uint16_t s_pfnIdx[] = {
-           36, // eglCreateStreamProducerD3DTextureANGLE
-          159  // eglStreamPostD3DTextureANGLE
+          36, /* eglCreateStreamProducerD3DTextureANGLE */
+         159  /* eglStreamPostD3DTextureANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_stream_producer_d3d_texture) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_swap_with_frame_token(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_swap_with_frame_token) return;
     static const uint16_t s_pfnIdx[] = {
-          167  // eglSwapBuffersWithFrameTokenANGLE
+         167  /* eglSwapBuffersWithFrameTokenANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_swap_with_frame_token) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_sync_control_rate(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_sync_control_rate) return;
     static const uint16_t s_pfnIdx[] = {
-           73  // eglGetMscRateANGLE
+          73  /* eglGetMscRateANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_sync_control_rate) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_vulkan_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_vulkan_image) return;
     static const uint16_t s_pfnIdx[] = {
-           57  // eglExportVkImageANGLE
+          57  /* eglExportVkImageANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_vulkan_image) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ANGLE_wait_until_work_scheduled) return;
     static const uint16_t s_pfnIdx[] = {
-          178  // eglWaitUntilWorkScheduledANGLE
+         178  /* eglWaitUntilWorkScheduledANGLE */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ANGLE_wait_until_work_scheduled) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_CHROMIUM_sync_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->CHROMIUM_sync_control) return;
     static const uint16_t s_pfnIdx[] = {
-           85  // eglGetSyncValuesCHROMIUM
+          85  /* eglGetSyncValuesCHROMIUM */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->CHROMIUM_sync_control) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_client_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_client_sync) return;
     static const uint16_t s_pfnIdx[] = {
-            5  // eglClientSignalSyncEXT
+           5  /* eglClientSignalSyncEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_client_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_compositor(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_compositor) return;
     static const uint16_t s_pfnIdx[] = {
-            9, // eglCompositorBindTexWindowEXT
-           10, // eglCompositorSetContextAttributesEXT
-           11, // eglCompositorSetContextListEXT
-           12, // eglCompositorSetSizeEXT
-           13, // eglCompositorSetWindowAttributesEXT
-           14, // eglCompositorSetWindowListEXT
-           15  // eglCompositorSwapPolicyEXT
+           9, /* eglCompositorBindTexWindowEXT */
+          10, /* eglCompositorSetContextAttributesEXT */
+          11, /* eglCompositorSetContextListEXT */
+          12, /* eglCompositorSetSizeEXT */
+          13, /* eglCompositorSetWindowAttributesEXT */
+          14, /* eglCompositorSetWindowListEXT */
+          15  /* eglCompositorSwapPolicyEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_compositor) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_device_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_device_base) return;
     static const uint16_t s_pfnIdx[] = {
-          105, // eglQueryDeviceAttribEXT
-          107, // eglQueryDeviceStringEXT
-          108, // eglQueryDevicesEXT
-          110  // eglQueryDisplayAttribEXT
+         105, /* eglQueryDeviceAttribEXT */
+         107, /* eglQueryDeviceStringEXT */
+         108, /* eglQueryDevicesEXT */
+         110  /* eglQueryDisplayAttribEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_device_base) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_device_enumeration(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_device_enumeration) return;
     static const uint16_t s_pfnIdx[] = {
-          108  // eglQueryDevicesEXT
+         108  /* eglQueryDevicesEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_device_enumeration) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_device_persistent_id(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_device_persistent_id) return;
     static const uint16_t s_pfnIdx[] = {
-          106  // eglQueryDeviceBinaryEXT
+         106  /* eglQueryDeviceBinaryEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_device_persistent_id) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_device_query(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_device_query) return;
     static const uint16_t s_pfnIdx[] = {
-          105, // eglQueryDeviceAttribEXT
-          107, // eglQueryDeviceStringEXT
-          110  // eglQueryDisplayAttribEXT
+         105, /* eglQueryDeviceAttribEXT */
+         107, /* eglQueryDeviceStringEXT */
+         110  /* eglQueryDisplayAttribEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_device_query) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_image_dma_buf_import_modifiers(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_image_dma_buf_import_modifiers) return;
     static const uint16_t s_pfnIdx[] = {
-          113, // eglQueryDmaBufFormatsEXT
-          114  // eglQueryDmaBufModifiersEXT
+         113, /* eglQueryDmaBufFormatsEXT */
+         114  /* eglQueryDmaBufModifiersEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_image_dma_buf_import_modifiers) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_output_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_output_base) return;
     static const uint16_t s_pfnIdx[] = {
-           76, // eglGetOutputLayersEXT
-           77, // eglGetOutputPortsEXT
-           93, // eglOutputLayerAttribEXT
-           94, // eglOutputPortAttribEXT
-          118, // eglQueryOutputLayerAttribEXT
-          119, // eglQueryOutputLayerStringEXT
-          120, // eglQueryOutputPortAttribEXT
-          121  // eglQueryOutputPortStringEXT
+          76, /* eglGetOutputLayersEXT */
+          77, /* eglGetOutputPortsEXT */
+          93, /* eglOutputLayerAttribEXT */
+          94, /* eglOutputPortAttribEXT */
+         118, /* eglQueryOutputLayerAttribEXT */
+         119, /* eglQueryOutputLayerStringEXT */
+         120, /* eglQueryOutputPortAttribEXT */
+         121  /* eglQueryOutputPortStringEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_output_base) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_platform_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_platform_base) return;
     static const uint16_t s_pfnIdx[] = {
-           30, // eglCreatePlatformPixmapSurfaceEXT
-           32, // eglCreatePlatformWindowSurfaceEXT
-           79  // eglGetPlatformDisplayEXT
+          30, /* eglCreatePlatformPixmapSurfaceEXT */
+          32, /* eglCreatePlatformWindowSurfaceEXT */
+          79  /* eglGetPlatformDisplayEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_platform_base) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_stream_consumer_egloutput(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_stream_consumer_egloutput) return;
     static const uint16_t s_pfnIdx[] = {
-          154  // eglStreamConsumerOutputEXT
+         154  /* eglStreamConsumerOutputEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_stream_consumer_egloutput) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_surface_compression(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_surface_compression) return;
     static const uint16_t s_pfnIdx[] = {
-          130  // eglQuerySupportedCompressionRatesEXT
+         130  /* eglQuerySupportedCompressionRatesEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_surface_compression) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_swap_buffers_with_damage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_swap_buffers_with_damage) return;
     static const uint16_t s_pfnIdx[] = {
-          165  // eglSwapBuffersWithDamageEXT
+         165  /* eglSwapBuffersWithDamageEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_swap_buffers_with_damage) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_EXT_sync_reuse(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_sync_reuse) return;
     static const uint16_t s_pfnIdx[] = {
-          172  // eglUnsignalSyncEXT
+         172  /* eglUnsignalSyncEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_sync_reuse) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_HI_clientpixmap(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->HI_clientpixmap) return;
     static const uint16_t s_pfnIdx[] = {
-           28  // eglCreatePixmapSurfaceHI
+          28  /* eglCreatePixmapSurfaceHI */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->HI_clientpixmap) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_cl_event2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_cl_event2) return;
     static const uint16_t s_pfnIdx[] = {
-           40  // eglCreateSync64KHR
+          40  /* eglCreateSync64KHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_cl_event2) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_debug(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_debug) return;
     static const uint16_t s_pfnIdx[] = {
-           44, // eglDebugMessageControlKHR
-           90, // eglLabelObjectKHR
-          104  // eglQueryDebugKHR
+          44, /* eglDebugMessageControlKHR */
+          90, /* eglLabelObjectKHR */
+         104  /* eglQueryDebugKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_debug) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_display_reference(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_display_reference) return;
     static const uint16_t s_pfnIdx[] = {
-          111  // eglQueryDisplayAttribKHR
+         111  /* eglQueryDisplayAttribKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_display_reference) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_fence_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_fence_sync) return;
     static const uint16_t s_pfnIdx[] = {
-            7, // eglClientWaitSyncKHR
-           41, // eglCreateSyncKHR
-           51, // eglDestroySyncKHR
-           83  // eglGetSyncAttribKHR
+           7, /* eglClientWaitSyncKHR */
+          41, /* eglCreateSyncKHR */
+          51, /* eglDestroySyncKHR */
+          83  /* eglGetSyncAttribKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_fence_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_image) return;
     static const uint16_t s_pfnIdx[] = {
-           23, // eglCreateImageKHR
-           47  // eglDestroyImageKHR
+          23, /* eglCreateImageKHR */
+          47  /* eglDestroyImageKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_image) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_image_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_image_base) return;
     static const uint16_t s_pfnIdx[] = {
-           23, // eglCreateImageKHR
-           47  // eglDestroyImageKHR
+          23, /* eglCreateImageKHR */
+          47  /* eglDestroyImageKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_image_base) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_lock_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_lock_surface) return;
     static const uint16_t s_pfnIdx[] = {
-           91, // eglLockSurfaceKHR
-          171  // eglUnlockSurfaceKHR
+          91, /* eglLockSurfaceKHR */
+         171  /* eglUnlockSurfaceKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_lock_surface) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_lock_surface3(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_lock_surface3) return;
     static const uint16_t s_pfnIdx[] = {
-           91, // eglLockSurfaceKHR
-          132, // eglQuerySurface64KHR
-          171  // eglUnlockSurfaceKHR
+          91, /* eglLockSurfaceKHR */
+         132, /* eglQuerySurface64KHR */
+         171  /* eglUnlockSurfaceKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_lock_surface3) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_partial_update(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_partial_update) return;
     static const uint16_t s_pfnIdx[] = {
-          143  // eglSetDamageRegionKHR
+         143  /* eglSetDamageRegionKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_partial_update) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_reusable_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_reusable_sync) return;
     static const uint16_t s_pfnIdx[] = {
-            7, // eglClientWaitSyncKHR
-           41, // eglCreateSyncKHR
-           51, // eglDestroySyncKHR
-           83, // eglGetSyncAttribKHR
-          146  // eglSignalSyncKHR
+           7, /* eglClientWaitSyncKHR */
+          41, /* eglCreateSyncKHR */
+          51, /* eglDestroySyncKHR */
+          83, /* eglGetSyncAttribKHR */
+         146  /* eglSignalSyncKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_reusable_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_stream(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_stream) return;
     static const uint16_t s_pfnIdx[] = {
-           35, // eglCreateStreamKHR
-           48, // eglDestroyStreamKHR
-          124, // eglQueryStreamKHR
-          127, // eglQueryStreamu64KHR
-          149  // eglStreamAttribKHR
+          35, /* eglCreateStreamKHR */
+          48, /* eglDestroyStreamKHR */
+         124, /* eglQueryStreamKHR */
+         127, /* eglQueryStreamu64KHR */
+         149  /* eglStreamAttribKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_stream) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_stream_attrib(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_stream_attrib) return;
     static const uint16_t s_pfnIdx[] = {
-           33, // eglCreateStreamAttribKHR
-          122, // eglQueryStreamAttribKHR
-          144, // eglSetStreamAttribKHR
-          150, // eglStreamConsumerAcquireAttribKHR
-          155  // eglStreamConsumerReleaseAttribKHR
+          33, /* eglCreateStreamAttribKHR */
+         122, /* eglQueryStreamAttribKHR */
+         144, /* eglSetStreamAttribKHR */
+         150, /* eglStreamConsumerAcquireAttribKHR */
+         155  /* eglStreamConsumerReleaseAttribKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_stream_attrib) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_stream_consumer_gltexture(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_stream_consumer_gltexture) return;
     static const uint16_t s_pfnIdx[] = {
-          151, // eglStreamConsumerAcquireKHR
-          153, // eglStreamConsumerGLTextureExternalKHR
-          156  // eglStreamConsumerReleaseKHR
+         151, /* eglStreamConsumerAcquireKHR */
+         153, /* eglStreamConsumerGLTextureExternalKHR */
+         156  /* eglStreamConsumerReleaseKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_stream_consumer_gltexture) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_stream_cross_process_fd(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_stream_cross_process_fd) return;
     static const uint16_t s_pfnIdx[] = {
-           34, // eglCreateStreamFromFileDescriptorKHR
-           81  // eglGetStreamFileDescriptorKHR
+          34, /* eglCreateStreamFromFileDescriptorKHR */
+          81  /* eglGetStreamFileDescriptorKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_stream_cross_process_fd) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_stream_fifo(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_stream_fifo) return;
     static const uint16_t s_pfnIdx[] = {
-          126  // eglQueryStreamTimeKHR
+         126  /* eglQueryStreamTimeKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_stream_fifo) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_stream_producer_eglsurface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_stream_producer_eglsurface) return;
     static const uint16_t s_pfnIdx[] = {
-           37  // eglCreateStreamProducerSurfaceKHR
+          37  /* eglCreateStreamProducerSurfaceKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_stream_producer_eglsurface) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_swap_buffers_with_damage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_swap_buffers_with_damage) return;
     static const uint16_t s_pfnIdx[] = {
-          166  // eglSwapBuffersWithDamageKHR
+         166  /* eglSwapBuffersWithDamageKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_swap_buffers_with_damage) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_KHR_wait_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->KHR_wait_sync) return;
     static const uint16_t s_pfnIdx[] = {
-          177  // eglWaitSyncKHR
+         177  /* eglWaitSyncKHR */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->KHR_wait_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_MESA_drm_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_drm_image) return;
     static const uint16_t s_pfnIdx[] = {
-           19, // eglCreateDRMImageMESA
-           56  // eglExportDRMImageMESA
+          19, /* eglCreateDRMImageMESA */
+          56  /* eglExportDRMImageMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_drm_image) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_MESA_image_dma_buf_export(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_image_dma_buf_export) return;
     static const uint16_t s_pfnIdx[] = {
-           54, // eglExportDMABUFImageMESA
-           55  // eglExportDMABUFImageQueryMESA
+          54, /* eglExportDMABUFImageMESA */
+          55  /* eglExportDMABUFImageQueryMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_image_dma_buf_export) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_MESA_query_driver(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_query_driver) return;
     static const uint16_t s_pfnIdx[] = {
-           68, // eglGetDisplayDriverConfig
-           69  // eglGetDisplayDriverName
+          68, /* eglGetDisplayDriverConfig */
+          69  /* eglGetDisplayDriverName */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_query_driver) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NOK_swap_region(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NOK_swap_region) return;
     static const uint16_t s_pfnIdx[] = {
-          164  // eglSwapBuffersRegionNOK
+         164  /* eglSwapBuffersRegionNOK */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NOK_swap_region) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NOK_swap_region2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NOK_swap_region2) return;
     static const uint16_t s_pfnIdx[] = {
-          163  // eglSwapBuffersRegion2NOK
+         163  /* eglSwapBuffersRegion2NOK */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NOK_swap_region2) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_native_query(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_native_query) return;
     static const uint16_t s_pfnIdx[] = {
-          115, // eglQueryNativeDisplayNV
-          116, // eglQueryNativePixmapNV
-          117  // eglQueryNativeWindowNV
+         115, /* eglQueryNativeDisplayNV */
+         116, /* eglQueryNativePixmapNV */
+         117  /* eglQueryNativeWindowNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_native_query) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_post_sub_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_post_sub_buffer) return;
     static const uint16_t s_pfnIdx[] = {
-           95  // eglPostSubBufferNV
+          95  /* eglPostSubBufferNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_post_sub_buffer) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_stream_consumer_eglimage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_stream_consumer_eglimage) return;
     static const uint16_t s_pfnIdx[] = {
-          123, // eglQueryStreamConsumerEventNV
-          148, // eglStreamAcquireImageNV
-          158, // eglStreamImageConsumerConnectNV
-          160  // eglStreamReleaseImageNV
+         123, /* eglQueryStreamConsumerEventNV */
+         148, /* eglStreamAcquireImageNV */
+         158, /* eglStreamImageConsumerConnectNV */
+         160  /* eglStreamReleaseImageNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_stream_consumer_eglimage) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_stream_consumer_gltexture_yuv(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_stream_consumer_gltexture_yuv) return;
     static const uint16_t s_pfnIdx[] = {
-          152  // eglStreamConsumerGLTextureExternalAttribsNV
+         152  /* eglStreamConsumerGLTextureExternalAttribsNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_stream_consumer_gltexture_yuv) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_stream_flush(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_stream_flush) return;
     static const uint16_t s_pfnIdx[] = {
-          157  // eglStreamFlushNV
+         157  /* eglStreamFlushNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_stream_flush) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_stream_metadata(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_stream_metadata) return;
     static const uint16_t s_pfnIdx[] = {
-          112, // eglQueryDisplayAttribNV
-          125, // eglQueryStreamMetadataNV
-          145  // eglSetStreamMetadataNV
+         112, /* eglQueryDisplayAttribNV */
+         125, /* eglQueryStreamMetadataNV */
+         145  /* eglSetStreamMetadataNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_stream_metadata) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_stream_reset(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_stream_reset) return;
     static const uint16_t s_pfnIdx[] = {
-          141  // eglResetStreamNV
+         141  /* eglResetStreamNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_stream_reset) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_stream_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_stream_sync) return;
     static const uint16_t s_pfnIdx[] = {
-           38  // eglCreateStreamSyncNV
+          38  /* eglCreateStreamSyncNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_stream_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_sync) return;
     static const uint16_t s_pfnIdx[] = {
-            8, // eglClientWaitSyncNV
-           21, // eglCreateFenceSyncNV
-           52, // eglDestroySyncNV
-           58, // eglFenceNV
-           84, // eglGetSyncAttribNV
-          147  // eglSignalSyncNV
+           8, /* eglClientWaitSyncNV */
+          21, /* eglCreateFenceSyncNV */
+          52, /* eglDestroySyncNV */
+          58, /* eglFenceNV */
+          84, /* eglGetSyncAttribNV */
+         147  /* eglSignalSyncNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_NV_system_time(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_system_time) return;
     static const uint16_t s_pfnIdx[] = {
-           86, // eglGetSystemTimeFrequencyNV
-           87  // eglGetSystemTimeNV
+          86, /* eglGetSystemTimeFrequencyNV */
+          87  /* eglGetSystemTimeNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_system_time) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_WL_bind_wayland_display(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->WL_bind_wayland_display) return;
     static const uint16_t s_pfnIdx[] = {
-            3, // eglBindWaylandDisplayWL
-          134, // eglQueryWaylandBufferWL
-          170  // eglUnbindWaylandDisplayWL
+           3, /* eglBindWaylandDisplayWL */
+         134, /* eglQueryWaylandBufferWL */
+         170  /* eglUnbindWaylandDisplayWL */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->WL_bind_wayland_display) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_load_EGL_WL_create_wayland_buffer_from_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->WL_create_wayland_buffer_from_image) return;
     static const uint16_t s_pfnIdx[] = {
-           42  // eglCreateWaylandBufferFromImageWL
+          42  /* eglCreateWaylandBufferFromImageWL */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->WL_create_wayland_buffer_from_image) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 
 static void glad_egl_resolve_aliases(GladEGLContext *context) {
     static const GladAliasPair_t s_aliases[] = {
-        {    6,     7 }, // eglClientWaitSync and eglClientWaitSyncKHR
-        {    7,     6 }, // eglClientWaitSyncKHR and eglClientWaitSync
-        {   39,    40 }, // eglCreateSync and eglCreateSync64KHR
-        {   40,    39 }, // eglCreateSync64KHR and eglCreateSync
-        {   46,    47 }, // eglDestroyImage and eglDestroyImageKHR
-        {   47,    46 }, // eglDestroyImageKHR and eglDestroyImage
-        {   50,    51 }, // eglDestroySync and eglDestroySyncKHR
-        {   51,    50 }, // eglDestroySyncKHR and eglDestroySync
-        {  110,   111 }, // eglQueryDisplayAttribEXT and eglQueryDisplayAttribKHR
-        {  110,   112 }, // eglQueryDisplayAttribEXT and eglQueryDisplayAttribNV
-        {  111,   110 }, // eglQueryDisplayAttribKHR and eglQueryDisplayAttribEXT
-        {  111,   112 }, // eglQueryDisplayAttribKHR and eglQueryDisplayAttribNV
-        {  112,   110 }, // eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT
-        {  112,   111 }, // eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR
-        { 0xFFFF, 0xFFFF }
+        {    6,    7 }, /* eglClientWaitSync and eglClientWaitSyncKHR */
+        {    7,    6 }, /* eglClientWaitSyncKHR and eglClientWaitSync */
+        {   39,   40 }, /* eglCreateSync and eglCreateSync64KHR */
+        {   40,   39 }, /* eglCreateSync64KHR and eglCreateSync */
+        {   46,   47 }, /* eglDestroyImage and eglDestroyImageKHR */
+        {   47,   46 }, /* eglDestroyImageKHR and eglDestroyImage */
+        {   50,   51 }, /* eglDestroySync and eglDestroySyncKHR */
+        {   51,   50 }, /* eglDestroySyncKHR and eglDestroySync */
+        {  110,  111 }, /* eglQueryDisplayAttribEXT and eglQueryDisplayAttribKHR */
+        {  110,  112 }, /* eglQueryDisplayAttribEXT and eglQueryDisplayAttribNV */
+        {  111,  110 }, /* eglQueryDisplayAttribKHR and eglQueryDisplayAttribEXT */
+        {  111,  112 }, /* eglQueryDisplayAttribKHR and eglQueryDisplayAttribNV */
+        {  112,  110 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT */
+        {  112,  111 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR */
     };
-
     void **pfnArray = context->pfnArray;
+    uint32_t i;
 
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_aliases) - 1; ++i) {
+    for (i = 0; i < GLAD_ARRAYSIZE(s_aliases); ++i) {
         const GladAliasPair_t *pAlias = &s_aliases[i];
         if (pfnArray[pAlias->first] == NULL && pfnArray[pAlias->second] != NULL) {
             pfnArray[pAlias->first] = pfnArray[pAlias->second];
-        } else if (pfnArray[pAlias->second] == NULL && pfnArray[pAlias->first] != NULL) {
-            pfnArray[pAlias->second] = pfnArray[pAlias->first];
         }
     }
 }
 
-static int glad_egl_get_extensions(GladEGLContext *context, EGLDisplay display, char **extensions) {
+static int glad_egl_get_extensions(GladEGLContext *context, EGLDisplay display, uint64_t **out_exts, uint32_t *out_num_exts) {
     size_t clientLen, displayLen;
     char *concat;
+    uint32_t num_exts = 0, j = 0, len = 0;
+    uint64_t *exts = NULL;
+    const char *cur = NULL;
+    const char *next = NULL;
+
     const char *clientExtensions = context->QueryString(EGL_NO_DISPLAY, EGL_EXTENSIONS);
     const char *displayExtensions = (display == EGL_NO_DISPLAY) ? "" : context->QueryString(display, EGL_EXTENSIONS);
 
@@ -1420,29 +1543,51 @@ static int glad_egl_get_extensions(GladEGLContext *context, EGLDisplay display, 
         strcat(concat, displayExtensions);
     }
 
-    *extensions = concat;
+    /* This is done in two passes. The first pass counts up the number of
+    * extensions. The second pass copies them into an allocated block of memory. */
+    for (j = 0; j < 2; ++j) {
+        num_exts = 0;
+        cur = concat;
+        next = cur + strcspn(cur, " ");
+        while (1) {
+            cur += strspn(cur, " ");
+
+            if (!cur[0])
+                break;
+
+            len = next - cur;
+
+            if (exts != NULL) {
+                exts[num_exts++] = glad_hash_string(cur, len);
+            } else {
+                num_exts++;
+            }
+
+            cur = next + strspn(next, " ");
+            next = cur + strcspn(cur, " ");
+        }
+
+        if (!exts)
+            exts = (uint64_t *)calloc(num_exts, sizeof(uint64_t));
+    }
+
+    free(concat);
+
+    qsort(exts, num_exts, sizeof(uint64_t), glad_hash_compare);
+
+    *out_exts = exts;
+    *out_num_exts = num_exts;
 
     return 1;
 }
 
-static int glad_egl_has_extension(const char *extensions, const char *ext) {
-    const char *loc;
-    const char *terminator;
-    if(extensions == NULL) {
-        return 0;
-    }
-    while(1) {
-        loc = strstr(extensions, ext);
-        if(loc == NULL) {
-            return 0;
-        }
-        terminator = loc + strlen(ext);
-        if((loc == extensions || *(loc - 1) == ' ') &&
-            (*terminator == ' ' || *terminator == '\0')) {
-            return 1;
-        }
-        extensions = terminator;
-    }
+static int glad_egl_has_extension(uint64_t *exts, uint32_t num_exts, uint64_t extension) {
+    int32_t match = glad_hash_search(exts, num_exts, extension);
+
+    if (match >= 0)
+        return 1;
+
+    return 0;
 }
 
 static GLADapiproc glad_egl_get_proc_from_userptr(void *userptr, const char *name) {
@@ -1450,233 +1595,16 @@ static GLADapiproc glad_egl_get_proc_from_userptr(void *userptr, const char *nam
 }
 
 static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay display) {
-    char *extensions;
-    if (!glad_egl_get_extensions(context, display, &extensions)) return 0;
+    uint64_t *exts = NULL;
+    uint32_t num_exts = 0;
+    uint32_t i;
 
-    static uint16_t extIdx[] = {
-             0, // EGL_ANDROID_GLES_layers
-             1, // EGL_ANDROID_blob_cache
-             2, // EGL_ANDROID_create_native_client_buffer
-             3, // EGL_ANDROID_framebuffer_target
-             4, // EGL_ANDROID_front_buffer_auto_refresh
-             5, // EGL_ANDROID_get_frame_timestamps
-             6, // EGL_ANDROID_get_native_client_buffer
-             7, // EGL_ANDROID_image_native_buffer
-             8, // EGL_ANDROID_native_fence_sync
-             9, // EGL_ANDROID_presentation_time
-            10, // EGL_ANDROID_recordable
-            11, // EGL_ANGLE_colorspace_attribute_passthrough
-            12, // EGL_ANGLE_context_virtualization
-            13, // EGL_ANGLE_create_context_backwards_compatible
-            14, // EGL_ANGLE_create_context_client_arrays
-            15, // EGL_ANGLE_create_context_extensions_enabled
-            16, // EGL_ANGLE_create_context_webgl_compatibility
-            17, // EGL_ANGLE_create_surface_swap_interval
-            18, // EGL_ANGLE_d3d_share_handle_client_buffer
-            19, // EGL_ANGLE_d3d_texture_client_buffer
-            20, // EGL_ANGLE_device_cgl
-            21, // EGL_ANGLE_device_creation
-            22, // EGL_ANGLE_device_d3d
-            23, // EGL_ANGLE_device_eagl
-            24, // EGL_ANGLE_device_metal
-            25, // EGL_ANGLE_device_vulkan
-            26, // EGL_ANGLE_direct_composition
-            27, // EGL_ANGLE_display_power_preference
-            28, // EGL_ANGLE_display_semaphore_share_group
-            29, // EGL_ANGLE_display_texture_share_group
-            30, // EGL_ANGLE_experimental_present_path
-            31, // EGL_ANGLE_external_context_and_surface
-            32, // EGL_ANGLE_feature_control
-            33, // EGL_ANGLE_ggp_stream_descriptor
-            34, // EGL_ANGLE_iosurface_client_buffer
-            35, // EGL_ANGLE_keyed_mutex
-            36, // EGL_ANGLE_metal_create_context_ownership_identity
-            37, // EGL_ANGLE_metal_shared_event_sync
-            38, // EGL_ANGLE_metal_texture_client_buffer
-            39, // EGL_ANGLE_platform_angle
-            40, // EGL_ANGLE_platform_angle_d3d
-            41, // EGL_ANGLE_platform_angle_d3d11on12
-            42, // EGL_ANGLE_platform_angle_d3d_luid
-            43, // EGL_ANGLE_platform_angle_device_context_volatile_cgl
-            44, // EGL_ANGLE_platform_angle_device_context_volatile_eagl
-            45, // EGL_ANGLE_platform_angle_device_id
-            46, // EGL_ANGLE_platform_angle_device_type_egl
-            47, // EGL_ANGLE_platform_angle_device_type_swiftshader
-            48, // EGL_ANGLE_platform_angle_metal
-            49, // EGL_ANGLE_platform_angle_null
-            50, // EGL_ANGLE_platform_angle_opengl
-            51, // EGL_ANGLE_platform_angle_vulkan
-            52, // EGL_ANGLE_power_preference
-            53, // EGL_ANGLE_prepare_swap_buffers
-            54, // EGL_ANGLE_program_cache_control
-            55, // EGL_ANGLE_query_surface_pointer
-            56, // EGL_ANGLE_robust_resource_initialization
-            57, // EGL_ANGLE_stream_producer_d3d_texture
-            58, // EGL_ANGLE_surface_d3d_texture_2d_share_handle
-            59, // EGL_ANGLE_surface_orientation
-            60, // EGL_ANGLE_swap_with_frame_token
-            61, // EGL_ANGLE_sync_control_rate
-            62, // EGL_ANGLE_vulkan_display
-            63, // EGL_ANGLE_vulkan_image
-            64, // EGL_ANGLE_wait_until_work_scheduled
-            65, // EGL_ANGLE_window_fixed_size
-            66, // EGL_ANGLE_x11_visual
-            67, // EGL_ARM_image_format
-            68, // EGL_ARM_implicit_external_sync
-            69, // EGL_ARM_pixmap_multisample_discard
-            70, // EGL_CHROMIUM_sync_control
-            71, // EGL_EXT_bind_to_front
-            72, // EGL_EXT_buffer_age
-            73, // EGL_EXT_client_extensions
-            74, // EGL_EXT_client_sync
-            75, // EGL_EXT_compositor
-            76, // EGL_EXT_config_select_group
-            77, // EGL_EXT_create_context_robustness
-            78, // EGL_EXT_device_base
-            79, // EGL_EXT_device_drm
-            80, // EGL_EXT_device_drm_render_node
-            81, // EGL_EXT_device_enumeration
-            82, // EGL_EXT_device_openwf
-            83, // EGL_EXT_device_persistent_id
-            84, // EGL_EXT_device_query
-            85, // EGL_EXT_device_query_name
-            86, // EGL_EXT_explicit_device
-            87, // EGL_EXT_gl_colorspace_bt2020_hlg
-            88, // EGL_EXT_gl_colorspace_bt2020_linear
-            89, // EGL_EXT_gl_colorspace_bt2020_pq
-            90, // EGL_EXT_gl_colorspace_display_p3
-            91, // EGL_EXT_gl_colorspace_display_p3_linear
-            92, // EGL_EXT_gl_colorspace_display_p3_passthrough
-            93, // EGL_EXT_gl_colorspace_scrgb
-            94, // EGL_EXT_gl_colorspace_scrgb_linear
-            95, // EGL_EXT_image_dma_buf_import
-            96, // EGL_EXT_image_dma_buf_import_modifiers
-            97, // EGL_EXT_image_gl_colorspace
-            98, // EGL_EXT_image_implicit_sync_control
-            99, // EGL_EXT_multiview_window
-           100, // EGL_EXT_output_base
-           101, // EGL_EXT_output_drm
-           102, // EGL_EXT_output_openwf
-           103, // EGL_EXT_pixel_format_float
-           104, // EGL_EXT_platform_base
-           105, // EGL_EXT_platform_device
-           106, // EGL_EXT_platform_wayland
-           107, // EGL_EXT_platform_x11
-           108, // EGL_EXT_platform_xcb
-           109, // EGL_EXT_present_opaque
-           110, // EGL_EXT_protected_content
-           111, // EGL_EXT_protected_surface
-           112, // EGL_EXT_query_reset_notification_strategy
-           113, // EGL_EXT_stream_consumer_egloutput
-           114, // EGL_EXT_surface_CTA861_3_metadata
-           115, // EGL_EXT_surface_SMPTE2086_metadata
-           116, // EGL_EXT_surface_compression
-           117, // EGL_EXT_swap_buffers_with_damage
-           118, // EGL_EXT_sync_reuse
-           119, // EGL_EXT_yuv_surface
-           120, // EGL_HI_clientpixmap
-           121, // EGL_HI_colorformats
-           122, // EGL_IMG_context_priority
-           123, // EGL_IMG_image_plane_attribs
-           124, // EGL_KHR_cl_event
-           125, // EGL_KHR_cl_event2
-           126, // EGL_KHR_client_get_all_proc_addresses
-           127, // EGL_KHR_config_attribs
-           128, // EGL_KHR_context_flush_control
-           129, // EGL_KHR_create_context
-           130, // EGL_KHR_create_context_no_error
-           131, // EGL_KHR_debug
-           132, // EGL_KHR_display_reference
-           133, // EGL_KHR_fence_sync
-           134, // EGL_KHR_get_all_proc_addresses
-           135, // EGL_KHR_gl_colorspace
-           136, // EGL_KHR_gl_renderbuffer_image
-           137, // EGL_KHR_gl_texture_2D_image
-           138, // EGL_KHR_gl_texture_3D_image
-           139, // EGL_KHR_gl_texture_cubemap_image
-           140, // EGL_KHR_image
-           141, // EGL_KHR_image_base
-           142, // EGL_KHR_image_pixmap
-           143, // EGL_KHR_lock_surface
-           144, // EGL_KHR_lock_surface2
-           145, // EGL_KHR_lock_surface3
-           146, // EGL_KHR_mutable_render_buffer
-           147, // EGL_KHR_no_config_context
-           148, // EGL_KHR_partial_update
-           149, // EGL_KHR_platform_android
-           150, // EGL_KHR_platform_gbm
-           151, // EGL_KHR_platform_wayland
-           152, // EGL_KHR_platform_x11
-           153, // EGL_KHR_reusable_sync
-           154, // EGL_KHR_stream
-           155, // EGL_KHR_stream_attrib
-           156, // EGL_KHR_stream_consumer_gltexture
-           157, // EGL_KHR_stream_cross_process_fd
-           158, // EGL_KHR_stream_fifo
-           159, // EGL_KHR_stream_producer_aldatalocator
-           160, // EGL_KHR_stream_producer_eglsurface
-           161, // EGL_KHR_surfaceless_context
-           162, // EGL_KHR_swap_buffers_with_damage
-           163, // EGL_KHR_vg_parent_image
-           164, // EGL_KHR_wait_sync
-           165, // EGL_MESA_drm_image
-           166, // EGL_MESA_image_dma_buf_export
-           167, // EGL_MESA_platform_gbm
-           168, // EGL_MESA_platform_surfaceless
-           169, // EGL_MESA_query_driver
-           170, // EGL_NOK_swap_region
-           171, // EGL_NOK_swap_region2
-           172, // EGL_NOK_texture_from_pixmap
-           173, // EGL_NV_3dvision_surface
-           174, // EGL_NV_context_priority_realtime
-           175, // EGL_NV_coverage_sample
-           176, // EGL_NV_coverage_sample_resolve
-           177, // EGL_NV_cuda_event
-           178, // EGL_NV_depth_nonlinear
-           179, // EGL_NV_device_cuda
-           180, // EGL_NV_native_query
-           181, // EGL_NV_post_convert_rounding
-           182, // EGL_NV_post_sub_buffer
-           183, // EGL_NV_quadruple_buffer
-           184, // EGL_NV_robustness_video_memory_purge
-           185, // EGL_NV_stream_consumer_eglimage
-           186, // EGL_NV_stream_consumer_eglimage_use_scanout_attrib
-           187, // EGL_NV_stream_consumer_gltexture_yuv
-           188, // EGL_NV_stream_cross_display
-           189, // EGL_NV_stream_cross_object
-           190, // EGL_NV_stream_cross_partition
-           191, // EGL_NV_stream_cross_process
-           192, // EGL_NV_stream_cross_system
-           193, // EGL_NV_stream_dma
-           194, // EGL_NV_stream_fifo_next
-           195, // EGL_NV_stream_fifo_synchronous
-           196, // EGL_NV_stream_flush
-           197, // EGL_NV_stream_frame_limits
-           198, // EGL_NV_stream_metadata
-           199, // EGL_NV_stream_origin
-           200, // EGL_NV_stream_remote
-           201, // EGL_NV_stream_reset
-           202, // EGL_NV_stream_socket
-           203, // EGL_NV_stream_socket_inet
-           204, // EGL_NV_stream_socket_unix
-           205, // EGL_NV_stream_sync
-           206, // EGL_NV_sync
-           207, // EGL_NV_system_time
-           208, // EGL_NV_triple_buffer
-           209, // EGL_QNX_image_native_buffer
-           210, // EGL_QNX_platform_screen
-           211, // EGL_TIZEN_image_native_buffer
-           212, // EGL_TIZEN_image_native_surface
-           213, // EGL_WL_bind_wayland_display
-           214, // EGL_WL_create_wayland_buffer_from_image
-        0xFFFF
-    };
+    if (!glad_egl_get_extensions(context, display, &exts, &num_exts)) return 0;
 
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(extIdx) - 1; ++i)
-        context->extArray[extIdx[i]] = glad_egl_has_extension(extensions, glad_ext_names[extIdx[i]]);
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_EGL_ext_hashes); ++i)
+        context->extArray[i] = glad_egl_has_extension(exts, num_exts, GLAD_EGL_ext_hashes[i]);
 
-    free(extensions);
-
+    free(exts);
     return 1;
 }
 
@@ -1824,7 +1752,6 @@ void gladSetEGLContext(GladEGLContext *context) {
     glad_egl_context = *context;
 }
 
- 
 
 #ifdef GLAD_EGL
 
@@ -1960,7 +1887,6 @@ int gladLoaderLoadEGLContext(GladEGLContext *context, EGLDisplay display) {
 int gladLoaderLoadEGL(EGLDisplay display) {
     return gladLoaderLoadEGLContext(gladGetEGLContext(), display);
 }
-
 
 void gladLoaderResetEGL(void) {
     gladLoaderResetEGLContext(gladGetEGLContext());

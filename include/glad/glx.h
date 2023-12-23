@@ -12,12 +12,10 @@
  *
  * Options:
  *  - ALIAS = True
- *  - DEBUG = False
  *  - HEADER_ONLY = False
  *  - LOADER = True
  *  - MX = True
  *  - MX_GLOBAL = True
- *  - ON_DEMAND = False
  *
  * Commandline:
  *    --merge --api='glx=1.4' --extensions='GLX_3DFX_multisample,GLX_AMD_gpu_association,GLX_ARB_context_flush_control,GLX_ARB_create_context,GLX_ARB_create_context_no_error,GLX_ARB_create_context_profile,GLX_ARB_create_context_robustness,GLX_ARB_fbconfig_float,GLX_ARB_framebuffer_sRGB,GLX_ARB_get_proc_address,GLX_ARB_multisample,GLX_ARB_robustness_application_isolation,GLX_ARB_robustness_share_group_isolation,GLX_ARB_vertex_buffer_object,GLX_EXT_buffer_age,GLX_EXT_context_priority,GLX_EXT_create_context_es2_profile,GLX_EXT_create_context_es_profile,GLX_EXT_fbconfig_packed_float,GLX_EXT_framebuffer_sRGB,GLX_EXT_get_drawable_type,GLX_EXT_import_context,GLX_EXT_libglvnd,GLX_EXT_no_config_context,GLX_EXT_stereo_tree,GLX_EXT_swap_control,GLX_EXT_swap_control_tear,GLX_EXT_texture_from_pixmap,GLX_EXT_visual_info,GLX_EXT_visual_rating,GLX_INTEL_swap_event,GLX_MESA_agp_offset,GLX_MESA_copy_sub_buffer,GLX_MESA_pixmap_colormap,GLX_MESA_query_renderer,GLX_MESA_release_buffers,GLX_MESA_set_3dfx_mode,GLX_MESA_swap_control,GLX_NV_copy_buffer,GLX_NV_copy_image,GLX_NV_delay_before_swap,GLX_NV_float_buffer,GLX_NV_multigpu_context,GLX_NV_multisample_coverage,GLX_NV_present_video,GLX_NV_robustness_video_memory_purge,GLX_NV_swap_group,GLX_NV_video_capture,GLX_NV_video_out,GLX_OML_swap_method,GLX_OML_sync_control,GLX_SGIS_blended_overlay,GLX_SGIS_multisample,GLX_SGIS_shared_multisample,GLX_SGIX_fbconfig,GLX_SGIX_hyperpipe,GLX_SGIX_pbuffer,GLX_SGIX_swap_barrier,GLX_SGIX_swap_group,GLX_SGIX_video_resize,GLX_SGIX_visual_select_group,GLX_SGI_cushion,GLX_SGI_make_current_read,GLX_SGI_swap_control,GLX_SGI_video_sync,GLX_SUN_get_transparent_index' c --alias --loader --mx --mx-global
@@ -843,209 +841,209 @@ typedef struct GladGLXContext {
     union {
         unsigned char extArray[66];
         struct {
-            unsigned char _3DFX_multisample; // 0
-            unsigned char AMD_gpu_association; // 1
-            unsigned char ARB_context_flush_control; // 2
-            unsigned char ARB_create_context; // 3
-            unsigned char ARB_create_context_no_error; // 4
-            unsigned char ARB_create_context_profile; // 5
-            unsigned char ARB_create_context_robustness; // 6
-            unsigned char ARB_fbconfig_float; // 7
-            unsigned char ARB_framebuffer_sRGB; // 8
-            unsigned char ARB_get_proc_address; // 9
-            unsigned char ARB_multisample; // 10
-            unsigned char ARB_robustness_application_isolation; // 11
-            unsigned char ARB_robustness_share_group_isolation; // 12
-            unsigned char ARB_vertex_buffer_object; // 13
-            unsigned char EXT_buffer_age; // 14
-            unsigned char EXT_context_priority; // 15
-            unsigned char EXT_create_context_es2_profile; // 16
-            unsigned char EXT_create_context_es_profile; // 17
-            unsigned char EXT_fbconfig_packed_float; // 18
-            unsigned char EXT_framebuffer_sRGB; // 19
-            unsigned char EXT_get_drawable_type; // 20
-            unsigned char EXT_import_context; // 21
-            unsigned char EXT_libglvnd; // 22
-            unsigned char EXT_no_config_context; // 23
-            unsigned char EXT_stereo_tree; // 24
-            unsigned char EXT_swap_control; // 25
-            unsigned char EXT_swap_control_tear; // 26
-            unsigned char EXT_texture_from_pixmap; // 27
-            unsigned char EXT_visual_info; // 28
-            unsigned char EXT_visual_rating; // 29
-            unsigned char INTEL_swap_event; // 30
-            unsigned char MESA_agp_offset; // 31
-            unsigned char MESA_copy_sub_buffer; // 32
-            unsigned char MESA_pixmap_colormap; // 33
-            unsigned char MESA_query_renderer; // 34
-            unsigned char MESA_release_buffers; // 35
-            unsigned char MESA_set_3dfx_mode; // 36
-            unsigned char MESA_swap_control; // 37
-            unsigned char NV_copy_buffer; // 38
-            unsigned char NV_copy_image; // 39
-            unsigned char NV_delay_before_swap; // 40
-            unsigned char NV_float_buffer; // 41
-            unsigned char NV_multigpu_context; // 42
-            unsigned char NV_multisample_coverage; // 43
-            unsigned char NV_present_video; // 44
-            unsigned char NV_robustness_video_memory_purge; // 45
-            unsigned char NV_swap_group; // 46
-            unsigned char NV_video_capture; // 47
-            unsigned char NV_video_out; // 48
-            unsigned char OML_swap_method; // 49
-            unsigned char OML_sync_control; // 50
-            unsigned char SGIS_blended_overlay; // 51
-            unsigned char SGIS_multisample; // 52
-            unsigned char SGIS_shared_multisample; // 53
-            unsigned char SGIX_fbconfig; // 54
-            unsigned char SGIX_hyperpipe; // 55
-            unsigned char SGIX_pbuffer; // 56
-            unsigned char SGIX_swap_barrier; // 57
-            unsigned char SGIX_swap_group; // 58
-            unsigned char SGIX_video_resize; // 59
-            unsigned char SGIX_visual_select_group; // 60
-            unsigned char SGI_cushion; // 61
-            unsigned char SGI_make_current_read; // 62
-            unsigned char SGI_swap_control; // 63
-            unsigned char SGI_video_sync; // 64
-            unsigned char SUN_get_transparent_index; // 65
+        /*    0 */ unsigned char _3DFX_multisample;
+        /*    1 */ unsigned char AMD_gpu_association;
+        /*    2 */ unsigned char ARB_context_flush_control;
+        /*    3 */ unsigned char ARB_create_context;
+        /*    4 */ unsigned char ARB_create_context_no_error;
+        /*    5 */ unsigned char ARB_create_context_profile;
+        /*    6 */ unsigned char ARB_create_context_robustness;
+        /*    7 */ unsigned char ARB_fbconfig_float;
+        /*    8 */ unsigned char ARB_framebuffer_sRGB;
+        /*    9 */ unsigned char ARB_get_proc_address;
+        /*   10 */ unsigned char ARB_multisample;
+        /*   11 */ unsigned char ARB_robustness_application_isolation;
+        /*   12 */ unsigned char ARB_robustness_share_group_isolation;
+        /*   13 */ unsigned char ARB_vertex_buffer_object;
+        /*   14 */ unsigned char EXT_buffer_age;
+        /*   15 */ unsigned char EXT_context_priority;
+        /*   16 */ unsigned char EXT_create_context_es2_profile;
+        /*   17 */ unsigned char EXT_create_context_es_profile;
+        /*   18 */ unsigned char EXT_fbconfig_packed_float;
+        /*   19 */ unsigned char EXT_framebuffer_sRGB;
+        /*   20 */ unsigned char EXT_get_drawable_type;
+        /*   21 */ unsigned char EXT_import_context;
+        /*   22 */ unsigned char EXT_libglvnd;
+        /*   23 */ unsigned char EXT_no_config_context;
+        /*   24 */ unsigned char EXT_stereo_tree;
+        /*   25 */ unsigned char EXT_swap_control;
+        /*   26 */ unsigned char EXT_swap_control_tear;
+        /*   27 */ unsigned char EXT_texture_from_pixmap;
+        /*   28 */ unsigned char EXT_visual_info;
+        /*   29 */ unsigned char EXT_visual_rating;
+        /*   30 */ unsigned char INTEL_swap_event;
+        /*   31 */ unsigned char MESA_agp_offset;
+        /*   32 */ unsigned char MESA_copy_sub_buffer;
+        /*   33 */ unsigned char MESA_pixmap_colormap;
+        /*   34 */ unsigned char MESA_query_renderer;
+        /*   35 */ unsigned char MESA_release_buffers;
+        /*   36 */ unsigned char MESA_set_3dfx_mode;
+        /*   37 */ unsigned char MESA_swap_control;
+        /*   38 */ unsigned char NV_copy_buffer;
+        /*   39 */ unsigned char NV_copy_image;
+        /*   40 */ unsigned char NV_delay_before_swap;
+        /*   41 */ unsigned char NV_float_buffer;
+        /*   42 */ unsigned char NV_multigpu_context;
+        /*   43 */ unsigned char NV_multisample_coverage;
+        /*   44 */ unsigned char NV_present_video;
+        /*   45 */ unsigned char NV_robustness_video_memory_purge;
+        /*   46 */ unsigned char NV_swap_group;
+        /*   47 */ unsigned char NV_video_capture;
+        /*   48 */ unsigned char NV_video_out;
+        /*   49 */ unsigned char OML_swap_method;
+        /*   50 */ unsigned char OML_sync_control;
+        /*   51 */ unsigned char SGIS_blended_overlay;
+        /*   52 */ unsigned char SGIS_multisample;
+        /*   53 */ unsigned char SGIS_shared_multisample;
+        /*   54 */ unsigned char SGIX_fbconfig;
+        /*   55 */ unsigned char SGIX_hyperpipe;
+        /*   56 */ unsigned char SGIX_pbuffer;
+        /*   57 */ unsigned char SGIX_swap_barrier;
+        /*   58 */ unsigned char SGIX_swap_group;
+        /*   59 */ unsigned char SGIX_video_resize;
+        /*   60 */ unsigned char SGIX_visual_select_group;
+        /*   61 */ unsigned char SGI_cushion;
+        /*   62 */ unsigned char SGI_make_current_read;
+        /*   63 */ unsigned char SGI_swap_control;
+        /*   64 */ unsigned char SGI_video_sync;
+        /*   65 */ unsigned char SUN_get_transparent_index;
         };
     };
 
     union {
         void *pfnArray[131];
         struct {
-            PFNGLXBINDCHANNELTOWINDOWSGIXPROC BindChannelToWindowSGIX; // 0
-            PFNGLXBINDHYPERPIPESGIXPROC BindHyperpipeSGIX; // 1
-            PFNGLXBINDSWAPBARRIERNVPROC BindSwapBarrierNV; // 2
-            PFNGLXBINDSWAPBARRIERSGIXPROC BindSwapBarrierSGIX; // 3
-            PFNGLXBINDTEXIMAGEEXTPROC BindTexImageEXT; // 4
-            PFNGLXBINDVIDEOCAPTUREDEVICENVPROC BindVideoCaptureDeviceNV; // 5
-            PFNGLXBINDVIDEODEVICENVPROC BindVideoDeviceNV; // 6
-            PFNGLXBINDVIDEOIMAGENVPROC BindVideoImageNV; // 7
-            PFNGLXBLITCONTEXTFRAMEBUFFERAMDPROC BlitContextFramebufferAMD; // 8
-            PFNGLXCHANNELRECTSGIXPROC ChannelRectSGIX; // 9
-            PFNGLXCHANNELRECTSYNCSGIXPROC ChannelRectSyncSGIX; // 10
-            PFNGLXCHOOSEFBCONFIGPROC ChooseFBConfig; // 11
-            PFNGLXCHOOSEFBCONFIGSGIXPROC ChooseFBConfigSGIX; // 12
-            PFNGLXCHOOSEVISUALPROC ChooseVisual; // 13
-            PFNGLXCOPYBUFFERSUBDATANVPROC CopyBufferSubDataNV; // 14
-            PFNGLXCOPYCONTEXTPROC CopyContext; // 15
-            PFNGLXCOPYIMAGESUBDATANVPROC CopyImageSubDataNV; // 16
-            PFNGLXCOPYSUBBUFFERMESAPROC CopySubBufferMESA; // 17
-            PFNGLXCREATEASSOCIATEDCONTEXTAMDPROC CreateAssociatedContextAMD; // 18
-            PFNGLXCREATEASSOCIATEDCONTEXTATTRIBSAMDPROC CreateAssociatedContextAttribsAMD; // 19
-            PFNGLXCREATECONTEXTPROC CreateContext; // 20
-            PFNGLXCREATECONTEXTATTRIBSARBPROC CreateContextAttribsARB; // 21
-            PFNGLXCREATECONTEXTWITHCONFIGSGIXPROC CreateContextWithConfigSGIX; // 22
-            PFNGLXCREATEGLXPBUFFERSGIXPROC CreateGLXPbufferSGIX; // 23
-            PFNGLXCREATEGLXPIXMAPPROC CreateGLXPixmap; // 24
-            PFNGLXCREATEGLXPIXMAPMESAPROC CreateGLXPixmapMESA; // 25
-            PFNGLXCREATEGLXPIXMAPWITHCONFIGSGIXPROC CreateGLXPixmapWithConfigSGIX; // 26
-            PFNGLXCREATENEWCONTEXTPROC CreateNewContext; // 27
-            PFNGLXCREATEPBUFFERPROC CreatePbuffer; // 28
-            PFNGLXCREATEPIXMAPPROC CreatePixmap; // 29
-            PFNGLXCREATEWINDOWPROC CreateWindow; // 30
-            PFNGLXCUSHIONSGIPROC CushionSGI; // 31
-            PFNGLXDELAYBEFORESWAPNVPROC DelayBeforeSwapNV; // 32
-            PFNGLXDELETEASSOCIATEDCONTEXTAMDPROC DeleteAssociatedContextAMD; // 33
-            PFNGLXDESTROYCONTEXTPROC DestroyContext; // 34
-            PFNGLXDESTROYGLXPBUFFERSGIXPROC DestroyGLXPbufferSGIX; // 35
-            PFNGLXDESTROYGLXPIXMAPPROC DestroyGLXPixmap; // 36
-            PFNGLXDESTROYHYPERPIPECONFIGSGIXPROC DestroyHyperpipeConfigSGIX; // 37
-            PFNGLXDESTROYPBUFFERPROC DestroyPbuffer; // 38
-            PFNGLXDESTROYPIXMAPPROC DestroyPixmap; // 39
-            PFNGLXDESTROYWINDOWPROC DestroyWindow; // 40
-            PFNGLXENUMERATEVIDEOCAPTUREDEVICESNVPROC EnumerateVideoCaptureDevicesNV; // 41
-            PFNGLXENUMERATEVIDEODEVICESNVPROC EnumerateVideoDevicesNV; // 42
-            PFNGLXFREECONTEXTEXTPROC FreeContextEXT; // 43
-            PFNGLXGETAGPOFFSETMESAPROC GetAGPOffsetMESA; // 44
-            PFNGLXGETCLIENTSTRINGPROC GetClientString; // 45
-            PFNGLXGETCONFIGPROC GetConfig; // 46
-            PFNGLXGETCONTEXTGPUIDAMDPROC GetContextGPUIDAMD; // 47
-            PFNGLXGETCONTEXTIDEXTPROC GetContextIDEXT; // 48
-            PFNGLXGETCURRENTASSOCIATEDCONTEXTAMDPROC GetCurrentAssociatedContextAMD; // 49
-            PFNGLXGETCURRENTCONTEXTPROC GetCurrentContext; // 50
-            PFNGLXGETCURRENTDISPLAYPROC GetCurrentDisplay; // 51
-            PFNGLXGETCURRENTDISPLAYEXTPROC GetCurrentDisplayEXT; // 52
-            PFNGLXGETCURRENTDRAWABLEPROC GetCurrentDrawable; // 53
-            PFNGLXGETCURRENTREADDRAWABLEPROC GetCurrentReadDrawable; // 54
-            PFNGLXGETCURRENTREADDRAWABLESGIPROC GetCurrentReadDrawableSGI; // 55
-            PFNGLXGETFBCONFIGATTRIBPROC GetFBConfigAttrib; // 56
-            PFNGLXGETFBCONFIGATTRIBSGIXPROC GetFBConfigAttribSGIX; // 57
-            PFNGLXGETFBCONFIGFROMVISUALSGIXPROC GetFBConfigFromVisualSGIX; // 58
-            PFNGLXGETFBCONFIGSPROC GetFBConfigs; // 59
-            PFNGLXGETGPUIDSAMDPROC GetGPUIDsAMD; // 60
-            PFNGLXGETGPUINFOAMDPROC GetGPUInfoAMD; // 61
-            PFNGLXGETMSCRATEOMLPROC GetMscRateOML; // 62
-            PFNGLXGETPROCADDRESSPROC GetProcAddress; // 63
-            PFNGLXGETPROCADDRESSARBPROC GetProcAddressARB; // 64
-            PFNGLXGETSELECTEDEVENTPROC GetSelectedEvent; // 65
-            PFNGLXGETSELECTEDEVENTSGIXPROC GetSelectedEventSGIX; // 66
-            PFNGLXGETSWAPINTERVALMESAPROC GetSwapIntervalMESA; // 67
-            PFNGLXGETSYNCVALUESOMLPROC GetSyncValuesOML; // 68
-            PFNGLXGETTRANSPARENTINDEXSUNPROC GetTransparentIndexSUN; // 69
-            PFNGLXGETVIDEODEVICENVPROC GetVideoDeviceNV; // 70
-            PFNGLXGETVIDEOINFONVPROC GetVideoInfoNV; // 71
-            PFNGLXGETVIDEOSYNCSGIPROC GetVideoSyncSGI; // 72
-            PFNGLXGETVISUALFROMFBCONFIGPROC GetVisualFromFBConfig; // 73
-            PFNGLXGETVISUALFROMFBCONFIGSGIXPROC GetVisualFromFBConfigSGIX; // 74
-            PFNGLXHYPERPIPEATTRIBSGIXPROC HyperpipeAttribSGIX; // 75
-            PFNGLXHYPERPIPECONFIGSGIXPROC HyperpipeConfigSGIX; // 76
-            PFNGLXIMPORTCONTEXTEXTPROC ImportContextEXT; // 77
-            PFNGLXISDIRECTPROC IsDirect; // 78
-            PFNGLXJOINSWAPGROUPNVPROC JoinSwapGroupNV; // 79
-            PFNGLXJOINSWAPGROUPSGIXPROC JoinSwapGroupSGIX; // 80
-            PFNGLXLOCKVIDEOCAPTUREDEVICENVPROC LockVideoCaptureDeviceNV; // 81
-            PFNGLXMAKEASSOCIATEDCONTEXTCURRENTAMDPROC MakeAssociatedContextCurrentAMD; // 82
-            PFNGLXMAKECONTEXTCURRENTPROC MakeContextCurrent; // 83
-            PFNGLXMAKECURRENTPROC MakeCurrent; // 84
-            PFNGLXMAKECURRENTREADSGIPROC MakeCurrentReadSGI; // 85
-            PFNGLXNAMEDCOPYBUFFERSUBDATANVPROC NamedCopyBufferSubDataNV; // 86
-            PFNGLXQUERYCHANNELDELTASSGIXPROC QueryChannelDeltasSGIX; // 87
-            PFNGLXQUERYCHANNELRECTSGIXPROC QueryChannelRectSGIX; // 88
-            PFNGLXQUERYCONTEXTPROC QueryContext; // 89
-            PFNGLXQUERYCONTEXTINFOEXTPROC QueryContextInfoEXT; // 90
-            PFNGLXQUERYCURRENTRENDERERINTEGERMESAPROC QueryCurrentRendererIntegerMESA; // 91
-            PFNGLXQUERYCURRENTRENDERERSTRINGMESAPROC QueryCurrentRendererStringMESA; // 92
-            PFNGLXQUERYDRAWABLEPROC QueryDrawable; // 93
-            PFNGLXQUERYEXTENSIONPROC QueryExtension; // 94
-            PFNGLXQUERYEXTENSIONSSTRINGPROC QueryExtensionsString; // 95
-            PFNGLXQUERYFRAMECOUNTNVPROC QueryFrameCountNV; // 96
-            PFNGLXQUERYGLXPBUFFERSGIXPROC QueryGLXPbufferSGIX; // 97
-            PFNGLXQUERYHYPERPIPEATTRIBSGIXPROC QueryHyperpipeAttribSGIX; // 98
-            PFNGLXQUERYHYPERPIPEBESTATTRIBSGIXPROC QueryHyperpipeBestAttribSGIX; // 99
-            PFNGLXQUERYHYPERPIPECONFIGSGIXPROC QueryHyperpipeConfigSGIX; // 100
-            PFNGLXQUERYHYPERPIPENETWORKSGIXPROC QueryHyperpipeNetworkSGIX; // 101
-            PFNGLXQUERYMAXSWAPBARRIERSSGIXPROC QueryMaxSwapBarriersSGIX; // 102
-            PFNGLXQUERYMAXSWAPGROUPSNVPROC QueryMaxSwapGroupsNV; // 103
-            PFNGLXQUERYRENDERERINTEGERMESAPROC QueryRendererIntegerMESA; // 104
-            PFNGLXQUERYRENDERERSTRINGMESAPROC QueryRendererStringMESA; // 105
-            PFNGLXQUERYSERVERSTRINGPROC QueryServerString; // 106
-            PFNGLXQUERYSWAPGROUPNVPROC QuerySwapGroupNV; // 107
-            PFNGLXQUERYVERSIONPROC QueryVersion; // 108
-            PFNGLXQUERYVIDEOCAPTUREDEVICENVPROC QueryVideoCaptureDeviceNV; // 109
-            PFNGLXRELEASEBUFFERSMESAPROC ReleaseBuffersMESA; // 110
-            PFNGLXRELEASETEXIMAGEEXTPROC ReleaseTexImageEXT; // 111
-            PFNGLXRELEASEVIDEOCAPTUREDEVICENVPROC ReleaseVideoCaptureDeviceNV; // 112
-            PFNGLXRELEASEVIDEODEVICENVPROC ReleaseVideoDeviceNV; // 113
-            PFNGLXRELEASEVIDEOIMAGENVPROC ReleaseVideoImageNV; // 114
-            PFNGLXRESETFRAMECOUNTNVPROC ResetFrameCountNV; // 115
-            PFNGLXSELECTEVENTPROC SelectEvent; // 116
-            PFNGLXSELECTEVENTSGIXPROC SelectEventSGIX; // 117
-            PFNGLXSENDPBUFFERTOVIDEONVPROC SendPbufferToVideoNV; // 118
-            PFNGLXSET3DFXMODEMESAPROC Set3DfxModeMESA; // 119
-            PFNGLXSWAPBUFFERSPROC SwapBuffers; // 120
-            PFNGLXSWAPBUFFERSMSCOMLPROC SwapBuffersMscOML; // 121
-            PFNGLXSWAPINTERVALEXTPROC SwapIntervalEXT; // 122
-            PFNGLXSWAPINTERVALMESAPROC SwapIntervalMESA; // 123
-            PFNGLXSWAPINTERVALSGIPROC SwapIntervalSGI; // 124
-            PFNGLXUSEXFONTPROC UseXFont; // 125
-            PFNGLXWAITFORMSCOMLPROC WaitForMscOML; // 126
-            PFNGLXWAITFORSBCOMLPROC WaitForSbcOML; // 127
-            PFNGLXWAITGLPROC WaitGL; // 128
-            PFNGLXWAITVIDEOSYNCSGIPROC WaitVideoSyncSGI; // 129
-            PFNGLXWAITXPROC WaitX; // 130
+        /*    0 */ PFNGLXBINDCHANNELTOWINDOWSGIXPROC BindChannelToWindowSGIX;
+        /*    1 */ PFNGLXBINDHYPERPIPESGIXPROC BindHyperpipeSGIX;
+        /*    2 */ PFNGLXBINDSWAPBARRIERNVPROC BindSwapBarrierNV;
+        /*    3 */ PFNGLXBINDSWAPBARRIERSGIXPROC BindSwapBarrierSGIX;
+        /*    4 */ PFNGLXBINDTEXIMAGEEXTPROC BindTexImageEXT;
+        /*    5 */ PFNGLXBINDVIDEOCAPTUREDEVICENVPROC BindVideoCaptureDeviceNV;
+        /*    6 */ PFNGLXBINDVIDEODEVICENVPROC BindVideoDeviceNV;
+        /*    7 */ PFNGLXBINDVIDEOIMAGENVPROC BindVideoImageNV;
+        /*    8 */ PFNGLXBLITCONTEXTFRAMEBUFFERAMDPROC BlitContextFramebufferAMD;
+        /*    9 */ PFNGLXCHANNELRECTSGIXPROC ChannelRectSGIX;
+        /*   10 */ PFNGLXCHANNELRECTSYNCSGIXPROC ChannelRectSyncSGIX;
+        /*   11 */ PFNGLXCHOOSEFBCONFIGPROC ChooseFBConfig;
+        /*   12 */ PFNGLXCHOOSEFBCONFIGSGIXPROC ChooseFBConfigSGIX;
+        /*   13 */ PFNGLXCHOOSEVISUALPROC ChooseVisual;
+        /*   14 */ PFNGLXCOPYBUFFERSUBDATANVPROC CopyBufferSubDataNV;
+        /*   15 */ PFNGLXCOPYCONTEXTPROC CopyContext;
+        /*   16 */ PFNGLXCOPYIMAGESUBDATANVPROC CopyImageSubDataNV;
+        /*   17 */ PFNGLXCOPYSUBBUFFERMESAPROC CopySubBufferMESA;
+        /*   18 */ PFNGLXCREATEASSOCIATEDCONTEXTAMDPROC CreateAssociatedContextAMD;
+        /*   19 */ PFNGLXCREATEASSOCIATEDCONTEXTATTRIBSAMDPROC CreateAssociatedContextAttribsAMD;
+        /*   20 */ PFNGLXCREATECONTEXTPROC CreateContext;
+        /*   21 */ PFNGLXCREATECONTEXTATTRIBSARBPROC CreateContextAttribsARB;
+        /*   22 */ PFNGLXCREATECONTEXTWITHCONFIGSGIXPROC CreateContextWithConfigSGIX;
+        /*   23 */ PFNGLXCREATEGLXPBUFFERSGIXPROC CreateGLXPbufferSGIX;
+        /*   24 */ PFNGLXCREATEGLXPIXMAPPROC CreateGLXPixmap;
+        /*   25 */ PFNGLXCREATEGLXPIXMAPMESAPROC CreateGLXPixmapMESA;
+        /*   26 */ PFNGLXCREATEGLXPIXMAPWITHCONFIGSGIXPROC CreateGLXPixmapWithConfigSGIX;
+        /*   27 */ PFNGLXCREATENEWCONTEXTPROC CreateNewContext;
+        /*   28 */ PFNGLXCREATEPBUFFERPROC CreatePbuffer;
+        /*   29 */ PFNGLXCREATEPIXMAPPROC CreatePixmap;
+        /*   30 */ PFNGLXCREATEWINDOWPROC CreateWindow;
+        /*   31 */ PFNGLXCUSHIONSGIPROC CushionSGI;
+        /*   32 */ PFNGLXDELAYBEFORESWAPNVPROC DelayBeforeSwapNV;
+        /*   33 */ PFNGLXDELETEASSOCIATEDCONTEXTAMDPROC DeleteAssociatedContextAMD;
+        /*   34 */ PFNGLXDESTROYCONTEXTPROC DestroyContext;
+        /*   35 */ PFNGLXDESTROYGLXPBUFFERSGIXPROC DestroyGLXPbufferSGIX;
+        /*   36 */ PFNGLXDESTROYGLXPIXMAPPROC DestroyGLXPixmap;
+        /*   37 */ PFNGLXDESTROYHYPERPIPECONFIGSGIXPROC DestroyHyperpipeConfigSGIX;
+        /*   38 */ PFNGLXDESTROYPBUFFERPROC DestroyPbuffer;
+        /*   39 */ PFNGLXDESTROYPIXMAPPROC DestroyPixmap;
+        /*   40 */ PFNGLXDESTROYWINDOWPROC DestroyWindow;
+        /*   41 */ PFNGLXENUMERATEVIDEOCAPTUREDEVICESNVPROC EnumerateVideoCaptureDevicesNV;
+        /*   42 */ PFNGLXENUMERATEVIDEODEVICESNVPROC EnumerateVideoDevicesNV;
+        /*   43 */ PFNGLXFREECONTEXTEXTPROC FreeContextEXT;
+        /*   44 */ PFNGLXGETAGPOFFSETMESAPROC GetAGPOffsetMESA;
+        /*   45 */ PFNGLXGETCLIENTSTRINGPROC GetClientString;
+        /*   46 */ PFNGLXGETCONFIGPROC GetConfig;
+        /*   47 */ PFNGLXGETCONTEXTGPUIDAMDPROC GetContextGPUIDAMD;
+        /*   48 */ PFNGLXGETCONTEXTIDEXTPROC GetContextIDEXT;
+        /*   49 */ PFNGLXGETCURRENTASSOCIATEDCONTEXTAMDPROC GetCurrentAssociatedContextAMD;
+        /*   50 */ PFNGLXGETCURRENTCONTEXTPROC GetCurrentContext;
+        /*   51 */ PFNGLXGETCURRENTDISPLAYPROC GetCurrentDisplay;
+        /*   52 */ PFNGLXGETCURRENTDISPLAYEXTPROC GetCurrentDisplayEXT;
+        /*   53 */ PFNGLXGETCURRENTDRAWABLEPROC GetCurrentDrawable;
+        /*   54 */ PFNGLXGETCURRENTREADDRAWABLEPROC GetCurrentReadDrawable;
+        /*   55 */ PFNGLXGETCURRENTREADDRAWABLESGIPROC GetCurrentReadDrawableSGI;
+        /*   56 */ PFNGLXGETFBCONFIGATTRIBPROC GetFBConfigAttrib;
+        /*   57 */ PFNGLXGETFBCONFIGATTRIBSGIXPROC GetFBConfigAttribSGIX;
+        /*   58 */ PFNGLXGETFBCONFIGFROMVISUALSGIXPROC GetFBConfigFromVisualSGIX;
+        /*   59 */ PFNGLXGETFBCONFIGSPROC GetFBConfigs;
+        /*   60 */ PFNGLXGETGPUIDSAMDPROC GetGPUIDsAMD;
+        /*   61 */ PFNGLXGETGPUINFOAMDPROC GetGPUInfoAMD;
+        /*   62 */ PFNGLXGETMSCRATEOMLPROC GetMscRateOML;
+        /*   63 */ PFNGLXGETPROCADDRESSPROC GetProcAddress;
+        /*   64 */ PFNGLXGETPROCADDRESSARBPROC GetProcAddressARB;
+        /*   65 */ PFNGLXGETSELECTEDEVENTPROC GetSelectedEvent;
+        /*   66 */ PFNGLXGETSELECTEDEVENTSGIXPROC GetSelectedEventSGIX;
+        /*   67 */ PFNGLXGETSWAPINTERVALMESAPROC GetSwapIntervalMESA;
+        /*   68 */ PFNGLXGETSYNCVALUESOMLPROC GetSyncValuesOML;
+        /*   69 */ PFNGLXGETTRANSPARENTINDEXSUNPROC GetTransparentIndexSUN;
+        /*   70 */ PFNGLXGETVIDEODEVICENVPROC GetVideoDeviceNV;
+        /*   71 */ PFNGLXGETVIDEOINFONVPROC GetVideoInfoNV;
+        /*   72 */ PFNGLXGETVIDEOSYNCSGIPROC GetVideoSyncSGI;
+        /*   73 */ PFNGLXGETVISUALFROMFBCONFIGPROC GetVisualFromFBConfig;
+        /*   74 */ PFNGLXGETVISUALFROMFBCONFIGSGIXPROC GetVisualFromFBConfigSGIX;
+        /*   75 */ PFNGLXHYPERPIPEATTRIBSGIXPROC HyperpipeAttribSGIX;
+        /*   76 */ PFNGLXHYPERPIPECONFIGSGIXPROC HyperpipeConfigSGIX;
+        /*   77 */ PFNGLXIMPORTCONTEXTEXTPROC ImportContextEXT;
+        /*   78 */ PFNGLXISDIRECTPROC IsDirect;
+        /*   79 */ PFNGLXJOINSWAPGROUPNVPROC JoinSwapGroupNV;
+        /*   80 */ PFNGLXJOINSWAPGROUPSGIXPROC JoinSwapGroupSGIX;
+        /*   81 */ PFNGLXLOCKVIDEOCAPTUREDEVICENVPROC LockVideoCaptureDeviceNV;
+        /*   82 */ PFNGLXMAKEASSOCIATEDCONTEXTCURRENTAMDPROC MakeAssociatedContextCurrentAMD;
+        /*   83 */ PFNGLXMAKECONTEXTCURRENTPROC MakeContextCurrent;
+        /*   84 */ PFNGLXMAKECURRENTPROC MakeCurrent;
+        /*   85 */ PFNGLXMAKECURRENTREADSGIPROC MakeCurrentReadSGI;
+        /*   86 */ PFNGLXNAMEDCOPYBUFFERSUBDATANVPROC NamedCopyBufferSubDataNV;
+        /*   87 */ PFNGLXQUERYCHANNELDELTASSGIXPROC QueryChannelDeltasSGIX;
+        /*   88 */ PFNGLXQUERYCHANNELRECTSGIXPROC QueryChannelRectSGIX;
+        /*   89 */ PFNGLXQUERYCONTEXTPROC QueryContext;
+        /*   90 */ PFNGLXQUERYCONTEXTINFOEXTPROC QueryContextInfoEXT;
+        /*   91 */ PFNGLXQUERYCURRENTRENDERERINTEGERMESAPROC QueryCurrentRendererIntegerMESA;
+        /*   92 */ PFNGLXQUERYCURRENTRENDERERSTRINGMESAPROC QueryCurrentRendererStringMESA;
+        /*   93 */ PFNGLXQUERYDRAWABLEPROC QueryDrawable;
+        /*   94 */ PFNGLXQUERYEXTENSIONPROC QueryExtension;
+        /*   95 */ PFNGLXQUERYEXTENSIONSSTRINGPROC QueryExtensionsString;
+        /*   96 */ PFNGLXQUERYFRAMECOUNTNVPROC QueryFrameCountNV;
+        /*   97 */ PFNGLXQUERYGLXPBUFFERSGIXPROC QueryGLXPbufferSGIX;
+        /*   98 */ PFNGLXQUERYHYPERPIPEATTRIBSGIXPROC QueryHyperpipeAttribSGIX;
+        /*   99 */ PFNGLXQUERYHYPERPIPEBESTATTRIBSGIXPROC QueryHyperpipeBestAttribSGIX;
+        /*  100 */ PFNGLXQUERYHYPERPIPECONFIGSGIXPROC QueryHyperpipeConfigSGIX;
+        /*  101 */ PFNGLXQUERYHYPERPIPENETWORKSGIXPROC QueryHyperpipeNetworkSGIX;
+        /*  102 */ PFNGLXQUERYMAXSWAPBARRIERSSGIXPROC QueryMaxSwapBarriersSGIX;
+        /*  103 */ PFNGLXQUERYMAXSWAPGROUPSNVPROC QueryMaxSwapGroupsNV;
+        /*  104 */ PFNGLXQUERYRENDERERINTEGERMESAPROC QueryRendererIntegerMESA;
+        /*  105 */ PFNGLXQUERYRENDERERSTRINGMESAPROC QueryRendererStringMESA;
+        /*  106 */ PFNGLXQUERYSERVERSTRINGPROC QueryServerString;
+        /*  107 */ PFNGLXQUERYSWAPGROUPNVPROC QuerySwapGroupNV;
+        /*  108 */ PFNGLXQUERYVERSIONPROC QueryVersion;
+        /*  109 */ PFNGLXQUERYVIDEOCAPTUREDEVICENVPROC QueryVideoCaptureDeviceNV;
+        /*  110 */ PFNGLXRELEASEBUFFERSMESAPROC ReleaseBuffersMESA;
+        /*  111 */ PFNGLXRELEASETEXIMAGEEXTPROC ReleaseTexImageEXT;
+        /*  112 */ PFNGLXRELEASEVIDEOCAPTUREDEVICENVPROC ReleaseVideoCaptureDeviceNV;
+        /*  113 */ PFNGLXRELEASEVIDEODEVICENVPROC ReleaseVideoDeviceNV;
+        /*  114 */ PFNGLXRELEASEVIDEOIMAGENVPROC ReleaseVideoImageNV;
+        /*  115 */ PFNGLXRESETFRAMECOUNTNVPROC ResetFrameCountNV;
+        /*  116 */ PFNGLXSELECTEVENTPROC SelectEvent;
+        /*  117 */ PFNGLXSELECTEVENTSGIXPROC SelectEventSGIX;
+        /*  118 */ PFNGLXSENDPBUFFERTOVIDEONVPROC SendPbufferToVideoNV;
+        /*  119 */ PFNGLXSET3DFXMODEMESAPROC Set3DfxModeMESA;
+        /*  120 */ PFNGLXSWAPBUFFERSPROC SwapBuffers;
+        /*  121 */ PFNGLXSWAPBUFFERSMSCOMLPROC SwapBuffersMscOML;
+        /*  122 */ PFNGLXSWAPINTERVALEXTPROC SwapIntervalEXT;
+        /*  123 */ PFNGLXSWAPINTERVALMESAPROC SwapIntervalMESA;
+        /*  124 */ PFNGLXSWAPINTERVALSGIPROC SwapIntervalSGI;
+        /*  125 */ PFNGLXUSEXFONTPROC UseXFont;
+        /*  126 */ PFNGLXWAITFORMSCOMLPROC WaitForMscOML;
+        /*  127 */ PFNGLXWAITFORSBCOMLPROC WaitForSbcOML;
+        /*  128 */ PFNGLXWAITGLPROC WaitGL;
+        /*  129 */ PFNGLXWAITVIDEOSYNCSGIPROC WaitVideoSyncSGI;
+        /*  130 */ PFNGLXWAITXPROC WaitX;
         };
     };
 
@@ -1394,7 +1392,6 @@ void glXWaitX(void);
 #endif
 
 
-
 GLAD_API_CALL GladGLXContext* gladGetGLXContext(void);
 GLAD_API_CALL void gladSetGLXContext(GladGLXContext *context);
 
@@ -1408,7 +1405,6 @@ GLAD_API_CALL int gladLoadGLX(Display *display, int screen, GLADloadfunc load);
 #ifdef GLAD_GLX
 
 GLAD_API_CALL int gladLoaderLoadGLX(Display *display, int screen);
-
 GLAD_API_CALL void gladLoaderUnloadGLX(void);
 GLAD_API_CALL void gladLoaderResetGLXContext(GladGLXContext *context);
 

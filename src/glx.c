@@ -5,6 +5,10 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
+#define XXH_INLINE_ALL
+#include "xxhash.h"
+
 #include <glad/glx.h>
 
 #ifdef __linux__
@@ -15,6 +19,13 @@
 #define GLAD_IMPL_UTIL_SSCANF sscanf_s
 #else
 #define GLAD_IMPL_UTIL_SSCANF sscanf
+#endif
+
+#undef GLAD_NO_INLINE
+#ifdef _MSC_VER
+#define GLAD_NO_INLINE __declspec(noinline)
+#else
+#define GLAD_NO_INLINE __attribute__((noinline))
 #endif
 
 #endif /* GLAD_IMPL_UTIL_C_ */
@@ -30,208 +41,209 @@ typedef struct {
     uint16_t second;
 } GladAliasPair_t;
 
-static const char *glad_pfn_names[] = {
-    "glXBindChannelToWindowSGIX", // 0
-    "glXBindHyperpipeSGIX", // 1
-    "glXBindSwapBarrierNV", // 2
-    "glXBindSwapBarrierSGIX", // 3
-    "glXBindTexImageEXT", // 4
-    "glXBindVideoCaptureDeviceNV", // 5
-    "glXBindVideoDeviceNV", // 6
-    "glXBindVideoImageNV", // 7
-    "glXBlitContextFramebufferAMD", // 8
-    "glXChannelRectSGIX", // 9
-    "glXChannelRectSyncSGIX", // 10
-    "glXChooseFBConfig", // 11
-    "glXChooseFBConfigSGIX", // 12
-    "glXChooseVisual", // 13
-    "glXCopyBufferSubDataNV", // 14
-    "glXCopyContext", // 15
-    "glXCopyImageSubDataNV", // 16
-    "glXCopySubBufferMESA", // 17
-    "glXCreateAssociatedContextAMD", // 18
-    "glXCreateAssociatedContextAttribsAMD", // 19
-    "glXCreateContext", // 20
-    "glXCreateContextAttribsARB", // 21
-    "glXCreateContextWithConfigSGIX", // 22
-    "glXCreateGLXPbufferSGIX", // 23
-    "glXCreateGLXPixmap", // 24
-    "glXCreateGLXPixmapMESA", // 25
-    "glXCreateGLXPixmapWithConfigSGIX", // 26
-    "glXCreateNewContext", // 27
-    "glXCreatePbuffer", // 28
-    "glXCreatePixmap", // 29
-    "glXCreateWindow", // 30
-    "glXCushionSGI", // 31
-    "glXDelayBeforeSwapNV", // 32
-    "glXDeleteAssociatedContextAMD", // 33
-    "glXDestroyContext", // 34
-    "glXDestroyGLXPbufferSGIX", // 35
-    "glXDestroyGLXPixmap", // 36
-    "glXDestroyHyperpipeConfigSGIX", // 37
-    "glXDestroyPbuffer", // 38
-    "glXDestroyPixmap", // 39
-    "glXDestroyWindow", // 40
-    "glXEnumerateVideoCaptureDevicesNV", // 41
-    "glXEnumerateVideoDevicesNV", // 42
-    "glXFreeContextEXT", // 43
-    "glXGetAGPOffsetMESA", // 44
-    "glXGetClientString", // 45
-    "glXGetConfig", // 46
-    "glXGetContextGPUIDAMD", // 47
-    "glXGetContextIDEXT", // 48
-    "glXGetCurrentAssociatedContextAMD", // 49
-    "glXGetCurrentContext", // 50
-    "glXGetCurrentDisplay", // 51
-    "glXGetCurrentDisplayEXT", // 52
-    "glXGetCurrentDrawable", // 53
-    "glXGetCurrentReadDrawable", // 54
-    "glXGetCurrentReadDrawableSGI", // 55
-    "glXGetFBConfigAttrib", // 56
-    "glXGetFBConfigAttribSGIX", // 57
-    "glXGetFBConfigFromVisualSGIX", // 58
-    "glXGetFBConfigs", // 59
-    "glXGetGPUIDsAMD", // 60
-    "glXGetGPUInfoAMD", // 61
-    "glXGetMscRateOML", // 62
-    "glXGetProcAddress", // 63
-    "glXGetProcAddressARB", // 64
-    "glXGetSelectedEvent", // 65
-    "glXGetSelectedEventSGIX", // 66
-    "glXGetSwapIntervalMESA", // 67
-    "glXGetSyncValuesOML", // 68
-    "glXGetTransparentIndexSUN", // 69
-    "glXGetVideoDeviceNV", // 70
-    "glXGetVideoInfoNV", // 71
-    "glXGetVideoSyncSGI", // 72
-    "glXGetVisualFromFBConfig", // 73
-    "glXGetVisualFromFBConfigSGIX", // 74
-    "glXHyperpipeAttribSGIX", // 75
-    "glXHyperpipeConfigSGIX", // 76
-    "glXImportContextEXT", // 77
-    "glXIsDirect", // 78
-    "glXJoinSwapGroupNV", // 79
-    "glXJoinSwapGroupSGIX", // 80
-    "glXLockVideoCaptureDeviceNV", // 81
-    "glXMakeAssociatedContextCurrentAMD", // 82
-    "glXMakeContextCurrent", // 83
-    "glXMakeCurrent", // 84
-    "glXMakeCurrentReadSGI", // 85
-    "glXNamedCopyBufferSubDataNV", // 86
-    "glXQueryChannelDeltasSGIX", // 87
-    "glXQueryChannelRectSGIX", // 88
-    "glXQueryContext", // 89
-    "glXQueryContextInfoEXT", // 90
-    "glXQueryCurrentRendererIntegerMESA", // 91
-    "glXQueryCurrentRendererStringMESA", // 92
-    "glXQueryDrawable", // 93
-    "glXQueryExtension", // 94
-    "glXQueryExtensionsString", // 95
-    "glXQueryFrameCountNV", // 96
-    "glXQueryGLXPbufferSGIX", // 97
-    "glXQueryHyperpipeAttribSGIX", // 98
-    "glXQueryHyperpipeBestAttribSGIX", // 99
-    "glXQueryHyperpipeConfigSGIX", // 100
-    "glXQueryHyperpipeNetworkSGIX", // 101
-    "glXQueryMaxSwapBarriersSGIX", // 102
-    "glXQueryMaxSwapGroupsNV", // 103
-    "glXQueryRendererIntegerMESA", // 104
-    "glXQueryRendererStringMESA", // 105
-    "glXQueryServerString", // 106
-    "glXQuerySwapGroupNV", // 107
-    "glXQueryVersion", // 108
-    "glXQueryVideoCaptureDeviceNV", // 109
-    "glXReleaseBuffersMESA", // 110
-    "glXReleaseTexImageEXT", // 111
-    "glXReleaseVideoCaptureDeviceNV", // 112
-    "glXReleaseVideoDeviceNV", // 113
-    "glXReleaseVideoImageNV", // 114
-    "glXResetFrameCountNV", // 115
-    "glXSelectEvent", // 116
-    "glXSelectEventSGIX", // 117
-    "glXSendPbufferToVideoNV", // 118
-    "glXSet3DfxModeMESA", // 119
-    "glXSwapBuffers", // 120
-    "glXSwapBuffersMscOML", // 121
-    "glXSwapIntervalEXT", // 122
-    "glXSwapIntervalMESA", // 123
-    "glXSwapIntervalSGI", // 124
-    "glXUseXFont", // 125
-    "glXWaitForMscOML", // 126
-    "glXWaitForSbcOML", // 127
-    "glXWaitGL", // 128
-    "glXWaitVideoSyncSGI", // 129
-    "glXWaitX" // 130
+static const char *GLAD_GLX_fn_names[] = {
+    /*    0 */ "glXBindChannelToWindowSGIX",
+    /*    1 */ "glXBindHyperpipeSGIX",
+    /*    2 */ "glXBindSwapBarrierNV",
+    /*    3 */ "glXBindSwapBarrierSGIX",
+    /*    4 */ "glXBindTexImageEXT",
+    /*    5 */ "glXBindVideoCaptureDeviceNV",
+    /*    6 */ "glXBindVideoDeviceNV",
+    /*    7 */ "glXBindVideoImageNV",
+    /*    8 */ "glXBlitContextFramebufferAMD",
+    /*    9 */ "glXChannelRectSGIX",
+    /*   10 */ "glXChannelRectSyncSGIX",
+    /*   11 */ "glXChooseFBConfig",
+    /*   12 */ "glXChooseFBConfigSGIX",
+    /*   13 */ "glXChooseVisual",
+    /*   14 */ "glXCopyBufferSubDataNV",
+    /*   15 */ "glXCopyContext",
+    /*   16 */ "glXCopyImageSubDataNV",
+    /*   17 */ "glXCopySubBufferMESA",
+    /*   18 */ "glXCreateAssociatedContextAMD",
+    /*   19 */ "glXCreateAssociatedContextAttribsAMD",
+    /*   20 */ "glXCreateContext",
+    /*   21 */ "glXCreateContextAttribsARB",
+    /*   22 */ "glXCreateContextWithConfigSGIX",
+    /*   23 */ "glXCreateGLXPbufferSGIX",
+    /*   24 */ "glXCreateGLXPixmap",
+    /*   25 */ "glXCreateGLXPixmapMESA",
+    /*   26 */ "glXCreateGLXPixmapWithConfigSGIX",
+    /*   27 */ "glXCreateNewContext",
+    /*   28 */ "glXCreatePbuffer",
+    /*   29 */ "glXCreatePixmap",
+    /*   30 */ "glXCreateWindow",
+    /*   31 */ "glXCushionSGI",
+    /*   32 */ "glXDelayBeforeSwapNV",
+    /*   33 */ "glXDeleteAssociatedContextAMD",
+    /*   34 */ "glXDestroyContext",
+    /*   35 */ "glXDestroyGLXPbufferSGIX",
+    /*   36 */ "glXDestroyGLXPixmap",
+    /*   37 */ "glXDestroyHyperpipeConfigSGIX",
+    /*   38 */ "glXDestroyPbuffer",
+    /*   39 */ "glXDestroyPixmap",
+    /*   40 */ "glXDestroyWindow",
+    /*   41 */ "glXEnumerateVideoCaptureDevicesNV",
+    /*   42 */ "glXEnumerateVideoDevicesNV",
+    /*   43 */ "glXFreeContextEXT",
+    /*   44 */ "glXGetAGPOffsetMESA",
+    /*   45 */ "glXGetClientString",
+    /*   46 */ "glXGetConfig",
+    /*   47 */ "glXGetContextGPUIDAMD",
+    /*   48 */ "glXGetContextIDEXT",
+    /*   49 */ "glXGetCurrentAssociatedContextAMD",
+    /*   50 */ "glXGetCurrentContext",
+    /*   51 */ "glXGetCurrentDisplay",
+    /*   52 */ "glXGetCurrentDisplayEXT",
+    /*   53 */ "glXGetCurrentDrawable",
+    /*   54 */ "glXGetCurrentReadDrawable",
+    /*   55 */ "glXGetCurrentReadDrawableSGI",
+    /*   56 */ "glXGetFBConfigAttrib",
+    /*   57 */ "glXGetFBConfigAttribSGIX",
+    /*   58 */ "glXGetFBConfigFromVisualSGIX",
+    /*   59 */ "glXGetFBConfigs",
+    /*   60 */ "glXGetGPUIDsAMD",
+    /*   61 */ "glXGetGPUInfoAMD",
+    /*   62 */ "glXGetMscRateOML",
+    /*   63 */ "glXGetProcAddress",
+    /*   64 */ "glXGetProcAddressARB",
+    /*   65 */ "glXGetSelectedEvent",
+    /*   66 */ "glXGetSelectedEventSGIX",
+    /*   67 */ "glXGetSwapIntervalMESA",
+    /*   68 */ "glXGetSyncValuesOML",
+    /*   69 */ "glXGetTransparentIndexSUN",
+    /*   70 */ "glXGetVideoDeviceNV",
+    /*   71 */ "glXGetVideoInfoNV",
+    /*   72 */ "glXGetVideoSyncSGI",
+    /*   73 */ "glXGetVisualFromFBConfig",
+    /*   74 */ "glXGetVisualFromFBConfigSGIX",
+    /*   75 */ "glXHyperpipeAttribSGIX",
+    /*   76 */ "glXHyperpipeConfigSGIX",
+    /*   77 */ "glXImportContextEXT",
+    /*   78 */ "glXIsDirect",
+    /*   79 */ "glXJoinSwapGroupNV",
+    /*   80 */ "glXJoinSwapGroupSGIX",
+    /*   81 */ "glXLockVideoCaptureDeviceNV",
+    /*   82 */ "glXMakeAssociatedContextCurrentAMD",
+    /*   83 */ "glXMakeContextCurrent",
+    /*   84 */ "glXMakeCurrent",
+    /*   85 */ "glXMakeCurrentReadSGI",
+    /*   86 */ "glXNamedCopyBufferSubDataNV",
+    /*   87 */ "glXQueryChannelDeltasSGIX",
+    /*   88 */ "glXQueryChannelRectSGIX",
+    /*   89 */ "glXQueryContext",
+    /*   90 */ "glXQueryContextInfoEXT",
+    /*   91 */ "glXQueryCurrentRendererIntegerMESA",
+    /*   92 */ "glXQueryCurrentRendererStringMESA",
+    /*   93 */ "glXQueryDrawable",
+    /*   94 */ "glXQueryExtension",
+    /*   95 */ "glXQueryExtensionsString",
+    /*   96 */ "glXQueryFrameCountNV",
+    /*   97 */ "glXQueryGLXPbufferSGIX",
+    /*   98 */ "glXQueryHyperpipeAttribSGIX",
+    /*   99 */ "glXQueryHyperpipeBestAttribSGIX",
+    /*  100 */ "glXQueryHyperpipeConfigSGIX",
+    /*  101 */ "glXQueryHyperpipeNetworkSGIX",
+    /*  102 */ "glXQueryMaxSwapBarriersSGIX",
+    /*  103 */ "glXQueryMaxSwapGroupsNV",
+    /*  104 */ "glXQueryRendererIntegerMESA",
+    /*  105 */ "glXQueryRendererStringMESA",
+    /*  106 */ "glXQueryServerString",
+    /*  107 */ "glXQuerySwapGroupNV",
+    /*  108 */ "glXQueryVersion",
+    /*  109 */ "glXQueryVideoCaptureDeviceNV",
+    /*  110 */ "glXReleaseBuffersMESA",
+    /*  111 */ "glXReleaseTexImageEXT",
+    /*  112 */ "glXReleaseVideoCaptureDeviceNV",
+    /*  113 */ "glXReleaseVideoDeviceNV",
+    /*  114 */ "glXReleaseVideoImageNV",
+    /*  115 */ "glXResetFrameCountNV",
+    /*  116 */ "glXSelectEvent",
+    /*  117 */ "glXSelectEventSGIX",
+    /*  118 */ "glXSendPbufferToVideoNV",
+    /*  119 */ "glXSet3DfxModeMESA",
+    /*  120 */ "glXSwapBuffers",
+    /*  121 */ "glXSwapBuffersMscOML",
+    /*  122 */ "glXSwapIntervalEXT",
+    /*  123 */ "glXSwapIntervalMESA",
+    /*  124 */ "glXSwapIntervalSGI",
+    /*  125 */ "glXUseXFont",
+    /*  126 */ "glXWaitForMscOML",
+    /*  127 */ "glXWaitForSbcOML",
+    /*  128 */ "glXWaitGL",
+    /*  129 */ "glXWaitVideoSyncSGI",
+    /*  130 */ "glXWaitX"
 };
 
-static const char *glad_ext_names[] = {
-    "GLX_3DFX_multisample", // 0
-    "GLX_AMD_gpu_association", // 1
-    "GLX_ARB_context_flush_control", // 2
-    "GLX_ARB_create_context", // 3
-    "GLX_ARB_create_context_no_error", // 4
-    "GLX_ARB_create_context_profile", // 5
-    "GLX_ARB_create_context_robustness", // 6
-    "GLX_ARB_fbconfig_float", // 7
-    "GLX_ARB_framebuffer_sRGB", // 8
-    "GLX_ARB_get_proc_address", // 9
-    "GLX_ARB_multisample", // 10
-    "GLX_ARB_robustness_application_isolation", // 11
-    "GLX_ARB_robustness_share_group_isolation", // 12
-    "GLX_ARB_vertex_buffer_object", // 13
-    "GLX_EXT_buffer_age", // 14
-    "GLX_EXT_context_priority", // 15
-    "GLX_EXT_create_context_es2_profile", // 16
-    "GLX_EXT_create_context_es_profile", // 17
-    "GLX_EXT_fbconfig_packed_float", // 18
-    "GLX_EXT_framebuffer_sRGB", // 19
-    "GLX_EXT_get_drawable_type", // 20
-    "GLX_EXT_import_context", // 21
-    "GLX_EXT_libglvnd", // 22
-    "GLX_EXT_no_config_context", // 23
-    "GLX_EXT_stereo_tree", // 24
-    "GLX_EXT_swap_control", // 25
-    "GLX_EXT_swap_control_tear", // 26
-    "GLX_EXT_texture_from_pixmap", // 27
-    "GLX_EXT_visual_info", // 28
-    "GLX_EXT_visual_rating", // 29
-    "GLX_INTEL_swap_event", // 30
-    "GLX_MESA_agp_offset", // 31
-    "GLX_MESA_copy_sub_buffer", // 32
-    "GLX_MESA_pixmap_colormap", // 33
-    "GLX_MESA_query_renderer", // 34
-    "GLX_MESA_release_buffers", // 35
-    "GLX_MESA_set_3dfx_mode", // 36
-    "GLX_MESA_swap_control", // 37
-    "GLX_NV_copy_buffer", // 38
-    "GLX_NV_copy_image", // 39
-    "GLX_NV_delay_before_swap", // 40
-    "GLX_NV_float_buffer", // 41
-    "GLX_NV_multigpu_context", // 42
-    "GLX_NV_multisample_coverage", // 43
-    "GLX_NV_present_video", // 44
-    "GLX_NV_robustness_video_memory_purge", // 45
-    "GLX_NV_swap_group", // 46
-    "GLX_NV_video_capture", // 47
-    "GLX_NV_video_out", // 48
-    "GLX_OML_swap_method", // 49
-    "GLX_OML_sync_control", // 50
-    "GLX_SGIS_blended_overlay", // 51
-    "GLX_SGIS_multisample", // 52
-    "GLX_SGIS_shared_multisample", // 53
-    "GLX_SGIX_fbconfig", // 54
-    "GLX_SGIX_hyperpipe", // 55
-    "GLX_SGIX_pbuffer", // 56
-    "GLX_SGIX_swap_barrier", // 57
-    "GLX_SGIX_swap_group", // 58
-    "GLX_SGIX_video_resize", // 59
-    "GLX_SGIX_visual_select_group", // 60
-    "GLX_SGI_cushion", // 61
-    "GLX_SGI_make_current_read", // 62
-    "GLX_SGI_swap_control", // 63
-    "GLX_SGI_video_sync", // 64
-    "GLX_SUN_get_transparent_index" // 65
+static const char *GLAD_GLX_ext_names[] = {
+    /*    0 */ "GLX_3DFX_multisample",
+    /*    1 */ "GLX_AMD_gpu_association",
+    /*    2 */ "GLX_ARB_context_flush_control",
+    /*    3 */ "GLX_ARB_create_context",
+    /*    4 */ "GLX_ARB_create_context_no_error",
+    /*    5 */ "GLX_ARB_create_context_profile",
+    /*    6 */ "GLX_ARB_create_context_robustness",
+    /*    7 */ "GLX_ARB_fbconfig_float",
+    /*    8 */ "GLX_ARB_framebuffer_sRGB",
+    /*    9 */ "GLX_ARB_get_proc_address",
+    /*   10 */ "GLX_ARB_multisample",
+    /*   11 */ "GLX_ARB_robustness_application_isolation",
+    /*   12 */ "GLX_ARB_robustness_share_group_isolation",
+    /*   13 */ "GLX_ARB_vertex_buffer_object",
+    /*   14 */ "GLX_EXT_buffer_age",
+    /*   15 */ "GLX_EXT_context_priority",
+    /*   16 */ "GLX_EXT_create_context_es2_profile",
+    /*   17 */ "GLX_EXT_create_context_es_profile",
+    /*   18 */ "GLX_EXT_fbconfig_packed_float",
+    /*   19 */ "GLX_EXT_framebuffer_sRGB",
+    /*   20 */ "GLX_EXT_get_drawable_type",
+    /*   21 */ "GLX_EXT_import_context",
+    /*   22 */ "GLX_EXT_libglvnd",
+    /*   23 */ "GLX_EXT_no_config_context",
+    /*   24 */ "GLX_EXT_stereo_tree",
+    /*   25 */ "GLX_EXT_swap_control",
+    /*   26 */ "GLX_EXT_swap_control_tear",
+    /*   27 */ "GLX_EXT_texture_from_pixmap",
+    /*   28 */ "GLX_EXT_visual_info",
+    /*   29 */ "GLX_EXT_visual_rating",
+    /*   30 */ "GLX_INTEL_swap_event",
+    /*   31 */ "GLX_MESA_agp_offset",
+    /*   32 */ "GLX_MESA_copy_sub_buffer",
+    /*   33 */ "GLX_MESA_pixmap_colormap",
+    /*   34 */ "GLX_MESA_query_renderer",
+    /*   35 */ "GLX_MESA_release_buffers",
+    /*   36 */ "GLX_MESA_set_3dfx_mode",
+    /*   37 */ "GLX_MESA_swap_control",
+    /*   38 */ "GLX_NV_copy_buffer",
+    /*   39 */ "GLX_NV_copy_image",
+    /*   40 */ "GLX_NV_delay_before_swap",
+    /*   41 */ "GLX_NV_float_buffer",
+    /*   42 */ "GLX_NV_multigpu_context",
+    /*   43 */ "GLX_NV_multisample_coverage",
+    /*   44 */ "GLX_NV_present_video",
+    /*   45 */ "GLX_NV_robustness_video_memory_purge",
+    /*   46 */ "GLX_NV_swap_group",
+    /*   47 */ "GLX_NV_video_capture",
+    /*   48 */ "GLX_NV_video_out",
+    /*   49 */ "GLX_OML_swap_method",
+    /*   50 */ "GLX_OML_sync_control",
+    /*   51 */ "GLX_SGIS_blended_overlay",
+    /*   52 */ "GLX_SGIS_multisample",
+    /*   53 */ "GLX_SGIS_shared_multisample",
+    /*   54 */ "GLX_SGIX_fbconfig",
+    /*   55 */ "GLX_SGIX_hyperpipe",
+    /*   56 */ "GLX_SGIX_pbuffer",
+    /*   57 */ "GLX_SGIX_swap_barrier",
+    /*   58 */ "GLX_SGIX_swap_group",
+    /*   59 */ "GLX_SGIX_video_resize",
+    /*   60 */ "GLX_SGIX_visual_select_group",
+    /*   61 */ "GLX_SGI_cushion",
+    /*   62 */ "GLX_SGI_make_current_read",
+    /*   63 */ "GLX_SGI_swap_control",
+    /*   64 */ "GLX_SGI_video_sync",
+    /*   65 */ "GLX_SUN_get_transparent_index"
 };
+
 
 #ifdef __cplusplus
 GladGLXContext glad_glx_context = {};
@@ -240,521 +252,545 @@ GladGLXContext glad_glx_context = { 0 };
 #endif
 
 static void glad_glx_load_GLX_VERSION_1_0(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_0) return;
     static const uint16_t s_pfnIdx[] = {
-           13, // glXChooseVisual
-           15, // glXCopyContext
-           20, // glXCreateContext
-           24, // glXCreateGLXPixmap
-           34, // glXDestroyContext
-           36, // glXDestroyGLXPixmap
-           46, // glXGetConfig
-           50, // glXGetCurrentContext
-           53, // glXGetCurrentDrawable
-           78, // glXIsDirect
-           84, // glXMakeCurrent
-           94, // glXQueryExtension
-          108, // glXQueryVersion
-          120, // glXSwapBuffers
-          125, // glXUseXFont
-          128, // glXWaitGL
-          130  // glXWaitX
+          13, /* glXChooseVisual */
+          15, /* glXCopyContext */
+          20, /* glXCreateContext */
+          24, /* glXCreateGLXPixmap */
+          34, /* glXDestroyContext */
+          36, /* glXDestroyGLXPixmap */
+          46, /* glXGetConfig */
+          50, /* glXGetCurrentContext */
+          53, /* glXGetCurrentDrawable */
+          78, /* glXIsDirect */
+          84, /* glXMakeCurrent */
+          94, /* glXQueryExtension */
+         108, /* glXQueryVersion */
+         120, /* glXSwapBuffers */
+         125, /* glXUseXFont */
+         128, /* glXWaitGL */
+         130  /* glXWaitX */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_0) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_VERSION_1_1(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_1) return;
     static const uint16_t s_pfnIdx[] = {
-           45, // glXGetClientString
-           95, // glXQueryExtensionsString
-          106  // glXQueryServerString
+          45, /* glXGetClientString */
+          95, /* glXQueryExtensionsString */
+         106  /* glXQueryServerString */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_1) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_VERSION_1_2(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_2) return;
     static const uint16_t s_pfnIdx[] = {
-           51  // glXGetCurrentDisplay
+          51  /* glXGetCurrentDisplay */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_2) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_VERSION_1_3(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_3) return;
     static const uint16_t s_pfnIdx[] = {
-           11, // glXChooseFBConfig
-           27, // glXCreateNewContext
-           28, // glXCreatePbuffer
-           29, // glXCreatePixmap
-           30, // glXCreateWindow
-           38, // glXDestroyPbuffer
-           39, // glXDestroyPixmap
-           40, // glXDestroyWindow
-           54, // glXGetCurrentReadDrawable
-           56, // glXGetFBConfigAttrib
-           59, // glXGetFBConfigs
-           65, // glXGetSelectedEvent
-           73, // glXGetVisualFromFBConfig
-           83, // glXMakeContextCurrent
-           89, // glXQueryContext
-           93, // glXQueryDrawable
-          116  // glXSelectEvent
+          11, /* glXChooseFBConfig */
+          27, /* glXCreateNewContext */
+          28, /* glXCreatePbuffer */
+          29, /* glXCreatePixmap */
+          30, /* glXCreateWindow */
+          38, /* glXDestroyPbuffer */
+          39, /* glXDestroyPixmap */
+          40, /* glXDestroyWindow */
+          54, /* glXGetCurrentReadDrawable */
+          56, /* glXGetFBConfigAttrib */
+          59, /* glXGetFBConfigs */
+          65, /* glXGetSelectedEvent */
+          73, /* glXGetVisualFromFBConfig */
+          83, /* glXMakeContextCurrent */
+          89, /* glXQueryContext */
+          93, /* glXQueryDrawable */
+         116  /* glXSelectEvent */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_3) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_VERSION_1_4(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->VERSION_1_4) return;
     static const uint16_t s_pfnIdx[] = {
-           63  // glXGetProcAddress
+          63  /* glXGetProcAddress */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->VERSION_1_4) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_AMD_gpu_association(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->AMD_gpu_association) return;
     static const uint16_t s_pfnIdx[] = {
-            8, // glXBlitContextFramebufferAMD
-           18, // glXCreateAssociatedContextAMD
-           19, // glXCreateAssociatedContextAttribsAMD
-           33, // glXDeleteAssociatedContextAMD
-           47, // glXGetContextGPUIDAMD
-           49, // glXGetCurrentAssociatedContextAMD
-           60, // glXGetGPUIDsAMD
-           61, // glXGetGPUInfoAMD
-           82  // glXMakeAssociatedContextCurrentAMD
+           8, /* glXBlitContextFramebufferAMD */
+          18, /* glXCreateAssociatedContextAMD */
+          19, /* glXCreateAssociatedContextAttribsAMD */
+          33, /* glXDeleteAssociatedContextAMD */
+          47, /* glXGetContextGPUIDAMD */
+          49, /* glXGetCurrentAssociatedContextAMD */
+          60, /* glXGetGPUIDsAMD */
+          61, /* glXGetGPUInfoAMD */
+          82  /* glXMakeAssociatedContextCurrentAMD */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->AMD_gpu_association) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_ARB_create_context(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ARB_create_context) return;
     static const uint16_t s_pfnIdx[] = {
-           21  // glXCreateContextAttribsARB
+          21  /* glXCreateContextAttribsARB */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ARB_create_context) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_ARB_get_proc_address(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->ARB_get_proc_address) return;
     static const uint16_t s_pfnIdx[] = {
-           64  // glXGetProcAddressARB
+          64  /* glXGetProcAddressARB */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->ARB_get_proc_address) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_EXT_import_context(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_import_context) return;
     static const uint16_t s_pfnIdx[] = {
-           43, // glXFreeContextEXT
-           48, // glXGetContextIDEXT
-           52, // glXGetCurrentDisplayEXT
-           77, // glXImportContextEXT
-           90  // glXQueryContextInfoEXT
+          43, /* glXFreeContextEXT */
+          48, /* glXGetContextIDEXT */
+          52, /* glXGetCurrentDisplayEXT */
+          77, /* glXImportContextEXT */
+          90  /* glXQueryContextInfoEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_import_context) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_EXT_swap_control(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_swap_control) return;
     static const uint16_t s_pfnIdx[] = {
-          122  // glXSwapIntervalEXT
+         122  /* glXSwapIntervalEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_swap_control) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_EXT_texture_from_pixmap(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->EXT_texture_from_pixmap) return;
     static const uint16_t s_pfnIdx[] = {
-            4, // glXBindTexImageEXT
-          111  // glXReleaseTexImageEXT
+           4, /* glXBindTexImageEXT */
+         111  /* glXReleaseTexImageEXT */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->EXT_texture_from_pixmap) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_MESA_agp_offset(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_agp_offset) return;
     static const uint16_t s_pfnIdx[] = {
-           44  // glXGetAGPOffsetMESA
+          44  /* glXGetAGPOffsetMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_agp_offset) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_MESA_copy_sub_buffer(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_copy_sub_buffer) return;
     static const uint16_t s_pfnIdx[] = {
-           17  // glXCopySubBufferMESA
+          17  /* glXCopySubBufferMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_copy_sub_buffer) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_MESA_pixmap_colormap(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_pixmap_colormap) return;
     static const uint16_t s_pfnIdx[] = {
-           25  // glXCreateGLXPixmapMESA
+          25  /* glXCreateGLXPixmapMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_pixmap_colormap) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_MESA_query_renderer(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_query_renderer) return;
     static const uint16_t s_pfnIdx[] = {
-           91, // glXQueryCurrentRendererIntegerMESA
-           92, // glXQueryCurrentRendererStringMESA
-          104, // glXQueryRendererIntegerMESA
-          105  // glXQueryRendererStringMESA
+          91, /* glXQueryCurrentRendererIntegerMESA */
+          92, /* glXQueryCurrentRendererStringMESA */
+         104, /* glXQueryRendererIntegerMESA */
+         105  /* glXQueryRendererStringMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_query_renderer) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_MESA_release_buffers(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_release_buffers) return;
     static const uint16_t s_pfnIdx[] = {
-          110  // glXReleaseBuffersMESA
+         110  /* glXReleaseBuffersMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_release_buffers) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_MESA_set_3dfx_mode(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_set_3dfx_mode) return;
     static const uint16_t s_pfnIdx[] = {
-          119  // glXSet3DfxModeMESA
+         119  /* glXSet3DfxModeMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_set_3dfx_mode) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_MESA_swap_control(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->MESA_swap_control) return;
     static const uint16_t s_pfnIdx[] = {
-           67, // glXGetSwapIntervalMESA
-          123  // glXSwapIntervalMESA
+          67, /* glXGetSwapIntervalMESA */
+         123  /* glXSwapIntervalMESA */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->MESA_swap_control) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_NV_copy_buffer(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_copy_buffer) return;
     static const uint16_t s_pfnIdx[] = {
-           14, // glXCopyBufferSubDataNV
-           86  // glXNamedCopyBufferSubDataNV
+          14, /* glXCopyBufferSubDataNV */
+          86  /* glXNamedCopyBufferSubDataNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_copy_buffer) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_NV_copy_image(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_copy_image) return;
     static const uint16_t s_pfnIdx[] = {
-           16  // glXCopyImageSubDataNV
+          16  /* glXCopyImageSubDataNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_copy_image) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_NV_delay_before_swap(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_delay_before_swap) return;
     static const uint16_t s_pfnIdx[] = {
-           32  // glXDelayBeforeSwapNV
+          32  /* glXDelayBeforeSwapNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_delay_before_swap) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_NV_present_video(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_present_video) return;
     static const uint16_t s_pfnIdx[] = {
-            6, // glXBindVideoDeviceNV
-           42  // glXEnumerateVideoDevicesNV
+           6, /* glXBindVideoDeviceNV */
+          42  /* glXEnumerateVideoDevicesNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_present_video) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_NV_swap_group(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_swap_group) return;
     static const uint16_t s_pfnIdx[] = {
-            2, // glXBindSwapBarrierNV
-           79, // glXJoinSwapGroupNV
-           96, // glXQueryFrameCountNV
-          103, // glXQueryMaxSwapGroupsNV
-          107, // glXQuerySwapGroupNV
-          115  // glXResetFrameCountNV
+           2, /* glXBindSwapBarrierNV */
+          79, /* glXJoinSwapGroupNV */
+          96, /* glXQueryFrameCountNV */
+         103, /* glXQueryMaxSwapGroupsNV */
+         107, /* glXQuerySwapGroupNV */
+         115  /* glXResetFrameCountNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_swap_group) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_NV_video_capture(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_video_capture) return;
     static const uint16_t s_pfnIdx[] = {
-            5, // glXBindVideoCaptureDeviceNV
-           41, // glXEnumerateVideoCaptureDevicesNV
-           81, // glXLockVideoCaptureDeviceNV
-          109, // glXQueryVideoCaptureDeviceNV
-          112  // glXReleaseVideoCaptureDeviceNV
+           5, /* glXBindVideoCaptureDeviceNV */
+          41, /* glXEnumerateVideoCaptureDevicesNV */
+          81, /* glXLockVideoCaptureDeviceNV */
+         109, /* glXQueryVideoCaptureDeviceNV */
+         112  /* glXReleaseVideoCaptureDeviceNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_video_capture) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_NV_video_out(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->NV_video_out) return;
     static const uint16_t s_pfnIdx[] = {
-            7, // glXBindVideoImageNV
-           70, // glXGetVideoDeviceNV
-           71, // glXGetVideoInfoNV
-          113, // glXReleaseVideoDeviceNV
-          114, // glXReleaseVideoImageNV
-          118  // glXSendPbufferToVideoNV
+           7, /* glXBindVideoImageNV */
+          70, /* glXGetVideoDeviceNV */
+          71, /* glXGetVideoInfoNV */
+         113, /* glXReleaseVideoDeviceNV */
+         114, /* glXReleaseVideoImageNV */
+         118  /* glXSendPbufferToVideoNV */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->NV_video_out) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_OML_sync_control(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->OML_sync_control) return;
     static const uint16_t s_pfnIdx[] = {
-           62, // glXGetMscRateOML
-           68, // glXGetSyncValuesOML
-          121, // glXSwapBuffersMscOML
-          126, // glXWaitForMscOML
-          127  // glXWaitForSbcOML
+          62, /* glXGetMscRateOML */
+          68, /* glXGetSyncValuesOML */
+         121, /* glXSwapBuffersMscOML */
+         126, /* glXWaitForMscOML */
+         127  /* glXWaitForSbcOML */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->OML_sync_control) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGIX_fbconfig(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGIX_fbconfig) return;
     static const uint16_t s_pfnIdx[] = {
-           12, // glXChooseFBConfigSGIX
-           22, // glXCreateContextWithConfigSGIX
-           26, // glXCreateGLXPixmapWithConfigSGIX
-           57, // glXGetFBConfigAttribSGIX
-           58, // glXGetFBConfigFromVisualSGIX
-           74  // glXGetVisualFromFBConfigSGIX
+          12, /* glXChooseFBConfigSGIX */
+          22, /* glXCreateContextWithConfigSGIX */
+          26, /* glXCreateGLXPixmapWithConfigSGIX */
+          57, /* glXGetFBConfigAttribSGIX */
+          58, /* glXGetFBConfigFromVisualSGIX */
+          74  /* glXGetVisualFromFBConfigSGIX */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGIX_fbconfig) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGIX_hyperpipe(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGIX_hyperpipe) return;
     static const uint16_t s_pfnIdx[] = {
-            1, // glXBindHyperpipeSGIX
-           37, // glXDestroyHyperpipeConfigSGIX
-           75, // glXHyperpipeAttribSGIX
-           76, // glXHyperpipeConfigSGIX
-           98, // glXQueryHyperpipeAttribSGIX
-           99, // glXQueryHyperpipeBestAttribSGIX
-          100, // glXQueryHyperpipeConfigSGIX
-          101  // glXQueryHyperpipeNetworkSGIX
+           1, /* glXBindHyperpipeSGIX */
+          37, /* glXDestroyHyperpipeConfigSGIX */
+          75, /* glXHyperpipeAttribSGIX */
+          76, /* glXHyperpipeConfigSGIX */
+          98, /* glXQueryHyperpipeAttribSGIX */
+          99, /* glXQueryHyperpipeBestAttribSGIX */
+         100, /* glXQueryHyperpipeConfigSGIX */
+         101  /* glXQueryHyperpipeNetworkSGIX */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGIX_hyperpipe) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGIX_pbuffer(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGIX_pbuffer) return;
     static const uint16_t s_pfnIdx[] = {
-           23, // glXCreateGLXPbufferSGIX
-           35, // glXDestroyGLXPbufferSGIX
-           66, // glXGetSelectedEventSGIX
-           97, // glXQueryGLXPbufferSGIX
-          117  // glXSelectEventSGIX
+          23, /* glXCreateGLXPbufferSGIX */
+          35, /* glXDestroyGLXPbufferSGIX */
+          66, /* glXGetSelectedEventSGIX */
+          97, /* glXQueryGLXPbufferSGIX */
+         117  /* glXSelectEventSGIX */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGIX_pbuffer) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGIX_swap_barrier(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGIX_swap_barrier) return;
     static const uint16_t s_pfnIdx[] = {
-            3, // glXBindSwapBarrierSGIX
-          102  // glXQueryMaxSwapBarriersSGIX
+           3, /* glXBindSwapBarrierSGIX */
+         102  /* glXQueryMaxSwapBarriersSGIX */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGIX_swap_barrier) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGIX_swap_group(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGIX_swap_group) return;
     static const uint16_t s_pfnIdx[] = {
-           80  // glXJoinSwapGroupSGIX
+          80  /* glXJoinSwapGroupSGIX */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGIX_swap_group) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGIX_video_resize(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGIX_video_resize) return;
     static const uint16_t s_pfnIdx[] = {
-            0, // glXBindChannelToWindowSGIX
-            9, // glXChannelRectSGIX
-           10, // glXChannelRectSyncSGIX
-           87, // glXQueryChannelDeltasSGIX
-           88  // glXQueryChannelRectSGIX
+           0, /* glXBindChannelToWindowSGIX */
+           9, /* glXChannelRectSGIX */
+          10, /* glXChannelRectSyncSGIX */
+          87, /* glXQueryChannelDeltasSGIX */
+          88  /* glXQueryChannelRectSGIX */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGIX_video_resize) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGI_cushion(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGI_cushion) return;
     static const uint16_t s_pfnIdx[] = {
-           31  // glXCushionSGI
+          31  /* glXCushionSGI */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGI_cushion) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGI_make_current_read(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGI_make_current_read) return;
     static const uint16_t s_pfnIdx[] = {
-           55, // glXGetCurrentReadDrawableSGI
-           85  // glXMakeCurrentReadSGI
+          55, /* glXGetCurrentReadDrawableSGI */
+          85  /* glXMakeCurrentReadSGI */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGI_make_current_read) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGI_swap_control(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGI_swap_control) return;
     static const uint16_t s_pfnIdx[] = {
-          124  // glXSwapIntervalSGI
+         124  /* glXSwapIntervalSGI */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGI_swap_control) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SGI_video_sync(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SGI_video_sync) return;
     static const uint16_t s_pfnIdx[] = {
-           72, // glXGetVideoSyncSGI
-          129  // glXWaitVideoSyncSGI
+          72, /* glXGetVideoSyncSGI */
+         129  /* glXWaitVideoSyncSGI */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SGI_video_sync) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_load_GLX_SUN_get_transparent_index(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
-    if(!context->SUN_get_transparent_index) return;
     static const uint16_t s_pfnIdx[] = {
-           69  // glXGetTransparentIndexSUN
+          69  /* glXGetTransparentIndexSUN */
     };
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+    uint32_t i;
+    if(!context->SUN_get_transparent_index) return;
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, glad_pfn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 
 static void glad_glx_resolve_aliases(GladGLXContext *context) {
-    static const GladAliasPair_t s_aliases[] = {
-        { 0xFFFF, 0xFFFF }
-    };
-
-    void **pfnArray = context->pfnArray;
-
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(s_aliases) - 1; ++i) {
-        const GladAliasPair_t *pAlias = &s_aliases[i];
-        if (pfnArray[pAlias->first] == NULL && pfnArray[pAlias->second] != NULL) {
-            pfnArray[pAlias->first] = pfnArray[pAlias->second];
-        } else if (pfnArray[pAlias->second] == NULL && pfnArray[pAlias->first] != NULL) {
-            pfnArray[pAlias->second] = pfnArray[pAlias->first];
-        }
-    }
+    GLAD_UNUSED(context);
 }
 
 #ifdef GLX_VERSION_1_1
@@ -788,76 +824,8 @@ static GLADapiproc glad_glx_get_proc_from_userptr(void *userptr, const char* nam
 
 static int glad_glx_find_extensions(GladGLXContext *context, Display *display, int screen) {
 #ifdef GLX_VERSION_1_1
-    static uint16_t extIdx[] = {
-             0, // GLX_3DFX_multisample
-             1, // GLX_AMD_gpu_association
-             2, // GLX_ARB_context_flush_control
-             3, // GLX_ARB_create_context
-             4, // GLX_ARB_create_context_no_error
-             5, // GLX_ARB_create_context_profile
-             6, // GLX_ARB_create_context_robustness
-             7, // GLX_ARB_fbconfig_float
-             8, // GLX_ARB_framebuffer_sRGB
-             9, // GLX_ARB_get_proc_address
-            10, // GLX_ARB_multisample
-            11, // GLX_ARB_robustness_application_isolation
-            12, // GLX_ARB_robustness_share_group_isolation
-            13, // GLX_ARB_vertex_buffer_object
-            14, // GLX_EXT_buffer_age
-            15, // GLX_EXT_context_priority
-            16, // GLX_EXT_create_context_es2_profile
-            17, // GLX_EXT_create_context_es_profile
-            18, // GLX_EXT_fbconfig_packed_float
-            19, // GLX_EXT_framebuffer_sRGB
-            20, // GLX_EXT_get_drawable_type
-            21, // GLX_EXT_import_context
-            22, // GLX_EXT_libglvnd
-            23, // GLX_EXT_no_config_context
-            24, // GLX_EXT_stereo_tree
-            25, // GLX_EXT_swap_control
-            26, // GLX_EXT_swap_control_tear
-            27, // GLX_EXT_texture_from_pixmap
-            28, // GLX_EXT_visual_info
-            29, // GLX_EXT_visual_rating
-            30, // GLX_INTEL_swap_event
-            31, // GLX_MESA_agp_offset
-            32, // GLX_MESA_copy_sub_buffer
-            33, // GLX_MESA_pixmap_colormap
-            34, // GLX_MESA_query_renderer
-            35, // GLX_MESA_release_buffers
-            36, // GLX_MESA_set_3dfx_mode
-            37, // GLX_MESA_swap_control
-            38, // GLX_NV_copy_buffer
-            39, // GLX_NV_copy_image
-            40, // GLX_NV_delay_before_swap
-            41, // GLX_NV_float_buffer
-            42, // GLX_NV_multigpu_context
-            43, // GLX_NV_multisample_coverage
-            44, // GLX_NV_present_video
-            45, // GLX_NV_robustness_video_memory_purge
-            46, // GLX_NV_swap_group
-            47, // GLX_NV_video_capture
-            48, // GLX_NV_video_out
-            49, // GLX_OML_swap_method
-            50, // GLX_OML_sync_control
-            51, // GLX_SGIS_blended_overlay
-            52, // GLX_SGIS_multisample
-            53, // GLX_SGIS_shared_multisample
-            54, // GLX_SGIX_fbconfig
-            55, // GLX_SGIX_hyperpipe
-            56, // GLX_SGIX_pbuffer
-            57, // GLX_SGIX_swap_barrier
-            58, // GLX_SGIX_swap_group
-            59, // GLX_SGIX_video_resize
-            60, // GLX_SGIX_visual_select_group
-            61, // GLX_SGI_cushion
-            62, // GLX_SGI_make_current_read
-            63, // GLX_SGI_swap_control
-            64, // GLX_SGI_video_sync
-            65, // GLX_SUN_get_transparent_index
-        0xFFFF
-    };
     const char *extensions;
+    uint32_t i;
 
     if (context->QueryExtensionsString == NULL) {
         return -2;
@@ -865,9 +833,15 @@ static int glad_glx_find_extensions(GladGLXContext *context, Display *display, i
 
     extensions = context->QueryExtensionsString(display, screen);
 
-    for (uint32_t i = 0; i < GLAD_ARRAYSIZE(extIdx) - 1; ++i)
-        context->extArray[extIdx[i]] = glad_glx_has_extension(extensions, glad_ext_names[extIdx[i]]);
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_GLX_ext_names); ++i)
+        context->extArray[i] = glad_glx_has_extension(extensions, GLAD_GLX_ext_names[i]);
+#else
+    GLAD_UNUSED(context);
+    GLAD_UNUSED(display);
+    GLAD_UNUSED(screen);
+    GLAD_UNUSED(GLAD_GLX_ext_names);
 #endif
+
     return 1;
 }
 
@@ -967,7 +941,6 @@ void gladSetGLXContext(GladGLXContext *context) {
     glad_glx_context = *context;
 }
 
- 
 
 #ifdef GLAD_GLX
 
@@ -1083,7 +1056,6 @@ int gladLoaderLoadGLX(Display *display, int screen) {
 
     return version;
 }
-
 
 void gladLoaderUnloadGLX() {
     if (_glx_handle != NULL) {
