@@ -570,8 +570,12 @@ typedef struct _GPU_DEVICE *PGPU_DEVICE;
 /* These are defined in wingdi.h and we're redefining them. */
 #undef wglUseFontBitmaps
 #undef wglUseFontOutlines
-
+typedef int (GLAD_API_PTR *PFNCHOOSEPIXELFORMATPROC)(HDC hDc, const PIXELFORMATDESCRIPTOR * pPfd);
+typedef int (GLAD_API_PTR *PFNDESCRIBEPIXELFORMATPROC)(HDC hdc, int ipfd, UINT cjpfd, PIXELFORMATDESCRIPTOR * ppfd);
 typedef UINT (GLAD_API_PTR *PFNGETENHMETAFILEPIXELFORMATPROC)(HENHMETAFILE hemf, UINT cbBuffer, PIXELFORMATDESCRIPTOR * ppfd);
+typedef int (GLAD_API_PTR *PFNGETPIXELFORMATPROC)(HDC hdc);
+typedef BOOL (GLAD_API_PTR *PFNSETPIXELFORMATPROC)(HDC hdc, int ipfd, const PIXELFORMATDESCRIPTOR * ppfd);
+typedef BOOL (GLAD_API_PTR *PFNSWAPBUFFERSPROC)(HDC hdc);
 typedef void * (GLAD_API_PTR *PFNWGLALLOCATEMEMORYNVPROC)(GLsizei size, GLfloat readfreq, GLfloat writefreq, GLfloat priority);
 typedef BOOL (GLAD_API_PTR *PFNWGLASSOCIATEIMAGEBUFFEREVENTSI3DPROC)(HDC hDC, const HANDLE * pEvent, const LPVOID * pAddress, const DWORD * pSize, UINT count);
 typedef BOOL (GLAD_API_PTR *PFNWGLBEGINFRAMETRACKINGI3DPROC)(void);
@@ -590,6 +594,7 @@ typedef HDC (GLAD_API_PTR *PFNWGLCREATEAFFINITYDCNVPROC)(const HGPUNV * phGpuLis
 typedef HGLRC (GLAD_API_PTR *PFNWGLCREATEASSOCIATEDCONTEXTAMDPROC)(UINT id);
 typedef HGLRC (GLAD_API_PTR *PFNWGLCREATEASSOCIATEDCONTEXTATTRIBSAMDPROC)(UINT id, HGLRC hShareContext, const int * attribList);
 typedef HANDLE (GLAD_API_PTR *PFNWGLCREATEBUFFERREGIONARBPROC)(HDC hDC, int iLayerPlane, UINT uType);
+typedef HGLRC (GLAD_API_PTR *PFNWGLCREATECONTEXTPROC)(HDC hDc);
 typedef HGLRC (GLAD_API_PTR *PFNWGLCREATECONTEXTATTRIBSARBPROC)(HDC hDC, HGLRC hShareContext, const int * attribList);
 typedef GLboolean (GLAD_API_PTR *PFNWGLCREATEDISPLAYCOLORTABLEEXTPROC)(GLushort id);
 typedef LPVOID (GLAD_API_PTR *PFNWGLCREATEIMAGEBUFFERI3DPROC)(HDC hDC, DWORD dwSize, UINT uFlags);
@@ -607,6 +612,7 @@ typedef BOOL (GLAD_API_PTR *PFNWGLDXUNREGISTEROBJECTNVPROC)(HANDLE hDevice, HAND
 typedef BOOL (GLAD_API_PTR *PFNWGLDELAYBEFORESWAPNVPROC)(HDC hDC, GLfloat seconds);
 typedef BOOL (GLAD_API_PTR *PFNWGLDELETEASSOCIATEDCONTEXTAMDPROC)(HGLRC hglrc);
 typedef VOID (GLAD_API_PTR *PFNWGLDELETEBUFFERREGIONARBPROC)(HANDLE hRegion);
+typedef BOOL (GLAD_API_PTR *PFNWGLDELETECONTEXTPROC)(HGLRC oldContext);
 typedef BOOL (GLAD_API_PTR *PFNWGLDELETEDCNVPROC)(HDC hdc);
 typedef BOOL (GLAD_API_PTR *PFNWGLDESCRIBELAYERPLANEPROC)(HDC hDc, int pixelFormat, int layerPlane, UINT nBytes, LAYERPLANEDESCRIPTOR * plpd);
 typedef VOID (GLAD_API_PTR *PFNWGLDESTROYDISPLAYCOLORTABLEEXTPROC)(GLushort id);
@@ -654,6 +660,7 @@ typedef BOOL (GLAD_API_PTR *PFNWGLGETPIXELFORMATATTRIBFVARBPROC)(HDC hdc, int iP
 typedef BOOL (GLAD_API_PTR *PFNWGLGETPIXELFORMATATTRIBFVEXTPROC)(HDC hdc, int iPixelFormat, int iLayerPlane, UINT nAttributes, int * piAttributes, FLOAT * pfValues);
 typedef BOOL (GLAD_API_PTR *PFNWGLGETPIXELFORMATATTRIBIVARBPROC)(HDC hdc, int iPixelFormat, int iLayerPlane, UINT nAttributes, const int * piAttributes, int * piValues);
 typedef BOOL (GLAD_API_PTR *PFNWGLGETPIXELFORMATATTRIBIVEXTPROC)(HDC hdc, int iPixelFormat, int iLayerPlane, UINT nAttributes, int * piAttributes, int * piValues);
+typedef PROC (GLAD_API_PTR *PFNWGLGETPROCADDRESSPROC)(LPCSTR lpszProc);
 typedef int (GLAD_API_PTR *PFNWGLGETSWAPINTERVALEXTPROC)(void);
 typedef BOOL (GLAD_API_PTR *PFNWGLGETSYNCVALUESOMLPROC)(HDC hdc, INT64 * ust, INT64 * msc, INT64 * sbc);
 typedef BOOL (GLAD_API_PTR *PFNWGLGETVIDEODEVICENVPROC)(HDC hDC, int numDevices, HPVIDEODEV * hVideoDevice);
@@ -666,6 +673,7 @@ typedef BOOL (GLAD_API_PTR *PFNWGLLOCKVIDEOCAPTUREDEVICENVPROC)(HDC hDc, HVIDEOI
 typedef BOOL (GLAD_API_PTR *PFNWGLMAKEASSOCIATEDCONTEXTCURRENTAMDPROC)(HGLRC hglrc);
 typedef BOOL (GLAD_API_PTR *PFNWGLMAKECONTEXTCURRENTARBPROC)(HDC hDrawDC, HDC hReadDC, HGLRC hglrc);
 typedef BOOL (GLAD_API_PTR *PFNWGLMAKECONTEXTCURRENTEXTPROC)(HDC hDrawDC, HDC hReadDC, HGLRC hglrc);
+typedef BOOL (GLAD_API_PTR *PFNWGLMAKECURRENTPROC)(HDC hDc, HGLRC newContext);
 typedef BOOL (GLAD_API_PTR *PFNWGLQUERYCURRENTCONTEXTNVPROC)(int iAttribute, int * piValue);
 typedef BOOL (GLAD_API_PTR *PFNWGLQUERYFRAMECOUNTNVPROC)(HDC hDC, GLuint * count);
 typedef BOOL (GLAD_API_PTR *PFNWGLQUERYFRAMELOCKMASTERI3DPROC)(BOOL * pFlag);
@@ -777,144 +785,153 @@ typedef struct GladWGLContext {
     };
 
     union {
-        void *pfnArray[136];
+        void *pfnArray[145];
         struct {
-        /*    0 */ PFNGETENHMETAFILEPIXELFORMATPROC GetEnhMetaFilePixelFormat;
-        /*    1 */ PFNWGLALLOCATEMEMORYNVPROC AllocateMemoryNV;
-        /*    2 */ PFNWGLASSOCIATEIMAGEBUFFEREVENTSI3DPROC AssociateImageBufferEventsI3D;
-        /*    3 */ PFNWGLBEGINFRAMETRACKINGI3DPROC BeginFrameTrackingI3D;
-        /*    4 */ PFNWGLBINDDISPLAYCOLORTABLEEXTPROC BindDisplayColorTableEXT;
-        /*    5 */ PFNWGLBINDSWAPBARRIERNVPROC BindSwapBarrierNV;
-        /*    6 */ PFNWGLBINDTEXIMAGEARBPROC BindTexImageARB;
-        /*    7 */ PFNWGLBINDVIDEOCAPTUREDEVICENVPROC BindVideoCaptureDeviceNV;
-        /*    8 */ PFNWGLBINDVIDEODEVICENVPROC BindVideoDeviceNV;
-        /*    9 */ PFNWGLBINDVIDEOIMAGENVPROC BindVideoImageNV;
-        /*   10 */ PFNWGLBLITCONTEXTFRAMEBUFFERAMDPROC BlitContextFramebufferAMD;
-        /*   11 */ PFNWGLCHOOSEPIXELFORMATARBPROC ChoosePixelFormatARB;
-        /*   12 */ PFNWGLCHOOSEPIXELFORMATEXTPROC ChoosePixelFormatEXT;
-        /*   13 */ PFNWGLCOPYCONTEXTPROC CopyContext;
-        /*   14 */ PFNWGLCOPYIMAGESUBDATANVPROC CopyImageSubDataNV;
-        /*   15 */ PFNWGLCREATEAFFINITYDCNVPROC CreateAffinityDCNV;
-        /*   16 */ PFNWGLCREATEASSOCIATEDCONTEXTAMDPROC CreateAssociatedContextAMD;
-        /*   17 */ PFNWGLCREATEASSOCIATEDCONTEXTATTRIBSAMDPROC CreateAssociatedContextAttribsAMD;
-        /*   18 */ PFNWGLCREATEBUFFERREGIONARBPROC CreateBufferRegionARB;
-        /*   19 */ PFNWGLCREATECONTEXTATTRIBSARBPROC CreateContextAttribsARB;
-        /*   20 */ PFNWGLCREATEDISPLAYCOLORTABLEEXTPROC CreateDisplayColorTableEXT;
-        /*   21 */ PFNWGLCREATEIMAGEBUFFERI3DPROC CreateImageBufferI3D;
-        /*   22 */ PFNWGLCREATELAYERCONTEXTPROC CreateLayerContext;
-        /*   23 */ PFNWGLCREATEPBUFFERARBPROC CreatePbufferARB;
-        /*   24 */ PFNWGLCREATEPBUFFEREXTPROC CreatePbufferEXT;
-        /*   25 */ PFNWGLDXCLOSEDEVICENVPROC DXCloseDeviceNV;
-        /*   26 */ PFNWGLDXLOCKOBJECTSNVPROC DXLockObjectsNV;
-        /*   27 */ PFNWGLDXOBJECTACCESSNVPROC DXObjectAccessNV;
-        /*   28 */ PFNWGLDXOPENDEVICENVPROC DXOpenDeviceNV;
-        /*   29 */ PFNWGLDXREGISTEROBJECTNVPROC DXRegisterObjectNV;
-        /*   30 */ PFNWGLDXSETRESOURCESHAREHANDLENVPROC DXSetResourceShareHandleNV;
-        /*   31 */ PFNWGLDXUNLOCKOBJECTSNVPROC DXUnlockObjectsNV;
-        /*   32 */ PFNWGLDXUNREGISTEROBJECTNVPROC DXUnregisterObjectNV;
-        /*   33 */ PFNWGLDELAYBEFORESWAPNVPROC DelayBeforeSwapNV;
-        /*   34 */ PFNWGLDELETEASSOCIATEDCONTEXTAMDPROC DeleteAssociatedContextAMD;
-        /*   35 */ PFNWGLDELETEBUFFERREGIONARBPROC DeleteBufferRegionARB;
-        /*   36 */ PFNWGLDELETEDCNVPROC DeleteDCNV;
-        /*   37 */ PFNWGLDESCRIBELAYERPLANEPROC DescribeLayerPlane;
-        /*   38 */ PFNWGLDESTROYDISPLAYCOLORTABLEEXTPROC DestroyDisplayColorTableEXT;
-        /*   39 */ PFNWGLDESTROYIMAGEBUFFERI3DPROC DestroyImageBufferI3D;
-        /*   40 */ PFNWGLDESTROYPBUFFERARBPROC DestroyPbufferARB;
-        /*   41 */ PFNWGLDESTROYPBUFFEREXTPROC DestroyPbufferEXT;
-        /*   42 */ PFNWGLDISABLEFRAMELOCKI3DPROC DisableFrameLockI3D;
-        /*   43 */ PFNWGLDISABLEGENLOCKI3DPROC DisableGenlockI3D;
-        /*   44 */ PFNWGLENABLEFRAMELOCKI3DPROC EnableFrameLockI3D;
-        /*   45 */ PFNWGLENABLEGENLOCKI3DPROC EnableGenlockI3D;
-        /*   46 */ PFNWGLENDFRAMETRACKINGI3DPROC EndFrameTrackingI3D;
-        /*   47 */ PFNWGLENUMGPUDEVICESNVPROC EnumGpuDevicesNV;
-        /*   48 */ PFNWGLENUMGPUSFROMAFFINITYDCNVPROC EnumGpusFromAffinityDCNV;
-        /*   49 */ PFNWGLENUMGPUSNVPROC EnumGpusNV;
-        /*   50 */ PFNWGLENUMERATEVIDEOCAPTUREDEVICESNVPROC EnumerateVideoCaptureDevicesNV;
-        /*   51 */ PFNWGLENUMERATEVIDEODEVICESNVPROC EnumerateVideoDevicesNV;
-        /*   52 */ PFNWGLFREEMEMORYNVPROC FreeMemoryNV;
-        /*   53 */ PFNWGLGENLOCKSAMPLERATEI3DPROC GenlockSampleRateI3D;
-        /*   54 */ PFNWGLGENLOCKSOURCEDELAYI3DPROC GenlockSourceDelayI3D;
-        /*   55 */ PFNWGLGENLOCKSOURCEEDGEI3DPROC GenlockSourceEdgeI3D;
-        /*   56 */ PFNWGLGENLOCKSOURCEI3DPROC GenlockSourceI3D;
-        /*   57 */ PFNWGLGETCONTEXTGPUIDAMDPROC GetContextGPUIDAMD;
-        /*   58 */ PFNWGLGETCURRENTASSOCIATEDCONTEXTAMDPROC GetCurrentAssociatedContextAMD;
-        /*   59 */ PFNWGLGETCURRENTCONTEXTPROC GetCurrentContext;
-        /*   60 */ PFNWGLGETCURRENTDCPROC GetCurrentDC;
-        /*   61 */ PFNWGLGETCURRENTREADDCARBPROC GetCurrentReadDCARB;
-        /*   62 */ PFNWGLGETCURRENTREADDCEXTPROC GetCurrentReadDCEXT;
-        /*   63 */ PFNWGLGETDIGITALVIDEOPARAMETERSI3DPROC GetDigitalVideoParametersI3D;
-        /*   64 */ PFNWGLGETEXTENSIONSSTRINGARBPROC GetExtensionsStringARB;
-        /*   65 */ PFNWGLGETEXTENSIONSSTRINGEXTPROC GetExtensionsStringEXT;
-        /*   66 */ PFNWGLGETFRAMEUSAGEI3DPROC GetFrameUsageI3D;
-        /*   67 */ PFNWGLGETGPUIDSAMDPROC GetGPUIDsAMD;
-        /*   68 */ PFNWGLGETGPUINFOAMDPROC GetGPUInfoAMD;
-        /*   69 */ PFNWGLGETGAMMATABLEI3DPROC GetGammaTableI3D;
-        /*   70 */ PFNWGLGETGAMMATABLEPARAMETERSI3DPROC GetGammaTableParametersI3D;
-        /*   71 */ PFNWGLGETGENLOCKSAMPLERATEI3DPROC GetGenlockSampleRateI3D;
-        /*   72 */ PFNWGLGETGENLOCKSOURCEDELAYI3DPROC GetGenlockSourceDelayI3D;
-        /*   73 */ PFNWGLGETGENLOCKSOURCEEDGEI3DPROC GetGenlockSourceEdgeI3D;
-        /*   74 */ PFNWGLGETGENLOCKSOURCEI3DPROC GetGenlockSourceI3D;
-        /*   75 */ PFNWGLGETLAYERPALETTEENTRIESPROC GetLayerPaletteEntries;
-        /*   76 */ PFNWGLGETMSCRATEOMLPROC GetMscRateOML;
-        /*   77 */ PFNWGLGETPBUFFERDCARBPROC GetPbufferDCARB;
-        /*   78 */ PFNWGLGETPBUFFERDCEXTPROC GetPbufferDCEXT;
-        /*   79 */ PFNWGLGETPIXELFORMATATTRIBFVARBPROC GetPixelFormatAttribfvARB;
-        /*   80 */ PFNWGLGETPIXELFORMATATTRIBFVEXTPROC GetPixelFormatAttribfvEXT;
-        /*   81 */ PFNWGLGETPIXELFORMATATTRIBIVARBPROC GetPixelFormatAttribivARB;
-        /*   82 */ PFNWGLGETPIXELFORMATATTRIBIVEXTPROC GetPixelFormatAttribivEXT;
-        /*   83 */ PFNWGLGETSWAPINTERVALEXTPROC GetSwapIntervalEXT;
-        /*   84 */ PFNWGLGETSYNCVALUESOMLPROC GetSyncValuesOML;
-        /*   85 */ PFNWGLGETVIDEODEVICENVPROC GetVideoDeviceNV;
-        /*   86 */ PFNWGLGETVIDEOINFONVPROC GetVideoInfoNV;
-        /*   87 */ PFNWGLISENABLEDFRAMELOCKI3DPROC IsEnabledFrameLockI3D;
-        /*   88 */ PFNWGLISENABLEDGENLOCKI3DPROC IsEnabledGenlockI3D;
-        /*   89 */ PFNWGLJOINSWAPGROUPNVPROC JoinSwapGroupNV;
-        /*   90 */ PFNWGLLOADDISPLAYCOLORTABLEEXTPROC LoadDisplayColorTableEXT;
-        /*   91 */ PFNWGLLOCKVIDEOCAPTUREDEVICENVPROC LockVideoCaptureDeviceNV;
-        /*   92 */ PFNWGLMAKEASSOCIATEDCONTEXTCURRENTAMDPROC MakeAssociatedContextCurrentAMD;
-        /*   93 */ PFNWGLMAKECONTEXTCURRENTARBPROC MakeContextCurrentARB;
-        /*   94 */ PFNWGLMAKECONTEXTCURRENTEXTPROC MakeContextCurrentEXT;
-        /*   95 */ PFNWGLQUERYCURRENTCONTEXTNVPROC QueryCurrentContextNV;
-        /*   96 */ PFNWGLQUERYFRAMECOUNTNVPROC QueryFrameCountNV;
-        /*   97 */ PFNWGLQUERYFRAMELOCKMASTERI3DPROC QueryFrameLockMasterI3D;
-        /*   98 */ PFNWGLQUERYFRAMETRACKINGI3DPROC QueryFrameTrackingI3D;
-        /*   99 */ PFNWGLQUERYGENLOCKMAXSOURCEDELAYI3DPROC QueryGenlockMaxSourceDelayI3D;
-        /*  100 */ PFNWGLQUERYMAXSWAPGROUPSNVPROC QueryMaxSwapGroupsNV;
-        /*  101 */ PFNWGLQUERYPBUFFERARBPROC QueryPbufferARB;
-        /*  102 */ PFNWGLQUERYPBUFFEREXTPROC QueryPbufferEXT;
-        /*  103 */ PFNWGLQUERYSWAPGROUPNVPROC QuerySwapGroupNV;
-        /*  104 */ PFNWGLQUERYVIDEOCAPTUREDEVICENVPROC QueryVideoCaptureDeviceNV;
-        /*  105 */ PFNWGLREALIZELAYERPALETTEPROC RealizeLayerPalette;
-        /*  106 */ PFNWGLRELEASEIMAGEBUFFEREVENTSI3DPROC ReleaseImageBufferEventsI3D;
-        /*  107 */ PFNWGLRELEASEPBUFFERDCARBPROC ReleasePbufferDCARB;
-        /*  108 */ PFNWGLRELEASEPBUFFERDCEXTPROC ReleasePbufferDCEXT;
-        /*  109 */ PFNWGLRELEASETEXIMAGEARBPROC ReleaseTexImageARB;
-        /*  110 */ PFNWGLRELEASEVIDEOCAPTUREDEVICENVPROC ReleaseVideoCaptureDeviceNV;
-        /*  111 */ PFNWGLRELEASEVIDEODEVICENVPROC ReleaseVideoDeviceNV;
-        /*  112 */ PFNWGLRELEASEVIDEOIMAGENVPROC ReleaseVideoImageNV;
-        /*  113 */ PFNWGLRESETFRAMECOUNTNVPROC ResetFrameCountNV;
-        /*  114 */ PFNWGLRESTOREBUFFERREGIONARBPROC RestoreBufferRegionARB;
-        /*  115 */ PFNWGLSAVEBUFFERREGIONARBPROC SaveBufferRegionARB;
-        /*  116 */ PFNWGLSENDPBUFFERTOVIDEONVPROC SendPbufferToVideoNV;
-        /*  117 */ PFNWGLSETDIGITALVIDEOPARAMETERSI3DPROC SetDigitalVideoParametersI3D;
-        /*  118 */ PFNWGLSETGAMMATABLEI3DPROC SetGammaTableI3D;
-        /*  119 */ PFNWGLSETGAMMATABLEPARAMETERSI3DPROC SetGammaTableParametersI3D;
-        /*  120 */ PFNWGLSETLAYERPALETTEENTRIESPROC SetLayerPaletteEntries;
-        /*  121 */ PFNWGLSETPBUFFERATTRIBARBPROC SetPbufferAttribARB;
-        /*  122 */ PFNWGLSETSTEREOEMITTERSTATE3DLPROC SetStereoEmitterState3DL;
-        /*  123 */ PFNWGLSHARELISTSPROC ShareLists;
-        /*  124 */ PFNWGLSWAPBUFFERSMSCOMLPROC SwapBuffersMscOML;
-        /*  125 */ PFNWGLSWAPINTERVALEXTPROC SwapIntervalEXT;
-        /*  126 */ PFNWGLSWAPLAYERBUFFERSPROC SwapLayerBuffers;
-        /*  127 */ PFNWGLSWAPLAYERBUFFERSMSCOMLPROC SwapLayerBuffersMscOML;
-        /*  128 */ PFNWGLUSEFONTBITMAPSPROC UseFontBitmaps;
-        /*  129 */ PFNWGLUSEFONTBITMAPSAPROC UseFontBitmapsA;
-        /*  130 */ PFNWGLUSEFONTBITMAPSWPROC UseFontBitmapsW;
-        /*  131 */ PFNWGLUSEFONTOUTLINESPROC UseFontOutlines;
-        /*  132 */ PFNWGLUSEFONTOUTLINESAPROC UseFontOutlinesA;
-        /*  133 */ PFNWGLUSEFONTOUTLINESWPROC UseFontOutlinesW;
-        /*  134 */ PFNWGLWAITFORMSCOMLPROC WaitForMscOML;
-        /*  135 */ PFNWGLWAITFORSBCOMLPROC WaitForSbcOML;
+        /*    0 */ PFNCHOOSEPIXELFORMATPROC ChoosePixelFormat;
+        /*    1 */ PFNDESCRIBEPIXELFORMATPROC DescribePixelFormat;
+        /*    2 */ PFNGETENHMETAFILEPIXELFORMATPROC GetEnhMetaFilePixelFormat;
+        /*    3 */ PFNGETPIXELFORMATPROC GetPixelFormat;
+        /*    4 */ PFNSETPIXELFORMATPROC SetPixelFormat;
+        /*    5 */ PFNSWAPBUFFERSPROC SwapBuffers;
+        /*    6 */ PFNWGLALLOCATEMEMORYNVPROC AllocateMemoryNV;
+        /*    7 */ PFNWGLASSOCIATEIMAGEBUFFEREVENTSI3DPROC AssociateImageBufferEventsI3D;
+        /*    8 */ PFNWGLBEGINFRAMETRACKINGI3DPROC BeginFrameTrackingI3D;
+        /*    9 */ PFNWGLBINDDISPLAYCOLORTABLEEXTPROC BindDisplayColorTableEXT;
+        /*   10 */ PFNWGLBINDSWAPBARRIERNVPROC BindSwapBarrierNV;
+        /*   11 */ PFNWGLBINDTEXIMAGEARBPROC BindTexImageARB;
+        /*   12 */ PFNWGLBINDVIDEOCAPTUREDEVICENVPROC BindVideoCaptureDeviceNV;
+        /*   13 */ PFNWGLBINDVIDEODEVICENVPROC BindVideoDeviceNV;
+        /*   14 */ PFNWGLBINDVIDEOIMAGENVPROC BindVideoImageNV;
+        /*   15 */ PFNWGLBLITCONTEXTFRAMEBUFFERAMDPROC BlitContextFramebufferAMD;
+        /*   16 */ PFNWGLCHOOSEPIXELFORMATARBPROC ChoosePixelFormatARB;
+        /*   17 */ PFNWGLCHOOSEPIXELFORMATEXTPROC ChoosePixelFormatEXT;
+        /*   18 */ PFNWGLCOPYCONTEXTPROC CopyContext;
+        /*   19 */ PFNWGLCOPYIMAGESUBDATANVPROC CopyImageSubDataNV;
+        /*   20 */ PFNWGLCREATEAFFINITYDCNVPROC CreateAffinityDCNV;
+        /*   21 */ PFNWGLCREATEASSOCIATEDCONTEXTAMDPROC CreateAssociatedContextAMD;
+        /*   22 */ PFNWGLCREATEASSOCIATEDCONTEXTATTRIBSAMDPROC CreateAssociatedContextAttribsAMD;
+        /*   23 */ PFNWGLCREATEBUFFERREGIONARBPROC CreateBufferRegionARB;
+        /*   24 */ PFNWGLCREATECONTEXTPROC CreateContext;
+        /*   25 */ PFNWGLCREATECONTEXTATTRIBSARBPROC CreateContextAttribsARB;
+        /*   26 */ PFNWGLCREATEDISPLAYCOLORTABLEEXTPROC CreateDisplayColorTableEXT;
+        /*   27 */ PFNWGLCREATEIMAGEBUFFERI3DPROC CreateImageBufferI3D;
+        /*   28 */ PFNWGLCREATELAYERCONTEXTPROC CreateLayerContext;
+        /*   29 */ PFNWGLCREATEPBUFFERARBPROC CreatePbufferARB;
+        /*   30 */ PFNWGLCREATEPBUFFEREXTPROC CreatePbufferEXT;
+        /*   31 */ PFNWGLDXCLOSEDEVICENVPROC DXCloseDeviceNV;
+        /*   32 */ PFNWGLDXLOCKOBJECTSNVPROC DXLockObjectsNV;
+        /*   33 */ PFNWGLDXOBJECTACCESSNVPROC DXObjectAccessNV;
+        /*   34 */ PFNWGLDXOPENDEVICENVPROC DXOpenDeviceNV;
+        /*   35 */ PFNWGLDXREGISTEROBJECTNVPROC DXRegisterObjectNV;
+        /*   36 */ PFNWGLDXSETRESOURCESHAREHANDLENVPROC DXSetResourceShareHandleNV;
+        /*   37 */ PFNWGLDXUNLOCKOBJECTSNVPROC DXUnlockObjectsNV;
+        /*   38 */ PFNWGLDXUNREGISTEROBJECTNVPROC DXUnregisterObjectNV;
+        /*   39 */ PFNWGLDELAYBEFORESWAPNVPROC DelayBeforeSwapNV;
+        /*   40 */ PFNWGLDELETEASSOCIATEDCONTEXTAMDPROC DeleteAssociatedContextAMD;
+        /*   41 */ PFNWGLDELETEBUFFERREGIONARBPROC DeleteBufferRegionARB;
+        /*   42 */ PFNWGLDELETECONTEXTPROC DeleteContext;
+        /*   43 */ PFNWGLDELETEDCNVPROC DeleteDCNV;
+        /*   44 */ PFNWGLDESCRIBELAYERPLANEPROC DescribeLayerPlane;
+        /*   45 */ PFNWGLDESTROYDISPLAYCOLORTABLEEXTPROC DestroyDisplayColorTableEXT;
+        /*   46 */ PFNWGLDESTROYIMAGEBUFFERI3DPROC DestroyImageBufferI3D;
+        /*   47 */ PFNWGLDESTROYPBUFFERARBPROC DestroyPbufferARB;
+        /*   48 */ PFNWGLDESTROYPBUFFEREXTPROC DestroyPbufferEXT;
+        /*   49 */ PFNWGLDISABLEFRAMELOCKI3DPROC DisableFrameLockI3D;
+        /*   50 */ PFNWGLDISABLEGENLOCKI3DPROC DisableGenlockI3D;
+        /*   51 */ PFNWGLENABLEFRAMELOCKI3DPROC EnableFrameLockI3D;
+        /*   52 */ PFNWGLENABLEGENLOCKI3DPROC EnableGenlockI3D;
+        /*   53 */ PFNWGLENDFRAMETRACKINGI3DPROC EndFrameTrackingI3D;
+        /*   54 */ PFNWGLENUMGPUDEVICESNVPROC EnumGpuDevicesNV;
+        /*   55 */ PFNWGLENUMGPUSFROMAFFINITYDCNVPROC EnumGpusFromAffinityDCNV;
+        /*   56 */ PFNWGLENUMGPUSNVPROC EnumGpusNV;
+        /*   57 */ PFNWGLENUMERATEVIDEOCAPTUREDEVICESNVPROC EnumerateVideoCaptureDevicesNV;
+        /*   58 */ PFNWGLENUMERATEVIDEODEVICESNVPROC EnumerateVideoDevicesNV;
+        /*   59 */ PFNWGLFREEMEMORYNVPROC FreeMemoryNV;
+        /*   60 */ PFNWGLGENLOCKSAMPLERATEI3DPROC GenlockSampleRateI3D;
+        /*   61 */ PFNWGLGENLOCKSOURCEDELAYI3DPROC GenlockSourceDelayI3D;
+        /*   62 */ PFNWGLGENLOCKSOURCEEDGEI3DPROC GenlockSourceEdgeI3D;
+        /*   63 */ PFNWGLGENLOCKSOURCEI3DPROC GenlockSourceI3D;
+        /*   64 */ PFNWGLGETCONTEXTGPUIDAMDPROC GetContextGPUIDAMD;
+        /*   65 */ PFNWGLGETCURRENTASSOCIATEDCONTEXTAMDPROC GetCurrentAssociatedContextAMD;
+        /*   66 */ PFNWGLGETCURRENTCONTEXTPROC GetCurrentContext;
+        /*   67 */ PFNWGLGETCURRENTDCPROC GetCurrentDC;
+        /*   68 */ PFNWGLGETCURRENTREADDCARBPROC GetCurrentReadDCARB;
+        /*   69 */ PFNWGLGETCURRENTREADDCEXTPROC GetCurrentReadDCEXT;
+        /*   70 */ PFNWGLGETDIGITALVIDEOPARAMETERSI3DPROC GetDigitalVideoParametersI3D;
+        /*   71 */ PFNWGLGETEXTENSIONSSTRINGARBPROC GetExtensionsStringARB;
+        /*   72 */ PFNWGLGETEXTENSIONSSTRINGEXTPROC GetExtensionsStringEXT;
+        /*   73 */ PFNWGLGETFRAMEUSAGEI3DPROC GetFrameUsageI3D;
+        /*   74 */ PFNWGLGETGPUIDSAMDPROC GetGPUIDsAMD;
+        /*   75 */ PFNWGLGETGPUINFOAMDPROC GetGPUInfoAMD;
+        /*   76 */ PFNWGLGETGAMMATABLEI3DPROC GetGammaTableI3D;
+        /*   77 */ PFNWGLGETGAMMATABLEPARAMETERSI3DPROC GetGammaTableParametersI3D;
+        /*   78 */ PFNWGLGETGENLOCKSAMPLERATEI3DPROC GetGenlockSampleRateI3D;
+        /*   79 */ PFNWGLGETGENLOCKSOURCEDELAYI3DPROC GetGenlockSourceDelayI3D;
+        /*   80 */ PFNWGLGETGENLOCKSOURCEEDGEI3DPROC GetGenlockSourceEdgeI3D;
+        /*   81 */ PFNWGLGETGENLOCKSOURCEI3DPROC GetGenlockSourceI3D;
+        /*   82 */ PFNWGLGETLAYERPALETTEENTRIESPROC GetLayerPaletteEntries;
+        /*   83 */ PFNWGLGETMSCRATEOMLPROC GetMscRateOML;
+        /*   84 */ PFNWGLGETPBUFFERDCARBPROC GetPbufferDCARB;
+        /*   85 */ PFNWGLGETPBUFFERDCEXTPROC GetPbufferDCEXT;
+        /*   86 */ PFNWGLGETPIXELFORMATATTRIBFVARBPROC GetPixelFormatAttribfvARB;
+        /*   87 */ PFNWGLGETPIXELFORMATATTRIBFVEXTPROC GetPixelFormatAttribfvEXT;
+        /*   88 */ PFNWGLGETPIXELFORMATATTRIBIVARBPROC GetPixelFormatAttribivARB;
+        /*   89 */ PFNWGLGETPIXELFORMATATTRIBIVEXTPROC GetPixelFormatAttribivEXT;
+        /*   90 */ PFNWGLGETPROCADDRESSPROC GetProcAddress;
+        /*   91 */ PFNWGLGETSWAPINTERVALEXTPROC GetSwapIntervalEXT;
+        /*   92 */ PFNWGLGETSYNCVALUESOMLPROC GetSyncValuesOML;
+        /*   93 */ PFNWGLGETVIDEODEVICENVPROC GetVideoDeviceNV;
+        /*   94 */ PFNWGLGETVIDEOINFONVPROC GetVideoInfoNV;
+        /*   95 */ PFNWGLISENABLEDFRAMELOCKI3DPROC IsEnabledFrameLockI3D;
+        /*   96 */ PFNWGLISENABLEDGENLOCKI3DPROC IsEnabledGenlockI3D;
+        /*   97 */ PFNWGLJOINSWAPGROUPNVPROC JoinSwapGroupNV;
+        /*   98 */ PFNWGLLOADDISPLAYCOLORTABLEEXTPROC LoadDisplayColorTableEXT;
+        /*   99 */ PFNWGLLOCKVIDEOCAPTUREDEVICENVPROC LockVideoCaptureDeviceNV;
+        /*  100 */ PFNWGLMAKEASSOCIATEDCONTEXTCURRENTAMDPROC MakeAssociatedContextCurrentAMD;
+        /*  101 */ PFNWGLMAKECONTEXTCURRENTARBPROC MakeContextCurrentARB;
+        /*  102 */ PFNWGLMAKECONTEXTCURRENTEXTPROC MakeContextCurrentEXT;
+        /*  103 */ PFNWGLMAKECURRENTPROC MakeCurrent;
+        /*  104 */ PFNWGLQUERYCURRENTCONTEXTNVPROC QueryCurrentContextNV;
+        /*  105 */ PFNWGLQUERYFRAMECOUNTNVPROC QueryFrameCountNV;
+        /*  106 */ PFNWGLQUERYFRAMELOCKMASTERI3DPROC QueryFrameLockMasterI3D;
+        /*  107 */ PFNWGLQUERYFRAMETRACKINGI3DPROC QueryFrameTrackingI3D;
+        /*  108 */ PFNWGLQUERYGENLOCKMAXSOURCEDELAYI3DPROC QueryGenlockMaxSourceDelayI3D;
+        /*  109 */ PFNWGLQUERYMAXSWAPGROUPSNVPROC QueryMaxSwapGroupsNV;
+        /*  110 */ PFNWGLQUERYPBUFFERARBPROC QueryPbufferARB;
+        /*  111 */ PFNWGLQUERYPBUFFEREXTPROC QueryPbufferEXT;
+        /*  112 */ PFNWGLQUERYSWAPGROUPNVPROC QuerySwapGroupNV;
+        /*  113 */ PFNWGLQUERYVIDEOCAPTUREDEVICENVPROC QueryVideoCaptureDeviceNV;
+        /*  114 */ PFNWGLREALIZELAYERPALETTEPROC RealizeLayerPalette;
+        /*  115 */ PFNWGLRELEASEIMAGEBUFFEREVENTSI3DPROC ReleaseImageBufferEventsI3D;
+        /*  116 */ PFNWGLRELEASEPBUFFERDCARBPROC ReleasePbufferDCARB;
+        /*  117 */ PFNWGLRELEASEPBUFFERDCEXTPROC ReleasePbufferDCEXT;
+        /*  118 */ PFNWGLRELEASETEXIMAGEARBPROC ReleaseTexImageARB;
+        /*  119 */ PFNWGLRELEASEVIDEOCAPTUREDEVICENVPROC ReleaseVideoCaptureDeviceNV;
+        /*  120 */ PFNWGLRELEASEVIDEODEVICENVPROC ReleaseVideoDeviceNV;
+        /*  121 */ PFNWGLRELEASEVIDEOIMAGENVPROC ReleaseVideoImageNV;
+        /*  122 */ PFNWGLRESETFRAMECOUNTNVPROC ResetFrameCountNV;
+        /*  123 */ PFNWGLRESTOREBUFFERREGIONARBPROC RestoreBufferRegionARB;
+        /*  124 */ PFNWGLSAVEBUFFERREGIONARBPROC SaveBufferRegionARB;
+        /*  125 */ PFNWGLSENDPBUFFERTOVIDEONVPROC SendPbufferToVideoNV;
+        /*  126 */ PFNWGLSETDIGITALVIDEOPARAMETERSI3DPROC SetDigitalVideoParametersI3D;
+        /*  127 */ PFNWGLSETGAMMATABLEI3DPROC SetGammaTableI3D;
+        /*  128 */ PFNWGLSETGAMMATABLEPARAMETERSI3DPROC SetGammaTableParametersI3D;
+        /*  129 */ PFNWGLSETLAYERPALETTEENTRIESPROC SetLayerPaletteEntries;
+        /*  130 */ PFNWGLSETPBUFFERATTRIBARBPROC SetPbufferAttribARB;
+        /*  131 */ PFNWGLSETSTEREOEMITTERSTATE3DLPROC SetStereoEmitterState3DL;
+        /*  132 */ PFNWGLSHARELISTSPROC ShareLists;
+        /*  133 */ PFNWGLSWAPBUFFERSMSCOMLPROC SwapBuffersMscOML;
+        /*  134 */ PFNWGLSWAPINTERVALEXTPROC SwapIntervalEXT;
+        /*  135 */ PFNWGLSWAPLAYERBUFFERSPROC SwapLayerBuffers;
+        /*  136 */ PFNWGLSWAPLAYERBUFFERSMSCOMLPROC SwapLayerBuffersMscOML;
+        /*  137 */ PFNWGLUSEFONTBITMAPSPROC UseFontBitmaps;
+        /*  138 */ PFNWGLUSEFONTBITMAPSAPROC UseFontBitmapsA;
+        /*  139 */ PFNWGLUSEFONTBITMAPSWPROC UseFontBitmapsW;
+        /*  140 */ PFNWGLUSEFONTOUTLINESPROC UseFontOutlines;
+        /*  141 */ PFNWGLUSEFONTOUTLINESAPROC UseFontOutlinesA;
+        /*  142 */ PFNWGLUSEFONTOUTLINESWPROC UseFontOutlinesW;
+        /*  143 */ PFNWGLWAITFORMSCOMLPROC WaitForMscOML;
+        /*  144 */ PFNWGLWAITFORSBCOMLPROC WaitForSbcOML;
         };
     };
 
@@ -983,7 +1000,6 @@ GLAD_API_CALL GladWGLContext glad_wgl_context;
 #define GLAD_WGL_OML_sync_control (glad_wgl_context.OML_sync_control)
 
 #ifdef __INTELLISENSE__
-UINT GetEnhMetaFilePixelFormat(HENHMETAFILE hemf, UINT cbBuffer, PIXELFORMATDESCRIPTOR * ppfd);
 void * wglAllocateMemoryNV(GLsizei size, GLfloat readfreq, GLfloat writefreq, GLfloat priority);
 BOOL wglAssociateImageBufferEventsI3D(HDC hDC, const HANDLE * pEvent, const LPVOID * pAddress, const DWORD * pSize, UINT count);
 BOOL wglBeginFrameTrackingI3D(void);
@@ -996,7 +1012,6 @@ BOOL wglBindVideoImageNV(HPVIDEODEV hVideoDevice, HPBUFFERARB hPbuffer, int iVid
 VOID wglBlitContextFramebufferAMD(HGLRC dstCtx, GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter);
 BOOL wglChoosePixelFormatARB(HDC hdc, const int * piAttribIList, const FLOAT * pfAttribFList, UINT nMaxFormats, int * piFormats, UINT * nNumFormats);
 BOOL wglChoosePixelFormatEXT(HDC hdc, const int * piAttribIList, const FLOAT * pfAttribFList, UINT nMaxFormats, int * piFormats, UINT * nNumFormats);
-BOOL wglCopyContext(HGLRC hglrcSrc, HGLRC hglrcDst, UINT mask);
 BOOL wglCopyImageSubDataNV(HGLRC hSrcRC, GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srcY, GLint srcZ, HGLRC hDstRC, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei width, GLsizei height, GLsizei depth);
 HDC wglCreateAffinityDCNV(const HGPUNV * phGpuList);
 HGLRC wglCreateAssociatedContextAMD(UINT id);
@@ -1005,7 +1020,6 @@ HANDLE wglCreateBufferRegionARB(HDC hDC, int iLayerPlane, UINT uType);
 HGLRC wglCreateContextAttribsARB(HDC hDC, HGLRC hShareContext, const int * attribList);
 GLboolean wglCreateDisplayColorTableEXT(GLushort id);
 LPVOID wglCreateImageBufferI3D(HDC hDC, DWORD dwSize, UINT uFlags);
-HGLRC wglCreateLayerContext(HDC hDc, int level);
 HPBUFFERARB wglCreatePbufferARB(HDC hDC, int iPixelFormat, int iWidth, int iHeight, const int * piAttribList);
 HPBUFFEREXT wglCreatePbufferEXT(HDC hDC, int iPixelFormat, int iWidth, int iHeight, const int * piAttribList);
 BOOL wglDXCloseDeviceNV(HANDLE hDevice);
@@ -1020,7 +1034,6 @@ BOOL wglDelayBeforeSwapNV(HDC hDC, GLfloat seconds);
 BOOL wglDeleteAssociatedContextAMD(HGLRC hglrc);
 VOID wglDeleteBufferRegionARB(HANDLE hRegion);
 BOOL wglDeleteDCNV(HDC hdc);
-BOOL wglDescribeLayerPlane(HDC hDc, int pixelFormat, int layerPlane, UINT nBytes, LAYERPLANEDESCRIPTOR * plpd);
 VOID wglDestroyDisplayColorTableEXT(GLushort id);
 BOOL wglDestroyImageBufferI3D(HDC hDC, LPVOID pAddress);
 BOOL wglDestroyPbufferARB(HPBUFFERARB hPbuffer);
@@ -1042,8 +1055,6 @@ BOOL wglGenlockSourceEdgeI3D(HDC hDC, UINT uEdge);
 BOOL wglGenlockSourceI3D(HDC hDC, UINT uSource);
 UINT wglGetContextGPUIDAMD(HGLRC hglrc);
 HGLRC wglGetCurrentAssociatedContextAMD(void);
-HGLRC wglGetCurrentContext(void);
-HDC wglGetCurrentDC(void);
 HDC wglGetCurrentReadDCARB(void);
 HDC wglGetCurrentReadDCEXT(void);
 BOOL wglGetDigitalVideoParametersI3D(HDC hDC, int iAttribute, int * piValue);
@@ -1058,7 +1069,6 @@ BOOL wglGetGenlockSampleRateI3D(HDC hDC, UINT * uRate);
 BOOL wglGetGenlockSourceDelayI3D(HDC hDC, UINT * uDelay);
 BOOL wglGetGenlockSourceEdgeI3D(HDC hDC, UINT * uEdge);
 BOOL wglGetGenlockSourceI3D(HDC hDC, UINT * uSource);
-int wglGetLayerPaletteEntries(HDC hdc, int iLayerPlane, int iStart, int cEntries, COLORREF * pcr);
 BOOL wglGetMscRateOML(HDC hdc, INT32 * numerator, INT32 * denominator);
 HDC wglGetPbufferDCARB(HPBUFFERARB hPbuffer);
 HDC wglGetPbufferDCEXT(HPBUFFEREXT hPbuffer);
@@ -1088,7 +1098,6 @@ BOOL wglQueryPbufferARB(HPBUFFERARB hPbuffer, int iAttribute, int * piValue);
 BOOL wglQueryPbufferEXT(HPBUFFEREXT hPbuffer, int iAttribute, int * piValue);
 BOOL wglQuerySwapGroupNV(HDC hDC, GLuint * group, GLuint * barrier);
 BOOL wglQueryVideoCaptureDeviceNV(HDC hDc, HVIDEOINPUTDEVICENV hDevice, int iAttribute, int * piValue);
-BOOL wglRealizeLayerPalette(HDC hdc, int iLayerPlane, BOOL bRealize);
 BOOL wglReleaseImageBufferEventsI3D(HDC hDC, const LPVOID * pAddress, UINT count);
 int wglReleasePbufferDCARB(HPBUFFERARB hPbuffer, HDC hDC);
 int wglReleasePbufferDCEXT(HPBUFFEREXT hPbuffer, HDC hDC);
@@ -1103,25 +1112,15 @@ BOOL wglSendPbufferToVideoNV(HPBUFFERARB hPbuffer, int iBufferType, unsigned lon
 BOOL wglSetDigitalVideoParametersI3D(HDC hDC, int iAttribute, const int * piValue);
 BOOL wglSetGammaTableI3D(HDC hDC, int iEntries, const USHORT * puRed, const USHORT * puGreen, const USHORT * puBlue);
 BOOL wglSetGammaTableParametersI3D(HDC hDC, int iAttribute, const int * piValue);
-int wglSetLayerPaletteEntries(HDC hdc, int iLayerPlane, int iStart, int cEntries, const COLORREF * pcr);
 BOOL wglSetPbufferAttribARB(HPBUFFERARB hPbuffer, const int * piAttribList);
 BOOL wglSetStereoEmitterState3DL(HDC hDC, UINT uState);
-BOOL wglShareLists(HGLRC hrcSrvShare, HGLRC hrcSrvSource);
 INT64 wglSwapBuffersMscOML(HDC hdc, INT64 target_msc, INT64 divisor, INT64 remainder);
 BOOL wglSwapIntervalEXT(int interval);
-BOOL wglSwapLayerBuffers(HDC hdc, UINT fuFlags);
 INT64 wglSwapLayerBuffersMscOML(HDC hdc, INT fuPlanes, INT64 target_msc, INT64 divisor, INT64 remainder);
-BOOL wglUseFontBitmaps(HDC hDC, DWORD first, DWORD count, DWORD listBase);
-BOOL wglUseFontBitmapsA(HDC hDC, DWORD first, DWORD count, DWORD listBase);
-BOOL wglUseFontBitmapsW(HDC hDC, DWORD first, DWORD count, DWORD listBase);
-BOOL wglUseFontOutlines(HDC hDC, DWORD first, DWORD count, DWORD listBase, FLOAT deviation, FLOAT extrusion, int format, LPGLYPHMETRICSFLOAT lpgmf);
-BOOL wglUseFontOutlinesA(HDC hDC, DWORD first, DWORD count, DWORD listBase, FLOAT deviation, FLOAT extrusion, int format, LPGLYPHMETRICSFLOAT lpgmf);
-BOOL wglUseFontOutlinesW(HDC hDC, DWORD first, DWORD count, DWORD listBase, FLOAT deviation, FLOAT extrusion, int format, LPGLYPHMETRICSFLOAT lpgmf);
 BOOL wglWaitForMscOML(HDC hdc, INT64 target_msc, INT64 divisor, INT64 remainder, INT64 * ust, INT64 * msc, INT64 * sbc);
 BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64 * sbc);
 
 #else
-#define GetEnhMetaFilePixelFormat (glad_wgl_context.GetEnhMetaFilePixelFormat)
 #define wglAllocateMemoryNV (glad_wgl_context.AllocateMemoryNV)
 #define wglAssociateImageBufferEventsI3D (glad_wgl_context.AssociateImageBufferEventsI3D)
 #define wglBeginFrameTrackingI3D (glad_wgl_context.BeginFrameTrackingI3D)
@@ -1134,7 +1133,6 @@ BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64
 #define wglBlitContextFramebufferAMD (glad_wgl_context.BlitContextFramebufferAMD)
 #define wglChoosePixelFormatARB (glad_wgl_context.ChoosePixelFormatARB)
 #define wglChoosePixelFormatEXT (glad_wgl_context.ChoosePixelFormatEXT)
-#define wglCopyContext (glad_wgl_context.CopyContext)
 #define wglCopyImageSubDataNV (glad_wgl_context.CopyImageSubDataNV)
 #define wglCreateAffinityDCNV (glad_wgl_context.CreateAffinityDCNV)
 #define wglCreateAssociatedContextAMD (glad_wgl_context.CreateAssociatedContextAMD)
@@ -1143,7 +1141,6 @@ BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64
 #define wglCreateContextAttribsARB (glad_wgl_context.CreateContextAttribsARB)
 #define wglCreateDisplayColorTableEXT (glad_wgl_context.CreateDisplayColorTableEXT)
 #define wglCreateImageBufferI3D (glad_wgl_context.CreateImageBufferI3D)
-#define wglCreateLayerContext (glad_wgl_context.CreateLayerContext)
 #define wglCreatePbufferARB (glad_wgl_context.CreatePbufferARB)
 #define wglCreatePbufferEXT (glad_wgl_context.CreatePbufferEXT)
 #define wglDXCloseDeviceNV (glad_wgl_context.DXCloseDeviceNV)
@@ -1158,7 +1155,6 @@ BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64
 #define wglDeleteAssociatedContextAMD (glad_wgl_context.DeleteAssociatedContextAMD)
 #define wglDeleteBufferRegionARB (glad_wgl_context.DeleteBufferRegionARB)
 #define wglDeleteDCNV (glad_wgl_context.DeleteDCNV)
-#define wglDescribeLayerPlane (glad_wgl_context.DescribeLayerPlane)
 #define wglDestroyDisplayColorTableEXT (glad_wgl_context.DestroyDisplayColorTableEXT)
 #define wglDestroyImageBufferI3D (glad_wgl_context.DestroyImageBufferI3D)
 #define wglDestroyPbufferARB (glad_wgl_context.DestroyPbufferARB)
@@ -1180,8 +1176,6 @@ BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64
 #define wglGenlockSourceI3D (glad_wgl_context.GenlockSourceI3D)
 #define wglGetContextGPUIDAMD (glad_wgl_context.GetContextGPUIDAMD)
 #define wglGetCurrentAssociatedContextAMD (glad_wgl_context.GetCurrentAssociatedContextAMD)
-#define wglGetCurrentContext (glad_wgl_context.GetCurrentContext)
-#define wglGetCurrentDC (glad_wgl_context.GetCurrentDC)
 #define wglGetCurrentReadDCARB (glad_wgl_context.GetCurrentReadDCARB)
 #define wglGetCurrentReadDCEXT (glad_wgl_context.GetCurrentReadDCEXT)
 #define wglGetDigitalVideoParametersI3D (glad_wgl_context.GetDigitalVideoParametersI3D)
@@ -1196,7 +1190,6 @@ BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64
 #define wglGetGenlockSourceDelayI3D (glad_wgl_context.GetGenlockSourceDelayI3D)
 #define wglGetGenlockSourceEdgeI3D (glad_wgl_context.GetGenlockSourceEdgeI3D)
 #define wglGetGenlockSourceI3D (glad_wgl_context.GetGenlockSourceI3D)
-#define wglGetLayerPaletteEntries (glad_wgl_context.GetLayerPaletteEntries)
 #define wglGetMscRateOML (glad_wgl_context.GetMscRateOML)
 #define wglGetPbufferDCARB (glad_wgl_context.GetPbufferDCARB)
 #define wglGetPbufferDCEXT (glad_wgl_context.GetPbufferDCEXT)
@@ -1226,7 +1219,6 @@ BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64
 #define wglQueryPbufferEXT (glad_wgl_context.QueryPbufferEXT)
 #define wglQuerySwapGroupNV (glad_wgl_context.QuerySwapGroupNV)
 #define wglQueryVideoCaptureDeviceNV (glad_wgl_context.QueryVideoCaptureDeviceNV)
-#define wglRealizeLayerPalette (glad_wgl_context.RealizeLayerPalette)
 #define wglReleaseImageBufferEventsI3D (glad_wgl_context.ReleaseImageBufferEventsI3D)
 #define wglReleasePbufferDCARB (glad_wgl_context.ReleasePbufferDCARB)
 #define wglReleasePbufferDCEXT (glad_wgl_context.ReleasePbufferDCEXT)
@@ -1241,20 +1233,11 @@ BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64
 #define wglSetDigitalVideoParametersI3D (glad_wgl_context.SetDigitalVideoParametersI3D)
 #define wglSetGammaTableI3D (glad_wgl_context.SetGammaTableI3D)
 #define wglSetGammaTableParametersI3D (glad_wgl_context.SetGammaTableParametersI3D)
-#define wglSetLayerPaletteEntries (glad_wgl_context.SetLayerPaletteEntries)
 #define wglSetPbufferAttribARB (glad_wgl_context.SetPbufferAttribARB)
 #define wglSetStereoEmitterState3DL (glad_wgl_context.SetStereoEmitterState3DL)
-#define wglShareLists (glad_wgl_context.ShareLists)
 #define wglSwapBuffersMscOML (glad_wgl_context.SwapBuffersMscOML)
 #define wglSwapIntervalEXT (glad_wgl_context.SwapIntervalEXT)
-#define wglSwapLayerBuffers (glad_wgl_context.SwapLayerBuffers)
 #define wglSwapLayerBuffersMscOML (glad_wgl_context.SwapLayerBuffersMscOML)
-#define wglUseFontBitmaps (glad_wgl_context.UseFontBitmaps)
-#define wglUseFontBitmapsA (glad_wgl_context.UseFontBitmapsA)
-#define wglUseFontBitmapsW (glad_wgl_context.UseFontBitmapsW)
-#define wglUseFontOutlines (glad_wgl_context.UseFontOutlines)
-#define wglUseFontOutlinesA (glad_wgl_context.UseFontOutlinesA)
-#define wglUseFontOutlinesW (glad_wgl_context.UseFontOutlinesW)
 #define wglWaitForMscOML (glad_wgl_context.WaitForMscOML)
 #define wglWaitForSbcOML (glad_wgl_context.WaitForSbcOML)
 #endif
