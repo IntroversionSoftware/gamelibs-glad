@@ -60,7 +60,7 @@ HEADERS_INST := $(patsubst include/%,$(includedir)/%,$(HEADERS))
 OBJECTS := $(patsubst %.c,$(OBJ_DIR)/%.o,$(SOURCES))
 
 CFLAGS ?= -O2
-CPPFLAGS += -Iinclude
+CPPFLAGS += -Iinclude -I../xxHash
 
 .PHONY: install
 

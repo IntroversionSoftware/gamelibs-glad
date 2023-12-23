@@ -1,7 +1,7 @@
 project('glad', 'c', version: '2.0.0')
 
 compiler = meson.get_compiler('c')
-link_deps = []
+link_deps = [dependency('xxhash')]
 
 incdirs = ['include']
 
