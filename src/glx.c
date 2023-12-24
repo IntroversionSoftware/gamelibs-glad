@@ -1,10 +1,17 @@
 /**
  * SPDX-License-Identifier: (WTFPL OR CC0-1.0) AND Apache-2.0
  */
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
+#if defined(__x86_64__) || defined(__i386__) || defined(_M_IX86) || defined(_M_X64)
+#include <immintrin.h>
+#elif defined(__aarch64__) || defined(__arm__) || defined(_M_ARM) || defined(_M_ARM64)
+#include <arm_neon.h>
+#endif
 
 #define XXH_INLINE_ALL
 #include "xxhash.h"
@@ -273,6 +280,7 @@ static void glad_glx_load_GLX_VERSION_1_0(GladGLXContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_0) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -287,6 +295,7 @@ static void glad_glx_load_GLX_VERSION_1_1(GladGLXContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_1) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -299,6 +308,7 @@ static void glad_glx_load_GLX_VERSION_1_2(GladGLXContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_2) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -327,6 +337,7 @@ static void glad_glx_load_GLX_VERSION_1_3(GladGLXContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_3) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -339,6 +350,7 @@ static void glad_glx_load_GLX_VERSION_1_4(GladGLXContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_4) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -359,6 +371,7 @@ static void glad_glx_load_GLX_AMD_gpu_association(GladGLXContext *context, GLADu
     };
     uint32_t i;
     if(!context->AMD_gpu_association) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -371,6 +384,7 @@ static void glad_glx_load_GLX_ARB_create_context(GladGLXContext *context, GLADus
     };
     uint32_t i;
     if(!context->ARB_create_context) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -383,6 +397,7 @@ static void glad_glx_load_GLX_ARB_get_proc_address(GladGLXContext *context, GLAD
     };
     uint32_t i;
     if(!context->ARB_get_proc_address) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -399,6 +414,7 @@ static void glad_glx_load_GLX_EXT_import_context(GladGLXContext *context, GLADus
     };
     uint32_t i;
     if(!context->EXT_import_context) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -411,6 +427,7 @@ static void glad_glx_load_GLX_EXT_swap_control(GladGLXContext *context, GLADuser
     };
     uint32_t i;
     if(!context->EXT_swap_control) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -424,6 +441,7 @@ static void glad_glx_load_GLX_EXT_texture_from_pixmap(GladGLXContext *context, G
     };
     uint32_t i;
     if(!context->EXT_texture_from_pixmap) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -436,6 +454,7 @@ static void glad_glx_load_GLX_MESA_agp_offset(GladGLXContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->MESA_agp_offset) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -448,6 +467,7 @@ static void glad_glx_load_GLX_MESA_copy_sub_buffer(GladGLXContext *context, GLAD
     };
     uint32_t i;
     if(!context->MESA_copy_sub_buffer) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -460,6 +480,7 @@ static void glad_glx_load_GLX_MESA_pixmap_colormap(GladGLXContext *context, GLAD
     };
     uint32_t i;
     if(!context->MESA_pixmap_colormap) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -475,6 +496,7 @@ static void glad_glx_load_GLX_MESA_query_renderer(GladGLXContext *context, GLADu
     };
     uint32_t i;
     if(!context->MESA_query_renderer) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -487,6 +509,7 @@ static void glad_glx_load_GLX_MESA_release_buffers(GladGLXContext *context, GLAD
     };
     uint32_t i;
     if(!context->MESA_release_buffers) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -499,6 +522,7 @@ static void glad_glx_load_GLX_MESA_set_3dfx_mode(GladGLXContext *context, GLADus
     };
     uint32_t i;
     if(!context->MESA_set_3dfx_mode) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -512,6 +536,7 @@ static void glad_glx_load_GLX_MESA_swap_control(GladGLXContext *context, GLADuse
     };
     uint32_t i;
     if(!context->MESA_swap_control) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -525,6 +550,7 @@ static void glad_glx_load_GLX_NV_copy_buffer(GladGLXContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->NV_copy_buffer) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -537,6 +563,7 @@ static void glad_glx_load_GLX_NV_copy_image(GladGLXContext *context, GLADuserptr
     };
     uint32_t i;
     if(!context->NV_copy_image) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -549,6 +576,7 @@ static void glad_glx_load_GLX_NV_delay_before_swap(GladGLXContext *context, GLAD
     };
     uint32_t i;
     if(!context->NV_delay_before_swap) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -562,6 +590,7 @@ static void glad_glx_load_GLX_NV_present_video(GladGLXContext *context, GLADuser
     };
     uint32_t i;
     if(!context->NV_present_video) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -579,6 +608,7 @@ static void glad_glx_load_GLX_NV_swap_group(GladGLXContext *context, GLADuserptr
     };
     uint32_t i;
     if(!context->NV_swap_group) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -595,6 +625,7 @@ static void glad_glx_load_GLX_NV_video_capture(GladGLXContext *context, GLADuser
     };
     uint32_t i;
     if(!context->NV_video_capture) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -612,6 +643,7 @@ static void glad_glx_load_GLX_NV_video_out(GladGLXContext *context, GLADuserptrl
     };
     uint32_t i;
     if(!context->NV_video_out) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -628,6 +660,7 @@ static void glad_glx_load_GLX_OML_sync_control(GladGLXContext *context, GLADuser
     };
     uint32_t i;
     if(!context->OML_sync_control) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -645,6 +678,7 @@ static void glad_glx_load_GLX_SGIX_fbconfig(GladGLXContext *context, GLADuserptr
     };
     uint32_t i;
     if(!context->SGIX_fbconfig) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -664,6 +698,7 @@ static void glad_glx_load_GLX_SGIX_hyperpipe(GladGLXContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->SGIX_hyperpipe) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -680,6 +715,7 @@ static void glad_glx_load_GLX_SGIX_pbuffer(GladGLXContext *context, GLADuserptrl
     };
     uint32_t i;
     if(!context->SGIX_pbuffer) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -693,6 +729,7 @@ static void glad_glx_load_GLX_SGIX_swap_barrier(GladGLXContext *context, GLADuse
     };
     uint32_t i;
     if(!context->SGIX_swap_barrier) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -705,6 +742,7 @@ static void glad_glx_load_GLX_SGIX_swap_group(GladGLXContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->SGIX_swap_group) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -721,6 +759,7 @@ static void glad_glx_load_GLX_SGIX_video_resize(GladGLXContext *context, GLADuse
     };
     uint32_t i;
     if(!context->SGIX_video_resize) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -733,6 +772,7 @@ static void glad_glx_load_GLX_SGI_cushion(GladGLXContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->SGI_cushion) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -746,6 +786,7 @@ static void glad_glx_load_GLX_SGI_make_current_read(GladGLXContext *context, GLA
     };
     uint32_t i;
     if(!context->SGI_make_current_read) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -758,6 +799,7 @@ static void glad_glx_load_GLX_SGI_swap_control(GladGLXContext *context, GLADuser
     };
     uint32_t i;
     if(!context->SGI_swap_control) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -771,6 +813,7 @@ static void glad_glx_load_GLX_SGI_video_sync(GladGLXContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->SGI_video_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -783,6 +826,7 @@ static void glad_glx_load_GLX_SUN_get_transparent_index(GladGLXContext *context,
     };
     uint32_t i;
     if(!context->SUN_get_transparent_index) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -833,6 +877,7 @@ static int glad_glx_find_extensions(GladGLXContext *context, Display *display, i
 
     extensions = context->QueryExtensionsString(display, screen);
 
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(GLAD_GLX_ext_names); ++i)
         context->extArray[i] = glad_glx_has_extension(extensions, GLAD_GLX_ext_names[i]);
 #else

@@ -120,13 +120,14 @@ GLAD_ARGS=(
 # Faster profile for testing changes with the C generator
 #GLAD_ARGS=(
 #	--reproducible
-#	--api=glx
+#	--api=gl:core=3.3
 #	--out-path="$PWD"
 #	--merge
 #	c
 #	--alias
 #	--loader
 #	--mx --mx-global
+#	--header-only
 #)
 
 #

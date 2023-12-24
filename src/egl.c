@@ -1,10 +1,17 @@
 /**
  * SPDX-License-Identifier: (WTFPL OR CC0-1.0) AND Apache-2.0
  */
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
+#if defined(__x86_64__) || defined(__i386__) || defined(_M_IX86) || defined(_M_X64)
+#include <immintrin.h>
+#elif defined(__aarch64__) || defined(__arm__) || defined(_M_ARM) || defined(_M_ARM64)
+#include <arm_neon.h>
+#endif
 
 #define XXH_INLINE_ALL
 #include "xxhash.h"
@@ -440,35 +447,16 @@ static uint64_t GLAD_EGL_ext_hashes[] = {
     /*  214 */ 0xa3002402543e70a5  /* EGL_WL_create_wayland_buffer_from_image */
 };
 
-static int32_t glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
-    int32_t left = 0;
-    int32_t right = (int32_t)size - 1;
-
-    while (left <= right) {
-        int32_t mid = left + (right - left) / 2;
-
-        if (arr[mid] == target) {
-            return mid;
-        }
-        if (arr[mid] < target) {
-            left = mid + 1;
-        }
-        else {
-            right = mid - 1;
-        }
+GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
+    /* This linear search works well with auto-vectorization, but it will scan
+     * the entire array and not stop early on a match */
+    uint32_t i;
+    bool found = false;
+    for (i = 0; i < size; ++i) {
+        if (arr[i] == target)
+            found = true;
     }
-
-    return -1;
-}
-
-static int glad_hash_compare(const void *_l, const void *_r)
-{
-    const uint64_t l = *(const uint64_t *)_l;
-    const uint64_t r = *(const uint64_t *)_r;
-
-    if(l < r)      return -1;
-    else if(l > r) return 1;
-    return 0;
+    return found;
 }
 
 GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
@@ -511,6 +499,7 @@ static void glad_egl_load_EGL_VERSION_1_0(GladEGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_0) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -526,6 +515,7 @@ static void glad_egl_load_EGL_VERSION_1_1(GladEGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_1) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -542,6 +532,7 @@ static void glad_egl_load_EGL_VERSION_1_2(GladEGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_2) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -554,6 +545,7 @@ static void glad_egl_load_EGL_VERSION_1_4(GladEGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_4) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -575,6 +567,7 @@ static void glad_egl_load_EGL_VERSION_1_5(GladEGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_5) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -587,6 +580,7 @@ static void glad_egl_load_EGL_ANDROID_blob_cache(GladEGLContext *context, GLADus
     };
     uint32_t i;
     if(!context->ANDROID_blob_cache) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -599,6 +593,7 @@ static void glad_egl_load_EGL_ANDROID_create_native_client_buffer(GladEGLContext
     };
     uint32_t i;
     if(!context->ANDROID_create_native_client_buffer) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -615,6 +610,7 @@ static void glad_egl_load_EGL_ANDROID_get_frame_timestamps(GladEGLContext *conte
     };
     uint32_t i;
     if(!context->ANDROID_get_frame_timestamps) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -627,6 +623,7 @@ static void glad_egl_load_EGL_ANDROID_get_native_client_buffer(GladEGLContext *c
     };
     uint32_t i;
     if(!context->ANDROID_get_native_client_buffer) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -639,6 +636,7 @@ static void glad_egl_load_EGL_ANDROID_native_fence_sync(GladEGLContext *context,
     };
     uint32_t i;
     if(!context->ANDROID_native_fence_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -651,6 +649,7 @@ static void glad_egl_load_EGL_ANDROID_presentation_time(GladEGLContext *context,
     };
     uint32_t i;
     if(!context->ANDROID_presentation_time) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -664,6 +663,7 @@ static void glad_egl_load_EGL_ANGLE_device_creation(GladEGLContext *context, GLA
     };
     uint32_t i;
     if(!context->ANGLE_device_creation) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -677,6 +677,7 @@ static void glad_egl_load_EGL_ANGLE_external_context_and_surface(GladEGLContext 
     };
     uint32_t i;
     if(!context->ANGLE_external_context_and_surface) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -690,6 +691,7 @@ static void glad_egl_load_EGL_ANGLE_feature_control(GladEGLContext *context, GLA
     };
     uint32_t i;
     if(!context->ANGLE_feature_control) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -702,6 +704,7 @@ static void glad_egl_load_EGL_ANGLE_metal_shared_event_sync(GladEGLContext *cont
     };
     uint32_t i;
     if(!context->ANGLE_metal_shared_event_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -717,6 +720,7 @@ static void glad_egl_load_EGL_ANGLE_power_preference(GladEGLContext *context, GL
     };
     uint32_t i;
     if(!context->ANGLE_power_preference) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -729,6 +733,7 @@ static void glad_egl_load_EGL_ANGLE_prepare_swap_buffers(GladEGLContext *context
     };
     uint32_t i;
     if(!context->ANGLE_prepare_swap_buffers) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -744,6 +749,7 @@ static void glad_egl_load_EGL_ANGLE_program_cache_control(GladEGLContext *contex
     };
     uint32_t i;
     if(!context->ANGLE_program_cache_control) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -756,6 +762,7 @@ static void glad_egl_load_EGL_ANGLE_query_surface_pointer(GladEGLContext *contex
     };
     uint32_t i;
     if(!context->ANGLE_query_surface_pointer) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -769,6 +776,7 @@ static void glad_egl_load_EGL_ANGLE_stream_producer_d3d_texture(GladEGLContext *
     };
     uint32_t i;
     if(!context->ANGLE_stream_producer_d3d_texture) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -781,6 +789,7 @@ static void glad_egl_load_EGL_ANGLE_swap_with_frame_token(GladEGLContext *contex
     };
     uint32_t i;
     if(!context->ANGLE_swap_with_frame_token) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -793,6 +802,7 @@ static void glad_egl_load_EGL_ANGLE_sync_control_rate(GladEGLContext *context, G
     };
     uint32_t i;
     if(!context->ANGLE_sync_control_rate) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -805,6 +815,7 @@ static void glad_egl_load_EGL_ANGLE_vulkan_image(GladEGLContext *context, GLADus
     };
     uint32_t i;
     if(!context->ANGLE_vulkan_image) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -817,6 +828,7 @@ static void glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(GladEGLContext *co
     };
     uint32_t i;
     if(!context->ANGLE_wait_until_work_scheduled) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -829,6 +841,7 @@ static void glad_egl_load_EGL_CHROMIUM_sync_control(GladEGLContext *context, GLA
     };
     uint32_t i;
     if(!context->CHROMIUM_sync_control) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -841,6 +854,7 @@ static void glad_egl_load_EGL_EXT_client_sync(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->EXT_client_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -859,6 +873,7 @@ static void glad_egl_load_EGL_EXT_compositor(GladEGLContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->EXT_compositor) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -874,6 +889,7 @@ static void glad_egl_load_EGL_EXT_device_base(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->EXT_device_base) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -886,6 +902,7 @@ static void glad_egl_load_EGL_EXT_device_enumeration(GladEGLContext *context, GL
     };
     uint32_t i;
     if(!context->EXT_device_enumeration) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -898,6 +915,7 @@ static void glad_egl_load_EGL_EXT_device_persistent_id(GladEGLContext *context, 
     };
     uint32_t i;
     if(!context->EXT_device_persistent_id) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -912,6 +930,7 @@ static void glad_egl_load_EGL_EXT_device_query(GladEGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->EXT_device_query) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -925,6 +944,7 @@ static void glad_egl_load_EGL_EXT_image_dma_buf_import_modifiers(GladEGLContext 
     };
     uint32_t i;
     if(!context->EXT_image_dma_buf_import_modifiers) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -944,6 +964,7 @@ static void glad_egl_load_EGL_EXT_output_base(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->EXT_output_base) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -958,6 +979,7 @@ static void glad_egl_load_EGL_EXT_platform_base(GladEGLContext *context, GLADuse
     };
     uint32_t i;
     if(!context->EXT_platform_base) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -970,6 +992,7 @@ static void glad_egl_load_EGL_EXT_stream_consumer_egloutput(GladEGLContext *cont
     };
     uint32_t i;
     if(!context->EXT_stream_consumer_egloutput) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -982,6 +1005,7 @@ static void glad_egl_load_EGL_EXT_surface_compression(GladEGLContext *context, G
     };
     uint32_t i;
     if(!context->EXT_surface_compression) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -994,6 +1018,7 @@ static void glad_egl_load_EGL_EXT_swap_buffers_with_damage(GladEGLContext *conte
     };
     uint32_t i;
     if(!context->EXT_swap_buffers_with_damage) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1006,6 +1031,7 @@ static void glad_egl_load_EGL_EXT_sync_reuse(GladEGLContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->EXT_sync_reuse) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1018,6 +1044,7 @@ static void glad_egl_load_EGL_HI_clientpixmap(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->HI_clientpixmap) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1030,6 +1057,7 @@ static void glad_egl_load_EGL_KHR_cl_event2(GladEGLContext *context, GLADuserptr
     };
     uint32_t i;
     if(!context->KHR_cl_event2) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1044,6 +1072,7 @@ static void glad_egl_load_EGL_KHR_debug(GladEGLContext *context, GLADuserptrload
     };
     uint32_t i;
     if(!context->KHR_debug) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1056,6 +1085,7 @@ static void glad_egl_load_EGL_KHR_display_reference(GladEGLContext *context, GLA
     };
     uint32_t i;
     if(!context->KHR_display_reference) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1071,6 +1101,7 @@ static void glad_egl_load_EGL_KHR_fence_sync(GladEGLContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->KHR_fence_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1084,6 +1115,7 @@ static void glad_egl_load_EGL_KHR_image(GladEGLContext *context, GLADuserptrload
     };
     uint32_t i;
     if(!context->KHR_image) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1097,6 +1129,7 @@ static void glad_egl_load_EGL_KHR_image_base(GladEGLContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->KHR_image_base) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1110,6 +1143,7 @@ static void glad_egl_load_EGL_KHR_lock_surface(GladEGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->KHR_lock_surface) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1124,6 +1158,7 @@ static void glad_egl_load_EGL_KHR_lock_surface3(GladEGLContext *context, GLADuse
     };
     uint32_t i;
     if(!context->KHR_lock_surface3) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1136,6 +1171,7 @@ static void glad_egl_load_EGL_KHR_partial_update(GladEGLContext *context, GLADus
     };
     uint32_t i;
     if(!context->KHR_partial_update) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1152,6 +1188,7 @@ static void glad_egl_load_EGL_KHR_reusable_sync(GladEGLContext *context, GLADuse
     };
     uint32_t i;
     if(!context->KHR_reusable_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1168,6 +1205,7 @@ static void glad_egl_load_EGL_KHR_stream(GladEGLContext *context, GLADuserptrloa
     };
     uint32_t i;
     if(!context->KHR_stream) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1184,6 +1222,7 @@ static void glad_egl_load_EGL_KHR_stream_attrib(GladEGLContext *context, GLADuse
     };
     uint32_t i;
     if(!context->KHR_stream_attrib) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1198,6 +1237,7 @@ static void glad_egl_load_EGL_KHR_stream_consumer_gltexture(GladEGLContext *cont
     };
     uint32_t i;
     if(!context->KHR_stream_consumer_gltexture) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1211,6 +1251,7 @@ static void glad_egl_load_EGL_KHR_stream_cross_process_fd(GladEGLContext *contex
     };
     uint32_t i;
     if(!context->KHR_stream_cross_process_fd) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1223,6 +1264,7 @@ static void glad_egl_load_EGL_KHR_stream_fifo(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->KHR_stream_fifo) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1235,6 +1277,7 @@ static void glad_egl_load_EGL_KHR_stream_producer_eglsurface(GladEGLContext *con
     };
     uint32_t i;
     if(!context->KHR_stream_producer_eglsurface) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1247,6 +1290,7 @@ static void glad_egl_load_EGL_KHR_swap_buffers_with_damage(GladEGLContext *conte
     };
     uint32_t i;
     if(!context->KHR_swap_buffers_with_damage) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1259,6 +1303,7 @@ static void glad_egl_load_EGL_KHR_wait_sync(GladEGLContext *context, GLADuserptr
     };
     uint32_t i;
     if(!context->KHR_wait_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1272,6 +1317,7 @@ static void glad_egl_load_EGL_MESA_drm_image(GladEGLContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->MESA_drm_image) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1285,6 +1331,7 @@ static void glad_egl_load_EGL_MESA_image_dma_buf_export(GladEGLContext *context,
     };
     uint32_t i;
     if(!context->MESA_image_dma_buf_export) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1298,6 +1345,7 @@ static void glad_egl_load_EGL_MESA_query_driver(GladEGLContext *context, GLADuse
     };
     uint32_t i;
     if(!context->MESA_query_driver) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1310,6 +1358,7 @@ static void glad_egl_load_EGL_NOK_swap_region(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->NOK_swap_region) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1322,6 +1371,7 @@ static void glad_egl_load_EGL_NOK_swap_region2(GladEGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->NOK_swap_region2) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1336,6 +1386,7 @@ static void glad_egl_load_EGL_NV_native_query(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->NV_native_query) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1348,6 +1399,7 @@ static void glad_egl_load_EGL_NV_post_sub_buffer(GladEGLContext *context, GLADus
     };
     uint32_t i;
     if(!context->NV_post_sub_buffer) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1363,6 +1415,7 @@ static void glad_egl_load_EGL_NV_stream_consumer_eglimage(GladEGLContext *contex
     };
     uint32_t i;
     if(!context->NV_stream_consumer_eglimage) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1375,6 +1428,7 @@ static void glad_egl_load_EGL_NV_stream_consumer_gltexture_yuv(GladEGLContext *c
     };
     uint32_t i;
     if(!context->NV_stream_consumer_gltexture_yuv) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1387,6 +1441,7 @@ static void glad_egl_load_EGL_NV_stream_flush(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->NV_stream_flush) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1401,6 +1456,7 @@ static void glad_egl_load_EGL_NV_stream_metadata(GladEGLContext *context, GLADus
     };
     uint32_t i;
     if(!context->NV_stream_metadata) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1413,6 +1469,7 @@ static void glad_egl_load_EGL_NV_stream_reset(GladEGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->NV_stream_reset) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1425,6 +1482,7 @@ static void glad_egl_load_EGL_NV_stream_sync(GladEGLContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->NV_stream_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1442,6 +1500,7 @@ static void glad_egl_load_EGL_NV_sync(GladEGLContext *context, GLADuserptrloadfu
     };
     uint32_t i;
     if(!context->NV_sync) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1455,6 +1514,7 @@ static void glad_egl_load_EGL_NV_system_time(GladEGLContext *context, GLADuserpt
     };
     uint32_t i;
     if(!context->NV_system_time) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1469,6 +1529,7 @@ static void glad_egl_load_EGL_WL_bind_wayland_display(GladEGLContext *context, G
     };
     uint32_t i;
     if(!context->WL_bind_wayland_display) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1481,6 +1542,7 @@ static void glad_egl_load_EGL_WL_create_wayland_buffer_from_image(GladEGLContext
     };
     uint32_t i;
     if(!context->WL_create_wayland_buffer_from_image) return;
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
@@ -1507,6 +1569,7 @@ static void glad_egl_resolve_aliases(GladEGLContext *context) {
     void **pfnArray = context->pfnArray;
     uint32_t i;
 
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_aliases); ++i) {
         const GladAliasPair_t *pAlias = &s_aliases[i];
         if (pfnArray[pAlias->first] == NULL && pfnArray[pAlias->second] != NULL) {
@@ -1573,8 +1636,6 @@ static int glad_egl_get_extensions(GladEGLContext *context, EGLDisplay display, 
 
     free(concat);
 
-    qsort(exts, num_exts, sizeof(uint64_t), glad_hash_compare);
-
     *out_exts = exts;
     *out_num_exts = num_exts;
 
@@ -1582,12 +1643,7 @@ static int glad_egl_get_extensions(GladEGLContext *context, EGLDisplay display, 
 }
 
 static int glad_egl_has_extension(uint64_t *exts, uint32_t num_exts, uint64_t extension) {
-    int32_t match = glad_hash_search(exts, num_exts, extension);
-
-    if (match >= 0)
-        return 1;
-
-    return 0;
+    return glad_hash_search(exts, num_exts, extension);
 }
 
 static GLADapiproc glad_egl_get_proc_from_userptr(void *userptr, const char *name) {
@@ -1601,6 +1657,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
 
     if (!glad_egl_get_extensions(context, display, &exts, &num_exts)) return 0;
 
+    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(GLAD_EGL_ext_hashes); ++i)
         context->extArray[i] = glad_egl_has_extension(exts, num_exts, GLAD_EGL_ext_hashes[i]);
 
