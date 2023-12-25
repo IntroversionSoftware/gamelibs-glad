@@ -4051,7 +4051,7 @@ static int glad_vk_find_core_vulkan(GladVulkanContext *context, VkPhysicalDevice
     return GLAD_MAKE_VERSION(major, minor);
 }
 
-int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice physical_device, GLADuserptrloadfunc load, void *userptr) {
+GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice physical_device, GLADuserptrloadfunc load, void *userptr) {
     int version;
 
 #ifdef VK_VERSION_1_1

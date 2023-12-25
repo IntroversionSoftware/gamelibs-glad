@@ -913,7 +913,7 @@ static int glad_glx_find_core_glx(GladGLXContext *context, Display **display, in
     return GLAD_MAKE_VERSION(major, minor);
 }
 
-int gladLoadGLXContextUserPtr(GladGLXContext *context, Display *display, int screen, GLADuserptrloadfunc load, void *userptr) {
+GLAD_NO_INLINE int gladLoadGLXContextUserPtr(GladGLXContext *context, Display *display, int screen, GLADuserptrloadfunc load, void *userptr) {
     int version;
     context->QueryVersion = (PFNGLXQUERYVERSIONPROC) load(userptr, "glXQueryVersion");
     if(context->QueryVersion == NULL) return 0;

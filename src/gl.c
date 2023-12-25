@@ -14758,7 +14758,7 @@ static int glad_gl_find_core_gl(GladGLContext *context) {
     return GLAD_MAKE_VERSION(major, minor);
 }
 
-int gladLoadGLContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load, void *userptr) {
+GLAD_NO_INLINE int gladLoadGLContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load, void *userptr) {
     int version;
 
     context->GetString = (PFNGLGETSTRINGPROC) load(userptr, "glGetString");
@@ -15325,7 +15325,7 @@ static int glad_gl_find_core_gles2(GladGLContext *context) {
     return GLAD_MAKE_VERSION(major, minor);
 }
 
-int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load, void *userptr) {
+GLAD_NO_INLINE int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserptrloadfunc load, void *userptr) {
     int version;
 
     context->GetString = (PFNGLGETSTRINGPROC) load(userptr, "glGetString");
