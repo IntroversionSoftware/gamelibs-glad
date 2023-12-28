@@ -35,18 +35,18 @@
 #define GLAD_NO_INLINE __attribute__((noinline))
 #endif
 
-#endif /* GLAD_IMPL_UTIL_C_ */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #define GLAD_ARRAYSIZE(x) (sizeof(x)/sizeof(x[0]))
 
 typedef struct {
     uint16_t first;
     uint16_t second;
 } GladAliasPair_t;
+
+#endif /* GLAD_IMPL_UTIL_C_ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 static const char *GLAD_WGL_fn_names[] = {
     /*    0 */ "ChoosePixelFormat",
@@ -255,7 +255,6 @@ static const char *GLAD_WGL_ext_names[] = {
     /*   55 */ "WGL_NV_video_output",
     /*   56 */ "WGL_OML_sync_control"
 };
-
 
 #ifdef __cplusplus
 GladWGLContext glad_wgl_context = {};
@@ -920,21 +919,181 @@ void gladSetWGLContext(GladWGLContext *context) {
 
 #ifdef GLAD_WGL
 
-static GLADapiproc glad_wgl_get_proc(void *vuserptr, const char* name) {
-    GLAD_UNUSED(vuserptr);
-    return GLAD_GNUC_EXTENSION (GLADapiproc) wglGetProcAddress(name);
+#ifndef GLAD_LOADER_LIBRARY_C_
+#define GLAD_LOADER_LIBRARY_C_
+
+#include <stddef.h>
+#include <stdlib.h>
+
+#if GLAD_PLATFORM_WIN32
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#endif
+
+
+static void* glad_get_dlopen_handle(const char *lib_names[], int length) {
+    void *handle = NULL;
+    int i;
+
+    for (i = 0; i < length; ++i) {
+#if GLAD_PLATFORM_WIN32
+  #if GLAD_PLATFORM_UWP
+        size_t buffer_size = (strlen(lib_names[i]) + 1) * sizeof(WCHAR);
+        LPWSTR buffer = (LPWSTR) malloc(buffer_size);
+        if (buffer != NULL) {
+            int ret = MultiByteToWideChar(CP_ACP, 0, lib_names[i], -1, buffer, buffer_size);
+            if (ret != 0) {
+                handle = (void*) LoadPackagedLibrary(buffer, 0);
+            }
+            free((void*) buffer);
+        }
+  #else
+        handle = (void*) LoadLibraryA(lib_names[i]);
+  #endif
+#else
+        handle = dlopen(lib_names[i], RTLD_LAZY | RTLD_LOCAL);
+#endif
+        if (handle != NULL) {
+            return handle;
+        }
+    }
+
+    return NULL;
+}
+
+static void glad_close_dlopen_handle(void* handle) {
+    if (handle != NULL) {
+#if GLAD_PLATFORM_WIN32
+        FreeLibrary((HMODULE) handle);
+#else
+        dlclose(handle);
+#endif
+    }
+}
+
+static GLADapiproc glad_dlsym_handle(void* handle, const char *name) {
+    if (handle == NULL) {
+        return NULL;
+    }
+
+#if GLAD_PLATFORM_WIN32
+    return (GLADapiproc) GetProcAddress((HMODULE) handle, name);
+#else
+    return GLAD_GNUC_EXTENSION (GLADapiproc) dlsym(handle, name);
+#endif
+}
+
+#endif /* GLAD_LOADER_LIBRARY_C_ */
+
+typedef void* (GLAD_API_PTR *GLADwglprocaddrfunc)(const char*);
+struct _glad_wgl_userptr {
+    void *handle;
+    GLADwglprocaddrfunc wgl_get_proc_address_ptr;
+};
+
+
+static void* glad_wgl_dlopen_handle(GladWGLContext *context) {
+#if GLAD_PLATFORM_APPLE
+    static const char *NAMES[] = {
+        "../Frameworks/OpenGL.framework/OpenGL",
+        "/Library/Frameworks/OpenGL.framework/OpenGL",
+        "/System/Library/Frameworks/OpenGL.framework/OpenGL",
+        "/System/Library/Frameworks/OpenGL.framework/Versions/Current/OpenGL"
+    };
+#elif GLAD_PLATFORM_WIN32
+    static const char *NAMES[] = {"opengl32.dll"};
+#else
+    static const char *NAMES[] = {
+  #if defined(__CYGWIN__)
+        "libGL-1.so",
+  #endif
+        "libGL.so.1",
+        "libGL.so"
+    };
+#endif
+
+    if (context->glad_loader_handle == NULL) {
+        context->glad_loader_handle = glad_get_dlopen_handle(NAMES, GLAD_ARRAYSIZE(NAMES));
+    }
+
+    return context->glad_loader_handle;
+}
+
+static struct _glad_wgl_userptr glad_wgl_build_userptr(void *handle) {
+    struct _glad_wgl_userptr userptr;
+
+    userptr.handle = handle;
+#if GLAD_PLATFORM_APPLE || defined(__HAIKU__)
+    userptr.wgl_get_proc_address_ptr = NULL;
+#elif GLAD_PLATFORM_WIN32
+    userptr.wgl_get_proc_address_ptr =
+        (GLADwglprocaddrfunc) glad_dlsym_handle(handle, "wglGetProcAddress");
+#else
+    userptr.wgl_get_proc_address_ptr =
+        (GLADwglprocaddrfunc) glad_dlsym_handle(handle, "glXGetProcAddressARB");
+#endif
+
+    return userptr;
+}
+
+static GLADapiproc glad_wgl_get_proc(void *vuserptr, const char *name) {
+    struct _glad_wgl_userptr userptr = *(struct _glad_wgl_userptr*) vuserptr;
+    GLADapiproc result = NULL;
+
+    if(userptr.wgl_get_proc_address_ptr != NULL) {
+        result = GLAD_GNUC_EXTENSION (GLADapiproc) userptr.wgl_get_proc_address_ptr(name);
+    }
+    if(result == NULL) {
+        result = glad_dlsym_handle(userptr.handle, name);
+    }
+
+    return result;
+}
+
+int gladLoaderLoadWGLContext(GladWGLContext *context, HDC hdc) {
+    int version = 0;
+    void *handle;
+    int did_load = 0;
+    struct _glad_wgl_userptr userptr;
+
+    did_load = context->glad_loader_handle == NULL;
+    handle = glad_wgl_dlopen_handle(context);
+    if (handle) {
+        userptr = glad_wgl_build_userptr(handle);
+
+        version = gladLoadWGLContextUserPtr(context, hdc, glad_wgl_get_proc, &userptr);
+
+        if (!version && did_load) {
+            gladLoaderUnloadWGLContext(context);
+        }
+    }
+    return version;
 }
 
 int gladLoaderLoadWGL(HDC hdc) {
-    return gladLoadWGLUserPtr(hdc, glad_wgl_get_proc, NULL);
+    return gladLoaderLoadWGLContext(gladGetWGLContext(), hdc);
 }
 
 void gladLoaderResetWGL(void) {
     gladLoaderResetWGLContext(gladGetWGLContext());
 }
 
+void gladLoaderUnloadWGLContext(GladWGLContext *context) {
+    if (context->glad_loader_handle != NULL) {
+        glad_close_dlopen_handle(context->glad_loader_handle);
+        context->glad_loader_handle = NULL;
+    }
+
+    gladLoaderResetWGLContext(context);
+}
+
 void gladLoaderResetWGLContext(GladWGLContext *context) {
     memset(context, 0, sizeof(GladWGLContext));
+}
+
+void gladLoaderUnloadWGL(void) {
+    gladLoaderUnloadWGLContext(gladGetWGLContext());
 }
 
 #endif /* GLAD_WGL */

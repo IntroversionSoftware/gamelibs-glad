@@ -34,18 +34,40 @@
 #define GLAD_NO_INLINE __attribute__((noinline))
 #endif
 
-#endif /* GLAD_IMPL_UTIL_C_ */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #define GLAD_ARRAYSIZE(x) (sizeof(x)/sizeof(x[0]))
 
 typedef struct {
     uint16_t first;
     uint16_t second;
 } GladAliasPair_t;
+
+#endif /* GLAD_IMPL_UTIL_C_ */
+
+#ifndef GLAD_IMPL_UTIL_HASHSEARCH_C_
+#define GLAD_IMPL_UTIL_HASHSEARCH_C_
+
+GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
+    /* This linear search works well with auto-vectorization, but it will scan
+     * the entire array and not stop early on a match */
+    uint32_t i;
+    bool found = false;
+    for (i = 0; i < size; ++i) {
+        if (arr[i] == target)
+            found = true;
+    }
+    return found;
+}
+
+GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
+{
+    return XXH3_64bits(str, length);
+}
+
+#endif /* GLAD_IMPL_HASHSEARCH_C_ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 static const char *GLAD_GL_fn_names[] = {
     /*    0 */ "glAccumxOES",
@@ -3840,23 +3862,6 @@ static uint64_t GLAD_GL_ext_hashes[] = {
     /*  903 */ 0xf09a257256bde8f6, /* GL_WIN_phong_shading */
     /*  904 */ 0x5a3e106713a38cff  /* GL_WIN_specular_fog */
 };
-
-GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
-    /* This linear search works well with auto-vectorization, but it will scan
-     * the entire array and not stop early on a match */
-    uint32_t i;
-    bool found = false;
-    for (i = 0; i < size; ++i) {
-        if (arr[i] == target)
-            found = true;
-    }
-    return found;
-}
-
-GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
-{
-    return XXH3_64bits(str, length);
-}
 
 #ifdef __cplusplus
 GladGLContext glad_gl_context = {};
@@ -16251,7 +16256,7 @@ int gladLoaderLoadGLContext(GladGLContext *context) {
     if (handle) {
         userptr = glad_gl_build_userptr(handle);
 
-        version = gladLoadGLContextUserPtr(context,glad_gl_get_proc, &userptr);
+        version = gladLoadGLContextUserPtr(context, glad_gl_get_proc, &userptr);
 
         if (!version && did_load) {
             gladLoaderUnloadGLContext(context);

@@ -34,18 +34,40 @@
 #define GLAD_NO_INLINE __attribute__((noinline))
 #endif
 
-#endif /* GLAD_IMPL_UTIL_C_ */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #define GLAD_ARRAYSIZE(x) (sizeof(x)/sizeof(x[0]))
 
 typedef struct {
     uint16_t first;
     uint16_t second;
 } GladAliasPair_t;
+
+#endif /* GLAD_IMPL_UTIL_C_ */
+
+#ifndef GLAD_IMPL_UTIL_HASHSEARCH_C_
+#define GLAD_IMPL_UTIL_HASHSEARCH_C_
+
+GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
+    /* This linear search works well with auto-vectorization, but it will scan
+     * the entire array and not stop early on a match */
+    uint32_t i;
+    bool found = false;
+    for (i = 0; i < size; ++i) {
+        if (arr[i] == target)
+            found = true;
+    }
+    return found;
+}
+
+GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
+{
+    return XXH3_64bits(str, length);
+}
+
+#endif /* GLAD_IMPL_HASHSEARCH_C_ */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 static const char *GLAD_EGL_fn_names[] = {
     /*    0 */ "eglAcquireExternalContextANGLE",
@@ -446,23 +468,6 @@ static uint64_t GLAD_EGL_ext_hashes[] = {
     /*  213 */ 0xc81b6f913740e456, /* EGL_WL_bind_wayland_display */
     /*  214 */ 0xa3002402543e70a5  /* EGL_WL_create_wayland_buffer_from_image */
 };
-
-GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
-    /* This linear search works well with auto-vectorization, but it will scan
-     * the entire array and not stop early on a match */
-    uint32_t i;
-    bool found = false;
-    for (i = 0; i < size; ++i) {
-        if (arr[i] == target)
-            found = true;
-    }
-    return found;
-}
-
-GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
-{
-    return XXH3_64bits(str, length);
-}
 
 #ifdef __cplusplus
 GladEGLContext glad_egl_context = {};

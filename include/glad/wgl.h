@@ -1252,10 +1252,15 @@ GLAD_API_CALL int gladLoadWGL(HDC hdc, GLADloadfunc load);
 
 #ifdef GLAD_WGL
 
-GLAD_API_CALL int gladLoaderLoadWGL(HDC hdc);
+GLAD_API_CALL int gladLoaderLoadWGLContext(GladWGLContext *context, HDC hdc);
+GLAD_API_CALL void gladLoaderUnloadWGLContext(GladWGLContext *context);
 GLAD_API_CALL void gladLoaderResetWGLContext(GladWGLContext *context);
+GLAD_API_CALL int gladLoaderLoadWGL(HDC hdc);
+GLAD_API_CALL void gladLoaderUnloadWGL(void);
+GLAD_API_CALL void gladLoaderResetWGL(void);
 
 #endif
+
 #ifdef __cplusplus
 }
 #endif
