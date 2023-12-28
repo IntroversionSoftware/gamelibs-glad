@@ -14382,36 +14382,72 @@ static GLADapiproc glad_gl_get_proc_from_userptr(void *userptr, const char* name
 
 static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
     static const uint16_t s_extIdx[] = {
+           0, /* GL_3DFX_multisample */
            1, /* GL_3DFX_tbuffer */
+           2, /* GL_3DFX_texture_compression_FXT1 */
+           3, /* GL_AMD_blend_minmax_factor */
+           6, /* GL_AMD_conservative_depth */
            7, /* GL_AMD_debug_output */
+           8, /* GL_AMD_depth_clamp_separate */
            9, /* GL_AMD_draw_buffers_blend */
           10, /* GL_AMD_framebuffer_multisample_advanced */
           11, /* GL_AMD_framebuffer_sample_positions */
+          12, /* GL_AMD_gcn_shader */
+          13, /* GL_AMD_gpu_shader_half_float */
+          14, /* GL_AMD_gpu_shader_int16 */
           15, /* GL_AMD_gpu_shader_int64 */
           16, /* GL_AMD_interleaved_elements */
           17, /* GL_AMD_multi_draw_indirect */
           18, /* GL_AMD_name_gen_delete */
           19, /* GL_AMD_occlusion_query_event */
           20, /* GL_AMD_performance_monitor */
+          21, /* GL_AMD_pinned_memory */
+          23, /* GL_AMD_query_buffer_object */
           24, /* GL_AMD_sample_positions */
+          25, /* GL_AMD_seamless_cubemap_per_texture */
+          26, /* GL_AMD_shader_atomic_counter_ops */
+          27, /* GL_AMD_shader_ballot */
+          28, /* GL_AMD_shader_explicit_vertex_parameter */
+          29, /* GL_AMD_shader_fragment_mask */
+          30, /* GL_AMD_shader_gpu_shader_half_float_fetch */
+          31, /* GL_AMD_shader_image_load_store_lod */
+          32, /* GL_AMD_shader_stencil_export */
+          33, /* GL_AMD_shader_trinary_minmax */
           34, /* GL_AMD_sparse_texture */
           35, /* GL_AMD_stencil_operation_extended */
+          36, /* GL_AMD_texture_gather_bias_lod */
+          37, /* GL_AMD_texture_texture4 */
+          38, /* GL_AMD_transform_feedback3_lines_triangles */
+          39, /* GL_AMD_transform_feedback4 */
+          40, /* GL_AMD_vertex_shader_layer */
           41, /* GL_AMD_vertex_shader_tessellator */
+          42, /* GL_AMD_vertex_shader_viewport_index */
           57, /* GL_ANGLE_memory_object_flags */
           58, /* GL_ANGLE_memory_object_fuchsia */
           72, /* GL_ANGLE_semaphore_fuchsia */
+          75, /* GL_ANGLE_texture_compression_dxt */
           78, /* GL_ANGLE_texture_external_update */
+          85, /* GL_APPLE_aux_depth_stencil */
+          86, /* GL_APPLE_client_storage */
           90, /* GL_APPLE_element_array */
           91, /* GL_APPLE_fence */
+          92, /* GL_APPLE_float_pixels */
           93, /* GL_APPLE_flush_buffer_range */
           95, /* GL_APPLE_object_purgeable */
+          96, /* GL_APPLE_rgb_422 */
+          97, /* GL_APPLE_row_bytes */
+          98, /* GL_APPLE_specular_vector */
          103, /* GL_APPLE_texture_range */
+         104, /* GL_APPLE_transform_hint */
          105, /* GL_APPLE_vertex_array_object */
          106, /* GL_APPLE_vertex_array_range */
          107, /* GL_APPLE_vertex_program_evaluators */
+         108, /* GL_APPLE_ycbcr_422 */
          109, /* GL_ARB_ES2_compatibility */
          110, /* GL_ARB_ES3_1_compatibility */
          111, /* GL_ARB_ES3_2_compatibility */
+         112, /* GL_ARB_ES3_compatibility */
+         113, /* GL_ARB_arrays_of_arrays */
          114, /* GL_ARB_base_instance */
          115, /* GL_ARB_bindless_texture */
          116, /* GL_ARB_blend_func_extended */
@@ -14421,32 +14457,54 @@ static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
          120, /* GL_ARB_clear_texture */
          121, /* GL_ARB_clip_control */
          122, /* GL_ARB_color_buffer_float */
+         123, /* GL_ARB_compatibility */
+         124, /* GL_ARB_compressed_texture_pixel_storage */
          125, /* GL_ARB_compute_shader */
          126, /* GL_ARB_compute_variable_group_size */
+         127, /* GL_ARB_conditional_render_inverted */
+         128, /* GL_ARB_conservative_depth */
          129, /* GL_ARB_copy_buffer */
          130, /* GL_ARB_copy_image */
+         131, /* GL_ARB_cull_distance */
          132, /* GL_ARB_debug_output */
+         133, /* GL_ARB_depth_buffer_float */
+         134, /* GL_ARB_depth_clamp */
+         135, /* GL_ARB_depth_texture */
+         136, /* GL_ARB_derivative_control */
          137, /* GL_ARB_direct_state_access */
          138, /* GL_ARB_draw_buffers */
          139, /* GL_ARB_draw_buffers_blend */
          140, /* GL_ARB_draw_elements_base_vertex */
          141, /* GL_ARB_draw_indirect */
          142, /* GL_ARB_draw_instanced */
+         143, /* GL_ARB_enhanced_layouts */
+         144, /* GL_ARB_explicit_attrib_location */
+         145, /* GL_ARB_explicit_uniform_location */
+         146, /* GL_ARB_fragment_coord_conventions */
+         147, /* GL_ARB_fragment_layer_viewport */
          148, /* GL_ARB_fragment_program */
+         149, /* GL_ARB_fragment_program_shadow */
+         150, /* GL_ARB_fragment_shader */
+         151, /* GL_ARB_fragment_shader_interlock */
          152, /* GL_ARB_framebuffer_no_attachments */
          153, /* GL_ARB_framebuffer_object */
+         154, /* GL_ARB_framebuffer_sRGB */
          155, /* GL_ARB_geometry_shader4 */
          156, /* GL_ARB_get_program_binary */
          157, /* GL_ARB_get_texture_sub_image */
          158, /* GL_ARB_gl_spirv */
+         159, /* GL_ARB_gpu_shader5 */
          160, /* GL_ARB_gpu_shader_fp64 */
          161, /* GL_ARB_gpu_shader_int64 */
+         162, /* GL_ARB_half_float_pixel */
+         163, /* GL_ARB_half_float_vertex */
          164, /* GL_ARB_imaging */
          165, /* GL_ARB_indirect_parameters */
          166, /* GL_ARB_instanced_arrays */
          167, /* GL_ARB_internalformat_query */
          168, /* GL_ARB_internalformat_query2 */
          169, /* GL_ARB_invalidate_subdata */
+         170, /* GL_ARB_map_buffer_alignment */
          171, /* GL_ARB_map_buffer_range */
          172, /* GL_ARB_matrix_palette */
          173, /* GL_ARB_multi_bind */
@@ -14454,40 +14512,97 @@ static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
          175, /* GL_ARB_multisample */
          176, /* GL_ARB_multitexture */
          177, /* GL_ARB_occlusion_query */
+         178, /* GL_ARB_occlusion_query2 */
          179, /* GL_ARB_parallel_shader_compile */
+         180, /* GL_ARB_pipeline_statistics_query */
+         181, /* GL_ARB_pixel_buffer_object */
          182, /* GL_ARB_point_parameters */
+         183, /* GL_ARB_point_sprite */
          184, /* GL_ARB_polygon_offset_clamp */
+         185, /* GL_ARB_post_depth_coverage */
          186, /* GL_ARB_program_interface_query */
          187, /* GL_ARB_provoking_vertex */
+         188, /* GL_ARB_query_buffer_object */
+         189, /* GL_ARB_robust_buffer_access_behavior */
          190, /* GL_ARB_robustness */
+         191, /* GL_ARB_robustness_isolation */
          192, /* GL_ARB_sample_locations */
          193, /* GL_ARB_sample_shading */
          194, /* GL_ARB_sampler_objects */
+         195, /* GL_ARB_seamless_cube_map */
+         196, /* GL_ARB_seamless_cubemap_per_texture */
          197, /* GL_ARB_separate_shader_objects */
+         198, /* GL_ARB_shader_atomic_counter_ops */
          199, /* GL_ARB_shader_atomic_counters */
+         200, /* GL_ARB_shader_ballot */
+         201, /* GL_ARB_shader_bit_encoding */
+         202, /* GL_ARB_shader_clock */
+         203, /* GL_ARB_shader_draw_parameters */
+         204, /* GL_ARB_shader_group_vote */
          205, /* GL_ARB_shader_image_load_store */
+         206, /* GL_ARB_shader_image_size */
          207, /* GL_ARB_shader_objects */
+         208, /* GL_ARB_shader_precision */
+         209, /* GL_ARB_shader_stencil_export */
          210, /* GL_ARB_shader_storage_buffer_object */
          211, /* GL_ARB_shader_subroutine */
+         212, /* GL_ARB_shader_texture_image_samples */
+         213, /* GL_ARB_shader_texture_lod */
+         214, /* GL_ARB_shader_viewport_layer_array */
+         215, /* GL_ARB_shading_language_100 */
+         216, /* GL_ARB_shading_language_420pack */
          217, /* GL_ARB_shading_language_include */
+         218, /* GL_ARB_shading_language_packing */
+         219, /* GL_ARB_shadow */
+         220, /* GL_ARB_shadow_ambient */
          221, /* GL_ARB_sparse_buffer */
          222, /* GL_ARB_sparse_texture */
+         223, /* GL_ARB_sparse_texture2 */
+         224, /* GL_ARB_sparse_texture_clamp */
+         225, /* GL_ARB_spirv_extensions */
+         226, /* GL_ARB_stencil_texturing */
          227, /* GL_ARB_sync */
          228, /* GL_ARB_tessellation_shader */
          229, /* GL_ARB_texture_barrier */
+         230, /* GL_ARB_texture_border_clamp */
          231, /* GL_ARB_texture_buffer_object */
+         232, /* GL_ARB_texture_buffer_object_rgb32 */
          233, /* GL_ARB_texture_buffer_range */
          234, /* GL_ARB_texture_compression */
+         235, /* GL_ARB_texture_compression_bptc */
+         236, /* GL_ARB_texture_compression_rgtc */
+         237, /* GL_ARB_texture_cube_map */
+         238, /* GL_ARB_texture_cube_map_array */
+         239, /* GL_ARB_texture_env_add */
+         240, /* GL_ARB_texture_env_combine */
+         241, /* GL_ARB_texture_env_crossbar */
+         242, /* GL_ARB_texture_env_dot3 */
+         243, /* GL_ARB_texture_filter_anisotropic */
+         244, /* GL_ARB_texture_filter_minmax */
+         245, /* GL_ARB_texture_float */
+         246, /* GL_ARB_texture_gather */
+         247, /* GL_ARB_texture_mirror_clamp_to_edge */
+         248, /* GL_ARB_texture_mirrored_repeat */
          249, /* GL_ARB_texture_multisample */
+         250, /* GL_ARB_texture_non_power_of_two */
+         251, /* GL_ARB_texture_query_levels */
+         252, /* GL_ARB_texture_query_lod */
+         253, /* GL_ARB_texture_rectangle */
+         254, /* GL_ARB_texture_rg */
+         255, /* GL_ARB_texture_rgb10_a2ui */
+         256, /* GL_ARB_texture_stencil8 */
          257, /* GL_ARB_texture_storage */
          258, /* GL_ARB_texture_storage_multisample */
+         259, /* GL_ARB_texture_swizzle */
          260, /* GL_ARB_texture_view */
          261, /* GL_ARB_timer_query */
          262, /* GL_ARB_transform_feedback2 */
          263, /* GL_ARB_transform_feedback3 */
          264, /* GL_ARB_transform_feedback_instanced */
+         265, /* GL_ARB_transform_feedback_overflow_query */
          266, /* GL_ARB_transpose_matrix */
          267, /* GL_ARB_uniform_buffer_object */
+         268, /* GL_ARB_vertex_array_bgra */
          269, /* GL_ARB_vertex_array_object */
          270, /* GL_ARB_vertex_attrib_64bit */
          271, /* GL_ARB_vertex_attrib_binding */
@@ -14495,6 +14610,7 @@ static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
          273, /* GL_ARB_vertex_buffer_object */
          274, /* GL_ARB_vertex_program */
          275, /* GL_ARB_vertex_shader */
+         276, /* GL_ARB_vertex_type_10f_11f_11f_rev */
          277, /* GL_ARB_vertex_type_2_10_10_10_rev */
          278, /* GL_ARB_viewport_array */
          279, /* GL_ARB_window_pos */
@@ -14503,197 +14619,427 @@ static int glad_gl_find_extensions_gl(GladGLContext *context, int version) {
          289, /* GL_ATI_envmap_bumpmap */
          290, /* GL_ATI_fragment_shader */
          291, /* GL_ATI_map_object_buffer */
+         292, /* GL_ATI_meminfo */
+         293, /* GL_ATI_pixel_format_float */
          294, /* GL_ATI_pn_triangles */
          295, /* GL_ATI_separate_stencil */
+         296, /* GL_ATI_text_fragment_shader */
+         297, /* GL_ATI_texture_env_combine3 */
+         298, /* GL_ATI_texture_float */
+         299, /* GL_ATI_texture_mirror_once */
          300, /* GL_ATI_vertex_array_object */
          301, /* GL_ATI_vertex_attrib_array_object */
          302, /* GL_ATI_vertex_streams */
+         310, /* GL_EXT_422_pixels */
          312, /* GL_EXT_EGL_image_storage */
+         314, /* GL_EXT_EGL_sync */
+         316, /* GL_EXT_abgr */
+         318, /* GL_EXT_bgra */
          319, /* GL_EXT_bindable_uniform */
          320, /* GL_EXT_blend_color */
          321, /* GL_EXT_blend_equation_separate */
          323, /* GL_EXT_blend_func_separate */
+         324, /* GL_EXT_blend_logic_op */
          325, /* GL_EXT_blend_minmax */
+         326, /* GL_EXT_blend_subtract */
+         327, /* GL_EXT_buffer_reference */
+         328, /* GL_EXT_buffer_reference2 */
+         333, /* GL_EXT_clip_volume_hint */
+         334, /* GL_EXT_cmyka */
          337, /* GL_EXT_color_subtable */
          338, /* GL_EXT_compiled_vertex_array */
+         340, /* GL_EXT_control_flow_attributes */
          341, /* GL_EXT_convolution */
          342, /* GL_EXT_coordinate_frame */
          344, /* GL_EXT_copy_texture */
          345, /* GL_EXT_cull_vertex */
          346, /* GL_EXT_debug_label */
          347, /* GL_EXT_debug_marker */
+         348, /* GL_EXT_debug_printf */
+         349, /* GL_EXT_demote_to_helper_invocation */
          350, /* GL_EXT_depth_bounds_test */
+         352, /* GL_EXT_device_group */
          353, /* GL_EXT_direct_state_access */
          357, /* GL_EXT_draw_buffers2 */
          360, /* GL_EXT_draw_instanced */
          361, /* GL_EXT_draw_range_elements */
          363, /* GL_EXT_external_buffer */
          365, /* GL_EXT_fog_coord */
+         366, /* GL_EXT_fragment_invocation_density */
+         367, /* GL_EXT_fragment_shader_barycentric */
          369, /* GL_EXT_framebuffer_blit */
          370, /* GL_EXT_framebuffer_blit_layers */
          371, /* GL_EXT_framebuffer_multisample */
+         372, /* GL_EXT_framebuffer_multisample_blit_scaled */
          373, /* GL_EXT_framebuffer_object */
+         374, /* GL_EXT_framebuffer_sRGB */
          377, /* GL_EXT_geometry_shader4 */
          378, /* GL_EXT_gpu_program_parameters */
          379, /* GL_EXT_gpu_shader4 */
          381, /* GL_EXT_histogram */
+         382, /* GL_EXT_index_array_formats */
          383, /* GL_EXT_index_func */
          384, /* GL_EXT_index_material */
+         385, /* GL_EXT_index_texture */
          387, /* GL_EXT_light_texture */
          389, /* GL_EXT_memory_object */
          390, /* GL_EXT_memory_object_fd */
          391, /* GL_EXT_memory_object_win32 */
+         392, /* GL_EXT_misc_attribute */
          393, /* GL_EXT_multi_draw_arrays */
          395, /* GL_EXT_multisample */
+         400, /* GL_EXT_multiview_tessellation_geometry_shader */
+         401, /* GL_EXT_multiview_texture_multisample */
+         402, /* GL_EXT_multiview_timer_query */
+         403, /* GL_EXT_nonuniform_qualifier */
+         405, /* GL_EXT_packed_depth_stencil */
+         406, /* GL_EXT_packed_float */
+         407, /* GL_EXT_packed_pixels */
          408, /* GL_EXT_paletted_texture */
+         409, /* GL_EXT_pixel_buffer_object */
          410, /* GL_EXT_pixel_transform */
+         411, /* GL_EXT_pixel_transform_color_table */
          412, /* GL_EXT_point_parameters */
          413, /* GL_EXT_polygon_offset */
          414, /* GL_EXT_polygon_offset_clamp */
+         415, /* GL_EXT_post_depth_coverage */
          418, /* GL_EXT_provoking_vertex */
          420, /* GL_EXT_raster_multisample */
+         421, /* GL_EXT_ray_cull_mask */
+         422, /* GL_EXT_ray_flags_primitive_culling */
+         423, /* GL_EXT_ray_query */
+         424, /* GL_EXT_ray_tracing */
+         427, /* GL_EXT_rescale_normal */
+         431, /* GL_EXT_samplerless_texture_functions */
+         432, /* GL_EXT_scalar_block_layout */
          433, /* GL_EXT_secondary_color */
          434, /* GL_EXT_semaphore */
          435, /* GL_EXT_semaphore_fd */
          436, /* GL_EXT_semaphore_win32 */
          438, /* GL_EXT_separate_shader_objects */
+         439, /* GL_EXT_separate_specular_color */
+         440, /* GL_EXT_shader_16bit_storage */
+         441, /* GL_EXT_shader_atomic_float */
+         442, /* GL_EXT_shader_explicit_arithmetic_types */
+         443, /* GL_EXT_shader_framebuffer_fetch */
          444, /* GL_EXT_shader_framebuffer_fetch_non_coherent */
+         446, /* GL_EXT_shader_image_int64 */
+         447, /* GL_EXT_shader_image_load_formatted */
          448, /* GL_EXT_shader_image_load_store */
+         450, /* GL_EXT_shader_integer_mix */
+         455, /* GL_EXT_shader_realtime_clock */
+         456, /* GL_EXT_shader_samples_identical */
+         457, /* GL_EXT_shader_subgroup_extended_types */
+         459, /* GL_EXT_shadow_funcs */
+         461, /* GL_EXT_shared_memory_block */
+         462, /* GL_EXT_shared_texture_palette */
+         464, /* GL_EXT_sparse_texture2 */
          465, /* GL_EXT_stencil_clear_tag */
          466, /* GL_EXT_stencil_two_side */
+         467, /* GL_EXT_stencil_wrap */
+         468, /* GL_EXT_subgroup_uniform_control_flow */
+         469, /* GL_EXT_subgroupuniform_qualifier */
          470, /* GL_EXT_subtexture */
+         473, /* GL_EXT_texture */
          474, /* GL_EXT_texture3D */
          475, /* GL_EXT_texture_array */
          478, /* GL_EXT_texture_buffer_object */
+         482, /* GL_EXT_texture_compression_latc */
+         483, /* GL_EXT_texture_compression_rgtc */
+         484, /* GL_EXT_texture_compression_s3tc */
+         486, /* GL_EXT_texture_cube_map */
+         488, /* GL_EXT_texture_env_add */
+         489, /* GL_EXT_texture_env_combine */
+         490, /* GL_EXT_texture_env_dot3 */
+         491, /* GL_EXT_texture_filter_anisotropic */
+         492, /* GL_EXT_texture_filter_minmax */
          495, /* GL_EXT_texture_integer */
+         496, /* GL_EXT_texture_lod_bias */
+         497, /* GL_EXT_texture_mirror_clamp */
          500, /* GL_EXT_texture_object */
          501, /* GL_EXT_texture_perturb_normal */
+         504, /* GL_EXT_texture_sRGB */
+         505, /* GL_EXT_texture_sRGB_R8 */
+         506, /* GL_EXT_texture_sRGB_RG8 */
+         507, /* GL_EXT_texture_sRGB_decode */
+         508, /* GL_EXT_texture_shadow_lod */
+         509, /* GL_EXT_texture_shared_exponent */
+         510, /* GL_EXT_texture_snorm */
          511, /* GL_EXT_texture_storage */
+         513, /* GL_EXT_texture_swizzle */
          516, /* GL_EXT_timer_query */
          517, /* GL_EXT_transform_feedback */
          519, /* GL_EXT_vertex_array */
+         520, /* GL_EXT_vertex_array_bgra */
          521, /* GL_EXT_vertex_attrib_64bit */
          522, /* GL_EXT_vertex_shader */
          523, /* GL_EXT_vertex_weighting */
+         524, /* GL_EXT_vulkan_glsl_relaxed */
          525, /* GL_EXT_win32_keyed_mutex */
          526, /* GL_EXT_window_rectangles */
          527, /* GL_EXT_x11_sync_object */
          529, /* GL_GREMEDY_frame_terminator */
          530, /* GL_GREMEDY_string_marker */
+         531, /* GL_HP_convolution_border_modes */
          532, /* GL_HP_image_transform */
+         533, /* GL_HP_occlusion_test */
+         534, /* GL_HP_texture_lighting */
+         535, /* GL_HUAWEI_subpass_shading */
+         536, /* GL_IBM_cull_vertex */
          537, /* GL_IBM_multimode_draw_arrays */
+         538, /* GL_IBM_rasterpos_clip */
          539, /* GL_IBM_static_data */
+         540, /* GL_IBM_texture_mirrored_repeat */
          541, /* GL_IBM_vertex_array_lists */
          551, /* GL_INGR_blend_func_separate */
+         552, /* GL_INGR_color_clamp */
+         553, /* GL_INGR_interlace_read */
+         554, /* GL_INTEL_blackhole_render */
+         555, /* GL_INTEL_conservative_rasterization */
+         556, /* GL_INTEL_fragment_shader_ordering */
          557, /* GL_INTEL_framebuffer_CMAA */
          558, /* GL_INTEL_map_texture */
          559, /* GL_INTEL_parallel_arrays */
          560, /* GL_INTEL_performance_query */
          561, /* GL_KHR_blend_equation_advanced */
+         562, /* GL_KHR_blend_equation_advanced_coherent */
+         563, /* GL_KHR_context_flush_control */
          564, /* GL_KHR_debug */
+         565, /* GL_KHR_memory_scope_semantics */
+         566, /* GL_KHR_no_error */
          567, /* GL_KHR_parallel_shader_compile */
+         568, /* GL_KHR_robust_buffer_access_behavior */
          569, /* GL_KHR_robustness */
+         570, /* GL_KHR_shader_subgroup */
+         571, /* GL_KHR_texture_compression_astc_hdr */
+         572, /* GL_KHR_texture_compression_astc_ldr */
+         573, /* GL_KHR_texture_compression_astc_sliced_3d */
+         574, /* GL_KHR_vulkan_glsl */
+         575, /* GL_MESAX_texture_stack */
+         577, /* GL_MESA_framebuffer_flip_x */
          578, /* GL_MESA_framebuffer_flip_y */
+         579, /* GL_MESA_framebuffer_swap_xy */
+         580, /* GL_MESA_pack_invert */
+         581, /* GL_MESA_program_binary_formats */
          582, /* GL_MESA_resize_buffers */
+         584, /* GL_MESA_shader_integer_functions */
+         585, /* GL_MESA_tile_raster_order */
          586, /* GL_MESA_window_pos */
+         587, /* GL_MESA_ycbcr_texture */
+         588, /* GL_NVX_blend_equation_advanced_multi_draw_buffers */
          589, /* GL_NVX_conditional_render */
+         590, /* GL_NVX_gpu_memory_info */
          591, /* GL_NVX_gpu_multicast2 */
          592, /* GL_NVX_linked_gpu_multicast */
+         593, /* GL_NVX_multiview_per_view_attributes */
          594, /* GL_NVX_progress_fence */
          595, /* GL_NV_alpha_to_coverage_dither_control */
          596, /* GL_NV_bindless_multi_draw_indirect */
          597, /* GL_NV_bindless_multi_draw_indirect_count */
          598, /* GL_NV_bindless_texture */
          599, /* GL_NV_blend_equation_advanced */
+         600, /* GL_NV_blend_equation_advanced_coherent */
+         601, /* GL_NV_blend_minmax_factor */
+         602, /* GL_NV_blend_square */
          603, /* GL_NV_clip_space_w_scaling */
          604, /* GL_NV_command_list */
+         605, /* GL_NV_compute_program5 */
+         606, /* GL_NV_compute_shader_derivatives */
          607, /* GL_NV_conditional_render */
          608, /* GL_NV_conservative_raster */
          609, /* GL_NV_conservative_raster_dilate */
+         610, /* GL_NV_conservative_raster_pre_snap */
          611, /* GL_NV_conservative_raster_pre_snap_triangles */
+         612, /* GL_NV_conservative_raster_underestimation */
+         613, /* GL_NV_cooperative_matrix */
+         615, /* GL_NV_copy_depth_to_color */
          616, /* GL_NV_copy_image */
+         618, /* GL_NV_deep_texture3D */
          619, /* GL_NV_depth_buffer_float */
+         620, /* GL_NV_depth_clamp */
          624, /* GL_NV_draw_texture */
          625, /* GL_NV_draw_vulkan_image */
          626, /* GL_NV_evaluators */
          628, /* GL_NV_explicit_multisample */
          630, /* GL_NV_fence */
+         631, /* GL_NV_fill_rectangle */
+         632, /* GL_NV_float_buffer */
+         633, /* GL_NV_fog_distance */
          634, /* GL_NV_fragment_coverage_to_color */
          635, /* GL_NV_fragment_program */
+         636, /* GL_NV_fragment_program2 */
+         637, /* GL_NV_fragment_program4 */
+         638, /* GL_NV_fragment_program_option */
+         639, /* GL_NV_fragment_shader_barycentric */
+         640, /* GL_NV_fragment_shader_interlock */
          642, /* GL_NV_framebuffer_mixed_samples */
          644, /* GL_NV_framebuffer_multisample_coverage */
          646, /* GL_NV_geometry_program4 */
+         647, /* GL_NV_geometry_shader4 */
+         648, /* GL_NV_geometry_shader_passthrough */
          649, /* GL_NV_gpu_multicast */
          650, /* GL_NV_gpu_program4 */
          651, /* GL_NV_gpu_program5 */
+         652, /* GL_NV_gpu_program5_mem_extended */
          653, /* GL_NV_gpu_shader5 */
          654, /* GL_NV_half_float */
          657, /* GL_NV_internalformat_sample_query */
+         658, /* GL_NV_light_max_exponent */
          659, /* GL_NV_memory_attachment */
          660, /* GL_NV_memory_object_sparse */
          661, /* GL_NV_mesh_shader */
+         662, /* GL_NV_multisample_coverage */
+         663, /* GL_NV_multisample_filter_hint */
          665, /* GL_NV_occlusion_query */
+         667, /* GL_NV_packed_depth_stencil */
          668, /* GL_NV_parameter_buffer_object */
+         669, /* GL_NV_parameter_buffer_object2 */
          670, /* GL_NV_path_rendering */
+         671, /* GL_NV_path_rendering_shared_edge */
          673, /* GL_NV_pixel_data_range */
          674, /* GL_NV_point_sprite */
          676, /* GL_NV_present_video */
          677, /* GL_NV_primitive_restart */
+         678, /* GL_NV_primitive_shading_rate */
          679, /* GL_NV_query_resource */
          680, /* GL_NV_query_resource_tag */
+         681, /* GL_NV_ray_tracing */
+         682, /* GL_NV_ray_tracing_motion_blur */
          688, /* GL_NV_register_combiners */
          689, /* GL_NV_register_combiners2 */
+         690, /* GL_NV_representative_fragment_test */
+         691, /* GL_NV_robustness_video_memory_purge */
          693, /* GL_NV_sample_locations */
+         694, /* GL_NV_sample_mask_override_coverage */
          695, /* GL_NV_scissor_exclusive */
+         696, /* GL_NV_shader_atomic_counters */
+         697, /* GL_NV_shader_atomic_float */
+         698, /* GL_NV_shader_atomic_float64 */
+         699, /* GL_NV_shader_atomic_fp16_vector */
+         700, /* GL_NV_shader_atomic_int64 */
          701, /* GL_NV_shader_buffer_load */
+         702, /* GL_NV_shader_buffer_store */
+         704, /* GL_NV_shader_sm_builtins */
+         705, /* GL_NV_shader_storage_buffer_object */
+         706, /* GL_NV_shader_subgroup_partitioned */
+         707, /* GL_NV_shader_texture_footprint */
+         708, /* GL_NV_shader_thread_group */
+         709, /* GL_NV_shader_thread_shuffle */
          710, /* GL_NV_shading_rate_image */
+         713, /* GL_NV_stereo_view_rendering */
+         714, /* GL_NV_tessellation_program5 */
+         715, /* GL_NV_texgen_emboss */
+         716, /* GL_NV_texgen_reflection */
          717, /* GL_NV_texture_barrier */
+         720, /* GL_NV_texture_compression_vtc */
+         721, /* GL_NV_texture_env_combine4 */
+         722, /* GL_NV_texture_expand_normal */
          723, /* GL_NV_texture_multisample */
+         725, /* GL_NV_texture_rectangle */
+         726, /* GL_NV_texture_rectangle_compressed */
+         727, /* GL_NV_texture_shader */
+         728, /* GL_NV_texture_shader2 */
+         729, /* GL_NV_texture_shader3 */
          730, /* GL_NV_timeline_semaphore */
          731, /* GL_NV_transform_feedback */
          732, /* GL_NV_transform_feedback2 */
+         733, /* GL_NV_uniform_buffer_std430_layout */
+         734, /* GL_NV_uniform_buffer_unified_memory */
          735, /* GL_NV_vdpau_interop */
          736, /* GL_NV_vdpau_interop2 */
          737, /* GL_NV_vertex_array_range */
+         738, /* GL_NV_vertex_array_range2 */
          739, /* GL_NV_vertex_attrib_integer_64bit */
          740, /* GL_NV_vertex_buffer_unified_memory */
          741, /* GL_NV_vertex_program */
+         742, /* GL_NV_vertex_program1_1 */
+         743, /* GL_NV_vertex_program2 */
+         744, /* GL_NV_vertex_program2_option */
+         745, /* GL_NV_vertex_program3 */
          746, /* GL_NV_vertex_program4 */
          747, /* GL_NV_video_capture */
+         749, /* GL_NV_viewport_array2 */
          750, /* GL_NV_viewport_swizzle */
          754, /* GL_OES_byte_coordinates */
+         757, /* GL_OES_compressed_paletted_texture */
          766, /* GL_OES_fixed_point */
          775, /* GL_OES_query_matrix */
+         776, /* GL_OES_read_format */
          784, /* GL_OES_single_precision */
+         808, /* GL_OML_interlace */
+         809, /* GL_OML_resample */
+         810, /* GL_OML_subsample */
          811, /* GL_OVR_multiview */
+         812, /* GL_OVR_multiview2 */
          814, /* GL_PGI_misc_hints */
+         815, /* GL_PGI_vertex_hints */
+         837, /* GL_REND_screen_coordinates */
+         838, /* GL_S3_s3tc */
          839, /* GL_SGIS_detail_texture */
          840, /* GL_SGIS_fog_function */
+         841, /* GL_SGIS_generate_mipmap */
          842, /* GL_SGIS_multisample */
          843, /* GL_SGIS_pixel_texture */
+         844, /* GL_SGIS_point_line_texgen */
          845, /* GL_SGIS_point_parameters */
          846, /* GL_SGIS_sharpen_texture */
          847, /* GL_SGIS_texture4D */
+         848, /* GL_SGIS_texture_border_clamp */
          849, /* GL_SGIS_texture_color_mask */
+         850, /* GL_SGIS_texture_edge_clamp */
          851, /* GL_SGIS_texture_filter4 */
+         852, /* GL_SGIS_texture_lod */
+         853, /* GL_SGIS_texture_select */
          854, /* GL_SGIX_async */
+         855, /* GL_SGIX_async_histogram */
+         856, /* GL_SGIX_async_pixel */
+         857, /* GL_SGIX_blend_alpha_minmax */
+         858, /* GL_SGIX_calligraphic_fragment */
+         859, /* GL_SGIX_clipmap */
+         860, /* GL_SGIX_convolution_accuracy */
+         861, /* GL_SGIX_depth_pass_instrument */
+         862, /* GL_SGIX_depth_texture */
          863, /* GL_SGIX_flush_raster */
+         864, /* GL_SGIX_fog_offset */
          865, /* GL_SGIX_fragment_lighting */
          866, /* GL_SGIX_framezoom */
          867, /* GL_SGIX_igloo_interface */
          868, /* GL_SGIX_instruments */
+         869, /* GL_SGIX_interlace */
+         870, /* GL_SGIX_ir_instrument1 */
          871, /* GL_SGIX_list_priority */
          872, /* GL_SGIX_pixel_texture */
+         873, /* GL_SGIX_pixel_tiles */
          874, /* GL_SGIX_polynomial_ffd */
          875, /* GL_SGIX_reference_plane */
+         876, /* GL_SGIX_resample */
+         877, /* GL_SGIX_scalebias_hint */
+         878, /* GL_SGIX_shadow */
+         879, /* GL_SGIX_shadow_ambient */
          880, /* GL_SGIX_sprite */
+         881, /* GL_SGIX_subsample */
          882, /* GL_SGIX_tag_sample_buffer */
+         883, /* GL_SGIX_texture_add_env */
+         884, /* GL_SGIX_texture_coordinate_clamp */
+         885, /* GL_SGIX_texture_lod_bias */
+         886, /* GL_SGIX_texture_multi_buffer */
+         887, /* GL_SGIX_texture_scale_bias */
+         888, /* GL_SGIX_vertex_preclip */
+         889, /* GL_SGIX_ycrcb */
+         890, /* GL_SGIX_ycrcb_subsample */
+         891, /* GL_SGIX_ycrcba */
+         892, /* GL_SGI_color_matrix */
          893, /* GL_SGI_color_table */
+         894, /* GL_SGI_texture_color_table */
          895, /* GL_SUNX_constant_data */
+         896, /* GL_SUN_convolution_border_modes */
          897, /* GL_SUN_global_alpha */
          898, /* GL_SUN_mesh_array */
+         899, /* GL_SUN_slice_accum */
          900, /* GL_SUN_triangle_list */
          901, /* GL_SUN_vertex */
+         903, /* GL_WIN_phong_shading */
+         904, /* GL_WIN_specular_fog */
     };
     uint64_t *exts = NULL;
     uint32_t num_exts = 0;
@@ -15121,48 +15467,101 @@ int gladLoadGL(GLADloadfunc load) {
 
 static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
     static const uint16_t s_extIdx[] = {
+           4, /* GL_AMD_compressed_3DC_texture */
+           5, /* GL_AMD_compressed_ATC_texture */
           10, /* GL_AMD_framebuffer_multisample_advanced */
           20, /* GL_AMD_performance_monitor */
+          22, /* GL_AMD_program_binary_Z400 */
+          29, /* GL_AMD_shader_fragment_mask */
+          43, /* GL_ANDROID_extension_pack_es31a */
           44, /* GL_ANGLE_base_vertex_base_instance */
+          45, /* GL_ANGLE_client_arrays */
+          46, /* GL_ANGLE_clip_cull_distance */
           47, /* GL_ANGLE_copy_texture_3d */
+          48, /* GL_ANGLE_depth_texture */
           49, /* GL_ANGLE_framebuffer_blit */
           50, /* GL_ANGLE_framebuffer_multisample */
           51, /* GL_ANGLE_get_image */
+          52, /* GL_ANGLE_get_serialized_context_string */
           53, /* GL_ANGLE_get_tex_level_parameter */
           54, /* GL_ANGLE_instanced_arrays */
           55, /* GL_ANGLE_logic_op */
+          56, /* GL_ANGLE_lossy_etc_decode */
           57, /* GL_ANGLE_memory_object_flags */
           58, /* GL_ANGLE_memory_object_fuchsia */
+          59, /* GL_ANGLE_memory_size */
           60, /* GL_ANGLE_multi_draw */
+          61, /* GL_ANGLE_pack_reverse_row_order */
           62, /* GL_ANGLE_polygon_mode */
+          63, /* GL_ANGLE_program_binary */
+          64, /* GL_ANGLE_program_cache_control */
           65, /* GL_ANGLE_provoking_vertex */
+          66, /* GL_ANGLE_renderability_validation */
           67, /* GL_ANGLE_request_extension */
+          68, /* GL_ANGLE_rgbx_internal_format */
           69, /* GL_ANGLE_robust_client_memory */
+          70, /* GL_ANGLE_robust_fragment_shader_output */
+          71, /* GL_ANGLE_robust_resource_initialization */
           72, /* GL_ANGLE_semaphore_fuchsia */
           73, /* GL_ANGLE_shader_pixel_local_storage */
+          74, /* GL_ANGLE_stencil_texturing */
+          75, /* GL_ANGLE_texture_compression_dxt */
+          76, /* GL_ANGLE_texture_compression_dxt3 */
+          77, /* GL_ANGLE_texture_compression_dxt5 */
           78, /* GL_ANGLE_texture_external_update */
           79, /* GL_ANGLE_texture_multisample */
+          80, /* GL_ANGLE_texture_usage */
+          81, /* GL_ANGLE_timer_query */
           82, /* GL_ANGLE_translated_shader_source */
           83, /* GL_ANGLE_vulkan_image */
+          84, /* GL_ANGLE_yuv_internal_format */
+          87, /* GL_APPLE_clip_distance */
+          88, /* GL_APPLE_color_buffer_packed_float */
           89, /* GL_APPLE_copy_texture_levels */
           94, /* GL_APPLE_framebuffer_multisample */
+          96, /* GL_APPLE_rgb_422 */
           99, /* GL_APPLE_sync */
+         100, /* GL_APPLE_texture_format_BGRA8888 */
+         101, /* GL_APPLE_texture_max_level */
+         102, /* GL_APPLE_texture_packed_float */
+         280, /* GL_ARM_mali_program_binary */
+         281, /* GL_ARM_mali_shader_binary */
+         282, /* GL_ARM_rgba8 */
          283, /* GL_ARM_shader_core_properties */
+         284, /* GL_ARM_shader_framebuffer_fetch */
+         285, /* GL_ARM_shader_framebuffer_fetch_depth_stencil */
+         286, /* GL_ARM_texture_unnormalized_coordinates */
          303, /* GL_CHROMIUM_bind_uniform_location */
          304, /* GL_CHROMIUM_copy_compressed_texture */
          305, /* GL_CHROMIUM_copy_texture */
          306, /* GL_CHROMIUM_framebuffer_mixed_samples */
          307, /* GL_CHROMIUM_lose_context */
+         308, /* GL_DMP_program_binary */
+         309, /* GL_DMP_shader_binary */
+         311, /* GL_EXT_EGL_image_array */
          312, /* GL_EXT_EGL_image_storage */
+         313, /* GL_EXT_EGL_image_storage_compression */
+         315, /* GL_EXT_YUV_target */
          317, /* GL_EXT_base_instance */
          322, /* GL_EXT_blend_func_extended */
          325, /* GL_EXT_blend_minmax */
+         327, /* GL_EXT_buffer_reference */
+         328, /* GL_EXT_buffer_reference2 */
          329, /* GL_EXT_buffer_storage */
          330, /* GL_EXT_clear_texture */
          331, /* GL_EXT_clip_control */
+         332, /* GL_EXT_clip_cull_distance */
+         335, /* GL_EXT_color_buffer_float */
+         336, /* GL_EXT_color_buffer_half_float */
+         339, /* GL_EXT_conservative_depth */
+         340, /* GL_EXT_control_flow_attributes */
          343, /* GL_EXT_copy_image */
          346, /* GL_EXT_debug_label */
          347, /* GL_EXT_debug_marker */
+         348, /* GL_EXT_debug_printf */
+         349, /* GL_EXT_demote_to_helper_invocation */
+         351, /* GL_EXT_depth_clamp */
+         352, /* GL_EXT_device_group */
          354, /* GL_EXT_discard_framebuffer */
          355, /* GL_EXT_disjoint_timer_query */
          356, /* GL_EXT_draw_buffers */
@@ -15171,9 +15570,14 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
          360, /* GL_EXT_draw_instanced */
          362, /* GL_EXT_draw_transform_feedback */
          363, /* GL_EXT_external_buffer */
+         364, /* GL_EXT_float_blend */
+         366, /* GL_EXT_fragment_invocation_density */
+         367, /* GL_EXT_fragment_shader_barycentric */
          368, /* GL_EXT_fragment_shading_rate */
          370, /* GL_EXT_framebuffer_blit_layers */
+         375, /* GL_EXT_geometry_point_size */
          376, /* GL_EXT_geometry_shader */
+         380, /* GL_EXT_gpu_shader5 */
          386, /* GL_EXT_instanced_arrays */
          388, /* GL_EXT_map_buffer_range */
          389, /* GL_EXT_memory_object */
@@ -15181,101 +15585,277 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context, int version) {
          391, /* GL_EXT_memory_object_win32 */
          393, /* GL_EXT_multi_draw_arrays */
          394, /* GL_EXT_multi_draw_indirect */
+         396, /* GL_EXT_multisampled_compatibility */
          397, /* GL_EXT_multisampled_render_to_texture */
+         398, /* GL_EXT_multisampled_render_to_texture2 */
          399, /* GL_EXT_multiview_draw_buffers */
+         400, /* GL_EXT_multiview_tessellation_geometry_shader */
+         401, /* GL_EXT_multiview_texture_multisample */
+         402, /* GL_EXT_multiview_timer_query */
+         403, /* GL_EXT_nonuniform_qualifier */
          404, /* GL_EXT_occlusion_query_boolean */
          414, /* GL_EXT_polygon_offset_clamp */
+         415, /* GL_EXT_post_depth_coverage */
          416, /* GL_EXT_primitive_bounding_box */
+         417, /* GL_EXT_protected_textures */
+         419, /* GL_EXT_pvrtc_sRGB */
          420, /* GL_EXT_raster_multisample */
+         421, /* GL_EXT_ray_cull_mask */
+         422, /* GL_EXT_ray_flags_primitive_culling */
+         423, /* GL_EXT_ray_query */
+         424, /* GL_EXT_ray_tracing */
+         425, /* GL_EXT_read_format_bgra */
+         426, /* GL_EXT_render_snorm */
          428, /* GL_EXT_robustness */
+         429, /* GL_EXT_sRGB */
+         430, /* GL_EXT_sRGB_write_control */
+         431, /* GL_EXT_samplerless_texture_functions */
+         432, /* GL_EXT_scalar_block_layout */
          434, /* GL_EXT_semaphore */
          435, /* GL_EXT_semaphore_fd */
          436, /* GL_EXT_semaphore_win32 */
+         437, /* GL_EXT_separate_depth_stencil */
          438, /* GL_EXT_separate_shader_objects */
+         440, /* GL_EXT_shader_16bit_storage */
+         441, /* GL_EXT_shader_atomic_float */
+         442, /* GL_EXT_shader_explicit_arithmetic_types */
+         443, /* GL_EXT_shader_framebuffer_fetch */
          444, /* GL_EXT_shader_framebuffer_fetch_non_coherent */
+         445, /* GL_EXT_shader_group_vote */
+         446, /* GL_EXT_shader_image_int64 */
+         449, /* GL_EXT_shader_implicit_conversions */
+         450, /* GL_EXT_shader_integer_mix */
+         451, /* GL_EXT_shader_io_blocks */
+         452, /* GL_EXT_shader_non_constant_global_initializers */
+         453, /* GL_EXT_shader_pixel_local_storage */
          454, /* GL_EXT_shader_pixel_local_storage2 */
+         455, /* GL_EXT_shader_realtime_clock */
+         456, /* GL_EXT_shader_samples_identical */
+         457, /* GL_EXT_shader_subgroup_extended_types */
+         458, /* GL_EXT_shader_texture_lod */
+         460, /* GL_EXT_shadow_samplers */
+         461, /* GL_EXT_shared_memory_block */
          463, /* GL_EXT_sparse_texture */
+         464, /* GL_EXT_sparse_texture2 */
+         468, /* GL_EXT_subgroup_uniform_control_flow */
+         469, /* GL_EXT_subgroupuniform_qualifier */
+         471, /* GL_EXT_tessellation_point_size */
          472, /* GL_EXT_tessellation_shader */
          476, /* GL_EXT_texture_border_clamp */
          477, /* GL_EXT_texture_buffer */
+         479, /* GL_EXT_texture_compression_astc_decode_mode */
+         480, /* GL_EXT_texture_compression_bptc */
+         481, /* GL_EXT_texture_compression_dxt1 */
+         483, /* GL_EXT_texture_compression_rgtc */
+         484, /* GL_EXT_texture_compression_s3tc */
+         485, /* GL_EXT_texture_compression_s3tc_srgb */
+         487, /* GL_EXT_texture_cube_map_array */
+         491, /* GL_EXT_texture_filter_anisotropic */
+         492, /* GL_EXT_texture_filter_minmax */
+         493, /* GL_EXT_texture_format_BGRA8888 */
+         494, /* GL_EXT_texture_format_sRGB_override */
+         498, /* GL_EXT_texture_mirror_clamp_to_edge */
+         499, /* GL_EXT_texture_norm16 */
+         502, /* GL_EXT_texture_query_lod */
+         503, /* GL_EXT_texture_rg */
+         505, /* GL_EXT_texture_sRGB_R8 */
+         506, /* GL_EXT_texture_sRGB_RG8 */
+         507, /* GL_EXT_texture_sRGB_decode */
+         508, /* GL_EXT_texture_shadow_lod */
          511, /* GL_EXT_texture_storage */
          512, /* GL_EXT_texture_storage_compression */
+         514, /* GL_EXT_texture_type_2_10_10_10_REV */
          515, /* GL_EXT_texture_view */
+         518, /* GL_EXT_unpack_subimage */
+         524, /* GL_EXT_vulkan_glsl_relaxed */
          525, /* GL_EXT_win32_keyed_mutex */
          526, /* GL_EXT_window_rectangles */
+         528, /* GL_FJ_shader_binary_GCCSO */
+         535, /* GL_HUAWEI_subpass_shading */
          542, /* GL_IMG_bindless_texture */
          543, /* GL_IMG_framebuffer_downsample */
          544, /* GL_IMG_multisampled_render_to_texture */
+         545, /* GL_IMG_program_binary */
+         546, /* GL_IMG_read_format */
+         547, /* GL_IMG_shader_binary */
+         548, /* GL_IMG_texture_compression_pvrtc */
+         549, /* GL_IMG_texture_compression_pvrtc2 */
+         550, /* GL_IMG_texture_filter_cubic */
+         554, /* GL_INTEL_blackhole_render */
+         555, /* GL_INTEL_conservative_rasterization */
          557, /* GL_INTEL_framebuffer_CMAA */
          560, /* GL_INTEL_performance_query */
          561, /* GL_KHR_blend_equation_advanced */
+         562, /* GL_KHR_blend_equation_advanced_coherent */
+         563, /* GL_KHR_context_flush_control */
          564, /* GL_KHR_debug */
+         565, /* GL_KHR_memory_scope_semantics */
+         566, /* GL_KHR_no_error */
          567, /* GL_KHR_parallel_shader_compile */
+         568, /* GL_KHR_robust_buffer_access_behavior */
          569, /* GL_KHR_robustness */
+         570, /* GL_KHR_shader_subgroup */
+         571, /* GL_KHR_texture_compression_astc_hdr */
+         572, /* GL_KHR_texture_compression_astc_ldr */
+         573, /* GL_KHR_texture_compression_astc_sliced_3d */
+         574, /* GL_KHR_vulkan_glsl */
+         576, /* GL_MESA_bgra */
+         577, /* GL_MESA_framebuffer_flip_x */
          578, /* GL_MESA_framebuffer_flip_y */
+         579, /* GL_MESA_framebuffer_swap_xy */
+         581, /* GL_MESA_program_binary_formats */
          583, /* GL_MESA_sampler_objects */
+         584, /* GL_MESA_shader_integer_functions */
+         588, /* GL_NVX_blend_equation_advanced_multi_draw_buffers */
+         593, /* GL_NVX_multiview_per_view_attributes */
          598, /* GL_NV_bindless_texture */
          599, /* GL_NV_blend_equation_advanced */
+         600, /* GL_NV_blend_equation_advanced_coherent */
+         601, /* GL_NV_blend_minmax_factor */
          603, /* GL_NV_clip_space_w_scaling */
+         606, /* GL_NV_compute_shader_derivatives */
          607, /* GL_NV_conditional_render */
          608, /* GL_NV_conservative_raster */
+         610, /* GL_NV_conservative_raster_pre_snap */
          611, /* GL_NV_conservative_raster_pre_snap_triangles */
+         613, /* GL_NV_cooperative_matrix */
          614, /* GL_NV_copy_buffer */
          617, /* GL_NV_coverage_sample */
+         621, /* GL_NV_depth_nonlinear */
          622, /* GL_NV_draw_buffers */
          623, /* GL_NV_draw_instanced */
          625, /* GL_NV_draw_vulkan_image */
+         627, /* GL_NV_explicit_attrib_location */
+         629, /* GL_NV_fbo_color_attachments */
          630, /* GL_NV_fence */
+         631, /* GL_NV_fill_rectangle */
          634, /* GL_NV_fragment_coverage_to_color */
+         639, /* GL_NV_fragment_shader_barycentric */
+         640, /* GL_NV_fragment_shader_interlock */
          641, /* GL_NV_framebuffer_blit */
          642, /* GL_NV_framebuffer_mixed_samples */
          643, /* GL_NV_framebuffer_multisample */
+         645, /* GL_NV_generate_mipmap_sRGB */
+         648, /* GL_NV_geometry_shader_passthrough */
          653, /* GL_NV_gpu_shader5 */
+         655, /* GL_NV_image_formats */
          656, /* GL_NV_instanced_arrays */
          657, /* GL_NV_internalformat_sample_query */
          659, /* GL_NV_memory_attachment */
          660, /* GL_NV_memory_object_sparse */
          661, /* GL_NV_mesh_shader */
          664, /* GL_NV_non_square_matrices */
+         666, /* GL_NV_pack_subimage */
          670, /* GL_NV_path_rendering */
+         671, /* GL_NV_path_rendering_shared_edge */
+         672, /* GL_NV_pixel_buffer_object */
          675, /* GL_NV_polygon_mode */
+         678, /* GL_NV_primitive_shading_rate */
+         681, /* GL_NV_ray_tracing */
+         682, /* GL_NV_ray_tracing_motion_blur */
          683, /* GL_NV_read_buffer */
+         684, /* GL_NV_read_buffer_front */
+         685, /* GL_NV_read_depth */
+         686, /* GL_NV_read_depth_stencil */
+         687, /* GL_NV_read_stencil */
+         690, /* GL_NV_representative_fragment_test */
+         692, /* GL_NV_sRGB_formats */
          693, /* GL_NV_sample_locations */
+         694, /* GL_NV_sample_mask_override_coverage */
          695, /* GL_NV_scissor_exclusive */
+         699, /* GL_NV_shader_atomic_fp16_vector */
+         703, /* GL_NV_shader_noperspective_interpolation */
+         704, /* GL_NV_shader_sm_builtins */
+         706, /* GL_NV_shader_subgroup_partitioned */
+         707, /* GL_NV_shader_texture_footprint */
          710, /* GL_NV_shading_rate_image */
+         711, /* GL_NV_shadow_samplers_array */
+         712, /* GL_NV_shadow_samplers_cube */
+         713, /* GL_NV_stereo_view_rendering */
+         718, /* GL_NV_texture_border_clamp */
+         719, /* GL_NV_texture_compression_s3tc_update */
+         724, /* GL_NV_texture_npot_2D_mipmap */
          730, /* GL_NV_timeline_semaphore */
          748, /* GL_NV_viewport_array */
+         749, /* GL_NV_viewport_array2 */
          750, /* GL_NV_viewport_swizzle */
          751, /* GL_OES_EGL_image */
+         752, /* GL_OES_EGL_image_external */
+         753, /* GL_OES_EGL_image_external_essl3 */
+         755, /* GL_OES_compressed_ETC1_RGB8_sub_texture */
+         756, /* GL_OES_compressed_ETC1_RGB8_texture */
+         757, /* GL_OES_compressed_paletted_texture */
          758, /* GL_OES_copy_image */
+         759, /* GL_OES_depth24 */
+         760, /* GL_OES_depth32 */
+         761, /* GL_OES_depth_texture */
          762, /* GL_OES_draw_buffers_indexed */
          763, /* GL_OES_draw_elements_base_vertex */
+         764, /* GL_OES_element_index_uint */
+         765, /* GL_OES_fbo_render_mipmap */
+         767, /* GL_OES_fragment_precision_high */
+         768, /* GL_OES_geometry_point_size */
          769, /* GL_OES_geometry_shader */
          770, /* GL_OES_get_program_binary */
+         771, /* GL_OES_gpu_shader5 */
          772, /* GL_OES_mapbuffer */
+         773, /* GL_OES_packed_depth_stencil */
          774, /* GL_OES_primitive_bounding_box */
+         777, /* GL_OES_required_internalformat */
+         778, /* GL_OES_rgb8_rgba8 */
          779, /* GL_OES_sample_shading */
+         780, /* GL_OES_sample_variables */
+         781, /* GL_OES_shader_image_atomic */
+         782, /* GL_OES_shader_io_blocks */
+         783, /* GL_OES_shader_multisample_interpolation */
+         785, /* GL_OES_standard_derivatives */
+         786, /* GL_OES_stencil1 */
+         787, /* GL_OES_stencil4 */
+         788, /* GL_OES_surfaceless_context */
+         789, /* GL_OES_tessellation_point_size */
          790, /* GL_OES_tessellation_shader */
          791, /* GL_OES_texture_3D */
          792, /* GL_OES_texture_border_clamp */
          793, /* GL_OES_texture_buffer */
+         794, /* GL_OES_texture_compression_astc */
+         795, /* GL_OES_texture_cube_map_array */
+         796, /* GL_OES_texture_float */
+         797, /* GL_OES_texture_float_linear */
+         798, /* GL_OES_texture_half_float */
+         799, /* GL_OES_texture_half_float_linear */
+         800, /* GL_OES_texture_npot */
+         801, /* GL_OES_texture_stencil8 */
          802, /* GL_OES_texture_storage_multisample_2d_array */
          803, /* GL_OES_texture_view */
          804, /* GL_OES_vertex_array_object */
+         805, /* GL_OES_vertex_half_float */
+         806, /* GL_OES_vertex_type_10_10_10_2 */
          807, /* GL_OES_viewport_array */
          811, /* GL_OVR_multiview */
+         812, /* GL_OVR_multiview2 */
          813, /* GL_OVR_multiview_multisampled_render_to_texture */
+         816, /* GL_QCOM_YUV_texture_gather */
          817, /* GL_QCOM_alpha_test */
+         818, /* GL_QCOM_binning_control */
          819, /* GL_QCOM_driver_control */
          820, /* GL_QCOM_extended_get */
          821, /* GL_QCOM_extended_get2 */
          822, /* GL_QCOM_frame_extrapolation */
          823, /* GL_QCOM_framebuffer_foveated */
          824, /* GL_QCOM_motion_estimation */
+         825, /* GL_QCOM_perfmon_global_mode */
+         826, /* GL_QCOM_render_sRGB_R8_RG8 */
+         827, /* GL_QCOM_render_shared_exponent */
          828, /* GL_QCOM_shader_framebuffer_fetch_noncoherent */
+         829, /* GL_QCOM_shader_framebuffer_fetch_rate */
          830, /* GL_QCOM_shading_rate */
          831, /* GL_QCOM_texture_foveated */
+         832, /* GL_QCOM_texture_foveated2 */
+         833, /* GL_QCOM_texture_foveated_subsampled_layout */
+         834, /* GL_QCOM_texture_lod_bias */
          835, /* GL_QCOM_tiled_rendering */
+         836, /* GL_QCOM_writeonly_rendering */
+         902, /* GL_VIV_shader_binary */
     };
     uint64_t *exts = NULL;
     uint32_t num_exts = 0;
