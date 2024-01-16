@@ -1076,9 +1076,9 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define VK_QCOM_RENDER_PASS_STORE_OPS_EXTENSION_NAME "VK_QCOM_render_pass_store_ops"
 #define VK_QCOM_RENDER_PASS_STORE_OPS_SPEC_VERSION 2
 #define VK_QCOM_RENDER_PASS_TRANSFORM_EXTENSION_NAME "VK_QCOM_render_pass_transform"
-#define VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION 3
+#define VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION 4
 #define VK_QCOM_ROTATED_COPY_COMMANDS_EXTENSION_NAME "VK_QCOM_rotated_copy_commands"
-#define VK_QCOM_ROTATED_COPY_COMMANDS_SPEC_VERSION 1
+#define VK_QCOM_ROTATED_COPY_COMMANDS_SPEC_VERSION 2
 #define VK_QCOM_TILE_PROPERTIES_EXTENSION_NAME "VK_QCOM_tile_properties"
 #define VK_QCOM_TILE_PROPERTIES_SPEC_VERSION 1
 #define VK_QCOM_YCBCR_DEGAMMA_EXTENSION_NAME "VK_QCOM_ycbcr_degamma"
@@ -1283,7 +1283,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 /* Vulkan 1.3 version number */
 #define VK_API_VERSION_1_3 VK_MAKE_API_VERSION(0, 1, 3, 0)/* Patch version should always be set to 0 */
 /* Version of this file */
-#define VK_HEADER_VERSION 274
+#define VK_HEADER_VERSION 275
 #define VK_DEFINE_HANDLE(object) typedef struct object##_T* object;
 #ifndef VK_USE_64_BIT_PTR_DEFINES
     #if defined(__LP64__) || defined(_WIN64) || (defined(__x86_64__) && !defined(__ILP32__) ) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__) || (defined(__riscv) && __riscv_xlen == 64)
@@ -7842,7 +7842,6 @@ typedef struct VkVideoEncodeRateControlLayerInfoKHR {
 
 
 
-
 typedef struct VkVideoEncodeH264SessionParametersAddInfoKHR {
     VkStructureType   sType;
     const  void *                                                pNext;
@@ -7890,7 +7889,6 @@ typedef struct VkVideoEncodeH264FrameSizeKHR {
     uint32_t   framePSize;
     uint32_t   frameBSize;
 } VkVideoEncodeH264FrameSizeKHR;
-
 
 
 
@@ -8152,10 +8150,10 @@ typedef struct VkCudaLaunchInfoNV {
     uint32_t                 blockDimY;
     uint32_t                 blockDimZ;
     uint32_t                 sharedMemBytes;
-    size_t                   paramCount;
-    const  void * const *    pParams;
-    size_t                   extraCount;
-    const  void * const *    pExtras;
+    size_t                                       paramCount;
+    const  void * const *  pParams;
+    size_t                                       extraCount;
+    const  void * const *  pExtras;
 } VkCudaLaunchInfoNV;
 
 typedef struct VkPipelineRenderingCreateInfo {
@@ -10423,7 +10421,7 @@ typedef struct VkPhysicalDeviceExternalBufferInfo {
     VkStructureType   sType;
     const  void *                       pNext;
     VkBufferCreateFlags   flags;
-    VkBufferUsageFlags                 usage;
+    VkBufferUsageFlags   usage;
     VkExternalMemoryHandleTypeFlagBits   handleType;
 } VkPhysicalDeviceExternalBufferInfo;
 
@@ -13899,7 +13897,7 @@ typedef struct VkDescriptorBufferBindingInfoEXT {
     VkStructureType   sType;
     void *                    pNext;
     VkDeviceAddress                           address;
-    VkBufferUsageFlags                        usage;
+    VkBufferUsageFlags   usage;
 } VkDescriptorBufferBindingInfoEXT;
 
 typedef union VkDescriptorDataEXT {
