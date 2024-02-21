@@ -14324,6 +14324,9 @@ static int glad_gl_get_extensions(GladGLContext *context, uint64_t **out_exts, u
             return 0;
         }
         exts_str = (const char *)context->GetString(GL_EXTENSIONS);
+        if (exts_str == NULL) {
+            return 0;
+        }
 
         /* This is done in two passes. The first pass counts up the number of
         * extensions. The second pass copies them into an allocated block of memory. */
