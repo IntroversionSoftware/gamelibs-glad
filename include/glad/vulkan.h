@@ -1163,7 +1163,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #include <wayland-client.h>
 #endif
 
-#if defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR)
+#if defined(VK_USE_PLATFORM_WIN32_KHR)
 #include <windows.h>
 #endif
 
@@ -1175,15 +1175,15 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #include <directfb.h>
 #endif
 
-#if defined(VK_USE_PLATFORM_FUCHSIA) || defined(VK_USE_PLATFORM_FUCHSIA) || defined(VK_USE_PLATFORM_FUCHSIA) || defined(VK_USE_PLATFORM_FUCHSIA)
+#if defined(VK_USE_PLATFORM_FUCHSIA)
 #include <zircon/types.h>
 #endif
 
-#if defined(VK_USE_PLATFORM_GGP) || defined(VK_USE_PLATFORM_GGP)
+#if defined(VK_USE_PLATFORM_GGP)
 #include <ggp_c/vulkan_types.h>
 #endif
 
-#if defined(VK_USE_PLATFORM_SCREEN_QNX) || defined(VK_USE_PLATFORM_SCREEN_QNX)
+#if defined(VK_USE_PLATFORM_SCREEN_QNX)
 #include <screen/screen.h>
 #endif
 
@@ -1223,19 +1223,19 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 
 #endif
 
-#if defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR)
+#if defined(VK_USE_PLATFORM_WIN32_KHR)
 
 #endif
 
-#if defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR)
+#if defined(VK_USE_PLATFORM_WIN32_KHR)
 
 #endif
 
-#if defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR)
+#if defined(VK_USE_PLATFORM_WIN32_KHR)
 
 #endif
 
-#if defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR) || defined(VK_USE_PLATFORM_WIN32_KHR)
+#if defined(VK_USE_PLATFORM_WIN32_KHR)
 
 #endif
 
@@ -1259,7 +1259,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 
 #endif
 
-#if defined(VK_USE_PLATFORM_FUCHSIA) || defined(VK_USE_PLATFORM_FUCHSIA) || defined(VK_USE_PLATFORM_FUCHSIA) || defined(VK_USE_PLATFORM_FUCHSIA)
+#if defined(VK_USE_PLATFORM_FUCHSIA)
 
 #endif
 
