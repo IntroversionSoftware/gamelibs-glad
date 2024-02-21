@@ -13217,8 +13217,12 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         {  416, 2605 }, /* glDrawArraysInstancedARB and glDrawArraysInstancedANGLE */
         {  416,  418 }, /* glDrawArraysInstancedARB and glDrawArraysInstancedEXT */
         {  416, 2608 }, /* glDrawArraysInstancedARB and glDrawArraysInstancedNV */
+        {  417, 2606 }, /* glDrawArraysInstancedBaseInstance and glDrawArraysInstancedBaseInstanceANGLE */
         {  417, 2607 }, /* glDrawArraysInstancedBaseInstance and glDrawArraysInstancedBaseInstanceEXT */
+        { 2606,  417 }, /* glDrawArraysInstancedBaseInstanceANGLE and glDrawArraysInstancedBaseInstance */
+        { 2606, 2607 }, /* glDrawArraysInstancedBaseInstanceANGLE and glDrawArraysInstancedBaseInstanceEXT */
         { 2607,  417 }, /* glDrawArraysInstancedBaseInstanceEXT and glDrawArraysInstancedBaseInstance */
+        { 2607, 2606 }, /* glDrawArraysInstancedBaseInstanceEXT and glDrawArraysInstancedBaseInstanceANGLE */
         {  418,  415 }, /* glDrawArraysInstancedEXT and glDrawArraysInstanced */
         {  418, 2605 }, /* glDrawArraysInstancedEXT and glDrawArraysInstancedANGLE */
         {  418,  416 }, /* glDrawArraysInstancedEXT and glDrawArraysInstancedARB */
@@ -13261,8 +13265,12 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 2615,  434 }, /* glDrawElementsInstancedBaseInstanceEXT and glDrawElementsInstancedBaseInstance */
         {  435, 2618 }, /* glDrawElementsInstancedBaseVertex and glDrawElementsInstancedBaseVertexEXT */
         {  435, 2619 }, /* glDrawElementsInstancedBaseVertex and glDrawElementsInstancedBaseVertexOES */
+        {  436, 2616 }, /* glDrawElementsInstancedBaseVertexBaseInstance and glDrawElementsInstancedBaseVertexBaseInstanceANGLE */
         {  436, 2617 }, /* glDrawElementsInstancedBaseVertexBaseInstance and glDrawElementsInstancedBaseVertexBaseInstanceEXT */
+        { 2616,  436 }, /* glDrawElementsInstancedBaseVertexBaseInstanceANGLE and glDrawElementsInstancedBaseVertexBaseInstance */
+        { 2616, 2617 }, /* glDrawElementsInstancedBaseVertexBaseInstanceANGLE and glDrawElementsInstancedBaseVertexBaseInstanceEXT */
         { 2617,  436 }, /* glDrawElementsInstancedBaseVertexBaseInstanceEXT and glDrawElementsInstancedBaseVertexBaseInstance */
+        { 2617, 2616 }, /* glDrawElementsInstancedBaseVertexBaseInstanceEXT and glDrawElementsInstancedBaseVertexBaseInstanceANGLE */
         { 2618,  435 }, /* glDrawElementsInstancedBaseVertexEXT and glDrawElementsInstancedBaseVertex */
         { 2618, 2619 }, /* glDrawElementsInstancedBaseVertexEXT and glDrawElementsInstancedBaseVertexOES */
         { 2619,  435 }, /* glDrawElementsInstancedBaseVertexOES and glDrawElementsInstancedBaseVertex */
@@ -13401,8 +13409,12 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 2676,  634 }, /* glGetBufferPointervOES and glGetBufferPointervARB */
         {  635,  636 }, /* glGetBufferSubData and glGetBufferSubDataARB */
         {  636,  635 }, /* glGetBufferSubDataARB and glGetBufferSubData */
+        {  652, 2678 }, /* glGetCompressedTexImage and glGetCompressedTexImageANGLE */
         {  652,  653 }, /* glGetCompressedTexImage and glGetCompressedTexImageARB */
+        { 2678,  652 }, /* glGetCompressedTexImageANGLE and glGetCompressedTexImage */
+        { 2678,  653 }, /* glGetCompressedTexImageANGLE and glGetCompressedTexImageARB */
         {  653,  652 }, /* glGetCompressedTexImageARB and glGetCompressedTexImage */
+        {  653, 2678 }, /* glGetCompressedTexImageARB and glGetCompressedTexImageANGLE */
         {  662,  664 }, /* glGetDebugMessageLog and glGetDebugMessageLogARB */
         {  662, 2679 }, /* glGetDebugMessageLog and glGetDebugMessageLogKHR */
         {  664,  662 }, /* glGetDebugMessageLogARB and glGetDebugMessageLog */
@@ -13455,8 +13467,12 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 2698, 2697 }, /* glGetInteger64vEXT and glGetInteger64vAPPLE */
         {  710,  709 }, /* glGetIntegeri_v and glGetIntegerIndexedvEXT */
         {  709,  710 }, /* glGetIntegerIndexedvEXT and glGetIntegeri_v */
+        {  750, 2704 }, /* glGetMultisamplefv and glGetMultisamplefvANGLE */
         {  750,  751 }, /* glGetMultisamplefv and glGetMultisamplefvNV */
+        { 2704,  750 }, /* glGetMultisamplefvANGLE and glGetMultisamplefv */
+        { 2704,  751 }, /* glGetMultisamplefvANGLE and glGetMultisamplefvNV */
         {  751,  750 }, /* glGetMultisamplefvNV and glGetMultisamplefv */
+        {  751, 2704 }, /* glGetMultisamplefvNV and glGetMultisamplefvANGLE */
         {  997, 2758 }, /* glGetnUniformfv and glGetnUniformfvEXT */
         {  997, 2759 }, /* glGetnUniformfv and glGetnUniformfvKHR */
         { 2758,  997 }, /* glGetnUniformfvEXT and glGetnUniformfv */
@@ -13515,6 +13531,12 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         {  871,  870 }, /* glGetShaderSourceARB and glGetShaderSource */
         {  881, 2735 }, /* glGetSynciv and glGetSyncivAPPLE */
         { 2735,  881 }, /* glGetSyncivAPPLE and glGetSynciv */
+        {  887, 2736 }, /* glGetTexImage and glGetTexImageANGLE */
+        { 2736,  887 }, /* glGetTexImageANGLE and glGetTexImage */
+        {  888, 2737 }, /* glGetTexLevelParameterfv and glGetTexLevelParameterfvANGLE */
+        { 2737,  888 }, /* glGetTexLevelParameterfvANGLE and glGetTexLevelParameterfv */
+        {  889, 2739 }, /* glGetTexLevelParameteriv and glGetTexLevelParameterivANGLE */
+        { 2739,  889 }, /* glGetTexLevelParameterivANGLE and glGetTexLevelParameteriv */
         {  891,  892 }, /* glGetTexParameterIiv and glGetTexParameterIivEXT */
         {  891, 2741 }, /* glGetTexParameterIiv and glGetTexParameterIivOES */
         {  892,  891 }, /* glGetTexParameterIivEXT and glGetTexParameterIiv */
@@ -13613,6 +13635,8 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 2772, 1094 }, /* glIsVertexArrayOES and glIsVertexArrayAPPLE */
         { 1107, 1108 }, /* glLinkProgram and glLinkProgramARB */
         { 1108, 1107 }, /* glLinkProgramARB and glLinkProgram */
+        { 1121, 2773 }, /* glLogicOp and glLogicOpANGLE */
+        { 2773, 1121 }, /* glLogicOpANGLE and glLogicOp */
         { 1136, 1137 }, /* glMapBuffer and glMapBufferARB */
         { 1136, 2775 }, /* glMapBuffer and glMapBufferOES */
         { 1137, 1136 }, /* glMapBufferARB and glMapBuffer */
@@ -13631,8 +13655,12 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 1192, 2778 }, /* glMinSampleShadingARB and glMinSampleShadingOES */
         { 2778, 1191 }, /* glMinSampleShadingOES and glMinSampleShading */
         { 2778, 1192 }, /* glMinSampleShadingOES and glMinSampleShadingARB */
+        { 1198, 2779 }, /* glMultiDrawArrays and glMultiDrawArraysANGLE */
         { 1198, 1199 }, /* glMultiDrawArrays and glMultiDrawArraysEXT */
+        { 2779, 1198 }, /* glMultiDrawArraysANGLE and glMultiDrawArrays */
+        { 2779, 1199 }, /* glMultiDrawArraysANGLE and glMultiDrawArraysEXT */
         { 1199, 1198 }, /* glMultiDrawArraysEXT and glMultiDrawArrays */
+        { 1199, 2779 }, /* glMultiDrawArraysEXT and glMultiDrawArraysANGLE */
         { 1200, 1201 }, /* glMultiDrawArraysIndirect and glMultiDrawArraysIndirectAMD */
         { 1200, 2780 }, /* glMultiDrawArraysIndirect and glMultiDrawArraysIndirectEXT */
         { 1201, 1200 }, /* glMultiDrawArraysIndirectAMD and glMultiDrawArraysIndirect */
@@ -13641,10 +13669,14 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 1205, 1204 }, /* glMultiDrawArraysIndirectCountARB and glMultiDrawArraysIndirectCount */
         { 2780, 1200 }, /* glMultiDrawArraysIndirectEXT and glMultiDrawArraysIndirect */
         { 2780, 1201 }, /* glMultiDrawArraysIndirectEXT and glMultiDrawArraysIndirectAMD */
+        { 1207, 2783 }, /* glMultiDrawElements and glMultiDrawElementsANGLE */
         { 1207, 1209 }, /* glMultiDrawElements and glMultiDrawElementsEXT */
+        { 2783, 1207 }, /* glMultiDrawElementsANGLE and glMultiDrawElements */
+        { 2783, 1209 }, /* glMultiDrawElementsANGLE and glMultiDrawElementsEXT */
         { 1208, 2784 }, /* glMultiDrawElementsBaseVertex and glMultiDrawElementsBaseVertexEXT */
         { 2784, 1208 }, /* glMultiDrawElementsBaseVertexEXT and glMultiDrawElementsBaseVertex */
         { 1209, 1207 }, /* glMultiDrawElementsEXT and glMultiDrawElements */
+        { 1209, 2783 }, /* glMultiDrawElementsEXT and glMultiDrawElementsANGLE */
         { 1210, 1211 }, /* glMultiDrawElementsIndirect and glMultiDrawElementsIndirectAMD */
         { 1210, 2785 }, /* glMultiDrawElementsIndirect and glMultiDrawElementsIndirectEXT */
         { 1211, 1210 }, /* glMultiDrawElementsIndirectAMD and glMultiDrawElementsIndirect */
@@ -13697,8 +13729,12 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 1445, 1444 }, /* glPointParameteriNV and glPointParameteri */
         { 1446, 1447 }, /* glPointParameteriv and glPointParameterivNV */
         { 1447, 1446 }, /* glPointParameterivNV and glPointParameteriv */
+        { 1453, 2793 }, /* glPolygonMode and glPolygonModeANGLE */
         { 1453, 2794 }, /* glPolygonMode and glPolygonModeNV */
+        { 2793, 1453 }, /* glPolygonModeANGLE and glPolygonMode */
+        { 2793, 2794 }, /* glPolygonModeANGLE and glPolygonModeNV */
         { 2794, 1453 }, /* glPolygonModeNV and glPolygonMode */
+        { 2794, 2793 }, /* glPolygonModeNV and glPolygonModeANGLE */
         { 1455, 1456 }, /* glPolygonOffsetClamp and glPolygonOffsetClampEXT */
         { 1456, 1455 }, /* glPolygonOffsetClampEXT and glPolygonOffsetClamp */
         { 1459, 2795 }, /* glPopDebugGroup and glPopDebugGroupKHR */
@@ -13828,6 +13864,8 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 1716, 1717 }, /* glSampleCoverage and glSampleCoverageARB */
         { 1717, 1716 }, /* glSampleCoverageARB and glSampleCoverage */
         { 1719, 1721 }, /* glSampleMaskEXT and glSampleMaskSGIS */
+        { 1722, 2818 }, /* glSampleMaski and glSampleMaskiANGLE */
+        { 2818, 1722 }, /* glSampleMaskiANGLE and glSampleMaski */
         { 1721, 1719 }, /* glSampleMaskSGIS and glSampleMaskEXT */
         { 1723, 1724 }, /* glSamplePatternEXT and glSamplePatternSGIS */
         { 1724, 1723 }, /* glSamplePatternSGIS and glSamplePatternEXT */
@@ -13905,6 +13943,8 @@ static void glad_gl_resolve_aliases(GladGLContext *context) {
         { 1912, 1911 }, /* glTexStorage1DEXT and glTexStorage1D */
         { 1913, 1914 }, /* glTexStorage2D and glTexStorage2DEXT */
         { 1914, 1913 }, /* glTexStorage2DEXT and glTexStorage2D */
+        { 1915, 2852 }, /* glTexStorage2DMultisample and glTexStorage2DMultisampleANGLE */
+        { 2852, 1915 }, /* glTexStorage2DMultisampleANGLE and glTexStorage2DMultisample */
         { 1916, 1917 }, /* glTexStorage3D and glTexStorage3DEXT */
         { 1917, 1916 }, /* glTexStorage3DEXT and glTexStorage3D */
         { 1918, 2853 }, /* glTexStorage3DMultisample and glTexStorage3DMultisampleOES */
