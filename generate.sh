@@ -4,6 +4,7 @@ set -ex
 
 EXTENSIONS=(
 	GL_ARB_buffer_storage
+	GL_ARB_vertex_buffer_object
 	GL_EXT_texture_storage
 	GL_KHR_debug
 )
