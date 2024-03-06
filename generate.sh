@@ -20,7 +20,7 @@ GLAD_ARGS=(
 
 	# Can be more restrictive, e.g. "gl:core=3.3", but you have to account for
 	# other differences such as some GLAD_GL_VERSION_* macros not being defined
-	--api=gl:compatibility=1.2,gles2,vulkan,egl,glx,wgl
+	--api=gl:compatibility=2.1,gles2,vulkan,egl,glx,wgl
 
 	--out-path="$PWD"
 	--merge
