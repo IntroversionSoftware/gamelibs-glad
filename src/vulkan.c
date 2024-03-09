@@ -1093,35 +1093,36 @@ static uint64_t GLAD_Vulkan_ext_hashes[] = {
     /*  337 */ 0x3d4e9e0bb54735fe, /* VK_NV_ray_tracing */
     /*  338 */ 0xe12f14699c6db9db, /* VK_NV_ray_tracing_invocation_reorder */
     /*  339 */ 0xba4184e5104338cb, /* VK_NV_ray_tracing_motion_blur */
-    /*  340 */ 0x92ccabdfa0a3d6e4, /* VK_NV_representative_fragment_test */
-    /*  341 */ 0xc4d99252b7b7843f, /* VK_NV_sample_mask_override_coverage */
-    /*  342 */ 0xd4d2cda699fc74ae, /* VK_NV_scissor_exclusive */
-    /*  343 */ 0xb8974b1af4c34b58, /* VK_NV_shader_atomic_float16_vector */
-    /*  344 */ 0x52f9f98f09f18085, /* VK_NV_shader_image_footprint */
-    /*  345 */ 0xc394473a75e21d7c, /* VK_NV_shader_sm_builtins */
-    /*  346 */ 0x5b6c5e76d8a8364e, /* VK_NV_shader_subgroup_partitioned */
-    /*  347 */ 0xcac204d487e563d3, /* VK_NV_shading_rate_image */
-    /*  348 */ 0xfc6e35d06ddf634e, /* VK_NV_viewport_array2 */
-    /*  349 */ 0x7748ea26eecd7e90, /* VK_NV_viewport_swizzle */
-    /*  350 */ 0x7e4ac6b10102b887, /* VK_NV_win32_keyed_mutex */
-    /*  351 */ 0x5c76ad884426c86c, /* VK_QCOM_filter_cubic_clamp */
-    /*  352 */ 0xc7386bbfd1b9b423, /* VK_QCOM_filter_cubic_weights */
-    /*  353 */ 0xff445069da66b635, /* VK_QCOM_fragment_density_map_offset */
-    /*  354 */ 0xa6cab4106375cdfa, /* VK_QCOM_image_processing */
-    /*  355 */ 0xa4a1ae34c2527a4a, /* VK_QCOM_image_processing2 */
-    /*  356 */ 0xbff750af2234e2ce, /* VK_QCOM_multiview_per_view_render_areas */
-    /*  357 */ 0x876a51c6df08420a, /* VK_QCOM_multiview_per_view_viewports */
-    /*  358 */ 0xa3b4fc40f185c799, /* VK_QCOM_render_pass_shader_resolve */
-    /*  359 */ 0x9b5c2a0bc41e00cd, /* VK_QCOM_render_pass_store_ops */
-    /*  360 */ 0x8d33cd618c723019, /* VK_QCOM_render_pass_transform */
-    /*  361 */ 0xd5a3f971e2e8b5c9, /* VK_QCOM_rotated_copy_commands */
-    /*  362 */ 0xc37b456dbdf5565f, /* VK_QCOM_tile_properties */
-    /*  363 */ 0x49bfbd9f92e0b029, /* VK_QCOM_ycbcr_degamma */
-    /*  364 */ 0xc2e6f6dcc7614ace, /* VK_QNX_external_memory_screen_buffer */
-    /*  365 */ 0x236bd86b3b17cf06, /* VK_QNX_screen_surface */
-    /*  366 */ 0xe6fed416ddebf8d0, /* VK_SEC_amigo_profiling */
-    /*  367 */ 0x45542cac22bd41a7, /* VK_VALVE_descriptor_set_host_mapping */
-    /*  368 */ 0x38c73d4ab66a4942  /* VK_VALVE_mutable_descriptor_type */
+    /*  340 */ 0x451532c42bd881b2, /* VK_NV_ray_tracing_validation */
+    /*  341 */ 0x92ccabdfa0a3d6e4, /* VK_NV_representative_fragment_test */
+    /*  342 */ 0xc4d99252b7b7843f, /* VK_NV_sample_mask_override_coverage */
+    /*  343 */ 0xd4d2cda699fc74ae, /* VK_NV_scissor_exclusive */
+    /*  344 */ 0xb8974b1af4c34b58, /* VK_NV_shader_atomic_float16_vector */
+    /*  345 */ 0x52f9f98f09f18085, /* VK_NV_shader_image_footprint */
+    /*  346 */ 0xc394473a75e21d7c, /* VK_NV_shader_sm_builtins */
+    /*  347 */ 0x5b6c5e76d8a8364e, /* VK_NV_shader_subgroup_partitioned */
+    /*  348 */ 0xcac204d487e563d3, /* VK_NV_shading_rate_image */
+    /*  349 */ 0xfc6e35d06ddf634e, /* VK_NV_viewport_array2 */
+    /*  350 */ 0x7748ea26eecd7e90, /* VK_NV_viewport_swizzle */
+    /*  351 */ 0x7e4ac6b10102b887, /* VK_NV_win32_keyed_mutex */
+    /*  352 */ 0x5c76ad884426c86c, /* VK_QCOM_filter_cubic_clamp */
+    /*  353 */ 0xc7386bbfd1b9b423, /* VK_QCOM_filter_cubic_weights */
+    /*  354 */ 0xff445069da66b635, /* VK_QCOM_fragment_density_map_offset */
+    /*  355 */ 0xa6cab4106375cdfa, /* VK_QCOM_image_processing */
+    /*  356 */ 0xa4a1ae34c2527a4a, /* VK_QCOM_image_processing2 */
+    /*  357 */ 0xbff750af2234e2ce, /* VK_QCOM_multiview_per_view_render_areas */
+    /*  358 */ 0x876a51c6df08420a, /* VK_QCOM_multiview_per_view_viewports */
+    /*  359 */ 0xa3b4fc40f185c799, /* VK_QCOM_render_pass_shader_resolve */
+    /*  360 */ 0x9b5c2a0bc41e00cd, /* VK_QCOM_render_pass_store_ops */
+    /*  361 */ 0x8d33cd618c723019, /* VK_QCOM_render_pass_transform */
+    /*  362 */ 0xd5a3f971e2e8b5c9, /* VK_QCOM_rotated_copy_commands */
+    /*  363 */ 0xc37b456dbdf5565f, /* VK_QCOM_tile_properties */
+    /*  364 */ 0x49bfbd9f92e0b029, /* VK_QCOM_ycbcr_degamma */
+    /*  365 */ 0xc2e6f6dcc7614ace, /* VK_QNX_external_memory_screen_buffer */
+    /*  366 */ 0x236bd86b3b17cf06, /* VK_QNX_screen_surface */
+    /*  367 */ 0xe6fed416ddebf8d0, /* VK_SEC_amigo_profiling */
+    /*  368 */ 0x45542cac22bd41a7, /* VK_VALVE_descriptor_set_host_mapping */
+    /*  369 */ 0x38c73d4ab66a4942  /* VK_VALVE_mutable_descriptor_type */
 };
 
 #ifdef __cplusplus
