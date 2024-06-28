@@ -3812,74 +3812,75 @@ static uint64_t GLAD_GL_ext_hashes[] = {
     /*  852 */ 0x70d9c41ab20f93f9, /* GL_QCOM_texture_lod_bias */
     /*  853 */ 0x288ca2e6c7c5c86d, /* GL_QCOM_tiled_rendering */
     /*  854 */ 0x28eabd27e2f106a8, /* GL_QCOM_writeonly_rendering */
-    /*  855 */ 0x14dac5dff736a3df, /* GL_REND_screen_coordinates */
-    /*  856 */ 0x93469fe128fc0919, /* GL_S3_s3tc */
-    /*  857 */ 0x8c7ee523e6ed026a, /* GL_SGIS_detail_texture */
-    /*  858 */ 0xe54deb13059b8c4c, /* GL_SGIS_fog_function */
-    /*  859 */ 0xb1b31f0af9b1e3c1, /* GL_SGIS_generate_mipmap */
-    /*  860 */ 0x39568b3690efef18, /* GL_SGIS_multisample */
-    /*  861 */ 0xf250c15acefa1ac9, /* GL_SGIS_pixel_texture */
-    /*  862 */ 0x9b7bb525c279e853, /* GL_SGIS_point_line_texgen */
-    /*  863 */ 0x4e3e0fa2dfafd5b4, /* GL_SGIS_point_parameters */
-    /*  864 */ 0x4a4aa0671eb15c9f, /* GL_SGIS_sharpen_texture */
-    /*  865 */ 0xe3880e70b14a01ef, /* GL_SGIS_texture4D */
-    /*  866 */ 0x70c7cab7e228743c, /* GL_SGIS_texture_border_clamp */
-    /*  867 */ 0x04eb37e0f3c4686a, /* GL_SGIS_texture_color_mask */
-    /*  868 */ 0xb6400bcd7a346c99, /* GL_SGIS_texture_edge_clamp */
-    /*  869 */ 0xd79b6287779eca3f, /* GL_SGIS_texture_filter4 */
-    /*  870 */ 0xf25eb0173c775af1, /* GL_SGIS_texture_lod */
-    /*  871 */ 0x4b818d48997acf33, /* GL_SGIS_texture_select */
-    /*  872 */ 0x42053ed5c2789d8a, /* GL_SGIX_async */
-    /*  873 */ 0x9baec4623ae00aa8, /* GL_SGIX_async_histogram */
-    /*  874 */ 0xbed04383395711b9, /* GL_SGIX_async_pixel */
-    /*  875 */ 0xd3cc8d1ef603a7f6, /* GL_SGIX_blend_alpha_minmax */
-    /*  876 */ 0xe60980f13acb1fe8, /* GL_SGIX_calligraphic_fragment */
-    /*  877 */ 0x5d613989907c2996, /* GL_SGIX_clipmap */
-    /*  878 */ 0x8fa248e9981db96e, /* GL_SGIX_convolution_accuracy */
-    /*  879 */ 0x47ef8f4254eec5a0, /* GL_SGIX_depth_pass_instrument */
-    /*  880 */ 0x3489d57ce09fdb5e, /* GL_SGIX_depth_texture */
-    /*  881 */ 0x37a8cdae9276920f, /* GL_SGIX_flush_raster */
-    /*  882 */ 0x21b4c2f4db4fb980, /* GL_SGIX_fog_offset */
-    /*  883 */ 0x5379c01e285814d7, /* GL_SGIX_fragment_lighting */
-    /*  884 */ 0xbc4f1c742be26f3f, /* GL_SGIX_framezoom */
-    /*  885 */ 0xd8ea1ff9ab303390, /* GL_SGIX_igloo_interface */
-    /*  886 */ 0x828685155c316d20, /* GL_SGIX_instruments */
-    /*  887 */ 0xaf75b3c8a321fd9b, /* GL_SGIX_interlace */
-    /*  888 */ 0xac3c1477e6f161ef, /* GL_SGIX_ir_instrument1 */
-    /*  889 */ 0xe6f72d5da01567e9, /* GL_SGIX_list_priority */
-    /*  890 */ 0x945b05eefbbaf60c, /* GL_SGIX_pixel_texture */
-    /*  891 */ 0x3c667c7037c70246, /* GL_SGIX_pixel_tiles */
-    /*  892 */ 0x17349f9e9a6e5976, /* GL_SGIX_polynomial_ffd */
-    /*  893 */ 0xe64b4cbd5d5fe178, /* GL_SGIX_reference_plane */
-    /*  894 */ 0x007a4678f7628880, /* GL_SGIX_resample */
-    /*  895 */ 0xfc833b6c6a1f8cc1, /* GL_SGIX_scalebias_hint */
-    /*  896 */ 0xfe04490bc9621226, /* GL_SGIX_shadow */
-    /*  897 */ 0xa1f64483e1ed6c09, /* GL_SGIX_shadow_ambient */
-    /*  898 */ 0x1b1eb2d33e2626cb, /* GL_SGIX_sprite */
-    /*  899 */ 0xab712623aed89578, /* GL_SGIX_subsample */
-    /*  900 */ 0xf6707a8df70625ff, /* GL_SGIX_tag_sample_buffer */
-    /*  901 */ 0xb31cc86db966473b, /* GL_SGIX_texture_add_env */
-    /*  902 */ 0x8b7acea8e9290fae, /* GL_SGIX_texture_coordinate_clamp */
-    /*  903 */ 0xb5df7fecc6d921f7, /* GL_SGIX_texture_lod_bias */
-    /*  904 */ 0xb819f1015daf16c4, /* GL_SGIX_texture_multi_buffer */
-    /*  905 */ 0x3c9d7b66aea3cba1, /* GL_SGIX_texture_scale_bias */
-    /*  906 */ 0xe9afc853af27422d, /* GL_SGIX_vertex_preclip */
-    /*  907 */ 0x3bb1183ffedb9c68, /* GL_SGIX_ycrcb */
-    /*  908 */ 0x004ffc30998c20db, /* GL_SGIX_ycrcb_subsample */
-    /*  909 */ 0x7ab4a4b4639c69df, /* GL_SGIX_ycrcba */
-    /*  910 */ 0x014fc2d56670cd5a, /* GL_SGI_color_matrix */
-    /*  911 */ 0x5f28de108b449e5d, /* GL_SGI_color_table */
-    /*  912 */ 0xa03c2d1d2eeb1bd2, /* GL_SGI_texture_color_table */
-    /*  913 */ 0xd3460591a825bcf6, /* GL_SUNX_constant_data */
-    /*  914 */ 0x4e5296cda0471f61, /* GL_SUN_convolution_border_modes */
-    /*  915 */ 0xe19c670da3369515, /* GL_SUN_global_alpha */
-    /*  916 */ 0xbd8a54b9db901974, /* GL_SUN_mesh_array */
-    /*  917 */ 0xa52af6dd6a5fb2d3, /* GL_SUN_slice_accum */
-    /*  918 */ 0xbeb30cddf53ae288, /* GL_SUN_triangle_list */
-    /*  919 */ 0xd0bf54f2a8798b55, /* GL_SUN_vertex */
-    /*  920 */ 0x156892df7146814d, /* GL_VIV_shader_binary */
-    /*  921 */ 0xf09a257256bde8f6, /* GL_WIN_phong_shading */
-    /*  922 */ 0x5a3e106713a38cff  /* GL_WIN_specular_fog */
+    /*  855 */ 0xafb9cdf7b9a2826a, /* GL_QCOM_ycbcr_degamma */
+    /*  856 */ 0x14dac5dff736a3df, /* GL_REND_screen_coordinates */
+    /*  857 */ 0x93469fe128fc0919, /* GL_S3_s3tc */
+    /*  858 */ 0x8c7ee523e6ed026a, /* GL_SGIS_detail_texture */
+    /*  859 */ 0xe54deb13059b8c4c, /* GL_SGIS_fog_function */
+    /*  860 */ 0xb1b31f0af9b1e3c1, /* GL_SGIS_generate_mipmap */
+    /*  861 */ 0x39568b3690efef18, /* GL_SGIS_multisample */
+    /*  862 */ 0xf250c15acefa1ac9, /* GL_SGIS_pixel_texture */
+    /*  863 */ 0x9b7bb525c279e853, /* GL_SGIS_point_line_texgen */
+    /*  864 */ 0x4e3e0fa2dfafd5b4, /* GL_SGIS_point_parameters */
+    /*  865 */ 0x4a4aa0671eb15c9f, /* GL_SGIS_sharpen_texture */
+    /*  866 */ 0xe3880e70b14a01ef, /* GL_SGIS_texture4D */
+    /*  867 */ 0x70c7cab7e228743c, /* GL_SGIS_texture_border_clamp */
+    /*  868 */ 0x04eb37e0f3c4686a, /* GL_SGIS_texture_color_mask */
+    /*  869 */ 0xb6400bcd7a346c99, /* GL_SGIS_texture_edge_clamp */
+    /*  870 */ 0xd79b6287779eca3f, /* GL_SGIS_texture_filter4 */
+    /*  871 */ 0xf25eb0173c775af1, /* GL_SGIS_texture_lod */
+    /*  872 */ 0x4b818d48997acf33, /* GL_SGIS_texture_select */
+    /*  873 */ 0x42053ed5c2789d8a, /* GL_SGIX_async */
+    /*  874 */ 0x9baec4623ae00aa8, /* GL_SGIX_async_histogram */
+    /*  875 */ 0xbed04383395711b9, /* GL_SGIX_async_pixel */
+    /*  876 */ 0xd3cc8d1ef603a7f6, /* GL_SGIX_blend_alpha_minmax */
+    /*  877 */ 0xe60980f13acb1fe8, /* GL_SGIX_calligraphic_fragment */
+    /*  878 */ 0x5d613989907c2996, /* GL_SGIX_clipmap */
+    /*  879 */ 0x8fa248e9981db96e, /* GL_SGIX_convolution_accuracy */
+    /*  880 */ 0x47ef8f4254eec5a0, /* GL_SGIX_depth_pass_instrument */
+    /*  881 */ 0x3489d57ce09fdb5e, /* GL_SGIX_depth_texture */
+    /*  882 */ 0x37a8cdae9276920f, /* GL_SGIX_flush_raster */
+    /*  883 */ 0x21b4c2f4db4fb980, /* GL_SGIX_fog_offset */
+    /*  884 */ 0x5379c01e285814d7, /* GL_SGIX_fragment_lighting */
+    /*  885 */ 0xbc4f1c742be26f3f, /* GL_SGIX_framezoom */
+    /*  886 */ 0xd8ea1ff9ab303390, /* GL_SGIX_igloo_interface */
+    /*  887 */ 0x828685155c316d20, /* GL_SGIX_instruments */
+    /*  888 */ 0xaf75b3c8a321fd9b, /* GL_SGIX_interlace */
+    /*  889 */ 0xac3c1477e6f161ef, /* GL_SGIX_ir_instrument1 */
+    /*  890 */ 0xe6f72d5da01567e9, /* GL_SGIX_list_priority */
+    /*  891 */ 0x945b05eefbbaf60c, /* GL_SGIX_pixel_texture */
+    /*  892 */ 0x3c667c7037c70246, /* GL_SGIX_pixel_tiles */
+    /*  893 */ 0x17349f9e9a6e5976, /* GL_SGIX_polynomial_ffd */
+    /*  894 */ 0xe64b4cbd5d5fe178, /* GL_SGIX_reference_plane */
+    /*  895 */ 0x007a4678f7628880, /* GL_SGIX_resample */
+    /*  896 */ 0xfc833b6c6a1f8cc1, /* GL_SGIX_scalebias_hint */
+    /*  897 */ 0xfe04490bc9621226, /* GL_SGIX_shadow */
+    /*  898 */ 0xa1f64483e1ed6c09, /* GL_SGIX_shadow_ambient */
+    /*  899 */ 0x1b1eb2d33e2626cb, /* GL_SGIX_sprite */
+    /*  900 */ 0xab712623aed89578, /* GL_SGIX_subsample */
+    /*  901 */ 0xf6707a8df70625ff, /* GL_SGIX_tag_sample_buffer */
+    /*  902 */ 0xb31cc86db966473b, /* GL_SGIX_texture_add_env */
+    /*  903 */ 0x8b7acea8e9290fae, /* GL_SGIX_texture_coordinate_clamp */
+    /*  904 */ 0xb5df7fecc6d921f7, /* GL_SGIX_texture_lod_bias */
+    /*  905 */ 0xb819f1015daf16c4, /* GL_SGIX_texture_multi_buffer */
+    /*  906 */ 0x3c9d7b66aea3cba1, /* GL_SGIX_texture_scale_bias */
+    /*  907 */ 0xe9afc853af27422d, /* GL_SGIX_vertex_preclip */
+    /*  908 */ 0x3bb1183ffedb9c68, /* GL_SGIX_ycrcb */
+    /*  909 */ 0x004ffc30998c20db, /* GL_SGIX_ycrcb_subsample */
+    /*  910 */ 0x7ab4a4b4639c69df, /* GL_SGIX_ycrcba */
+    /*  911 */ 0x014fc2d56670cd5a, /* GL_SGI_color_matrix */
+    /*  912 */ 0x5f28de108b449e5d, /* GL_SGI_color_table */
+    /*  913 */ 0xa03c2d1d2eeb1bd2, /* GL_SGI_texture_color_table */
+    /*  914 */ 0xd3460591a825bcf6, /* GL_SUNX_constant_data */
+    /*  915 */ 0x4e5296cda0471f61, /* GL_SUN_convolution_border_modes */
+    /*  916 */ 0xe19c670da3369515, /* GL_SUN_global_alpha */
+    /*  917 */ 0xbd8a54b9db901974, /* GL_SUN_mesh_array */
+    /*  918 */ 0xa52af6dd6a5fb2d3, /* GL_SUN_slice_accum */
+    /*  919 */ 0xbeb30cddf53ae288, /* GL_SUN_triangle_list */
+    /*  920 */ 0xd0bf54f2a8798b55, /* GL_SUN_vertex */
+    /*  921 */ 0x156892df7146814d, /* GL_VIV_shader_binary */
+    /*  922 */ 0xf09a257256bde8f6, /* GL_WIN_phong_shading */
+    /*  923 */ 0x5a3e106713a38cff  /* GL_WIN_specular_fog */
 };
 
 #ifdef __cplusplus
@@ -15041,73 +15042,73 @@ static int glad_gl_find_extensions_gl(GladGLContext *context) {
          831, /* GL_PGI_misc_hints */
          832, /* GL_PGI_vertex_hints */
          841, /* GL_QCOM_image_processing */
-         855, /* GL_REND_screen_coordinates */
-         856, /* GL_S3_s3tc */
-         857, /* GL_SGIS_detail_texture */
-         858, /* GL_SGIS_fog_function */
-         859, /* GL_SGIS_generate_mipmap */
-         860, /* GL_SGIS_multisample */
-         861, /* GL_SGIS_pixel_texture */
-         862, /* GL_SGIS_point_line_texgen */
-         863, /* GL_SGIS_point_parameters */
-         864, /* GL_SGIS_sharpen_texture */
-         865, /* GL_SGIS_texture4D */
-         866, /* GL_SGIS_texture_border_clamp */
-         867, /* GL_SGIS_texture_color_mask */
-         868, /* GL_SGIS_texture_edge_clamp */
-         869, /* GL_SGIS_texture_filter4 */
-         870, /* GL_SGIS_texture_lod */
-         871, /* GL_SGIS_texture_select */
-         872, /* GL_SGIX_async */
-         873, /* GL_SGIX_async_histogram */
-         874, /* GL_SGIX_async_pixel */
-         875, /* GL_SGIX_blend_alpha_minmax */
-         876, /* GL_SGIX_calligraphic_fragment */
-         877, /* GL_SGIX_clipmap */
-         878, /* GL_SGIX_convolution_accuracy */
-         879, /* GL_SGIX_depth_pass_instrument */
-         880, /* GL_SGIX_depth_texture */
-         881, /* GL_SGIX_flush_raster */
-         882, /* GL_SGIX_fog_offset */
-         883, /* GL_SGIX_fragment_lighting */
-         884, /* GL_SGIX_framezoom */
-         885, /* GL_SGIX_igloo_interface */
-         886, /* GL_SGIX_instruments */
-         887, /* GL_SGIX_interlace */
-         888, /* GL_SGIX_ir_instrument1 */
-         889, /* GL_SGIX_list_priority */
-         890, /* GL_SGIX_pixel_texture */
-         891, /* GL_SGIX_pixel_tiles */
-         892, /* GL_SGIX_polynomial_ffd */
-         893, /* GL_SGIX_reference_plane */
-         894, /* GL_SGIX_resample */
-         895, /* GL_SGIX_scalebias_hint */
-         896, /* GL_SGIX_shadow */
-         897, /* GL_SGIX_shadow_ambient */
-         898, /* GL_SGIX_sprite */
-         899, /* GL_SGIX_subsample */
-         900, /* GL_SGIX_tag_sample_buffer */
-         901, /* GL_SGIX_texture_add_env */
-         902, /* GL_SGIX_texture_coordinate_clamp */
-         903, /* GL_SGIX_texture_lod_bias */
-         904, /* GL_SGIX_texture_multi_buffer */
-         905, /* GL_SGIX_texture_scale_bias */
-         906, /* GL_SGIX_vertex_preclip */
-         907, /* GL_SGIX_ycrcb */
-         908, /* GL_SGIX_ycrcb_subsample */
-         909, /* GL_SGIX_ycrcba */
-         910, /* GL_SGI_color_matrix */
-         911, /* GL_SGI_color_table */
-         912, /* GL_SGI_texture_color_table */
-         913, /* GL_SUNX_constant_data */
-         914, /* GL_SUN_convolution_border_modes */
-         915, /* GL_SUN_global_alpha */
-         916, /* GL_SUN_mesh_array */
-         917, /* GL_SUN_slice_accum */
-         918, /* GL_SUN_triangle_list */
-         919, /* GL_SUN_vertex */
-         921, /* GL_WIN_phong_shading */
-         922, /* GL_WIN_specular_fog */
+         856, /* GL_REND_screen_coordinates */
+         857, /* GL_S3_s3tc */
+         858, /* GL_SGIS_detail_texture */
+         859, /* GL_SGIS_fog_function */
+         860, /* GL_SGIS_generate_mipmap */
+         861, /* GL_SGIS_multisample */
+         862, /* GL_SGIS_pixel_texture */
+         863, /* GL_SGIS_point_line_texgen */
+         864, /* GL_SGIS_point_parameters */
+         865, /* GL_SGIS_sharpen_texture */
+         866, /* GL_SGIS_texture4D */
+         867, /* GL_SGIS_texture_border_clamp */
+         868, /* GL_SGIS_texture_color_mask */
+         869, /* GL_SGIS_texture_edge_clamp */
+         870, /* GL_SGIS_texture_filter4 */
+         871, /* GL_SGIS_texture_lod */
+         872, /* GL_SGIS_texture_select */
+         873, /* GL_SGIX_async */
+         874, /* GL_SGIX_async_histogram */
+         875, /* GL_SGIX_async_pixel */
+         876, /* GL_SGIX_blend_alpha_minmax */
+         877, /* GL_SGIX_calligraphic_fragment */
+         878, /* GL_SGIX_clipmap */
+         879, /* GL_SGIX_convolution_accuracy */
+         880, /* GL_SGIX_depth_pass_instrument */
+         881, /* GL_SGIX_depth_texture */
+         882, /* GL_SGIX_flush_raster */
+         883, /* GL_SGIX_fog_offset */
+         884, /* GL_SGIX_fragment_lighting */
+         885, /* GL_SGIX_framezoom */
+         886, /* GL_SGIX_igloo_interface */
+         887, /* GL_SGIX_instruments */
+         888, /* GL_SGIX_interlace */
+         889, /* GL_SGIX_ir_instrument1 */
+         890, /* GL_SGIX_list_priority */
+         891, /* GL_SGIX_pixel_texture */
+         892, /* GL_SGIX_pixel_tiles */
+         893, /* GL_SGIX_polynomial_ffd */
+         894, /* GL_SGIX_reference_plane */
+         895, /* GL_SGIX_resample */
+         896, /* GL_SGIX_scalebias_hint */
+         897, /* GL_SGIX_shadow */
+         898, /* GL_SGIX_shadow_ambient */
+         899, /* GL_SGIX_sprite */
+         900, /* GL_SGIX_subsample */
+         901, /* GL_SGIX_tag_sample_buffer */
+         902, /* GL_SGIX_texture_add_env */
+         903, /* GL_SGIX_texture_coordinate_clamp */
+         904, /* GL_SGIX_texture_lod_bias */
+         905, /* GL_SGIX_texture_multi_buffer */
+         906, /* GL_SGIX_texture_scale_bias */
+         907, /* GL_SGIX_vertex_preclip */
+         908, /* GL_SGIX_ycrcb */
+         909, /* GL_SGIX_ycrcb_subsample */
+         910, /* GL_SGIX_ycrcba */
+         911, /* GL_SGI_color_matrix */
+         912, /* GL_SGI_color_table */
+         913, /* GL_SGI_texture_color_table */
+         914, /* GL_SUNX_constant_data */
+         915, /* GL_SUN_convolution_border_modes */
+         916, /* GL_SUN_global_alpha */
+         917, /* GL_SUN_mesh_array */
+         918, /* GL_SUN_slice_accum */
+         919, /* GL_SUN_triangle_list */
+         920, /* GL_SUN_vertex */
+         922, /* GL_WIN_phong_shading */
+         923, /* GL_WIN_specular_fog */
     };
     uint64_t *exts = NULL;
     uint32_t num_exts = 0;
@@ -15940,7 +15941,8 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context) {
          852, /* GL_QCOM_texture_lod_bias */
          853, /* GL_QCOM_tiled_rendering */
          854, /* GL_QCOM_writeonly_rendering */
-         920, /* GL_VIV_shader_binary */
+         855, /* GL_QCOM_ycbcr_degamma */
+         921, /* GL_VIV_shader_binary */
     };
     uint64_t *exts = NULL;
     uint32_t num_exts = 0;
