@@ -116,140 +116,141 @@ static const char *GLAD_EGL_fn_names[] = {
     /*   43 */ "eglCreateWindowSurface",
     /*   44 */ "eglDebugMessageControlKHR",
     /*   45 */ "eglDestroyContext",
-    /*   46 */ "eglDestroyImage",
-    /*   47 */ "eglDestroyImageKHR",
-    /*   48 */ "eglDestroyStreamKHR",
-    /*   49 */ "eglDestroySurface",
-    /*   50 */ "eglDestroySync",
-    /*   51 */ "eglDestroySyncKHR",
-    /*   52 */ "eglDestroySyncNV",
-    /*   53 */ "eglDupNativeFenceFDANDROID",
-    /*   54 */ "eglExportDMABUFImageMESA",
-    /*   55 */ "eglExportDMABUFImageQueryMESA",
-    /*   56 */ "eglExportDRMImageMESA",
-    /*   57 */ "eglExportVkImageANGLE",
-    /*   58 */ "eglFenceNV",
-    /*   59 */ "eglForceGPUSwitchANGLE",
-    /*   60 */ "eglGetCompositorTimingANDROID",
-    /*   61 */ "eglGetCompositorTimingSupportedANDROID",
-    /*   62 */ "eglGetConfigAttrib",
-    /*   63 */ "eglGetConfigs",
-    /*   64 */ "eglGetCurrentContext",
-    /*   65 */ "eglGetCurrentDisplay",
-    /*   66 */ "eglGetCurrentSurface",
-    /*   67 */ "eglGetDisplay",
-    /*   68 */ "eglGetDisplayDriverConfig",
-    /*   69 */ "eglGetDisplayDriverName",
-    /*   70 */ "eglGetError",
-    /*   71 */ "eglGetFrameTimestampSupportedANDROID",
-    /*   72 */ "eglGetFrameTimestampsANDROID",
-    /*   73 */ "eglGetMscRateANGLE",
-    /*   74 */ "eglGetNativeClientBufferANDROID",
-    /*   75 */ "eglGetNextFrameIdANDROID",
-    /*   76 */ "eglGetOutputLayersEXT",
-    /*   77 */ "eglGetOutputPortsEXT",
-    /*   78 */ "eglGetPlatformDisplay",
-    /*   79 */ "eglGetPlatformDisplayEXT",
-    /*   80 */ "eglGetProcAddress",
-    /*   81 */ "eglGetStreamFileDescriptorKHR",
-    /*   82 */ "eglGetSyncAttrib",
-    /*   83 */ "eglGetSyncAttribKHR",
-    /*   84 */ "eglGetSyncAttribNV",
-    /*   85 */ "eglGetSyncValuesCHROMIUM",
-    /*   86 */ "eglGetSystemTimeFrequencyNV",
-    /*   87 */ "eglGetSystemTimeNV",
-    /*   88 */ "eglHandleGPUSwitchANGLE",
-    /*   89 */ "eglInitialize",
-    /*   90 */ "eglLabelObjectKHR",
-    /*   91 */ "eglLockSurfaceKHR",
-    /*   92 */ "eglMakeCurrent",
-    /*   93 */ "eglOutputLayerAttribEXT",
-    /*   94 */ "eglOutputPortAttribEXT",
-    /*   95 */ "eglPostSubBufferNV",
-    /*   96 */ "eglPrepareSwapBuffersANGLE",
-    /*   97 */ "eglPresentationTimeANDROID",
-    /*   98 */ "eglProgramCacheGetAttribANGLE",
-    /*   99 */ "eglProgramCachePopulateANGLE",
-    /*  100 */ "eglProgramCacheQueryANGLE",
-    /*  101 */ "eglProgramCacheResizeANGLE",
-    /*  102 */ "eglQueryAPI",
-    /*  103 */ "eglQueryContext",
-    /*  104 */ "eglQueryDebugKHR",
-    /*  105 */ "eglQueryDeviceAttribEXT",
-    /*  106 */ "eglQueryDeviceBinaryEXT",
-    /*  107 */ "eglQueryDeviceStringEXT",
-    /*  108 */ "eglQueryDevicesEXT",
-    /*  109 */ "eglQueryDisplayAttribANGLE",
-    /*  110 */ "eglQueryDisplayAttribEXT",
-    /*  111 */ "eglQueryDisplayAttribKHR",
-    /*  112 */ "eglQueryDisplayAttribNV",
-    /*  113 */ "eglQueryDmaBufFormatsEXT",
-    /*  114 */ "eglQueryDmaBufModifiersEXT",
-    /*  115 */ "eglQueryNativeDisplayNV",
-    /*  116 */ "eglQueryNativePixmapNV",
-    /*  117 */ "eglQueryNativeWindowNV",
-    /*  118 */ "eglQueryOutputLayerAttribEXT",
-    /*  119 */ "eglQueryOutputLayerStringEXT",
-    /*  120 */ "eglQueryOutputPortAttribEXT",
-    /*  121 */ "eglQueryOutputPortStringEXT",
-    /*  122 */ "eglQueryStreamAttribKHR",
-    /*  123 */ "eglQueryStreamConsumerEventNV",
-    /*  124 */ "eglQueryStreamKHR",
-    /*  125 */ "eglQueryStreamMetadataNV",
-    /*  126 */ "eglQueryStreamTimeKHR",
-    /*  127 */ "eglQueryStreamu64KHR",
-    /*  128 */ "eglQueryString",
-    /*  129 */ "eglQueryStringiANGLE",
-    /*  130 */ "eglQuerySupportedCompressionRatesEXT",
-    /*  131 */ "eglQuerySurface",
-    /*  132 */ "eglQuerySurface64KHR",
-    /*  133 */ "eglQuerySurfacePointerANGLE",
-    /*  134 */ "eglQueryWaylandBufferWL",
-    /*  135 */ "eglReacquireHighPowerGPUANGLE",
-    /*  136 */ "eglReleaseDeviceANGLE",
-    /*  137 */ "eglReleaseExternalContextANGLE",
-    /*  138 */ "eglReleaseHighPowerGPUANGLE",
-    /*  139 */ "eglReleaseTexImage",
-    /*  140 */ "eglReleaseThread",
-    /*  141 */ "eglResetStreamNV",
-    /*  142 */ "eglSetBlobCacheFuncsANDROID",
-    /*  143 */ "eglSetDamageRegionKHR",
-    /*  144 */ "eglSetStreamAttribKHR",
-    /*  145 */ "eglSetStreamMetadataNV",
-    /*  146 */ "eglSetValidationEnabledANGLE",
-    /*  147 */ "eglSignalSyncKHR",
-    /*  148 */ "eglSignalSyncNV",
-    /*  149 */ "eglStreamAcquireImageNV",
-    /*  150 */ "eglStreamAttribKHR",
-    /*  151 */ "eglStreamConsumerAcquireAttribKHR",
-    /*  152 */ "eglStreamConsumerAcquireKHR",
-    /*  153 */ "eglStreamConsumerGLTextureExternalAttribsNV",
-    /*  154 */ "eglStreamConsumerGLTextureExternalKHR",
-    /*  155 */ "eglStreamConsumerOutputEXT",
-    /*  156 */ "eglStreamConsumerReleaseAttribKHR",
-    /*  157 */ "eglStreamConsumerReleaseKHR",
-    /*  158 */ "eglStreamFlushNV",
-    /*  159 */ "eglStreamImageConsumerConnectNV",
-    /*  160 */ "eglStreamPostD3DTextureANGLE",
-    /*  161 */ "eglStreamReleaseImageNV",
-    /*  162 */ "eglSurfaceAttrib",
-    /*  163 */ "eglSwapBuffers",
-    /*  164 */ "eglSwapBuffersRegion2NOK",
-    /*  165 */ "eglSwapBuffersRegionNOK",
-    /*  166 */ "eglSwapBuffersWithDamageEXT",
-    /*  167 */ "eglSwapBuffersWithDamageKHR",
-    /*  168 */ "eglSwapBuffersWithFrameTokenANGLE",
-    /*  169 */ "eglSwapInterval",
-    /*  170 */ "eglTerminate",
-    /*  171 */ "eglUnbindWaylandDisplayWL",
-    /*  172 */ "eglUnlockSurfaceKHR",
-    /*  173 */ "eglUnsignalSyncEXT",
-    /*  174 */ "eglWaitClient",
-    /*  175 */ "eglWaitGL",
-    /*  176 */ "eglWaitNative",
-    /*  177 */ "eglWaitSync",
-    /*  178 */ "eglWaitSyncKHR",
-    /*  179 */ "eglWaitUntilWorkScheduledANGLE"
+    /*   46 */ "eglDestroyDisplayEXT",
+    /*   47 */ "eglDestroyImage",
+    /*   48 */ "eglDestroyImageKHR",
+    /*   49 */ "eglDestroyStreamKHR",
+    /*   50 */ "eglDestroySurface",
+    /*   51 */ "eglDestroySync",
+    /*   52 */ "eglDestroySyncKHR",
+    /*   53 */ "eglDestroySyncNV",
+    /*   54 */ "eglDupNativeFenceFDANDROID",
+    /*   55 */ "eglExportDMABUFImageMESA",
+    /*   56 */ "eglExportDMABUFImageQueryMESA",
+    /*   57 */ "eglExportDRMImageMESA",
+    /*   58 */ "eglExportVkImageANGLE",
+    /*   59 */ "eglFenceNV",
+    /*   60 */ "eglForceGPUSwitchANGLE",
+    /*   61 */ "eglGetCompositorTimingANDROID",
+    /*   62 */ "eglGetCompositorTimingSupportedANDROID",
+    /*   63 */ "eglGetConfigAttrib",
+    /*   64 */ "eglGetConfigs",
+    /*   65 */ "eglGetCurrentContext",
+    /*   66 */ "eglGetCurrentDisplay",
+    /*   67 */ "eglGetCurrentSurface",
+    /*   68 */ "eglGetDisplay",
+    /*   69 */ "eglGetDisplayDriverConfig",
+    /*   70 */ "eglGetDisplayDriverName",
+    /*   71 */ "eglGetError",
+    /*   72 */ "eglGetFrameTimestampSupportedANDROID",
+    /*   73 */ "eglGetFrameTimestampsANDROID",
+    /*   74 */ "eglGetMscRateANGLE",
+    /*   75 */ "eglGetNativeClientBufferANDROID",
+    /*   76 */ "eglGetNextFrameIdANDROID",
+    /*   77 */ "eglGetOutputLayersEXT",
+    /*   78 */ "eglGetOutputPortsEXT",
+    /*   79 */ "eglGetPlatformDisplay",
+    /*   80 */ "eglGetPlatformDisplayEXT",
+    /*   81 */ "eglGetProcAddress",
+    /*   82 */ "eglGetStreamFileDescriptorKHR",
+    /*   83 */ "eglGetSyncAttrib",
+    /*   84 */ "eglGetSyncAttribKHR",
+    /*   85 */ "eglGetSyncAttribNV",
+    /*   86 */ "eglGetSyncValuesCHROMIUM",
+    /*   87 */ "eglGetSystemTimeFrequencyNV",
+    /*   88 */ "eglGetSystemTimeNV",
+    /*   89 */ "eglHandleGPUSwitchANGLE",
+    /*   90 */ "eglInitialize",
+    /*   91 */ "eglLabelObjectKHR",
+    /*   92 */ "eglLockSurfaceKHR",
+    /*   93 */ "eglMakeCurrent",
+    /*   94 */ "eglOutputLayerAttribEXT",
+    /*   95 */ "eglOutputPortAttribEXT",
+    /*   96 */ "eglPostSubBufferNV",
+    /*   97 */ "eglPrepareSwapBuffersANGLE",
+    /*   98 */ "eglPresentationTimeANDROID",
+    /*   99 */ "eglProgramCacheGetAttribANGLE",
+    /*  100 */ "eglProgramCachePopulateANGLE",
+    /*  101 */ "eglProgramCacheQueryANGLE",
+    /*  102 */ "eglProgramCacheResizeANGLE",
+    /*  103 */ "eglQueryAPI",
+    /*  104 */ "eglQueryContext",
+    /*  105 */ "eglQueryDebugKHR",
+    /*  106 */ "eglQueryDeviceAttribEXT",
+    /*  107 */ "eglQueryDeviceBinaryEXT",
+    /*  108 */ "eglQueryDeviceStringEXT",
+    /*  109 */ "eglQueryDevicesEXT",
+    /*  110 */ "eglQueryDisplayAttribANGLE",
+    /*  111 */ "eglQueryDisplayAttribEXT",
+    /*  112 */ "eglQueryDisplayAttribKHR",
+    /*  113 */ "eglQueryDisplayAttribNV",
+    /*  114 */ "eglQueryDmaBufFormatsEXT",
+    /*  115 */ "eglQueryDmaBufModifiersEXT",
+    /*  116 */ "eglQueryNativeDisplayNV",
+    /*  117 */ "eglQueryNativePixmapNV",
+    /*  118 */ "eglQueryNativeWindowNV",
+    /*  119 */ "eglQueryOutputLayerAttribEXT",
+    /*  120 */ "eglQueryOutputLayerStringEXT",
+    /*  121 */ "eglQueryOutputPortAttribEXT",
+    /*  122 */ "eglQueryOutputPortStringEXT",
+    /*  123 */ "eglQueryStreamAttribKHR",
+    /*  124 */ "eglQueryStreamConsumerEventNV",
+    /*  125 */ "eglQueryStreamKHR",
+    /*  126 */ "eglQueryStreamMetadataNV",
+    /*  127 */ "eglQueryStreamTimeKHR",
+    /*  128 */ "eglQueryStreamu64KHR",
+    /*  129 */ "eglQueryString",
+    /*  130 */ "eglQueryStringiANGLE",
+    /*  131 */ "eglQuerySupportedCompressionRatesEXT",
+    /*  132 */ "eglQuerySurface",
+    /*  133 */ "eglQuerySurface64KHR",
+    /*  134 */ "eglQuerySurfacePointerANGLE",
+    /*  135 */ "eglQueryWaylandBufferWL",
+    /*  136 */ "eglReacquireHighPowerGPUANGLE",
+    /*  137 */ "eglReleaseDeviceANGLE",
+    /*  138 */ "eglReleaseExternalContextANGLE",
+    /*  139 */ "eglReleaseHighPowerGPUANGLE",
+    /*  140 */ "eglReleaseTexImage",
+    /*  141 */ "eglReleaseThread",
+    /*  142 */ "eglResetStreamNV",
+    /*  143 */ "eglSetBlobCacheFuncsANDROID",
+    /*  144 */ "eglSetDamageRegionKHR",
+    /*  145 */ "eglSetStreamAttribKHR",
+    /*  146 */ "eglSetStreamMetadataNV",
+    /*  147 */ "eglSetValidationEnabledANGLE",
+    /*  148 */ "eglSignalSyncKHR",
+    /*  149 */ "eglSignalSyncNV",
+    /*  150 */ "eglStreamAcquireImageNV",
+    /*  151 */ "eglStreamAttribKHR",
+    /*  152 */ "eglStreamConsumerAcquireAttribKHR",
+    /*  153 */ "eglStreamConsumerAcquireKHR",
+    /*  154 */ "eglStreamConsumerGLTextureExternalAttribsNV",
+    /*  155 */ "eglStreamConsumerGLTextureExternalKHR",
+    /*  156 */ "eglStreamConsumerOutputEXT",
+    /*  157 */ "eglStreamConsumerReleaseAttribKHR",
+    /*  158 */ "eglStreamConsumerReleaseKHR",
+    /*  159 */ "eglStreamFlushNV",
+    /*  160 */ "eglStreamImageConsumerConnectNV",
+    /*  161 */ "eglStreamPostD3DTextureANGLE",
+    /*  162 */ "eglStreamReleaseImageNV",
+    /*  163 */ "eglSurfaceAttrib",
+    /*  164 */ "eglSwapBuffers",
+    /*  165 */ "eglSwapBuffersRegion2NOK",
+    /*  166 */ "eglSwapBuffersRegionNOK",
+    /*  167 */ "eglSwapBuffersWithDamageEXT",
+    /*  168 */ "eglSwapBuffersWithDamageKHR",
+    /*  169 */ "eglSwapBuffersWithFrameTokenANGLE",
+    /*  170 */ "eglSwapInterval",
+    /*  171 */ "eglTerminate",
+    /*  172 */ "eglUnbindWaylandDisplayWL",
+    /*  173 */ "eglUnlockSurfaceKHR",
+    /*  174 */ "eglUnsignalSyncEXT",
+    /*  175 */ "eglWaitClient",
+    /*  176 */ "eglWaitGL",
+    /*  177 */ "eglWaitNative",
+    /*  178 */ "eglWaitSync",
+    /*  179 */ "eglWaitSyncKHR",
+    /*  180 */ "eglWaitUntilWorkScheduledANGLE"
 };
 
 static uint64_t GLAD_EGL_ext_hashes[] = {
@@ -264,213 +265,219 @@ static uint64_t GLAD_EGL_ext_hashes[] = {
     /*    8 */ 0x7e099daa98cd547e, /* EGL_ANDROID_native_fence_sync */
     /*    9 */ 0xe3ea63f73a400476, /* EGL_ANDROID_presentation_time */
     /*   10 */ 0x3cc398fae4c2292e, /* EGL_ANDROID_recordable */
-    /*   11 */ 0xd59b8dcdd4961074, /* EGL_ANGLE_colorspace_attribute_passthrough */
-    /*   12 */ 0xe34ca55588e959e9, /* EGL_ANGLE_context_virtualization */
-    /*   13 */ 0x5ee453db857b3c29, /* EGL_ANGLE_create_context_backwards_compatible */
-    /*   14 */ 0xf2594fbcdfa3f545, /* EGL_ANGLE_create_context_client_arrays */
-    /*   15 */ 0x5f5244f40c7ef900, /* EGL_ANGLE_create_context_extensions_enabled */
-    /*   16 */ 0x4eac032f78eb1b97, /* EGL_ANGLE_create_context_webgl_compatibility */
-    /*   17 */ 0x3db394a57b9600ed, /* EGL_ANGLE_create_surface_swap_interval */
-    /*   18 */ 0x63dc3010a72f0f41, /* EGL_ANGLE_d3d_share_handle_client_buffer */
-    /*   19 */ 0x008d04b1748738c1, /* EGL_ANGLE_d3d_texture_client_buffer */
-    /*   20 */ 0xb9c6689d871a8219, /* EGL_ANGLE_device_cgl */
-    /*   21 */ 0xe481bb03dc3ffd32, /* EGL_ANGLE_device_creation */
-    /*   22 */ 0xa48498cc85257b13, /* EGL_ANGLE_device_d3d */
-    /*   23 */ 0x22f96d8668d51351, /* EGL_ANGLE_device_eagl */
-    /*   24 */ 0x00ba7a7f1c36e9e4, /* EGL_ANGLE_device_metal */
-    /*   25 */ 0x6f356a60670d8e5a, /* EGL_ANGLE_device_vulkan */
-    /*   26 */ 0xc9df550ac4a1ec30, /* EGL_ANGLE_direct_composition */
-    /*   27 */ 0x00a9cc6756852346, /* EGL_ANGLE_display_power_preference */
-    /*   28 */ 0xed1190e49710ebde, /* EGL_ANGLE_display_semaphore_share_group */
-    /*   29 */ 0x2c22f1ea2f02edae, /* EGL_ANGLE_display_texture_share_group */
-    /*   30 */ 0xc03ef8c49f8daf6e, /* EGL_ANGLE_experimental_present_path */
-    /*   31 */ 0x1160c225fe2a6bf5, /* EGL_ANGLE_external_context_and_surface */
-    /*   32 */ 0xf136655b938cfef7, /* EGL_ANGLE_feature_control */
-    /*   33 */ 0x5bbfac7136801d8f, /* EGL_ANGLE_ggp_stream_descriptor */
-    /*   34 */ 0x18d0970ca7b4c268, /* EGL_ANGLE_global_fence_sync */
-    /*   35 */ 0x8247503770574a19, /* EGL_ANGLE_iosurface_client_buffer */
-    /*   36 */ 0x2050b7157f814d10, /* EGL_ANGLE_keyed_mutex */
-    /*   37 */ 0x5027858c4c30d226, /* EGL_ANGLE_metal_create_context_ownership_identity */
-    /*   38 */ 0x6e333abff6cec928, /* EGL_ANGLE_metal_shared_event_sync */
-    /*   39 */ 0xea85ee216b66aed6, /* EGL_ANGLE_metal_texture_client_buffer */
-    /*   40 */ 0x69ec6f07eb567773, /* EGL_ANGLE_no_error */
-    /*   41 */ 0x0e642f860b2670f4, /* EGL_ANGLE_platform_angle */
-    /*   42 */ 0xb3c6378facb30b47, /* EGL_ANGLE_platform_angle_d3d */
-    /*   43 */ 0x67363c4648bf01a6, /* EGL_ANGLE_platform_angle_d3d11on12 */
-    /*   44 */ 0x7404e65415e0cf49, /* EGL_ANGLE_platform_angle_d3d_luid */
-    /*   45 */ 0x5b49c1a91e2bcce3, /* EGL_ANGLE_platform_angle_device_context_volatile_cgl */
-    /*   46 */ 0xf27d356bb04d147d, /* EGL_ANGLE_platform_angle_device_context_volatile_eagl */
-    /*   47 */ 0x1d4a1428061a339a, /* EGL_ANGLE_platform_angle_device_id */
-    /*   48 */ 0xbe47353c1f13390b, /* EGL_ANGLE_platform_angle_device_type_egl */
-    /*   49 */ 0xe9d3e98ad0d51659, /* EGL_ANGLE_platform_angle_device_type_swiftshader */
-    /*   50 */ 0x98c1482cf6675807, /* EGL_ANGLE_platform_angle_metal */
-    /*   51 */ 0x6ab80514da15b6f9, /* EGL_ANGLE_platform_angle_null */
-    /*   52 */ 0xb419931c39c7f38a, /* EGL_ANGLE_platform_angle_opengl */
-    /*   53 */ 0xb2ad9cccda275eb4, /* EGL_ANGLE_platform_angle_vulkan */
-    /*   54 */ 0x2d155ccb3d2e416d, /* EGL_ANGLE_platform_angle_webgpu */
-    /*   55 */ 0xaf2ad94baa465742, /* EGL_ANGLE_power_preference */
-    /*   56 */ 0x41534601630f79ce, /* EGL_ANGLE_prepare_swap_buffers */
-    /*   57 */ 0x15c4d55f4f359f01, /* EGL_ANGLE_program_cache_control */
-    /*   58 */ 0x655dcac0071412b7, /* EGL_ANGLE_query_surface_pointer */
-    /*   59 */ 0xbec48c7959021479, /* EGL_ANGLE_robust_resource_initialization */
-    /*   60 */ 0x9e02c97224491c29, /* EGL_ANGLE_stream_producer_d3d_texture */
-    /*   61 */ 0x460ce0075e78a2bd, /* EGL_ANGLE_surface_d3d_texture_2d_share_handle */
-    /*   62 */ 0xa388335593ecba25, /* EGL_ANGLE_surface_orientation */
-    /*   63 */ 0x4ad02aaf45a755ab, /* EGL_ANGLE_swap_with_frame_token */
-    /*   64 */ 0xcbc83f2fb8143390, /* EGL_ANGLE_sync_control_rate */
-    /*   65 */ 0x9b7afb42d23ff24a, /* EGL_ANGLE_vulkan_display */
-    /*   66 */ 0x3b9d20f1e7cea30c, /* EGL_ANGLE_vulkan_image */
-    /*   67 */ 0x32f27a4c7977f1cc, /* EGL_ANGLE_wait_until_work_scheduled */
-    /*   68 */ 0x584d724a2585416b, /* EGL_ANGLE_window_fixed_size */
-    /*   69 */ 0x7fd85a1fe267fe03, /* EGL_ANGLE_x11_visual */
-    /*   70 */ 0x79e92599e5906543, /* EGL_ARM_image_format */
-    /*   71 */ 0xe6b4aba5bdfeb761, /* EGL_ARM_implicit_external_sync */
-    /*   72 */ 0xae00b1c9df43676f, /* EGL_ARM_pixmap_multisample_discard */
-    /*   73 */ 0xff8aede3988df0ec, /* EGL_CHROMIUM_sync_control */
-    /*   74 */ 0x9c662d7d2c258a50, /* EGL_EXT_bind_to_front */
-    /*   75 */ 0x2aa08328d074a816, /* EGL_EXT_buffer_age */
-    /*   76 */ 0xa31e0274c2bcafb4, /* EGL_EXT_client_extensions */
-    /*   77 */ 0x0391123aa67cc9fd, /* EGL_EXT_client_sync */
-    /*   78 */ 0x7ad217dadabe87cc, /* EGL_EXT_compositor */
-    /*   79 */ 0x7a089e984094346a, /* EGL_EXT_config_select_group */
-    /*   80 */ 0x7150da6f49b30f3e, /* EGL_EXT_create_context_robustness */
-    /*   81 */ 0x2f6c882c1eab9296, /* EGL_EXT_device_base */
-    /*   82 */ 0x25ef29d5ba78dacb, /* EGL_EXT_device_drm */
-    /*   83 */ 0x85d84ed980a0f6c3, /* EGL_EXT_device_drm_render_node */
-    /*   84 */ 0xbf886c3682e570aa, /* EGL_EXT_device_enumeration */
-    /*   85 */ 0xbb95b050ecd18b71, /* EGL_EXT_device_openwf */
-    /*   86 */ 0x25e4685edc9371c5, /* EGL_EXT_device_persistent_id */
-    /*   87 */ 0x4c3836479bf75ba3, /* EGL_EXT_device_query */
-    /*   88 */ 0x0ec61ed2c29b6b7e, /* EGL_EXT_device_query_name */
-    /*   89 */ 0x1a98bf220bf010e1, /* EGL_EXT_explicit_device */
-    /*   90 */ 0x375b95889c713c9a, /* EGL_EXT_gl_colorspace_bt2020_hlg */
-    /*   91 */ 0x5091e9def2327eea, /* EGL_EXT_gl_colorspace_bt2020_linear */
-    /*   92 */ 0xfc5bf7ce45097f02, /* EGL_EXT_gl_colorspace_bt2020_pq */
-    /*   93 */ 0xd63b77d8efe7c73e, /* EGL_EXT_gl_colorspace_display_p3 */
-    /*   94 */ 0x24c124c0512e760a, /* EGL_EXT_gl_colorspace_display_p3_linear */
-    /*   95 */ 0x46817a7a0934b21a, /* EGL_EXT_gl_colorspace_display_p3_passthrough */
-    /*   96 */ 0x01e6ab8e204224c3, /* EGL_EXT_gl_colorspace_scrgb */
-    /*   97 */ 0x9d59eeae4c92e9f7, /* EGL_EXT_gl_colorspace_scrgb_linear */
-    /*   98 */ 0x0c3a9519d769be90, /* EGL_EXT_image_dma_buf_import */
-    /*   99 */ 0xa09fd39f9f1158a7, /* EGL_EXT_image_dma_buf_import_modifiers */
-    /*  100 */ 0x476226fa1413890a, /* EGL_EXT_image_gl_colorspace */
-    /*  101 */ 0xa5c94b3fdd6261da, /* EGL_EXT_image_implicit_sync_control */
-    /*  102 */ 0x9f0bdd4dde93e968, /* EGL_EXT_multiview_window */
-    /*  103 */ 0xd324b54bf6a35048, /* EGL_EXT_output_base */
-    /*  104 */ 0x0659adf490093fcb, /* EGL_EXT_output_drm */
-    /*  105 */ 0x53a0e0b8eb5f3f00, /* EGL_EXT_output_openwf */
-    /*  106 */ 0xefb059a6e6841776, /* EGL_EXT_pixel_format_float */
-    /*  107 */ 0xa841b196d3768c24, /* EGL_EXT_platform_base */
-    /*  108 */ 0x8df4a934a55860db, /* EGL_EXT_platform_device */
-    /*  109 */ 0x27716290eb920120, /* EGL_EXT_platform_wayland */
-    /*  110 */ 0xe548f3fc71409c63, /* EGL_EXT_platform_x11 */
-    /*  111 */ 0x6b5d9de25dfe7eba, /* EGL_EXT_platform_xcb */
-    /*  112 */ 0x5e7a56764d6c44b1, /* EGL_EXT_present_opaque */
-    /*  113 */ 0x91cb4ebfba10a35f, /* EGL_EXT_protected_content */
-    /*  114 */ 0x83f096c0f29ebb18, /* EGL_EXT_protected_surface */
-    /*  115 */ 0xfd8d9ef9e9360c00, /* EGL_EXT_query_reset_notification_strategy */
-    /*  116 */ 0xfbac73bd87a06d67, /* EGL_EXT_stream_consumer_egloutput */
-    /*  117 */ 0x5654a8bc12eeebab, /* EGL_EXT_surface_CTA861_3_metadata */
-    /*  118 */ 0x283ef3c9e93fa780, /* EGL_EXT_surface_SMPTE2086_metadata */
-    /*  119 */ 0x46e2ba77cc14c6da, /* EGL_EXT_surface_compression */
-    /*  120 */ 0xff56e7e2acee3106, /* EGL_EXT_swap_buffers_with_damage */
-    /*  121 */ 0x42a3ca98a3fcecb6, /* EGL_EXT_sync_reuse */
-    /*  122 */ 0x451b691d8d24df6c, /* EGL_EXT_yuv_surface */
-    /*  123 */ 0xdaf189f7653009bf, /* EGL_HI_clientpixmap */
-    /*  124 */ 0x066d89176cab3c2c, /* EGL_HI_colorformats */
-    /*  125 */ 0x0a76d8252afa230a, /* EGL_IMG_context_priority */
-    /*  126 */ 0x7084567bc80e8320, /* EGL_IMG_image_plane_attribs */
-    /*  127 */ 0x0b5d7506753789de, /* EGL_KHR_cl_event */
-    /*  128 */ 0x70fce70cba139c12, /* EGL_KHR_cl_event2 */
-    /*  129 */ 0xef7264f8eef3335b, /* EGL_KHR_client_get_all_proc_addresses */
-    /*  130 */ 0x270d8abedb2d3a6d, /* EGL_KHR_config_attribs */
-    /*  131 */ 0xda20b827ff8ca001, /* EGL_KHR_context_flush_control */
-    /*  132 */ 0x4e16c8c1f6a8131c, /* EGL_KHR_create_context */
-    /*  133 */ 0x7b8ef4b379c8f0fd, /* EGL_KHR_create_context_no_error */
-    /*  134 */ 0x5b61d2012f7861b3, /* EGL_KHR_debug */
-    /*  135 */ 0xfb4d4422d07bc81c, /* EGL_KHR_display_reference */
-    /*  136 */ 0x3fc685858cb02200, /* EGL_KHR_fence_sync */
-    /*  137 */ 0xcc74201669ca5b5d, /* EGL_KHR_get_all_proc_addresses */
-    /*  138 */ 0x0089c927779cc6ef, /* EGL_KHR_gl_colorspace */
-    /*  139 */ 0xf2fdf97c1361d5d7, /* EGL_KHR_gl_renderbuffer_image */
-    /*  140 */ 0x16756bf4b09c5e40, /* EGL_KHR_gl_texture_2D_image */
-    /*  141 */ 0x38fe09b43c8ef819, /* EGL_KHR_gl_texture_3D_image */
-    /*  142 */ 0x8da10d2afff88da2, /* EGL_KHR_gl_texture_cubemap_image */
-    /*  143 */ 0x871bd75821391394, /* EGL_KHR_image */
-    /*  144 */ 0xa2aecd33728540cb, /* EGL_KHR_image_base */
-    /*  145 */ 0x6d3e7071805da5a8, /* EGL_KHR_image_pixmap */
-    /*  146 */ 0xd1965fc59df1967c, /* EGL_KHR_lock_surface */
-    /*  147 */ 0x607598bc0d7426f5, /* EGL_KHR_lock_surface2 */
-    /*  148 */ 0xc5c0850bfdef920f, /* EGL_KHR_lock_surface3 */
-    /*  149 */ 0xf2c65c6b58412a19, /* EGL_KHR_mutable_render_buffer */
-    /*  150 */ 0xb04bf399be660bca, /* EGL_KHR_no_config_context */
-    /*  151 */ 0xbf10c896f39ac381, /* EGL_KHR_partial_update */
-    /*  152 */ 0x1b60d04af505e88c, /* EGL_KHR_platform_android */
-    /*  153 */ 0x92732717613804d7, /* EGL_KHR_platform_gbm */
-    /*  154 */ 0xa9c339bb0bd9f8ff, /* EGL_KHR_platform_wayland */
-    /*  155 */ 0xb95b474e87d914c0, /* EGL_KHR_platform_x11 */
-    /*  156 */ 0x3e707e46a988246f, /* EGL_KHR_reusable_sync */
-    /*  157 */ 0x16184f4f924509ef, /* EGL_KHR_stream */
-    /*  158 */ 0x9d0b59cf206f7842, /* EGL_KHR_stream_attrib */
-    /*  159 */ 0xd9b572ac9eb89474, /* EGL_KHR_stream_consumer_gltexture */
-    /*  160 */ 0x6e523fb6f05a3d29, /* EGL_KHR_stream_cross_process_fd */
-    /*  161 */ 0x3114241b811aadf2, /* EGL_KHR_stream_fifo */
-    /*  162 */ 0x4e02a91ae238a029, /* EGL_KHR_stream_producer_aldatalocator */
-    /*  163 */ 0x75e923758d9b47fb, /* EGL_KHR_stream_producer_eglsurface */
-    /*  164 */ 0x98778891a458759f, /* EGL_KHR_surfaceless_context */
-    /*  165 */ 0x836da10ce92250ef, /* EGL_KHR_swap_buffers_with_damage */
-    /*  166 */ 0xc795b75646aecc5b, /* EGL_KHR_vg_parent_image */
-    /*  167 */ 0x76eb9817e8dc6c57, /* EGL_KHR_wait_sync */
-    /*  168 */ 0x8a02851eceb4e60b, /* EGL_MESA_drm_image */
-    /*  169 */ 0xff40140d7e6b5b22, /* EGL_MESA_image_dma_buf_export */
-    /*  170 */ 0xcbf9865290d1d737, /* EGL_MESA_platform_gbm */
-    /*  171 */ 0xa718f1a00dfc77b2, /* EGL_MESA_platform_surfaceless */
-    /*  172 */ 0x205a0c44642ecfe4, /* EGL_MESA_query_driver */
-    /*  173 */ 0xc6c6646757ff2eb0, /* EGL_NOK_swap_region */
-    /*  174 */ 0xcacecd1071a7c53d, /* EGL_NOK_swap_region2 */
-    /*  175 */ 0x140a1d4d56e89998, /* EGL_NOK_texture_from_pixmap */
-    /*  176 */ 0x53d1f2866df11721, /* EGL_NV_3dvision_surface */
-    /*  177 */ 0x87d534f485d23e03, /* EGL_NV_context_priority_realtime */
-    /*  178 */ 0x29d02d6b41d01c44, /* EGL_NV_coverage_sample */
-    /*  179 */ 0xbf4228511c15c43e, /* EGL_NV_coverage_sample_resolve */
-    /*  180 */ 0xba24ab7c282aa98c, /* EGL_NV_cuda_event */
-    /*  181 */ 0x4f20169819f31a19, /* EGL_NV_depth_nonlinear */
-    /*  182 */ 0xb32a3dd6b03226f2, /* EGL_NV_device_cuda */
-    /*  183 */ 0x797c903a522c4c75, /* EGL_NV_native_query */
-    /*  184 */ 0xb151fe3f08ba15f6, /* EGL_NV_post_convert_rounding */
-    /*  185 */ 0xaad3806034d0954d, /* EGL_NV_post_sub_buffer */
-    /*  186 */ 0x37a228d0850f64a1, /* EGL_NV_quadruple_buffer */
-    /*  187 */ 0x74855b1caf0bb727, /* EGL_NV_robustness_video_memory_purge */
-    /*  188 */ 0x2db9bc2b87115201, /* EGL_NV_stream_consumer_eglimage */
-    /*  189 */ 0xd01bc63b758f4cb9, /* EGL_NV_stream_consumer_eglimage_use_scanout_attrib */
-    /*  190 */ 0x2baced719176deed, /* EGL_NV_stream_consumer_gltexture_yuv */
-    /*  191 */ 0xfc105cd6c3f68dbe, /* EGL_NV_stream_cross_display */
-    /*  192 */ 0x363e000d3383a473, /* EGL_NV_stream_cross_object */
-    /*  193 */ 0xac63132cd757c637, /* EGL_NV_stream_cross_partition */
-    /*  194 */ 0x2821ab7eeb491706, /* EGL_NV_stream_cross_process */
-    /*  195 */ 0x97b15fd0e09adf80, /* EGL_NV_stream_cross_system */
-    /*  196 */ 0x7ae84605ae3ae44a, /* EGL_NV_stream_dma */
-    /*  197 */ 0x450721831a3bcf73, /* EGL_NV_stream_fifo_next */
-    /*  198 */ 0x5dd63931ba6563fb, /* EGL_NV_stream_fifo_synchronous */
-    /*  199 */ 0x33597e019cc7811d, /* EGL_NV_stream_flush */
-    /*  200 */ 0x0c5d5d4b9e76b0d3, /* EGL_NV_stream_frame_limits */
-    /*  201 */ 0xd899fb78ae205e27, /* EGL_NV_stream_metadata */
-    /*  202 */ 0xcb6e884a7e412a07, /* EGL_NV_stream_origin */
-    /*  203 */ 0x817f41736f96de51, /* EGL_NV_stream_remote */
-    /*  204 */ 0x6ad8d08948340894, /* EGL_NV_stream_reset */
-    /*  205 */ 0xb46eaf4ddee294f4, /* EGL_NV_stream_socket */
-    /*  206 */ 0x7d669bb43a324d63, /* EGL_NV_stream_socket_inet */
-    /*  207 */ 0x55bf7befb5997e09, /* EGL_NV_stream_socket_unix */
-    /*  208 */ 0xdfb98789892372eb, /* EGL_NV_stream_sync */
-    /*  209 */ 0x5557f40f2ef2066c, /* EGL_NV_sync */
-    /*  210 */ 0xe1a6732356a0f69f, /* EGL_NV_system_time */
-    /*  211 */ 0xf2ec54e65029ed17, /* EGL_NV_triple_buffer */
-    /*  212 */ 0xaf15d314b7e55c0f, /* EGL_QNX_image_native_buffer */
-    /*  213 */ 0x8efc13d2448ab5b1, /* EGL_QNX_platform_screen */
-    /*  214 */ 0x71dbd1513b2ad7e5, /* EGL_TIZEN_image_native_buffer */
-    /*  215 */ 0x6d7cb4f9ba09cb5d, /* EGL_TIZEN_image_native_surface */
-    /*  216 */ 0xc81b6f913740e456, /* EGL_WL_bind_wayland_display */
-    /*  217 */ 0xa3002402543e70a5  /* EGL_WL_create_wayland_buffer_from_image */
+    /*   11 */ 0xd798697a922f4f6f, /* EGL_ANDROID_telemetry_hint */
+    /*   12 */ 0xd59b8dcdd4961074, /* EGL_ANGLE_colorspace_attribute_passthrough */
+    /*   13 */ 0xe34ca55588e959e9, /* EGL_ANGLE_context_virtualization */
+    /*   14 */ 0x5ee453db857b3c29, /* EGL_ANGLE_create_context_backwards_compatible */
+    /*   15 */ 0xf2594fbcdfa3f545, /* EGL_ANGLE_create_context_client_arrays */
+    /*   16 */ 0x5f5244f40c7ef900, /* EGL_ANGLE_create_context_extensions_enabled */
+    /*   17 */ 0x4eac032f78eb1b97, /* EGL_ANGLE_create_context_webgl_compatibility */
+    /*   18 */ 0x3db394a57b9600ed, /* EGL_ANGLE_create_surface_swap_interval */
+    /*   19 */ 0x63dc3010a72f0f41, /* EGL_ANGLE_d3d_share_handle_client_buffer */
+    /*   20 */ 0x008d04b1748738c1, /* EGL_ANGLE_d3d_texture_client_buffer */
+    /*   21 */ 0xb9c6689d871a8219, /* EGL_ANGLE_device_cgl */
+    /*   22 */ 0xe481bb03dc3ffd32, /* EGL_ANGLE_device_creation */
+    /*   23 */ 0xa48498cc85257b13, /* EGL_ANGLE_device_d3d */
+    /*   24 */ 0xd669f40f3670027e, /* EGL_ANGLE_device_d3d11 */
+    /*   25 */ 0x03032fed28369f5f, /* EGL_ANGLE_device_d3d9 */
+    /*   26 */ 0x22f96d8668d51351, /* EGL_ANGLE_device_eagl */
+    /*   27 */ 0x00ba7a7f1c36e9e4, /* EGL_ANGLE_device_metal */
+    /*   28 */ 0x6f356a60670d8e5a, /* EGL_ANGLE_device_vulkan */
+    /*   29 */ 0xc9df550ac4a1ec30, /* EGL_ANGLE_direct_composition */
+    /*   30 */ 0x00a9cc6756852346, /* EGL_ANGLE_display_power_preference */
+    /*   31 */ 0xed1190e49710ebde, /* EGL_ANGLE_display_semaphore_share_group */
+    /*   32 */ 0x2c22f1ea2f02edae, /* EGL_ANGLE_display_texture_share_group */
+    /*   33 */ 0xc03ef8c49f8daf6e, /* EGL_ANGLE_experimental_present_path */
+    /*   34 */ 0x1160c225fe2a6bf5, /* EGL_ANGLE_external_context_and_surface */
+    /*   35 */ 0xf136655b938cfef7, /* EGL_ANGLE_feature_control */
+    /*   36 */ 0x5bbfac7136801d8f, /* EGL_ANGLE_ggp_stream_descriptor */
+    /*   37 */ 0x18d0970ca7b4c268, /* EGL_ANGLE_global_fence_sync */
+    /*   38 */ 0x8247503770574a19, /* EGL_ANGLE_iosurface_client_buffer */
+    /*   39 */ 0x2050b7157f814d10, /* EGL_ANGLE_keyed_mutex */
+    /*   40 */ 0x3385337af72503e9, /* EGL_ANGLE_memory_usage_report */
+    /*   41 */ 0x5027858c4c30d226, /* EGL_ANGLE_metal_create_context_ownership_identity */
+    /*   42 */ 0x6e333abff6cec928, /* EGL_ANGLE_metal_shared_event_sync */
+    /*   43 */ 0xea85ee216b66aed6, /* EGL_ANGLE_metal_texture_client_buffer */
+    /*   44 */ 0x69ec6f07eb567773, /* EGL_ANGLE_no_error */
+    /*   45 */ 0x0e642f860b2670f4, /* EGL_ANGLE_platform_angle */
+    /*   46 */ 0xb3c6378facb30b47, /* EGL_ANGLE_platform_angle_d3d */
+    /*   47 */ 0x67363c4648bf01a6, /* EGL_ANGLE_platform_angle_d3d11on12 */
+    /*   48 */ 0x7404e65415e0cf49, /* EGL_ANGLE_platform_angle_d3d_luid */
+    /*   49 */ 0x5b49c1a91e2bcce3, /* EGL_ANGLE_platform_angle_device_context_volatile_cgl */
+    /*   50 */ 0xf27d356bb04d147d, /* EGL_ANGLE_platform_angle_device_context_volatile_eagl */
+    /*   51 */ 0x1d4a1428061a339a, /* EGL_ANGLE_platform_angle_device_id */
+    /*   52 */ 0xbe47353c1f13390b, /* EGL_ANGLE_platform_angle_device_type_egl */
+    /*   53 */ 0xe9d3e98ad0d51659, /* EGL_ANGLE_platform_angle_device_type_swiftshader */
+    /*   54 */ 0x98c1482cf6675807, /* EGL_ANGLE_platform_angle_metal */
+    /*   55 */ 0x6ab80514da15b6f9, /* EGL_ANGLE_platform_angle_null */
+    /*   56 */ 0xb419931c39c7f38a, /* EGL_ANGLE_platform_angle_opengl */
+    /*   57 */ 0xb2ad9cccda275eb4, /* EGL_ANGLE_platform_angle_vulkan */
+    /*   58 */ 0x76ecae883c1293e2, /* EGL_ANGLE_platform_angle_vulkan_device_uuid */
+    /*   59 */ 0x2d155ccb3d2e416d, /* EGL_ANGLE_platform_angle_webgpu */
+    /*   60 */ 0xaf2ad94baa465742, /* EGL_ANGLE_power_preference */
+    /*   61 */ 0x41534601630f79ce, /* EGL_ANGLE_prepare_swap_buffers */
+    /*   62 */ 0x15c4d55f4f359f01, /* EGL_ANGLE_program_cache_control */
+    /*   63 */ 0x655dcac0071412b7, /* EGL_ANGLE_query_surface_pointer */
+    /*   64 */ 0xbec48c7959021479, /* EGL_ANGLE_robust_resource_initialization */
+    /*   65 */ 0x9e02c97224491c29, /* EGL_ANGLE_stream_producer_d3d_texture */
+    /*   66 */ 0x460ce0075e78a2bd, /* EGL_ANGLE_surface_d3d_texture_2d_share_handle */
+    /*   67 */ 0xa388335593ecba25, /* EGL_ANGLE_surface_orientation */
+    /*   68 */ 0x4ad02aaf45a755ab, /* EGL_ANGLE_swap_with_frame_token */
+    /*   69 */ 0xcbc83f2fb8143390, /* EGL_ANGLE_sync_control_rate */
+    /*   70 */ 0x9b7afb42d23ff24a, /* EGL_ANGLE_vulkan_display */
+    /*   71 */ 0x3b9d20f1e7cea30c, /* EGL_ANGLE_vulkan_image */
+    /*   72 */ 0x32f27a4c7977f1cc, /* EGL_ANGLE_wait_until_work_scheduled */
+    /*   73 */ 0x584d724a2585416b, /* EGL_ANGLE_window_fixed_size */
+    /*   74 */ 0x7fd85a1fe267fe03, /* EGL_ANGLE_x11_visual */
+    /*   75 */ 0x79e92599e5906543, /* EGL_ARM_image_format */
+    /*   76 */ 0xe6b4aba5bdfeb761, /* EGL_ARM_implicit_external_sync */
+    /*   77 */ 0xae00b1c9df43676f, /* EGL_ARM_pixmap_multisample_discard */
+    /*   78 */ 0xff8aede3988df0ec, /* EGL_CHROMIUM_sync_control */
+    /*   79 */ 0x9c662d7d2c258a50, /* EGL_EXT_bind_to_front */
+    /*   80 */ 0x2aa08328d074a816, /* EGL_EXT_buffer_age */
+    /*   81 */ 0xa31e0274c2bcafb4, /* EGL_EXT_client_extensions */
+    /*   82 */ 0x0391123aa67cc9fd, /* EGL_EXT_client_sync */
+    /*   83 */ 0x7ad217dadabe87cc, /* EGL_EXT_compositor */
+    /*   84 */ 0x7a089e984094346a, /* EGL_EXT_config_select_group */
+    /*   85 */ 0x7150da6f49b30f3e, /* EGL_EXT_create_context_robustness */
+    /*   86 */ 0x2f6c882c1eab9296, /* EGL_EXT_device_base */
+    /*   87 */ 0x25ef29d5ba78dacb, /* EGL_EXT_device_drm */
+    /*   88 */ 0x85d84ed980a0f6c3, /* EGL_EXT_device_drm_render_node */
+    /*   89 */ 0xbf886c3682e570aa, /* EGL_EXT_device_enumeration */
+    /*   90 */ 0xbb95b050ecd18b71, /* EGL_EXT_device_openwf */
+    /*   91 */ 0x25e4685edc9371c5, /* EGL_EXT_device_persistent_id */
+    /*   92 */ 0x4c3836479bf75ba3, /* EGL_EXT_device_query */
+    /*   93 */ 0x0ec61ed2c29b6b7e, /* EGL_EXT_device_query_name */
+    /*   94 */ 0xdbf00a0a59a03004, /* EGL_EXT_display_alloc */
+    /*   95 */ 0x1a98bf220bf010e1, /* EGL_EXT_explicit_device */
+    /*   96 */ 0x375b95889c713c9a, /* EGL_EXT_gl_colorspace_bt2020_hlg */
+    /*   97 */ 0x5091e9def2327eea, /* EGL_EXT_gl_colorspace_bt2020_linear */
+    /*   98 */ 0xfc5bf7ce45097f02, /* EGL_EXT_gl_colorspace_bt2020_pq */
+    /*   99 */ 0xd63b77d8efe7c73e, /* EGL_EXT_gl_colorspace_display_p3 */
+    /*  100 */ 0x24c124c0512e760a, /* EGL_EXT_gl_colorspace_display_p3_linear */
+    /*  101 */ 0x46817a7a0934b21a, /* EGL_EXT_gl_colorspace_display_p3_passthrough */
+    /*  102 */ 0x01e6ab8e204224c3, /* EGL_EXT_gl_colorspace_scrgb */
+    /*  103 */ 0x9d59eeae4c92e9f7, /* EGL_EXT_gl_colorspace_scrgb_linear */
+    /*  104 */ 0x0c3a9519d769be90, /* EGL_EXT_image_dma_buf_import */
+    /*  105 */ 0xa09fd39f9f1158a7, /* EGL_EXT_image_dma_buf_import_modifiers */
+    /*  106 */ 0x476226fa1413890a, /* EGL_EXT_image_gl_colorspace */
+    /*  107 */ 0xa5c94b3fdd6261da, /* EGL_EXT_image_implicit_sync_control */
+    /*  108 */ 0x9f0bdd4dde93e968, /* EGL_EXT_multiview_window */
+    /*  109 */ 0xd324b54bf6a35048, /* EGL_EXT_output_base */
+    /*  110 */ 0x0659adf490093fcb, /* EGL_EXT_output_drm */
+    /*  111 */ 0x53a0e0b8eb5f3f00, /* EGL_EXT_output_openwf */
+    /*  112 */ 0xefb059a6e6841776, /* EGL_EXT_pixel_format_float */
+    /*  113 */ 0xa841b196d3768c24, /* EGL_EXT_platform_base */
+    /*  114 */ 0x8df4a934a55860db, /* EGL_EXT_platform_device */
+    /*  115 */ 0x27716290eb920120, /* EGL_EXT_platform_wayland */
+    /*  116 */ 0xe548f3fc71409c63, /* EGL_EXT_platform_x11 */
+    /*  117 */ 0x6b5d9de25dfe7eba, /* EGL_EXT_platform_xcb */
+    /*  118 */ 0x5e7a56764d6c44b1, /* EGL_EXT_present_opaque */
+    /*  119 */ 0x91cb4ebfba10a35f, /* EGL_EXT_protected_content */
+    /*  120 */ 0x83f096c0f29ebb18, /* EGL_EXT_protected_surface */
+    /*  121 */ 0xfd8d9ef9e9360c00, /* EGL_EXT_query_reset_notification_strategy */
+    /*  122 */ 0xfbac73bd87a06d67, /* EGL_EXT_stream_consumer_egloutput */
+    /*  123 */ 0x5654a8bc12eeebab, /* EGL_EXT_surface_CTA861_3_metadata */
+    /*  124 */ 0x283ef3c9e93fa780, /* EGL_EXT_surface_SMPTE2086_metadata */
+    /*  125 */ 0x46e2ba77cc14c6da, /* EGL_EXT_surface_compression */
+    /*  126 */ 0xff56e7e2acee3106, /* EGL_EXT_swap_buffers_with_damage */
+    /*  127 */ 0x42a3ca98a3fcecb6, /* EGL_EXT_sync_reuse */
+    /*  128 */ 0x451b691d8d24df6c, /* EGL_EXT_yuv_surface */
+    /*  129 */ 0xdaf189f7653009bf, /* EGL_HI_clientpixmap */
+    /*  130 */ 0x066d89176cab3c2c, /* EGL_HI_colorformats */
+    /*  131 */ 0x0a76d8252afa230a, /* EGL_IMG_context_priority */
+    /*  132 */ 0x7084567bc80e8320, /* EGL_IMG_image_plane_attribs */
+    /*  133 */ 0x0b5d7506753789de, /* EGL_KHR_cl_event */
+    /*  134 */ 0x70fce70cba139c12, /* EGL_KHR_cl_event2 */
+    /*  135 */ 0xef7264f8eef3335b, /* EGL_KHR_client_get_all_proc_addresses */
+    /*  136 */ 0x270d8abedb2d3a6d, /* EGL_KHR_config_attribs */
+    /*  137 */ 0xda20b827ff8ca001, /* EGL_KHR_context_flush_control */
+    /*  138 */ 0x4e16c8c1f6a8131c, /* EGL_KHR_create_context */
+    /*  139 */ 0x7b8ef4b379c8f0fd, /* EGL_KHR_create_context_no_error */
+    /*  140 */ 0x5b61d2012f7861b3, /* EGL_KHR_debug */
+    /*  141 */ 0xfb4d4422d07bc81c, /* EGL_KHR_display_reference */
+    /*  142 */ 0x3fc685858cb02200, /* EGL_KHR_fence_sync */
+    /*  143 */ 0xcc74201669ca5b5d, /* EGL_KHR_get_all_proc_addresses */
+    /*  144 */ 0x0089c927779cc6ef, /* EGL_KHR_gl_colorspace */
+    /*  145 */ 0xf2fdf97c1361d5d7, /* EGL_KHR_gl_renderbuffer_image */
+    /*  146 */ 0x16756bf4b09c5e40, /* EGL_KHR_gl_texture_2D_image */
+    /*  147 */ 0x38fe09b43c8ef819, /* EGL_KHR_gl_texture_3D_image */
+    /*  148 */ 0x8da10d2afff88da2, /* EGL_KHR_gl_texture_cubemap_image */
+    /*  149 */ 0x871bd75821391394, /* EGL_KHR_image */
+    /*  150 */ 0xa2aecd33728540cb, /* EGL_KHR_image_base */
+    /*  151 */ 0x6d3e7071805da5a8, /* EGL_KHR_image_pixmap */
+    /*  152 */ 0xd1965fc59df1967c, /* EGL_KHR_lock_surface */
+    /*  153 */ 0x607598bc0d7426f5, /* EGL_KHR_lock_surface2 */
+    /*  154 */ 0xc5c0850bfdef920f, /* EGL_KHR_lock_surface3 */
+    /*  155 */ 0xf2c65c6b58412a19, /* EGL_KHR_mutable_render_buffer */
+    /*  156 */ 0xb04bf399be660bca, /* EGL_KHR_no_config_context */
+    /*  157 */ 0xbf10c896f39ac381, /* EGL_KHR_partial_update */
+    /*  158 */ 0x1b60d04af505e88c, /* EGL_KHR_platform_android */
+    /*  159 */ 0x92732717613804d7, /* EGL_KHR_platform_gbm */
+    /*  160 */ 0xa9c339bb0bd9f8ff, /* EGL_KHR_platform_wayland */
+    /*  161 */ 0xb95b474e87d914c0, /* EGL_KHR_platform_x11 */
+    /*  162 */ 0x3e707e46a988246f, /* EGL_KHR_reusable_sync */
+    /*  163 */ 0x16184f4f924509ef, /* EGL_KHR_stream */
+    /*  164 */ 0x9d0b59cf206f7842, /* EGL_KHR_stream_attrib */
+    /*  165 */ 0xd9b572ac9eb89474, /* EGL_KHR_stream_consumer_gltexture */
+    /*  166 */ 0x6e523fb6f05a3d29, /* EGL_KHR_stream_cross_process_fd */
+    /*  167 */ 0x3114241b811aadf2, /* EGL_KHR_stream_fifo */
+    /*  168 */ 0x4e02a91ae238a029, /* EGL_KHR_stream_producer_aldatalocator */
+    /*  169 */ 0x75e923758d9b47fb, /* EGL_KHR_stream_producer_eglsurface */
+    /*  170 */ 0x98778891a458759f, /* EGL_KHR_surfaceless_context */
+    /*  171 */ 0x836da10ce92250ef, /* EGL_KHR_swap_buffers_with_damage */
+    /*  172 */ 0xc795b75646aecc5b, /* EGL_KHR_vg_parent_image */
+    /*  173 */ 0x76eb9817e8dc6c57, /* EGL_KHR_wait_sync */
+    /*  174 */ 0x8a02851eceb4e60b, /* EGL_MESA_drm_image */
+    /*  175 */ 0xff40140d7e6b5b22, /* EGL_MESA_image_dma_buf_export */
+    /*  176 */ 0xcbf9865290d1d737, /* EGL_MESA_platform_gbm */
+    /*  177 */ 0xa718f1a00dfc77b2, /* EGL_MESA_platform_surfaceless */
+    /*  178 */ 0x205a0c44642ecfe4, /* EGL_MESA_query_driver */
+    /*  179 */ 0xc6c6646757ff2eb0, /* EGL_NOK_swap_region */
+    /*  180 */ 0xcacecd1071a7c53d, /* EGL_NOK_swap_region2 */
+    /*  181 */ 0x140a1d4d56e89998, /* EGL_NOK_texture_from_pixmap */
+    /*  182 */ 0x53d1f2866df11721, /* EGL_NV_3dvision_surface */
+    /*  183 */ 0x87d534f485d23e03, /* EGL_NV_context_priority_realtime */
+    /*  184 */ 0x29d02d6b41d01c44, /* EGL_NV_coverage_sample */
+    /*  185 */ 0xbf4228511c15c43e, /* EGL_NV_coverage_sample_resolve */
+    /*  186 */ 0xba24ab7c282aa98c, /* EGL_NV_cuda_event */
+    /*  187 */ 0x4f20169819f31a19, /* EGL_NV_depth_nonlinear */
+    /*  188 */ 0xb32a3dd6b03226f2, /* EGL_NV_device_cuda */
+    /*  189 */ 0x797c903a522c4c75, /* EGL_NV_native_query */
+    /*  190 */ 0xb151fe3f08ba15f6, /* EGL_NV_post_convert_rounding */
+    /*  191 */ 0xaad3806034d0954d, /* EGL_NV_post_sub_buffer */
+    /*  192 */ 0x37a228d0850f64a1, /* EGL_NV_quadruple_buffer */
+    /*  193 */ 0x74855b1caf0bb727, /* EGL_NV_robustness_video_memory_purge */
+    /*  194 */ 0x2db9bc2b87115201, /* EGL_NV_stream_consumer_eglimage */
+    /*  195 */ 0xd01bc63b758f4cb9, /* EGL_NV_stream_consumer_eglimage_use_scanout_attrib */
+    /*  196 */ 0x2baced719176deed, /* EGL_NV_stream_consumer_gltexture_yuv */
+    /*  197 */ 0xfc105cd6c3f68dbe, /* EGL_NV_stream_cross_display */
+    /*  198 */ 0x363e000d3383a473, /* EGL_NV_stream_cross_object */
+    /*  199 */ 0xac63132cd757c637, /* EGL_NV_stream_cross_partition */
+    /*  200 */ 0x2821ab7eeb491706, /* EGL_NV_stream_cross_process */
+    /*  201 */ 0x97b15fd0e09adf80, /* EGL_NV_stream_cross_system */
+    /*  202 */ 0x7ae84605ae3ae44a, /* EGL_NV_stream_dma */
+    /*  203 */ 0x450721831a3bcf73, /* EGL_NV_stream_fifo_next */
+    /*  204 */ 0x5dd63931ba6563fb, /* EGL_NV_stream_fifo_synchronous */
+    /*  205 */ 0x33597e019cc7811d, /* EGL_NV_stream_flush */
+    /*  206 */ 0x0c5d5d4b9e76b0d3, /* EGL_NV_stream_frame_limits */
+    /*  207 */ 0xd899fb78ae205e27, /* EGL_NV_stream_metadata */
+    /*  208 */ 0xcb6e884a7e412a07, /* EGL_NV_stream_origin */
+    /*  209 */ 0x817f41736f96de51, /* EGL_NV_stream_remote */
+    /*  210 */ 0x6ad8d08948340894, /* EGL_NV_stream_reset */
+    /*  211 */ 0xb46eaf4ddee294f4, /* EGL_NV_stream_socket */
+    /*  212 */ 0x7d669bb43a324d63, /* EGL_NV_stream_socket_inet */
+    /*  213 */ 0x55bf7befb5997e09, /* EGL_NV_stream_socket_unix */
+    /*  214 */ 0xdfb98789892372eb, /* EGL_NV_stream_sync */
+    /*  215 */ 0x5557f40f2ef2066c, /* EGL_NV_sync */
+    /*  216 */ 0xe1a6732356a0f69f, /* EGL_NV_system_time */
+    /*  217 */ 0xf2ec54e65029ed17, /* EGL_NV_triple_buffer */
+    /*  218 */ 0xaf15d314b7e55c0f, /* EGL_QNX_image_native_buffer */
+    /*  219 */ 0x8efc13d2448ab5b1, /* EGL_QNX_platform_screen */
+    /*  220 */ 0x71dbd1513b2ad7e5, /* EGL_TIZEN_image_native_buffer */
+    /*  221 */ 0x6d7cb4f9ba09cb5d, /* EGL_TIZEN_image_native_surface */
+    /*  222 */ 0xc81b6f913740e456, /* EGL_WL_bind_wayland_display */
+    /*  223 */ 0xa3002402543e70a5  /* EGL_WL_create_wayland_buffer_from_image */
 };
 
 #ifdef __cplusplus
@@ -488,23 +495,23 @@ static void glad_egl_load_EGL_VERSION_1_0(GladEGLContext *context, GLADuserptrlo
           27, /* eglCreatePixmapSurface */
           43, /* eglCreateWindowSurface */
           45, /* eglDestroyContext */
-          49, /* eglDestroySurface */
-          62, /* eglGetConfigAttrib */
-          63, /* eglGetConfigs */
-          65, /* eglGetCurrentDisplay */
-          66, /* eglGetCurrentSurface */
-          67, /* eglGetDisplay */
-          70, /* eglGetError */
-          80, /* eglGetProcAddress */
-          89, /* eglInitialize */
-          92, /* eglMakeCurrent */
-         103, /* eglQueryContext */
-         128, /* eglQueryString */
-         131, /* eglQuerySurface */
-         163, /* eglSwapBuffers */
-         170, /* eglTerminate */
-         175, /* eglWaitGL */
-         176  /* eglWaitNative */
+          50, /* eglDestroySurface */
+          63, /* eglGetConfigAttrib */
+          64, /* eglGetConfigs */
+          66, /* eglGetCurrentDisplay */
+          67, /* eglGetCurrentSurface */
+          68, /* eglGetDisplay */
+          71, /* eglGetError */
+          81, /* eglGetProcAddress */
+          90, /* eglInitialize */
+          93, /* eglMakeCurrent */
+         104, /* eglQueryContext */
+         129, /* eglQueryString */
+         132, /* eglQuerySurface */
+         164, /* eglSwapBuffers */
+         171, /* eglTerminate */
+         176, /* eglWaitGL */
+         177  /* eglWaitNative */
     };
     uint32_t i;
     if(!context->VERSION_1_0) return;
@@ -518,9 +525,9 @@ static void glad_egl_load_EGL_VERSION_1_0(GladEGLContext *context, GLADuserptrlo
 static void glad_egl_load_EGL_VERSION_1_1(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            2, /* eglBindTexImage */
-         139, /* eglReleaseTexImage */
-         162, /* eglSurfaceAttrib */
-         169  /* eglSwapInterval */
+         140, /* eglReleaseTexImage */
+         163, /* eglSurfaceAttrib */
+         170  /* eglSwapInterval */
     };
     uint32_t i;
     if(!context->VERSION_1_1) return;
@@ -535,9 +542,9 @@ static void glad_egl_load_EGL_VERSION_1_2(GladEGLContext *context, GLADuserptrlo
     static const uint16_t s_pfnIdx[] = {
            1, /* eglBindAPI */
           25, /* eglCreatePbufferFromClientBuffer */
-         102, /* eglQueryAPI */
-         140, /* eglReleaseThread */
-         174  /* eglWaitClient */
+         103, /* eglQueryAPI */
+         141, /* eglReleaseThread */
+         175  /* eglWaitClient */
     };
     uint32_t i;
     if(!context->VERSION_1_2) return;
@@ -550,7 +557,7 @@ static void glad_egl_load_EGL_VERSION_1_2(GladEGLContext *context, GLADuserptrlo
 
 static void glad_egl_load_EGL_VERSION_1_4(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          64  /* eglGetCurrentContext */
+          65  /* eglGetCurrentContext */
     };
     uint32_t i;
     if(!context->VERSION_1_4) return;
@@ -568,11 +575,11 @@ static void glad_egl_load_EGL_VERSION_1_5(GladEGLContext *context, GLADuserptrlo
           29, /* eglCreatePlatformPixmapSurface */
           31, /* eglCreatePlatformWindowSurface */
           39, /* eglCreateSync */
-          46, /* eglDestroyImage */
-          50, /* eglDestroySync */
-          78, /* eglGetPlatformDisplay */
-          82, /* eglGetSyncAttrib */
-         177  /* eglWaitSync */
+          47, /* eglDestroyImage */
+          51, /* eglDestroySync */
+          79, /* eglGetPlatformDisplay */
+          83, /* eglGetSyncAttrib */
+         178  /* eglWaitSync */
     };
     uint32_t i;
     if(!context->VERSION_1_5) return;
@@ -585,7 +592,7 @@ static void glad_egl_load_EGL_VERSION_1_5(GladEGLContext *context, GLADuserptrlo
 
 static void glad_egl_load_EGL_ANDROID_blob_cache(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         142  /* eglSetBlobCacheFuncsANDROID */
+         143  /* eglSetBlobCacheFuncsANDROID */
     };
     uint32_t i;
     if(!context->ANDROID_blob_cache) return;
@@ -611,11 +618,11 @@ static void glad_egl_load_EGL_ANDROID_create_native_client_buffer(GladEGLContext
 
 static void glad_egl_load_EGL_ANDROID_get_frame_timestamps(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          60, /* eglGetCompositorTimingANDROID */
-          61, /* eglGetCompositorTimingSupportedANDROID */
-          71, /* eglGetFrameTimestampSupportedANDROID */
-          72, /* eglGetFrameTimestampsANDROID */
-          75  /* eglGetNextFrameIdANDROID */
+          61, /* eglGetCompositorTimingANDROID */
+          62, /* eglGetCompositorTimingSupportedANDROID */
+          72, /* eglGetFrameTimestampSupportedANDROID */
+          73, /* eglGetFrameTimestampsANDROID */
+          76  /* eglGetNextFrameIdANDROID */
     };
     uint32_t i;
     if(!context->ANDROID_get_frame_timestamps) return;
@@ -628,7 +635,7 @@ static void glad_egl_load_EGL_ANDROID_get_frame_timestamps(GladEGLContext *conte
 
 static void glad_egl_load_EGL_ANDROID_get_native_client_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          74  /* eglGetNativeClientBufferANDROID */
+          75  /* eglGetNativeClientBufferANDROID */
     };
     uint32_t i;
     if(!context->ANDROID_get_native_client_buffer) return;
@@ -641,7 +648,7 @@ static void glad_egl_load_EGL_ANDROID_get_native_client_buffer(GladEGLContext *c
 
 static void glad_egl_load_EGL_ANDROID_native_fence_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          53  /* eglDupNativeFenceFDANDROID */
+          54  /* eglDupNativeFenceFDANDROID */
     };
     uint32_t i;
     if(!context->ANDROID_native_fence_sync) return;
@@ -654,7 +661,7 @@ static void glad_egl_load_EGL_ANDROID_native_fence_sync(GladEGLContext *context,
 
 static void glad_egl_load_EGL_ANDROID_presentation_time(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          97  /* eglPresentationTimeANDROID */
+          98  /* eglPresentationTimeANDROID */
     };
     uint32_t i;
     if(!context->ANDROID_presentation_time) return;
@@ -668,7 +675,7 @@ static void glad_egl_load_EGL_ANDROID_presentation_time(GladEGLContext *context,
 static void glad_egl_load_EGL_ANGLE_device_creation(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           20, /* eglCreateDeviceANGLE */
-         136  /* eglReleaseDeviceANGLE */
+         137  /* eglReleaseDeviceANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_device_creation) return;
@@ -682,7 +689,7 @@ static void glad_egl_load_EGL_ANGLE_device_creation(GladEGLContext *context, GLA
 static void glad_egl_load_EGL_ANGLE_external_context_and_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            0, /* eglAcquireExternalContextANGLE */
-         137  /* eglReleaseExternalContextANGLE */
+         138  /* eglReleaseExternalContextANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_external_context_and_surface) return;
@@ -695,8 +702,8 @@ static void glad_egl_load_EGL_ANGLE_external_context_and_surface(GladEGLContext 
 
 static void glad_egl_load_EGL_ANGLE_feature_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         109, /* eglQueryDisplayAttribANGLE */
-         129  /* eglQueryStringiANGLE */
+         110, /* eglQueryDisplayAttribANGLE */
+         130  /* eglQueryStringiANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_feature_control) return;
@@ -722,7 +729,7 @@ static void glad_egl_load_EGL_ANGLE_metal_shared_event_sync(GladEGLContext *cont
 
 static void glad_egl_load_EGL_ANGLE_no_error(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         146  /* eglSetValidationEnabledANGLE */
+         147  /* eglSetValidationEnabledANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_no_error) return;
@@ -735,10 +742,10 @@ static void glad_egl_load_EGL_ANGLE_no_error(GladEGLContext *context, GLADuserpt
 
 static void glad_egl_load_EGL_ANGLE_power_preference(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          59, /* eglForceGPUSwitchANGLE */
-          88, /* eglHandleGPUSwitchANGLE */
-         135, /* eglReacquireHighPowerGPUANGLE */
-         138  /* eglReleaseHighPowerGPUANGLE */
+          60, /* eglForceGPUSwitchANGLE */
+          89, /* eglHandleGPUSwitchANGLE */
+         136, /* eglReacquireHighPowerGPUANGLE */
+         139  /* eglReleaseHighPowerGPUANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_power_preference) return;
@@ -751,7 +758,7 @@ static void glad_egl_load_EGL_ANGLE_power_preference(GladEGLContext *context, GL
 
 static void glad_egl_load_EGL_ANGLE_prepare_swap_buffers(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          96  /* eglPrepareSwapBuffersANGLE */
+          97  /* eglPrepareSwapBuffersANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_prepare_swap_buffers) return;
@@ -764,10 +771,10 @@ static void glad_egl_load_EGL_ANGLE_prepare_swap_buffers(GladEGLContext *context
 
 static void glad_egl_load_EGL_ANGLE_program_cache_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          98, /* eglProgramCacheGetAttribANGLE */
-          99, /* eglProgramCachePopulateANGLE */
-         100, /* eglProgramCacheQueryANGLE */
-         101  /* eglProgramCacheResizeANGLE */
+          99, /* eglProgramCacheGetAttribANGLE */
+         100, /* eglProgramCachePopulateANGLE */
+         101, /* eglProgramCacheQueryANGLE */
+         102  /* eglProgramCacheResizeANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_program_cache_control) return;
@@ -780,7 +787,7 @@ static void glad_egl_load_EGL_ANGLE_program_cache_control(GladEGLContext *contex
 
 static void glad_egl_load_EGL_ANGLE_query_surface_pointer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         133  /* eglQuerySurfacePointerANGLE */
+         134  /* eglQuerySurfacePointerANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_query_surface_pointer) return;
@@ -794,7 +801,7 @@ static void glad_egl_load_EGL_ANGLE_query_surface_pointer(GladEGLContext *contex
 static void glad_egl_load_EGL_ANGLE_stream_producer_d3d_texture(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           36, /* eglCreateStreamProducerD3DTextureANGLE */
-         160  /* eglStreamPostD3DTextureANGLE */
+         161  /* eglStreamPostD3DTextureANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_stream_producer_d3d_texture) return;
@@ -807,7 +814,7 @@ static void glad_egl_load_EGL_ANGLE_stream_producer_d3d_texture(GladEGLContext *
 
 static void glad_egl_load_EGL_ANGLE_swap_with_frame_token(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         168  /* eglSwapBuffersWithFrameTokenANGLE */
+         169  /* eglSwapBuffersWithFrameTokenANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_swap_with_frame_token) return;
@@ -820,7 +827,7 @@ static void glad_egl_load_EGL_ANGLE_swap_with_frame_token(GladEGLContext *contex
 
 static void glad_egl_load_EGL_ANGLE_sync_control_rate(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          73  /* eglGetMscRateANGLE */
+          74  /* eglGetMscRateANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_sync_control_rate) return;
@@ -833,7 +840,7 @@ static void glad_egl_load_EGL_ANGLE_sync_control_rate(GladEGLContext *context, G
 
 static void glad_egl_load_EGL_ANGLE_vulkan_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          57  /* eglExportVkImageANGLE */
+          58  /* eglExportVkImageANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_vulkan_image) return;
@@ -846,7 +853,7 @@ static void glad_egl_load_EGL_ANGLE_vulkan_image(GladEGLContext *context, GLADus
 
 static void glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         179  /* eglWaitUntilWorkScheduledANGLE */
+         180  /* eglWaitUntilWorkScheduledANGLE */
     };
     uint32_t i;
     if(!context->ANGLE_wait_until_work_scheduled) return;
@@ -859,7 +866,7 @@ static void glad_egl_load_EGL_ANGLE_wait_until_work_scheduled(GladEGLContext *co
 
 static void glad_egl_load_EGL_CHROMIUM_sync_control(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          85  /* eglGetSyncValuesCHROMIUM */
+          86  /* eglGetSyncValuesCHROMIUM */
     };
     uint32_t i;
     if(!context->CHROMIUM_sync_control) return;
@@ -904,10 +911,10 @@ static void glad_egl_load_EGL_EXT_compositor(GladEGLContext *context, GLADuserpt
 
 static void glad_egl_load_EGL_EXT_device_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         105, /* eglQueryDeviceAttribEXT */
-         107, /* eglQueryDeviceStringEXT */
-         108, /* eglQueryDevicesEXT */
-         110  /* eglQueryDisplayAttribEXT */
+         106, /* eglQueryDeviceAttribEXT */
+         108, /* eglQueryDeviceStringEXT */
+         109, /* eglQueryDevicesEXT */
+         111  /* eglQueryDisplayAttribEXT */
     };
     uint32_t i;
     if(!context->EXT_device_base) return;
@@ -920,7 +927,7 @@ static void glad_egl_load_EGL_EXT_device_base(GladEGLContext *context, GLADuserp
 
 static void glad_egl_load_EGL_EXT_device_enumeration(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         108  /* eglQueryDevicesEXT */
+         109  /* eglQueryDevicesEXT */
     };
     uint32_t i;
     if(!context->EXT_device_enumeration) return;
@@ -933,7 +940,7 @@ static void glad_egl_load_EGL_EXT_device_enumeration(GladEGLContext *context, GL
 
 static void glad_egl_load_EGL_EXT_device_persistent_id(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         106  /* eglQueryDeviceBinaryEXT */
+         107  /* eglQueryDeviceBinaryEXT */
     };
     uint32_t i;
     if(!context->EXT_device_persistent_id) return;
@@ -946,9 +953,9 @@ static void glad_egl_load_EGL_EXT_device_persistent_id(GladEGLContext *context, 
 
 static void glad_egl_load_EGL_EXT_device_query(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         105, /* eglQueryDeviceAttribEXT */
-         107, /* eglQueryDeviceStringEXT */
-         110  /* eglQueryDisplayAttribEXT */
+         106, /* eglQueryDeviceAttribEXT */
+         108, /* eglQueryDeviceStringEXT */
+         111  /* eglQueryDisplayAttribEXT */
     };
     uint32_t i;
     if(!context->EXT_device_query) return;
@@ -959,10 +966,23 @@ static void glad_egl_load_EGL_EXT_device_query(GladEGLContext *context, GLADuser
     }
 }
 
+static void glad_egl_load_EGL_EXT_display_alloc(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    static const uint16_t s_pfnIdx[] = {
+          46  /* eglDestroyDisplayEXT */
+    };
+    uint32_t i;
+    if(!context->EXT_display_alloc) return;
+    #pragma nounroll
+    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
+        const uint16_t pfnIdx = s_pfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_EGL_fn_names[pfnIdx]);
+    }
+}
+
 static void glad_egl_load_EGL_EXT_image_dma_buf_import_modifiers(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         113, /* eglQueryDmaBufFormatsEXT */
-         114  /* eglQueryDmaBufModifiersEXT */
+         114, /* eglQueryDmaBufFormatsEXT */
+         115  /* eglQueryDmaBufModifiersEXT */
     };
     uint32_t i;
     if(!context->EXT_image_dma_buf_import_modifiers) return;
@@ -975,14 +995,14 @@ static void glad_egl_load_EGL_EXT_image_dma_buf_import_modifiers(GladEGLContext 
 
 static void glad_egl_load_EGL_EXT_output_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          76, /* eglGetOutputLayersEXT */
-          77, /* eglGetOutputPortsEXT */
-          93, /* eglOutputLayerAttribEXT */
-          94, /* eglOutputPortAttribEXT */
-         118, /* eglQueryOutputLayerAttribEXT */
-         119, /* eglQueryOutputLayerStringEXT */
-         120, /* eglQueryOutputPortAttribEXT */
-         121  /* eglQueryOutputPortStringEXT */
+          77, /* eglGetOutputLayersEXT */
+          78, /* eglGetOutputPortsEXT */
+          94, /* eglOutputLayerAttribEXT */
+          95, /* eglOutputPortAttribEXT */
+         119, /* eglQueryOutputLayerAttribEXT */
+         120, /* eglQueryOutputLayerStringEXT */
+         121, /* eglQueryOutputPortAttribEXT */
+         122  /* eglQueryOutputPortStringEXT */
     };
     uint32_t i;
     if(!context->EXT_output_base) return;
@@ -997,7 +1017,7 @@ static void glad_egl_load_EGL_EXT_platform_base(GladEGLContext *context, GLADuse
     static const uint16_t s_pfnIdx[] = {
           30, /* eglCreatePlatformPixmapSurfaceEXT */
           32, /* eglCreatePlatformWindowSurfaceEXT */
-          79  /* eglGetPlatformDisplayEXT */
+          80  /* eglGetPlatformDisplayEXT */
     };
     uint32_t i;
     if(!context->EXT_platform_base) return;
@@ -1010,7 +1030,7 @@ static void glad_egl_load_EGL_EXT_platform_base(GladEGLContext *context, GLADuse
 
 static void glad_egl_load_EGL_EXT_stream_consumer_egloutput(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         155  /* eglStreamConsumerOutputEXT */
+         156  /* eglStreamConsumerOutputEXT */
     };
     uint32_t i;
     if(!context->EXT_stream_consumer_egloutput) return;
@@ -1023,7 +1043,7 @@ static void glad_egl_load_EGL_EXT_stream_consumer_egloutput(GladEGLContext *cont
 
 static void glad_egl_load_EGL_EXT_surface_compression(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         130  /* eglQuerySupportedCompressionRatesEXT */
+         131  /* eglQuerySupportedCompressionRatesEXT */
     };
     uint32_t i;
     if(!context->EXT_surface_compression) return;
@@ -1036,7 +1056,7 @@ static void glad_egl_load_EGL_EXT_surface_compression(GladEGLContext *context, G
 
 static void glad_egl_load_EGL_EXT_swap_buffers_with_damage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         166  /* eglSwapBuffersWithDamageEXT */
+         167  /* eglSwapBuffersWithDamageEXT */
     };
     uint32_t i;
     if(!context->EXT_swap_buffers_with_damage) return;
@@ -1049,7 +1069,7 @@ static void glad_egl_load_EGL_EXT_swap_buffers_with_damage(GladEGLContext *conte
 
 static void glad_egl_load_EGL_EXT_sync_reuse(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         173  /* eglUnsignalSyncEXT */
+         174  /* eglUnsignalSyncEXT */
     };
     uint32_t i;
     if(!context->EXT_sync_reuse) return;
@@ -1089,8 +1109,8 @@ static void glad_egl_load_EGL_KHR_cl_event2(GladEGLContext *context, GLADuserptr
 static void glad_egl_load_EGL_KHR_debug(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           44, /* eglDebugMessageControlKHR */
-          90, /* eglLabelObjectKHR */
-         104  /* eglQueryDebugKHR */
+          91, /* eglLabelObjectKHR */
+         105  /* eglQueryDebugKHR */
     };
     uint32_t i;
     if(!context->KHR_debug) return;
@@ -1103,7 +1123,7 @@ static void glad_egl_load_EGL_KHR_debug(GladEGLContext *context, GLADuserptrload
 
 static void glad_egl_load_EGL_KHR_display_reference(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         111  /* eglQueryDisplayAttribKHR */
+         112  /* eglQueryDisplayAttribKHR */
     };
     uint32_t i;
     if(!context->KHR_display_reference) return;
@@ -1118,8 +1138,8 @@ static void glad_egl_load_EGL_KHR_fence_sync(GladEGLContext *context, GLADuserpt
     static const uint16_t s_pfnIdx[] = {
            7, /* eglClientWaitSyncKHR */
           41, /* eglCreateSyncKHR */
-          51, /* eglDestroySyncKHR */
-          83  /* eglGetSyncAttribKHR */
+          52, /* eglDestroySyncKHR */
+          84  /* eglGetSyncAttribKHR */
     };
     uint32_t i;
     if(!context->KHR_fence_sync) return;
@@ -1133,7 +1153,7 @@ static void glad_egl_load_EGL_KHR_fence_sync(GladEGLContext *context, GLADuserpt
 static void glad_egl_load_EGL_KHR_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           23, /* eglCreateImageKHR */
-          47  /* eglDestroyImageKHR */
+          48  /* eglDestroyImageKHR */
     };
     uint32_t i;
     if(!context->KHR_image) return;
@@ -1147,7 +1167,7 @@ static void glad_egl_load_EGL_KHR_image(GladEGLContext *context, GLADuserptrload
 static void glad_egl_load_EGL_KHR_image_base(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           23, /* eglCreateImageKHR */
-          47  /* eglDestroyImageKHR */
+          48  /* eglDestroyImageKHR */
     };
     uint32_t i;
     if(!context->KHR_image_base) return;
@@ -1160,8 +1180,8 @@ static void glad_egl_load_EGL_KHR_image_base(GladEGLContext *context, GLADuserpt
 
 static void glad_egl_load_EGL_KHR_lock_surface(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          91, /* eglLockSurfaceKHR */
-         172  /* eglUnlockSurfaceKHR */
+          92, /* eglLockSurfaceKHR */
+         173  /* eglUnlockSurfaceKHR */
     };
     uint32_t i;
     if(!context->KHR_lock_surface) return;
@@ -1174,9 +1194,9 @@ static void glad_egl_load_EGL_KHR_lock_surface(GladEGLContext *context, GLADuser
 
 static void glad_egl_load_EGL_KHR_lock_surface3(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          91, /* eglLockSurfaceKHR */
-         132, /* eglQuerySurface64KHR */
-         172  /* eglUnlockSurfaceKHR */
+          92, /* eglLockSurfaceKHR */
+         133, /* eglQuerySurface64KHR */
+         173  /* eglUnlockSurfaceKHR */
     };
     uint32_t i;
     if(!context->KHR_lock_surface3) return;
@@ -1189,7 +1209,7 @@ static void glad_egl_load_EGL_KHR_lock_surface3(GladEGLContext *context, GLADuse
 
 static void glad_egl_load_EGL_KHR_partial_update(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         143  /* eglSetDamageRegionKHR */
+         144  /* eglSetDamageRegionKHR */
     };
     uint32_t i;
     if(!context->KHR_partial_update) return;
@@ -1204,9 +1224,9 @@ static void glad_egl_load_EGL_KHR_reusable_sync(GladEGLContext *context, GLADuse
     static const uint16_t s_pfnIdx[] = {
            7, /* eglClientWaitSyncKHR */
           41, /* eglCreateSyncKHR */
-          51, /* eglDestroySyncKHR */
-          83, /* eglGetSyncAttribKHR */
-         147  /* eglSignalSyncKHR */
+          52, /* eglDestroySyncKHR */
+          84, /* eglGetSyncAttribKHR */
+         148  /* eglSignalSyncKHR */
     };
     uint32_t i;
     if(!context->KHR_reusable_sync) return;
@@ -1220,10 +1240,10 @@ static void glad_egl_load_EGL_KHR_reusable_sync(GladEGLContext *context, GLADuse
 static void glad_egl_load_EGL_KHR_stream(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           35, /* eglCreateStreamKHR */
-          48, /* eglDestroyStreamKHR */
-         124, /* eglQueryStreamKHR */
-         127, /* eglQueryStreamu64KHR */
-         150  /* eglStreamAttribKHR */
+          49, /* eglDestroyStreamKHR */
+         125, /* eglQueryStreamKHR */
+         128, /* eglQueryStreamu64KHR */
+         151  /* eglStreamAttribKHR */
     };
     uint32_t i;
     if(!context->KHR_stream) return;
@@ -1237,10 +1257,10 @@ static void glad_egl_load_EGL_KHR_stream(GladEGLContext *context, GLADuserptrloa
 static void glad_egl_load_EGL_KHR_stream_attrib(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           33, /* eglCreateStreamAttribKHR */
-         122, /* eglQueryStreamAttribKHR */
-         144, /* eglSetStreamAttribKHR */
-         151, /* eglStreamConsumerAcquireAttribKHR */
-         156  /* eglStreamConsumerReleaseAttribKHR */
+         123, /* eglQueryStreamAttribKHR */
+         145, /* eglSetStreamAttribKHR */
+         152, /* eglStreamConsumerAcquireAttribKHR */
+         157  /* eglStreamConsumerReleaseAttribKHR */
     };
     uint32_t i;
     if(!context->KHR_stream_attrib) return;
@@ -1253,9 +1273,9 @@ static void glad_egl_load_EGL_KHR_stream_attrib(GladEGLContext *context, GLADuse
 
 static void glad_egl_load_EGL_KHR_stream_consumer_gltexture(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         152, /* eglStreamConsumerAcquireKHR */
-         154, /* eglStreamConsumerGLTextureExternalKHR */
-         157  /* eglStreamConsumerReleaseKHR */
+         153, /* eglStreamConsumerAcquireKHR */
+         155, /* eglStreamConsumerGLTextureExternalKHR */
+         158  /* eglStreamConsumerReleaseKHR */
     };
     uint32_t i;
     if(!context->KHR_stream_consumer_gltexture) return;
@@ -1269,7 +1289,7 @@ static void glad_egl_load_EGL_KHR_stream_consumer_gltexture(GladEGLContext *cont
 static void glad_egl_load_EGL_KHR_stream_cross_process_fd(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           34, /* eglCreateStreamFromFileDescriptorKHR */
-          81  /* eglGetStreamFileDescriptorKHR */
+          82  /* eglGetStreamFileDescriptorKHR */
     };
     uint32_t i;
     if(!context->KHR_stream_cross_process_fd) return;
@@ -1282,7 +1302,7 @@ static void glad_egl_load_EGL_KHR_stream_cross_process_fd(GladEGLContext *contex
 
 static void glad_egl_load_EGL_KHR_stream_fifo(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         126  /* eglQueryStreamTimeKHR */
+         127  /* eglQueryStreamTimeKHR */
     };
     uint32_t i;
     if(!context->KHR_stream_fifo) return;
@@ -1308,7 +1328,7 @@ static void glad_egl_load_EGL_KHR_stream_producer_eglsurface(GladEGLContext *con
 
 static void glad_egl_load_EGL_KHR_swap_buffers_with_damage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         167  /* eglSwapBuffersWithDamageKHR */
+         168  /* eglSwapBuffersWithDamageKHR */
     };
     uint32_t i;
     if(!context->KHR_swap_buffers_with_damage) return;
@@ -1321,7 +1341,7 @@ static void glad_egl_load_EGL_KHR_swap_buffers_with_damage(GladEGLContext *conte
 
 static void glad_egl_load_EGL_KHR_wait_sync(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         178  /* eglWaitSyncKHR */
+         179  /* eglWaitSyncKHR */
     };
     uint32_t i;
     if(!context->KHR_wait_sync) return;
@@ -1335,7 +1355,7 @@ static void glad_egl_load_EGL_KHR_wait_sync(GladEGLContext *context, GLADuserptr
 static void glad_egl_load_EGL_MESA_drm_image(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           19, /* eglCreateDRMImageMESA */
-          56  /* eglExportDRMImageMESA */
+          57  /* eglExportDRMImageMESA */
     };
     uint32_t i;
     if(!context->MESA_drm_image) return;
@@ -1348,8 +1368,8 @@ static void glad_egl_load_EGL_MESA_drm_image(GladEGLContext *context, GLADuserpt
 
 static void glad_egl_load_EGL_MESA_image_dma_buf_export(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          54, /* eglExportDMABUFImageMESA */
-          55  /* eglExportDMABUFImageQueryMESA */
+          55, /* eglExportDMABUFImageMESA */
+          56  /* eglExportDMABUFImageQueryMESA */
     };
     uint32_t i;
     if(!context->MESA_image_dma_buf_export) return;
@@ -1362,8 +1382,8 @@ static void glad_egl_load_EGL_MESA_image_dma_buf_export(GladEGLContext *context,
 
 static void glad_egl_load_EGL_MESA_query_driver(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          68, /* eglGetDisplayDriverConfig */
-          69  /* eglGetDisplayDriverName */
+          69, /* eglGetDisplayDriverConfig */
+          70  /* eglGetDisplayDriverName */
     };
     uint32_t i;
     if(!context->MESA_query_driver) return;
@@ -1376,7 +1396,7 @@ static void glad_egl_load_EGL_MESA_query_driver(GladEGLContext *context, GLADuse
 
 static void glad_egl_load_EGL_NOK_swap_region(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         165  /* eglSwapBuffersRegionNOK */
+         166  /* eglSwapBuffersRegionNOK */
     };
     uint32_t i;
     if(!context->NOK_swap_region) return;
@@ -1389,7 +1409,7 @@ static void glad_egl_load_EGL_NOK_swap_region(GladEGLContext *context, GLADuserp
 
 static void glad_egl_load_EGL_NOK_swap_region2(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         164  /* eglSwapBuffersRegion2NOK */
+         165  /* eglSwapBuffersRegion2NOK */
     };
     uint32_t i;
     if(!context->NOK_swap_region2) return;
@@ -1402,9 +1422,9 @@ static void glad_egl_load_EGL_NOK_swap_region2(GladEGLContext *context, GLADuser
 
 static void glad_egl_load_EGL_NV_native_query(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         115, /* eglQueryNativeDisplayNV */
-         116, /* eglQueryNativePixmapNV */
-         117  /* eglQueryNativeWindowNV */
+         116, /* eglQueryNativeDisplayNV */
+         117, /* eglQueryNativePixmapNV */
+         118  /* eglQueryNativeWindowNV */
     };
     uint32_t i;
     if(!context->NV_native_query) return;
@@ -1417,7 +1437,7 @@ static void glad_egl_load_EGL_NV_native_query(GladEGLContext *context, GLADuserp
 
 static void glad_egl_load_EGL_NV_post_sub_buffer(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          95  /* eglPostSubBufferNV */
+          96  /* eglPostSubBufferNV */
     };
     uint32_t i;
     if(!context->NV_post_sub_buffer) return;
@@ -1430,10 +1450,10 @@ static void glad_egl_load_EGL_NV_post_sub_buffer(GladEGLContext *context, GLADus
 
 static void glad_egl_load_EGL_NV_stream_consumer_eglimage(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         123, /* eglQueryStreamConsumerEventNV */
-         149, /* eglStreamAcquireImageNV */
-         159, /* eglStreamImageConsumerConnectNV */
-         161  /* eglStreamReleaseImageNV */
+         124, /* eglQueryStreamConsumerEventNV */
+         150, /* eglStreamAcquireImageNV */
+         160, /* eglStreamImageConsumerConnectNV */
+         162  /* eglStreamReleaseImageNV */
     };
     uint32_t i;
     if(!context->NV_stream_consumer_eglimage) return;
@@ -1446,7 +1466,7 @@ static void glad_egl_load_EGL_NV_stream_consumer_eglimage(GladEGLContext *contex
 
 static void glad_egl_load_EGL_NV_stream_consumer_gltexture_yuv(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         153  /* eglStreamConsumerGLTextureExternalAttribsNV */
+         154  /* eglStreamConsumerGLTextureExternalAttribsNV */
     };
     uint32_t i;
     if(!context->NV_stream_consumer_gltexture_yuv) return;
@@ -1459,7 +1479,7 @@ static void glad_egl_load_EGL_NV_stream_consumer_gltexture_yuv(GladEGLContext *c
 
 static void glad_egl_load_EGL_NV_stream_flush(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         158  /* eglStreamFlushNV */
+         159  /* eglStreamFlushNV */
     };
     uint32_t i;
     if(!context->NV_stream_flush) return;
@@ -1472,9 +1492,9 @@ static void glad_egl_load_EGL_NV_stream_flush(GladEGLContext *context, GLADuserp
 
 static void glad_egl_load_EGL_NV_stream_metadata(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         112, /* eglQueryDisplayAttribNV */
-         125, /* eglQueryStreamMetadataNV */
-         145  /* eglSetStreamMetadataNV */
+         113, /* eglQueryDisplayAttribNV */
+         126, /* eglQueryStreamMetadataNV */
+         146  /* eglSetStreamMetadataNV */
     };
     uint32_t i;
     if(!context->NV_stream_metadata) return;
@@ -1487,7 +1507,7 @@ static void glad_egl_load_EGL_NV_stream_metadata(GladEGLContext *context, GLADus
 
 static void glad_egl_load_EGL_NV_stream_reset(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         141  /* eglResetStreamNV */
+         142  /* eglResetStreamNV */
     };
     uint32_t i;
     if(!context->NV_stream_reset) return;
@@ -1515,10 +1535,10 @@ static void glad_egl_load_EGL_NV_sync(GladEGLContext *context, GLADuserptrloadfu
     static const uint16_t s_pfnIdx[] = {
            8, /* eglClientWaitSyncNV */
           21, /* eglCreateFenceSyncNV */
-          52, /* eglDestroySyncNV */
-          58, /* eglFenceNV */
-          84, /* eglGetSyncAttribNV */
-         148  /* eglSignalSyncNV */
+          53, /* eglDestroySyncNV */
+          59, /* eglFenceNV */
+          85, /* eglGetSyncAttribNV */
+         149  /* eglSignalSyncNV */
     };
     uint32_t i;
     if(!context->NV_sync) return;
@@ -1531,8 +1551,8 @@ static void glad_egl_load_EGL_NV_sync(GladEGLContext *context, GLADuserptrloadfu
 
 static void glad_egl_load_EGL_NV_system_time(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          86, /* eglGetSystemTimeFrequencyNV */
-          87  /* eglGetSystemTimeNV */
+          87, /* eglGetSystemTimeFrequencyNV */
+          88  /* eglGetSystemTimeNV */
     };
     uint32_t i;
     if(!context->NV_system_time) return;
@@ -1546,8 +1566,8 @@ static void glad_egl_load_EGL_NV_system_time(GladEGLContext *context, GLADuserpt
 static void glad_egl_load_EGL_WL_bind_wayland_display(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            3, /* eglBindWaylandDisplayWL */
-         134, /* eglQueryWaylandBufferWL */
-         171  /* eglUnbindWaylandDisplayWL */
+         135, /* eglQueryWaylandBufferWL */
+         172  /* eglUnbindWaylandDisplayWL */
     };
     uint32_t i;
     if(!context->WL_bind_wayland_display) return;
@@ -1577,16 +1597,16 @@ static void glad_egl_resolve_aliases(GladEGLContext *context) {
         {    7,    6 }, /* eglClientWaitSyncKHR and eglClientWaitSync */
         {   39,   40 }, /* eglCreateSync and eglCreateSync64KHR */
         {   40,   39 }, /* eglCreateSync64KHR and eglCreateSync */
-        {   46,   47 }, /* eglDestroyImage and eglDestroyImageKHR */
-        {   47,   46 }, /* eglDestroyImageKHR and eglDestroyImage */
-        {   50,   51 }, /* eglDestroySync and eglDestroySyncKHR */
-        {   51,   50 }, /* eglDestroySyncKHR and eglDestroySync */
-        {  110,  111 }, /* eglQueryDisplayAttribEXT and eglQueryDisplayAttribKHR */
-        {  110,  112 }, /* eglQueryDisplayAttribEXT and eglQueryDisplayAttribNV */
-        {  111,  110 }, /* eglQueryDisplayAttribKHR and eglQueryDisplayAttribEXT */
-        {  111,  112 }, /* eglQueryDisplayAttribKHR and eglQueryDisplayAttribNV */
-        {  112,  110 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT */
-        {  112,  111 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR */
+        {   47,   48 }, /* eglDestroyImage and eglDestroyImageKHR */
+        {   48,   47 }, /* eglDestroyImageKHR and eglDestroyImage */
+        {   51,   52 }, /* eglDestroySync and eglDestroySyncKHR */
+        {   52,   51 }, /* eglDestroySyncKHR and eglDestroySync */
+        {  111,  112 }, /* eglQueryDisplayAttribEXT and eglQueryDisplayAttribKHR */
+        {  111,  113 }, /* eglQueryDisplayAttribEXT and eglQueryDisplayAttribNV */
+        {  112,  111 }, /* eglQueryDisplayAttribKHR and eglQueryDisplayAttribEXT */
+        {  112,  113 }, /* eglQueryDisplayAttribKHR and eglQueryDisplayAttribNV */
+        {  113,  111 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT */
+        {  113,  112 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR */
     };
     void **pfnArray = context->pfnArray;
     uint32_t i;
@@ -1759,6 +1779,7 @@ GLAD_NO_INLINE int gladLoadEGLContextUserPtr(GladEGLContext *context, EGLDisplay
     glad_egl_load_EGL_EXT_device_enumeration(context, load, userptr);
     glad_egl_load_EGL_EXT_device_persistent_id(context, load, userptr);
     glad_egl_load_EGL_EXT_device_query(context, load, userptr);
+    glad_egl_load_EGL_EXT_display_alloc(context, load, userptr);
     glad_egl_load_EGL_EXT_image_dma_buf_import_modifiers(context, load, userptr);
     glad_egl_load_EGL_EXT_output_base(context, load, userptr);
     glad_egl_load_EGL_EXT_platform_base(context, load, userptr);

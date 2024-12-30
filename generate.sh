@@ -14,10 +14,12 @@ EXTENSIONS=(
 	EGL_ANGLE_platform_angle
 	EGL_ANGLE_platform_angle_d3d
 	EGL_ANGLE_platform_angle_d3d11on12
+	EGL_ANGLE_platform_angle_d3d_luid
 	EGL_ANGLE_platform_angle_device_id
 	EGL_ANGLE_platform_angle_metal
 	EGL_ANGLE_platform_angle_opengl
 	EGL_ANGLE_platform_angle_vulkan
+	EGL_ANGLE_platform_angle_vulkan_device_uuid
 	EGL_ANGLE_program_cache_control
 	EGL_ANGLE_surface_orientation
 	EGL_EXT_device_query
@@ -28,10 +30,12 @@ EXTENSIONS=(
 	EGL_KHR_gl_colorspace
 	GL_AMD_gpu_shader_half_float
 	GL_AMD_gpu_shader_int16
+	GL_AMD_performance_monitor
 	GL_AMD_query_buffer_object
 	GL_ANGLE_base_vertex_base_instance
 	GL_ANGLE_multi_draw
 	GL_ANGLE_provoking_vertex
+	GL_ANGLE_texture_compression_dxt5
 	GL_ANGLE_texture_multisample
 	GL_ANGLE_texture_usage
 	GL_APPLE_clip_distance
@@ -53,8 +57,8 @@ EXTENSIONS=(
 	GL_ARB_pixel_buffer_object
 	GL_ARB_query_buffer_object
 	GL_ARB_sample_shading
-	GL_ARB_shading_language_packing
 	GL_ARB_shading_language_420pack
+	GL_ARB_shading_language_packing
 	GL_ARB_texture_filter_anisotropic
 	GL_ARB_texture_gather
 	GL_ARB_texture_storage
@@ -76,6 +80,10 @@ EXTENSIONS=(
 	GL_EXT_sRGB_write_control
 	GL_EXT_shader_16bit_storage
 	GL_EXT_shader_explicit_arithmetic_types
+	GL_EXT_texture_compression_dxt1
+	GL_EXT_texture_compression_rgtc
+	GL_EXT_texture_compression_s3tc
+	GL_EXT_texture_compression_s3tc_srgb
 	GL_EXT_texture_env_combine
 	GL_EXT_texture_filter_anisotropic
 	GL_EXT_texture_format_BGRA8888
@@ -87,6 +95,7 @@ EXTENSIONS=(
 	GL_OES_shader_image_atomic
 	GL_QCOM_shading_rate
 	VK_EXT_memory_budget
+	VK_KHR_driver_properties
 	VK_KHR_get_physical_device_properties2
 	VK_KHR_portability_enumeration
 	VK_KHR_timeline_semaphore
@@ -103,7 +112,7 @@ GLAD_ARGS=(
 
 	# Can be more restrictive, e.g. "gl:core=3.3", but you have to account for
 	# other differences such as some GLAD_GL_VERSION_* macros not being defined
-	--api=gl:core,gles2,vulkan,egl,glx,wgl
+	--api=gl:compatibility,gles2,vulkan,egl,glx,wgl
 
 	--out-path="$PWD"
 	--merge
