@@ -1353,7 +1353,7 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 /* Vulkan 1.4 version number */
 #define VK_API_VERSION_1_4 VK_MAKE_API_VERSION(0, 1, 4, 0)/* Patch version should always be set to 0 */
 /* Version of this file */
-#define VK_HEADER_VERSION 303
+#define VK_HEADER_VERSION 304
 #define VK_DEFINE_HANDLE(object) typedef struct object##_T* object;
 #ifndef VK_USE_64_BIT_PTR_DEFINES
     #if defined(__LP64__) || defined(_WIN64) || (defined(__x86_64__) && !defined(__ILP32__) ) || defined(_M_X64) || defined(__ia64) || defined (_M_IA64) || defined(__aarch64__) || defined(__powerpc64__) || (defined(__riscv) && __riscv_xlen == 64)
@@ -5878,7 +5878,7 @@ typedef enum VkDriverId {
     VK_DRIVER_ID_MESA_NVK = 24,
     VK_DRIVER_ID_IMAGINATION_OPEN_SOURCE_MESA = 25,
     VK_DRIVER_ID_MESA_HONEYKRISP = 26,
-    VK_DRIVER_ID_RESERVED_27 = 27,
+    VK_DRIVER_ID_VULKAN_SC_EMULATION_ON_VULKAN = 27,
     VK_DRIVER_ID_AMD_PROPRIETARY_KHR = VK_DRIVER_ID_AMD_PROPRIETARY,
     VK_DRIVER_ID_AMD_OPEN_SOURCE_KHR = VK_DRIVER_ID_AMD_OPEN_SOURCE,
     VK_DRIVER_ID_MESA_RADV_KHR = VK_DRIVER_ID_MESA_RADV,
@@ -11900,7 +11900,7 @@ typedef struct VkPhysicalDeviceMaintenance6Properties {
     VkStructureType   sType;
     void *                             pNext;
     VkBool32                                           blockTexelViewCompatibleMultipleLayers;
-    uint32_t                                           maxCombinedImageSamplerDescriptorCount;
+    uint32_t                           maxCombinedImageSamplerDescriptorCount;
     VkBool32                       fragmentShadingRateClampCombinerInputs;
 } VkPhysicalDeviceMaintenance6Properties;
 
@@ -13487,7 +13487,7 @@ typedef struct VkPhysicalDeviceVulkan14Properties {
     VkBool32                                                 nonStrictSinglePixelWideLinesUseParallelogram;
     VkBool32                                                 nonStrictWideLinesUseParallelogram;
     VkBool32                                                                     blockTexelViewCompatibleMultipleLayers;
-    uint32_t                                                                     maxCombinedImageSamplerDescriptorCount;
+    uint32_t                                                     maxCombinedImageSamplerDescriptorCount;
     VkBool32                                                 fragmentShadingRateClampCombinerInputs;
     VkPipelineRobustnessBufferBehavior                         defaultRobustnessStorageBuffers;
     VkPipelineRobustnessBufferBehavior                         defaultRobustnessUniformBuffers;
