@@ -19322,6 +19322,10 @@ typedef struct GladVulkanContext {
     };
 
     void* glad_loader_handle;
+    uint32_t glad_vk_instance_version;
+    uint32_t glad_vk_device_version;
+    int glad_found_instance_exts;
+    int glad_found_device_exts;
 } GladVulkanContext;
 
 GLAD_API_CALL GladVulkanContext glad_vulkan_context;

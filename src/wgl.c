@@ -293,7 +293,9 @@ static void glad_wgl_load_WGL_VERSION_1_0(GladWGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->VERSION_1_0) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -306,7 +308,9 @@ static void glad_wgl_load_WGL_3DL_stereo_control(GladWGLContext *context, GLADus
     };
     uint32_t i;
     if(!context->_3DL_stereo_control) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -327,7 +331,9 @@ static void glad_wgl_load_WGL_AMD_gpu_association(GladWGLContext *context, GLADu
     };
     uint32_t i;
     if(!context->AMD_gpu_association) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -343,7 +349,9 @@ static void glad_wgl_load_WGL_ARB_buffer_region(GladWGLContext *context, GLADuse
     };
     uint32_t i;
     if(!context->ARB_buffer_region) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -356,7 +364,9 @@ static void glad_wgl_load_WGL_ARB_create_context(GladWGLContext *context, GLADus
     };
     uint32_t i;
     if(!context->ARB_create_context) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -369,7 +379,9 @@ static void glad_wgl_load_WGL_ARB_extensions_string(GladWGLContext *context, GLA
     };
     uint32_t i;
     if(!context->ARB_extensions_string) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -383,7 +395,9 @@ static void glad_wgl_load_WGL_ARB_make_current_read(GladWGLContext *context, GLA
     };
     uint32_t i;
     if(!context->ARB_make_current_read) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -400,7 +414,9 @@ static void glad_wgl_load_WGL_ARB_pbuffer(GladWGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->ARB_pbuffer) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -415,7 +431,9 @@ static void glad_wgl_load_WGL_ARB_pixel_format(GladWGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->ARB_pixel_format) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -430,7 +448,9 @@ static void glad_wgl_load_WGL_ARB_render_texture(GladWGLContext *context, GLADus
     };
     uint32_t i;
     if(!context->ARB_render_texture) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -446,7 +466,9 @@ static void glad_wgl_load_WGL_EXT_display_color_table(GladWGLContext *context, G
     };
     uint32_t i;
     if(!context->EXT_display_color_table) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -459,7 +481,9 @@ static void glad_wgl_load_WGL_EXT_extensions_string(GladWGLContext *context, GLA
     };
     uint32_t i;
     if(!context->EXT_extensions_string) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -473,7 +497,9 @@ static void glad_wgl_load_WGL_EXT_make_current_read(GladWGLContext *context, GLA
     };
     uint32_t i;
     if(!context->EXT_make_current_read) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -490,7 +516,9 @@ static void glad_wgl_load_WGL_EXT_pbuffer(GladWGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->EXT_pbuffer) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -505,7 +533,9 @@ static void glad_wgl_load_WGL_EXT_pixel_format(GladWGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->EXT_pixel_format) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -519,7 +549,9 @@ static void glad_wgl_load_WGL_EXT_swap_control(GladWGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->EXT_swap_control) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -533,7 +565,9 @@ static void glad_wgl_load_WGL_I3D_digital_video_control(GladWGLContext *context,
     };
     uint32_t i;
     if(!context->I3D_digital_video_control) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -549,7 +583,9 @@ static void glad_wgl_load_WGL_I3D_gamma(GladWGLContext *context, GLADuserptrload
     };
     uint32_t i;
     if(!context->I3D_gamma) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -573,7 +609,9 @@ static void glad_wgl_load_WGL_I3D_genlock(GladWGLContext *context, GLADuserptrlo
     };
     uint32_t i;
     if(!context->I3D_genlock) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -589,7 +627,9 @@ static void glad_wgl_load_WGL_I3D_image_buffer(GladWGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->I3D_image_buffer) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -605,7 +645,9 @@ static void glad_wgl_load_WGL_I3D_swap_frame_lock(GladWGLContext *context, GLADu
     };
     uint32_t i;
     if(!context->I3D_swap_frame_lock) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -621,7 +663,9 @@ static void glad_wgl_load_WGL_I3D_swap_frame_usage(GladWGLContext *context, GLAD
     };
     uint32_t i;
     if(!context->I3D_swap_frame_usage) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -641,7 +685,9 @@ static void glad_wgl_load_WGL_NV_DX_interop(GladWGLContext *context, GLADuserptr
     };
     uint32_t i;
     if(!context->NV_DX_interop) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -654,7 +700,9 @@ static void glad_wgl_load_WGL_NV_copy_image(GladWGLContext *context, GLADuserptr
     };
     uint32_t i;
     if(!context->NV_copy_image) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -667,7 +715,9 @@ static void glad_wgl_load_WGL_NV_delay_before_swap(GladWGLContext *context, GLAD
     };
     uint32_t i;
     if(!context->NV_delay_before_swap) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -684,7 +734,9 @@ static void glad_wgl_load_WGL_NV_gpu_affinity(GladWGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->NV_gpu_affinity) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -699,7 +751,9 @@ static void glad_wgl_load_WGL_NV_present_video(GladWGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->NV_present_video) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -717,7 +771,9 @@ static void glad_wgl_load_WGL_NV_swap_group(GladWGLContext *context, GLADuserptr
     };
     uint32_t i;
     if(!context->NV_swap_group) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -731,7 +787,9 @@ static void glad_wgl_load_WGL_NV_vertex_array_range(GladWGLContext *context, GLA
     };
     uint32_t i;
     if(!context->NV_vertex_array_range) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -748,7 +806,9 @@ static void glad_wgl_load_WGL_NV_video_capture(GladWGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->NV_video_capture) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -766,7 +826,9 @@ static void glad_wgl_load_WGL_NV_video_output(GladWGLContext *context, GLADuserp
     };
     uint32_t i;
     if(!context->NV_video_output) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
@@ -784,7 +846,9 @@ static void glad_wgl_load_WGL_OML_sync_control(GladWGLContext *context, GLADuser
     };
     uint32_t i;
     if(!context->OML_sync_control) return;
+    #ifdef __clang__
     #pragma nounroll
+    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
         const uint16_t pfnIdx = s_pfnIdx[i];
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
