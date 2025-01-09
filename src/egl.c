@@ -85,6 +85,12 @@ GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
 extern "C" {
 #endif
 
+#ifdef __cplusplus
+GladEGLContext glad_egl_context = {};
+#else
+GladEGLContext glad_egl_context = { 0 };
+#endif
+
 static const char *GLAD_EGL_fn_names[] = {
     /*    0 */ "eglAcquireExternalContextANGLE",
     /*    1 */ "eglBindAPI",
@@ -496,11 +502,6 @@ static uint64_t GLAD_EGL_ext_hashes[] = {
     /*  223 */ 0xa3002402543e70a5  /* EGL_WL_create_wayland_buffer_from_image */
 };
 
-#ifdef __cplusplus
-GladEGLContext glad_egl_context = {};
-#else
-GladEGLContext glad_egl_context = { 0 };
-#endif
 
 static void glad_egl_load_EGL_VERSION_1_0(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {

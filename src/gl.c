@@ -85,6 +85,12 @@ GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
 extern "C" {
 #endif
 
+#ifdef __cplusplus
+GladGLContext glad_gl_context = {};
+#else
+GladGLContext glad_gl_context = { 0 };
+#endif
+
 static const char *GLAD_GL_fn_names[] = {
     /*    0 */ "glAccumxOES",
     /*    1 */ "glAcquireKeyedMutexWin32EXT",
@@ -3906,11 +3912,6 @@ static uint64_t GLAD_GL_ext_hashes[] = {
     /*  925 */ 0x5a3e106713a38cff  /* GL_WIN_specular_fog */
 };
 
-#ifdef __cplusplus
-GladGLContext glad_gl_context = {};
-#else
-GladGLContext glad_gl_context = { 0 };
-#endif
 
 static void glad_gl_load_GL_VERSION_1_0(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {

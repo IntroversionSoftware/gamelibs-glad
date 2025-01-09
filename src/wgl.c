@@ -48,6 +48,12 @@ typedef struct {
 extern "C" {
 #endif
 
+#ifdef __cplusplus
+GladWGLContext glad_wgl_context = {};
+#else
+GladWGLContext glad_wgl_context = { 0 };
+#endif
+
 static const char *GLAD_WGL_fn_names[] = {
     /*    0 */ "ChoosePixelFormat",
     /*    1 */ "DescribePixelFormat",
@@ -256,11 +262,6 @@ static const char *GLAD_WGL_ext_names[] = {
     /*   56 */ "WGL_OML_sync_control"
 };
 
-#ifdef __cplusplus
-GladWGLContext glad_wgl_context = {};
-#else
-GladWGLContext glad_wgl_context = { 0 };
-#endif
 
 static void glad_wgl_load_WGL_VERSION_1_0(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {

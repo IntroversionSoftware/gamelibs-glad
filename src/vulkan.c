@@ -85,6 +85,12 @@ GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
 extern "C" {
 #endif
 
+#ifdef __cplusplus
+GladVulkanContext glad_vulkan_context = {};
+#else
+GladVulkanContext glad_vulkan_context = { 0 };
+#endif
+
 static const char *GLAD_Vulkan_fn_names[] = {
     /*    0 */ "vkAcquireDrmDisplayEXT",
     /*    1 */ "vkAcquireFullScreenExclusiveModeEXT",
@@ -1196,11 +1202,6 @@ static uint64_t GLAD_Vulkan_ext_hashes[] = {
     /*  387 */ 0x38c73d4ab66a4942  /* VK_VALVE_mutable_descriptor_type */
 };
 
-#ifdef __cplusplus
-GladVulkanContext glad_vulkan_context = {};
-#else
-GladVulkanContext glad_vulkan_context = { 0 };
-#endif
 
 static void glad_vk_load_VK_VERSION_1_0(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
@@ -4662,12 +4663,16 @@ static int glad_vk_find_core_vulkan(GladVulkanContext *context, VkPhysicalDevice
     return GLAD_MAKE_VERSION(major, minor);
 }
 
-GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPhysicalDevice physical_device, GLADuserptrloadfunc load, void *userptr) {
+GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADuserptrloadfunc load, void *userptr) {
     int version;
 
+    (void)instance;
+    (void)device;
+
 #ifdef VK_VERSION_1_1
-    context->EnumerateInstanceVersion  = (PFN_vkEnumerateInstanceVersion) load(userptr, "vkEnumerateInstanceVersion");
+    context->EnumerateInstanceVersion = (PFN_vkEnumerateInstanceVersion)load(userptr, "vkEnumerateInstanceVersion");
 #endif
+
     version = glad_vk_find_core_vulkan(context, physical_device);
     if (!version) {
         return 0;
@@ -4921,16 +4926,16 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkPh
     return version;
 }
 
-int gladLoadVulkanUserPtr(VkPhysicalDevice physical_device, GLADuserptrloadfunc load, void *userptr) {
-    return gladLoadVulkanContextUserPtr(gladGetVulkanContext(), physical_device, load, userptr);
+int gladLoadVulkanUserPtr(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADuserptrloadfunc load, void *userptr) {
+    return gladLoadVulkanContextUserPtr(gladGetVulkanContext(), instance, physical_device, device, load, userptr);
 }
 
-int gladLoadVulkanContext(GladVulkanContext *context, VkPhysicalDevice physical_device, GLADloadfunc load) {
-    return gladLoadVulkanContextUserPtr(context, physical_device, glad_vk_get_proc_from_userptr, GLAD_GNUC_EXTENSION (void*) load);
+int gladLoadVulkanContext(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADloadfunc load) {
+    return gladLoadVulkanContextUserPtr(context, instance, physical_device, device, glad_vk_get_proc_from_userptr, GLAD_GNUC_EXTENSION (void*) load);
 }
 
-int gladLoadVulkan(VkPhysicalDevice physical_device, GLADloadfunc load) {
-    return gladLoadVulkanContext(gladGetVulkanContext(), physical_device, load);
+int gladLoadVulkan(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADloadfunc load) {
+    return gladLoadVulkanContext(gladGetVulkanContext(), instance, physical_device, device, load);
 }
 
 GladVulkanContext* gladGetVulkanContext() {
@@ -5671,8 +5676,6 @@ static GLADapiproc glad_vulkan_get_proc(void *vuserptr, const char *name) {
     return (GLADapiproc) result;
 }
 
-
-
 static void* glad_vulkan_dlopen_handle(GladVulkanContext *context) {
     static const char *NAMES[] = {
 #if GLAD_PLATFORM_APPLE
@@ -5715,9 +5718,7 @@ int gladLoaderLoadVulkanContext(GladVulkanContext *context, VkInstance instance,
     if (handle != NULL) {
         userptr = glad_vulkan_build_userptr(handle, instance, device);
 
-        if (userptr.get_instance_proc_addr != NULL && userptr.get_device_proc_addr != NULL) {
-            version = gladLoadVulkanContextUserPtr(context, physical_device, glad_vulkan_get_proc, &userptr);
-        }
+        version = gladLoadVulkanContextUserPtr(context,instance, physical_device, device, glad_vulkan_get_proc, &userptr);
 
         if (!version && did_load) {
             gladLoaderUnloadVulkanContext(context);

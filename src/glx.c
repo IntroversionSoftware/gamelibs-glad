@@ -48,6 +48,12 @@ typedef struct {
 extern "C" {
 #endif
 
+#ifdef __cplusplus
+GladGLXContext glad_glx_context = {};
+#else
+GladGLXContext glad_glx_context = { 0 };
+#endif
+
 static const char *GLAD_GLX_fn_names[] = {
     /*    0 */ "glXBindChannelToWindowSGIX",
     /*    1 */ "glXBindHyperpipeSGIX",
@@ -251,11 +257,6 @@ static const char *GLAD_GLX_ext_names[] = {
     /*   65 */ "GLX_SUN_get_transparent_index"
 };
 
-#ifdef __cplusplus
-GladGLXContext glad_glx_context = {};
-#else
-GladGLXContext glad_glx_context = { 0 };
-#endif
 
 static void glad_glx_load_GLX_VERSION_1_0(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
