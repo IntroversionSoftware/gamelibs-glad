@@ -263,6 +263,19 @@ static const char *GLAD_WGL_ext_names[] = {
 };
 
 
+static void glad_wgl_load_pfns(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr, const uint16_t *pPfnIdx, uint32_t numPfns)
+{
+    uint32_t i;
+
+    #ifdef __clang__
+    #pragma nounroll
+    #endif
+    for (i = 0; i < numPfns; ++i) {
+        const uint16_t pfnIdx = pPfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
+    }
+}
+
 static void glad_wgl_load_WGL_VERSION_1_0(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            0, /* ChoosePixelFormat */
@@ -292,30 +305,16 @@ static void glad_wgl_load_WGL_VERSION_1_0(GladWGLContext *context, GLADuserptrlo
          141, /* wglUseFontOutlinesA */
          142  /* wglUseFontOutlinesW */
     };
-    uint32_t i;
-    if(!context->VERSION_1_0) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->VERSION_1_0) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_3DL_stereo_control(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          131  /* wglSetStereoEmitterState3DL */
     };
-    uint32_t i;
-    if(!context->_3DL_stereo_control) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->_3DL_stereo_control) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_AMD_gpu_association(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -330,15 +329,8 @@ static void glad_wgl_load_WGL_AMD_gpu_association(GladWGLContext *context, GLADu
           75, /* wglGetGPUInfoAMD */
          100  /* wglMakeAssociatedContextCurrentAMD */
     };
-    uint32_t i;
-    if(!context->AMD_gpu_association) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->AMD_gpu_association) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_ARB_buffer_region(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -348,45 +340,24 @@ static void glad_wgl_load_WGL_ARB_buffer_region(GladWGLContext *context, GLADuse
          123, /* wglRestoreBufferRegionARB */
          124  /* wglSaveBufferRegionARB */
     };
-    uint32_t i;
-    if(!context->ARB_buffer_region) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->ARB_buffer_region) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_ARB_create_context(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           25  /* wglCreateContextAttribsARB */
     };
-    uint32_t i;
-    if(!context->ARB_create_context) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->ARB_create_context) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_ARB_extensions_string(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           71  /* wglGetExtensionsStringARB */
     };
-    uint32_t i;
-    if(!context->ARB_extensions_string) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->ARB_extensions_string) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_ARB_make_current_read(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -394,15 +365,8 @@ static void glad_wgl_load_WGL_ARB_make_current_read(GladWGLContext *context, GLA
           68, /* wglGetCurrentReadDCARB */
          101  /* wglMakeContextCurrentARB */
     };
-    uint32_t i;
-    if(!context->ARB_make_current_read) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->ARB_make_current_read) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_ARB_pbuffer(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -413,15 +377,8 @@ static void glad_wgl_load_WGL_ARB_pbuffer(GladWGLContext *context, GLADuserptrlo
          110, /* wglQueryPbufferARB */
          116  /* wglReleasePbufferDCARB */
     };
-    uint32_t i;
-    if(!context->ARB_pbuffer) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->ARB_pbuffer) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_ARB_pixel_format(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -430,15 +387,8 @@ static void glad_wgl_load_WGL_ARB_pixel_format(GladWGLContext *context, GLADuser
           86, /* wglGetPixelFormatAttribfvARB */
           88  /* wglGetPixelFormatAttribivARB */
     };
-    uint32_t i;
-    if(!context->ARB_pixel_format) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->ARB_pixel_format) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_ARB_render_texture(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -447,15 +397,8 @@ static void glad_wgl_load_WGL_ARB_render_texture(GladWGLContext *context, GLADus
          118, /* wglReleaseTexImageARB */
          130  /* wglSetPbufferAttribARB */
     };
-    uint32_t i;
-    if(!context->ARB_render_texture) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->ARB_render_texture) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_EXT_display_color_table(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -465,30 +408,16 @@ static void glad_wgl_load_WGL_EXT_display_color_table(GladWGLContext *context, G
           45, /* wglDestroyDisplayColorTableEXT */
           98  /* wglLoadDisplayColorTableEXT */
     };
-    uint32_t i;
-    if(!context->EXT_display_color_table) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_display_color_table) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_EXT_extensions_string(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           72  /* wglGetExtensionsStringEXT */
     };
-    uint32_t i;
-    if(!context->EXT_extensions_string) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_extensions_string) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_EXT_make_current_read(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -496,15 +425,8 @@ static void glad_wgl_load_WGL_EXT_make_current_read(GladWGLContext *context, GLA
           69, /* wglGetCurrentReadDCEXT */
          102  /* wglMakeContextCurrentEXT */
     };
-    uint32_t i;
-    if(!context->EXT_make_current_read) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_make_current_read) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_EXT_pbuffer(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -515,15 +437,8 @@ static void glad_wgl_load_WGL_EXT_pbuffer(GladWGLContext *context, GLADuserptrlo
          111, /* wglQueryPbufferEXT */
          117  /* wglReleasePbufferDCEXT */
     };
-    uint32_t i;
-    if(!context->EXT_pbuffer) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_pbuffer) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_EXT_pixel_format(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -532,15 +447,8 @@ static void glad_wgl_load_WGL_EXT_pixel_format(GladWGLContext *context, GLADuser
           87, /* wglGetPixelFormatAttribfvEXT */
           89  /* wglGetPixelFormatAttribivEXT */
     };
-    uint32_t i;
-    if(!context->EXT_pixel_format) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_pixel_format) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_EXT_swap_control(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -548,15 +456,8 @@ static void glad_wgl_load_WGL_EXT_swap_control(GladWGLContext *context, GLADuser
           91, /* wglGetSwapIntervalEXT */
          134  /* wglSwapIntervalEXT */
     };
-    uint32_t i;
-    if(!context->EXT_swap_control) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_swap_control) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_I3D_digital_video_control(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -564,15 +465,8 @@ static void glad_wgl_load_WGL_I3D_digital_video_control(GladWGLContext *context,
           70, /* wglGetDigitalVideoParametersI3D */
          126  /* wglSetDigitalVideoParametersI3D */
     };
-    uint32_t i;
-    if(!context->I3D_digital_video_control) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->I3D_digital_video_control) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_I3D_gamma(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -582,15 +476,8 @@ static void glad_wgl_load_WGL_I3D_gamma(GladWGLContext *context, GLADuserptrload
          127, /* wglSetGammaTableI3D */
          128  /* wglSetGammaTableParametersI3D */
     };
-    uint32_t i;
-    if(!context->I3D_gamma) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->I3D_gamma) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_I3D_genlock(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -608,15 +495,8 @@ static void glad_wgl_load_WGL_I3D_genlock(GladWGLContext *context, GLADuserptrlo
           96, /* wglIsEnabledGenlockI3D */
          108  /* wglQueryGenlockMaxSourceDelayI3D */
     };
-    uint32_t i;
-    if(!context->I3D_genlock) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->I3D_genlock) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_I3D_image_buffer(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -626,15 +506,8 @@ static void glad_wgl_load_WGL_I3D_image_buffer(GladWGLContext *context, GLADuser
           46, /* wglDestroyImageBufferI3D */
          115  /* wglReleaseImageBufferEventsI3D */
     };
-    uint32_t i;
-    if(!context->I3D_image_buffer) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->I3D_image_buffer) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_I3D_swap_frame_lock(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -644,15 +517,8 @@ static void glad_wgl_load_WGL_I3D_swap_frame_lock(GladWGLContext *context, GLADu
           95, /* wglIsEnabledFrameLockI3D */
          106  /* wglQueryFrameLockMasterI3D */
     };
-    uint32_t i;
-    if(!context->I3D_swap_frame_lock) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->I3D_swap_frame_lock) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_I3D_swap_frame_usage(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -662,15 +528,8 @@ static void glad_wgl_load_WGL_I3D_swap_frame_usage(GladWGLContext *context, GLAD
           73, /* wglGetFrameUsageI3D */
          107  /* wglQueryFrameTrackingI3D */
     };
-    uint32_t i;
-    if(!context->I3D_swap_frame_usage) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->I3D_swap_frame_usage) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_DX_interop(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -684,45 +543,24 @@ static void glad_wgl_load_WGL_NV_DX_interop(GladWGLContext *context, GLADuserptr
           37, /* wglDXUnlockObjectsNV */
           38  /* wglDXUnregisterObjectNV */
     };
-    uint32_t i;
-    if(!context->NV_DX_interop) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_DX_interop) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_copy_image(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           19  /* wglCopyImageSubDataNV */
     };
-    uint32_t i;
-    if(!context->NV_copy_image) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_copy_image) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_delay_before_swap(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           39  /* wglDelayBeforeSwapNV */
     };
-    uint32_t i;
-    if(!context->NV_delay_before_swap) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_delay_before_swap) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_gpu_affinity(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -733,15 +571,8 @@ static void glad_wgl_load_WGL_NV_gpu_affinity(GladWGLContext *context, GLADuserp
           55, /* wglEnumGpusFromAffinityDCNV */
           56  /* wglEnumGpusNV */
     };
-    uint32_t i;
-    if(!context->NV_gpu_affinity) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_gpu_affinity) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_present_video(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -750,15 +581,8 @@ static void glad_wgl_load_WGL_NV_present_video(GladWGLContext *context, GLADuser
           58, /* wglEnumerateVideoDevicesNV */
          104  /* wglQueryCurrentContextNV */
     };
-    uint32_t i;
-    if(!context->NV_present_video) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_present_video) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_swap_group(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -770,15 +594,8 @@ static void glad_wgl_load_WGL_NV_swap_group(GladWGLContext *context, GLADuserptr
          112, /* wglQuerySwapGroupNV */
          122  /* wglResetFrameCountNV */
     };
-    uint32_t i;
-    if(!context->NV_swap_group) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_swap_group) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_vertex_array_range(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -786,15 +603,8 @@ static void glad_wgl_load_WGL_NV_vertex_array_range(GladWGLContext *context, GLA
            6, /* wglAllocateMemoryNV */
           59  /* wglFreeMemoryNV */
     };
-    uint32_t i;
-    if(!context->NV_vertex_array_range) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_vertex_array_range) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_video_capture(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -805,15 +615,8 @@ static void glad_wgl_load_WGL_NV_video_capture(GladWGLContext *context, GLADuser
          113, /* wglQueryVideoCaptureDeviceNV */
          119  /* wglReleaseVideoCaptureDeviceNV */
     };
-    uint32_t i;
-    if(!context->NV_video_capture) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_video_capture) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_NV_video_output(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -825,15 +628,8 @@ static void glad_wgl_load_WGL_NV_video_output(GladWGLContext *context, GLADuserp
          121, /* wglReleaseVideoImageNV */
          125  /* wglSendPbufferToVideoNV */
     };
-    uint32_t i;
-    if(!context->NV_video_output) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->NV_video_output) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_load_WGL_OML_sync_control(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -845,15 +641,8 @@ static void glad_wgl_load_WGL_OML_sync_control(GladWGLContext *context, GLADuser
          143, /* wglWaitForMscOML */
          144  /* wglWaitForSbcOML */
     };
-    uint32_t i;
-    if(!context->OML_sync_control) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
-    }
+    if (!context->OML_sync_control) return;
+    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_resolve_aliases(GladWGLContext *context) {

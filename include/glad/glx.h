@@ -463,7 +463,6 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define GLX_Y_INVERTED_EXT 0x20D4
 #define __GLX_NUMBER_EVENTS 17
 
-
 #ifndef GLEXT_64_TYPES_DEFINED
 /* This code block is duplicated in glext.h, so must be protected */
 #define GLEXT_64_TYPES_DEFINED
@@ -502,22 +501,6 @@ typedef unsigned __int64 uint64_t;
 #endif
 #endif
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #if defined(__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__) && (__ENVIRONMENT_MAC_OS_X_VERSION_MIN_REQUIRED__ > 1060)
 
 #else
@@ -529,28 +512,37 @@ typedef unsigned __int64 uint64_t;
 #else
 
 #endif
-
-
-
-
-
-
 
 typedef XID GLXFBConfigID;
+
 typedef struct __GLXFBConfigRec *GLXFBConfig;
+
 typedef XID GLXContextID;
+
 typedef struct __GLXcontextRec *GLXContext;
+
 typedef XID GLXPixmap;
+
 typedef XID GLXDrawable;
+
 typedef XID GLXWindow;
+
 typedef XID GLXPbuffer;
+
 typedef void (GLAD_API_PTR *__GLXextFuncPtr)(void);
+
 typedef XID GLXVideoCaptureDeviceNV;
+
 typedef unsigned int GLXVideoDeviceNV;
+
 typedef XID GLXVideoSourceSGIX;
+
 typedef XID GLXFBConfigIDSGIX;
+
 typedef struct __GLXFBConfigRec *GLXFBConfigSGIX;
+
 typedef XID GLXPbufferSGIX;
+
 typedef struct {
     int event_type;             /* GLX_DAMAGED or GLX_SAVED */
     int draw_type;              /* GLX_WINDOW or GLX_PBUFFER */
@@ -564,6 +556,7 @@ typedef struct {
     int width, height;
     int count;                  /* if nonzero, at least this many more */
 } GLXPbufferClobberEvent;
+
 typedef struct {
     int type;
     unsigned long serial;       /* # of last request processed by server */
@@ -575,11 +568,13 @@ typedef struct {
     int64_t msc;
     int64_t sbc;
 } GLXBufferSwapComplete;
+
 typedef union __GLXEvent {
     GLXPbufferClobberEvent glxpbufferclobber;
     GLXBufferSwapComplete glxbufferswapcomplete;
     long pad[24];
 } GLXEvent;
+
 typedef struct {
     int type;
     unsigned long serial;
@@ -590,6 +585,7 @@ typedef struct {
     GLXDrawable window;
     Bool stereo_tree;
 } GLXStereoNotifyEventEXT;
+
 typedef struct {
     int type;
     unsigned long serial;   /* # of last request processed by server */
@@ -603,21 +599,25 @@ typedef struct {
     int width, height;
     int count;              /* if nonzero, at least this many more */
 } GLXBufferClobberEventSGIX;
+
 typedef struct {
     char    pipeName[80]; /* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] */
     int     networkId;
 } GLXHyperpipeNetworkSGIX;
+
 typedef struct {
     char    pipeName[80]; /* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] */
     int     channel;
     unsigned int participationType;
     int     timeSlice;
 } GLXHyperpipeConfigSGIX;
+
 typedef struct {
     char pipeName[80]; /* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] */
     int srcXOrigin, srcYOrigin, srcWidth, srcHeight;
     int destXOrigin, destYOrigin, destWidth, destHeight;
 } GLXPipeRect;
+
 typedef struct {
     char pipeName[80]; /* Should be [GLX_HYPERPIPE_PIPE_NAME_LENGTH_SGIX] */
     int XOrigin, YOrigin, maxHeight, maxWidth;
@@ -695,7 +695,6 @@ typedef struct {
 #define GLX_SGI_swap_control 1
 #define GLX_SGI_video_sync 1
 #define GLX_SUN_get_transparent_index 1
-
 
 
 typedef int (GLAD_API_PTR *PFNGLXBINDCHANNELTOWINDOWSGIXPROC)(Display * display, int screen, int channel, Window window);
@@ -1395,7 +1394,6 @@ void glXWaitX(void);
 
 GLAD_API_CALL GladGLXContext* gladGetGLXContext(void);
 GLAD_API_CALL void gladSetGLXContext(GladGLXContext *context);
-
 
 GLAD_API_CALL int gladLoadGLXContextUserPtr(GladGLXContext *context, Display *display, int screen, GLADuserptrloadfunc load, void *userptr);
 GLAD_API_CALL int gladLoadGLXContext(GladGLXContext *context, Display *display, int screen, GLADloadfunc load);

@@ -459,37 +459,6 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define WGL_VIDEO_OUT_STACKED_FIELDS_1_2 0x20CB
 #define WGL_VIDEO_OUT_STACKED_FIELDS_2_1 0x20CC
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 struct _GPU_DEVICE {
     DWORD  cb;
     CHAR   DeviceName[32];
@@ -497,14 +466,23 @@ struct _GPU_DEVICE {
     DWORD  Flags;
     RECT   rcVirtualScreen;
 };
+
 DECLARE_HANDLE(HPBUFFERARB);
+
 DECLARE_HANDLE(HPBUFFEREXT);
+
 DECLARE_HANDLE(HVIDEOOUTPUTDEVICENV);
+
 DECLARE_HANDLE(HPVIDEODEV);
+
 DECLARE_HANDLE(HPGPUNV);
+
 DECLARE_HANDLE(HGPUNV);
+
 DECLARE_HANDLE(HVIDEOINPUTDEVICENV);
+
 typedef struct _GPU_DEVICE GPU_DEVICE;
+
 typedef struct _GPU_DEVICE *PGPU_DEVICE;
 
 
@@ -566,7 +544,6 @@ typedef struct _GPU_DEVICE *PGPU_DEVICE;
 #define WGL_NV_video_capture 1
 #define WGL_NV_video_output 1
 #define WGL_OML_sync_control 1
-
 
 /* These are defined in wingdi.h and we're redefining them. */
 #undef wglUseFontBitmaps
@@ -1247,19 +1224,16 @@ BOOL wglWaitForSbcOML(HDC hdc, INT64 target_sbc, INT64 * ust, INT64 * msc, INT64
 GLAD_API_CALL GladWGLContext* gladGetWGLContext(void);
 GLAD_API_CALL void gladSetWGLContext(GladWGLContext *context);
 
-
 GLAD_API_CALL int gladLoadWGLUserPtr(HDC hdc, GLADuserptrloadfunc load, void *userptr);
 GLAD_API_CALL int gladLoadWGL(HDC hdc, GLADloadfunc load);
 
 #ifdef GLAD_WGL
-
 GLAD_API_CALL int gladLoaderLoadWGLContext(GladWGLContext *context, HDC hdc);
 GLAD_API_CALL void gladLoaderUnloadWGLContext(GladWGLContext *context);
 GLAD_API_CALL void gladLoaderResetWGLContext(GladWGLContext *context);
 GLAD_API_CALL int gladLoaderLoadWGL(HDC hdc);
 GLAD_API_CALL void gladLoaderUnloadWGL(void);
 GLAD_API_CALL void gladLoaderResetWGL(void);
-
 #endif
 
 #ifdef __cplusplus

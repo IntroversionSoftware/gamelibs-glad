@@ -859,67 +859,97 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define EGL_Y_AXIS_NV 0x3370
 #define EGL_Y_INVERTED_NOK 0x307F
 
-
 #include <KHR/khrplatform.h>
+
 #include <EGL/eglplatform.h>
 
-
-
-
-
-
-
-
-
-
-
 struct AHardwareBuffer;
+
 struct wl_buffer;
+
 struct wl_display;
+
 struct wl_resource;
 
 typedef unsigned int EGLBoolean;
+
 typedef unsigned int EGLenum;
+
 typedef intptr_t EGLAttribKHR;
+
 typedef intptr_t EGLAttrib;
+
 typedef void *EGLClientBuffer;
+
 typedef void *EGLConfig;
+
 typedef void *EGLContext;
+
 typedef void *EGLDeviceEXT;
+
 typedef void *EGLDisplay;
+
 typedef void *EGLImage;
+
 typedef void *EGLImageKHR;
+
 typedef void *EGLLabelKHR;
+
 typedef void *EGLObjectKHR;
+
 typedef void *EGLOutputLayerEXT;
+
 typedef void *EGLOutputPortEXT;
+
 typedef void *EGLStreamKHR;
+
 typedef void *EGLSurface;
+
 typedef void *EGLSync;
+
 typedef void *EGLSyncKHR;
+
 typedef void *EGLSyncNV;
+
 typedef void (*__eglMustCastToProperFunctionPointerType)(void);
+
 typedef khronos_utime_nanoseconds_t EGLTimeKHR;
+
 typedef khronos_utime_nanoseconds_t EGLTime;
+
 typedef khronos_utime_nanoseconds_t EGLTimeNV;
+
 typedef khronos_utime_nanoseconds_t EGLuint64NV;
+
 typedef khronos_uint64_t EGLuint64KHR;
+
 typedef khronos_stime_nanoseconds_t EGLnsecsANDROID;
+
 typedef int EGLNativeFileDescriptorKHR;
+
 typedef khronos_ssize_t EGLsizeiANDROID;
+
 typedef void (*EGLSetBlobFuncANDROID) (const void *key, EGLsizeiANDROID keySize, const void *value, EGLsizeiANDROID valueSize);
+
 typedef EGLsizeiANDROID (*EGLGetBlobFuncANDROID) (const void *key, EGLsizeiANDROID keySize, void *value, EGLsizeiANDROID valueSize);
+
 struct EGLClientPixmapHI {
     void  *pData;
     EGLint iWidth;
     EGLint iHeight;
     EGLint iStride;
 };
+
 typedef void (GLAD_API_PTR *EGLDEBUGPROCKHR)(EGLenum error,const char *command,EGLint messageType,EGLLabelKHR threadLabel,EGLLabelKHR objectLabel,const char* message);
+
 #define PFNEGLBINDWAYLANDDISPLAYWL PFNEGLBINDWAYLANDDISPLAYWLPROC
+
 #define PFNEGLUNBINDWAYLANDDISPLAYWL PFNEGLUNBINDWAYLANDDISPLAYWLPROC
+
 #define PFNEGLQUERYWAYLANDBUFFERWL PFNEGLQUERYWAYLANDBUFFERWLPROC
+
 #define PFNEGLCREATEWAYLANDBUFFERFROMIMAGEWL PFNEGLCREATEWAYLANDBUFFERFROMIMAGEWLPROC
+
 typedef khronos_uint64_t EGLFrameTokenANGLE;
 
 
@@ -1153,7 +1183,6 @@ typedef khronos_uint64_t EGLFrameTokenANGLE;
 #define EGL_TIZEN_image_native_surface 1
 #define EGL_WL_bind_wayland_display 1
 #define EGL_WL_create_wayland_buffer_from_image 1
-
 
 
 typedef void (GLAD_API_PTR *PFNEGLACQUIREEXTERNALCONTEXTANGLEPROC)(EGLDisplay dpy, EGLSurface drawAndRead);
@@ -2371,7 +2400,6 @@ void eglWaitUntilWorkScheduledANGLE(EGLDisplay dpy);
 
 GLAD_API_CALL GladEGLContext* gladGetEGLContext(void);
 GLAD_API_CALL void gladSetEGLContext(GladEGLContext *context);
-
 
 GLAD_API_CALL int gladLoadEGLContextUserPtr(GladEGLContext *context, EGLDisplay display, GLADuserptrloadfunc load, void *userptr);
 GLAD_API_CALL int gladLoadEGLContext(GladEGLContext *context, EGLDisplay display, GLADloadfunc load);

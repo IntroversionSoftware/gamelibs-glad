@@ -1202,6 +1202,18 @@ static uint64_t GLAD_Vulkan_ext_hashes[] = {
     /*  387 */ 0x38c73d4ab66a4942  /* VK_VALVE_mutable_descriptor_type */
 };
 
+static void glad_vk_load_pfns(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr, const uint16_t *pPfnIdx, uint32_t numPfns)
+{
+    uint32_t i;
+
+    #ifdef __clang__
+    #pragma nounroll
+    #endif
+    for (i = 0; i < numPfns; ++i) {
+        const uint16_t pfnIdx = pPfnIdx[i];
+        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
+    }
+}
 
 static void glad_vk_load_VK_VERSION_1_0(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
@@ -1343,15 +1355,8 @@ static void glad_vk_load_VK_VERSION_1_0(GladVulkanContext *context, GLADuserptrl
          707, /* vkUpdateDescriptorSets */
          711  /* vkWaitForFences */
     };
-    uint32_t i;
-    if(!context->VERSION_1_0) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->VERSION_1_0) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_VERSION_1_1(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1385,15 +1390,8 @@ static void glad_vk_load_VK_VERSION_1_1(GladVulkanContext *context, GLADuserptrl
          699, /* vkTrimCommandPool */
          705  /* vkUpdateDescriptorSetWithTemplate */
     };
-    uint32_t i;
-    if(!context->VERSION_1_1) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->VERSION_1_1) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_VERSION_1_2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1412,15 +1410,8 @@ static void glad_vk_load_VK_VERSION_1_2(GladVulkanContext *context, GLADuserptrl
          694, /* vkSignalSemaphore */
          713  /* vkWaitSemaphores */
     };
-    uint32_t i;
-    if(!context->VERSION_1_2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->VERSION_1_2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_VERSION_1_3(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1463,15 +1454,8 @@ static void glad_vk_load_VK_VERSION_1_3(GladVulkanContext *context, GLADuserptrl
          664, /* vkQueueSubmit2 */
          692  /* vkSetPrivateData */
     };
-    uint32_t i;
-    if(!context->VERSION_1_3) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->VERSION_1_3) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_VERSION_1_4(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1496,15 +1480,8 @@ static void glad_vk_load_VK_VERSION_1_4(GladVulkanContext *context, GLADuserptrl
          697, /* vkTransitionImageLayout */
          703  /* vkUnmapMemory2 */
     };
-    uint32_t i;
-    if(!context->VERSION_1_4) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->VERSION_1_4) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
@@ -1518,32 +1495,17 @@ static void glad_vk_load_VK_AMDX_shader_enqueue(GladVulkanContext *context, GLAD
          502, /* vkGetExecutionGraphPipelineNodeIndexAMDX */
          503  /* vkGetExecutionGraphPipelineScratchSizeAMDX */
     };
-    uint32_t i;
-    if(!context->AMDX_shader_enqueue) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->AMDX_shader_enqueue) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_AMD_anti_lag(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           11  /* vkAntiLagUpdateAMD */
     };
-    uint32_t i;
-    if(!context->AMD_anti_lag) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->AMD_anti_lag) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_AMD_buffer_marker(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1551,30 +1513,16 @@ static void glad_vk_load_VK_AMD_buffer_marker(GladVulkanContext *context, GLADus
          284, /* vkCmdWriteBufferMarker2AMD */
          285  /* vkCmdWriteBufferMarkerAMD */
     };
-    uint32_t i;
-    if(!context->AMD_buffer_marker) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->AMD_buffer_marker) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_AMD_display_native_hdr(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          691  /* vkSetLocalDimmingAMD */
     };
-    uint32_t i;
-    if(!context->AMD_display_native_hdr) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->AMD_display_native_hdr) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_AMD_draw_indirect_count(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1582,30 +1530,16 @@ static void glad_vk_load_VK_AMD_draw_indirect_count(GladVulkanContext *context, 
          107, /* vkCmdDrawIndexedIndirectCountAMD */
          112  /* vkCmdDrawIndirectCountAMD */
     };
-    uint32_t i;
-    if(!context->AMD_draw_indirect_count) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->AMD_draw_indirect_count) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_AMD_shader_info(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          634  /* vkGetShaderInfoAMD */
     };
-    uint32_t i;
-    if(!context->AMD_shader_info) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->AMD_shader_info) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
@@ -1614,17 +1548,9 @@ static void glad_vk_load_VK_ANDROID_external_memory_android_hardware_buffer(Glad
          447, /* vkGetAndroidHardwareBufferPropertiesANDROID */
          528  /* vkGetMemoryAndroidHardwareBufferANDROID */
     };
-    uint32_t i;
-    if(!context->ANDROID_external_memory_android_hardware_buffer) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->ANDROID_external_memory_android_hardware_buffer) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_EXT_acquire_drm_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1632,15 +1558,8 @@ static void glad_vk_load_VK_EXT_acquire_drm_display(GladVulkanContext *context, 
            0, /* vkAcquireDrmDisplayEXT */
          498  /* vkGetDrmDisplayEXT */
     };
-    uint32_t i;
-    if(!context->EXT_acquire_drm_display) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_acquire_drm_display) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_XLIB_XRANDR_EXT)
@@ -1649,47 +1568,25 @@ static void glad_vk_load_VK_EXT_acquire_xlib_display(GladVulkanContext *context,
            7, /* vkAcquireXlibDisplayEXT */
          617  /* vkGetRandROutputDisplayEXT */
     };
-    uint32_t i;
-    if(!context->EXT_acquire_xlib_display) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_acquire_xlib_display) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_EXT_attachment_feedback_loop_dynamic_state(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          169  /* vkCmdSetAttachmentFeedbackLoopEnableEXT */
     };
-    uint32_t i;
-    if(!context->EXT_attachment_feedback_loop_dynamic_state) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_attachment_feedback_loop_dynamic_state) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_buffer_device_address(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          450  /* vkGetBufferDeviceAddressEXT */
     };
-    uint32_t i;
-    if(!context->EXT_buffer_device_address) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_buffer_device_address) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_calibrated_timestamps(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1697,30 +1594,16 @@ static void glad_vk_load_VK_EXT_calibrated_timestamps(GladVulkanContext *context
          458, /* vkGetCalibratedTimestampsEXT */
          541  /* vkGetPhysicalDeviceCalibrateableTimeDomainsEXT */
     };
-    uint32_t i;
-    if(!context->EXT_calibrated_timestamps) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_calibrated_timestamps) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_color_write_enable(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          176  /* vkCmdSetColorWriteEnableEXT */
     };
-    uint32_t i;
-    if(!context->EXT_color_write_enable) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_color_write_enable) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_conditional_rendering(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1728,15 +1611,8 @@ static void glad_vk_load_VK_EXT_conditional_rendering(GladVulkanContext *context
           24, /* vkCmdBeginConditionalRenderingEXT */
          123  /* vkCmdEndConditionalRenderingEXT */
     };
-    uint32_t i;
-    if(!context->EXT_conditional_rendering) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_conditional_rendering) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_debug_marker(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1747,15 +1623,8 @@ static void glad_vk_load_VK_EXT_debug_marker(GladVulkanContext *context, GLADuse
          373, /* vkDebugMarkerSetObjectNameEXT */
          374  /* vkDebugMarkerSetObjectTagEXT */
     };
-    uint32_t i;
-    if(!context->EXT_debug_marker) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_debug_marker) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_debug_report(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1764,15 +1633,8 @@ static void glad_vk_load_VK_EXT_debug_report(GladVulkanContext *context, GLADuse
          375, /* vkDebugReportMessageEXT */
          387  /* vkDestroyDebugReportCallbackEXT */
     };
-    uint32_t i;
-    if(!context->EXT_debug_report) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_debug_report) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_debug_utils(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1789,45 +1651,24 @@ static void glad_vk_load_VK_EXT_debug_utils(GladVulkanContext *context, GLADuser
          685, /* vkSetDebugUtilsObjectTagEXT */
          696  /* vkSubmitDebugUtilsMessageEXT */
     };
-    uint32_t i;
-    if(!context->EXT_debug_utils) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_debug_utils) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_depth_bias_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          188  /* vkCmdSetDepthBias2EXT */
     };
-    uint32_t i;
-    if(!context->EXT_depth_bias_control) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_depth_bias_control) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_depth_clamp_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          195  /* vkCmdSetDepthClampRangeEXT */
     };
-    uint32_t i;
-    if(!context->EXT_depth_clamp_control) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_depth_clamp_control) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_descriptor_buffer(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1844,30 +1685,16 @@ static void glad_vk_load_VK_EXT_descriptor_buffer(GladVulkanContext *context, GL
          525, /* vkGetImageViewOpaqueCaptureDescriptorDataEXT */
          626  /* vkGetSamplerOpaqueCaptureDescriptorDataEXT */
     };
-    uint32_t i;
-    if(!context->EXT_descriptor_buffer) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_descriptor_buffer) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_device_fault(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          473  /* vkGetDeviceFaultInfoEXT */
     };
-    uint32_t i;
-    if(!context->EXT_device_fault) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_device_fault) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_device_generated_commands(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1882,30 +1709,16 @@ static void glad_vk_load_VK_EXT_device_generated_commands(GladVulkanContext *con
          708, /* vkUpdateIndirectExecutionSetPipelineEXT */
          709  /* vkUpdateIndirectExecutionSetShaderEXT */
     };
-    uint32_t i;
-    if(!context->EXT_device_generated_commands) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_device_generated_commands) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_direct_mode_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          670  /* vkReleaseDisplayEXT */
     };
-    uint32_t i;
-    if(!context->EXT_direct_mode_display) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_direct_mode_display) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
@@ -1914,17 +1727,9 @@ static void glad_vk_load_VK_EXT_directfb_surface(GladVulkanContext *context, GLA
          323, /* vkCreateDirectFBSurfaceEXT */
          546  /* vkGetPhysicalDeviceDirectFBPresentationSupportEXT */
     };
-    uint32_t i;
-    if(!context->EXT_directfb_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_directfb_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_EXT_discard_rectangles(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1933,15 +1738,8 @@ static void glad_vk_load_VK_EXT_discard_rectangles(GladVulkanContext *context, G
          209, /* vkCmdSetDiscardRectangleEnableEXT */
          210  /* vkCmdSetDiscardRectangleModeEXT */
     };
-    uint32_t i;
-    if(!context->EXT_discard_rectangles) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_discard_rectangles) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_display_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1951,30 +1749,16 @@ static void glad_vk_load_VK_EXT_display_control(GladVulkanContext *context, GLAD
          667, /* vkRegisterDeviceEventEXT */
          668  /* vkRegisterDisplayEventEXT */
     };
-    uint32_t i;
-    if(!context->EXT_display_control) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_display_control) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_display_surface_counter(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          586  /* vkGetPhysicalDeviceSurfaceCapabilities2EXT */
     };
-    uint32_t i;
-    if(!context->EXT_display_surface_counter) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_display_surface_counter) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_extended_dynamic_state(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -1992,15 +1776,8 @@ static void glad_vk_load_VK_EXT_extended_dynamic_state(GladVulkanContext *contex
          261, /* vkCmdSetStencilTestEnableEXT */
          271  /* vkCmdSetViewportWithCountEXT */
     };
-    uint32_t i;
-    if(!context->EXT_extended_dynamic_state) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_extended_dynamic_state) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_extended_dynamic_state2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2011,15 +1788,8 @@ static void glad_vk_load_VK_EXT_extended_dynamic_state2(GladVulkanContext *conte
          235, /* vkCmdSetPrimitiveRestartEnableEXT */
          242  /* vkCmdSetRasterizerDiscardEnableEXT */
     };
-    uint32_t i;
-    if(!context->EXT_extended_dynamic_state2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_extended_dynamic_state2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_extended_dynamic_state3(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2056,30 +1826,16 @@ static void glad_vk_load_VK_EXT_extended_dynamic_state3(GladVulkanContext *conte
          267, /* vkCmdSetViewportSwizzleNV */
          268  /* vkCmdSetViewportWScalingEnableNV */
     };
-    uint32_t i;
-    if(!context->EXT_extended_dynamic_state3) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_extended_dynamic_state3) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_external_memory_host(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          531  /* vkGetMemoryHostPointerPropertiesEXT */
     };
-    uint32_t i;
-    if(!context->EXT_external_memory_host) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_external_memory_host) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -2090,47 +1846,25 @@ static void glad_vk_load_VK_EXT_full_screen_exclusive(GladVulkanContext *context
          591, /* vkGetPhysicalDeviceSurfacePresentModes2EXT */
          671  /* vkReleaseFullScreenExclusiveModeEXT */
     };
-    uint32_t i;
-    if(!context->EXT_full_screen_exclusive) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_full_screen_exclusive) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_EXT_hdr_metadata(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          688  /* vkSetHdrMetadataEXT */
     };
-    uint32_t i;
-    if(!context->EXT_hdr_metadata) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_hdr_metadata) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_headless_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          331  /* vkCreateHeadlessSurfaceEXT */
     };
-    uint32_t i;
-    if(!context->EXT_headless_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_headless_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_host_image_copy(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2141,75 +1875,40 @@ static void glad_vk_load_VK_EXT_host_image_copy(GladVulkanContext *context, GLAD
          520, /* vkGetImageSubresourceLayout2EXT */
          698  /* vkTransitionImageLayoutEXT */
     };
-    uint32_t i;
-    if(!context->EXT_host_image_copy) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_host_image_copy) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_host_query_reset(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          681  /* vkResetQueryPoolEXT */
     };
-    uint32_t i;
-    if(!context->EXT_host_query_reset) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_host_query_reset) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_image_compression_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          520  /* vkGetImageSubresourceLayout2EXT */
     };
-    uint32_t i;
-    if(!context->EXT_image_compression_control) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_image_compression_control) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_image_drm_format_modifier(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          510  /* vkGetImageDrmFormatModifierPropertiesEXT */
     };
-    uint32_t i;
-    if(!context->EXT_image_drm_format_modifier) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_image_drm_format_modifier) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_line_rasterization(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          223  /* vkCmdSetLineStippleEXT */
     };
-    uint32_t i;
-    if(!context->EXT_line_rasterization) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_line_rasterization) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_mesh_shader(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2218,15 +1917,8 @@ static void glad_vk_load_VK_EXT_mesh_shader(GladVulkanContext *context, GLADuser
          115, /* vkCmdDrawMeshTasksIndirectCountEXT */
          117  /* vkCmdDrawMeshTasksIndirectEXT */
     };
-    uint32_t i;
-    if(!context->EXT_mesh_shader) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_mesh_shader) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_METAL_EXT)
@@ -2234,17 +1926,9 @@ static void glad_vk_load_VK_EXT_metal_objects(GladVulkanContext *context, GLADus
     static const uint16_t s_pfnIdx[] = {
          437  /* vkExportMetalObjectsEXT */
     };
-    uint32_t i;
-    if(!context->EXT_metal_objects) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_metal_objects) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_METAL_EXT)
@@ -2252,17 +1936,9 @@ static void glad_vk_load_VK_EXT_metal_surface(GladVulkanContext *context, GLADus
     static const uint16_t s_pfnIdx[] = {
          341  /* vkCreateMetalSurfaceEXT */
     };
-    uint32_t i;
-    if(!context->EXT_metal_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_metal_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_EXT_multi_draw(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2270,15 +1946,8 @@ static void glad_vk_load_VK_EXT_multi_draw(GladVulkanContext *context, GLADuserp
          120, /* vkCmdDrawMultiEXT */
          121  /* vkCmdDrawMultiIndexedEXT */
     };
-    uint32_t i;
-    if(!context->EXT_multi_draw) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_multi_draw) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_opacity_micromap(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2298,45 +1967,24 @@ static void glad_vk_load_VK_EXT_opacity_micromap(GladVulkanContext *context, GLA
          538, /* vkGetMicromapBuildSizesEXT */
          716  /* vkWriteMicromapsPropertiesEXT */
     };
-    uint32_t i;
-    if(!context->EXT_opacity_micromap) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_opacity_micromap) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_pageable_device_local_memory(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          686  /* vkSetDeviceMemoryPriorityEXT */
     };
-    uint32_t i;
-    if(!context->EXT_pageable_device_local_memory) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_pageable_device_local_memory) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_pipeline_properties(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          611  /* vkGetPipelinePropertiesEXT */
     };
-    uint32_t i;
-    if(!context->EXT_pipeline_properties) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_pipeline_properties) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_private_data(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2346,15 +1994,8 @@ static void glad_vk_load_VK_EXT_private_data(GladVulkanContext *context, GLADuse
          613, /* vkGetPrivateDataEXT */
          693  /* vkSetPrivateDataEXT */
     };
-    uint32_t i;
-    if(!context->EXT_private_data) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_private_data) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_sample_locations(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2362,15 +2003,8 @@ static void glad_vk_load_VK_EXT_sample_locations(GladVulkanContext *context, GLA
          249, /* vkCmdSetSampleLocationsEXT */
          571  /* vkGetPhysicalDeviceMultisamplePropertiesEXT */
     };
-    uint32_t i;
-    if(!context->EXT_sample_locations) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_sample_locations) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_shader_module_identifier(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2378,15 +2012,8 @@ static void glad_vk_load_VK_EXT_shader_module_identifier(GladVulkanContext *cont
          635, /* vkGetShaderModuleCreateInfoIdentifierEXT */
          636  /* vkGetShaderModuleIdentifierEXT */
     };
-    uint32_t i;
-    if(!context->EXT_shader_module_identifier) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_shader_module_identifier) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_shader_object(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2446,45 +2073,24 @@ static void glad_vk_load_VK_EXT_shader_object(GladVulkanContext *context, GLADus
          418, /* vkDestroyShaderEXT */
          633  /* vkGetShaderBinaryDataEXT */
     };
-    uint32_t i;
-    if(!context->EXT_shader_object) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_shader_object) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_swapchain_maintenance1(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          674  /* vkReleaseSwapchainImagesEXT */
     };
-    uint32_t i;
-    if(!context->EXT_swapchain_maintenance1) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_swapchain_maintenance1) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_tooling_info(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          595  /* vkGetPhysicalDeviceToolPropertiesEXT */
     };
-    uint32_t i;
-    if(!context->EXT_tooling_info) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_tooling_info) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_transform_feedback(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2496,15 +2102,8 @@ static void glad_vk_load_VK_EXT_transform_feedback(GladVulkanContext *context, G
          126, /* vkCmdEndQueryIndexedEXT */
          132  /* vkCmdEndTransformFeedbackEXT */
     };
-    uint32_t i;
-    if(!context->EXT_transform_feedback) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_transform_feedback) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_validation_cache(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2514,30 +2113,16 @@ static void glad_vk_load_VK_EXT_validation_cache(GladVulkanContext *context, GLA
          640, /* vkGetValidationCacheDataEXT */
          655  /* vkMergeValidationCachesEXT */
     };
-    uint32_t i;
-    if(!context->EXT_validation_cache) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_validation_cache) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_EXT_vertex_input_dynamic_state(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          264  /* vkCmdSetVertexInputEXT */
     };
-    uint32_t i;
-    if(!context->EXT_vertex_input_dynamic_state) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->EXT_vertex_input_dynamic_state) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_FUCHSIA)
@@ -2549,17 +2134,9 @@ static void glad_vk_load_VK_FUCHSIA_buffer_collection(GladVulkanContext *context
          682, /* vkSetBufferCollectionBufferConstraintsFUCHSIA */
          683  /* vkSetBufferCollectionImageConstraintsFUCHSIA */
     };
-    uint32_t i;
-    if(!context->FUCHSIA_buffer_collection) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->FUCHSIA_buffer_collection) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
@@ -2568,17 +2145,9 @@ static void glad_vk_load_VK_FUCHSIA_external_memory(GladVulkanContext *context, 
          536, /* vkGetMemoryZirconHandleFUCHSIA */
          537  /* vkGetMemoryZirconHandlePropertiesFUCHSIA */
     };
-    uint32_t i;
-    if(!context->FUCHSIA_external_memory) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->FUCHSIA_external_memory) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
@@ -2587,17 +2156,9 @@ static void glad_vk_load_VK_FUCHSIA_external_semaphore(GladVulkanContext *contex
          632, /* vkGetSemaphoreZirconHandleFUCHSIA */
          647  /* vkImportSemaphoreZirconHandleFUCHSIA */
     };
-    uint32_t i;
-    if(!context->FUCHSIA_external_semaphore) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->FUCHSIA_external_semaphore) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
@@ -2605,17 +2166,9 @@ static void glad_vk_load_VK_FUCHSIA_imagepipe_surface(GladVulkanContext *context
     static const uint16_t s_pfnIdx[] = {
          334  /* vkCreateImagePipeSurfaceFUCHSIA */
     };
-    uint32_t i;
-    if(!context->FUCHSIA_imagepipe_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->FUCHSIA_imagepipe_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_GGP)
@@ -2623,17 +2176,9 @@ static void glad_vk_load_VK_GGP_stream_descriptor_surface(GladVulkanContext *con
     static const uint16_t s_pfnIdx[] = {
          363  /* vkCreateStreamDescriptorSurfaceGGP */
     };
-    uint32_t i;
-    if(!context->GGP_stream_descriptor_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->GGP_stream_descriptor_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_GOOGLE_display_timing(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2641,15 +2186,8 @@ static void glad_vk_load_VK_GOOGLE_display_timing(GladVulkanContext *context, GL
          539, /* vkGetPastPresentationTimingGOOGLE */
          622  /* vkGetRefreshCycleDurationGOOGLE */
     };
-    uint32_t i;
-    if(!context->GOOGLE_display_timing) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->GOOGLE_display_timing) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_HUAWEI_cluster_culling_shader(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2657,30 +2195,16 @@ static void glad_vk_load_VK_HUAWEI_cluster_culling_shader(GladVulkanContext *con
          102, /* vkCmdDrawClusterHUAWEI */
          103  /* vkCmdDrawClusterIndirectHUAWEI */
     };
-    uint32_t i;
-    if(!context->HUAWEI_cluster_culling_shader) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->HUAWEI_cluster_culling_shader) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_HUAWEI_invocation_mask(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           44  /* vkCmdBindInvocationMaskHUAWEI */
     };
-    uint32_t i;
-    if(!context->HUAWEI_invocation_mask) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->HUAWEI_invocation_mask) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_HUAWEI_subpass_shading(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2688,15 +2212,8 @@ static void glad_vk_load_VK_HUAWEI_subpass_shading(GladVulkanContext *context, G
          272, /* vkCmdSubpassShadingHUAWEI */
          492  /* vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI */
     };
-    uint32_t i;
-    if(!context->HUAWEI_subpass_shading) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->HUAWEI_subpass_shading) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_INTEL_performance_query(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2711,15 +2228,8 @@ static void glad_vk_load_VK_INTEL_performance_query(GladVulkanContext *context, 
          672, /* vkReleasePerformanceConfigurationINTEL */
          701  /* vkUninitializePerformanceApiINTEL */
     };
-    uint32_t i;
-    if(!context->INTEL_performance_query) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->INTEL_performance_query) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_acceleration_structure(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2741,15 +2251,8 @@ static void glad_vk_load_VK_KHR_acceleration_structure(GladVulkanContext *contex
          470, /* vkGetDeviceAccelerationStructureCompatibilityKHR */
          715  /* vkWriteAccelerationStructuresPropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_acceleration_structure) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_acceleration_structure) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
@@ -2757,17 +2260,9 @@ static void glad_vk_load_VK_KHR_android_surface(GladVulkanContext *context, GLAD
     static const uint16_t s_pfnIdx[] = {
          305  /* vkCreateAndroidSurfaceKHR */
     };
-    uint32_t i;
-    if(!context->KHR_android_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_android_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_KHR_bind_memory2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2775,15 +2270,8 @@ static void glad_vk_load_VK_KHR_bind_memory2(GladVulkanContext *context, GLADuse
           16, /* vkBindBufferMemory2KHR */
           19  /* vkBindImageMemory2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_bind_memory2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_bind_memory2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_buffer_device_address(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2792,15 +2280,8 @@ static void glad_vk_load_VK_KHR_buffer_device_address(GladVulkanContext *context
          456, /* vkGetBufferOpaqueCaptureAddressKHR */
          487  /* vkGetDeviceMemoryOpaqueCaptureAddressKHR */
     };
-    uint32_t i;
-    if(!context->KHR_buffer_device_address) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_buffer_device_address) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_calibrated_timestamps(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2808,30 +2289,16 @@ static void glad_vk_load_VK_KHR_calibrated_timestamps(GladVulkanContext *context
          459, /* vkGetCalibratedTimestampsKHR */
          542  /* vkGetPhysicalDeviceCalibrateableTimeDomainsKHR */
     };
-    uint32_t i;
-    if(!context->KHR_calibrated_timestamps) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_calibrated_timestamps) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_cooperative_matrix(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          544  /* vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_cooperative_matrix) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_cooperative_matrix) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_copy_commands2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2843,15 +2310,8 @@ static void glad_vk_load_VK_KHR_copy_commands2(GladVulkanContext *context, GLADu
           78, /* vkCmdCopyImageToBuffer2KHR */
          166  /* vkCmdResolveImage2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_copy_commands2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_copy_commands2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_create_renderpass2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2861,15 +2321,8 @@ static void glad_vk_load_VK_KHR_create_renderpass2(GladVulkanContext *context, G
          142, /* vkCmdNextSubpass2KHR */
          354  /* vkCreateRenderPass2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_create_renderpass2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_create_renderpass2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_deferred_host_operations(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2880,15 +2333,8 @@ static void glad_vk_load_VK_KHR_deferred_host_operations(GladVulkanContext *cont
          461, /* vkGetDeferredOperationMaxConcurrencyKHR */
          462  /* vkGetDeferredOperationResultKHR */
     };
-    uint32_t i;
-    if(!context->KHR_deferred_host_operations) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_deferred_host_operations) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_descriptor_update_template(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2898,15 +2344,8 @@ static void glad_vk_load_VK_KHR_descriptor_update_template(GladVulkanContext *co
          393, /* vkDestroyDescriptorUpdateTemplateKHR */
          706  /* vkUpdateDescriptorSetWithTemplateKHR */
     };
-    uint32_t i;
-    if(!context->KHR_descriptor_update_template) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_descriptor_update_template) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_device_group(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2919,30 +2358,16 @@ static void glad_vk_load_VK_KHR_device_group(GladVulkanContext *context, GLADuse
          478, /* vkGetDeviceGroupSurfacePresentModesKHR */
          573  /* vkGetPhysicalDevicePresentRectanglesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_device_group) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_device_group) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_device_group_creation(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          434  /* vkEnumeratePhysicalDeviceGroupsKHR */
     };
-    uint32_t i;
-    if(!context->KHR_device_group_creation) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_device_group_creation) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2955,30 +2380,16 @@ static void glad_vk_load_VK_KHR_display(GladVulkanContext *context, GLADuserptrl
          548, /* vkGetPhysicalDeviceDisplayPlanePropertiesKHR */
          550  /* vkGetPhysicalDeviceDisplayPropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_display) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_display) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_display_swapchain(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          362  /* vkCreateSharedSwapchainsKHR */
     };
-    uint32_t i;
-    if(!context->KHR_display_swapchain) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_display_swapchain) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_draw_indirect_count(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -2986,15 +2397,8 @@ static void glad_vk_load_VK_KHR_draw_indirect_count(GladVulkanContext *context, 
          108, /* vkCmdDrawIndexedIndirectCountKHR */
          113  /* vkCmdDrawIndirectCountKHR */
     };
-    uint32_t i;
-    if(!context->KHR_draw_indirect_count) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_draw_indirect_count) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_dynamic_rendering(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3002,15 +2406,8 @@ static void glad_vk_load_VK_KHR_dynamic_rendering(GladVulkanContext *context, GL
           32, /* vkCmdBeginRenderingKHR */
          131  /* vkCmdEndRenderingKHR */
     };
-    uint32_t i;
-    if(!context->KHR_dynamic_rendering) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_dynamic_rendering) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_dynamic_rendering_local_read(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3018,30 +2415,16 @@ static void glad_vk_load_VK_KHR_dynamic_rendering_local_read(GladVulkanContext *
          245, /* vkCmdSetRenderingAttachmentLocationsKHR */
          247  /* vkCmdSetRenderingInputAttachmentIndicesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_dynamic_rendering_local_read) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_dynamic_rendering_local_read) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_external_fence_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          554  /* vkGetPhysicalDeviceExternalFencePropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_fence_capabilities) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_fence_capabilities) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_external_fence_fd(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3049,15 +2432,8 @@ static void glad_vk_load_VK_KHR_external_fence_fd(GladVulkanContext *context, GL
          504, /* vkGetFenceFdKHR */
          643  /* vkImportFenceFdKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_fence_fd) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_fence_fd) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -3066,32 +2442,17 @@ static void glad_vk_load_VK_KHR_external_fence_win32(GladVulkanContext *context,
          506, /* vkGetFenceWin32HandleKHR */
          644  /* vkImportFenceWin32HandleKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_fence_win32) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_fence_win32) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_KHR_external_memory_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          552  /* vkGetPhysicalDeviceExternalBufferPropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_memory_capabilities) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_memory_capabilities) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_external_memory_fd(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3099,15 +2460,8 @@ static void glad_vk_load_VK_KHR_external_memory_fd(GladVulkanContext *context, G
          529, /* vkGetMemoryFdKHR */
          530  /* vkGetMemoryFdPropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_memory_fd) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_memory_fd) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -3116,32 +2470,17 @@ static void glad_vk_load_VK_KHR_external_memory_win32(GladVulkanContext *context
          533, /* vkGetMemoryWin32HandleKHR */
          535  /* vkGetMemoryWin32HandlePropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_memory_win32) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_memory_win32) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_KHR_external_semaphore_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          557  /* vkGetPhysicalDeviceExternalSemaphorePropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_semaphore_capabilities) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_semaphore_capabilities) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_external_semaphore_fd(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3149,15 +2488,8 @@ static void glad_vk_load_VK_KHR_external_semaphore_fd(GladVulkanContext *context
          630, /* vkGetSemaphoreFdKHR */
          645  /* vkImportSemaphoreFdKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_semaphore_fd) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_semaphore_fd) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -3166,17 +2498,9 @@ static void glad_vk_load_VK_KHR_external_semaphore_win32(GladVulkanContext *cont
          631, /* vkGetSemaphoreWin32HandleKHR */
          646  /* vkImportSemaphoreWin32HandleKHR */
     };
-    uint32_t i;
-    if(!context->KHR_external_semaphore_win32) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_external_semaphore_win32) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_KHR_fragment_shading_rate(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3184,15 +2508,8 @@ static void glad_vk_load_VK_KHR_fragment_shading_rate(GladVulkanContext *context
          218, /* vkCmdSetFragmentShadingRateKHR */
          564  /* vkGetPhysicalDeviceFragmentShadingRatesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_fragment_shading_rate) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_fragment_shading_rate) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_get_display_properties2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3202,15 +2519,8 @@ static void glad_vk_load_VK_KHR_get_display_properties2(GladVulkanContext *conte
          547, /* vkGetPhysicalDeviceDisplayPlaneProperties2KHR */
          549  /* vkGetPhysicalDeviceDisplayProperties2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_get_display_properties2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_get_display_properties2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_get_memory_requirements2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3219,15 +2529,8 @@ static void glad_vk_load_VK_KHR_get_memory_requirements2(GladVulkanContext *cont
          513, /* vkGetImageMemoryRequirements2KHR */
          517  /* vkGetImageSparseMemoryRequirements2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_get_memory_requirements2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_get_memory_requirements2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_get_physical_device_properties2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3240,15 +2543,8 @@ static void glad_vk_load_VK_KHR_get_physical_device_properties2(GladVulkanContex
          580, /* vkGetPhysicalDeviceQueueFamilyProperties2KHR */
          584  /* vkGetPhysicalDeviceSparseImageFormatProperties2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_get_physical_device_properties2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_get_physical_device_properties2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_get_surface_capabilities2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3256,60 +2552,32 @@ static void glad_vk_load_VK_KHR_get_surface_capabilities2(GladVulkanContext *con
          587, /* vkGetPhysicalDeviceSurfaceCapabilities2KHR */
          589  /* vkGetPhysicalDeviceSurfaceFormats2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_get_surface_capabilities2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_get_surface_capabilities2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_line_rasterization(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          225  /* vkCmdSetLineStippleKHR */
     };
-    uint32_t i;
-    if(!context->KHR_line_rasterization) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_line_rasterization) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_maintenance1(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          700  /* vkTrimCommandPoolKHR */
     };
-    uint32_t i;
-    if(!context->KHR_maintenance1) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_maintenance1) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_maintenance3(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          469  /* vkGetDescriptorSetLayoutSupportKHR */
     };
-    uint32_t i;
-    if(!context->KHR_maintenance3) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_maintenance3) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_maintenance4(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3318,15 +2586,8 @@ static void glad_vk_load_VK_KHR_maintenance4(GladVulkanContext *context, GLADuse
          480, /* vkGetDeviceImageMemoryRequirementsKHR */
          482  /* vkGetDeviceImageSparseMemoryRequirementsKHR */
     };
-    uint32_t i;
-    if(!context->KHR_maintenance4) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_maintenance4) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_maintenance5(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3336,15 +2597,8 @@ static void glad_vk_load_VK_KHR_maintenance5(GladVulkanContext *context, GLADuse
          521, /* vkGetImageSubresourceLayout2KHR */
          625  /* vkGetRenderingAreaGranularityKHR */
     };
-    uint32_t i;
-    if(!context->KHR_maintenance5) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_maintenance5) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_maintenance6(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3356,15 +2610,8 @@ static void glad_vk_load_VK_KHR_maintenance6(GladVulkanContext *context, GLADuse
          158, /* vkCmdPushDescriptorSetWithTemplate2KHR */
          204  /* vkCmdSetDescriptorBufferOffsets2EXT */
     };
-    uint32_t i;
-    if(!context->KHR_maintenance6) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_maintenance6) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_map_memory2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3372,15 +2619,8 @@ static void glad_vk_load_VK_KHR_map_memory2(GladVulkanContext *context, GLADuser
          653, /* vkMapMemory2KHR */
          704  /* vkUnmapMemory2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_map_memory2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_map_memory2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_performance_query(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3390,15 +2630,8 @@ static void glad_vk_load_VK_KHR_performance_query(GladVulkanContext *context, GL
          577, /* vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR */
          673  /* vkReleaseProfilingLockKHR */
     };
-    uint32_t i;
-    if(!context->KHR_performance_query) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_performance_query) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_pipeline_binary(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3409,15 +2642,8 @@ static void glad_vk_load_VK_KHR_pipeline_binary(GladVulkanContext *context, GLAD
          610, /* vkGetPipelineKeyKHR */
          669  /* vkReleaseCapturedPipelineDataKHR */
     };
-    uint32_t i;
-    if(!context->KHR_pipeline_binary) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_pipeline_binary) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_pipeline_executable_properties(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3426,30 +2652,16 @@ static void glad_vk_load_VK_KHR_pipeline_executable_properties(GladVulkanContext
          606, /* vkGetPipelineExecutablePropertiesKHR */
          607  /* vkGetPipelineExecutableStatisticsKHR */
     };
-    uint32_t i;
-    if(!context->KHR_pipeline_executable_properties) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_pipeline_executable_properties) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_present_wait(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          712  /* vkWaitForPresentKHR */
     };
-    uint32_t i;
-    if(!context->KHR_present_wait) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_present_wait) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_push_descriptor(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3457,30 +2669,16 @@ static void glad_vk_load_VK_KHR_push_descriptor(GladVulkanContext *context, GLAD
          155, /* vkCmdPushDescriptorSetKHR */
          159  /* vkCmdPushDescriptorSetWithTemplateKHR */
     };
-    uint32_t i;
-    if(!context->KHR_push_descriptor) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_push_descriptor) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_ray_tracing_maintenance1(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          273  /* vkCmdTraceRaysIndirect2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_ray_tracing_maintenance1) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_ray_tracing_maintenance1) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_ray_tracing_pipeline(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3493,15 +2691,8 @@ static void glad_vk_load_VK_KHR_ray_tracing_pipeline(GladVulkanContext *context,
          619, /* vkGetRayTracingShaderGroupHandlesKHR */
          621  /* vkGetRayTracingShaderGroupStackSizeKHR */
     };
-    uint32_t i;
-    if(!context->KHR_ray_tracing_pipeline) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_ray_tracing_pipeline) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_sampler_ycbcr_conversion(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3509,30 +2700,16 @@ static void glad_vk_load_VK_KHR_sampler_ycbcr_conversion(GladVulkanContext *cont
          357, /* vkCreateSamplerYcbcrConversionKHR */
          416  /* vkDestroySamplerYcbcrConversionKHR */
     };
-    uint32_t i;
-    if(!context->KHR_sampler_ycbcr_conversion) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_sampler_ycbcr_conversion) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_shared_presentable_image(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          639  /* vkGetSwapchainStatusKHR */
     };
-    uint32_t i;
-    if(!context->KHR_shared_presentable_image) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_shared_presentable_image) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3543,15 +2720,8 @@ static void glad_vk_load_VK_KHR_surface(GladVulkanContext *context, GLADuserptrl
          592, /* vkGetPhysicalDeviceSurfacePresentModesKHR */
          593  /* vkGetPhysicalDeviceSurfaceSupportKHR */
     };
-    uint32_t i;
-    if(!context->KHR_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_swapchain(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3566,15 +2736,8 @@ static void glad_vk_load_VK_KHR_swapchain(GladVulkanContext *context, GLADuserpt
          638, /* vkGetSwapchainImagesKHR */
          661  /* vkQueuePresentKHR */
     };
-    uint32_t i;
-    if(!context->KHR_swapchain) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_swapchain) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_synchronization2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3586,15 +2749,8 @@ static void glad_vk_load_VK_KHR_synchronization2(GladVulkanContext *context, GLA
          289, /* vkCmdWriteTimestamp2KHR */
          665  /* vkQueueSubmit2KHR */
     };
-    uint32_t i;
-    if(!context->KHR_synchronization2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_synchronization2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_timeline_semaphore(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3603,30 +2759,16 @@ static void glad_vk_load_VK_KHR_timeline_semaphore(GladVulkanContext *context, G
          695, /* vkSignalSemaphoreKHR */
          714  /* vkWaitSemaphoresKHR */
     };
-    uint32_t i;
-    if(!context->KHR_timeline_semaphore) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_timeline_semaphore) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_video_decode_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           91  /* vkCmdDecodeVideoKHR */
     };
-    uint32_t i;
-    if(!context->KHR_video_decode_queue) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_video_decode_queue) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_video_encode_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3635,15 +2777,8 @@ static void glad_vk_load_VK_KHR_video_encode_queue(GladVulkanContext *context, G
          500, /* vkGetEncodedVideoSessionParametersKHR */
          597  /* vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR */
     };
-    uint32_t i;
-    if(!context->KHR_video_encode_queue) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_video_encode_queue) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_KHR_video_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3661,15 +2796,8 @@ static void glad_vk_load_VK_KHR_video_queue(GladVulkanContext *context, GLADuser
          641, /* vkGetVideoSessionMemoryRequirementsKHR */
          710  /* vkUpdateVideoSessionParametersKHR */
     };
-    uint32_t i;
-    if(!context->KHR_video_queue) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_video_queue) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
@@ -3678,17 +2806,9 @@ static void glad_vk_load_VK_KHR_wayland_surface(GladVulkanContext *context, GLAD
          369, /* vkCreateWaylandSurfaceKHR */
          599  /* vkGetPhysicalDeviceWaylandPresentationSupportKHR */
     };
-    uint32_t i;
-    if(!context->KHR_wayland_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_wayland_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -3697,17 +2817,9 @@ static void glad_vk_load_VK_KHR_win32_surface(GladVulkanContext *context, GLADus
          370, /* vkCreateWin32SurfaceKHR */
          600  /* vkGetPhysicalDeviceWin32PresentationSupportKHR */
     };
-    uint32_t i;
-    if(!context->KHR_win32_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_win32_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_XCB_KHR)
@@ -3716,17 +2828,9 @@ static void glad_vk_load_VK_KHR_xcb_surface(GladVulkanContext *context, GLADuser
          371, /* vkCreateXcbSurfaceKHR */
          601  /* vkGetPhysicalDeviceXcbPresentationSupportKHR */
     };
-    uint32_t i;
-    if(!context->KHR_xcb_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_xcb_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_XLIB_KHR)
@@ -3735,17 +2839,9 @@ static void glad_vk_load_VK_KHR_xlib_surface(GladVulkanContext *context, GLADuse
          372, /* vkCreateXlibSurfaceKHR */
          602  /* vkGetPhysicalDeviceXlibPresentationSupportKHR */
     };
-    uint32_t i;
-    if(!context->KHR_xlib_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->KHR_xlib_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_IOS_MVK)
@@ -3753,17 +2849,9 @@ static void glad_vk_load_VK_MVK_ios_surface(GladVulkanContext *context, GLADuser
     static const uint16_t s_pfnIdx[] = {
          332  /* vkCreateIOSSurfaceMVK */
     };
-    uint32_t i;
-    if(!context->MVK_ios_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->MVK_ios_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_MACOS_MVK)
@@ -3771,17 +2859,9 @@ static void glad_vk_load_VK_MVK_macos_surface(GladVulkanContext *context, GLADus
     static const uint16_t s_pfnIdx[] = {
          340  /* vkCreateMacOSSurfaceMVK */
     };
-    uint32_t i;
-    if(!context->MVK_macos_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->MVK_macos_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_VI_NN)
@@ -3789,17 +2869,9 @@ static void glad_vk_load_VK_NN_vi_surface(GladVulkanContext *context, GLADuserpt
     static const uint16_t s_pfnIdx[] = {
          366  /* vkCreateViSurfaceNN */
     };
-    uint32_t i;
-    if(!context->NN_vi_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NN_vi_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_NVX_binary_import(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3810,15 +2882,8 @@ static void glad_vk_load_VK_NVX_binary_import(GladVulkanContext *context, GLADus
          383, /* vkDestroyCuFunctionNVX */
          384  /* vkDestroyCuModuleNVX */
     };
-    uint32_t i;
-    if(!context->NVX_binary_import) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NVX_binary_import) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NVX_image_view_handle(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3827,15 +2892,8 @@ static void glad_vk_load_VK_NVX_image_view_handle(GladVulkanContext *context, GL
          523, /* vkGetImageViewHandle64NVX */
          524  /* vkGetImageViewHandleNVX */
     };
-    uint32_t i;
-    if(!context->NVX_image_view_handle) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NVX_image_view_handle) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -3844,62 +2902,33 @@ static void glad_vk_load_VK_NV_acquire_winrt_display(GladVulkanContext *context,
            6, /* vkAcquireWinrtDisplayNV */
          642  /* vkGetWinrtDisplayNV */
     };
-    uint32_t i;
-    if(!context->NV_acquire_winrt_display) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_acquire_winrt_display) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_NV_clip_space_w_scaling(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          269  /* vkCmdSetViewportWScalingNV */
     };
-    uint32_t i;
-    if(!context->NV_clip_space_w_scaling) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_clip_space_w_scaling) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_cooperative_matrix(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          545  /* vkGetPhysicalDeviceCooperativeMatrixPropertiesNV */
     };
-    uint32_t i;
-    if(!context->NV_cooperative_matrix) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_cooperative_matrix) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_cooperative_matrix2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          543  /* vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV */
     };
-    uint32_t i;
-    if(!context->NV_cooperative_matrix2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_cooperative_matrix2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_copy_memory_indirect(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3907,30 +2936,16 @@ static void glad_vk_load_VK_NV_copy_memory_indirect(GladVulkanContext *context, 
           79, /* vkCmdCopyMemoryIndirectNV */
           81  /* vkCmdCopyMemoryToImageIndirectNV */
     };
-    uint32_t i;
-    if(!context->NV_copy_memory_indirect) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_copy_memory_indirect) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_coverage_reduction_mode(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          585  /* vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV */
     };
-    uint32_t i;
-    if(!context->NV_coverage_reduction_mode) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_coverage_reduction_mode) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_cuda_kernel_launch(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3942,15 +2957,8 @@ static void glad_vk_load_VK_NV_cuda_kernel_launch(GladVulkanContext *context, GL
          386, /* vkDestroyCudaModuleNV */
          460  /* vkGetCudaModuleCacheNV */
     };
-    uint32_t i;
-    if(!context->NV_cuda_kernel_launch) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_cuda_kernel_launch) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_device_diagnostic_checkpoints(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3959,15 +2967,8 @@ static void glad_vk_load_VK_NV_device_diagnostic_checkpoints(GladVulkanContext *
          615, /* vkGetQueueCheckpointData2NV */
          616  /* vkGetQueueCheckpointDataNV */
     };
-    uint32_t i;
-    if(!context->NV_device_diagnostic_checkpoints) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_device_diagnostic_checkpoints) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_device_generated_commands(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3979,15 +2980,8 @@ static void glad_vk_load_VK_NV_device_generated_commands(GladVulkanContext *cont
          401, /* vkDestroyIndirectCommandsLayoutNV */
          509  /* vkGetGeneratedCommandsMemoryRequirementsNV */
     };
-    uint32_t i;
-    if(!context->NV_device_generated_commands) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_device_generated_commands) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_device_generated_commands_compute(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -3996,45 +2990,24 @@ static void glad_vk_load_VK_NV_device_generated_commands_compute(GladVulkanConte
          608, /* vkGetPipelineIndirectDeviceAddressNV */
          609  /* vkGetPipelineIndirectMemoryRequirementsNV */
     };
-    uint32_t i;
-    if(!context->NV_device_generated_commands_compute) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_device_generated_commands_compute) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_external_memory_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          555  /* vkGetPhysicalDeviceExternalImageFormatPropertiesNV */
     };
-    uint32_t i;
-    if(!context->NV_external_memory_capabilities) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_external_memory_capabilities) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_external_memory_rdma(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          532  /* vkGetMemoryRemoteAddressNV */
     };
-    uint32_t i;
-    if(!context->NV_external_memory_rdma) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_external_memory_rdma) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
@@ -4042,32 +3015,17 @@ static void glad_vk_load_VK_NV_external_memory_win32(GladVulkanContext *context,
     static const uint16_t s_pfnIdx[] = {
          534  /* vkGetMemoryWin32HandleNV */
     };
-    uint32_t i;
-    if(!context->NV_external_memory_win32) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_external_memory_win32) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_NV_fragment_shading_rate_enums(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
          217  /* vkCmdSetFragmentShadingRateEnumNV */
     };
-    uint32_t i;
-    if(!context->NV_fragment_shading_rate_enums) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_fragment_shading_rate_enums) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_low_latency2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4078,15 +3036,8 @@ static void glad_vk_load_VK_NV_low_latency2(GladVulkanContext *context, GLADuser
          689, /* vkSetLatencyMarkerNV */
          690  /* vkSetLatencySleepModeNV */
     };
-    uint32_t i;
-    if(!context->NV_low_latency2) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_low_latency2) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_memory_decompression(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4094,15 +3045,8 @@ static void glad_vk_load_VK_NV_memory_decompression(GladVulkanContext *context, 
           92, /* vkCmdDecompressMemoryIndirectCountNV */
           93  /* vkCmdDecompressMemoryNV */
     };
-    uint32_t i;
-    if(!context->NV_memory_decompression) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_memory_decompression) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_mesh_shader(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4111,15 +3055,8 @@ static void glad_vk_load_VK_NV_mesh_shader(GladVulkanContext *context, GLADuserp
          118, /* vkCmdDrawMeshTasksIndirectNV */
          119  /* vkCmdDrawMeshTasksNV */
     };
-    uint32_t i;
-    if(!context->NV_mesh_shader) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_mesh_shader) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_optical_flow(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4130,15 +3067,8 @@ static void glad_vk_load_VK_NV_optical_flow(GladVulkanContext *context, GLADuser
          405, /* vkDestroyOpticalFlowSessionNV */
          572  /* vkGetPhysicalDeviceOpticalFlowImageFormatsNV */
     };
-    uint32_t i;
-    if(!context->NV_optical_flow) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_optical_flow) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_ray_tracing(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4156,15 +3086,8 @@ static void glad_vk_load_VK_NV_ray_tracing(GladVulkanContext *context, GLADuserp
          445, /* vkGetAccelerationStructureMemoryRequirementsNV */
          620  /* vkGetRayTracingShaderGroupHandlesNV */
     };
-    uint32_t i;
-    if(!context->NV_ray_tracing) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_ray_tracing) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_scissor_exclusive(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4172,15 +3095,8 @@ static void glad_vk_load_VK_NV_scissor_exclusive(GladVulkanContext *context, GLA
          214, /* vkCmdSetExclusiveScissorEnableNV */
          215  /* vkCmdSetExclusiveScissorNV */
     };
-    uint32_t i;
-    if(!context->NV_scissor_exclusive) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_scissor_exclusive) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_NV_shading_rate_image(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4189,15 +3105,8 @@ static void glad_vk_load_VK_NV_shading_rate_image(GladVulkanContext *context, GL
          172, /* vkCmdSetCoarseSampleOrderNV */
          266  /* vkCmdSetViewportShadingRatePaletteNV */
     };
-    uint32_t i;
-    if(!context->NV_shading_rate_image) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->NV_shading_rate_image) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_load_VK_QCOM_tile_properties(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4205,15 +3114,8 @@ static void glad_vk_load_VK_QCOM_tile_properties(GladVulkanContext *context, GLA
          499, /* vkGetDynamicRenderingTilePropertiesQCOM */
          507  /* vkGetFramebufferTilePropertiesQCOM */
     };
-    uint32_t i;
-    if(!context->QCOM_tile_properties) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->QCOM_tile_properties) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
@@ -4221,17 +3123,9 @@ static void glad_vk_load_VK_QNX_external_memory_screen_buffer(GladVulkanContext 
     static const uint16_t s_pfnIdx[] = {
          627  /* vkGetScreenBufferPropertiesQNX */
     };
-    uint32_t i;
-    if(!context->QNX_external_memory_screen_buffer) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->QNX_external_memory_screen_buffer) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
@@ -4240,17 +3134,9 @@ static void glad_vk_load_VK_QNX_screen_surface(GladVulkanContext *context, GLADu
          358, /* vkCreateScreenSurfaceQNX */
          581  /* vkGetPhysicalDeviceScreenPresentationSupportQNX */
     };
-    uint32_t i;
-    if(!context->QNX_screen_surface) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->QNX_screen_surface) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
-
 
 #endif
 static void glad_vk_load_VK_VALVE_descriptor_set_host_mapping(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
@@ -4258,15 +3144,8 @@ static void glad_vk_load_VK_VALVE_descriptor_set_host_mapping(GladVulkanContext 
          464, /* vkGetDescriptorSetHostMappingVALVE */
          466  /* vkGetDescriptorSetLayoutHostMappingInfoVALVE */
     };
-    uint32_t i;
-    if(!context->VALVE_descriptor_set_host_mapping) return;
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
-    for (i = 0; i < GLAD_ARRAYSIZE(s_pfnIdx); ++i) {
-        const uint16_t pfnIdx = s_pfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
-    }
+    if (!context->VALVE_descriptor_set_host_mapping) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_vk_resolve_aliases(GladVulkanContext *context) {
@@ -4687,7 +3566,6 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     if (!glad_vk_find_extensions_vulkan(context, physical_device)) return 0;
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
     glad_vk_load_VK_AMDX_shader_enqueue(context, load, userptr);
-
 #endif
     glad_vk_load_VK_AMD_anti_lag(context, load, userptr);
     glad_vk_load_VK_AMD_buffer_marker(context, load, userptr);
@@ -4696,12 +3574,10 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_AMD_shader_info(context, load, userptr);
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
     glad_vk_load_VK_ANDROID_external_memory_android_hardware_buffer(context, load, userptr);
-
 #endif
     glad_vk_load_VK_EXT_acquire_drm_display(context, load, userptr);
 #if defined(VK_USE_PLATFORM_XLIB_XRANDR_EXT)
     glad_vk_load_VK_EXT_acquire_xlib_display(context, load, userptr);
-
 #endif
     glad_vk_load_VK_EXT_attachment_feedback_loop_dynamic_state(context, load, userptr);
     glad_vk_load_VK_EXT_buffer_device_address(context, load, userptr);
@@ -4719,7 +3595,6 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_EXT_direct_mode_display(context, load, userptr);
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
     glad_vk_load_VK_EXT_directfb_surface(context, load, userptr);
-
 #endif
     glad_vk_load_VK_EXT_discard_rectangles(context, load, userptr);
     glad_vk_load_VK_EXT_display_control(context, load, userptr);
@@ -4730,7 +3605,6 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_EXT_external_memory_host(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_EXT_full_screen_exclusive(context, load, userptr);
-
 #endif
     glad_vk_load_VK_EXT_hdr_metadata(context, load, userptr);
     glad_vk_load_VK_EXT_headless_surface(context, load, userptr);
@@ -4742,11 +3616,9 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_EXT_mesh_shader(context, load, userptr);
 #if defined(VK_USE_PLATFORM_METAL_EXT)
     glad_vk_load_VK_EXT_metal_objects(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_METAL_EXT)
     glad_vk_load_VK_EXT_metal_surface(context, load, userptr);
-
 #endif
     glad_vk_load_VK_EXT_multi_draw(context, load, userptr);
     glad_vk_load_VK_EXT_opacity_micromap(context, load, userptr);
@@ -4763,23 +3635,18 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_EXT_vertex_input_dynamic_state(context, load, userptr);
 #if defined(VK_USE_PLATFORM_FUCHSIA)
     glad_vk_load_VK_FUCHSIA_buffer_collection(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
     glad_vk_load_VK_FUCHSIA_external_memory(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
     glad_vk_load_VK_FUCHSIA_external_semaphore(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
     glad_vk_load_VK_FUCHSIA_imagepipe_surface(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_GGP)
     glad_vk_load_VK_GGP_stream_descriptor_surface(context, load, userptr);
-
 #endif
     glad_vk_load_VK_GOOGLE_display_timing(context, load, userptr);
     glad_vk_load_VK_HUAWEI_cluster_culling_shader(context, load, userptr);
@@ -4789,7 +3656,6 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_KHR_acceleration_structure(context, load, userptr);
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
     glad_vk_load_VK_KHR_android_surface(context, load, userptr);
-
 #endif
     glad_vk_load_VK_KHR_bind_memory2(context, load, userptr);
     glad_vk_load_VK_KHR_buffer_device_address(context, load, userptr);
@@ -4810,19 +3676,16 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_KHR_external_fence_fd(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_KHR_external_fence_win32(context, load, userptr);
-
 #endif
     glad_vk_load_VK_KHR_external_memory_capabilities(context, load, userptr);
     glad_vk_load_VK_KHR_external_memory_fd(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_KHR_external_memory_win32(context, load, userptr);
-
 #endif
     glad_vk_load_VK_KHR_external_semaphore_capabilities(context, load, userptr);
     glad_vk_load_VK_KHR_external_semaphore_fd(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_KHR_external_semaphore_win32(context, load, userptr);
-
 #endif
     glad_vk_load_VK_KHR_fragment_shading_rate(context, load, userptr);
     glad_vk_load_VK_KHR_get_display_properties2(context, load, userptr);
@@ -4854,37 +3717,29 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_KHR_video_queue(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
     glad_vk_load_VK_KHR_wayland_surface(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_KHR_win32_surface(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_XCB_KHR)
     glad_vk_load_VK_KHR_xcb_surface(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_XLIB_KHR)
     glad_vk_load_VK_KHR_xlib_surface(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_IOS_MVK)
     glad_vk_load_VK_MVK_ios_surface(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_MACOS_MVK)
     glad_vk_load_VK_MVK_macos_surface(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_VI_NN)
     glad_vk_load_VK_NN_vi_surface(context, load, userptr);
-
 #endif
     glad_vk_load_VK_NVX_binary_import(context, load, userptr);
     glad_vk_load_VK_NVX_image_view_handle(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_NV_acquire_winrt_display(context, load, userptr);
-
 #endif
     glad_vk_load_VK_NV_clip_space_w_scaling(context, load, userptr);
     glad_vk_load_VK_NV_cooperative_matrix(context, load, userptr);
@@ -4899,7 +3754,6 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_NV_external_memory_rdma(context, load, userptr);
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_NV_external_memory_win32(context, load, userptr);
-
 #endif
     glad_vk_load_VK_NV_fragment_shading_rate_enums(context, load, userptr);
     glad_vk_load_VK_NV_low_latency2(context, load, userptr);
@@ -4912,11 +3766,9 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_QCOM_tile_properties(context, load, userptr);
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
     glad_vk_load_VK_QNX_external_memory_screen_buffer(context, load, userptr);
-
 #endif
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
     glad_vk_load_VK_QNX_screen_surface(context, load, userptr);
-
 #endif
     glad_vk_load_VK_VALVE_descriptor_set_host_mapping(context, load, userptr);
 
