@@ -13832,6 +13832,7 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context) {
          756, /* GL_NV_shadow_samplers_array */
          757, /* GL_NV_shadow_samplers_cube */
          758, /* GL_NV_stereo_view_rendering */
+         762, /* GL_NV_texture_barrier */
          763, /* GL_NV_texture_border_clamp */
          764, /* GL_NV_texture_compression_s3tc_update */
          769, /* GL_NV_texture_npot_2D_mipmap */
@@ -14105,6 +14106,7 @@ GLAD_NO_INLINE int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserp
     glad_gl_load_GL_NV_sample_locations(context, load, userptr);
     glad_gl_load_GL_NV_scissor_exclusive(context, load, userptr);
     glad_gl_load_GL_NV_shading_rate_image(context, load, userptr);
+    glad_gl_load_GL_NV_texture_barrier(context, load, userptr);
     glad_gl_load_GL_NV_timeline_semaphore(context, load, userptr);
     glad_gl_load_GL_NV_viewport_array(context, load, userptr);
     glad_gl_load_GL_NV_viewport_swizzle(context, load, userptr);

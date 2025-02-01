@@ -151,664 +151,673 @@ static const char *GLAD_Vulkan_fn_names[] = {
     /*   56 */ "vkCmdBuildAccelerationStructureNV",
     /*   57 */ "vkCmdBuildAccelerationStructuresIndirectKHR",
     /*   58 */ "vkCmdBuildAccelerationStructuresKHR",
-    /*   59 */ "vkCmdBuildMicromapsEXT",
-    /*   60 */ "vkCmdClearAttachments",
-    /*   61 */ "vkCmdClearColorImage",
-    /*   62 */ "vkCmdClearDepthStencilImage",
-    /*   63 */ "vkCmdControlVideoCodingKHR",
-    /*   64 */ "vkCmdCopyAccelerationStructureKHR",
-    /*   65 */ "vkCmdCopyAccelerationStructureNV",
-    /*   66 */ "vkCmdCopyAccelerationStructureToMemoryKHR",
-    /*   67 */ "vkCmdCopyBuffer",
-    /*   68 */ "vkCmdCopyBuffer2",
-    /*   69 */ "vkCmdCopyBuffer2KHR",
-    /*   70 */ "vkCmdCopyBufferToImage",
-    /*   71 */ "vkCmdCopyBufferToImage2",
-    /*   72 */ "vkCmdCopyBufferToImage2KHR",
-    /*   73 */ "vkCmdCopyImage",
-    /*   74 */ "vkCmdCopyImage2",
-    /*   75 */ "vkCmdCopyImage2KHR",
-    /*   76 */ "vkCmdCopyImageToBuffer",
-    /*   77 */ "vkCmdCopyImageToBuffer2",
-    /*   78 */ "vkCmdCopyImageToBuffer2KHR",
-    /*   79 */ "vkCmdCopyMemoryIndirectNV",
-    /*   80 */ "vkCmdCopyMemoryToAccelerationStructureKHR",
-    /*   81 */ "vkCmdCopyMemoryToImageIndirectNV",
-    /*   82 */ "vkCmdCopyMemoryToMicromapEXT",
-    /*   83 */ "vkCmdCopyMicromapEXT",
-    /*   84 */ "vkCmdCopyMicromapToMemoryEXT",
-    /*   85 */ "vkCmdCopyQueryPoolResults",
-    /*   86 */ "vkCmdCuLaunchKernelNVX",
-    /*   87 */ "vkCmdCudaLaunchKernelNV",
-    /*   88 */ "vkCmdDebugMarkerBeginEXT",
-    /*   89 */ "vkCmdDebugMarkerEndEXT",
-    /*   90 */ "vkCmdDebugMarkerInsertEXT",
-    /*   91 */ "vkCmdDecodeVideoKHR",
-    /*   92 */ "vkCmdDecompressMemoryIndirectCountNV",
-    /*   93 */ "vkCmdDecompressMemoryNV",
-    /*   94 */ "vkCmdDispatch",
-    /*   95 */ "vkCmdDispatchBase",
-    /*   96 */ "vkCmdDispatchBaseKHR",
-    /*   97 */ "vkCmdDispatchGraphAMDX",
-    /*   98 */ "vkCmdDispatchGraphIndirectAMDX",
-    /*   99 */ "vkCmdDispatchGraphIndirectCountAMDX",
-    /*  100 */ "vkCmdDispatchIndirect",
-    /*  101 */ "vkCmdDraw",
-    /*  102 */ "vkCmdDrawClusterHUAWEI",
-    /*  103 */ "vkCmdDrawClusterIndirectHUAWEI",
-    /*  104 */ "vkCmdDrawIndexed",
-    /*  105 */ "vkCmdDrawIndexedIndirect",
-    /*  106 */ "vkCmdDrawIndexedIndirectCount",
-    /*  107 */ "vkCmdDrawIndexedIndirectCountAMD",
-    /*  108 */ "vkCmdDrawIndexedIndirectCountKHR",
-    /*  109 */ "vkCmdDrawIndirect",
-    /*  110 */ "vkCmdDrawIndirectByteCountEXT",
-    /*  111 */ "vkCmdDrawIndirectCount",
-    /*  112 */ "vkCmdDrawIndirectCountAMD",
-    /*  113 */ "vkCmdDrawIndirectCountKHR",
-    /*  114 */ "vkCmdDrawMeshTasksEXT",
-    /*  115 */ "vkCmdDrawMeshTasksIndirectCountEXT",
-    /*  116 */ "vkCmdDrawMeshTasksIndirectCountNV",
-    /*  117 */ "vkCmdDrawMeshTasksIndirectEXT",
-    /*  118 */ "vkCmdDrawMeshTasksIndirectNV",
-    /*  119 */ "vkCmdDrawMeshTasksNV",
-    /*  120 */ "vkCmdDrawMultiEXT",
-    /*  121 */ "vkCmdDrawMultiIndexedEXT",
-    /*  122 */ "vkCmdEncodeVideoKHR",
-    /*  123 */ "vkCmdEndConditionalRenderingEXT",
-    /*  124 */ "vkCmdEndDebugUtilsLabelEXT",
-    /*  125 */ "vkCmdEndQuery",
-    /*  126 */ "vkCmdEndQueryIndexedEXT",
-    /*  127 */ "vkCmdEndRenderPass",
-    /*  128 */ "vkCmdEndRenderPass2",
-    /*  129 */ "vkCmdEndRenderPass2KHR",
-    /*  130 */ "vkCmdEndRendering",
-    /*  131 */ "vkCmdEndRenderingKHR",
-    /*  132 */ "vkCmdEndTransformFeedbackEXT",
-    /*  133 */ "vkCmdEndVideoCodingKHR",
-    /*  134 */ "vkCmdExecuteCommands",
-    /*  135 */ "vkCmdExecuteGeneratedCommandsEXT",
-    /*  136 */ "vkCmdExecuteGeneratedCommandsNV",
-    /*  137 */ "vkCmdFillBuffer",
-    /*  138 */ "vkCmdInitializeGraphScratchMemoryAMDX",
-    /*  139 */ "vkCmdInsertDebugUtilsLabelEXT",
-    /*  140 */ "vkCmdNextSubpass",
-    /*  141 */ "vkCmdNextSubpass2",
-    /*  142 */ "vkCmdNextSubpass2KHR",
-    /*  143 */ "vkCmdOpticalFlowExecuteNV",
-    /*  144 */ "vkCmdPipelineBarrier",
-    /*  145 */ "vkCmdPipelineBarrier2",
-    /*  146 */ "vkCmdPipelineBarrier2KHR",
-    /*  147 */ "vkCmdPreprocessGeneratedCommandsEXT",
-    /*  148 */ "vkCmdPreprocessGeneratedCommandsNV",
-    /*  149 */ "vkCmdPushConstants",
-    /*  150 */ "vkCmdPushConstants2",
-    /*  151 */ "vkCmdPushConstants2KHR",
-    /*  152 */ "vkCmdPushDescriptorSet",
-    /*  153 */ "vkCmdPushDescriptorSet2",
-    /*  154 */ "vkCmdPushDescriptorSet2KHR",
-    /*  155 */ "vkCmdPushDescriptorSetKHR",
-    /*  156 */ "vkCmdPushDescriptorSetWithTemplate",
-    /*  157 */ "vkCmdPushDescriptorSetWithTemplate2",
-    /*  158 */ "vkCmdPushDescriptorSetWithTemplate2KHR",
-    /*  159 */ "vkCmdPushDescriptorSetWithTemplateKHR",
-    /*  160 */ "vkCmdResetEvent",
-    /*  161 */ "vkCmdResetEvent2",
-    /*  162 */ "vkCmdResetEvent2KHR",
-    /*  163 */ "vkCmdResetQueryPool",
-    /*  164 */ "vkCmdResolveImage",
-    /*  165 */ "vkCmdResolveImage2",
-    /*  166 */ "vkCmdResolveImage2KHR",
-    /*  167 */ "vkCmdSetAlphaToCoverageEnableEXT",
-    /*  168 */ "vkCmdSetAlphaToOneEnableEXT",
-    /*  169 */ "vkCmdSetAttachmentFeedbackLoopEnableEXT",
-    /*  170 */ "vkCmdSetBlendConstants",
-    /*  171 */ "vkCmdSetCheckpointNV",
-    /*  172 */ "vkCmdSetCoarseSampleOrderNV",
-    /*  173 */ "vkCmdSetColorBlendAdvancedEXT",
-    /*  174 */ "vkCmdSetColorBlendEnableEXT",
-    /*  175 */ "vkCmdSetColorBlendEquationEXT",
-    /*  176 */ "vkCmdSetColorWriteEnableEXT",
-    /*  177 */ "vkCmdSetColorWriteMaskEXT",
-    /*  178 */ "vkCmdSetConservativeRasterizationModeEXT",
-    /*  179 */ "vkCmdSetCoverageModulationModeNV",
-    /*  180 */ "vkCmdSetCoverageModulationTableEnableNV",
-    /*  181 */ "vkCmdSetCoverageModulationTableNV",
-    /*  182 */ "vkCmdSetCoverageReductionModeNV",
-    /*  183 */ "vkCmdSetCoverageToColorEnableNV",
-    /*  184 */ "vkCmdSetCoverageToColorLocationNV",
-    /*  185 */ "vkCmdSetCullMode",
-    /*  186 */ "vkCmdSetCullModeEXT",
-    /*  187 */ "vkCmdSetDepthBias",
-    /*  188 */ "vkCmdSetDepthBias2EXT",
-    /*  189 */ "vkCmdSetDepthBiasEnable",
-    /*  190 */ "vkCmdSetDepthBiasEnableEXT",
-    /*  191 */ "vkCmdSetDepthBounds",
-    /*  192 */ "vkCmdSetDepthBoundsTestEnable",
-    /*  193 */ "vkCmdSetDepthBoundsTestEnableEXT",
-    /*  194 */ "vkCmdSetDepthClampEnableEXT",
-    /*  195 */ "vkCmdSetDepthClampRangeEXT",
-    /*  196 */ "vkCmdSetDepthClipEnableEXT",
-    /*  197 */ "vkCmdSetDepthClipNegativeOneToOneEXT",
-    /*  198 */ "vkCmdSetDepthCompareOp",
-    /*  199 */ "vkCmdSetDepthCompareOpEXT",
-    /*  200 */ "vkCmdSetDepthTestEnable",
-    /*  201 */ "vkCmdSetDepthTestEnableEXT",
-    /*  202 */ "vkCmdSetDepthWriteEnable",
-    /*  203 */ "vkCmdSetDepthWriteEnableEXT",
-    /*  204 */ "vkCmdSetDescriptorBufferOffsets2EXT",
-    /*  205 */ "vkCmdSetDescriptorBufferOffsetsEXT",
-    /*  206 */ "vkCmdSetDeviceMask",
-    /*  207 */ "vkCmdSetDeviceMaskKHR",
-    /*  208 */ "vkCmdSetDiscardRectangleEXT",
-    /*  209 */ "vkCmdSetDiscardRectangleEnableEXT",
-    /*  210 */ "vkCmdSetDiscardRectangleModeEXT",
-    /*  211 */ "vkCmdSetEvent",
-    /*  212 */ "vkCmdSetEvent2",
-    /*  213 */ "vkCmdSetEvent2KHR",
-    /*  214 */ "vkCmdSetExclusiveScissorEnableNV",
-    /*  215 */ "vkCmdSetExclusiveScissorNV",
-    /*  216 */ "vkCmdSetExtraPrimitiveOverestimationSizeEXT",
-    /*  217 */ "vkCmdSetFragmentShadingRateEnumNV",
-    /*  218 */ "vkCmdSetFragmentShadingRateKHR",
-    /*  219 */ "vkCmdSetFrontFace",
-    /*  220 */ "vkCmdSetFrontFaceEXT",
-    /*  221 */ "vkCmdSetLineRasterizationModeEXT",
-    /*  222 */ "vkCmdSetLineStipple",
-    /*  223 */ "vkCmdSetLineStippleEXT",
-    /*  224 */ "vkCmdSetLineStippleEnableEXT",
-    /*  225 */ "vkCmdSetLineStippleKHR",
-    /*  226 */ "vkCmdSetLineWidth",
-    /*  227 */ "vkCmdSetLogicOpEXT",
-    /*  228 */ "vkCmdSetLogicOpEnableEXT",
-    /*  229 */ "vkCmdSetPatchControlPointsEXT",
-    /*  230 */ "vkCmdSetPerformanceMarkerINTEL",
-    /*  231 */ "vkCmdSetPerformanceOverrideINTEL",
-    /*  232 */ "vkCmdSetPerformanceStreamMarkerINTEL",
-    /*  233 */ "vkCmdSetPolygonModeEXT",
-    /*  234 */ "vkCmdSetPrimitiveRestartEnable",
-    /*  235 */ "vkCmdSetPrimitiveRestartEnableEXT",
-    /*  236 */ "vkCmdSetPrimitiveTopology",
-    /*  237 */ "vkCmdSetPrimitiveTopologyEXT",
-    /*  238 */ "vkCmdSetProvokingVertexModeEXT",
-    /*  239 */ "vkCmdSetRasterizationSamplesEXT",
-    /*  240 */ "vkCmdSetRasterizationStreamEXT",
-    /*  241 */ "vkCmdSetRasterizerDiscardEnable",
-    /*  242 */ "vkCmdSetRasterizerDiscardEnableEXT",
-    /*  243 */ "vkCmdSetRayTracingPipelineStackSizeKHR",
-    /*  244 */ "vkCmdSetRenderingAttachmentLocations",
-    /*  245 */ "vkCmdSetRenderingAttachmentLocationsKHR",
-    /*  246 */ "vkCmdSetRenderingInputAttachmentIndices",
-    /*  247 */ "vkCmdSetRenderingInputAttachmentIndicesKHR",
-    /*  248 */ "vkCmdSetRepresentativeFragmentTestEnableNV",
-    /*  249 */ "vkCmdSetSampleLocationsEXT",
-    /*  250 */ "vkCmdSetSampleLocationsEnableEXT",
-    /*  251 */ "vkCmdSetSampleMaskEXT",
-    /*  252 */ "vkCmdSetScissor",
-    /*  253 */ "vkCmdSetScissorWithCount",
-    /*  254 */ "vkCmdSetScissorWithCountEXT",
-    /*  255 */ "vkCmdSetShadingRateImageEnableNV",
-    /*  256 */ "vkCmdSetStencilCompareMask",
-    /*  257 */ "vkCmdSetStencilOp",
-    /*  258 */ "vkCmdSetStencilOpEXT",
-    /*  259 */ "vkCmdSetStencilReference",
-    /*  260 */ "vkCmdSetStencilTestEnable",
-    /*  261 */ "vkCmdSetStencilTestEnableEXT",
-    /*  262 */ "vkCmdSetStencilWriteMask",
-    /*  263 */ "vkCmdSetTessellationDomainOriginEXT",
-    /*  264 */ "vkCmdSetVertexInputEXT",
-    /*  265 */ "vkCmdSetViewport",
-    /*  266 */ "vkCmdSetViewportShadingRatePaletteNV",
-    /*  267 */ "vkCmdSetViewportSwizzleNV",
-    /*  268 */ "vkCmdSetViewportWScalingEnableNV",
-    /*  269 */ "vkCmdSetViewportWScalingNV",
-    /*  270 */ "vkCmdSetViewportWithCount",
-    /*  271 */ "vkCmdSetViewportWithCountEXT",
-    /*  272 */ "vkCmdSubpassShadingHUAWEI",
-    /*  273 */ "vkCmdTraceRaysIndirect2KHR",
-    /*  274 */ "vkCmdTraceRaysIndirectKHR",
-    /*  275 */ "vkCmdTraceRaysKHR",
-    /*  276 */ "vkCmdTraceRaysNV",
-    /*  277 */ "vkCmdUpdateBuffer",
-    /*  278 */ "vkCmdUpdatePipelineIndirectBufferNV",
-    /*  279 */ "vkCmdWaitEvents",
-    /*  280 */ "vkCmdWaitEvents2",
-    /*  281 */ "vkCmdWaitEvents2KHR",
-    /*  282 */ "vkCmdWriteAccelerationStructuresPropertiesKHR",
-    /*  283 */ "vkCmdWriteAccelerationStructuresPropertiesNV",
-    /*  284 */ "vkCmdWriteBufferMarker2AMD",
-    /*  285 */ "vkCmdWriteBufferMarkerAMD",
-    /*  286 */ "vkCmdWriteMicromapsPropertiesEXT",
-    /*  287 */ "vkCmdWriteTimestamp",
-    /*  288 */ "vkCmdWriteTimestamp2",
-    /*  289 */ "vkCmdWriteTimestamp2KHR",
-    /*  290 */ "vkCompileDeferredNV",
-    /*  291 */ "vkCopyAccelerationStructureKHR",
-    /*  292 */ "vkCopyAccelerationStructureToMemoryKHR",
-    /*  293 */ "vkCopyImageToImage",
-    /*  294 */ "vkCopyImageToImageEXT",
-    /*  295 */ "vkCopyImageToMemory",
-    /*  296 */ "vkCopyImageToMemoryEXT",
-    /*  297 */ "vkCopyMemoryToAccelerationStructureKHR",
-    /*  298 */ "vkCopyMemoryToImage",
-    /*  299 */ "vkCopyMemoryToImageEXT",
-    /*  300 */ "vkCopyMemoryToMicromapEXT",
-    /*  301 */ "vkCopyMicromapEXT",
-    /*  302 */ "vkCopyMicromapToMemoryEXT",
-    /*  303 */ "vkCreateAccelerationStructureKHR",
-    /*  304 */ "vkCreateAccelerationStructureNV",
-    /*  305 */ "vkCreateAndroidSurfaceKHR",
-    /*  306 */ "vkCreateBuffer",
-    /*  307 */ "vkCreateBufferCollectionFUCHSIA",
-    /*  308 */ "vkCreateBufferView",
-    /*  309 */ "vkCreateCommandPool",
-    /*  310 */ "vkCreateComputePipelines",
-    /*  311 */ "vkCreateCuFunctionNVX",
-    /*  312 */ "vkCreateCuModuleNVX",
-    /*  313 */ "vkCreateCudaFunctionNV",
-    /*  314 */ "vkCreateCudaModuleNV",
-    /*  315 */ "vkCreateDebugReportCallbackEXT",
-    /*  316 */ "vkCreateDebugUtilsMessengerEXT",
-    /*  317 */ "vkCreateDeferredOperationKHR",
-    /*  318 */ "vkCreateDescriptorPool",
-    /*  319 */ "vkCreateDescriptorSetLayout",
-    /*  320 */ "vkCreateDescriptorUpdateTemplate",
-    /*  321 */ "vkCreateDescriptorUpdateTemplateKHR",
-    /*  322 */ "vkCreateDevice",
-    /*  323 */ "vkCreateDirectFBSurfaceEXT",
-    /*  324 */ "vkCreateDisplayModeKHR",
-    /*  325 */ "vkCreateDisplayPlaneSurfaceKHR",
-    /*  326 */ "vkCreateEvent",
-    /*  327 */ "vkCreateExecutionGraphPipelinesAMDX",
-    /*  328 */ "vkCreateFence",
-    /*  329 */ "vkCreateFramebuffer",
-    /*  330 */ "vkCreateGraphicsPipelines",
-    /*  331 */ "vkCreateHeadlessSurfaceEXT",
-    /*  332 */ "vkCreateIOSSurfaceMVK",
-    /*  333 */ "vkCreateImage",
-    /*  334 */ "vkCreateImagePipeSurfaceFUCHSIA",
-    /*  335 */ "vkCreateImageView",
-    /*  336 */ "vkCreateIndirectCommandsLayoutEXT",
-    /*  337 */ "vkCreateIndirectCommandsLayoutNV",
-    /*  338 */ "vkCreateIndirectExecutionSetEXT",
-    /*  339 */ "vkCreateInstance",
-    /*  340 */ "vkCreateMacOSSurfaceMVK",
-    /*  341 */ "vkCreateMetalSurfaceEXT",
-    /*  342 */ "vkCreateMicromapEXT",
-    /*  343 */ "vkCreateOpticalFlowSessionNV",
-    /*  344 */ "vkCreatePipelineBinariesKHR",
-    /*  345 */ "vkCreatePipelineCache",
-    /*  346 */ "vkCreatePipelineLayout",
-    /*  347 */ "vkCreatePrivateDataSlot",
-    /*  348 */ "vkCreatePrivateDataSlotEXT",
-    /*  349 */ "vkCreateQueryPool",
-    /*  350 */ "vkCreateRayTracingPipelinesKHR",
-    /*  351 */ "vkCreateRayTracingPipelinesNV",
-    /*  352 */ "vkCreateRenderPass",
-    /*  353 */ "vkCreateRenderPass2",
-    /*  354 */ "vkCreateRenderPass2KHR",
-    /*  355 */ "vkCreateSampler",
-    /*  356 */ "vkCreateSamplerYcbcrConversion",
-    /*  357 */ "vkCreateSamplerYcbcrConversionKHR",
-    /*  358 */ "vkCreateScreenSurfaceQNX",
-    /*  359 */ "vkCreateSemaphore",
-    /*  360 */ "vkCreateShaderModule",
-    /*  361 */ "vkCreateShadersEXT",
-    /*  362 */ "vkCreateSharedSwapchainsKHR",
-    /*  363 */ "vkCreateStreamDescriptorSurfaceGGP",
-    /*  364 */ "vkCreateSwapchainKHR",
-    /*  365 */ "vkCreateValidationCacheEXT",
-    /*  366 */ "vkCreateViSurfaceNN",
-    /*  367 */ "vkCreateVideoSessionKHR",
-    /*  368 */ "vkCreateVideoSessionParametersKHR",
-    /*  369 */ "vkCreateWaylandSurfaceKHR",
-    /*  370 */ "vkCreateWin32SurfaceKHR",
-    /*  371 */ "vkCreateXcbSurfaceKHR",
-    /*  372 */ "vkCreateXlibSurfaceKHR",
-    /*  373 */ "vkDebugMarkerSetObjectNameEXT",
-    /*  374 */ "vkDebugMarkerSetObjectTagEXT",
-    /*  375 */ "vkDebugReportMessageEXT",
-    /*  376 */ "vkDeferredOperationJoinKHR",
-    /*  377 */ "vkDestroyAccelerationStructureKHR",
-    /*  378 */ "vkDestroyAccelerationStructureNV",
-    /*  379 */ "vkDestroyBuffer",
-    /*  380 */ "vkDestroyBufferCollectionFUCHSIA",
-    /*  381 */ "vkDestroyBufferView",
-    /*  382 */ "vkDestroyCommandPool",
-    /*  383 */ "vkDestroyCuFunctionNVX",
-    /*  384 */ "vkDestroyCuModuleNVX",
-    /*  385 */ "vkDestroyCudaFunctionNV",
-    /*  386 */ "vkDestroyCudaModuleNV",
-    /*  387 */ "vkDestroyDebugReportCallbackEXT",
-    /*  388 */ "vkDestroyDebugUtilsMessengerEXT",
-    /*  389 */ "vkDestroyDeferredOperationKHR",
-    /*  390 */ "vkDestroyDescriptorPool",
-    /*  391 */ "vkDestroyDescriptorSetLayout",
-    /*  392 */ "vkDestroyDescriptorUpdateTemplate",
-    /*  393 */ "vkDestroyDescriptorUpdateTemplateKHR",
-    /*  394 */ "vkDestroyDevice",
-    /*  395 */ "vkDestroyEvent",
-    /*  396 */ "vkDestroyFence",
-    /*  397 */ "vkDestroyFramebuffer",
-    /*  398 */ "vkDestroyImage",
-    /*  399 */ "vkDestroyImageView",
-    /*  400 */ "vkDestroyIndirectCommandsLayoutEXT",
-    /*  401 */ "vkDestroyIndirectCommandsLayoutNV",
-    /*  402 */ "vkDestroyIndirectExecutionSetEXT",
-    /*  403 */ "vkDestroyInstance",
-    /*  404 */ "vkDestroyMicromapEXT",
-    /*  405 */ "vkDestroyOpticalFlowSessionNV",
-    /*  406 */ "vkDestroyPipeline",
-    /*  407 */ "vkDestroyPipelineBinaryKHR",
-    /*  408 */ "vkDestroyPipelineCache",
-    /*  409 */ "vkDestroyPipelineLayout",
-    /*  410 */ "vkDestroyPrivateDataSlot",
-    /*  411 */ "vkDestroyPrivateDataSlotEXT",
-    /*  412 */ "vkDestroyQueryPool",
-    /*  413 */ "vkDestroyRenderPass",
-    /*  414 */ "vkDestroySampler",
-    /*  415 */ "vkDestroySamplerYcbcrConversion",
-    /*  416 */ "vkDestroySamplerYcbcrConversionKHR",
-    /*  417 */ "vkDestroySemaphore",
-    /*  418 */ "vkDestroyShaderEXT",
-    /*  419 */ "vkDestroyShaderModule",
-    /*  420 */ "vkDestroySurfaceKHR",
-    /*  421 */ "vkDestroySwapchainKHR",
-    /*  422 */ "vkDestroyValidationCacheEXT",
-    /*  423 */ "vkDestroyVideoSessionKHR",
-    /*  424 */ "vkDestroyVideoSessionParametersKHR",
-    /*  425 */ "vkDeviceWaitIdle",
-    /*  426 */ "vkDisplayPowerControlEXT",
-    /*  427 */ "vkEndCommandBuffer",
-    /*  428 */ "vkEnumerateDeviceExtensionProperties",
-    /*  429 */ "vkEnumerateDeviceLayerProperties",
-    /*  430 */ "vkEnumerateInstanceExtensionProperties",
-    /*  431 */ "vkEnumerateInstanceLayerProperties",
-    /*  432 */ "vkEnumerateInstanceVersion",
-    /*  433 */ "vkEnumeratePhysicalDeviceGroups",
-    /*  434 */ "vkEnumeratePhysicalDeviceGroupsKHR",
-    /*  435 */ "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR",
-    /*  436 */ "vkEnumeratePhysicalDevices",
-    /*  437 */ "vkExportMetalObjectsEXT",
-    /*  438 */ "vkFlushMappedMemoryRanges",
-    /*  439 */ "vkFreeCommandBuffers",
-    /*  440 */ "vkFreeDescriptorSets",
-    /*  441 */ "vkFreeMemory",
-    /*  442 */ "vkGetAccelerationStructureBuildSizesKHR",
-    /*  443 */ "vkGetAccelerationStructureDeviceAddressKHR",
-    /*  444 */ "vkGetAccelerationStructureHandleNV",
-    /*  445 */ "vkGetAccelerationStructureMemoryRequirementsNV",
-    /*  446 */ "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT",
-    /*  447 */ "vkGetAndroidHardwareBufferPropertiesANDROID",
-    /*  448 */ "vkGetBufferCollectionPropertiesFUCHSIA",
-    /*  449 */ "vkGetBufferDeviceAddress",
-    /*  450 */ "vkGetBufferDeviceAddressEXT",
-    /*  451 */ "vkGetBufferDeviceAddressKHR",
-    /*  452 */ "vkGetBufferMemoryRequirements",
-    /*  453 */ "vkGetBufferMemoryRequirements2",
-    /*  454 */ "vkGetBufferMemoryRequirements2KHR",
-    /*  455 */ "vkGetBufferOpaqueCaptureAddress",
-    /*  456 */ "vkGetBufferOpaqueCaptureAddressKHR",
-    /*  457 */ "vkGetBufferOpaqueCaptureDescriptorDataEXT",
-    /*  458 */ "vkGetCalibratedTimestampsEXT",
-    /*  459 */ "vkGetCalibratedTimestampsKHR",
-    /*  460 */ "vkGetCudaModuleCacheNV",
-    /*  461 */ "vkGetDeferredOperationMaxConcurrencyKHR",
-    /*  462 */ "vkGetDeferredOperationResultKHR",
-    /*  463 */ "vkGetDescriptorEXT",
-    /*  464 */ "vkGetDescriptorSetHostMappingVALVE",
-    /*  465 */ "vkGetDescriptorSetLayoutBindingOffsetEXT",
-    /*  466 */ "vkGetDescriptorSetLayoutHostMappingInfoVALVE",
-    /*  467 */ "vkGetDescriptorSetLayoutSizeEXT",
-    /*  468 */ "vkGetDescriptorSetLayoutSupport",
-    /*  469 */ "vkGetDescriptorSetLayoutSupportKHR",
-    /*  470 */ "vkGetDeviceAccelerationStructureCompatibilityKHR",
-    /*  471 */ "vkGetDeviceBufferMemoryRequirements",
-    /*  472 */ "vkGetDeviceBufferMemoryRequirementsKHR",
-    /*  473 */ "vkGetDeviceFaultInfoEXT",
-    /*  474 */ "vkGetDeviceGroupPeerMemoryFeatures",
-    /*  475 */ "vkGetDeviceGroupPeerMemoryFeaturesKHR",
-    /*  476 */ "vkGetDeviceGroupPresentCapabilitiesKHR",
-    /*  477 */ "vkGetDeviceGroupSurfacePresentModes2EXT",
-    /*  478 */ "vkGetDeviceGroupSurfacePresentModesKHR",
-    /*  479 */ "vkGetDeviceImageMemoryRequirements",
-    /*  480 */ "vkGetDeviceImageMemoryRequirementsKHR",
-    /*  481 */ "vkGetDeviceImageSparseMemoryRequirements",
-    /*  482 */ "vkGetDeviceImageSparseMemoryRequirementsKHR",
-    /*  483 */ "vkGetDeviceImageSubresourceLayout",
-    /*  484 */ "vkGetDeviceImageSubresourceLayoutKHR",
-    /*  485 */ "vkGetDeviceMemoryCommitment",
-    /*  486 */ "vkGetDeviceMemoryOpaqueCaptureAddress",
-    /*  487 */ "vkGetDeviceMemoryOpaqueCaptureAddressKHR",
-    /*  488 */ "vkGetDeviceMicromapCompatibilityEXT",
-    /*  489 */ "vkGetDeviceProcAddr",
-    /*  490 */ "vkGetDeviceQueue",
-    /*  491 */ "vkGetDeviceQueue2",
-    /*  492 */ "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI",
-    /*  493 */ "vkGetDisplayModeProperties2KHR",
-    /*  494 */ "vkGetDisplayModePropertiesKHR",
-    /*  495 */ "vkGetDisplayPlaneCapabilities2KHR",
-    /*  496 */ "vkGetDisplayPlaneCapabilitiesKHR",
-    /*  497 */ "vkGetDisplayPlaneSupportedDisplaysKHR",
-    /*  498 */ "vkGetDrmDisplayEXT",
-    /*  499 */ "vkGetDynamicRenderingTilePropertiesQCOM",
-    /*  500 */ "vkGetEncodedVideoSessionParametersKHR",
-    /*  501 */ "vkGetEventStatus",
-    /*  502 */ "vkGetExecutionGraphPipelineNodeIndexAMDX",
-    /*  503 */ "vkGetExecutionGraphPipelineScratchSizeAMDX",
-    /*  504 */ "vkGetFenceFdKHR",
-    /*  505 */ "vkGetFenceStatus",
-    /*  506 */ "vkGetFenceWin32HandleKHR",
-    /*  507 */ "vkGetFramebufferTilePropertiesQCOM",
-    /*  508 */ "vkGetGeneratedCommandsMemoryRequirementsEXT",
-    /*  509 */ "vkGetGeneratedCommandsMemoryRequirementsNV",
-    /*  510 */ "vkGetImageDrmFormatModifierPropertiesEXT",
-    /*  511 */ "vkGetImageMemoryRequirements",
-    /*  512 */ "vkGetImageMemoryRequirements2",
-    /*  513 */ "vkGetImageMemoryRequirements2KHR",
-    /*  514 */ "vkGetImageOpaqueCaptureDescriptorDataEXT",
-    /*  515 */ "vkGetImageSparseMemoryRequirements",
-    /*  516 */ "vkGetImageSparseMemoryRequirements2",
-    /*  517 */ "vkGetImageSparseMemoryRequirements2KHR",
-    /*  518 */ "vkGetImageSubresourceLayout",
-    /*  519 */ "vkGetImageSubresourceLayout2",
-    /*  520 */ "vkGetImageSubresourceLayout2EXT",
-    /*  521 */ "vkGetImageSubresourceLayout2KHR",
-    /*  522 */ "vkGetImageViewAddressNVX",
-    /*  523 */ "vkGetImageViewHandle64NVX",
-    /*  524 */ "vkGetImageViewHandleNVX",
-    /*  525 */ "vkGetImageViewOpaqueCaptureDescriptorDataEXT",
-    /*  526 */ "vkGetInstanceProcAddr",
-    /*  527 */ "vkGetLatencyTimingsNV",
-    /*  528 */ "vkGetMemoryAndroidHardwareBufferANDROID",
-    /*  529 */ "vkGetMemoryFdKHR",
-    /*  530 */ "vkGetMemoryFdPropertiesKHR",
-    /*  531 */ "vkGetMemoryHostPointerPropertiesEXT",
-    /*  532 */ "vkGetMemoryRemoteAddressNV",
-    /*  533 */ "vkGetMemoryWin32HandleKHR",
-    /*  534 */ "vkGetMemoryWin32HandleNV",
-    /*  535 */ "vkGetMemoryWin32HandlePropertiesKHR",
-    /*  536 */ "vkGetMemoryZirconHandleFUCHSIA",
-    /*  537 */ "vkGetMemoryZirconHandlePropertiesFUCHSIA",
-    /*  538 */ "vkGetMicromapBuildSizesEXT",
-    /*  539 */ "vkGetPastPresentationTimingGOOGLE",
-    /*  540 */ "vkGetPerformanceParameterINTEL",
-    /*  541 */ "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT",
-    /*  542 */ "vkGetPhysicalDeviceCalibrateableTimeDomainsKHR",
-    /*  543 */ "vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV",
-    /*  544 */ "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR",
-    /*  545 */ "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV",
-    /*  546 */ "vkGetPhysicalDeviceDirectFBPresentationSupportEXT",
-    /*  547 */ "vkGetPhysicalDeviceDisplayPlaneProperties2KHR",
-    /*  548 */ "vkGetPhysicalDeviceDisplayPlanePropertiesKHR",
-    /*  549 */ "vkGetPhysicalDeviceDisplayProperties2KHR",
-    /*  550 */ "vkGetPhysicalDeviceDisplayPropertiesKHR",
-    /*  551 */ "vkGetPhysicalDeviceExternalBufferProperties",
-    /*  552 */ "vkGetPhysicalDeviceExternalBufferPropertiesKHR",
-    /*  553 */ "vkGetPhysicalDeviceExternalFenceProperties",
-    /*  554 */ "vkGetPhysicalDeviceExternalFencePropertiesKHR",
-    /*  555 */ "vkGetPhysicalDeviceExternalImageFormatPropertiesNV",
-    /*  556 */ "vkGetPhysicalDeviceExternalSemaphoreProperties",
-    /*  557 */ "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR",
-    /*  558 */ "vkGetPhysicalDeviceFeatures",
-    /*  559 */ "vkGetPhysicalDeviceFeatures2",
-    /*  560 */ "vkGetPhysicalDeviceFeatures2KHR",
-    /*  561 */ "vkGetPhysicalDeviceFormatProperties",
-    /*  562 */ "vkGetPhysicalDeviceFormatProperties2",
-    /*  563 */ "vkGetPhysicalDeviceFormatProperties2KHR",
-    /*  564 */ "vkGetPhysicalDeviceFragmentShadingRatesKHR",
-    /*  565 */ "vkGetPhysicalDeviceImageFormatProperties",
-    /*  566 */ "vkGetPhysicalDeviceImageFormatProperties2",
-    /*  567 */ "vkGetPhysicalDeviceImageFormatProperties2KHR",
-    /*  568 */ "vkGetPhysicalDeviceMemoryProperties",
-    /*  569 */ "vkGetPhysicalDeviceMemoryProperties2",
-    /*  570 */ "vkGetPhysicalDeviceMemoryProperties2KHR",
-    /*  571 */ "vkGetPhysicalDeviceMultisamplePropertiesEXT",
-    /*  572 */ "vkGetPhysicalDeviceOpticalFlowImageFormatsNV",
-    /*  573 */ "vkGetPhysicalDevicePresentRectanglesKHR",
-    /*  574 */ "vkGetPhysicalDeviceProperties",
-    /*  575 */ "vkGetPhysicalDeviceProperties2",
-    /*  576 */ "vkGetPhysicalDeviceProperties2KHR",
-    /*  577 */ "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR",
-    /*  578 */ "vkGetPhysicalDeviceQueueFamilyProperties",
-    /*  579 */ "vkGetPhysicalDeviceQueueFamilyProperties2",
-    /*  580 */ "vkGetPhysicalDeviceQueueFamilyProperties2KHR",
-    /*  581 */ "vkGetPhysicalDeviceScreenPresentationSupportQNX",
-    /*  582 */ "vkGetPhysicalDeviceSparseImageFormatProperties",
-    /*  583 */ "vkGetPhysicalDeviceSparseImageFormatProperties2",
-    /*  584 */ "vkGetPhysicalDeviceSparseImageFormatProperties2KHR",
-    /*  585 */ "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV",
-    /*  586 */ "vkGetPhysicalDeviceSurfaceCapabilities2EXT",
-    /*  587 */ "vkGetPhysicalDeviceSurfaceCapabilities2KHR",
-    /*  588 */ "vkGetPhysicalDeviceSurfaceCapabilitiesKHR",
-    /*  589 */ "vkGetPhysicalDeviceSurfaceFormats2KHR",
-    /*  590 */ "vkGetPhysicalDeviceSurfaceFormatsKHR",
-    /*  591 */ "vkGetPhysicalDeviceSurfacePresentModes2EXT",
-    /*  592 */ "vkGetPhysicalDeviceSurfacePresentModesKHR",
-    /*  593 */ "vkGetPhysicalDeviceSurfaceSupportKHR",
-    /*  594 */ "vkGetPhysicalDeviceToolProperties",
-    /*  595 */ "vkGetPhysicalDeviceToolPropertiesEXT",
-    /*  596 */ "vkGetPhysicalDeviceVideoCapabilitiesKHR",
-    /*  597 */ "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR",
-    /*  598 */ "vkGetPhysicalDeviceVideoFormatPropertiesKHR",
-    /*  599 */ "vkGetPhysicalDeviceWaylandPresentationSupportKHR",
-    /*  600 */ "vkGetPhysicalDeviceWin32PresentationSupportKHR",
-    /*  601 */ "vkGetPhysicalDeviceXcbPresentationSupportKHR",
-    /*  602 */ "vkGetPhysicalDeviceXlibPresentationSupportKHR",
-    /*  603 */ "vkGetPipelineBinaryDataKHR",
-    /*  604 */ "vkGetPipelineCacheData",
-    /*  605 */ "vkGetPipelineExecutableInternalRepresentationsKHR",
-    /*  606 */ "vkGetPipelineExecutablePropertiesKHR",
-    /*  607 */ "vkGetPipelineExecutableStatisticsKHR",
-    /*  608 */ "vkGetPipelineIndirectDeviceAddressNV",
-    /*  609 */ "vkGetPipelineIndirectMemoryRequirementsNV",
-    /*  610 */ "vkGetPipelineKeyKHR",
-    /*  611 */ "vkGetPipelinePropertiesEXT",
-    /*  612 */ "vkGetPrivateData",
-    /*  613 */ "vkGetPrivateDataEXT",
-    /*  614 */ "vkGetQueryPoolResults",
-    /*  615 */ "vkGetQueueCheckpointData2NV",
-    /*  616 */ "vkGetQueueCheckpointDataNV",
-    /*  617 */ "vkGetRandROutputDisplayEXT",
-    /*  618 */ "vkGetRayTracingCaptureReplayShaderGroupHandlesKHR",
-    /*  619 */ "vkGetRayTracingShaderGroupHandlesKHR",
-    /*  620 */ "vkGetRayTracingShaderGroupHandlesNV",
-    /*  621 */ "vkGetRayTracingShaderGroupStackSizeKHR",
-    /*  622 */ "vkGetRefreshCycleDurationGOOGLE",
-    /*  623 */ "vkGetRenderAreaGranularity",
-    /*  624 */ "vkGetRenderingAreaGranularity",
-    /*  625 */ "vkGetRenderingAreaGranularityKHR",
-    /*  626 */ "vkGetSamplerOpaqueCaptureDescriptorDataEXT",
-    /*  627 */ "vkGetScreenBufferPropertiesQNX",
-    /*  628 */ "vkGetSemaphoreCounterValue",
-    /*  629 */ "vkGetSemaphoreCounterValueKHR",
-    /*  630 */ "vkGetSemaphoreFdKHR",
-    /*  631 */ "vkGetSemaphoreWin32HandleKHR",
-    /*  632 */ "vkGetSemaphoreZirconHandleFUCHSIA",
-    /*  633 */ "vkGetShaderBinaryDataEXT",
-    /*  634 */ "vkGetShaderInfoAMD",
-    /*  635 */ "vkGetShaderModuleCreateInfoIdentifierEXT",
-    /*  636 */ "vkGetShaderModuleIdentifierEXT",
-    /*  637 */ "vkGetSwapchainCounterEXT",
-    /*  638 */ "vkGetSwapchainImagesKHR",
-    /*  639 */ "vkGetSwapchainStatusKHR",
-    /*  640 */ "vkGetValidationCacheDataEXT",
-    /*  641 */ "vkGetVideoSessionMemoryRequirementsKHR",
-    /*  642 */ "vkGetWinrtDisplayNV",
-    /*  643 */ "vkImportFenceFdKHR",
-    /*  644 */ "vkImportFenceWin32HandleKHR",
-    /*  645 */ "vkImportSemaphoreFdKHR",
-    /*  646 */ "vkImportSemaphoreWin32HandleKHR",
-    /*  647 */ "vkImportSemaphoreZirconHandleFUCHSIA",
-    /*  648 */ "vkInitializePerformanceApiINTEL",
-    /*  649 */ "vkInvalidateMappedMemoryRanges",
-    /*  650 */ "vkLatencySleepNV",
-    /*  651 */ "vkMapMemory",
-    /*  652 */ "vkMapMemory2",
-    /*  653 */ "vkMapMemory2KHR",
-    /*  654 */ "vkMergePipelineCaches",
-    /*  655 */ "vkMergeValidationCachesEXT",
-    /*  656 */ "vkQueueBeginDebugUtilsLabelEXT",
-    /*  657 */ "vkQueueBindSparse",
-    /*  658 */ "vkQueueEndDebugUtilsLabelEXT",
-    /*  659 */ "vkQueueInsertDebugUtilsLabelEXT",
-    /*  660 */ "vkQueueNotifyOutOfBandNV",
-    /*  661 */ "vkQueuePresentKHR",
-    /*  662 */ "vkQueueSetPerformanceConfigurationINTEL",
-    /*  663 */ "vkQueueSubmit",
-    /*  664 */ "vkQueueSubmit2",
-    /*  665 */ "vkQueueSubmit2KHR",
-    /*  666 */ "vkQueueWaitIdle",
-    /*  667 */ "vkRegisterDeviceEventEXT",
-    /*  668 */ "vkRegisterDisplayEventEXT",
-    /*  669 */ "vkReleaseCapturedPipelineDataKHR",
-    /*  670 */ "vkReleaseDisplayEXT",
-    /*  671 */ "vkReleaseFullScreenExclusiveModeEXT",
-    /*  672 */ "vkReleasePerformanceConfigurationINTEL",
-    /*  673 */ "vkReleaseProfilingLockKHR",
-    /*  674 */ "vkReleaseSwapchainImagesEXT",
-    /*  675 */ "vkResetCommandBuffer",
-    /*  676 */ "vkResetCommandPool",
-    /*  677 */ "vkResetDescriptorPool",
-    /*  678 */ "vkResetEvent",
-    /*  679 */ "vkResetFences",
-    /*  680 */ "vkResetQueryPool",
-    /*  681 */ "vkResetQueryPoolEXT",
-    /*  682 */ "vkSetBufferCollectionBufferConstraintsFUCHSIA",
-    /*  683 */ "vkSetBufferCollectionImageConstraintsFUCHSIA",
-    /*  684 */ "vkSetDebugUtilsObjectNameEXT",
-    /*  685 */ "vkSetDebugUtilsObjectTagEXT",
-    /*  686 */ "vkSetDeviceMemoryPriorityEXT",
-    /*  687 */ "vkSetEvent",
-    /*  688 */ "vkSetHdrMetadataEXT",
-    /*  689 */ "vkSetLatencyMarkerNV",
-    /*  690 */ "vkSetLatencySleepModeNV",
-    /*  691 */ "vkSetLocalDimmingAMD",
-    /*  692 */ "vkSetPrivateData",
-    /*  693 */ "vkSetPrivateDataEXT",
-    /*  694 */ "vkSignalSemaphore",
-    /*  695 */ "vkSignalSemaphoreKHR",
-    /*  696 */ "vkSubmitDebugUtilsMessageEXT",
-    /*  697 */ "vkTransitionImageLayout",
-    /*  698 */ "vkTransitionImageLayoutEXT",
-    /*  699 */ "vkTrimCommandPool",
-    /*  700 */ "vkTrimCommandPoolKHR",
-    /*  701 */ "vkUninitializePerformanceApiINTEL",
-    /*  702 */ "vkUnmapMemory",
-    /*  703 */ "vkUnmapMemory2",
-    /*  704 */ "vkUnmapMemory2KHR",
-    /*  705 */ "vkUpdateDescriptorSetWithTemplate",
-    /*  706 */ "vkUpdateDescriptorSetWithTemplateKHR",
-    /*  707 */ "vkUpdateDescriptorSets",
-    /*  708 */ "vkUpdateIndirectExecutionSetPipelineEXT",
-    /*  709 */ "vkUpdateIndirectExecutionSetShaderEXT",
-    /*  710 */ "vkUpdateVideoSessionParametersKHR",
-    /*  711 */ "vkWaitForFences",
-    /*  712 */ "vkWaitForPresentKHR",
-    /*  713 */ "vkWaitSemaphores",
-    /*  714 */ "vkWaitSemaphoresKHR",
-    /*  715 */ "vkWriteAccelerationStructuresPropertiesKHR",
-    /*  716 */ "vkWriteMicromapsPropertiesEXT"
+    /*   59 */ "vkCmdBuildClusterAccelerationStructureIndirectNV",
+    /*   60 */ "vkCmdBuildMicromapsEXT",
+    /*   61 */ "vkCmdBuildPartitionedAccelerationStructuresNV",
+    /*   62 */ "vkCmdClearAttachments",
+    /*   63 */ "vkCmdClearColorImage",
+    /*   64 */ "vkCmdClearDepthStencilImage",
+    /*   65 */ "vkCmdControlVideoCodingKHR",
+    /*   66 */ "vkCmdConvertCooperativeVectorMatrixNV",
+    /*   67 */ "vkCmdCopyAccelerationStructureKHR",
+    /*   68 */ "vkCmdCopyAccelerationStructureNV",
+    /*   69 */ "vkCmdCopyAccelerationStructureToMemoryKHR",
+    /*   70 */ "vkCmdCopyBuffer",
+    /*   71 */ "vkCmdCopyBuffer2",
+    /*   72 */ "vkCmdCopyBuffer2KHR",
+    /*   73 */ "vkCmdCopyBufferToImage",
+    /*   74 */ "vkCmdCopyBufferToImage2",
+    /*   75 */ "vkCmdCopyBufferToImage2KHR",
+    /*   76 */ "vkCmdCopyImage",
+    /*   77 */ "vkCmdCopyImage2",
+    /*   78 */ "vkCmdCopyImage2KHR",
+    /*   79 */ "vkCmdCopyImageToBuffer",
+    /*   80 */ "vkCmdCopyImageToBuffer2",
+    /*   81 */ "vkCmdCopyImageToBuffer2KHR",
+    /*   82 */ "vkCmdCopyMemoryIndirectNV",
+    /*   83 */ "vkCmdCopyMemoryToAccelerationStructureKHR",
+    /*   84 */ "vkCmdCopyMemoryToImageIndirectNV",
+    /*   85 */ "vkCmdCopyMemoryToMicromapEXT",
+    /*   86 */ "vkCmdCopyMicromapEXT",
+    /*   87 */ "vkCmdCopyMicromapToMemoryEXT",
+    /*   88 */ "vkCmdCopyQueryPoolResults",
+    /*   89 */ "vkCmdCuLaunchKernelNVX",
+    /*   90 */ "vkCmdCudaLaunchKernelNV",
+    /*   91 */ "vkCmdDebugMarkerBeginEXT",
+    /*   92 */ "vkCmdDebugMarkerEndEXT",
+    /*   93 */ "vkCmdDebugMarkerInsertEXT",
+    /*   94 */ "vkCmdDecodeVideoKHR",
+    /*   95 */ "vkCmdDecompressMemoryIndirectCountNV",
+    /*   96 */ "vkCmdDecompressMemoryNV",
+    /*   97 */ "vkCmdDispatch",
+    /*   98 */ "vkCmdDispatchBase",
+    /*   99 */ "vkCmdDispatchBaseKHR",
+    /*  100 */ "vkCmdDispatchGraphAMDX",
+    /*  101 */ "vkCmdDispatchGraphIndirectAMDX",
+    /*  102 */ "vkCmdDispatchGraphIndirectCountAMDX",
+    /*  103 */ "vkCmdDispatchIndirect",
+    /*  104 */ "vkCmdDraw",
+    /*  105 */ "vkCmdDrawClusterHUAWEI",
+    /*  106 */ "vkCmdDrawClusterIndirectHUAWEI",
+    /*  107 */ "vkCmdDrawIndexed",
+    /*  108 */ "vkCmdDrawIndexedIndirect",
+    /*  109 */ "vkCmdDrawIndexedIndirectCount",
+    /*  110 */ "vkCmdDrawIndexedIndirectCountAMD",
+    /*  111 */ "vkCmdDrawIndexedIndirectCountKHR",
+    /*  112 */ "vkCmdDrawIndirect",
+    /*  113 */ "vkCmdDrawIndirectByteCountEXT",
+    /*  114 */ "vkCmdDrawIndirectCount",
+    /*  115 */ "vkCmdDrawIndirectCountAMD",
+    /*  116 */ "vkCmdDrawIndirectCountKHR",
+    /*  117 */ "vkCmdDrawMeshTasksEXT",
+    /*  118 */ "vkCmdDrawMeshTasksIndirectCountEXT",
+    /*  119 */ "vkCmdDrawMeshTasksIndirectCountNV",
+    /*  120 */ "vkCmdDrawMeshTasksIndirectEXT",
+    /*  121 */ "vkCmdDrawMeshTasksIndirectNV",
+    /*  122 */ "vkCmdDrawMeshTasksNV",
+    /*  123 */ "vkCmdDrawMultiEXT",
+    /*  124 */ "vkCmdDrawMultiIndexedEXT",
+    /*  125 */ "vkCmdEncodeVideoKHR",
+    /*  126 */ "vkCmdEndConditionalRenderingEXT",
+    /*  127 */ "vkCmdEndDebugUtilsLabelEXT",
+    /*  128 */ "vkCmdEndQuery",
+    /*  129 */ "vkCmdEndQueryIndexedEXT",
+    /*  130 */ "vkCmdEndRenderPass",
+    /*  131 */ "vkCmdEndRenderPass2",
+    /*  132 */ "vkCmdEndRenderPass2KHR",
+    /*  133 */ "vkCmdEndRendering",
+    /*  134 */ "vkCmdEndRenderingKHR",
+    /*  135 */ "vkCmdEndTransformFeedbackEXT",
+    /*  136 */ "vkCmdEndVideoCodingKHR",
+    /*  137 */ "vkCmdExecuteCommands",
+    /*  138 */ "vkCmdExecuteGeneratedCommandsEXT",
+    /*  139 */ "vkCmdExecuteGeneratedCommandsNV",
+    /*  140 */ "vkCmdFillBuffer",
+    /*  141 */ "vkCmdInitializeGraphScratchMemoryAMDX",
+    /*  142 */ "vkCmdInsertDebugUtilsLabelEXT",
+    /*  143 */ "vkCmdNextSubpass",
+    /*  144 */ "vkCmdNextSubpass2",
+    /*  145 */ "vkCmdNextSubpass2KHR",
+    /*  146 */ "vkCmdOpticalFlowExecuteNV",
+    /*  147 */ "vkCmdPipelineBarrier",
+    /*  148 */ "vkCmdPipelineBarrier2",
+    /*  149 */ "vkCmdPipelineBarrier2KHR",
+    /*  150 */ "vkCmdPreprocessGeneratedCommandsEXT",
+    /*  151 */ "vkCmdPreprocessGeneratedCommandsNV",
+    /*  152 */ "vkCmdPushConstants",
+    /*  153 */ "vkCmdPushConstants2",
+    /*  154 */ "vkCmdPushConstants2KHR",
+    /*  155 */ "vkCmdPushDescriptorSet",
+    /*  156 */ "vkCmdPushDescriptorSet2",
+    /*  157 */ "vkCmdPushDescriptorSet2KHR",
+    /*  158 */ "vkCmdPushDescriptorSetKHR",
+    /*  159 */ "vkCmdPushDescriptorSetWithTemplate",
+    /*  160 */ "vkCmdPushDescriptorSetWithTemplate2",
+    /*  161 */ "vkCmdPushDescriptorSetWithTemplate2KHR",
+    /*  162 */ "vkCmdPushDescriptorSetWithTemplateKHR",
+    /*  163 */ "vkCmdResetEvent",
+    /*  164 */ "vkCmdResetEvent2",
+    /*  165 */ "vkCmdResetEvent2KHR",
+    /*  166 */ "vkCmdResetQueryPool",
+    /*  167 */ "vkCmdResolveImage",
+    /*  168 */ "vkCmdResolveImage2",
+    /*  169 */ "vkCmdResolveImage2KHR",
+    /*  170 */ "vkCmdSetAlphaToCoverageEnableEXT",
+    /*  171 */ "vkCmdSetAlphaToOneEnableEXT",
+    /*  172 */ "vkCmdSetAttachmentFeedbackLoopEnableEXT",
+    /*  173 */ "vkCmdSetBlendConstants",
+    /*  174 */ "vkCmdSetCheckpointNV",
+    /*  175 */ "vkCmdSetCoarseSampleOrderNV",
+    /*  176 */ "vkCmdSetColorBlendAdvancedEXT",
+    /*  177 */ "vkCmdSetColorBlendEnableEXT",
+    /*  178 */ "vkCmdSetColorBlendEquationEXT",
+    /*  179 */ "vkCmdSetColorWriteEnableEXT",
+    /*  180 */ "vkCmdSetColorWriteMaskEXT",
+    /*  181 */ "vkCmdSetConservativeRasterizationModeEXT",
+    /*  182 */ "vkCmdSetCoverageModulationModeNV",
+    /*  183 */ "vkCmdSetCoverageModulationTableEnableNV",
+    /*  184 */ "vkCmdSetCoverageModulationTableNV",
+    /*  185 */ "vkCmdSetCoverageReductionModeNV",
+    /*  186 */ "vkCmdSetCoverageToColorEnableNV",
+    /*  187 */ "vkCmdSetCoverageToColorLocationNV",
+    /*  188 */ "vkCmdSetCullMode",
+    /*  189 */ "vkCmdSetCullModeEXT",
+    /*  190 */ "vkCmdSetDepthBias",
+    /*  191 */ "vkCmdSetDepthBias2EXT",
+    /*  192 */ "vkCmdSetDepthBiasEnable",
+    /*  193 */ "vkCmdSetDepthBiasEnableEXT",
+    /*  194 */ "vkCmdSetDepthBounds",
+    /*  195 */ "vkCmdSetDepthBoundsTestEnable",
+    /*  196 */ "vkCmdSetDepthBoundsTestEnableEXT",
+    /*  197 */ "vkCmdSetDepthClampEnableEXT",
+    /*  198 */ "vkCmdSetDepthClampRangeEXT",
+    /*  199 */ "vkCmdSetDepthClipEnableEXT",
+    /*  200 */ "vkCmdSetDepthClipNegativeOneToOneEXT",
+    /*  201 */ "vkCmdSetDepthCompareOp",
+    /*  202 */ "vkCmdSetDepthCompareOpEXT",
+    /*  203 */ "vkCmdSetDepthTestEnable",
+    /*  204 */ "vkCmdSetDepthTestEnableEXT",
+    /*  205 */ "vkCmdSetDepthWriteEnable",
+    /*  206 */ "vkCmdSetDepthWriteEnableEXT",
+    /*  207 */ "vkCmdSetDescriptorBufferOffsets2EXT",
+    /*  208 */ "vkCmdSetDescriptorBufferOffsetsEXT",
+    /*  209 */ "vkCmdSetDeviceMask",
+    /*  210 */ "vkCmdSetDeviceMaskKHR",
+    /*  211 */ "vkCmdSetDiscardRectangleEXT",
+    /*  212 */ "vkCmdSetDiscardRectangleEnableEXT",
+    /*  213 */ "vkCmdSetDiscardRectangleModeEXT",
+    /*  214 */ "vkCmdSetEvent",
+    /*  215 */ "vkCmdSetEvent2",
+    /*  216 */ "vkCmdSetEvent2KHR",
+    /*  217 */ "vkCmdSetExclusiveScissorEnableNV",
+    /*  218 */ "vkCmdSetExclusiveScissorNV",
+    /*  219 */ "vkCmdSetExtraPrimitiveOverestimationSizeEXT",
+    /*  220 */ "vkCmdSetFragmentShadingRateEnumNV",
+    /*  221 */ "vkCmdSetFragmentShadingRateKHR",
+    /*  222 */ "vkCmdSetFrontFace",
+    /*  223 */ "vkCmdSetFrontFaceEXT",
+    /*  224 */ "vkCmdSetLineRasterizationModeEXT",
+    /*  225 */ "vkCmdSetLineStipple",
+    /*  226 */ "vkCmdSetLineStippleEXT",
+    /*  227 */ "vkCmdSetLineStippleEnableEXT",
+    /*  228 */ "vkCmdSetLineStippleKHR",
+    /*  229 */ "vkCmdSetLineWidth",
+    /*  230 */ "vkCmdSetLogicOpEXT",
+    /*  231 */ "vkCmdSetLogicOpEnableEXT",
+    /*  232 */ "vkCmdSetPatchControlPointsEXT",
+    /*  233 */ "vkCmdSetPerformanceMarkerINTEL",
+    /*  234 */ "vkCmdSetPerformanceOverrideINTEL",
+    /*  235 */ "vkCmdSetPerformanceStreamMarkerINTEL",
+    /*  236 */ "vkCmdSetPolygonModeEXT",
+    /*  237 */ "vkCmdSetPrimitiveRestartEnable",
+    /*  238 */ "vkCmdSetPrimitiveRestartEnableEXT",
+    /*  239 */ "vkCmdSetPrimitiveTopology",
+    /*  240 */ "vkCmdSetPrimitiveTopologyEXT",
+    /*  241 */ "vkCmdSetProvokingVertexModeEXT",
+    /*  242 */ "vkCmdSetRasterizationSamplesEXT",
+    /*  243 */ "vkCmdSetRasterizationStreamEXT",
+    /*  244 */ "vkCmdSetRasterizerDiscardEnable",
+    /*  245 */ "vkCmdSetRasterizerDiscardEnableEXT",
+    /*  246 */ "vkCmdSetRayTracingPipelineStackSizeKHR",
+    /*  247 */ "vkCmdSetRenderingAttachmentLocations",
+    /*  248 */ "vkCmdSetRenderingAttachmentLocationsKHR",
+    /*  249 */ "vkCmdSetRenderingInputAttachmentIndices",
+    /*  250 */ "vkCmdSetRenderingInputAttachmentIndicesKHR",
+    /*  251 */ "vkCmdSetRepresentativeFragmentTestEnableNV",
+    /*  252 */ "vkCmdSetSampleLocationsEXT",
+    /*  253 */ "vkCmdSetSampleLocationsEnableEXT",
+    /*  254 */ "vkCmdSetSampleMaskEXT",
+    /*  255 */ "vkCmdSetScissor",
+    /*  256 */ "vkCmdSetScissorWithCount",
+    /*  257 */ "vkCmdSetScissorWithCountEXT",
+    /*  258 */ "vkCmdSetShadingRateImageEnableNV",
+    /*  259 */ "vkCmdSetStencilCompareMask",
+    /*  260 */ "vkCmdSetStencilOp",
+    /*  261 */ "vkCmdSetStencilOpEXT",
+    /*  262 */ "vkCmdSetStencilReference",
+    /*  263 */ "vkCmdSetStencilTestEnable",
+    /*  264 */ "vkCmdSetStencilTestEnableEXT",
+    /*  265 */ "vkCmdSetStencilWriteMask",
+    /*  266 */ "vkCmdSetTessellationDomainOriginEXT",
+    /*  267 */ "vkCmdSetVertexInputEXT",
+    /*  268 */ "vkCmdSetViewport",
+    /*  269 */ "vkCmdSetViewportShadingRatePaletteNV",
+    /*  270 */ "vkCmdSetViewportSwizzleNV",
+    /*  271 */ "vkCmdSetViewportWScalingEnableNV",
+    /*  272 */ "vkCmdSetViewportWScalingNV",
+    /*  273 */ "vkCmdSetViewportWithCount",
+    /*  274 */ "vkCmdSetViewportWithCountEXT",
+    /*  275 */ "vkCmdSubpassShadingHUAWEI",
+    /*  276 */ "vkCmdTraceRaysIndirect2KHR",
+    /*  277 */ "vkCmdTraceRaysIndirectKHR",
+    /*  278 */ "vkCmdTraceRaysKHR",
+    /*  279 */ "vkCmdTraceRaysNV",
+    /*  280 */ "vkCmdUpdateBuffer",
+    /*  281 */ "vkCmdUpdatePipelineIndirectBufferNV",
+    /*  282 */ "vkCmdWaitEvents",
+    /*  283 */ "vkCmdWaitEvents2",
+    /*  284 */ "vkCmdWaitEvents2KHR",
+    /*  285 */ "vkCmdWriteAccelerationStructuresPropertiesKHR",
+    /*  286 */ "vkCmdWriteAccelerationStructuresPropertiesNV",
+    /*  287 */ "vkCmdWriteBufferMarker2AMD",
+    /*  288 */ "vkCmdWriteBufferMarkerAMD",
+    /*  289 */ "vkCmdWriteMicromapsPropertiesEXT",
+    /*  290 */ "vkCmdWriteTimestamp",
+    /*  291 */ "vkCmdWriteTimestamp2",
+    /*  292 */ "vkCmdWriteTimestamp2KHR",
+    /*  293 */ "vkCompileDeferredNV",
+    /*  294 */ "vkConvertCooperativeVectorMatrixNV",
+    /*  295 */ "vkCopyAccelerationStructureKHR",
+    /*  296 */ "vkCopyAccelerationStructureToMemoryKHR",
+    /*  297 */ "vkCopyImageToImage",
+    /*  298 */ "vkCopyImageToImageEXT",
+    /*  299 */ "vkCopyImageToMemory",
+    /*  300 */ "vkCopyImageToMemoryEXT",
+    /*  301 */ "vkCopyMemoryToAccelerationStructureKHR",
+    /*  302 */ "vkCopyMemoryToImage",
+    /*  303 */ "vkCopyMemoryToImageEXT",
+    /*  304 */ "vkCopyMemoryToMicromapEXT",
+    /*  305 */ "vkCopyMicromapEXT",
+    /*  306 */ "vkCopyMicromapToMemoryEXT",
+    /*  307 */ "vkCreateAccelerationStructureKHR",
+    /*  308 */ "vkCreateAccelerationStructureNV",
+    /*  309 */ "vkCreateAndroidSurfaceKHR",
+    /*  310 */ "vkCreateBuffer",
+    /*  311 */ "vkCreateBufferCollectionFUCHSIA",
+    /*  312 */ "vkCreateBufferView",
+    /*  313 */ "vkCreateCommandPool",
+    /*  314 */ "vkCreateComputePipelines",
+    /*  315 */ "vkCreateCuFunctionNVX",
+    /*  316 */ "vkCreateCuModuleNVX",
+    /*  317 */ "vkCreateCudaFunctionNV",
+    /*  318 */ "vkCreateCudaModuleNV",
+    /*  319 */ "vkCreateDebugReportCallbackEXT",
+    /*  320 */ "vkCreateDebugUtilsMessengerEXT",
+    /*  321 */ "vkCreateDeferredOperationKHR",
+    /*  322 */ "vkCreateDescriptorPool",
+    /*  323 */ "vkCreateDescriptorSetLayout",
+    /*  324 */ "vkCreateDescriptorUpdateTemplate",
+    /*  325 */ "vkCreateDescriptorUpdateTemplateKHR",
+    /*  326 */ "vkCreateDevice",
+    /*  327 */ "vkCreateDirectFBSurfaceEXT",
+    /*  328 */ "vkCreateDisplayModeKHR",
+    /*  329 */ "vkCreateDisplayPlaneSurfaceKHR",
+    /*  330 */ "vkCreateEvent",
+    /*  331 */ "vkCreateExecutionGraphPipelinesAMDX",
+    /*  332 */ "vkCreateFence",
+    /*  333 */ "vkCreateFramebuffer",
+    /*  334 */ "vkCreateGraphicsPipelines",
+    /*  335 */ "vkCreateHeadlessSurfaceEXT",
+    /*  336 */ "vkCreateIOSSurfaceMVK",
+    /*  337 */ "vkCreateImage",
+    /*  338 */ "vkCreateImagePipeSurfaceFUCHSIA",
+    /*  339 */ "vkCreateImageView",
+    /*  340 */ "vkCreateIndirectCommandsLayoutEXT",
+    /*  341 */ "vkCreateIndirectCommandsLayoutNV",
+    /*  342 */ "vkCreateIndirectExecutionSetEXT",
+    /*  343 */ "vkCreateInstance",
+    /*  344 */ "vkCreateMacOSSurfaceMVK",
+    /*  345 */ "vkCreateMetalSurfaceEXT",
+    /*  346 */ "vkCreateMicromapEXT",
+    /*  347 */ "vkCreateOpticalFlowSessionNV",
+    /*  348 */ "vkCreatePipelineBinariesKHR",
+    /*  349 */ "vkCreatePipelineCache",
+    /*  350 */ "vkCreatePipelineLayout",
+    /*  351 */ "vkCreatePrivateDataSlot",
+    /*  352 */ "vkCreatePrivateDataSlotEXT",
+    /*  353 */ "vkCreateQueryPool",
+    /*  354 */ "vkCreateRayTracingPipelinesKHR",
+    /*  355 */ "vkCreateRayTracingPipelinesNV",
+    /*  356 */ "vkCreateRenderPass",
+    /*  357 */ "vkCreateRenderPass2",
+    /*  358 */ "vkCreateRenderPass2KHR",
+    /*  359 */ "vkCreateSampler",
+    /*  360 */ "vkCreateSamplerYcbcrConversion",
+    /*  361 */ "vkCreateSamplerYcbcrConversionKHR",
+    /*  362 */ "vkCreateScreenSurfaceQNX",
+    /*  363 */ "vkCreateSemaphore",
+    /*  364 */ "vkCreateShaderModule",
+    /*  365 */ "vkCreateShadersEXT",
+    /*  366 */ "vkCreateSharedSwapchainsKHR",
+    /*  367 */ "vkCreateStreamDescriptorSurfaceGGP",
+    /*  368 */ "vkCreateSwapchainKHR",
+    /*  369 */ "vkCreateValidationCacheEXT",
+    /*  370 */ "vkCreateViSurfaceNN",
+    /*  371 */ "vkCreateVideoSessionKHR",
+    /*  372 */ "vkCreateVideoSessionParametersKHR",
+    /*  373 */ "vkCreateWaylandSurfaceKHR",
+    /*  374 */ "vkCreateWin32SurfaceKHR",
+    /*  375 */ "vkCreateXcbSurfaceKHR",
+    /*  376 */ "vkCreateXlibSurfaceKHR",
+    /*  377 */ "vkDebugMarkerSetObjectNameEXT",
+    /*  378 */ "vkDebugMarkerSetObjectTagEXT",
+    /*  379 */ "vkDebugReportMessageEXT",
+    /*  380 */ "vkDeferredOperationJoinKHR",
+    /*  381 */ "vkDestroyAccelerationStructureKHR",
+    /*  382 */ "vkDestroyAccelerationStructureNV",
+    /*  383 */ "vkDestroyBuffer",
+    /*  384 */ "vkDestroyBufferCollectionFUCHSIA",
+    /*  385 */ "vkDestroyBufferView",
+    /*  386 */ "vkDestroyCommandPool",
+    /*  387 */ "vkDestroyCuFunctionNVX",
+    /*  388 */ "vkDestroyCuModuleNVX",
+    /*  389 */ "vkDestroyCudaFunctionNV",
+    /*  390 */ "vkDestroyCudaModuleNV",
+    /*  391 */ "vkDestroyDebugReportCallbackEXT",
+    /*  392 */ "vkDestroyDebugUtilsMessengerEXT",
+    /*  393 */ "vkDestroyDeferredOperationKHR",
+    /*  394 */ "vkDestroyDescriptorPool",
+    /*  395 */ "vkDestroyDescriptorSetLayout",
+    /*  396 */ "vkDestroyDescriptorUpdateTemplate",
+    /*  397 */ "vkDestroyDescriptorUpdateTemplateKHR",
+    /*  398 */ "vkDestroyDevice",
+    /*  399 */ "vkDestroyEvent",
+    /*  400 */ "vkDestroyFence",
+    /*  401 */ "vkDestroyFramebuffer",
+    /*  402 */ "vkDestroyImage",
+    /*  403 */ "vkDestroyImageView",
+    /*  404 */ "vkDestroyIndirectCommandsLayoutEXT",
+    /*  405 */ "vkDestroyIndirectCommandsLayoutNV",
+    /*  406 */ "vkDestroyIndirectExecutionSetEXT",
+    /*  407 */ "vkDestroyInstance",
+    /*  408 */ "vkDestroyMicromapEXT",
+    /*  409 */ "vkDestroyOpticalFlowSessionNV",
+    /*  410 */ "vkDestroyPipeline",
+    /*  411 */ "vkDestroyPipelineBinaryKHR",
+    /*  412 */ "vkDestroyPipelineCache",
+    /*  413 */ "vkDestroyPipelineLayout",
+    /*  414 */ "vkDestroyPrivateDataSlot",
+    /*  415 */ "vkDestroyPrivateDataSlotEXT",
+    /*  416 */ "vkDestroyQueryPool",
+    /*  417 */ "vkDestroyRenderPass",
+    /*  418 */ "vkDestroySampler",
+    /*  419 */ "vkDestroySamplerYcbcrConversion",
+    /*  420 */ "vkDestroySamplerYcbcrConversionKHR",
+    /*  421 */ "vkDestroySemaphore",
+    /*  422 */ "vkDestroyShaderEXT",
+    /*  423 */ "vkDestroyShaderModule",
+    /*  424 */ "vkDestroySurfaceKHR",
+    /*  425 */ "vkDestroySwapchainKHR",
+    /*  426 */ "vkDestroyValidationCacheEXT",
+    /*  427 */ "vkDestroyVideoSessionKHR",
+    /*  428 */ "vkDestroyVideoSessionParametersKHR",
+    /*  429 */ "vkDeviceWaitIdle",
+    /*  430 */ "vkDisplayPowerControlEXT",
+    /*  431 */ "vkEndCommandBuffer",
+    /*  432 */ "vkEnumerateDeviceExtensionProperties",
+    /*  433 */ "vkEnumerateDeviceLayerProperties",
+    /*  434 */ "vkEnumerateInstanceExtensionProperties",
+    /*  435 */ "vkEnumerateInstanceLayerProperties",
+    /*  436 */ "vkEnumerateInstanceVersion",
+    /*  437 */ "vkEnumeratePhysicalDeviceGroups",
+    /*  438 */ "vkEnumeratePhysicalDeviceGroupsKHR",
+    /*  439 */ "vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR",
+    /*  440 */ "vkEnumeratePhysicalDevices",
+    /*  441 */ "vkExportMetalObjectsEXT",
+    /*  442 */ "vkFlushMappedMemoryRanges",
+    /*  443 */ "vkFreeCommandBuffers",
+    /*  444 */ "vkFreeDescriptorSets",
+    /*  445 */ "vkFreeMemory",
+    /*  446 */ "vkGetAccelerationStructureBuildSizesKHR",
+    /*  447 */ "vkGetAccelerationStructureDeviceAddressKHR",
+    /*  448 */ "vkGetAccelerationStructureHandleNV",
+    /*  449 */ "vkGetAccelerationStructureMemoryRequirementsNV",
+    /*  450 */ "vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT",
+    /*  451 */ "vkGetAndroidHardwareBufferPropertiesANDROID",
+    /*  452 */ "vkGetBufferCollectionPropertiesFUCHSIA",
+    /*  453 */ "vkGetBufferDeviceAddress",
+    /*  454 */ "vkGetBufferDeviceAddressEXT",
+    /*  455 */ "vkGetBufferDeviceAddressKHR",
+    /*  456 */ "vkGetBufferMemoryRequirements",
+    /*  457 */ "vkGetBufferMemoryRequirements2",
+    /*  458 */ "vkGetBufferMemoryRequirements2KHR",
+    /*  459 */ "vkGetBufferOpaqueCaptureAddress",
+    /*  460 */ "vkGetBufferOpaqueCaptureAddressKHR",
+    /*  461 */ "vkGetBufferOpaqueCaptureDescriptorDataEXT",
+    /*  462 */ "vkGetCalibratedTimestampsEXT",
+    /*  463 */ "vkGetCalibratedTimestampsKHR",
+    /*  464 */ "vkGetClusterAccelerationStructureBuildSizesNV",
+    /*  465 */ "vkGetCudaModuleCacheNV",
+    /*  466 */ "vkGetDeferredOperationMaxConcurrencyKHR",
+    /*  467 */ "vkGetDeferredOperationResultKHR",
+    /*  468 */ "vkGetDescriptorEXT",
+    /*  469 */ "vkGetDescriptorSetHostMappingVALVE",
+    /*  470 */ "vkGetDescriptorSetLayoutBindingOffsetEXT",
+    /*  471 */ "vkGetDescriptorSetLayoutHostMappingInfoVALVE",
+    /*  472 */ "vkGetDescriptorSetLayoutSizeEXT",
+    /*  473 */ "vkGetDescriptorSetLayoutSupport",
+    /*  474 */ "vkGetDescriptorSetLayoutSupportKHR",
+    /*  475 */ "vkGetDeviceAccelerationStructureCompatibilityKHR",
+    /*  476 */ "vkGetDeviceBufferMemoryRequirements",
+    /*  477 */ "vkGetDeviceBufferMemoryRequirementsKHR",
+    /*  478 */ "vkGetDeviceFaultInfoEXT",
+    /*  479 */ "vkGetDeviceGroupPeerMemoryFeatures",
+    /*  480 */ "vkGetDeviceGroupPeerMemoryFeaturesKHR",
+    /*  481 */ "vkGetDeviceGroupPresentCapabilitiesKHR",
+    /*  482 */ "vkGetDeviceGroupSurfacePresentModes2EXT",
+    /*  483 */ "vkGetDeviceGroupSurfacePresentModesKHR",
+    /*  484 */ "vkGetDeviceImageMemoryRequirements",
+    /*  485 */ "vkGetDeviceImageMemoryRequirementsKHR",
+    /*  486 */ "vkGetDeviceImageSparseMemoryRequirements",
+    /*  487 */ "vkGetDeviceImageSparseMemoryRequirementsKHR",
+    /*  488 */ "vkGetDeviceImageSubresourceLayout",
+    /*  489 */ "vkGetDeviceImageSubresourceLayoutKHR",
+    /*  490 */ "vkGetDeviceMemoryCommitment",
+    /*  491 */ "vkGetDeviceMemoryOpaqueCaptureAddress",
+    /*  492 */ "vkGetDeviceMemoryOpaqueCaptureAddressKHR",
+    /*  493 */ "vkGetDeviceMicromapCompatibilityEXT",
+    /*  494 */ "vkGetDeviceProcAddr",
+    /*  495 */ "vkGetDeviceQueue",
+    /*  496 */ "vkGetDeviceQueue2",
+    /*  497 */ "vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI",
+    /*  498 */ "vkGetDisplayModeProperties2KHR",
+    /*  499 */ "vkGetDisplayModePropertiesKHR",
+    /*  500 */ "vkGetDisplayPlaneCapabilities2KHR",
+    /*  501 */ "vkGetDisplayPlaneCapabilitiesKHR",
+    /*  502 */ "vkGetDisplayPlaneSupportedDisplaysKHR",
+    /*  503 */ "vkGetDrmDisplayEXT",
+    /*  504 */ "vkGetDynamicRenderingTilePropertiesQCOM",
+    /*  505 */ "vkGetEncodedVideoSessionParametersKHR",
+    /*  506 */ "vkGetEventStatus",
+    /*  507 */ "vkGetExecutionGraphPipelineNodeIndexAMDX",
+    /*  508 */ "vkGetExecutionGraphPipelineScratchSizeAMDX",
+    /*  509 */ "vkGetFenceFdKHR",
+    /*  510 */ "vkGetFenceStatus",
+    /*  511 */ "vkGetFenceWin32HandleKHR",
+    /*  512 */ "vkGetFramebufferTilePropertiesQCOM",
+    /*  513 */ "vkGetGeneratedCommandsMemoryRequirementsEXT",
+    /*  514 */ "vkGetGeneratedCommandsMemoryRequirementsNV",
+    /*  515 */ "vkGetImageDrmFormatModifierPropertiesEXT",
+    /*  516 */ "vkGetImageMemoryRequirements",
+    /*  517 */ "vkGetImageMemoryRequirements2",
+    /*  518 */ "vkGetImageMemoryRequirements2KHR",
+    /*  519 */ "vkGetImageOpaqueCaptureDescriptorDataEXT",
+    /*  520 */ "vkGetImageSparseMemoryRequirements",
+    /*  521 */ "vkGetImageSparseMemoryRequirements2",
+    /*  522 */ "vkGetImageSparseMemoryRequirements2KHR",
+    /*  523 */ "vkGetImageSubresourceLayout",
+    /*  524 */ "vkGetImageSubresourceLayout2",
+    /*  525 */ "vkGetImageSubresourceLayout2EXT",
+    /*  526 */ "vkGetImageSubresourceLayout2KHR",
+    /*  527 */ "vkGetImageViewAddressNVX",
+    /*  528 */ "vkGetImageViewHandle64NVX",
+    /*  529 */ "vkGetImageViewHandleNVX",
+    /*  530 */ "vkGetImageViewOpaqueCaptureDescriptorDataEXT",
+    /*  531 */ "vkGetInstanceProcAddr",
+    /*  532 */ "vkGetLatencyTimingsNV",
+    /*  533 */ "vkGetMemoryAndroidHardwareBufferANDROID",
+    /*  534 */ "vkGetMemoryFdKHR",
+    /*  535 */ "vkGetMemoryFdPropertiesKHR",
+    /*  536 */ "vkGetMemoryHostPointerPropertiesEXT",
+    /*  537 */ "vkGetMemoryMetalHandleEXT",
+    /*  538 */ "vkGetMemoryMetalHandlePropertiesEXT",
+    /*  539 */ "vkGetMemoryRemoteAddressNV",
+    /*  540 */ "vkGetMemoryWin32HandleKHR",
+    /*  541 */ "vkGetMemoryWin32HandleNV",
+    /*  542 */ "vkGetMemoryWin32HandlePropertiesKHR",
+    /*  543 */ "vkGetMemoryZirconHandleFUCHSIA",
+    /*  544 */ "vkGetMemoryZirconHandlePropertiesFUCHSIA",
+    /*  545 */ "vkGetMicromapBuildSizesEXT",
+    /*  546 */ "vkGetPartitionedAccelerationStructuresBuildSizesNV",
+    /*  547 */ "vkGetPastPresentationTimingGOOGLE",
+    /*  548 */ "vkGetPerformanceParameterINTEL",
+    /*  549 */ "vkGetPhysicalDeviceCalibrateableTimeDomainsEXT",
+    /*  550 */ "vkGetPhysicalDeviceCalibrateableTimeDomainsKHR",
+    /*  551 */ "vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV",
+    /*  552 */ "vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR",
+    /*  553 */ "vkGetPhysicalDeviceCooperativeMatrixPropertiesNV",
+    /*  554 */ "vkGetPhysicalDeviceCooperativeVectorPropertiesNV",
+    /*  555 */ "vkGetPhysicalDeviceDirectFBPresentationSupportEXT",
+    /*  556 */ "vkGetPhysicalDeviceDisplayPlaneProperties2KHR",
+    /*  557 */ "vkGetPhysicalDeviceDisplayPlanePropertiesKHR",
+    /*  558 */ "vkGetPhysicalDeviceDisplayProperties2KHR",
+    /*  559 */ "vkGetPhysicalDeviceDisplayPropertiesKHR",
+    /*  560 */ "vkGetPhysicalDeviceExternalBufferProperties",
+    /*  561 */ "vkGetPhysicalDeviceExternalBufferPropertiesKHR",
+    /*  562 */ "vkGetPhysicalDeviceExternalFenceProperties",
+    /*  563 */ "vkGetPhysicalDeviceExternalFencePropertiesKHR",
+    /*  564 */ "vkGetPhysicalDeviceExternalImageFormatPropertiesNV",
+    /*  565 */ "vkGetPhysicalDeviceExternalSemaphoreProperties",
+    /*  566 */ "vkGetPhysicalDeviceExternalSemaphorePropertiesKHR",
+    /*  567 */ "vkGetPhysicalDeviceFeatures",
+    /*  568 */ "vkGetPhysicalDeviceFeatures2",
+    /*  569 */ "vkGetPhysicalDeviceFeatures2KHR",
+    /*  570 */ "vkGetPhysicalDeviceFormatProperties",
+    /*  571 */ "vkGetPhysicalDeviceFormatProperties2",
+    /*  572 */ "vkGetPhysicalDeviceFormatProperties2KHR",
+    /*  573 */ "vkGetPhysicalDeviceFragmentShadingRatesKHR",
+    /*  574 */ "vkGetPhysicalDeviceImageFormatProperties",
+    /*  575 */ "vkGetPhysicalDeviceImageFormatProperties2",
+    /*  576 */ "vkGetPhysicalDeviceImageFormatProperties2KHR",
+    /*  577 */ "vkGetPhysicalDeviceMemoryProperties",
+    /*  578 */ "vkGetPhysicalDeviceMemoryProperties2",
+    /*  579 */ "vkGetPhysicalDeviceMemoryProperties2KHR",
+    /*  580 */ "vkGetPhysicalDeviceMultisamplePropertiesEXT",
+    /*  581 */ "vkGetPhysicalDeviceOpticalFlowImageFormatsNV",
+    /*  582 */ "vkGetPhysicalDevicePresentRectanglesKHR",
+    /*  583 */ "vkGetPhysicalDeviceProperties",
+    /*  584 */ "vkGetPhysicalDeviceProperties2",
+    /*  585 */ "vkGetPhysicalDeviceProperties2KHR",
+    /*  586 */ "vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR",
+    /*  587 */ "vkGetPhysicalDeviceQueueFamilyProperties",
+    /*  588 */ "vkGetPhysicalDeviceQueueFamilyProperties2",
+    /*  589 */ "vkGetPhysicalDeviceQueueFamilyProperties2KHR",
+    /*  590 */ "vkGetPhysicalDeviceScreenPresentationSupportQNX",
+    /*  591 */ "vkGetPhysicalDeviceSparseImageFormatProperties",
+    /*  592 */ "vkGetPhysicalDeviceSparseImageFormatProperties2",
+    /*  593 */ "vkGetPhysicalDeviceSparseImageFormatProperties2KHR",
+    /*  594 */ "vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV",
+    /*  595 */ "vkGetPhysicalDeviceSurfaceCapabilities2EXT",
+    /*  596 */ "vkGetPhysicalDeviceSurfaceCapabilities2KHR",
+    /*  597 */ "vkGetPhysicalDeviceSurfaceCapabilitiesKHR",
+    /*  598 */ "vkGetPhysicalDeviceSurfaceFormats2KHR",
+    /*  599 */ "vkGetPhysicalDeviceSurfaceFormatsKHR",
+    /*  600 */ "vkGetPhysicalDeviceSurfacePresentModes2EXT",
+    /*  601 */ "vkGetPhysicalDeviceSurfacePresentModesKHR",
+    /*  602 */ "vkGetPhysicalDeviceSurfaceSupportKHR",
+    /*  603 */ "vkGetPhysicalDeviceToolProperties",
+    /*  604 */ "vkGetPhysicalDeviceToolPropertiesEXT",
+    /*  605 */ "vkGetPhysicalDeviceVideoCapabilitiesKHR",
+    /*  606 */ "vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR",
+    /*  607 */ "vkGetPhysicalDeviceVideoFormatPropertiesKHR",
+    /*  608 */ "vkGetPhysicalDeviceWaylandPresentationSupportKHR",
+    /*  609 */ "vkGetPhysicalDeviceWin32PresentationSupportKHR",
+    /*  610 */ "vkGetPhysicalDeviceXcbPresentationSupportKHR",
+    /*  611 */ "vkGetPhysicalDeviceXlibPresentationSupportKHR",
+    /*  612 */ "vkGetPipelineBinaryDataKHR",
+    /*  613 */ "vkGetPipelineCacheData",
+    /*  614 */ "vkGetPipelineExecutableInternalRepresentationsKHR",
+    /*  615 */ "vkGetPipelineExecutablePropertiesKHR",
+    /*  616 */ "vkGetPipelineExecutableStatisticsKHR",
+    /*  617 */ "vkGetPipelineIndirectDeviceAddressNV",
+    /*  618 */ "vkGetPipelineIndirectMemoryRequirementsNV",
+    /*  619 */ "vkGetPipelineKeyKHR",
+    /*  620 */ "vkGetPipelinePropertiesEXT",
+    /*  621 */ "vkGetPrivateData",
+    /*  622 */ "vkGetPrivateDataEXT",
+    /*  623 */ "vkGetQueryPoolResults",
+    /*  624 */ "vkGetQueueCheckpointData2NV",
+    /*  625 */ "vkGetQueueCheckpointDataNV",
+    /*  626 */ "vkGetRandROutputDisplayEXT",
+    /*  627 */ "vkGetRayTracingCaptureReplayShaderGroupHandlesKHR",
+    /*  628 */ "vkGetRayTracingShaderGroupHandlesKHR",
+    /*  629 */ "vkGetRayTracingShaderGroupHandlesNV",
+    /*  630 */ "vkGetRayTracingShaderGroupStackSizeKHR",
+    /*  631 */ "vkGetRefreshCycleDurationGOOGLE",
+    /*  632 */ "vkGetRenderAreaGranularity",
+    /*  633 */ "vkGetRenderingAreaGranularity",
+    /*  634 */ "vkGetRenderingAreaGranularityKHR",
+    /*  635 */ "vkGetSamplerOpaqueCaptureDescriptorDataEXT",
+    /*  636 */ "vkGetScreenBufferPropertiesQNX",
+    /*  637 */ "vkGetSemaphoreCounterValue",
+    /*  638 */ "vkGetSemaphoreCounterValueKHR",
+    /*  639 */ "vkGetSemaphoreFdKHR",
+    /*  640 */ "vkGetSemaphoreWin32HandleKHR",
+    /*  641 */ "vkGetSemaphoreZirconHandleFUCHSIA",
+    /*  642 */ "vkGetShaderBinaryDataEXT",
+    /*  643 */ "vkGetShaderInfoAMD",
+    /*  644 */ "vkGetShaderModuleCreateInfoIdentifierEXT",
+    /*  645 */ "vkGetShaderModuleIdentifierEXT",
+    /*  646 */ "vkGetSwapchainCounterEXT",
+    /*  647 */ "vkGetSwapchainImagesKHR",
+    /*  648 */ "vkGetSwapchainStatusKHR",
+    /*  649 */ "vkGetValidationCacheDataEXT",
+    /*  650 */ "vkGetVideoSessionMemoryRequirementsKHR",
+    /*  651 */ "vkGetWinrtDisplayNV",
+    /*  652 */ "vkImportFenceFdKHR",
+    /*  653 */ "vkImportFenceWin32HandleKHR",
+    /*  654 */ "vkImportSemaphoreFdKHR",
+    /*  655 */ "vkImportSemaphoreWin32HandleKHR",
+    /*  656 */ "vkImportSemaphoreZirconHandleFUCHSIA",
+    /*  657 */ "vkInitializePerformanceApiINTEL",
+    /*  658 */ "vkInvalidateMappedMemoryRanges",
+    /*  659 */ "vkLatencySleepNV",
+    /*  660 */ "vkMapMemory",
+    /*  661 */ "vkMapMemory2",
+    /*  662 */ "vkMapMemory2KHR",
+    /*  663 */ "vkMergePipelineCaches",
+    /*  664 */ "vkMergeValidationCachesEXT",
+    /*  665 */ "vkQueueBeginDebugUtilsLabelEXT",
+    /*  666 */ "vkQueueBindSparse",
+    /*  667 */ "vkQueueEndDebugUtilsLabelEXT",
+    /*  668 */ "vkQueueInsertDebugUtilsLabelEXT",
+    /*  669 */ "vkQueueNotifyOutOfBandNV",
+    /*  670 */ "vkQueuePresentKHR",
+    /*  671 */ "vkQueueSetPerformanceConfigurationINTEL",
+    /*  672 */ "vkQueueSubmit",
+    /*  673 */ "vkQueueSubmit2",
+    /*  674 */ "vkQueueSubmit2KHR",
+    /*  675 */ "vkQueueWaitIdle",
+    /*  676 */ "vkRegisterDeviceEventEXT",
+    /*  677 */ "vkRegisterDisplayEventEXT",
+    /*  678 */ "vkReleaseCapturedPipelineDataKHR",
+    /*  679 */ "vkReleaseDisplayEXT",
+    /*  680 */ "vkReleaseFullScreenExclusiveModeEXT",
+    /*  681 */ "vkReleasePerformanceConfigurationINTEL",
+    /*  682 */ "vkReleaseProfilingLockKHR",
+    /*  683 */ "vkReleaseSwapchainImagesEXT",
+    /*  684 */ "vkResetCommandBuffer",
+    /*  685 */ "vkResetCommandPool",
+    /*  686 */ "vkResetDescriptorPool",
+    /*  687 */ "vkResetEvent",
+    /*  688 */ "vkResetFences",
+    /*  689 */ "vkResetQueryPool",
+    /*  690 */ "vkResetQueryPoolEXT",
+    /*  691 */ "vkSetBufferCollectionBufferConstraintsFUCHSIA",
+    /*  692 */ "vkSetBufferCollectionImageConstraintsFUCHSIA",
+    /*  693 */ "vkSetDebugUtilsObjectNameEXT",
+    /*  694 */ "vkSetDebugUtilsObjectTagEXT",
+    /*  695 */ "vkSetDeviceMemoryPriorityEXT",
+    /*  696 */ "vkSetEvent",
+    /*  697 */ "vkSetHdrMetadataEXT",
+    /*  698 */ "vkSetLatencyMarkerNV",
+    /*  699 */ "vkSetLatencySleepModeNV",
+    /*  700 */ "vkSetLocalDimmingAMD",
+    /*  701 */ "vkSetPrivateData",
+    /*  702 */ "vkSetPrivateDataEXT",
+    /*  703 */ "vkSignalSemaphore",
+    /*  704 */ "vkSignalSemaphoreKHR",
+    /*  705 */ "vkSubmitDebugUtilsMessageEXT",
+    /*  706 */ "vkTransitionImageLayout",
+    /*  707 */ "vkTransitionImageLayoutEXT",
+    /*  708 */ "vkTrimCommandPool",
+    /*  709 */ "vkTrimCommandPoolKHR",
+    /*  710 */ "vkUninitializePerformanceApiINTEL",
+    /*  711 */ "vkUnmapMemory",
+    /*  712 */ "vkUnmapMemory2",
+    /*  713 */ "vkUnmapMemory2KHR",
+    /*  714 */ "vkUpdateDescriptorSetWithTemplate",
+    /*  715 */ "vkUpdateDescriptorSetWithTemplateKHR",
+    /*  716 */ "vkUpdateDescriptorSets",
+    /*  717 */ "vkUpdateIndirectExecutionSetPipelineEXT",
+    /*  718 */ "vkUpdateIndirectExecutionSetShaderEXT",
+    /*  719 */ "vkUpdateVideoSessionParametersKHR",
+    /*  720 */ "vkWaitForFences",
+    /*  721 */ "vkWaitForPresentKHR",
+    /*  722 */ "vkWaitSemaphores",
+    /*  723 */ "vkWaitSemaphoresKHR",
+    /*  724 */ "vkWriteAccelerationStructuresPropertiesKHR",
+    /*  725 */ "vkWriteMicromapsPropertiesEXT"
 };
 
 static uint64_t GLAD_Vulkan_ext_hashes[] = {
@@ -885,324 +894,330 @@ static uint64_t GLAD_Vulkan_ext_hashes[] = {
     /*   70 */ 0x204d4d8537dc240c, /* VK_EXT_external_memory_acquire_unmodified */
     /*   71 */ 0xfbe83be92d0dc3e1, /* VK_EXT_external_memory_dma_buf */
     /*   72 */ 0xe730e90349447245, /* VK_EXT_external_memory_host */
-    /*   73 */ 0x2ff4c771bf02a660, /* VK_EXT_filter_cubic */
-    /*   74 */ 0xdd63dbab93498a89, /* VK_EXT_fragment_density_map */
-    /*   75 */ 0x639aaec72634d6cc, /* VK_EXT_fragment_density_map2 */
-    /*   76 */ 0xec38db4912e9aa39, /* VK_EXT_fragment_shader_interlock */
-    /*   77 */ 0x4bed293561f471c5, /* VK_EXT_frame_boundary */
-    /*   78 */ 0xf888a39f24346db4, /* VK_EXT_full_screen_exclusive */
-    /*   79 */ 0x026fba6d706537f5, /* VK_EXT_global_priority */
-    /*   80 */ 0x49240b90779ad742, /* VK_EXT_global_priority_query */
-    /*   81 */ 0xe612048b33a20737, /* VK_EXT_graphics_pipeline_library */
-    /*   82 */ 0xd140703366300180, /* VK_EXT_hdr_metadata */
-    /*   83 */ 0xfc97df8c7f5cb62e, /* VK_EXT_headless_surface */
-    /*   84 */ 0x15c6d3b4db750060, /* VK_EXT_host_image_copy */
-    /*   85 */ 0xcc9a1964d5f92ead, /* VK_EXT_host_query_reset */
-    /*   86 */ 0x992053b93ca7369a, /* VK_EXT_image_2d_view_of_3d */
-    /*   87 */ 0xac673544b231a330, /* VK_EXT_image_compression_control */
-    /*   88 */ 0xfc267e5b08be3c88, /* VK_EXT_image_compression_control_swapchain */
-    /*   89 */ 0x5d78e7153c62776c, /* VK_EXT_image_drm_format_modifier */
-    /*   90 */ 0xe918548d9d09bdf5, /* VK_EXT_image_robustness */
-    /*   91 */ 0x10ea5ce8b7b462c6, /* VK_EXT_image_sliced_view_of_3d */
-    /*   92 */ 0x5d125c6144d30072, /* VK_EXT_image_view_min_lod */
-    /*   93 */ 0x66bb737b7652d71d, /* VK_EXT_index_type_uint8 */
-    /*   94 */ 0x59f61f1cc23145ee, /* VK_EXT_inline_uniform_block */
-    /*   95 */ 0x9ba2edc52691fc07, /* VK_EXT_layer_settings */
-    /*   96 */ 0xa45ec0ff789f2882, /* VK_EXT_legacy_dithering */
-    /*   97 */ 0x93eebd73e097d983, /* VK_EXT_legacy_vertex_attributes */
-    /*   98 */ 0x98daf38a4cd796bc, /* VK_EXT_line_rasterization */
-    /*   99 */ 0xca3cb4186d57fa40, /* VK_EXT_load_store_op_none */
-    /*  100 */ 0xc92882ba73a7ad8a, /* VK_EXT_map_memory_placed */
-    /*  101 */ 0xa642b55c0f467f26, /* VK_EXT_memory_budget */
-    /*  102 */ 0xdf03e1a0a38154d2, /* VK_EXT_memory_priority */
-    /*  103 */ 0x38a2a90e0a820189, /* VK_EXT_mesh_shader */
-    /*  104 */ 0x6bcff1cd8cf418f2, /* VK_EXT_metal_objects */
-    /*  105 */ 0x60fc707b7c19679c, /* VK_EXT_metal_surface */
-    /*  106 */ 0x60ca462964877ba5, /* VK_EXT_multi_draw */
-    /*  107 */ 0x60c608294e99436f, /* VK_EXT_multisampled_render_to_single_sampled */
-    /*  108 */ 0x333da01be07c65e4, /* VK_EXT_mutable_descriptor_type */
-    /*  109 */ 0x4f43f294a30fc75d, /* VK_EXT_nested_command_buffer */
-    /*  110 */ 0x6cf77b70db09b037, /* VK_EXT_non_seamless_cube_map */
-    /*  111 */ 0xb5bdb97dc49555ef, /* VK_EXT_opacity_micromap */
-    /*  112 */ 0x74062e5990db1eeb, /* VK_EXT_pageable_device_local_memory */
-    /*  113 */ 0xe60ea5fa872ffa4b, /* VK_EXT_pci_bus_info */
-    /*  114 */ 0x087b96c0fac7f2e9, /* VK_EXT_physical_device_drm */
-    /*  115 */ 0xae186881e629f533, /* VK_EXT_pipeline_creation_cache_control */
-    /*  116 */ 0xd5ed321620183ae4, /* VK_EXT_pipeline_creation_feedback */
-    /*  117 */ 0xf2497807f1195d03, /* VK_EXT_pipeline_library_group_handles */
-    /*  118 */ 0x97816799b0ea2a08, /* VK_EXT_pipeline_properties */
-    /*  119 */ 0x0bec2c70abec6edf, /* VK_EXT_pipeline_protected_access */
-    /*  120 */ 0x3726d3c286b23305, /* VK_EXT_pipeline_robustness */
-    /*  121 */ 0x578e2a9cdc320baa, /* VK_EXT_post_depth_coverage */
-    /*  122 */ 0xdad3977856dd3ce4, /* VK_EXT_present_mode_fifo_latest_ready */
-    /*  123 */ 0x4792bf3539da07a0, /* VK_EXT_primitive_topology_list_restart */
-    /*  124 */ 0x4de3fc9eb140d3c9, /* VK_EXT_primitives_generated_query */
-    /*  125 */ 0x66832604ff1fb25a, /* VK_EXT_private_data */
-    /*  126 */ 0x3632448643e01277, /* VK_EXT_provoking_vertex */
-    /*  127 */ 0xc3a80f57bc34acf0, /* VK_EXT_queue_family_foreign */
-    /*  128 */ 0x9c47749ad3103e99, /* VK_EXT_rasterization_order_attachment_access */
-    /*  129 */ 0xe3b61ff718cac048, /* VK_EXT_rgba10x6_formats */
-    /*  130 */ 0x267337703fbb9802, /* VK_EXT_robustness2 */
-    /*  131 */ 0xa2f0c46d62bffbbd, /* VK_EXT_sample_locations */
-    /*  132 */ 0x35bc8d45855c9ddd, /* VK_EXT_sampler_filter_minmax */
-    /*  133 */ 0x0fe7c2504b67f76e, /* VK_EXT_scalar_block_layout */
-    /*  134 */ 0x21c315365bdd91c1, /* VK_EXT_separate_stencil_usage */
-    /*  135 */ 0x39152af17d406387, /* VK_EXT_shader_atomic_float */
-    /*  136 */ 0xfa5bf73b09f1814a, /* VK_EXT_shader_atomic_float2 */
-    /*  137 */ 0x1313743aff740ea6, /* VK_EXT_shader_demote_to_helper_invocation */
-    /*  138 */ 0xdbd208469e466661, /* VK_EXT_shader_image_atomic_int64 */
-    /*  139 */ 0x0fdb11284e798630, /* VK_EXT_shader_module_identifier */
-    /*  140 */ 0x01d57626cc2cb88b, /* VK_EXT_shader_object */
-    /*  141 */ 0xd98565c5e8cff707, /* VK_EXT_shader_replicated_composites */
-    /*  142 */ 0x1d5f02c289908dc6, /* VK_EXT_shader_stencil_export */
-    /*  143 */ 0x3434e0e3856c3974, /* VK_EXT_shader_subgroup_ballot */
-    /*  144 */ 0x414fe291cad1b8c2, /* VK_EXT_shader_subgroup_vote */
-    /*  145 */ 0x15c81e1e3330c87a, /* VK_EXT_shader_tile_image */
-    /*  146 */ 0x3ab7ae29a67149aa, /* VK_EXT_shader_viewport_index_layer */
-    /*  147 */ 0xf8847bcd6077bcfc, /* VK_EXT_subgroup_size_control */
-    /*  148 */ 0xc0a98929a3b5a629, /* VK_EXT_subpass_merge_feedback */
-    /*  149 */ 0x745c764090230a6a, /* VK_EXT_surface_maintenance1 */
-    /*  150 */ 0xaf7db52f12522284, /* VK_EXT_swapchain_colorspace */
-    /*  151 */ 0xb8a530fd9b6e7826, /* VK_EXT_swapchain_maintenance1 */
-    /*  152 */ 0x93820a855076e9ba, /* VK_EXT_texel_buffer_alignment */
-    /*  153 */ 0xd54a2906947894c3, /* VK_EXT_texture_compression_astc_hdr */
-    /*  154 */ 0xa176a37fe21bf722, /* VK_EXT_tooling_info */
-    /*  155 */ 0x2c77e64693cba64b, /* VK_EXT_transform_feedback */
-    /*  156 */ 0xd43b5b3257938a0c, /* VK_EXT_validation_cache */
-    /*  157 */ 0x32e3bcc79655ff35, /* VK_EXT_validation_features */
-    /*  158 */ 0x5dbef52d8325ef00, /* VK_EXT_validation_flags */
-    /*  159 */ 0x41bd31eed71de48d, /* VK_EXT_vertex_attribute_divisor */
-    /*  160 */ 0x384a29f8cf6d87bf, /* VK_EXT_vertex_attribute_robustness */
-    /*  161 */ 0xdba593667f2b15d8, /* VK_EXT_vertex_input_dynamic_state */
-    /*  162 */ 0xdc68cb4b50c6a206, /* VK_EXT_ycbcr_2plane_444_formats */
-    /*  163 */ 0x7f0e4b169ce6683e, /* VK_EXT_ycbcr_image_arrays */
-    /*  164 */ 0x4ad21727cd459ae0, /* VK_FUCHSIA_buffer_collection */
-    /*  165 */ 0x39a61a1dde950a7e, /* VK_FUCHSIA_external_memory */
-    /*  166 */ 0xf64c61e8709735f7, /* VK_FUCHSIA_external_semaphore */
-    /*  167 */ 0x78bbdf52d016b408, /* VK_FUCHSIA_imagepipe_surface */
-    /*  168 */ 0x7f2da9be6e1b04db, /* VK_GGP_frame_token */
-    /*  169 */ 0xcd04d110dd619891, /* VK_GGP_stream_descriptor_surface */
-    /*  170 */ 0x66d124637ca67c9b, /* VK_GOOGLE_decorate_string */
-    /*  171 */ 0xd317975f41d1a234, /* VK_GOOGLE_display_timing */
-    /*  172 */ 0x434a8c02c305c9d2, /* VK_GOOGLE_hlsl_functionality1 */
-    /*  173 */ 0xdb384c83fb23b324, /* VK_GOOGLE_surfaceless_query */
-    /*  174 */ 0x8ea5be2adce92628, /* VK_GOOGLE_user_type */
-    /*  175 */ 0x1251619c17f44f75, /* VK_HUAWEI_cluster_culling_shader */
-    /*  176 */ 0x734dc9a82ce2a812, /* VK_HUAWEI_hdr_vivid */
-    /*  177 */ 0x23cb6d9b631ae3de, /* VK_HUAWEI_invocation_mask */
-    /*  178 */ 0x7a080c6eb36cfa62, /* VK_HUAWEI_subpass_shading */
-    /*  179 */ 0xc831730562583c7f, /* VK_IMG_filter_cubic */
-    /*  180 */ 0x2770027508eb9598, /* VK_IMG_format_pvrtc */
-    /*  181 */ 0xb0257135e659f035, /* VK_IMG_relaxed_line_rasterization */
-    /*  182 */ 0xde48a4b9c28f1a76, /* VK_INTEL_performance_query */
-    /*  183 */ 0x1cdbef97960a8e84, /* VK_INTEL_shader_integer_functions2 */
-    /*  184 */ 0x8febc131b31f03a7, /* VK_KHR_16bit_storage */
-    /*  185 */ 0xfc675d0c9be11933, /* VK_KHR_8bit_storage */
-    /*  186 */ 0xfd487833d05a912e, /* VK_KHR_acceleration_structure */
-    /*  187 */ 0x29df4e2582c4e5eb, /* VK_KHR_android_surface */
-    /*  188 */ 0xc441ac340c33f00e, /* VK_KHR_bind_memory2 */
-    /*  189 */ 0xed3998734610578e, /* VK_KHR_buffer_device_address */
-    /*  190 */ 0xf6b15d82867a4cc7, /* VK_KHR_calibrated_timestamps */
-    /*  191 */ 0x0afe9b38bfc3ce2c, /* VK_KHR_compute_shader_derivatives */
-    /*  192 */ 0x2349bf032cef96df, /* VK_KHR_cooperative_matrix */
-    /*  193 */ 0x8037af99654ff021, /* VK_KHR_copy_commands2 */
-    /*  194 */ 0x45e78547df004126, /* VK_KHR_create_renderpass2 */
-    /*  195 */ 0x78b51eb267ba222a, /* VK_KHR_dedicated_allocation */
-    /*  196 */ 0x94de08b35a6241ca, /* VK_KHR_deferred_host_operations */
-    /*  197 */ 0xc379ca87fcbfe646, /* VK_KHR_depth_clamp_zero_one */
-    /*  198 */ 0x8c49a14f4e053827, /* VK_KHR_depth_stencil_resolve */
-    /*  199 */ 0xd0e490f381b744be, /* VK_KHR_descriptor_update_template */
-    /*  200 */ 0xc6ca78c5b314bc87, /* VK_KHR_device_group */
-    /*  201 */ 0x8585cbd14f1c0cac, /* VK_KHR_device_group_creation */
-    /*  202 */ 0x2859d74f3639d0b1, /* VK_KHR_display */
-    /*  203 */ 0xe6851c4675917263, /* VK_KHR_display_swapchain */
-    /*  204 */ 0x0337556153ae8299, /* VK_KHR_draw_indirect_count */
-    /*  205 */ 0x2fa1beee71b55c4a, /* VK_KHR_driver_properties */
-    /*  206 */ 0xcec518255e3db5bd, /* VK_KHR_dynamic_rendering */
-    /*  207 */ 0x3aff0fddef25484a, /* VK_KHR_dynamic_rendering_local_read */
-    /*  208 */ 0x042831872b90006c, /* VK_KHR_external_fence */
-    /*  209 */ 0x5f78dae679457682, /* VK_KHR_external_fence_capabilities */
-    /*  210 */ 0xcd3a8c2ddf5addf6, /* VK_KHR_external_fence_fd */
-    /*  211 */ 0x4c03e948c552a900, /* VK_KHR_external_fence_win32 */
-    /*  212 */ 0x87d94faee5024129, /* VK_KHR_external_memory */
-    /*  213 */ 0x3f3f36a8f61bdd88, /* VK_KHR_external_memory_capabilities */
-    /*  214 */ 0x552d385fc1022139, /* VK_KHR_external_memory_fd */
-    /*  215 */ 0x92cd58bc47a696d9, /* VK_KHR_external_memory_win32 */
-    /*  216 */ 0x7e7e947a025884c1, /* VK_KHR_external_semaphore */
-    /*  217 */ 0xb7268870e382881b, /* VK_KHR_external_semaphore_capabilities */
-    /*  218 */ 0x089c9b49df8b6f1e, /* VK_KHR_external_semaphore_fd */
-    /*  219 */ 0x014c9621dbd33d31, /* VK_KHR_external_semaphore_win32 */
-    /*  220 */ 0x9310a82971542c4a, /* VK_KHR_format_feature_flags2 */
-    /*  221 */ 0x2aedf5bc87e7dd6d, /* VK_KHR_fragment_shader_barycentric */
-    /*  222 */ 0x8496cee01f4fa6d5, /* VK_KHR_fragment_shading_rate */
-    /*  223 */ 0x6c023bc9dc523d46, /* VK_KHR_get_display_properties2 */
-    /*  224 */ 0x9eb7bb6c3705f946, /* VK_KHR_get_memory_requirements2 */
-    /*  225 */ 0x7685eeed9cac9798, /* VK_KHR_get_physical_device_properties2 */
-    /*  226 */ 0x9b0fbb8eeee0e74b, /* VK_KHR_get_surface_capabilities2 */
-    /*  227 */ 0x0bb91b137617fbef, /* VK_KHR_global_priority */
-    /*  228 */ 0xfb7c493b280e7035, /* VK_KHR_image_format_list */
-    /*  229 */ 0x6ba09c8a87af68ce, /* VK_KHR_imageless_framebuffer */
-    /*  230 */ 0x76a0d6d17ae91b81, /* VK_KHR_incremental_present */
-    /*  231 */ 0x3dde8d8eb0b76315, /* VK_KHR_index_type_uint8 */
-    /*  232 */ 0x7928ca2523362ef3, /* VK_KHR_line_rasterization */
-    /*  233 */ 0xc8692b97cfbe45ad, /* VK_KHR_load_store_op_none */
-    /*  234 */ 0xe3c8335cc1581a67, /* VK_KHR_maintenance1 */
-    /*  235 */ 0x8ffe792f51cd1450, /* VK_KHR_maintenance2 */
-    /*  236 */ 0xea219cc76502a8af, /* VK_KHR_maintenance3 */
-    /*  237 */ 0xa66e463f036dae4a, /* VK_KHR_maintenance4 */
-    /*  238 */ 0xc5e86b535cee6698, /* VK_KHR_maintenance5 */
-    /*  239 */ 0xf60b7de240a15ab4, /* VK_KHR_maintenance6 */
-    /*  240 */ 0x3d59040ce3c13f21, /* VK_KHR_maintenance7 */
-    /*  241 */ 0xb6892d36c521b488, /* VK_KHR_maintenance8 */
-    /*  242 */ 0x64d252cf56a64add, /* VK_KHR_map_memory2 */
-    /*  243 */ 0x5af12378bc6d7169, /* VK_KHR_multiview */
-    /*  244 */ 0x1bb74dfe8d7e0b31, /* VK_KHR_performance_query */
-    /*  245 */ 0x935d834a6c18d3ed, /* VK_KHR_pipeline_binary */
-    /*  246 */ 0x91248c6b162c4180, /* VK_KHR_pipeline_executable_properties */
-    /*  247 */ 0x039c65d87fb09ca9, /* VK_KHR_pipeline_library */
-    /*  248 */ 0x28644eeb112058b6, /* VK_KHR_portability_enumeration */
-    /*  249 */ 0xac06576b97f9486a, /* VK_KHR_portability_subset */
-    /*  250 */ 0xe82e301141092b1e, /* VK_KHR_present_id */
-    /*  251 */ 0x47954f24ddf5185e, /* VK_KHR_present_wait */
-    /*  252 */ 0x2123bacd888c07ec, /* VK_KHR_push_descriptor */
-    /*  253 */ 0x8bf873804879f2cf, /* VK_KHR_ray_query */
-    /*  254 */ 0x9df3df162357e4b0, /* VK_KHR_ray_tracing_maintenance1 */
-    /*  255 */ 0xaef707cb154a81af, /* VK_KHR_ray_tracing_pipeline */
-    /*  256 */ 0x697f77ef7ba14203, /* VK_KHR_ray_tracing_position_fetch */
-    /*  257 */ 0x4b17e19fd947a1d3, /* VK_KHR_relaxed_block_layout */
-    /*  258 */ 0x5d5e936103817cda, /* VK_KHR_sampler_mirror_clamp_to_edge */
-    /*  259 */ 0x22004cfa79ba7177, /* VK_KHR_sampler_ycbcr_conversion */
-    /*  260 */ 0xba2c0ae86fd11630, /* VK_KHR_separate_depth_stencil_layouts */
-    /*  261 */ 0xb16f5fd69d97f3a1, /* VK_KHR_shader_atomic_int64 */
-    /*  262 */ 0xeee9708671fa7c77, /* VK_KHR_shader_clock */
-    /*  263 */ 0xb35fc4bdb32f3d81, /* VK_KHR_shader_draw_parameters */
-    /*  264 */ 0xab0eda6676f1fd31, /* VK_KHR_shader_expect_assume */
-    /*  265 */ 0x4dad563cb513c7c9, /* VK_KHR_shader_float16_int8 */
-    /*  266 */ 0x548b20a76c855b46, /* VK_KHR_shader_float_controls */
-    /*  267 */ 0xa1150eef92f851e8, /* VK_KHR_shader_float_controls2 */
-    /*  268 */ 0x9d14cd5379daf7cb, /* VK_KHR_shader_integer_dot_product */
-    /*  269 */ 0x42aefa5598fde4ab, /* VK_KHR_shader_maximal_reconvergence */
-    /*  270 */ 0xb38332d7467f8474, /* VK_KHR_shader_non_semantic_info */
-    /*  271 */ 0xab3f0af6d5504bf4, /* VK_KHR_shader_quad_control */
-    /*  272 */ 0x1bdfe042874be24f, /* VK_KHR_shader_relaxed_extended_instruction */
-    /*  273 */ 0xcda588b0d067d48f, /* VK_KHR_shader_subgroup_extended_types */
-    /*  274 */ 0xd0836c7a4d04b579, /* VK_KHR_shader_subgroup_rotate */
-    /*  275 */ 0x64fbf5bc74afe199, /* VK_KHR_shader_subgroup_uniform_control_flow */
-    /*  276 */ 0x6e5fde40560b40a9, /* VK_KHR_shader_terminate_invocation */
-    /*  277 */ 0x7e6871b03dee137b, /* VK_KHR_shared_presentable_image */
-    /*  278 */ 0x06c03c1c3db9815d, /* VK_KHR_spirv_1_4 */
-    /*  279 */ 0x743f86c26df32ea2, /* VK_KHR_storage_buffer_storage_class */
-    /*  280 */ 0x2c4f009293a35548, /* VK_KHR_surface */
-    /*  281 */ 0xa8506d9aef558591, /* VK_KHR_surface_protected_capabilities */
-    /*  282 */ 0x6cefabf4c944ccec, /* VK_KHR_swapchain */
-    /*  283 */ 0x2149e839e759e400, /* VK_KHR_swapchain_mutable_format */
-    /*  284 */ 0xf1cfa2ea69e6ec0e, /* VK_KHR_synchronization2 */
-    /*  285 */ 0x61ed378f50459bf2, /* VK_KHR_timeline_semaphore */
-    /*  286 */ 0x3334ed809879d360, /* VK_KHR_uniform_buffer_standard_layout */
-    /*  287 */ 0x6146df22dcb09470, /* VK_KHR_variable_pointers */
-    /*  288 */ 0xcfd1e6704e4a4227, /* VK_KHR_vertex_attribute_divisor */
-    /*  289 */ 0x4ccc16568a9a2944, /* VK_KHR_video_decode_av1 */
-    /*  290 */ 0x0093b60d00888052, /* VK_KHR_video_decode_h264 */
-    /*  291 */ 0x4116f6bec0017e79, /* VK_KHR_video_decode_h265 */
-    /*  292 */ 0x363dac5e35a2f1ee, /* VK_KHR_video_decode_queue */
-    /*  293 */ 0x35e683e888a7a54c, /* VK_KHR_video_encode_av1 */
-    /*  294 */ 0xa77247c5899dc785, /* VK_KHR_video_encode_h264 */
-    /*  295 */ 0x8b86366e33c748ee, /* VK_KHR_video_encode_h265 */
-    /*  296 */ 0x3f1a8c895b8e8deb, /* VK_KHR_video_encode_quantization_map */
-    /*  297 */ 0xdda14264a3bda234, /* VK_KHR_video_encode_queue */
-    /*  298 */ 0x9fb8181989e29256, /* VK_KHR_video_maintenance1 */
-    /*  299 */ 0xc3d1c9b40515a6a4, /* VK_KHR_video_queue */
-    /*  300 */ 0x34899ec7a7b17614, /* VK_KHR_vulkan_memory_model */
-    /*  301 */ 0x906fcab3e0d202a5, /* VK_KHR_wayland_surface */
-    /*  302 */ 0x19d48609837c8701, /* VK_KHR_win32_keyed_mutex */
-    /*  303 */ 0xc93557e7cef43233, /* VK_KHR_win32_surface */
-    /*  304 */ 0x75ee32f09cdd8db9, /* VK_KHR_workgroup_memory_explicit_layout */
-    /*  305 */ 0x32a481baaa637e2c, /* VK_KHR_xcb_surface */
-    /*  306 */ 0x863c0e309551346e, /* VK_KHR_xlib_surface */
-    /*  307 */ 0x58d24a21f116065b, /* VK_KHR_zero_initialize_workgroup_memory */
-    /*  308 */ 0x5615881540a7f6d8, /* VK_LUNARG_direct_driver_loading */
-    /*  309 */ 0x6f8fb9c8b46fc189, /* VK_MESA_image_alignment_control */
-    /*  310 */ 0xc1c930637836bf44, /* VK_MSFT_layered_driver */
-    /*  311 */ 0x489cf2a16640d39e, /* VK_MVK_ios_surface */
-    /*  312 */ 0x3274c65edf45286c, /* VK_MVK_macos_surface */
-    /*  313 */ 0x53643314731ac57a, /* VK_NN_vi_surface */
-    /*  314 */ 0x5bf53745255ccc0e, /* VK_NVX_binary_import */
-    /*  315 */ 0x20b59934a97efd1c, /* VK_NVX_image_view_handle */
-    /*  316 */ 0x112ee8733e2b22b3, /* VK_NVX_multiview_per_view_attributes */
-    /*  317 */ 0x71fe862eee072b1e, /* VK_NV_acquire_winrt_display */
-    /*  318 */ 0x9217a69de789d3fe, /* VK_NV_clip_space_w_scaling */
-    /*  319 */ 0xad1ba91484f69ca3, /* VK_NV_command_buffer_inheritance */
-    /*  320 */ 0x21d19e30b520bdd6, /* VK_NV_compute_shader_derivatives */
-    /*  321 */ 0x069e842b3b51cefb, /* VK_NV_cooperative_matrix */
-    /*  322 */ 0xfecfd80519026209, /* VK_NV_cooperative_matrix2 */
-    /*  323 */ 0xce889f8d6b40e84f, /* VK_NV_copy_memory_indirect */
-    /*  324 */ 0xed85b1ac0329a8cd, /* VK_NV_corner_sampled_image */
-    /*  325 */ 0x81b617790445f852, /* VK_NV_coverage_reduction_mode */
-    /*  326 */ 0x3644690c3bd14289, /* VK_NV_cuda_kernel_launch */
-    /*  327 */ 0xbb81f8243fcc7db5, /* VK_NV_dedicated_allocation */
-    /*  328 */ 0x00ce18bba106c2ad, /* VK_NV_dedicated_allocation_image_aliasing */
-    /*  329 */ 0x23bcacd889bea60c, /* VK_NV_descriptor_pool_overallocation */
-    /*  330 */ 0xf03dfd81ad17796f, /* VK_NV_device_diagnostic_checkpoints */
-    /*  331 */ 0xc8050fbd31afc5b5, /* VK_NV_device_diagnostics_config */
-    /*  332 */ 0xee7bfcd5523cff09, /* VK_NV_device_generated_commands */
-    /*  333 */ 0x2ff0ded4f3f040e9, /* VK_NV_device_generated_commands_compute */
-    /*  334 */ 0xc07b5e2a89ddc607, /* VK_NV_displacement_micromap */
-    /*  335 */ 0x5138c2f68bcb3608, /* VK_NV_display_stereo */
-    /*  336 */ 0xb2344e462fd9ef1b, /* VK_NV_extended_sparse_address_space */
-    /*  337 */ 0xab0f59a00375b1ec, /* VK_NV_external_memory */
-    /*  338 */ 0x518148eb9166b4b9, /* VK_NV_external_memory_capabilities */
-    /*  339 */ 0x3c96386b301a3cdc, /* VK_NV_external_memory_rdma */
-    /*  340 */ 0xcf69c3e7cbd068e4, /* VK_NV_external_memory_win32 */
-    /*  341 */ 0xdf9a65a432a12606, /* VK_NV_fill_rectangle */
-    /*  342 */ 0x9a6fda1e2f4f9096, /* VK_NV_fragment_coverage_to_color */
-    /*  343 */ 0xc294d55a56858fb6, /* VK_NV_fragment_shader_barycentric */
-    /*  344 */ 0x2ece12f465807058, /* VK_NV_fragment_shading_rate_enums */
-    /*  345 */ 0x4caba51b111c61b9, /* VK_NV_framebuffer_mixed_samples */
-    /*  346 */ 0xe0c4918343f3874c, /* VK_NV_geometry_shader_passthrough */
-    /*  347 */ 0xd659873b3f6bc024, /* VK_NV_glsl_shader */
-    /*  348 */ 0xe39346d87fc9aa45, /* VK_NV_inherited_viewport_scissor */
-    /*  349 */ 0x52fcc4c2d713dad4, /* VK_NV_linear_color_attachment */
-    /*  350 */ 0xb58daf9c015becf7, /* VK_NV_low_latency */
-    /*  351 */ 0xa9eb852dfd7a1ece, /* VK_NV_low_latency2 */
-    /*  352 */ 0x6c878fdbf1e4a7fb, /* VK_NV_memory_decompression */
-    /*  353 */ 0x7401a89f84bc926b, /* VK_NV_mesh_shader */
-    /*  354 */ 0x929112526891454e, /* VK_NV_optical_flow */
-    /*  355 */ 0x5e0416a20f89c9f4, /* VK_NV_per_stage_descriptor_set */
-    /*  356 */ 0x48102b2d563a8028, /* VK_NV_present_barrier */
-    /*  357 */ 0xc20950e0cbc5bdc0, /* VK_NV_raw_access_chains */
-    /*  358 */ 0x3d4e9e0bb54735fe, /* VK_NV_ray_tracing */
-    /*  359 */ 0xe12f14699c6db9db, /* VK_NV_ray_tracing_invocation_reorder */
-    /*  360 */ 0xba4184e5104338cb, /* VK_NV_ray_tracing_motion_blur */
-    /*  361 */ 0x451532c42bd881b2, /* VK_NV_ray_tracing_validation */
-    /*  362 */ 0x92ccabdfa0a3d6e4, /* VK_NV_representative_fragment_test */
-    /*  363 */ 0xc4d99252b7b7843f, /* VK_NV_sample_mask_override_coverage */
-    /*  364 */ 0xd4d2cda699fc74ae, /* VK_NV_scissor_exclusive */
-    /*  365 */ 0xb8974b1af4c34b58, /* VK_NV_shader_atomic_float16_vector */
-    /*  366 */ 0x52f9f98f09f18085, /* VK_NV_shader_image_footprint */
-    /*  367 */ 0xc394473a75e21d7c, /* VK_NV_shader_sm_builtins */
-    /*  368 */ 0x5b6c5e76d8a8364e, /* VK_NV_shader_subgroup_partitioned */
-    /*  369 */ 0xcac204d487e563d3, /* VK_NV_shading_rate_image */
-    /*  370 */ 0xfc6e35d06ddf634e, /* VK_NV_viewport_array2 */
-    /*  371 */ 0x7748ea26eecd7e90, /* VK_NV_viewport_swizzle */
-    /*  372 */ 0x7e4ac6b10102b887, /* VK_NV_win32_keyed_mutex */
-    /*  373 */ 0x5c76ad884426c86c, /* VK_QCOM_filter_cubic_clamp */
-    /*  374 */ 0xc7386bbfd1b9b423, /* VK_QCOM_filter_cubic_weights */
-    /*  375 */ 0xff445069da66b635, /* VK_QCOM_fragment_density_map_offset */
-    /*  376 */ 0xa6cab4106375cdfa, /* VK_QCOM_image_processing */
-    /*  377 */ 0xa4a1ae34c2527a4a, /* VK_QCOM_image_processing2 */
-    /*  378 */ 0xbff750af2234e2ce, /* VK_QCOM_multiview_per_view_render_areas */
-    /*  379 */ 0x876a51c6df08420a, /* VK_QCOM_multiview_per_view_viewports */
-    /*  380 */ 0xa3b4fc40f185c799, /* VK_QCOM_render_pass_shader_resolve */
-    /*  381 */ 0x9b5c2a0bc41e00cd, /* VK_QCOM_render_pass_store_ops */
-    /*  382 */ 0x8d33cd618c723019, /* VK_QCOM_render_pass_transform */
-    /*  383 */ 0xd5a3f971e2e8b5c9, /* VK_QCOM_rotated_copy_commands */
-    /*  384 */ 0xc37b456dbdf5565f, /* VK_QCOM_tile_properties */
-    /*  385 */ 0x49bfbd9f92e0b029, /* VK_QCOM_ycbcr_degamma */
-    /*  386 */ 0xc2e6f6dcc7614ace, /* VK_QNX_external_memory_screen_buffer */
-    /*  387 */ 0x236bd86b3b17cf06, /* VK_QNX_screen_surface */
-    /*  388 */ 0xe6fed416ddebf8d0, /* VK_SEC_amigo_profiling */
-    /*  389 */ 0x45542cac22bd41a7, /* VK_VALVE_descriptor_set_host_mapping */
-    /*  390 */ 0x38c73d4ab66a4942  /* VK_VALVE_mutable_descriptor_type */
+    /*   73 */ 0xbb6a5bdb9f4339b2, /* VK_EXT_external_memory_metal */
+    /*   74 */ 0x2ff4c771bf02a660, /* VK_EXT_filter_cubic */
+    /*   75 */ 0xdd63dbab93498a89, /* VK_EXT_fragment_density_map */
+    /*   76 */ 0x639aaec72634d6cc, /* VK_EXT_fragment_density_map2 */
+    /*   77 */ 0xec38db4912e9aa39, /* VK_EXT_fragment_shader_interlock */
+    /*   78 */ 0x4bed293561f471c5, /* VK_EXT_frame_boundary */
+    /*   79 */ 0xf888a39f24346db4, /* VK_EXT_full_screen_exclusive */
+    /*   80 */ 0x026fba6d706537f5, /* VK_EXT_global_priority */
+    /*   81 */ 0x49240b90779ad742, /* VK_EXT_global_priority_query */
+    /*   82 */ 0xe612048b33a20737, /* VK_EXT_graphics_pipeline_library */
+    /*   83 */ 0xd140703366300180, /* VK_EXT_hdr_metadata */
+    /*   84 */ 0xfc97df8c7f5cb62e, /* VK_EXT_headless_surface */
+    /*   85 */ 0x15c6d3b4db750060, /* VK_EXT_host_image_copy */
+    /*   86 */ 0xcc9a1964d5f92ead, /* VK_EXT_host_query_reset */
+    /*   87 */ 0x992053b93ca7369a, /* VK_EXT_image_2d_view_of_3d */
+    /*   88 */ 0xac673544b231a330, /* VK_EXT_image_compression_control */
+    /*   89 */ 0xfc267e5b08be3c88, /* VK_EXT_image_compression_control_swapchain */
+    /*   90 */ 0x5d78e7153c62776c, /* VK_EXT_image_drm_format_modifier */
+    /*   91 */ 0xe918548d9d09bdf5, /* VK_EXT_image_robustness */
+    /*   92 */ 0x10ea5ce8b7b462c6, /* VK_EXT_image_sliced_view_of_3d */
+    /*   93 */ 0x5d125c6144d30072, /* VK_EXT_image_view_min_lod */
+    /*   94 */ 0x66bb737b7652d71d, /* VK_EXT_index_type_uint8 */
+    /*   95 */ 0x59f61f1cc23145ee, /* VK_EXT_inline_uniform_block */
+    /*   96 */ 0x9ba2edc52691fc07, /* VK_EXT_layer_settings */
+    /*   97 */ 0xa45ec0ff789f2882, /* VK_EXT_legacy_dithering */
+    /*   98 */ 0x93eebd73e097d983, /* VK_EXT_legacy_vertex_attributes */
+    /*   99 */ 0x98daf38a4cd796bc, /* VK_EXT_line_rasterization */
+    /*  100 */ 0xca3cb4186d57fa40, /* VK_EXT_load_store_op_none */
+    /*  101 */ 0xc92882ba73a7ad8a, /* VK_EXT_map_memory_placed */
+    /*  102 */ 0xa642b55c0f467f26, /* VK_EXT_memory_budget */
+    /*  103 */ 0xdf03e1a0a38154d2, /* VK_EXT_memory_priority */
+    /*  104 */ 0x38a2a90e0a820189, /* VK_EXT_mesh_shader */
+    /*  105 */ 0x6bcff1cd8cf418f2, /* VK_EXT_metal_objects */
+    /*  106 */ 0x60fc707b7c19679c, /* VK_EXT_metal_surface */
+    /*  107 */ 0x60ca462964877ba5, /* VK_EXT_multi_draw */
+    /*  108 */ 0x60c608294e99436f, /* VK_EXT_multisampled_render_to_single_sampled */
+    /*  109 */ 0x333da01be07c65e4, /* VK_EXT_mutable_descriptor_type */
+    /*  110 */ 0x4f43f294a30fc75d, /* VK_EXT_nested_command_buffer */
+    /*  111 */ 0x6cf77b70db09b037, /* VK_EXT_non_seamless_cube_map */
+    /*  112 */ 0xb5bdb97dc49555ef, /* VK_EXT_opacity_micromap */
+    /*  113 */ 0x74062e5990db1eeb, /* VK_EXT_pageable_device_local_memory */
+    /*  114 */ 0xe60ea5fa872ffa4b, /* VK_EXT_pci_bus_info */
+    /*  115 */ 0x087b96c0fac7f2e9, /* VK_EXT_physical_device_drm */
+    /*  116 */ 0xae186881e629f533, /* VK_EXT_pipeline_creation_cache_control */
+    /*  117 */ 0xd5ed321620183ae4, /* VK_EXT_pipeline_creation_feedback */
+    /*  118 */ 0xf2497807f1195d03, /* VK_EXT_pipeline_library_group_handles */
+    /*  119 */ 0x97816799b0ea2a08, /* VK_EXT_pipeline_properties */
+    /*  120 */ 0x0bec2c70abec6edf, /* VK_EXT_pipeline_protected_access */
+    /*  121 */ 0x3726d3c286b23305, /* VK_EXT_pipeline_robustness */
+    /*  122 */ 0x578e2a9cdc320baa, /* VK_EXT_post_depth_coverage */
+    /*  123 */ 0xdad3977856dd3ce4, /* VK_EXT_present_mode_fifo_latest_ready */
+    /*  124 */ 0x4792bf3539da07a0, /* VK_EXT_primitive_topology_list_restart */
+    /*  125 */ 0x4de3fc9eb140d3c9, /* VK_EXT_primitives_generated_query */
+    /*  126 */ 0x66832604ff1fb25a, /* VK_EXT_private_data */
+    /*  127 */ 0x3632448643e01277, /* VK_EXT_provoking_vertex */
+    /*  128 */ 0xc3a80f57bc34acf0, /* VK_EXT_queue_family_foreign */
+    /*  129 */ 0x9c47749ad3103e99, /* VK_EXT_rasterization_order_attachment_access */
+    /*  130 */ 0xe3b61ff718cac048, /* VK_EXT_rgba10x6_formats */
+    /*  131 */ 0x267337703fbb9802, /* VK_EXT_robustness2 */
+    /*  132 */ 0xa2f0c46d62bffbbd, /* VK_EXT_sample_locations */
+    /*  133 */ 0x35bc8d45855c9ddd, /* VK_EXT_sampler_filter_minmax */
+    /*  134 */ 0x0fe7c2504b67f76e, /* VK_EXT_scalar_block_layout */
+    /*  135 */ 0x21c315365bdd91c1, /* VK_EXT_separate_stencil_usage */
+    /*  136 */ 0x39152af17d406387, /* VK_EXT_shader_atomic_float */
+    /*  137 */ 0xfa5bf73b09f1814a, /* VK_EXT_shader_atomic_float2 */
+    /*  138 */ 0x1313743aff740ea6, /* VK_EXT_shader_demote_to_helper_invocation */
+    /*  139 */ 0xdbd208469e466661, /* VK_EXT_shader_image_atomic_int64 */
+    /*  140 */ 0x0fdb11284e798630, /* VK_EXT_shader_module_identifier */
+    /*  141 */ 0x01d57626cc2cb88b, /* VK_EXT_shader_object */
+    /*  142 */ 0xd98565c5e8cff707, /* VK_EXT_shader_replicated_composites */
+    /*  143 */ 0x1d5f02c289908dc6, /* VK_EXT_shader_stencil_export */
+    /*  144 */ 0x3434e0e3856c3974, /* VK_EXT_shader_subgroup_ballot */
+    /*  145 */ 0x414fe291cad1b8c2, /* VK_EXT_shader_subgroup_vote */
+    /*  146 */ 0x15c81e1e3330c87a, /* VK_EXT_shader_tile_image */
+    /*  147 */ 0x3ab7ae29a67149aa, /* VK_EXT_shader_viewport_index_layer */
+    /*  148 */ 0xf8847bcd6077bcfc, /* VK_EXT_subgroup_size_control */
+    /*  149 */ 0xc0a98929a3b5a629, /* VK_EXT_subpass_merge_feedback */
+    /*  150 */ 0x745c764090230a6a, /* VK_EXT_surface_maintenance1 */
+    /*  151 */ 0xaf7db52f12522284, /* VK_EXT_swapchain_colorspace */
+    /*  152 */ 0xb8a530fd9b6e7826, /* VK_EXT_swapchain_maintenance1 */
+    /*  153 */ 0x93820a855076e9ba, /* VK_EXT_texel_buffer_alignment */
+    /*  154 */ 0xd54a2906947894c3, /* VK_EXT_texture_compression_astc_hdr */
+    /*  155 */ 0xa176a37fe21bf722, /* VK_EXT_tooling_info */
+    /*  156 */ 0x2c77e64693cba64b, /* VK_EXT_transform_feedback */
+    /*  157 */ 0xd43b5b3257938a0c, /* VK_EXT_validation_cache */
+    /*  158 */ 0x32e3bcc79655ff35, /* VK_EXT_validation_features */
+    /*  159 */ 0x5dbef52d8325ef00, /* VK_EXT_validation_flags */
+    /*  160 */ 0x41bd31eed71de48d, /* VK_EXT_vertex_attribute_divisor */
+    /*  161 */ 0x384a29f8cf6d87bf, /* VK_EXT_vertex_attribute_robustness */
+    /*  162 */ 0xdba593667f2b15d8, /* VK_EXT_vertex_input_dynamic_state */
+    /*  163 */ 0xdc68cb4b50c6a206, /* VK_EXT_ycbcr_2plane_444_formats */
+    /*  164 */ 0x7f0e4b169ce6683e, /* VK_EXT_ycbcr_image_arrays */
+    /*  165 */ 0x4ad21727cd459ae0, /* VK_FUCHSIA_buffer_collection */
+    /*  166 */ 0x39a61a1dde950a7e, /* VK_FUCHSIA_external_memory */
+    /*  167 */ 0xf64c61e8709735f7, /* VK_FUCHSIA_external_semaphore */
+    /*  168 */ 0x78bbdf52d016b408, /* VK_FUCHSIA_imagepipe_surface */
+    /*  169 */ 0x7f2da9be6e1b04db, /* VK_GGP_frame_token */
+    /*  170 */ 0xcd04d110dd619891, /* VK_GGP_stream_descriptor_surface */
+    /*  171 */ 0x66d124637ca67c9b, /* VK_GOOGLE_decorate_string */
+    /*  172 */ 0xd317975f41d1a234, /* VK_GOOGLE_display_timing */
+    /*  173 */ 0x434a8c02c305c9d2, /* VK_GOOGLE_hlsl_functionality1 */
+    /*  174 */ 0xdb384c83fb23b324, /* VK_GOOGLE_surfaceless_query */
+    /*  175 */ 0x8ea5be2adce92628, /* VK_GOOGLE_user_type */
+    /*  176 */ 0x1251619c17f44f75, /* VK_HUAWEI_cluster_culling_shader */
+    /*  177 */ 0x734dc9a82ce2a812, /* VK_HUAWEI_hdr_vivid */
+    /*  178 */ 0x23cb6d9b631ae3de, /* VK_HUAWEI_invocation_mask */
+    /*  179 */ 0x7a080c6eb36cfa62, /* VK_HUAWEI_subpass_shading */
+    /*  180 */ 0xc831730562583c7f, /* VK_IMG_filter_cubic */
+    /*  181 */ 0x2770027508eb9598, /* VK_IMG_format_pvrtc */
+    /*  182 */ 0xb0257135e659f035, /* VK_IMG_relaxed_line_rasterization */
+    /*  183 */ 0xde48a4b9c28f1a76, /* VK_INTEL_performance_query */
+    /*  184 */ 0x1cdbef97960a8e84, /* VK_INTEL_shader_integer_functions2 */
+    /*  185 */ 0x8febc131b31f03a7, /* VK_KHR_16bit_storage */
+    /*  186 */ 0xfc675d0c9be11933, /* VK_KHR_8bit_storage */
+    /*  187 */ 0xfd487833d05a912e, /* VK_KHR_acceleration_structure */
+    /*  188 */ 0x29df4e2582c4e5eb, /* VK_KHR_android_surface */
+    /*  189 */ 0xc441ac340c33f00e, /* VK_KHR_bind_memory2 */
+    /*  190 */ 0xed3998734610578e, /* VK_KHR_buffer_device_address */
+    /*  191 */ 0xf6b15d82867a4cc7, /* VK_KHR_calibrated_timestamps */
+    /*  192 */ 0x0afe9b38bfc3ce2c, /* VK_KHR_compute_shader_derivatives */
+    /*  193 */ 0x2349bf032cef96df, /* VK_KHR_cooperative_matrix */
+    /*  194 */ 0x8037af99654ff021, /* VK_KHR_copy_commands2 */
+    /*  195 */ 0x45e78547df004126, /* VK_KHR_create_renderpass2 */
+    /*  196 */ 0x78b51eb267ba222a, /* VK_KHR_dedicated_allocation */
+    /*  197 */ 0x94de08b35a6241ca, /* VK_KHR_deferred_host_operations */
+    /*  198 */ 0xc379ca87fcbfe646, /* VK_KHR_depth_clamp_zero_one */
+    /*  199 */ 0x8c49a14f4e053827, /* VK_KHR_depth_stencil_resolve */
+    /*  200 */ 0xd0e490f381b744be, /* VK_KHR_descriptor_update_template */
+    /*  201 */ 0xc6ca78c5b314bc87, /* VK_KHR_device_group */
+    /*  202 */ 0x8585cbd14f1c0cac, /* VK_KHR_device_group_creation */
+    /*  203 */ 0x2859d74f3639d0b1, /* VK_KHR_display */
+    /*  204 */ 0xe6851c4675917263, /* VK_KHR_display_swapchain */
+    /*  205 */ 0x0337556153ae8299, /* VK_KHR_draw_indirect_count */
+    /*  206 */ 0x2fa1beee71b55c4a, /* VK_KHR_driver_properties */
+    /*  207 */ 0xcec518255e3db5bd, /* VK_KHR_dynamic_rendering */
+    /*  208 */ 0x3aff0fddef25484a, /* VK_KHR_dynamic_rendering_local_read */
+    /*  209 */ 0x042831872b90006c, /* VK_KHR_external_fence */
+    /*  210 */ 0x5f78dae679457682, /* VK_KHR_external_fence_capabilities */
+    /*  211 */ 0xcd3a8c2ddf5addf6, /* VK_KHR_external_fence_fd */
+    /*  212 */ 0x4c03e948c552a900, /* VK_KHR_external_fence_win32 */
+    /*  213 */ 0x87d94faee5024129, /* VK_KHR_external_memory */
+    /*  214 */ 0x3f3f36a8f61bdd88, /* VK_KHR_external_memory_capabilities */
+    /*  215 */ 0x552d385fc1022139, /* VK_KHR_external_memory_fd */
+    /*  216 */ 0x92cd58bc47a696d9, /* VK_KHR_external_memory_win32 */
+    /*  217 */ 0x7e7e947a025884c1, /* VK_KHR_external_semaphore */
+    /*  218 */ 0xb7268870e382881b, /* VK_KHR_external_semaphore_capabilities */
+    /*  219 */ 0x089c9b49df8b6f1e, /* VK_KHR_external_semaphore_fd */
+    /*  220 */ 0x014c9621dbd33d31, /* VK_KHR_external_semaphore_win32 */
+    /*  221 */ 0x9310a82971542c4a, /* VK_KHR_format_feature_flags2 */
+    /*  222 */ 0x2aedf5bc87e7dd6d, /* VK_KHR_fragment_shader_barycentric */
+    /*  223 */ 0x8496cee01f4fa6d5, /* VK_KHR_fragment_shading_rate */
+    /*  224 */ 0x6c023bc9dc523d46, /* VK_KHR_get_display_properties2 */
+    /*  225 */ 0x9eb7bb6c3705f946, /* VK_KHR_get_memory_requirements2 */
+    /*  226 */ 0x7685eeed9cac9798, /* VK_KHR_get_physical_device_properties2 */
+    /*  227 */ 0x9b0fbb8eeee0e74b, /* VK_KHR_get_surface_capabilities2 */
+    /*  228 */ 0x0bb91b137617fbef, /* VK_KHR_global_priority */
+    /*  229 */ 0xfb7c493b280e7035, /* VK_KHR_image_format_list */
+    /*  230 */ 0x6ba09c8a87af68ce, /* VK_KHR_imageless_framebuffer */
+    /*  231 */ 0x76a0d6d17ae91b81, /* VK_KHR_incremental_present */
+    /*  232 */ 0x3dde8d8eb0b76315, /* VK_KHR_index_type_uint8 */
+    /*  233 */ 0x7928ca2523362ef3, /* VK_KHR_line_rasterization */
+    /*  234 */ 0xc8692b97cfbe45ad, /* VK_KHR_load_store_op_none */
+    /*  235 */ 0xe3c8335cc1581a67, /* VK_KHR_maintenance1 */
+    /*  236 */ 0x8ffe792f51cd1450, /* VK_KHR_maintenance2 */
+    /*  237 */ 0xea219cc76502a8af, /* VK_KHR_maintenance3 */
+    /*  238 */ 0xa66e463f036dae4a, /* VK_KHR_maintenance4 */
+    /*  239 */ 0xc5e86b535cee6698, /* VK_KHR_maintenance5 */
+    /*  240 */ 0xf60b7de240a15ab4, /* VK_KHR_maintenance6 */
+    /*  241 */ 0x3d59040ce3c13f21, /* VK_KHR_maintenance7 */
+    /*  242 */ 0xb6892d36c521b488, /* VK_KHR_maintenance8 */
+    /*  243 */ 0x64d252cf56a64add, /* VK_KHR_map_memory2 */
+    /*  244 */ 0x5af12378bc6d7169, /* VK_KHR_multiview */
+    /*  245 */ 0x1bb74dfe8d7e0b31, /* VK_KHR_performance_query */
+    /*  246 */ 0x935d834a6c18d3ed, /* VK_KHR_pipeline_binary */
+    /*  247 */ 0x91248c6b162c4180, /* VK_KHR_pipeline_executable_properties */
+    /*  248 */ 0x039c65d87fb09ca9, /* VK_KHR_pipeline_library */
+    /*  249 */ 0x28644eeb112058b6, /* VK_KHR_portability_enumeration */
+    /*  250 */ 0xac06576b97f9486a, /* VK_KHR_portability_subset */
+    /*  251 */ 0xe82e301141092b1e, /* VK_KHR_present_id */
+    /*  252 */ 0x47954f24ddf5185e, /* VK_KHR_present_wait */
+    /*  253 */ 0x2123bacd888c07ec, /* VK_KHR_push_descriptor */
+    /*  254 */ 0x8bf873804879f2cf, /* VK_KHR_ray_query */
+    /*  255 */ 0x9df3df162357e4b0, /* VK_KHR_ray_tracing_maintenance1 */
+    /*  256 */ 0xaef707cb154a81af, /* VK_KHR_ray_tracing_pipeline */
+    /*  257 */ 0x697f77ef7ba14203, /* VK_KHR_ray_tracing_position_fetch */
+    /*  258 */ 0x4b17e19fd947a1d3, /* VK_KHR_relaxed_block_layout */
+    /*  259 */ 0x5d5e936103817cda, /* VK_KHR_sampler_mirror_clamp_to_edge */
+    /*  260 */ 0x22004cfa79ba7177, /* VK_KHR_sampler_ycbcr_conversion */
+    /*  261 */ 0xba2c0ae86fd11630, /* VK_KHR_separate_depth_stencil_layouts */
+    /*  262 */ 0xb16f5fd69d97f3a1, /* VK_KHR_shader_atomic_int64 */
+    /*  263 */ 0xeee9708671fa7c77, /* VK_KHR_shader_clock */
+    /*  264 */ 0xb35fc4bdb32f3d81, /* VK_KHR_shader_draw_parameters */
+    /*  265 */ 0xab0eda6676f1fd31, /* VK_KHR_shader_expect_assume */
+    /*  266 */ 0x4dad563cb513c7c9, /* VK_KHR_shader_float16_int8 */
+    /*  267 */ 0x548b20a76c855b46, /* VK_KHR_shader_float_controls */
+    /*  268 */ 0xa1150eef92f851e8, /* VK_KHR_shader_float_controls2 */
+    /*  269 */ 0x9d14cd5379daf7cb, /* VK_KHR_shader_integer_dot_product */
+    /*  270 */ 0x42aefa5598fde4ab, /* VK_KHR_shader_maximal_reconvergence */
+    /*  271 */ 0xb38332d7467f8474, /* VK_KHR_shader_non_semantic_info */
+    /*  272 */ 0xab3f0af6d5504bf4, /* VK_KHR_shader_quad_control */
+    /*  273 */ 0x1bdfe042874be24f, /* VK_KHR_shader_relaxed_extended_instruction */
+    /*  274 */ 0xcda588b0d067d48f, /* VK_KHR_shader_subgroup_extended_types */
+    /*  275 */ 0xd0836c7a4d04b579, /* VK_KHR_shader_subgroup_rotate */
+    /*  276 */ 0x64fbf5bc74afe199, /* VK_KHR_shader_subgroup_uniform_control_flow */
+    /*  277 */ 0x6e5fde40560b40a9, /* VK_KHR_shader_terminate_invocation */
+    /*  278 */ 0x7e6871b03dee137b, /* VK_KHR_shared_presentable_image */
+    /*  279 */ 0x06c03c1c3db9815d, /* VK_KHR_spirv_1_4 */
+    /*  280 */ 0x743f86c26df32ea2, /* VK_KHR_storage_buffer_storage_class */
+    /*  281 */ 0x2c4f009293a35548, /* VK_KHR_surface */
+    /*  282 */ 0xa8506d9aef558591, /* VK_KHR_surface_protected_capabilities */
+    /*  283 */ 0x6cefabf4c944ccec, /* VK_KHR_swapchain */
+    /*  284 */ 0x2149e839e759e400, /* VK_KHR_swapchain_mutable_format */
+    /*  285 */ 0xf1cfa2ea69e6ec0e, /* VK_KHR_synchronization2 */
+    /*  286 */ 0x61ed378f50459bf2, /* VK_KHR_timeline_semaphore */
+    /*  287 */ 0x3334ed809879d360, /* VK_KHR_uniform_buffer_standard_layout */
+    /*  288 */ 0x6146df22dcb09470, /* VK_KHR_variable_pointers */
+    /*  289 */ 0xcfd1e6704e4a4227, /* VK_KHR_vertex_attribute_divisor */
+    /*  290 */ 0x4ccc16568a9a2944, /* VK_KHR_video_decode_av1 */
+    /*  291 */ 0x0093b60d00888052, /* VK_KHR_video_decode_h264 */
+    /*  292 */ 0x4116f6bec0017e79, /* VK_KHR_video_decode_h265 */
+    /*  293 */ 0x363dac5e35a2f1ee, /* VK_KHR_video_decode_queue */
+    /*  294 */ 0x35e683e888a7a54c, /* VK_KHR_video_encode_av1 */
+    /*  295 */ 0xa77247c5899dc785, /* VK_KHR_video_encode_h264 */
+    /*  296 */ 0x8b86366e33c748ee, /* VK_KHR_video_encode_h265 */
+    /*  297 */ 0x3f1a8c895b8e8deb, /* VK_KHR_video_encode_quantization_map */
+    /*  298 */ 0xdda14264a3bda234, /* VK_KHR_video_encode_queue */
+    /*  299 */ 0x9fb8181989e29256, /* VK_KHR_video_maintenance1 */
+    /*  300 */ 0xfd1949eb2a3c752b, /* VK_KHR_video_maintenance2 */
+    /*  301 */ 0xc3d1c9b40515a6a4, /* VK_KHR_video_queue */
+    /*  302 */ 0x34899ec7a7b17614, /* VK_KHR_vulkan_memory_model */
+    /*  303 */ 0x906fcab3e0d202a5, /* VK_KHR_wayland_surface */
+    /*  304 */ 0x19d48609837c8701, /* VK_KHR_win32_keyed_mutex */
+    /*  305 */ 0xc93557e7cef43233, /* VK_KHR_win32_surface */
+    /*  306 */ 0x75ee32f09cdd8db9, /* VK_KHR_workgroup_memory_explicit_layout */
+    /*  307 */ 0x32a481baaa637e2c, /* VK_KHR_xcb_surface */
+    /*  308 */ 0x863c0e309551346e, /* VK_KHR_xlib_surface */
+    /*  309 */ 0x58d24a21f116065b, /* VK_KHR_zero_initialize_workgroup_memory */
+    /*  310 */ 0x5615881540a7f6d8, /* VK_LUNARG_direct_driver_loading */
+    /*  311 */ 0x6f8fb9c8b46fc189, /* VK_MESA_image_alignment_control */
+    /*  312 */ 0xc1c930637836bf44, /* VK_MSFT_layered_driver */
+    /*  313 */ 0x489cf2a16640d39e, /* VK_MVK_ios_surface */
+    /*  314 */ 0x3274c65edf45286c, /* VK_MVK_macos_surface */
+    /*  315 */ 0x53643314731ac57a, /* VK_NN_vi_surface */
+    /*  316 */ 0x5bf53745255ccc0e, /* VK_NVX_binary_import */
+    /*  317 */ 0x20b59934a97efd1c, /* VK_NVX_image_view_handle */
+    /*  318 */ 0x112ee8733e2b22b3, /* VK_NVX_multiview_per_view_attributes */
+    /*  319 */ 0x71fe862eee072b1e, /* VK_NV_acquire_winrt_display */
+    /*  320 */ 0x9217a69de789d3fe, /* VK_NV_clip_space_w_scaling */
+    /*  321 */ 0x5d2cfdaf5ecc308b, /* VK_NV_cluster_acceleration_structure */
+    /*  322 */ 0xad1ba91484f69ca3, /* VK_NV_command_buffer_inheritance */
+    /*  323 */ 0x21d19e30b520bdd6, /* VK_NV_compute_shader_derivatives */
+    /*  324 */ 0x069e842b3b51cefb, /* VK_NV_cooperative_matrix */
+    /*  325 */ 0xfecfd80519026209, /* VK_NV_cooperative_matrix2 */
+    /*  326 */ 0x9b6d5b7725490586, /* VK_NV_cooperative_vector */
+    /*  327 */ 0xce889f8d6b40e84f, /* VK_NV_copy_memory_indirect */
+    /*  328 */ 0xed85b1ac0329a8cd, /* VK_NV_corner_sampled_image */
+    /*  329 */ 0x81b617790445f852, /* VK_NV_coverage_reduction_mode */
+    /*  330 */ 0x3644690c3bd14289, /* VK_NV_cuda_kernel_launch */
+    /*  331 */ 0xbb81f8243fcc7db5, /* VK_NV_dedicated_allocation */
+    /*  332 */ 0x00ce18bba106c2ad, /* VK_NV_dedicated_allocation_image_aliasing */
+    /*  333 */ 0x23bcacd889bea60c, /* VK_NV_descriptor_pool_overallocation */
+    /*  334 */ 0xf03dfd81ad17796f, /* VK_NV_device_diagnostic_checkpoints */
+    /*  335 */ 0xc8050fbd31afc5b5, /* VK_NV_device_diagnostics_config */
+    /*  336 */ 0xee7bfcd5523cff09, /* VK_NV_device_generated_commands */
+    /*  337 */ 0x2ff0ded4f3f040e9, /* VK_NV_device_generated_commands_compute */
+    /*  338 */ 0xc07b5e2a89ddc607, /* VK_NV_displacement_micromap */
+    /*  339 */ 0x5138c2f68bcb3608, /* VK_NV_display_stereo */
+    /*  340 */ 0xb2344e462fd9ef1b, /* VK_NV_extended_sparse_address_space */
+    /*  341 */ 0xab0f59a00375b1ec, /* VK_NV_external_memory */
+    /*  342 */ 0x518148eb9166b4b9, /* VK_NV_external_memory_capabilities */
+    /*  343 */ 0x3c96386b301a3cdc, /* VK_NV_external_memory_rdma */
+    /*  344 */ 0xcf69c3e7cbd068e4, /* VK_NV_external_memory_win32 */
+    /*  345 */ 0xdf9a65a432a12606, /* VK_NV_fill_rectangle */
+    /*  346 */ 0x9a6fda1e2f4f9096, /* VK_NV_fragment_coverage_to_color */
+    /*  347 */ 0xc294d55a56858fb6, /* VK_NV_fragment_shader_barycentric */
+    /*  348 */ 0x2ece12f465807058, /* VK_NV_fragment_shading_rate_enums */
+    /*  349 */ 0x4caba51b111c61b9, /* VK_NV_framebuffer_mixed_samples */
+    /*  350 */ 0xe0c4918343f3874c, /* VK_NV_geometry_shader_passthrough */
+    /*  351 */ 0xd659873b3f6bc024, /* VK_NV_glsl_shader */
+    /*  352 */ 0xe39346d87fc9aa45, /* VK_NV_inherited_viewport_scissor */
+    /*  353 */ 0x52fcc4c2d713dad4, /* VK_NV_linear_color_attachment */
+    /*  354 */ 0xb58daf9c015becf7, /* VK_NV_low_latency */
+    /*  355 */ 0xa9eb852dfd7a1ece, /* VK_NV_low_latency2 */
+    /*  356 */ 0x6c878fdbf1e4a7fb, /* VK_NV_memory_decompression */
+    /*  357 */ 0x7401a89f84bc926b, /* VK_NV_mesh_shader */
+    /*  358 */ 0x929112526891454e, /* VK_NV_optical_flow */
+    /*  359 */ 0x6e9d1f60324c4761, /* VK_NV_partitioned_acceleration_structure */
+    /*  360 */ 0x5e0416a20f89c9f4, /* VK_NV_per_stage_descriptor_set */
+    /*  361 */ 0x48102b2d563a8028, /* VK_NV_present_barrier */
+    /*  362 */ 0xc20950e0cbc5bdc0, /* VK_NV_raw_access_chains */
+    /*  363 */ 0x3d4e9e0bb54735fe, /* VK_NV_ray_tracing */
+    /*  364 */ 0xe12f14699c6db9db, /* VK_NV_ray_tracing_invocation_reorder */
+    /*  365 */ 0x4157611d54ac1bc1, /* VK_NV_ray_tracing_linear_swept_spheres */
+    /*  366 */ 0xba4184e5104338cb, /* VK_NV_ray_tracing_motion_blur */
+    /*  367 */ 0x451532c42bd881b2, /* VK_NV_ray_tracing_validation */
+    /*  368 */ 0x92ccabdfa0a3d6e4, /* VK_NV_representative_fragment_test */
+    /*  369 */ 0xc4d99252b7b7843f, /* VK_NV_sample_mask_override_coverage */
+    /*  370 */ 0xd4d2cda699fc74ae, /* VK_NV_scissor_exclusive */
+    /*  371 */ 0xb8974b1af4c34b58, /* VK_NV_shader_atomic_float16_vector */
+    /*  372 */ 0x52f9f98f09f18085, /* VK_NV_shader_image_footprint */
+    /*  373 */ 0xc394473a75e21d7c, /* VK_NV_shader_sm_builtins */
+    /*  374 */ 0x5b6c5e76d8a8364e, /* VK_NV_shader_subgroup_partitioned */
+    /*  375 */ 0xcac204d487e563d3, /* VK_NV_shading_rate_image */
+    /*  376 */ 0xfc6e35d06ddf634e, /* VK_NV_viewport_array2 */
+    /*  377 */ 0x7748ea26eecd7e90, /* VK_NV_viewport_swizzle */
+    /*  378 */ 0x7e4ac6b10102b887, /* VK_NV_win32_keyed_mutex */
+    /*  379 */ 0x5c76ad884426c86c, /* VK_QCOM_filter_cubic_clamp */
+    /*  380 */ 0xc7386bbfd1b9b423, /* VK_QCOM_filter_cubic_weights */
+    /*  381 */ 0xff445069da66b635, /* VK_QCOM_fragment_density_map_offset */
+    /*  382 */ 0xa6cab4106375cdfa, /* VK_QCOM_image_processing */
+    /*  383 */ 0xa4a1ae34c2527a4a, /* VK_QCOM_image_processing2 */
+    /*  384 */ 0xbff750af2234e2ce, /* VK_QCOM_multiview_per_view_render_areas */
+    /*  385 */ 0x876a51c6df08420a, /* VK_QCOM_multiview_per_view_viewports */
+    /*  386 */ 0xa3b4fc40f185c799, /* VK_QCOM_render_pass_shader_resolve */
+    /*  387 */ 0x9b5c2a0bc41e00cd, /* VK_QCOM_render_pass_store_ops */
+    /*  388 */ 0x8d33cd618c723019, /* VK_QCOM_render_pass_transform */
+    /*  389 */ 0xd5a3f971e2e8b5c9, /* VK_QCOM_rotated_copy_commands */
+    /*  390 */ 0xc37b456dbdf5565f, /* VK_QCOM_tile_properties */
+    /*  391 */ 0x49bfbd9f92e0b029, /* VK_QCOM_ycbcr_degamma */
+    /*  392 */ 0xc2e6f6dcc7614ace, /* VK_QNX_external_memory_screen_buffer */
+    /*  393 */ 0x236bd86b3b17cf06, /* VK_QNX_screen_surface */
+    /*  394 */ 0xe6fed416ddebf8d0, /* VK_SEC_amigo_profiling */
+    /*  395 */ 0x45542cac22bd41a7, /* VK_VALVE_descriptor_set_host_mapping */
+    /*  396 */ 0x38c73d4ab66a4942  /* VK_VALVE_mutable_descriptor_type */
 };
 
 static void glad_vk_load_pfns(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr, const uint16_t *pPfnIdx, uint32_t numPfns)
@@ -1233,130 +1248,130 @@ static void glad_vk_load_VK_VERSION_1_0(GladVulkanContext *context, GLADuserptrl
           45, /* vkCmdBindPipeline */
           50, /* vkCmdBindVertexBuffers */
           53, /* vkCmdBlitImage */
-          60, /* vkCmdClearAttachments */
-          61, /* vkCmdClearColorImage */
-          62, /* vkCmdClearDepthStencilImage */
-          67, /* vkCmdCopyBuffer */
-          70, /* vkCmdCopyBufferToImage */
-          73, /* vkCmdCopyImage */
-          76, /* vkCmdCopyImageToBuffer */
-          85, /* vkCmdCopyQueryPoolResults */
-          94, /* vkCmdDispatch */
-         100, /* vkCmdDispatchIndirect */
-         101, /* vkCmdDraw */
-         104, /* vkCmdDrawIndexed */
-         105, /* vkCmdDrawIndexedIndirect */
-         109, /* vkCmdDrawIndirect */
-         125, /* vkCmdEndQuery */
-         127, /* vkCmdEndRenderPass */
-         134, /* vkCmdExecuteCommands */
-         137, /* vkCmdFillBuffer */
-         140, /* vkCmdNextSubpass */
-         144, /* vkCmdPipelineBarrier */
-         149, /* vkCmdPushConstants */
-         160, /* vkCmdResetEvent */
-         163, /* vkCmdResetQueryPool */
-         164, /* vkCmdResolveImage */
-         170, /* vkCmdSetBlendConstants */
-         187, /* vkCmdSetDepthBias */
-         191, /* vkCmdSetDepthBounds */
-         211, /* vkCmdSetEvent */
-         226, /* vkCmdSetLineWidth */
-         252, /* vkCmdSetScissor */
-         256, /* vkCmdSetStencilCompareMask */
-         259, /* vkCmdSetStencilReference */
-         262, /* vkCmdSetStencilWriteMask */
-         265, /* vkCmdSetViewport */
-         277, /* vkCmdUpdateBuffer */
-         279, /* vkCmdWaitEvents */
-         287, /* vkCmdWriteTimestamp */
-         306, /* vkCreateBuffer */
-         308, /* vkCreateBufferView */
-         309, /* vkCreateCommandPool */
-         310, /* vkCreateComputePipelines */
-         318, /* vkCreateDescriptorPool */
-         319, /* vkCreateDescriptorSetLayout */
-         322, /* vkCreateDevice */
-         326, /* vkCreateEvent */
-         328, /* vkCreateFence */
-         329, /* vkCreateFramebuffer */
-         330, /* vkCreateGraphicsPipelines */
-         333, /* vkCreateImage */
-         335, /* vkCreateImageView */
-         339, /* vkCreateInstance */
-         345, /* vkCreatePipelineCache */
-         346, /* vkCreatePipelineLayout */
-         349, /* vkCreateQueryPool */
-         352, /* vkCreateRenderPass */
-         355, /* vkCreateSampler */
-         359, /* vkCreateSemaphore */
-         360, /* vkCreateShaderModule */
-         379, /* vkDestroyBuffer */
-         381, /* vkDestroyBufferView */
-         382, /* vkDestroyCommandPool */
-         390, /* vkDestroyDescriptorPool */
-         391, /* vkDestroyDescriptorSetLayout */
-         394, /* vkDestroyDevice */
-         395, /* vkDestroyEvent */
-         396, /* vkDestroyFence */
-         397, /* vkDestroyFramebuffer */
-         398, /* vkDestroyImage */
-         399, /* vkDestroyImageView */
-         403, /* vkDestroyInstance */
-         406, /* vkDestroyPipeline */
-         408, /* vkDestroyPipelineCache */
-         409, /* vkDestroyPipelineLayout */
-         412, /* vkDestroyQueryPool */
-         413, /* vkDestroyRenderPass */
-         414, /* vkDestroySampler */
-         417, /* vkDestroySemaphore */
-         419, /* vkDestroyShaderModule */
-         425, /* vkDeviceWaitIdle */
-         427, /* vkEndCommandBuffer */
-         428, /* vkEnumerateDeviceExtensionProperties */
-         429, /* vkEnumerateDeviceLayerProperties */
-         430, /* vkEnumerateInstanceExtensionProperties */
-         431, /* vkEnumerateInstanceLayerProperties */
-         436, /* vkEnumeratePhysicalDevices */
-         438, /* vkFlushMappedMemoryRanges */
-         439, /* vkFreeCommandBuffers */
-         440, /* vkFreeDescriptorSets */
-         441, /* vkFreeMemory */
-         452, /* vkGetBufferMemoryRequirements */
-         485, /* vkGetDeviceMemoryCommitment */
-         489, /* vkGetDeviceProcAddr */
-         490, /* vkGetDeviceQueue */
-         501, /* vkGetEventStatus */
-         505, /* vkGetFenceStatus */
-         511, /* vkGetImageMemoryRequirements */
-         515, /* vkGetImageSparseMemoryRequirements */
-         518, /* vkGetImageSubresourceLayout */
-         526, /* vkGetInstanceProcAddr */
-         558, /* vkGetPhysicalDeviceFeatures */
-         561, /* vkGetPhysicalDeviceFormatProperties */
-         565, /* vkGetPhysicalDeviceImageFormatProperties */
-         568, /* vkGetPhysicalDeviceMemoryProperties */
-         574, /* vkGetPhysicalDeviceProperties */
-         578, /* vkGetPhysicalDeviceQueueFamilyProperties */
-         582, /* vkGetPhysicalDeviceSparseImageFormatProperties */
-         604, /* vkGetPipelineCacheData */
-         614, /* vkGetQueryPoolResults */
-         623, /* vkGetRenderAreaGranularity */
-         649, /* vkInvalidateMappedMemoryRanges */
-         651, /* vkMapMemory */
-         654, /* vkMergePipelineCaches */
-         657, /* vkQueueBindSparse */
-         663, /* vkQueueSubmit */
-         666, /* vkQueueWaitIdle */
-         675, /* vkResetCommandBuffer */
-         676, /* vkResetCommandPool */
-         677, /* vkResetDescriptorPool */
-         678, /* vkResetEvent */
-         679, /* vkResetFences */
-         687, /* vkSetEvent */
-         702, /* vkUnmapMemory */
-         707, /* vkUpdateDescriptorSets */
-         711  /* vkWaitForFences */
+          62, /* vkCmdClearAttachments */
+          63, /* vkCmdClearColorImage */
+          64, /* vkCmdClearDepthStencilImage */
+          70, /* vkCmdCopyBuffer */
+          73, /* vkCmdCopyBufferToImage */
+          76, /* vkCmdCopyImage */
+          79, /* vkCmdCopyImageToBuffer */
+          88, /* vkCmdCopyQueryPoolResults */
+          97, /* vkCmdDispatch */
+         103, /* vkCmdDispatchIndirect */
+         104, /* vkCmdDraw */
+         107, /* vkCmdDrawIndexed */
+         108, /* vkCmdDrawIndexedIndirect */
+         112, /* vkCmdDrawIndirect */
+         128, /* vkCmdEndQuery */
+         130, /* vkCmdEndRenderPass */
+         137, /* vkCmdExecuteCommands */
+         140, /* vkCmdFillBuffer */
+         143, /* vkCmdNextSubpass */
+         147, /* vkCmdPipelineBarrier */
+         152, /* vkCmdPushConstants */
+         163, /* vkCmdResetEvent */
+         166, /* vkCmdResetQueryPool */
+         167, /* vkCmdResolveImage */
+         173, /* vkCmdSetBlendConstants */
+         190, /* vkCmdSetDepthBias */
+         194, /* vkCmdSetDepthBounds */
+         214, /* vkCmdSetEvent */
+         229, /* vkCmdSetLineWidth */
+         255, /* vkCmdSetScissor */
+         259, /* vkCmdSetStencilCompareMask */
+         262, /* vkCmdSetStencilReference */
+         265, /* vkCmdSetStencilWriteMask */
+         268, /* vkCmdSetViewport */
+         280, /* vkCmdUpdateBuffer */
+         282, /* vkCmdWaitEvents */
+         290, /* vkCmdWriteTimestamp */
+         310, /* vkCreateBuffer */
+         312, /* vkCreateBufferView */
+         313, /* vkCreateCommandPool */
+         314, /* vkCreateComputePipelines */
+         322, /* vkCreateDescriptorPool */
+         323, /* vkCreateDescriptorSetLayout */
+         326, /* vkCreateDevice */
+         330, /* vkCreateEvent */
+         332, /* vkCreateFence */
+         333, /* vkCreateFramebuffer */
+         334, /* vkCreateGraphicsPipelines */
+         337, /* vkCreateImage */
+         339, /* vkCreateImageView */
+         343, /* vkCreateInstance */
+         349, /* vkCreatePipelineCache */
+         350, /* vkCreatePipelineLayout */
+         353, /* vkCreateQueryPool */
+         356, /* vkCreateRenderPass */
+         359, /* vkCreateSampler */
+         363, /* vkCreateSemaphore */
+         364, /* vkCreateShaderModule */
+         383, /* vkDestroyBuffer */
+         385, /* vkDestroyBufferView */
+         386, /* vkDestroyCommandPool */
+         394, /* vkDestroyDescriptorPool */
+         395, /* vkDestroyDescriptorSetLayout */
+         398, /* vkDestroyDevice */
+         399, /* vkDestroyEvent */
+         400, /* vkDestroyFence */
+         401, /* vkDestroyFramebuffer */
+         402, /* vkDestroyImage */
+         403, /* vkDestroyImageView */
+         407, /* vkDestroyInstance */
+         410, /* vkDestroyPipeline */
+         412, /* vkDestroyPipelineCache */
+         413, /* vkDestroyPipelineLayout */
+         416, /* vkDestroyQueryPool */
+         417, /* vkDestroyRenderPass */
+         418, /* vkDestroySampler */
+         421, /* vkDestroySemaphore */
+         423, /* vkDestroyShaderModule */
+         429, /* vkDeviceWaitIdle */
+         431, /* vkEndCommandBuffer */
+         432, /* vkEnumerateDeviceExtensionProperties */
+         433, /* vkEnumerateDeviceLayerProperties */
+         434, /* vkEnumerateInstanceExtensionProperties */
+         435, /* vkEnumerateInstanceLayerProperties */
+         440, /* vkEnumeratePhysicalDevices */
+         442, /* vkFlushMappedMemoryRanges */
+         443, /* vkFreeCommandBuffers */
+         444, /* vkFreeDescriptorSets */
+         445, /* vkFreeMemory */
+         456, /* vkGetBufferMemoryRequirements */
+         490, /* vkGetDeviceMemoryCommitment */
+         494, /* vkGetDeviceProcAddr */
+         495, /* vkGetDeviceQueue */
+         506, /* vkGetEventStatus */
+         510, /* vkGetFenceStatus */
+         516, /* vkGetImageMemoryRequirements */
+         520, /* vkGetImageSparseMemoryRequirements */
+         523, /* vkGetImageSubresourceLayout */
+         531, /* vkGetInstanceProcAddr */
+         567, /* vkGetPhysicalDeviceFeatures */
+         570, /* vkGetPhysicalDeviceFormatProperties */
+         574, /* vkGetPhysicalDeviceImageFormatProperties */
+         577, /* vkGetPhysicalDeviceMemoryProperties */
+         583, /* vkGetPhysicalDeviceProperties */
+         587, /* vkGetPhysicalDeviceQueueFamilyProperties */
+         591, /* vkGetPhysicalDeviceSparseImageFormatProperties */
+         613, /* vkGetPipelineCacheData */
+         623, /* vkGetQueryPoolResults */
+         632, /* vkGetRenderAreaGranularity */
+         658, /* vkInvalidateMappedMemoryRanges */
+         660, /* vkMapMemory */
+         663, /* vkMergePipelineCaches */
+         666, /* vkQueueBindSparse */
+         672, /* vkQueueSubmit */
+         675, /* vkQueueWaitIdle */
+         684, /* vkResetCommandBuffer */
+         685, /* vkResetCommandPool */
+         686, /* vkResetDescriptorPool */
+         687, /* vkResetEvent */
+         688, /* vkResetFences */
+         696, /* vkSetEvent */
+         711, /* vkUnmapMemory */
+         716, /* vkUpdateDescriptorSets */
+         720  /* vkWaitForFences */
     };
     if (!context->VERSION_1_0) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1366,32 +1381,32 @@ static void glad_vk_load_VK_VERSION_1_1(GladVulkanContext *context, GLADuserptrl
     static const uint16_t s_pfnIdx[] = {
           15, /* vkBindBufferMemory2 */
           18, /* vkBindImageMemory2 */
-          95, /* vkCmdDispatchBase */
-         206, /* vkCmdSetDeviceMask */
-         320, /* vkCreateDescriptorUpdateTemplate */
-         356, /* vkCreateSamplerYcbcrConversion */
-         392, /* vkDestroyDescriptorUpdateTemplate */
-         415, /* vkDestroySamplerYcbcrConversion */
-         432, /* vkEnumerateInstanceVersion */
-         433, /* vkEnumeratePhysicalDeviceGroups */
-         453, /* vkGetBufferMemoryRequirements2 */
-         468, /* vkGetDescriptorSetLayoutSupport */
-         474, /* vkGetDeviceGroupPeerMemoryFeatures */
-         491, /* vkGetDeviceQueue2 */
-         512, /* vkGetImageMemoryRequirements2 */
-         516, /* vkGetImageSparseMemoryRequirements2 */
-         551, /* vkGetPhysicalDeviceExternalBufferProperties */
-         553, /* vkGetPhysicalDeviceExternalFenceProperties */
-         556, /* vkGetPhysicalDeviceExternalSemaphoreProperties */
-         559, /* vkGetPhysicalDeviceFeatures2 */
-         562, /* vkGetPhysicalDeviceFormatProperties2 */
-         566, /* vkGetPhysicalDeviceImageFormatProperties2 */
-         569, /* vkGetPhysicalDeviceMemoryProperties2 */
-         575, /* vkGetPhysicalDeviceProperties2 */
-         579, /* vkGetPhysicalDeviceQueueFamilyProperties2 */
-         583, /* vkGetPhysicalDeviceSparseImageFormatProperties2 */
-         699, /* vkTrimCommandPool */
-         705  /* vkUpdateDescriptorSetWithTemplate */
+          98, /* vkCmdDispatchBase */
+         209, /* vkCmdSetDeviceMask */
+         324, /* vkCreateDescriptorUpdateTemplate */
+         360, /* vkCreateSamplerYcbcrConversion */
+         396, /* vkDestroyDescriptorUpdateTemplate */
+         419, /* vkDestroySamplerYcbcrConversion */
+         436, /* vkEnumerateInstanceVersion */
+         437, /* vkEnumeratePhysicalDeviceGroups */
+         457, /* vkGetBufferMemoryRequirements2 */
+         473, /* vkGetDescriptorSetLayoutSupport */
+         479, /* vkGetDeviceGroupPeerMemoryFeatures */
+         496, /* vkGetDeviceQueue2 */
+         517, /* vkGetImageMemoryRequirements2 */
+         521, /* vkGetImageSparseMemoryRequirements2 */
+         560, /* vkGetPhysicalDeviceExternalBufferProperties */
+         562, /* vkGetPhysicalDeviceExternalFenceProperties */
+         565, /* vkGetPhysicalDeviceExternalSemaphoreProperties */
+         568, /* vkGetPhysicalDeviceFeatures2 */
+         571, /* vkGetPhysicalDeviceFormatProperties2 */
+         575, /* vkGetPhysicalDeviceImageFormatProperties2 */
+         578, /* vkGetPhysicalDeviceMemoryProperties2 */
+         584, /* vkGetPhysicalDeviceProperties2 */
+         588, /* vkGetPhysicalDeviceQueueFamilyProperties2 */
+         592, /* vkGetPhysicalDeviceSparseImageFormatProperties2 */
+         708, /* vkTrimCommandPool */
+         714  /* vkUpdateDescriptorSetWithTemplate */
     };
     if (!context->VERSION_1_1) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1400,18 +1415,18 @@ static void glad_vk_load_VK_VERSION_1_1(GladVulkanContext *context, GLADuserptrl
 static void glad_vk_load_VK_VERSION_1_2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           29, /* vkCmdBeginRenderPass2 */
-         106, /* vkCmdDrawIndexedIndirectCount */
-         111, /* vkCmdDrawIndirectCount */
-         128, /* vkCmdEndRenderPass2 */
-         141, /* vkCmdNextSubpass2 */
-         353, /* vkCreateRenderPass2 */
-         449, /* vkGetBufferDeviceAddress */
-         455, /* vkGetBufferOpaqueCaptureAddress */
-         486, /* vkGetDeviceMemoryOpaqueCaptureAddress */
-         628, /* vkGetSemaphoreCounterValue */
-         680, /* vkResetQueryPool */
-         694, /* vkSignalSemaphore */
-         713  /* vkWaitSemaphores */
+         109, /* vkCmdDrawIndexedIndirectCount */
+         114, /* vkCmdDrawIndirectCount */
+         131, /* vkCmdEndRenderPass2 */
+         144, /* vkCmdNextSubpass2 */
+         357, /* vkCreateRenderPass2 */
+         453, /* vkGetBufferDeviceAddress */
+         459, /* vkGetBufferOpaqueCaptureAddress */
+         491, /* vkGetDeviceMemoryOpaqueCaptureAddress */
+         637, /* vkGetSemaphoreCounterValue */
+         689, /* vkResetQueryPool */
+         703, /* vkSignalSemaphore */
+         722  /* vkWaitSemaphores */
     };
     if (!context->VERSION_1_2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1422,40 +1437,40 @@ static void glad_vk_load_VK_VERSION_1_3(GladVulkanContext *context, GLADuserptrl
           31, /* vkCmdBeginRendering */
           51, /* vkCmdBindVertexBuffers2 */
           54, /* vkCmdBlitImage2 */
-          68, /* vkCmdCopyBuffer2 */
-          71, /* vkCmdCopyBufferToImage2 */
-          74, /* vkCmdCopyImage2 */
-          77, /* vkCmdCopyImageToBuffer2 */
-         130, /* vkCmdEndRendering */
-         145, /* vkCmdPipelineBarrier2 */
-         161, /* vkCmdResetEvent2 */
-         165, /* vkCmdResolveImage2 */
-         185, /* vkCmdSetCullMode */
-         189, /* vkCmdSetDepthBiasEnable */
-         192, /* vkCmdSetDepthBoundsTestEnable */
-         198, /* vkCmdSetDepthCompareOp */
-         200, /* vkCmdSetDepthTestEnable */
-         202, /* vkCmdSetDepthWriteEnable */
-         212, /* vkCmdSetEvent2 */
-         219, /* vkCmdSetFrontFace */
-         234, /* vkCmdSetPrimitiveRestartEnable */
-         236, /* vkCmdSetPrimitiveTopology */
-         241, /* vkCmdSetRasterizerDiscardEnable */
-         253, /* vkCmdSetScissorWithCount */
-         257, /* vkCmdSetStencilOp */
-         260, /* vkCmdSetStencilTestEnable */
-         270, /* vkCmdSetViewportWithCount */
-         280, /* vkCmdWaitEvents2 */
-         288, /* vkCmdWriteTimestamp2 */
-         347, /* vkCreatePrivateDataSlot */
-         410, /* vkDestroyPrivateDataSlot */
-         471, /* vkGetDeviceBufferMemoryRequirements */
-         479, /* vkGetDeviceImageMemoryRequirements */
-         481, /* vkGetDeviceImageSparseMemoryRequirements */
-         594, /* vkGetPhysicalDeviceToolProperties */
-         612, /* vkGetPrivateData */
-         664, /* vkQueueSubmit2 */
-         692  /* vkSetPrivateData */
+          71, /* vkCmdCopyBuffer2 */
+          74, /* vkCmdCopyBufferToImage2 */
+          77, /* vkCmdCopyImage2 */
+          80, /* vkCmdCopyImageToBuffer2 */
+         133, /* vkCmdEndRendering */
+         148, /* vkCmdPipelineBarrier2 */
+         164, /* vkCmdResetEvent2 */
+         168, /* vkCmdResolveImage2 */
+         188, /* vkCmdSetCullMode */
+         192, /* vkCmdSetDepthBiasEnable */
+         195, /* vkCmdSetDepthBoundsTestEnable */
+         201, /* vkCmdSetDepthCompareOp */
+         203, /* vkCmdSetDepthTestEnable */
+         205, /* vkCmdSetDepthWriteEnable */
+         215, /* vkCmdSetEvent2 */
+         222, /* vkCmdSetFrontFace */
+         237, /* vkCmdSetPrimitiveRestartEnable */
+         239, /* vkCmdSetPrimitiveTopology */
+         244, /* vkCmdSetRasterizerDiscardEnable */
+         256, /* vkCmdSetScissorWithCount */
+         260, /* vkCmdSetStencilOp */
+         263, /* vkCmdSetStencilTestEnable */
+         273, /* vkCmdSetViewportWithCount */
+         283, /* vkCmdWaitEvents2 */
+         291, /* vkCmdWriteTimestamp2 */
+         351, /* vkCreatePrivateDataSlot */
+         414, /* vkDestroyPrivateDataSlot */
+         476, /* vkGetDeviceBufferMemoryRequirements */
+         484, /* vkGetDeviceImageMemoryRequirements */
+         486, /* vkGetDeviceImageSparseMemoryRequirements */
+         603, /* vkGetPhysicalDeviceToolProperties */
+         621, /* vkGetPrivateData */
+         673, /* vkQueueSubmit2 */
+         701  /* vkSetPrivateData */
     };
     if (!context->VERSION_1_3) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1465,23 +1480,23 @@ static void glad_vk_load_VK_VERSION_1_4(GladVulkanContext *context, GLADuserptrl
     static const uint16_t s_pfnIdx[] = {
           39, /* vkCmdBindDescriptorSets2 */
           42, /* vkCmdBindIndexBuffer2 */
-         150, /* vkCmdPushConstants2 */
-         152, /* vkCmdPushDescriptorSet */
-         153, /* vkCmdPushDescriptorSet2 */
-         156, /* vkCmdPushDescriptorSetWithTemplate */
-         157, /* vkCmdPushDescriptorSetWithTemplate2 */
-         222, /* vkCmdSetLineStipple */
-         244, /* vkCmdSetRenderingAttachmentLocations */
-         246, /* vkCmdSetRenderingInputAttachmentIndices */
-         293, /* vkCopyImageToImage */
-         295, /* vkCopyImageToMemory */
-         298, /* vkCopyMemoryToImage */
-         483, /* vkGetDeviceImageSubresourceLayout */
-         519, /* vkGetImageSubresourceLayout2 */
-         624, /* vkGetRenderingAreaGranularity */
-         652, /* vkMapMemory2 */
-         697, /* vkTransitionImageLayout */
-         703  /* vkUnmapMemory2 */
+         153, /* vkCmdPushConstants2 */
+         155, /* vkCmdPushDescriptorSet */
+         156, /* vkCmdPushDescriptorSet2 */
+         159, /* vkCmdPushDescriptorSetWithTemplate */
+         160, /* vkCmdPushDescriptorSetWithTemplate2 */
+         225, /* vkCmdSetLineStipple */
+         247, /* vkCmdSetRenderingAttachmentLocations */
+         249, /* vkCmdSetRenderingInputAttachmentIndices */
+         297, /* vkCopyImageToImage */
+         299, /* vkCopyImageToMemory */
+         302, /* vkCopyMemoryToImage */
+         488, /* vkGetDeviceImageSubresourceLayout */
+         524, /* vkGetImageSubresourceLayout2 */
+         633, /* vkGetRenderingAreaGranularity */
+         661, /* vkMapMemory2 */
+         706, /* vkTransitionImageLayout */
+         712  /* vkUnmapMemory2 */
     };
     if (!context->VERSION_1_4) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1490,13 +1505,13 @@ static void glad_vk_load_VK_VERSION_1_4(GladVulkanContext *context, GLADuserptrl
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
 static void glad_vk_load_VK_AMDX_shader_enqueue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          97, /* vkCmdDispatchGraphAMDX */
-          98, /* vkCmdDispatchGraphIndirectAMDX */
-          99, /* vkCmdDispatchGraphIndirectCountAMDX */
-         138, /* vkCmdInitializeGraphScratchMemoryAMDX */
-         327, /* vkCreateExecutionGraphPipelinesAMDX */
-         502, /* vkGetExecutionGraphPipelineNodeIndexAMDX */
-         503  /* vkGetExecutionGraphPipelineScratchSizeAMDX */
+         100, /* vkCmdDispatchGraphAMDX */
+         101, /* vkCmdDispatchGraphIndirectAMDX */
+         102, /* vkCmdDispatchGraphIndirectCountAMDX */
+         141, /* vkCmdInitializeGraphScratchMemoryAMDX */
+         331, /* vkCreateExecutionGraphPipelinesAMDX */
+         507, /* vkGetExecutionGraphPipelineNodeIndexAMDX */
+         508  /* vkGetExecutionGraphPipelineScratchSizeAMDX */
     };
     if (!context->AMDX_shader_enqueue) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1513,8 +1528,8 @@ static void glad_vk_load_VK_AMD_anti_lag(GladVulkanContext *context, GLADuserptr
 
 static void glad_vk_load_VK_AMD_buffer_marker(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         284, /* vkCmdWriteBufferMarker2AMD */
-         285  /* vkCmdWriteBufferMarkerAMD */
+         287, /* vkCmdWriteBufferMarker2AMD */
+         288  /* vkCmdWriteBufferMarkerAMD */
     };
     if (!context->AMD_buffer_marker) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1522,7 +1537,7 @@ static void glad_vk_load_VK_AMD_buffer_marker(GladVulkanContext *context, GLADus
 
 static void glad_vk_load_VK_AMD_display_native_hdr(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         691  /* vkSetLocalDimmingAMD */
+         700  /* vkSetLocalDimmingAMD */
     };
     if (!context->AMD_display_native_hdr) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1530,8 +1545,8 @@ static void glad_vk_load_VK_AMD_display_native_hdr(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_AMD_draw_indirect_count(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         107, /* vkCmdDrawIndexedIndirectCountAMD */
-         112  /* vkCmdDrawIndirectCountAMD */
+         110, /* vkCmdDrawIndexedIndirectCountAMD */
+         115  /* vkCmdDrawIndirectCountAMD */
     };
     if (!context->AMD_draw_indirect_count) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1539,7 +1554,7 @@ static void glad_vk_load_VK_AMD_draw_indirect_count(GladVulkanContext *context, 
 
 static void glad_vk_load_VK_AMD_shader_info(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         634  /* vkGetShaderInfoAMD */
+         643  /* vkGetShaderInfoAMD */
     };
     if (!context->AMD_shader_info) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1548,8 +1563,8 @@ static void glad_vk_load_VK_AMD_shader_info(GladVulkanContext *context, GLADuser
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
 static void glad_vk_load_VK_ANDROID_external_memory_android_hardware_buffer(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         447, /* vkGetAndroidHardwareBufferPropertiesANDROID */
-         528  /* vkGetMemoryAndroidHardwareBufferANDROID */
+         451, /* vkGetAndroidHardwareBufferPropertiesANDROID */
+         533  /* vkGetMemoryAndroidHardwareBufferANDROID */
     };
     if (!context->ANDROID_external_memory_android_hardware_buffer) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1559,7 +1574,7 @@ static void glad_vk_load_VK_ANDROID_external_memory_android_hardware_buffer(Glad
 static void glad_vk_load_VK_EXT_acquire_drm_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            0, /* vkAcquireDrmDisplayEXT */
-         498  /* vkGetDrmDisplayEXT */
+         503  /* vkGetDrmDisplayEXT */
     };
     if (!context->EXT_acquire_drm_display) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1569,7 +1584,7 @@ static void glad_vk_load_VK_EXT_acquire_drm_display(GladVulkanContext *context, 
 static void glad_vk_load_VK_EXT_acquire_xlib_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            7, /* vkAcquireXlibDisplayEXT */
-         617  /* vkGetRandROutputDisplayEXT */
+         626  /* vkGetRandROutputDisplayEXT */
     };
     if (!context->EXT_acquire_xlib_display) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1578,7 +1593,7 @@ static void glad_vk_load_VK_EXT_acquire_xlib_display(GladVulkanContext *context,
 #endif
 static void glad_vk_load_VK_EXT_attachment_feedback_loop_dynamic_state(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         169  /* vkCmdSetAttachmentFeedbackLoopEnableEXT */
+         172  /* vkCmdSetAttachmentFeedbackLoopEnableEXT */
     };
     if (!context->EXT_attachment_feedback_loop_dynamic_state) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1586,7 +1601,7 @@ static void glad_vk_load_VK_EXT_attachment_feedback_loop_dynamic_state(GladVulka
 
 static void glad_vk_load_VK_EXT_buffer_device_address(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         450  /* vkGetBufferDeviceAddressEXT */
+         454  /* vkGetBufferDeviceAddressEXT */
     };
     if (!context->EXT_buffer_device_address) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1594,8 +1609,8 @@ static void glad_vk_load_VK_EXT_buffer_device_address(GladVulkanContext *context
 
 static void glad_vk_load_VK_EXT_calibrated_timestamps(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         458, /* vkGetCalibratedTimestampsEXT */
-         541  /* vkGetPhysicalDeviceCalibrateableTimeDomainsEXT */
+         462, /* vkGetCalibratedTimestampsEXT */
+         549  /* vkGetPhysicalDeviceCalibrateableTimeDomainsEXT */
     };
     if (!context->EXT_calibrated_timestamps) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1603,7 +1618,7 @@ static void glad_vk_load_VK_EXT_calibrated_timestamps(GladVulkanContext *context
 
 static void glad_vk_load_VK_EXT_color_write_enable(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         176  /* vkCmdSetColorWriteEnableEXT */
+         179  /* vkCmdSetColorWriteEnableEXT */
     };
     if (!context->EXT_color_write_enable) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1612,7 +1627,7 @@ static void glad_vk_load_VK_EXT_color_write_enable(GladVulkanContext *context, G
 static void glad_vk_load_VK_EXT_conditional_rendering(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           24, /* vkCmdBeginConditionalRenderingEXT */
-         123  /* vkCmdEndConditionalRenderingEXT */
+         126  /* vkCmdEndConditionalRenderingEXT */
     };
     if (!context->EXT_conditional_rendering) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1620,11 +1635,11 @@ static void glad_vk_load_VK_EXT_conditional_rendering(GladVulkanContext *context
 
 static void glad_vk_load_VK_EXT_debug_marker(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          88, /* vkCmdDebugMarkerBeginEXT */
-          89, /* vkCmdDebugMarkerEndEXT */
-          90, /* vkCmdDebugMarkerInsertEXT */
-         373, /* vkDebugMarkerSetObjectNameEXT */
-         374  /* vkDebugMarkerSetObjectTagEXT */
+          91, /* vkCmdDebugMarkerBeginEXT */
+          92, /* vkCmdDebugMarkerEndEXT */
+          93, /* vkCmdDebugMarkerInsertEXT */
+         377, /* vkDebugMarkerSetObjectNameEXT */
+         378  /* vkDebugMarkerSetObjectTagEXT */
     };
     if (!context->EXT_debug_marker) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1632,9 +1647,9 @@ static void glad_vk_load_VK_EXT_debug_marker(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_EXT_debug_report(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         315, /* vkCreateDebugReportCallbackEXT */
-         375, /* vkDebugReportMessageEXT */
-         387  /* vkDestroyDebugReportCallbackEXT */
+         319, /* vkCreateDebugReportCallbackEXT */
+         379, /* vkDebugReportMessageEXT */
+         391  /* vkDestroyDebugReportCallbackEXT */
     };
     if (!context->EXT_debug_report) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1643,16 +1658,16 @@ static void glad_vk_load_VK_EXT_debug_report(GladVulkanContext *context, GLADuse
 static void glad_vk_load_VK_EXT_debug_utils(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           25, /* vkCmdBeginDebugUtilsLabelEXT */
-         124, /* vkCmdEndDebugUtilsLabelEXT */
-         139, /* vkCmdInsertDebugUtilsLabelEXT */
-         316, /* vkCreateDebugUtilsMessengerEXT */
-         388, /* vkDestroyDebugUtilsMessengerEXT */
-         656, /* vkQueueBeginDebugUtilsLabelEXT */
-         658, /* vkQueueEndDebugUtilsLabelEXT */
-         659, /* vkQueueInsertDebugUtilsLabelEXT */
-         684, /* vkSetDebugUtilsObjectNameEXT */
-         685, /* vkSetDebugUtilsObjectTagEXT */
-         696  /* vkSubmitDebugUtilsMessageEXT */
+         127, /* vkCmdEndDebugUtilsLabelEXT */
+         142, /* vkCmdInsertDebugUtilsLabelEXT */
+         320, /* vkCreateDebugUtilsMessengerEXT */
+         392, /* vkDestroyDebugUtilsMessengerEXT */
+         665, /* vkQueueBeginDebugUtilsLabelEXT */
+         667, /* vkQueueEndDebugUtilsLabelEXT */
+         668, /* vkQueueInsertDebugUtilsLabelEXT */
+         693, /* vkSetDebugUtilsObjectNameEXT */
+         694, /* vkSetDebugUtilsObjectTagEXT */
+         705  /* vkSubmitDebugUtilsMessageEXT */
     };
     if (!context->EXT_debug_utils) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1660,7 +1675,7 @@ static void glad_vk_load_VK_EXT_debug_utils(GladVulkanContext *context, GLADuser
 
 static void glad_vk_load_VK_EXT_depth_bias_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         188  /* vkCmdSetDepthBias2EXT */
+         191  /* vkCmdSetDepthBias2EXT */
     };
     if (!context->EXT_depth_bias_control) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1668,7 +1683,7 @@ static void glad_vk_load_VK_EXT_depth_bias_control(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_EXT_depth_clamp_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         195  /* vkCmdSetDepthClampRangeEXT */
+         198  /* vkCmdSetDepthClampRangeEXT */
     };
     if (!context->EXT_depth_clamp_control) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1678,15 +1693,15 @@ static void glad_vk_load_VK_EXT_descriptor_buffer(GladVulkanContext *context, GL
     static const uint16_t s_pfnIdx[] = {
           36, /* vkCmdBindDescriptorBufferEmbeddedSamplersEXT */
           37, /* vkCmdBindDescriptorBuffersEXT */
-         205, /* vkCmdSetDescriptorBufferOffsetsEXT */
-         446, /* vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT */
-         457, /* vkGetBufferOpaqueCaptureDescriptorDataEXT */
-         463, /* vkGetDescriptorEXT */
-         465, /* vkGetDescriptorSetLayoutBindingOffsetEXT */
-         467, /* vkGetDescriptorSetLayoutSizeEXT */
-         514, /* vkGetImageOpaqueCaptureDescriptorDataEXT */
-         525, /* vkGetImageViewOpaqueCaptureDescriptorDataEXT */
-         626  /* vkGetSamplerOpaqueCaptureDescriptorDataEXT */
+         208, /* vkCmdSetDescriptorBufferOffsetsEXT */
+         450, /* vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT */
+         461, /* vkGetBufferOpaqueCaptureDescriptorDataEXT */
+         468, /* vkGetDescriptorEXT */
+         470, /* vkGetDescriptorSetLayoutBindingOffsetEXT */
+         472, /* vkGetDescriptorSetLayoutSizeEXT */
+         519, /* vkGetImageOpaqueCaptureDescriptorDataEXT */
+         530, /* vkGetImageViewOpaqueCaptureDescriptorDataEXT */
+         635  /* vkGetSamplerOpaqueCaptureDescriptorDataEXT */
     };
     if (!context->EXT_descriptor_buffer) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1694,7 +1709,7 @@ static void glad_vk_load_VK_EXT_descriptor_buffer(GladVulkanContext *context, GL
 
 static void glad_vk_load_VK_EXT_device_fault(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         473  /* vkGetDeviceFaultInfoEXT */
+         478  /* vkGetDeviceFaultInfoEXT */
     };
     if (!context->EXT_device_fault) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1702,15 +1717,15 @@ static void glad_vk_load_VK_EXT_device_fault(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_EXT_device_generated_commands(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         135, /* vkCmdExecuteGeneratedCommandsEXT */
-         147, /* vkCmdPreprocessGeneratedCommandsEXT */
-         336, /* vkCreateIndirectCommandsLayoutEXT */
-         338, /* vkCreateIndirectExecutionSetEXT */
-         400, /* vkDestroyIndirectCommandsLayoutEXT */
-         402, /* vkDestroyIndirectExecutionSetEXT */
-         508, /* vkGetGeneratedCommandsMemoryRequirementsEXT */
-         708, /* vkUpdateIndirectExecutionSetPipelineEXT */
-         709  /* vkUpdateIndirectExecutionSetShaderEXT */
+         138, /* vkCmdExecuteGeneratedCommandsEXT */
+         150, /* vkCmdPreprocessGeneratedCommandsEXT */
+         340, /* vkCreateIndirectCommandsLayoutEXT */
+         342, /* vkCreateIndirectExecutionSetEXT */
+         404, /* vkDestroyIndirectCommandsLayoutEXT */
+         406, /* vkDestroyIndirectExecutionSetEXT */
+         513, /* vkGetGeneratedCommandsMemoryRequirementsEXT */
+         717, /* vkUpdateIndirectExecutionSetPipelineEXT */
+         718  /* vkUpdateIndirectExecutionSetShaderEXT */
     };
     if (!context->EXT_device_generated_commands) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1718,7 +1733,7 @@ static void glad_vk_load_VK_EXT_device_generated_commands(GladVulkanContext *con
 
 static void glad_vk_load_VK_EXT_direct_mode_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         670  /* vkReleaseDisplayEXT */
+         679  /* vkReleaseDisplayEXT */
     };
     if (!context->EXT_direct_mode_display) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1727,8 +1742,8 @@ static void glad_vk_load_VK_EXT_direct_mode_display(GladVulkanContext *context, 
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
 static void glad_vk_load_VK_EXT_directfb_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         323, /* vkCreateDirectFBSurfaceEXT */
-         546  /* vkGetPhysicalDeviceDirectFBPresentationSupportEXT */
+         327, /* vkCreateDirectFBSurfaceEXT */
+         555  /* vkGetPhysicalDeviceDirectFBPresentationSupportEXT */
     };
     if (!context->EXT_directfb_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1737,9 +1752,9 @@ static void glad_vk_load_VK_EXT_directfb_surface(GladVulkanContext *context, GLA
 #endif
 static void glad_vk_load_VK_EXT_discard_rectangles(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         208, /* vkCmdSetDiscardRectangleEXT */
-         209, /* vkCmdSetDiscardRectangleEnableEXT */
-         210  /* vkCmdSetDiscardRectangleModeEXT */
+         211, /* vkCmdSetDiscardRectangleEXT */
+         212, /* vkCmdSetDiscardRectangleEnableEXT */
+         213  /* vkCmdSetDiscardRectangleModeEXT */
     };
     if (!context->EXT_discard_rectangles) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1747,10 +1762,10 @@ static void glad_vk_load_VK_EXT_discard_rectangles(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_EXT_display_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         426, /* vkDisplayPowerControlEXT */
-         637, /* vkGetSwapchainCounterEXT */
-         667, /* vkRegisterDeviceEventEXT */
-         668  /* vkRegisterDisplayEventEXT */
+         430, /* vkDisplayPowerControlEXT */
+         646, /* vkGetSwapchainCounterEXT */
+         676, /* vkRegisterDeviceEventEXT */
+         677  /* vkRegisterDisplayEventEXT */
     };
     if (!context->EXT_display_control) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1758,7 +1773,7 @@ static void glad_vk_load_VK_EXT_display_control(GladVulkanContext *context, GLAD
 
 static void glad_vk_load_VK_EXT_display_surface_counter(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         586  /* vkGetPhysicalDeviceSurfaceCapabilities2EXT */
+         595  /* vkGetPhysicalDeviceSurfaceCapabilities2EXT */
     };
     if (!context->EXT_display_surface_counter) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1767,17 +1782,17 @@ static void glad_vk_load_VK_EXT_display_surface_counter(GladVulkanContext *conte
 static void glad_vk_load_VK_EXT_extended_dynamic_state(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           52, /* vkCmdBindVertexBuffers2EXT */
-         186, /* vkCmdSetCullModeEXT */
-         193, /* vkCmdSetDepthBoundsTestEnableEXT */
-         199, /* vkCmdSetDepthCompareOpEXT */
-         201, /* vkCmdSetDepthTestEnableEXT */
-         203, /* vkCmdSetDepthWriteEnableEXT */
-         220, /* vkCmdSetFrontFaceEXT */
-         237, /* vkCmdSetPrimitiveTopologyEXT */
-         254, /* vkCmdSetScissorWithCountEXT */
-         258, /* vkCmdSetStencilOpEXT */
-         261, /* vkCmdSetStencilTestEnableEXT */
-         271  /* vkCmdSetViewportWithCountEXT */
+         189, /* vkCmdSetCullModeEXT */
+         196, /* vkCmdSetDepthBoundsTestEnableEXT */
+         202, /* vkCmdSetDepthCompareOpEXT */
+         204, /* vkCmdSetDepthTestEnableEXT */
+         206, /* vkCmdSetDepthWriteEnableEXT */
+         223, /* vkCmdSetFrontFaceEXT */
+         240, /* vkCmdSetPrimitiveTopologyEXT */
+         257, /* vkCmdSetScissorWithCountEXT */
+         261, /* vkCmdSetStencilOpEXT */
+         264, /* vkCmdSetStencilTestEnableEXT */
+         274  /* vkCmdSetViewportWithCountEXT */
     };
     if (!context->EXT_extended_dynamic_state) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1785,11 +1800,11 @@ static void glad_vk_load_VK_EXT_extended_dynamic_state(GladVulkanContext *contex
 
 static void glad_vk_load_VK_EXT_extended_dynamic_state2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         190, /* vkCmdSetDepthBiasEnableEXT */
-         227, /* vkCmdSetLogicOpEXT */
-         229, /* vkCmdSetPatchControlPointsEXT */
-         235, /* vkCmdSetPrimitiveRestartEnableEXT */
-         242  /* vkCmdSetRasterizerDiscardEnableEXT */
+         193, /* vkCmdSetDepthBiasEnableEXT */
+         230, /* vkCmdSetLogicOpEXT */
+         232, /* vkCmdSetPatchControlPointsEXT */
+         238, /* vkCmdSetPrimitiveRestartEnableEXT */
+         245  /* vkCmdSetRasterizerDiscardEnableEXT */
     };
     if (!context->EXT_extended_dynamic_state2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1797,37 +1812,37 @@ static void glad_vk_load_VK_EXT_extended_dynamic_state2(GladVulkanContext *conte
 
 static void glad_vk_load_VK_EXT_extended_dynamic_state3(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         167, /* vkCmdSetAlphaToCoverageEnableEXT */
-         168, /* vkCmdSetAlphaToOneEnableEXT */
-         173, /* vkCmdSetColorBlendAdvancedEXT */
-         174, /* vkCmdSetColorBlendEnableEXT */
-         175, /* vkCmdSetColorBlendEquationEXT */
-         177, /* vkCmdSetColorWriteMaskEXT */
-         178, /* vkCmdSetConservativeRasterizationModeEXT */
-         179, /* vkCmdSetCoverageModulationModeNV */
-         180, /* vkCmdSetCoverageModulationTableEnableNV */
-         181, /* vkCmdSetCoverageModulationTableNV */
-         182, /* vkCmdSetCoverageReductionModeNV */
-         183, /* vkCmdSetCoverageToColorEnableNV */
-         184, /* vkCmdSetCoverageToColorLocationNV */
-         194, /* vkCmdSetDepthClampEnableEXT */
-         196, /* vkCmdSetDepthClipEnableEXT */
-         197, /* vkCmdSetDepthClipNegativeOneToOneEXT */
-         216, /* vkCmdSetExtraPrimitiveOverestimationSizeEXT */
-         221, /* vkCmdSetLineRasterizationModeEXT */
-         224, /* vkCmdSetLineStippleEnableEXT */
-         228, /* vkCmdSetLogicOpEnableEXT */
-         233, /* vkCmdSetPolygonModeEXT */
-         238, /* vkCmdSetProvokingVertexModeEXT */
-         239, /* vkCmdSetRasterizationSamplesEXT */
-         240, /* vkCmdSetRasterizationStreamEXT */
-         248, /* vkCmdSetRepresentativeFragmentTestEnableNV */
-         250, /* vkCmdSetSampleLocationsEnableEXT */
-         251, /* vkCmdSetSampleMaskEXT */
-         255, /* vkCmdSetShadingRateImageEnableNV */
-         263, /* vkCmdSetTessellationDomainOriginEXT */
-         267, /* vkCmdSetViewportSwizzleNV */
-         268  /* vkCmdSetViewportWScalingEnableNV */
+         170, /* vkCmdSetAlphaToCoverageEnableEXT */
+         171, /* vkCmdSetAlphaToOneEnableEXT */
+         176, /* vkCmdSetColorBlendAdvancedEXT */
+         177, /* vkCmdSetColorBlendEnableEXT */
+         178, /* vkCmdSetColorBlendEquationEXT */
+         180, /* vkCmdSetColorWriteMaskEXT */
+         181, /* vkCmdSetConservativeRasterizationModeEXT */
+         182, /* vkCmdSetCoverageModulationModeNV */
+         183, /* vkCmdSetCoverageModulationTableEnableNV */
+         184, /* vkCmdSetCoverageModulationTableNV */
+         185, /* vkCmdSetCoverageReductionModeNV */
+         186, /* vkCmdSetCoverageToColorEnableNV */
+         187, /* vkCmdSetCoverageToColorLocationNV */
+         197, /* vkCmdSetDepthClampEnableEXT */
+         199, /* vkCmdSetDepthClipEnableEXT */
+         200, /* vkCmdSetDepthClipNegativeOneToOneEXT */
+         219, /* vkCmdSetExtraPrimitiveOverestimationSizeEXT */
+         224, /* vkCmdSetLineRasterizationModeEXT */
+         227, /* vkCmdSetLineStippleEnableEXT */
+         231, /* vkCmdSetLogicOpEnableEXT */
+         236, /* vkCmdSetPolygonModeEXT */
+         241, /* vkCmdSetProvokingVertexModeEXT */
+         242, /* vkCmdSetRasterizationSamplesEXT */
+         243, /* vkCmdSetRasterizationStreamEXT */
+         251, /* vkCmdSetRepresentativeFragmentTestEnableNV */
+         253, /* vkCmdSetSampleLocationsEnableEXT */
+         254, /* vkCmdSetSampleMaskEXT */
+         258, /* vkCmdSetShadingRateImageEnableNV */
+         266, /* vkCmdSetTessellationDomainOriginEXT */
+         270, /* vkCmdSetViewportSwizzleNV */
+         271  /* vkCmdSetViewportWScalingEnableNV */
     };
     if (!context->EXT_extended_dynamic_state3) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1835,19 +1850,30 @@ static void glad_vk_load_VK_EXT_extended_dynamic_state3(GladVulkanContext *conte
 
 static void glad_vk_load_VK_EXT_external_memory_host(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         531  /* vkGetMemoryHostPointerPropertiesEXT */
+         536  /* vkGetMemoryHostPointerPropertiesEXT */
     };
     if (!context->EXT_external_memory_host) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
+#if defined(VK_USE_PLATFORM_METAL_EXT)
+static void glad_vk_load_VK_EXT_external_memory_metal(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    static const uint16_t s_pfnIdx[] = {
+         537, /* vkGetMemoryMetalHandleEXT */
+         538  /* vkGetMemoryMetalHandlePropertiesEXT */
+    };
+    if (!context->EXT_external_memory_metal) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
+}
+
+#endif
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 static void glad_vk_load_VK_EXT_full_screen_exclusive(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            1, /* vkAcquireFullScreenExclusiveModeEXT */
-         477, /* vkGetDeviceGroupSurfacePresentModes2EXT */
-         591, /* vkGetPhysicalDeviceSurfacePresentModes2EXT */
-         671  /* vkReleaseFullScreenExclusiveModeEXT */
+         482, /* vkGetDeviceGroupSurfacePresentModes2EXT */
+         600, /* vkGetPhysicalDeviceSurfacePresentModes2EXT */
+         680  /* vkReleaseFullScreenExclusiveModeEXT */
     };
     if (!context->EXT_full_screen_exclusive) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1856,7 +1882,7 @@ static void glad_vk_load_VK_EXT_full_screen_exclusive(GladVulkanContext *context
 #endif
 static void glad_vk_load_VK_EXT_hdr_metadata(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         688  /* vkSetHdrMetadataEXT */
+         697  /* vkSetHdrMetadataEXT */
     };
     if (!context->EXT_hdr_metadata) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1864,7 +1890,7 @@ static void glad_vk_load_VK_EXT_hdr_metadata(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_EXT_headless_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         331  /* vkCreateHeadlessSurfaceEXT */
+         335  /* vkCreateHeadlessSurfaceEXT */
     };
     if (!context->EXT_headless_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1872,11 +1898,11 @@ static void glad_vk_load_VK_EXT_headless_surface(GladVulkanContext *context, GLA
 
 static void glad_vk_load_VK_EXT_host_image_copy(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         294, /* vkCopyImageToImageEXT */
-         296, /* vkCopyImageToMemoryEXT */
-         299, /* vkCopyMemoryToImageEXT */
-         520, /* vkGetImageSubresourceLayout2EXT */
-         698  /* vkTransitionImageLayoutEXT */
+         298, /* vkCopyImageToImageEXT */
+         300, /* vkCopyImageToMemoryEXT */
+         303, /* vkCopyMemoryToImageEXT */
+         525, /* vkGetImageSubresourceLayout2EXT */
+         707  /* vkTransitionImageLayoutEXT */
     };
     if (!context->EXT_host_image_copy) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1884,7 +1910,7 @@ static void glad_vk_load_VK_EXT_host_image_copy(GladVulkanContext *context, GLAD
 
 static void glad_vk_load_VK_EXT_host_query_reset(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         681  /* vkResetQueryPoolEXT */
+         690  /* vkResetQueryPoolEXT */
     };
     if (!context->EXT_host_query_reset) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1892,7 +1918,7 @@ static void glad_vk_load_VK_EXT_host_query_reset(GladVulkanContext *context, GLA
 
 static void glad_vk_load_VK_EXT_image_compression_control(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         520  /* vkGetImageSubresourceLayout2EXT */
+         525  /* vkGetImageSubresourceLayout2EXT */
     };
     if (!context->EXT_image_compression_control) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1900,7 +1926,7 @@ static void glad_vk_load_VK_EXT_image_compression_control(GladVulkanContext *con
 
 static void glad_vk_load_VK_EXT_image_drm_format_modifier(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         510  /* vkGetImageDrmFormatModifierPropertiesEXT */
+         515  /* vkGetImageDrmFormatModifierPropertiesEXT */
     };
     if (!context->EXT_image_drm_format_modifier) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1908,7 +1934,7 @@ static void glad_vk_load_VK_EXT_image_drm_format_modifier(GladVulkanContext *con
 
 static void glad_vk_load_VK_EXT_line_rasterization(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         223  /* vkCmdSetLineStippleEXT */
+         226  /* vkCmdSetLineStippleEXT */
     };
     if (!context->EXT_line_rasterization) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1916,9 +1942,9 @@ static void glad_vk_load_VK_EXT_line_rasterization(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_EXT_mesh_shader(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         114, /* vkCmdDrawMeshTasksEXT */
-         115, /* vkCmdDrawMeshTasksIndirectCountEXT */
-         117  /* vkCmdDrawMeshTasksIndirectEXT */
+         117, /* vkCmdDrawMeshTasksEXT */
+         118, /* vkCmdDrawMeshTasksIndirectCountEXT */
+         120  /* vkCmdDrawMeshTasksIndirectEXT */
     };
     if (!context->EXT_mesh_shader) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1927,7 +1953,7 @@ static void glad_vk_load_VK_EXT_mesh_shader(GladVulkanContext *context, GLADuser
 #if defined(VK_USE_PLATFORM_METAL_EXT)
 static void glad_vk_load_VK_EXT_metal_objects(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         437  /* vkExportMetalObjectsEXT */
+         441  /* vkExportMetalObjectsEXT */
     };
     if (!context->EXT_metal_objects) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1937,7 +1963,7 @@ static void glad_vk_load_VK_EXT_metal_objects(GladVulkanContext *context, GLADus
 #if defined(VK_USE_PLATFORM_METAL_EXT)
 static void glad_vk_load_VK_EXT_metal_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         341  /* vkCreateMetalSurfaceEXT */
+         345  /* vkCreateMetalSurfaceEXT */
     };
     if (!context->EXT_metal_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1946,8 +1972,8 @@ static void glad_vk_load_VK_EXT_metal_surface(GladVulkanContext *context, GLADus
 #endif
 static void glad_vk_load_VK_EXT_multi_draw(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         120, /* vkCmdDrawMultiEXT */
-         121  /* vkCmdDrawMultiIndexedEXT */
+         123, /* vkCmdDrawMultiEXT */
+         124  /* vkCmdDrawMultiIndexedEXT */
     };
     if (!context->EXT_multi_draw) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1956,19 +1982,19 @@ static void glad_vk_load_VK_EXT_multi_draw(GladVulkanContext *context, GLADuserp
 static void glad_vk_load_VK_EXT_opacity_micromap(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           23, /* vkBuildMicromapsEXT */
-          59, /* vkCmdBuildMicromapsEXT */
-          82, /* vkCmdCopyMemoryToMicromapEXT */
-          83, /* vkCmdCopyMicromapEXT */
-          84, /* vkCmdCopyMicromapToMemoryEXT */
-         286, /* vkCmdWriteMicromapsPropertiesEXT */
-         300, /* vkCopyMemoryToMicromapEXT */
-         301, /* vkCopyMicromapEXT */
-         302, /* vkCopyMicromapToMemoryEXT */
-         342, /* vkCreateMicromapEXT */
-         404, /* vkDestroyMicromapEXT */
-         488, /* vkGetDeviceMicromapCompatibilityEXT */
-         538, /* vkGetMicromapBuildSizesEXT */
-         716  /* vkWriteMicromapsPropertiesEXT */
+          60, /* vkCmdBuildMicromapsEXT */
+          85, /* vkCmdCopyMemoryToMicromapEXT */
+          86, /* vkCmdCopyMicromapEXT */
+          87, /* vkCmdCopyMicromapToMemoryEXT */
+         289, /* vkCmdWriteMicromapsPropertiesEXT */
+         304, /* vkCopyMemoryToMicromapEXT */
+         305, /* vkCopyMicromapEXT */
+         306, /* vkCopyMicromapToMemoryEXT */
+         346, /* vkCreateMicromapEXT */
+         408, /* vkDestroyMicromapEXT */
+         493, /* vkGetDeviceMicromapCompatibilityEXT */
+         545, /* vkGetMicromapBuildSizesEXT */
+         725  /* vkWriteMicromapsPropertiesEXT */
     };
     if (!context->EXT_opacity_micromap) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1976,7 +2002,7 @@ static void glad_vk_load_VK_EXT_opacity_micromap(GladVulkanContext *context, GLA
 
 static void glad_vk_load_VK_EXT_pageable_device_local_memory(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         686  /* vkSetDeviceMemoryPriorityEXT */
+         695  /* vkSetDeviceMemoryPriorityEXT */
     };
     if (!context->EXT_pageable_device_local_memory) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1984,7 +2010,7 @@ static void glad_vk_load_VK_EXT_pageable_device_local_memory(GladVulkanContext *
 
 static void glad_vk_load_VK_EXT_pipeline_properties(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         611  /* vkGetPipelinePropertiesEXT */
+         620  /* vkGetPipelinePropertiesEXT */
     };
     if (!context->EXT_pipeline_properties) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -1992,10 +2018,10 @@ static void glad_vk_load_VK_EXT_pipeline_properties(GladVulkanContext *context, 
 
 static void glad_vk_load_VK_EXT_private_data(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         348, /* vkCreatePrivateDataSlotEXT */
-         411, /* vkDestroyPrivateDataSlotEXT */
-         613, /* vkGetPrivateDataEXT */
-         693  /* vkSetPrivateDataEXT */
+         352, /* vkCreatePrivateDataSlotEXT */
+         415, /* vkDestroyPrivateDataSlotEXT */
+         622, /* vkGetPrivateDataEXT */
+         702  /* vkSetPrivateDataEXT */
     };
     if (!context->EXT_private_data) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2003,8 +2029,8 @@ static void glad_vk_load_VK_EXT_private_data(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_EXT_sample_locations(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         249, /* vkCmdSetSampleLocationsEXT */
-         571  /* vkGetPhysicalDeviceMultisamplePropertiesEXT */
+         252, /* vkCmdSetSampleLocationsEXT */
+         580  /* vkGetPhysicalDeviceMultisamplePropertiesEXT */
     };
     if (!context->EXT_sample_locations) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2012,8 +2038,8 @@ static void glad_vk_load_VK_EXT_sample_locations(GladVulkanContext *context, GLA
 
 static void glad_vk_load_VK_EXT_shader_module_identifier(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         635, /* vkGetShaderModuleCreateInfoIdentifierEXT */
-         636  /* vkGetShaderModuleIdentifierEXT */
+         644, /* vkGetShaderModuleCreateInfoIdentifierEXT */
+         645  /* vkGetShaderModuleIdentifierEXT */
     };
     if (!context->EXT_shader_module_identifier) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2023,58 +2049,58 @@ static void glad_vk_load_VK_EXT_shader_object(GladVulkanContext *context, GLADus
     static const uint16_t s_pfnIdx[] = {
           47, /* vkCmdBindShadersEXT */
           52, /* vkCmdBindVertexBuffers2EXT */
-         167, /* vkCmdSetAlphaToCoverageEnableEXT */
-         168, /* vkCmdSetAlphaToOneEnableEXT */
-         173, /* vkCmdSetColorBlendAdvancedEXT */
-         174, /* vkCmdSetColorBlendEnableEXT */
-         175, /* vkCmdSetColorBlendEquationEXT */
-         177, /* vkCmdSetColorWriteMaskEXT */
-         178, /* vkCmdSetConservativeRasterizationModeEXT */
-         179, /* vkCmdSetCoverageModulationModeNV */
-         180, /* vkCmdSetCoverageModulationTableEnableNV */
-         181, /* vkCmdSetCoverageModulationTableNV */
-         182, /* vkCmdSetCoverageReductionModeNV */
-         183, /* vkCmdSetCoverageToColorEnableNV */
-         184, /* vkCmdSetCoverageToColorLocationNV */
-         186, /* vkCmdSetCullModeEXT */
-         190, /* vkCmdSetDepthBiasEnableEXT */
-         193, /* vkCmdSetDepthBoundsTestEnableEXT */
-         194, /* vkCmdSetDepthClampEnableEXT */
-         195, /* vkCmdSetDepthClampRangeEXT */
-         196, /* vkCmdSetDepthClipEnableEXT */
-         197, /* vkCmdSetDepthClipNegativeOneToOneEXT */
-         199, /* vkCmdSetDepthCompareOpEXT */
-         201, /* vkCmdSetDepthTestEnableEXT */
-         203, /* vkCmdSetDepthWriteEnableEXT */
-         216, /* vkCmdSetExtraPrimitiveOverestimationSizeEXT */
-         220, /* vkCmdSetFrontFaceEXT */
-         221, /* vkCmdSetLineRasterizationModeEXT */
-         224, /* vkCmdSetLineStippleEnableEXT */
-         227, /* vkCmdSetLogicOpEXT */
-         228, /* vkCmdSetLogicOpEnableEXT */
-         229, /* vkCmdSetPatchControlPointsEXT */
-         233, /* vkCmdSetPolygonModeEXT */
-         235, /* vkCmdSetPrimitiveRestartEnableEXT */
-         237, /* vkCmdSetPrimitiveTopologyEXT */
-         238, /* vkCmdSetProvokingVertexModeEXT */
-         239, /* vkCmdSetRasterizationSamplesEXT */
-         240, /* vkCmdSetRasterizationStreamEXT */
-         242, /* vkCmdSetRasterizerDiscardEnableEXT */
-         248, /* vkCmdSetRepresentativeFragmentTestEnableNV */
-         250, /* vkCmdSetSampleLocationsEnableEXT */
-         251, /* vkCmdSetSampleMaskEXT */
-         254, /* vkCmdSetScissorWithCountEXT */
-         255, /* vkCmdSetShadingRateImageEnableNV */
-         258, /* vkCmdSetStencilOpEXT */
-         261, /* vkCmdSetStencilTestEnableEXT */
-         263, /* vkCmdSetTessellationDomainOriginEXT */
-         264, /* vkCmdSetVertexInputEXT */
-         267, /* vkCmdSetViewportSwizzleNV */
-         268, /* vkCmdSetViewportWScalingEnableNV */
-         271, /* vkCmdSetViewportWithCountEXT */
-         361, /* vkCreateShadersEXT */
-         418, /* vkDestroyShaderEXT */
-         633  /* vkGetShaderBinaryDataEXT */
+         170, /* vkCmdSetAlphaToCoverageEnableEXT */
+         171, /* vkCmdSetAlphaToOneEnableEXT */
+         176, /* vkCmdSetColorBlendAdvancedEXT */
+         177, /* vkCmdSetColorBlendEnableEXT */
+         178, /* vkCmdSetColorBlendEquationEXT */
+         180, /* vkCmdSetColorWriteMaskEXT */
+         181, /* vkCmdSetConservativeRasterizationModeEXT */
+         182, /* vkCmdSetCoverageModulationModeNV */
+         183, /* vkCmdSetCoverageModulationTableEnableNV */
+         184, /* vkCmdSetCoverageModulationTableNV */
+         185, /* vkCmdSetCoverageReductionModeNV */
+         186, /* vkCmdSetCoverageToColorEnableNV */
+         187, /* vkCmdSetCoverageToColorLocationNV */
+         189, /* vkCmdSetCullModeEXT */
+         193, /* vkCmdSetDepthBiasEnableEXT */
+         196, /* vkCmdSetDepthBoundsTestEnableEXT */
+         197, /* vkCmdSetDepthClampEnableEXT */
+         198, /* vkCmdSetDepthClampRangeEXT */
+         199, /* vkCmdSetDepthClipEnableEXT */
+         200, /* vkCmdSetDepthClipNegativeOneToOneEXT */
+         202, /* vkCmdSetDepthCompareOpEXT */
+         204, /* vkCmdSetDepthTestEnableEXT */
+         206, /* vkCmdSetDepthWriteEnableEXT */
+         219, /* vkCmdSetExtraPrimitiveOverestimationSizeEXT */
+         223, /* vkCmdSetFrontFaceEXT */
+         224, /* vkCmdSetLineRasterizationModeEXT */
+         227, /* vkCmdSetLineStippleEnableEXT */
+         230, /* vkCmdSetLogicOpEXT */
+         231, /* vkCmdSetLogicOpEnableEXT */
+         232, /* vkCmdSetPatchControlPointsEXT */
+         236, /* vkCmdSetPolygonModeEXT */
+         238, /* vkCmdSetPrimitiveRestartEnableEXT */
+         240, /* vkCmdSetPrimitiveTopologyEXT */
+         241, /* vkCmdSetProvokingVertexModeEXT */
+         242, /* vkCmdSetRasterizationSamplesEXT */
+         243, /* vkCmdSetRasterizationStreamEXT */
+         245, /* vkCmdSetRasterizerDiscardEnableEXT */
+         251, /* vkCmdSetRepresentativeFragmentTestEnableNV */
+         253, /* vkCmdSetSampleLocationsEnableEXT */
+         254, /* vkCmdSetSampleMaskEXT */
+         257, /* vkCmdSetScissorWithCountEXT */
+         258, /* vkCmdSetShadingRateImageEnableNV */
+         261, /* vkCmdSetStencilOpEXT */
+         264, /* vkCmdSetStencilTestEnableEXT */
+         266, /* vkCmdSetTessellationDomainOriginEXT */
+         267, /* vkCmdSetVertexInputEXT */
+         270, /* vkCmdSetViewportSwizzleNV */
+         271, /* vkCmdSetViewportWScalingEnableNV */
+         274, /* vkCmdSetViewportWithCountEXT */
+         365, /* vkCreateShadersEXT */
+         422, /* vkDestroyShaderEXT */
+         642  /* vkGetShaderBinaryDataEXT */
     };
     if (!context->EXT_shader_object) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2082,7 +2108,7 @@ static void glad_vk_load_VK_EXT_shader_object(GladVulkanContext *context, GLADus
 
 static void glad_vk_load_VK_EXT_swapchain_maintenance1(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         674  /* vkReleaseSwapchainImagesEXT */
+         683  /* vkReleaseSwapchainImagesEXT */
     };
     if (!context->EXT_swapchain_maintenance1) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2090,7 +2116,7 @@ static void glad_vk_load_VK_EXT_swapchain_maintenance1(GladVulkanContext *contex
 
 static void glad_vk_load_VK_EXT_tooling_info(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         595  /* vkGetPhysicalDeviceToolPropertiesEXT */
+         604  /* vkGetPhysicalDeviceToolPropertiesEXT */
     };
     if (!context->EXT_tooling_info) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2101,9 +2127,9 @@ static void glad_vk_load_VK_EXT_transform_feedback(GladVulkanContext *context, G
           27, /* vkCmdBeginQueryIndexedEXT */
           33, /* vkCmdBeginTransformFeedbackEXT */
           49, /* vkCmdBindTransformFeedbackBuffersEXT */
-         110, /* vkCmdDrawIndirectByteCountEXT */
-         126, /* vkCmdEndQueryIndexedEXT */
-         132  /* vkCmdEndTransformFeedbackEXT */
+         113, /* vkCmdDrawIndirectByteCountEXT */
+         129, /* vkCmdEndQueryIndexedEXT */
+         135  /* vkCmdEndTransformFeedbackEXT */
     };
     if (!context->EXT_transform_feedback) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2111,10 +2137,10 @@ static void glad_vk_load_VK_EXT_transform_feedback(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_EXT_validation_cache(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         365, /* vkCreateValidationCacheEXT */
-         422, /* vkDestroyValidationCacheEXT */
-         640, /* vkGetValidationCacheDataEXT */
-         655  /* vkMergeValidationCachesEXT */
+         369, /* vkCreateValidationCacheEXT */
+         426, /* vkDestroyValidationCacheEXT */
+         649, /* vkGetValidationCacheDataEXT */
+         664  /* vkMergeValidationCachesEXT */
     };
     if (!context->EXT_validation_cache) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2122,7 +2148,7 @@ static void glad_vk_load_VK_EXT_validation_cache(GladVulkanContext *context, GLA
 
 static void glad_vk_load_VK_EXT_vertex_input_dynamic_state(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         264  /* vkCmdSetVertexInputEXT */
+         267  /* vkCmdSetVertexInputEXT */
     };
     if (!context->EXT_vertex_input_dynamic_state) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2131,11 +2157,11 @@ static void glad_vk_load_VK_EXT_vertex_input_dynamic_state(GladVulkanContext *co
 #if defined(VK_USE_PLATFORM_FUCHSIA)
 static void glad_vk_load_VK_FUCHSIA_buffer_collection(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         307, /* vkCreateBufferCollectionFUCHSIA */
-         380, /* vkDestroyBufferCollectionFUCHSIA */
-         448, /* vkGetBufferCollectionPropertiesFUCHSIA */
-         682, /* vkSetBufferCollectionBufferConstraintsFUCHSIA */
-         683  /* vkSetBufferCollectionImageConstraintsFUCHSIA */
+         311, /* vkCreateBufferCollectionFUCHSIA */
+         384, /* vkDestroyBufferCollectionFUCHSIA */
+         452, /* vkGetBufferCollectionPropertiesFUCHSIA */
+         691, /* vkSetBufferCollectionBufferConstraintsFUCHSIA */
+         692  /* vkSetBufferCollectionImageConstraintsFUCHSIA */
     };
     if (!context->FUCHSIA_buffer_collection) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2145,8 +2171,8 @@ static void glad_vk_load_VK_FUCHSIA_buffer_collection(GladVulkanContext *context
 #if defined(VK_USE_PLATFORM_FUCHSIA)
 static void glad_vk_load_VK_FUCHSIA_external_memory(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         536, /* vkGetMemoryZirconHandleFUCHSIA */
-         537  /* vkGetMemoryZirconHandlePropertiesFUCHSIA */
+         543, /* vkGetMemoryZirconHandleFUCHSIA */
+         544  /* vkGetMemoryZirconHandlePropertiesFUCHSIA */
     };
     if (!context->FUCHSIA_external_memory) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2156,8 +2182,8 @@ static void glad_vk_load_VK_FUCHSIA_external_memory(GladVulkanContext *context, 
 #if defined(VK_USE_PLATFORM_FUCHSIA)
 static void glad_vk_load_VK_FUCHSIA_external_semaphore(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         632, /* vkGetSemaphoreZirconHandleFUCHSIA */
-         647  /* vkImportSemaphoreZirconHandleFUCHSIA */
+         641, /* vkGetSemaphoreZirconHandleFUCHSIA */
+         656  /* vkImportSemaphoreZirconHandleFUCHSIA */
     };
     if (!context->FUCHSIA_external_semaphore) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2167,7 +2193,7 @@ static void glad_vk_load_VK_FUCHSIA_external_semaphore(GladVulkanContext *contex
 #if defined(VK_USE_PLATFORM_FUCHSIA)
 static void glad_vk_load_VK_FUCHSIA_imagepipe_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         334  /* vkCreateImagePipeSurfaceFUCHSIA */
+         338  /* vkCreateImagePipeSurfaceFUCHSIA */
     };
     if (!context->FUCHSIA_imagepipe_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2177,7 +2203,7 @@ static void glad_vk_load_VK_FUCHSIA_imagepipe_surface(GladVulkanContext *context
 #if defined(VK_USE_PLATFORM_GGP)
 static void glad_vk_load_VK_GGP_stream_descriptor_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         363  /* vkCreateStreamDescriptorSurfaceGGP */
+         367  /* vkCreateStreamDescriptorSurfaceGGP */
     };
     if (!context->GGP_stream_descriptor_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2186,8 +2212,8 @@ static void glad_vk_load_VK_GGP_stream_descriptor_surface(GladVulkanContext *con
 #endif
 static void glad_vk_load_VK_GOOGLE_display_timing(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         539, /* vkGetPastPresentationTimingGOOGLE */
-         622  /* vkGetRefreshCycleDurationGOOGLE */
+         547, /* vkGetPastPresentationTimingGOOGLE */
+         631  /* vkGetRefreshCycleDurationGOOGLE */
     };
     if (!context->GOOGLE_display_timing) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2195,8 +2221,8 @@ static void glad_vk_load_VK_GOOGLE_display_timing(GladVulkanContext *context, GL
 
 static void glad_vk_load_VK_HUAWEI_cluster_culling_shader(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         102, /* vkCmdDrawClusterHUAWEI */
-         103  /* vkCmdDrawClusterIndirectHUAWEI */
+         105, /* vkCmdDrawClusterHUAWEI */
+         106  /* vkCmdDrawClusterIndirectHUAWEI */
     };
     if (!context->HUAWEI_cluster_culling_shader) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2212,8 +2238,8 @@ static void glad_vk_load_VK_HUAWEI_invocation_mask(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_HUAWEI_subpass_shading(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         272, /* vkCmdSubpassShadingHUAWEI */
-         492  /* vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI */
+         275, /* vkCmdSubpassShadingHUAWEI */
+         497  /* vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI */
     };
     if (!context->HUAWEI_subpass_shading) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2222,14 +2248,14 @@ static void glad_vk_load_VK_HUAWEI_subpass_shading(GladVulkanContext *context, G
 static void glad_vk_load_VK_INTEL_performance_query(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            4, /* vkAcquirePerformanceConfigurationINTEL */
-         230, /* vkCmdSetPerformanceMarkerINTEL */
-         231, /* vkCmdSetPerformanceOverrideINTEL */
-         232, /* vkCmdSetPerformanceStreamMarkerINTEL */
-         540, /* vkGetPerformanceParameterINTEL */
-         648, /* vkInitializePerformanceApiINTEL */
-         662, /* vkQueueSetPerformanceConfigurationINTEL */
-         672, /* vkReleasePerformanceConfigurationINTEL */
-         701  /* vkUninitializePerformanceApiINTEL */
+         233, /* vkCmdSetPerformanceMarkerINTEL */
+         234, /* vkCmdSetPerformanceOverrideINTEL */
+         235, /* vkCmdSetPerformanceStreamMarkerINTEL */
+         548, /* vkGetPerformanceParameterINTEL */
+         657, /* vkInitializePerformanceApiINTEL */
+         671, /* vkQueueSetPerformanceConfigurationINTEL */
+         681, /* vkReleasePerformanceConfigurationINTEL */
+         710  /* vkUninitializePerformanceApiINTEL */
     };
     if (!context->INTEL_performance_query) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2240,19 +2266,19 @@ static void glad_vk_load_VK_KHR_acceleration_structure(GladVulkanContext *contex
           22, /* vkBuildAccelerationStructuresKHR */
           57, /* vkCmdBuildAccelerationStructuresIndirectKHR */
           58, /* vkCmdBuildAccelerationStructuresKHR */
-          64, /* vkCmdCopyAccelerationStructureKHR */
-          66, /* vkCmdCopyAccelerationStructureToMemoryKHR */
-          80, /* vkCmdCopyMemoryToAccelerationStructureKHR */
-         282, /* vkCmdWriteAccelerationStructuresPropertiesKHR */
-         291, /* vkCopyAccelerationStructureKHR */
-         292, /* vkCopyAccelerationStructureToMemoryKHR */
-         297, /* vkCopyMemoryToAccelerationStructureKHR */
-         303, /* vkCreateAccelerationStructureKHR */
-         377, /* vkDestroyAccelerationStructureKHR */
-         442, /* vkGetAccelerationStructureBuildSizesKHR */
-         443, /* vkGetAccelerationStructureDeviceAddressKHR */
-         470, /* vkGetDeviceAccelerationStructureCompatibilityKHR */
-         715  /* vkWriteAccelerationStructuresPropertiesKHR */
+          67, /* vkCmdCopyAccelerationStructureKHR */
+          69, /* vkCmdCopyAccelerationStructureToMemoryKHR */
+          83, /* vkCmdCopyMemoryToAccelerationStructureKHR */
+         285, /* vkCmdWriteAccelerationStructuresPropertiesKHR */
+         295, /* vkCopyAccelerationStructureKHR */
+         296, /* vkCopyAccelerationStructureToMemoryKHR */
+         301, /* vkCopyMemoryToAccelerationStructureKHR */
+         307, /* vkCreateAccelerationStructureKHR */
+         381, /* vkDestroyAccelerationStructureKHR */
+         446, /* vkGetAccelerationStructureBuildSizesKHR */
+         447, /* vkGetAccelerationStructureDeviceAddressKHR */
+         475, /* vkGetDeviceAccelerationStructureCompatibilityKHR */
+         724  /* vkWriteAccelerationStructuresPropertiesKHR */
     };
     if (!context->KHR_acceleration_structure) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2261,7 +2287,7 @@ static void glad_vk_load_VK_KHR_acceleration_structure(GladVulkanContext *contex
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
 static void glad_vk_load_VK_KHR_android_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         305  /* vkCreateAndroidSurfaceKHR */
+         309  /* vkCreateAndroidSurfaceKHR */
     };
     if (!context->KHR_android_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2279,9 +2305,9 @@ static void glad_vk_load_VK_KHR_bind_memory2(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_KHR_buffer_device_address(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         451, /* vkGetBufferDeviceAddressKHR */
-         456, /* vkGetBufferOpaqueCaptureAddressKHR */
-         487  /* vkGetDeviceMemoryOpaqueCaptureAddressKHR */
+         455, /* vkGetBufferDeviceAddressKHR */
+         460, /* vkGetBufferOpaqueCaptureAddressKHR */
+         492  /* vkGetDeviceMemoryOpaqueCaptureAddressKHR */
     };
     if (!context->KHR_buffer_device_address) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2289,8 +2315,8 @@ static void glad_vk_load_VK_KHR_buffer_device_address(GladVulkanContext *context
 
 static void glad_vk_load_VK_KHR_calibrated_timestamps(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         459, /* vkGetCalibratedTimestampsKHR */
-         542  /* vkGetPhysicalDeviceCalibrateableTimeDomainsKHR */
+         463, /* vkGetCalibratedTimestampsKHR */
+         550  /* vkGetPhysicalDeviceCalibrateableTimeDomainsKHR */
     };
     if (!context->KHR_calibrated_timestamps) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2298,7 +2324,7 @@ static void glad_vk_load_VK_KHR_calibrated_timestamps(GladVulkanContext *context
 
 static void glad_vk_load_VK_KHR_cooperative_matrix(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         544  /* vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR */
+         552  /* vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR */
     };
     if (!context->KHR_cooperative_matrix) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2307,11 +2333,11 @@ static void glad_vk_load_VK_KHR_cooperative_matrix(GladVulkanContext *context, G
 static void glad_vk_load_VK_KHR_copy_commands2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           55, /* vkCmdBlitImage2KHR */
-          69, /* vkCmdCopyBuffer2KHR */
-          72, /* vkCmdCopyBufferToImage2KHR */
-          75, /* vkCmdCopyImage2KHR */
-          78, /* vkCmdCopyImageToBuffer2KHR */
-         166  /* vkCmdResolveImage2KHR */
+          72, /* vkCmdCopyBuffer2KHR */
+          75, /* vkCmdCopyBufferToImage2KHR */
+          78, /* vkCmdCopyImage2KHR */
+          81, /* vkCmdCopyImageToBuffer2KHR */
+         169  /* vkCmdResolveImage2KHR */
     };
     if (!context->KHR_copy_commands2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2320,9 +2346,9 @@ static void glad_vk_load_VK_KHR_copy_commands2(GladVulkanContext *context, GLADu
 static void glad_vk_load_VK_KHR_create_renderpass2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           30, /* vkCmdBeginRenderPass2KHR */
-         129, /* vkCmdEndRenderPass2KHR */
-         142, /* vkCmdNextSubpass2KHR */
-         354  /* vkCreateRenderPass2KHR */
+         132, /* vkCmdEndRenderPass2KHR */
+         145, /* vkCmdNextSubpass2KHR */
+         358  /* vkCreateRenderPass2KHR */
     };
     if (!context->KHR_create_renderpass2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2330,11 +2356,11 @@ static void glad_vk_load_VK_KHR_create_renderpass2(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_KHR_deferred_host_operations(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         317, /* vkCreateDeferredOperationKHR */
-         376, /* vkDeferredOperationJoinKHR */
-         389, /* vkDestroyDeferredOperationKHR */
-         461, /* vkGetDeferredOperationMaxConcurrencyKHR */
-         462  /* vkGetDeferredOperationResultKHR */
+         321, /* vkCreateDeferredOperationKHR */
+         380, /* vkDeferredOperationJoinKHR */
+         393, /* vkDestroyDeferredOperationKHR */
+         466, /* vkGetDeferredOperationMaxConcurrencyKHR */
+         467  /* vkGetDeferredOperationResultKHR */
     };
     if (!context->KHR_deferred_host_operations) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2342,10 +2368,10 @@ static void glad_vk_load_VK_KHR_deferred_host_operations(GladVulkanContext *cont
 
 static void glad_vk_load_VK_KHR_descriptor_update_template(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         159, /* vkCmdPushDescriptorSetWithTemplateKHR */
-         321, /* vkCreateDescriptorUpdateTemplateKHR */
-         393, /* vkDestroyDescriptorUpdateTemplateKHR */
-         706  /* vkUpdateDescriptorSetWithTemplateKHR */
+         162, /* vkCmdPushDescriptorSetWithTemplateKHR */
+         325, /* vkCreateDescriptorUpdateTemplateKHR */
+         397, /* vkDestroyDescriptorUpdateTemplateKHR */
+         715  /* vkUpdateDescriptorSetWithTemplateKHR */
     };
     if (!context->KHR_descriptor_update_template) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2354,12 +2380,12 @@ static void glad_vk_load_VK_KHR_descriptor_update_template(GladVulkanContext *co
 static void glad_vk_load_VK_KHR_device_group(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            2, /* vkAcquireNextImage2KHR */
-          96, /* vkCmdDispatchBaseKHR */
-         207, /* vkCmdSetDeviceMaskKHR */
-         475, /* vkGetDeviceGroupPeerMemoryFeaturesKHR */
-         476, /* vkGetDeviceGroupPresentCapabilitiesKHR */
-         478, /* vkGetDeviceGroupSurfacePresentModesKHR */
-         573  /* vkGetPhysicalDevicePresentRectanglesKHR */
+          99, /* vkCmdDispatchBaseKHR */
+         210, /* vkCmdSetDeviceMaskKHR */
+         480, /* vkGetDeviceGroupPeerMemoryFeaturesKHR */
+         481, /* vkGetDeviceGroupPresentCapabilitiesKHR */
+         483, /* vkGetDeviceGroupSurfacePresentModesKHR */
+         582  /* vkGetPhysicalDevicePresentRectanglesKHR */
     };
     if (!context->KHR_device_group) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2367,7 +2393,7 @@ static void glad_vk_load_VK_KHR_device_group(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_KHR_device_group_creation(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         434  /* vkEnumeratePhysicalDeviceGroupsKHR */
+         438  /* vkEnumeratePhysicalDeviceGroupsKHR */
     };
     if (!context->KHR_device_group_creation) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2375,13 +2401,13 @@ static void glad_vk_load_VK_KHR_device_group_creation(GladVulkanContext *context
 
 static void glad_vk_load_VK_KHR_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         324, /* vkCreateDisplayModeKHR */
-         325, /* vkCreateDisplayPlaneSurfaceKHR */
-         494, /* vkGetDisplayModePropertiesKHR */
-         496, /* vkGetDisplayPlaneCapabilitiesKHR */
-         497, /* vkGetDisplayPlaneSupportedDisplaysKHR */
-         548, /* vkGetPhysicalDeviceDisplayPlanePropertiesKHR */
-         550  /* vkGetPhysicalDeviceDisplayPropertiesKHR */
+         328, /* vkCreateDisplayModeKHR */
+         329, /* vkCreateDisplayPlaneSurfaceKHR */
+         499, /* vkGetDisplayModePropertiesKHR */
+         501, /* vkGetDisplayPlaneCapabilitiesKHR */
+         502, /* vkGetDisplayPlaneSupportedDisplaysKHR */
+         557, /* vkGetPhysicalDeviceDisplayPlanePropertiesKHR */
+         559  /* vkGetPhysicalDeviceDisplayPropertiesKHR */
     };
     if (!context->KHR_display) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2389,7 +2415,7 @@ static void glad_vk_load_VK_KHR_display(GladVulkanContext *context, GLADuserptrl
 
 static void glad_vk_load_VK_KHR_display_swapchain(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         362  /* vkCreateSharedSwapchainsKHR */
+         366  /* vkCreateSharedSwapchainsKHR */
     };
     if (!context->KHR_display_swapchain) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2397,8 +2423,8 @@ static void glad_vk_load_VK_KHR_display_swapchain(GladVulkanContext *context, GL
 
 static void glad_vk_load_VK_KHR_draw_indirect_count(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         108, /* vkCmdDrawIndexedIndirectCountKHR */
-         113  /* vkCmdDrawIndirectCountKHR */
+         111, /* vkCmdDrawIndexedIndirectCountKHR */
+         116  /* vkCmdDrawIndirectCountKHR */
     };
     if (!context->KHR_draw_indirect_count) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2407,7 +2433,7 @@ static void glad_vk_load_VK_KHR_draw_indirect_count(GladVulkanContext *context, 
 static void glad_vk_load_VK_KHR_dynamic_rendering(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           32, /* vkCmdBeginRenderingKHR */
-         131  /* vkCmdEndRenderingKHR */
+         134  /* vkCmdEndRenderingKHR */
     };
     if (!context->KHR_dynamic_rendering) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2415,8 +2441,8 @@ static void glad_vk_load_VK_KHR_dynamic_rendering(GladVulkanContext *context, GL
 
 static void glad_vk_load_VK_KHR_dynamic_rendering_local_read(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         245, /* vkCmdSetRenderingAttachmentLocationsKHR */
-         247  /* vkCmdSetRenderingInputAttachmentIndicesKHR */
+         248, /* vkCmdSetRenderingAttachmentLocationsKHR */
+         250  /* vkCmdSetRenderingInputAttachmentIndicesKHR */
     };
     if (!context->KHR_dynamic_rendering_local_read) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2424,7 +2450,7 @@ static void glad_vk_load_VK_KHR_dynamic_rendering_local_read(GladVulkanContext *
 
 static void glad_vk_load_VK_KHR_external_fence_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         554  /* vkGetPhysicalDeviceExternalFencePropertiesKHR */
+         563  /* vkGetPhysicalDeviceExternalFencePropertiesKHR */
     };
     if (!context->KHR_external_fence_capabilities) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2432,8 +2458,8 @@ static void glad_vk_load_VK_KHR_external_fence_capabilities(GladVulkanContext *c
 
 static void glad_vk_load_VK_KHR_external_fence_fd(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         504, /* vkGetFenceFdKHR */
-         643  /* vkImportFenceFdKHR */
+         509, /* vkGetFenceFdKHR */
+         652  /* vkImportFenceFdKHR */
     };
     if (!context->KHR_external_fence_fd) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2442,8 +2468,8 @@ static void glad_vk_load_VK_KHR_external_fence_fd(GladVulkanContext *context, GL
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 static void glad_vk_load_VK_KHR_external_fence_win32(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         506, /* vkGetFenceWin32HandleKHR */
-         644  /* vkImportFenceWin32HandleKHR */
+         511, /* vkGetFenceWin32HandleKHR */
+         653  /* vkImportFenceWin32HandleKHR */
     };
     if (!context->KHR_external_fence_win32) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2452,7 +2478,7 @@ static void glad_vk_load_VK_KHR_external_fence_win32(GladVulkanContext *context,
 #endif
 static void glad_vk_load_VK_KHR_external_memory_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         552  /* vkGetPhysicalDeviceExternalBufferPropertiesKHR */
+         561  /* vkGetPhysicalDeviceExternalBufferPropertiesKHR */
     };
     if (!context->KHR_external_memory_capabilities) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2460,8 +2486,8 @@ static void glad_vk_load_VK_KHR_external_memory_capabilities(GladVulkanContext *
 
 static void glad_vk_load_VK_KHR_external_memory_fd(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         529, /* vkGetMemoryFdKHR */
-         530  /* vkGetMemoryFdPropertiesKHR */
+         534, /* vkGetMemoryFdKHR */
+         535  /* vkGetMemoryFdPropertiesKHR */
     };
     if (!context->KHR_external_memory_fd) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2470,8 +2496,8 @@ static void glad_vk_load_VK_KHR_external_memory_fd(GladVulkanContext *context, G
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 static void glad_vk_load_VK_KHR_external_memory_win32(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         533, /* vkGetMemoryWin32HandleKHR */
-         535  /* vkGetMemoryWin32HandlePropertiesKHR */
+         540, /* vkGetMemoryWin32HandleKHR */
+         542  /* vkGetMemoryWin32HandlePropertiesKHR */
     };
     if (!context->KHR_external_memory_win32) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2480,7 +2506,7 @@ static void glad_vk_load_VK_KHR_external_memory_win32(GladVulkanContext *context
 #endif
 static void glad_vk_load_VK_KHR_external_semaphore_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         557  /* vkGetPhysicalDeviceExternalSemaphorePropertiesKHR */
+         566  /* vkGetPhysicalDeviceExternalSemaphorePropertiesKHR */
     };
     if (!context->KHR_external_semaphore_capabilities) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2488,8 +2514,8 @@ static void glad_vk_load_VK_KHR_external_semaphore_capabilities(GladVulkanContex
 
 static void glad_vk_load_VK_KHR_external_semaphore_fd(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         630, /* vkGetSemaphoreFdKHR */
-         645  /* vkImportSemaphoreFdKHR */
+         639, /* vkGetSemaphoreFdKHR */
+         654  /* vkImportSemaphoreFdKHR */
     };
     if (!context->KHR_external_semaphore_fd) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2498,8 +2524,8 @@ static void glad_vk_load_VK_KHR_external_semaphore_fd(GladVulkanContext *context
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 static void glad_vk_load_VK_KHR_external_semaphore_win32(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         631, /* vkGetSemaphoreWin32HandleKHR */
-         646  /* vkImportSemaphoreWin32HandleKHR */
+         640, /* vkGetSemaphoreWin32HandleKHR */
+         655  /* vkImportSemaphoreWin32HandleKHR */
     };
     if (!context->KHR_external_semaphore_win32) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2508,8 +2534,8 @@ static void glad_vk_load_VK_KHR_external_semaphore_win32(GladVulkanContext *cont
 #endif
 static void glad_vk_load_VK_KHR_fragment_shading_rate(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         218, /* vkCmdSetFragmentShadingRateKHR */
-         564  /* vkGetPhysicalDeviceFragmentShadingRatesKHR */
+         221, /* vkCmdSetFragmentShadingRateKHR */
+         573  /* vkGetPhysicalDeviceFragmentShadingRatesKHR */
     };
     if (!context->KHR_fragment_shading_rate) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2517,10 +2543,10 @@ static void glad_vk_load_VK_KHR_fragment_shading_rate(GladVulkanContext *context
 
 static void glad_vk_load_VK_KHR_get_display_properties2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         493, /* vkGetDisplayModeProperties2KHR */
-         495, /* vkGetDisplayPlaneCapabilities2KHR */
-         547, /* vkGetPhysicalDeviceDisplayPlaneProperties2KHR */
-         549  /* vkGetPhysicalDeviceDisplayProperties2KHR */
+         498, /* vkGetDisplayModeProperties2KHR */
+         500, /* vkGetDisplayPlaneCapabilities2KHR */
+         556, /* vkGetPhysicalDeviceDisplayPlaneProperties2KHR */
+         558  /* vkGetPhysicalDeviceDisplayProperties2KHR */
     };
     if (!context->KHR_get_display_properties2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2528,9 +2554,9 @@ static void glad_vk_load_VK_KHR_get_display_properties2(GladVulkanContext *conte
 
 static void glad_vk_load_VK_KHR_get_memory_requirements2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         454, /* vkGetBufferMemoryRequirements2KHR */
-         513, /* vkGetImageMemoryRequirements2KHR */
-         517  /* vkGetImageSparseMemoryRequirements2KHR */
+         458, /* vkGetBufferMemoryRequirements2KHR */
+         518, /* vkGetImageMemoryRequirements2KHR */
+         522  /* vkGetImageSparseMemoryRequirements2KHR */
     };
     if (!context->KHR_get_memory_requirements2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2538,13 +2564,13 @@ static void glad_vk_load_VK_KHR_get_memory_requirements2(GladVulkanContext *cont
 
 static void glad_vk_load_VK_KHR_get_physical_device_properties2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         560, /* vkGetPhysicalDeviceFeatures2KHR */
-         563, /* vkGetPhysicalDeviceFormatProperties2KHR */
-         567, /* vkGetPhysicalDeviceImageFormatProperties2KHR */
-         570, /* vkGetPhysicalDeviceMemoryProperties2KHR */
-         576, /* vkGetPhysicalDeviceProperties2KHR */
-         580, /* vkGetPhysicalDeviceQueueFamilyProperties2KHR */
-         584  /* vkGetPhysicalDeviceSparseImageFormatProperties2KHR */
+         569, /* vkGetPhysicalDeviceFeatures2KHR */
+         572, /* vkGetPhysicalDeviceFormatProperties2KHR */
+         576, /* vkGetPhysicalDeviceImageFormatProperties2KHR */
+         579, /* vkGetPhysicalDeviceMemoryProperties2KHR */
+         585, /* vkGetPhysicalDeviceProperties2KHR */
+         589, /* vkGetPhysicalDeviceQueueFamilyProperties2KHR */
+         593  /* vkGetPhysicalDeviceSparseImageFormatProperties2KHR */
     };
     if (!context->KHR_get_physical_device_properties2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2552,8 +2578,8 @@ static void glad_vk_load_VK_KHR_get_physical_device_properties2(GladVulkanContex
 
 static void glad_vk_load_VK_KHR_get_surface_capabilities2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         587, /* vkGetPhysicalDeviceSurfaceCapabilities2KHR */
-         589  /* vkGetPhysicalDeviceSurfaceFormats2KHR */
+         596, /* vkGetPhysicalDeviceSurfaceCapabilities2KHR */
+         598  /* vkGetPhysicalDeviceSurfaceFormats2KHR */
     };
     if (!context->KHR_get_surface_capabilities2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2561,7 +2587,7 @@ static void glad_vk_load_VK_KHR_get_surface_capabilities2(GladVulkanContext *con
 
 static void glad_vk_load_VK_KHR_line_rasterization(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         225  /* vkCmdSetLineStippleKHR */
+         228  /* vkCmdSetLineStippleKHR */
     };
     if (!context->KHR_line_rasterization) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2569,7 +2595,7 @@ static void glad_vk_load_VK_KHR_line_rasterization(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_KHR_maintenance1(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         700  /* vkTrimCommandPoolKHR */
+         709  /* vkTrimCommandPoolKHR */
     };
     if (!context->KHR_maintenance1) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2577,7 +2603,7 @@ static void glad_vk_load_VK_KHR_maintenance1(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_KHR_maintenance3(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         469  /* vkGetDescriptorSetLayoutSupportKHR */
+         474  /* vkGetDescriptorSetLayoutSupportKHR */
     };
     if (!context->KHR_maintenance3) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2585,9 +2611,9 @@ static void glad_vk_load_VK_KHR_maintenance3(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_KHR_maintenance4(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         472, /* vkGetDeviceBufferMemoryRequirementsKHR */
-         480, /* vkGetDeviceImageMemoryRequirementsKHR */
-         482  /* vkGetDeviceImageSparseMemoryRequirementsKHR */
+         477, /* vkGetDeviceBufferMemoryRequirementsKHR */
+         485, /* vkGetDeviceImageMemoryRequirementsKHR */
+         487  /* vkGetDeviceImageSparseMemoryRequirementsKHR */
     };
     if (!context->KHR_maintenance4) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2596,9 +2622,9 @@ static void glad_vk_load_VK_KHR_maintenance4(GladVulkanContext *context, GLADuse
 static void glad_vk_load_VK_KHR_maintenance5(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           43, /* vkCmdBindIndexBuffer2KHR */
-         484, /* vkGetDeviceImageSubresourceLayoutKHR */
-         521, /* vkGetImageSubresourceLayout2KHR */
-         625  /* vkGetRenderingAreaGranularityKHR */
+         489, /* vkGetDeviceImageSubresourceLayoutKHR */
+         526, /* vkGetImageSubresourceLayout2KHR */
+         634  /* vkGetRenderingAreaGranularityKHR */
     };
     if (!context->KHR_maintenance5) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2608,10 +2634,10 @@ static void glad_vk_load_VK_KHR_maintenance6(GladVulkanContext *context, GLADuse
     static const uint16_t s_pfnIdx[] = {
           35, /* vkCmdBindDescriptorBufferEmbeddedSamplers2EXT */
           40, /* vkCmdBindDescriptorSets2KHR */
-         151, /* vkCmdPushConstants2KHR */
-         154, /* vkCmdPushDescriptorSet2KHR */
-         158, /* vkCmdPushDescriptorSetWithTemplate2KHR */
-         204  /* vkCmdSetDescriptorBufferOffsets2EXT */
+         154, /* vkCmdPushConstants2KHR */
+         157, /* vkCmdPushDescriptorSet2KHR */
+         161, /* vkCmdPushDescriptorSetWithTemplate2KHR */
+         207  /* vkCmdSetDescriptorBufferOffsets2EXT */
     };
     if (!context->KHR_maintenance6) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2619,8 +2645,8 @@ static void glad_vk_load_VK_KHR_maintenance6(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_KHR_map_memory2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         653, /* vkMapMemory2KHR */
-         704  /* vkUnmapMemory2KHR */
+         662, /* vkMapMemory2KHR */
+         713  /* vkUnmapMemory2KHR */
     };
     if (!context->KHR_map_memory2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2629,9 +2655,9 @@ static void glad_vk_load_VK_KHR_map_memory2(GladVulkanContext *context, GLADuser
 static void glad_vk_load_VK_KHR_performance_query(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            5, /* vkAcquireProfilingLockKHR */
-         435, /* vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR */
-         577, /* vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR */
-         673  /* vkReleaseProfilingLockKHR */
+         439, /* vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR */
+         586, /* vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR */
+         682  /* vkReleaseProfilingLockKHR */
     };
     if (!context->KHR_performance_query) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2639,11 +2665,11 @@ static void glad_vk_load_VK_KHR_performance_query(GladVulkanContext *context, GL
 
 static void glad_vk_load_VK_KHR_pipeline_binary(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         344, /* vkCreatePipelineBinariesKHR */
-         407, /* vkDestroyPipelineBinaryKHR */
-         603, /* vkGetPipelineBinaryDataKHR */
-         610, /* vkGetPipelineKeyKHR */
-         669  /* vkReleaseCapturedPipelineDataKHR */
+         348, /* vkCreatePipelineBinariesKHR */
+         411, /* vkDestroyPipelineBinaryKHR */
+         612, /* vkGetPipelineBinaryDataKHR */
+         619, /* vkGetPipelineKeyKHR */
+         678  /* vkReleaseCapturedPipelineDataKHR */
     };
     if (!context->KHR_pipeline_binary) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2651,9 +2677,9 @@ static void glad_vk_load_VK_KHR_pipeline_binary(GladVulkanContext *context, GLAD
 
 static void glad_vk_load_VK_KHR_pipeline_executable_properties(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         605, /* vkGetPipelineExecutableInternalRepresentationsKHR */
-         606, /* vkGetPipelineExecutablePropertiesKHR */
-         607  /* vkGetPipelineExecutableStatisticsKHR */
+         614, /* vkGetPipelineExecutableInternalRepresentationsKHR */
+         615, /* vkGetPipelineExecutablePropertiesKHR */
+         616  /* vkGetPipelineExecutableStatisticsKHR */
     };
     if (!context->KHR_pipeline_executable_properties) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2661,7 +2687,7 @@ static void glad_vk_load_VK_KHR_pipeline_executable_properties(GladVulkanContext
 
 static void glad_vk_load_VK_KHR_present_wait(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         712  /* vkWaitForPresentKHR */
+         721  /* vkWaitForPresentKHR */
     };
     if (!context->KHR_present_wait) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2669,8 +2695,8 @@ static void glad_vk_load_VK_KHR_present_wait(GladVulkanContext *context, GLADuse
 
 static void glad_vk_load_VK_KHR_push_descriptor(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         155, /* vkCmdPushDescriptorSetKHR */
-         159  /* vkCmdPushDescriptorSetWithTemplateKHR */
+         158, /* vkCmdPushDescriptorSetKHR */
+         162  /* vkCmdPushDescriptorSetWithTemplateKHR */
     };
     if (!context->KHR_push_descriptor) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2678,7 +2704,7 @@ static void glad_vk_load_VK_KHR_push_descriptor(GladVulkanContext *context, GLAD
 
 static void glad_vk_load_VK_KHR_ray_tracing_maintenance1(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         273  /* vkCmdTraceRaysIndirect2KHR */
+         276  /* vkCmdTraceRaysIndirect2KHR */
     };
     if (!context->KHR_ray_tracing_maintenance1) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2686,13 +2712,13 @@ static void glad_vk_load_VK_KHR_ray_tracing_maintenance1(GladVulkanContext *cont
 
 static void glad_vk_load_VK_KHR_ray_tracing_pipeline(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         243, /* vkCmdSetRayTracingPipelineStackSizeKHR */
-         274, /* vkCmdTraceRaysIndirectKHR */
-         275, /* vkCmdTraceRaysKHR */
-         350, /* vkCreateRayTracingPipelinesKHR */
-         618, /* vkGetRayTracingCaptureReplayShaderGroupHandlesKHR */
-         619, /* vkGetRayTracingShaderGroupHandlesKHR */
-         621  /* vkGetRayTracingShaderGroupStackSizeKHR */
+         246, /* vkCmdSetRayTracingPipelineStackSizeKHR */
+         277, /* vkCmdTraceRaysIndirectKHR */
+         278, /* vkCmdTraceRaysKHR */
+         354, /* vkCreateRayTracingPipelinesKHR */
+         627, /* vkGetRayTracingCaptureReplayShaderGroupHandlesKHR */
+         628, /* vkGetRayTracingShaderGroupHandlesKHR */
+         630  /* vkGetRayTracingShaderGroupStackSizeKHR */
     };
     if (!context->KHR_ray_tracing_pipeline) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2700,8 +2726,8 @@ static void glad_vk_load_VK_KHR_ray_tracing_pipeline(GladVulkanContext *context,
 
 static void glad_vk_load_VK_KHR_sampler_ycbcr_conversion(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         357, /* vkCreateSamplerYcbcrConversionKHR */
-         416  /* vkDestroySamplerYcbcrConversionKHR */
+         361, /* vkCreateSamplerYcbcrConversionKHR */
+         420  /* vkDestroySamplerYcbcrConversionKHR */
     };
     if (!context->KHR_sampler_ycbcr_conversion) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2709,7 +2735,7 @@ static void glad_vk_load_VK_KHR_sampler_ycbcr_conversion(GladVulkanContext *cont
 
 static void glad_vk_load_VK_KHR_shared_presentable_image(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         639  /* vkGetSwapchainStatusKHR */
+         648  /* vkGetSwapchainStatusKHR */
     };
     if (!context->KHR_shared_presentable_image) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2717,11 +2743,11 @@ static void glad_vk_load_VK_KHR_shared_presentable_image(GladVulkanContext *cont
 
 static void glad_vk_load_VK_KHR_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         420, /* vkDestroySurfaceKHR */
-         588, /* vkGetPhysicalDeviceSurfaceCapabilitiesKHR */
-         590, /* vkGetPhysicalDeviceSurfaceFormatsKHR */
-         592, /* vkGetPhysicalDeviceSurfacePresentModesKHR */
-         593  /* vkGetPhysicalDeviceSurfaceSupportKHR */
+         424, /* vkDestroySurfaceKHR */
+         597, /* vkGetPhysicalDeviceSurfaceCapabilitiesKHR */
+         599, /* vkGetPhysicalDeviceSurfaceFormatsKHR */
+         601, /* vkGetPhysicalDeviceSurfacePresentModesKHR */
+         602  /* vkGetPhysicalDeviceSurfaceSupportKHR */
     };
     if (!context->KHR_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2731,13 +2757,13 @@ static void glad_vk_load_VK_KHR_swapchain(GladVulkanContext *context, GLADuserpt
     static const uint16_t s_pfnIdx[] = {
            2, /* vkAcquireNextImage2KHR */
            3, /* vkAcquireNextImageKHR */
-         364, /* vkCreateSwapchainKHR */
-         421, /* vkDestroySwapchainKHR */
-         476, /* vkGetDeviceGroupPresentCapabilitiesKHR */
-         478, /* vkGetDeviceGroupSurfacePresentModesKHR */
-         573, /* vkGetPhysicalDevicePresentRectanglesKHR */
-         638, /* vkGetSwapchainImagesKHR */
-         661  /* vkQueuePresentKHR */
+         368, /* vkCreateSwapchainKHR */
+         425, /* vkDestroySwapchainKHR */
+         481, /* vkGetDeviceGroupPresentCapabilitiesKHR */
+         483, /* vkGetDeviceGroupSurfacePresentModesKHR */
+         582, /* vkGetPhysicalDevicePresentRectanglesKHR */
+         647, /* vkGetSwapchainImagesKHR */
+         670  /* vkQueuePresentKHR */
     };
     if (!context->KHR_swapchain) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2745,12 +2771,12 @@ static void glad_vk_load_VK_KHR_swapchain(GladVulkanContext *context, GLADuserpt
 
 static void glad_vk_load_VK_KHR_synchronization2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         146, /* vkCmdPipelineBarrier2KHR */
-         162, /* vkCmdResetEvent2KHR */
-         213, /* vkCmdSetEvent2KHR */
-         281, /* vkCmdWaitEvents2KHR */
-         289, /* vkCmdWriteTimestamp2KHR */
-         665  /* vkQueueSubmit2KHR */
+         149, /* vkCmdPipelineBarrier2KHR */
+         165, /* vkCmdResetEvent2KHR */
+         216, /* vkCmdSetEvent2KHR */
+         284, /* vkCmdWaitEvents2KHR */
+         292, /* vkCmdWriteTimestamp2KHR */
+         674  /* vkQueueSubmit2KHR */
     };
     if (!context->KHR_synchronization2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2758,9 +2784,9 @@ static void glad_vk_load_VK_KHR_synchronization2(GladVulkanContext *context, GLA
 
 static void glad_vk_load_VK_KHR_timeline_semaphore(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         629, /* vkGetSemaphoreCounterValueKHR */
-         695, /* vkSignalSemaphoreKHR */
-         714  /* vkWaitSemaphoresKHR */
+         638, /* vkGetSemaphoreCounterValueKHR */
+         704, /* vkSignalSemaphoreKHR */
+         723  /* vkWaitSemaphoresKHR */
     };
     if (!context->KHR_timeline_semaphore) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2768,7 +2794,7 @@ static void glad_vk_load_VK_KHR_timeline_semaphore(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_KHR_video_decode_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          91  /* vkCmdDecodeVideoKHR */
+          94  /* vkCmdDecodeVideoKHR */
     };
     if (!context->KHR_video_decode_queue) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2776,9 +2802,9 @@ static void glad_vk_load_VK_KHR_video_decode_queue(GladVulkanContext *context, G
 
 static void glad_vk_load_VK_KHR_video_encode_queue(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         122, /* vkCmdEncodeVideoKHR */
-         500, /* vkGetEncodedVideoSessionParametersKHR */
-         597  /* vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR */
+         125, /* vkCmdEncodeVideoKHR */
+         505, /* vkGetEncodedVideoSessionParametersKHR */
+         606  /* vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR */
     };
     if (!context->KHR_video_encode_queue) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2788,16 +2814,16 @@ static void glad_vk_load_VK_KHR_video_queue(GladVulkanContext *context, GLADuser
     static const uint16_t s_pfnIdx[] = {
           21, /* vkBindVideoSessionMemoryKHR */
           34, /* vkCmdBeginVideoCodingKHR */
-          63, /* vkCmdControlVideoCodingKHR */
-         133, /* vkCmdEndVideoCodingKHR */
-         367, /* vkCreateVideoSessionKHR */
-         368, /* vkCreateVideoSessionParametersKHR */
-         423, /* vkDestroyVideoSessionKHR */
-         424, /* vkDestroyVideoSessionParametersKHR */
-         596, /* vkGetPhysicalDeviceVideoCapabilitiesKHR */
-         598, /* vkGetPhysicalDeviceVideoFormatPropertiesKHR */
-         641, /* vkGetVideoSessionMemoryRequirementsKHR */
-         710  /* vkUpdateVideoSessionParametersKHR */
+          65, /* vkCmdControlVideoCodingKHR */
+         136, /* vkCmdEndVideoCodingKHR */
+         371, /* vkCreateVideoSessionKHR */
+         372, /* vkCreateVideoSessionParametersKHR */
+         427, /* vkDestroyVideoSessionKHR */
+         428, /* vkDestroyVideoSessionParametersKHR */
+         605, /* vkGetPhysicalDeviceVideoCapabilitiesKHR */
+         607, /* vkGetPhysicalDeviceVideoFormatPropertiesKHR */
+         650, /* vkGetVideoSessionMemoryRequirementsKHR */
+         719  /* vkUpdateVideoSessionParametersKHR */
     };
     if (!context->KHR_video_queue) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2806,8 +2832,8 @@ static void glad_vk_load_VK_KHR_video_queue(GladVulkanContext *context, GLADuser
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
 static void glad_vk_load_VK_KHR_wayland_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         369, /* vkCreateWaylandSurfaceKHR */
-         599  /* vkGetPhysicalDeviceWaylandPresentationSupportKHR */
+         373, /* vkCreateWaylandSurfaceKHR */
+         608  /* vkGetPhysicalDeviceWaylandPresentationSupportKHR */
     };
     if (!context->KHR_wayland_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2817,8 +2843,8 @@ static void glad_vk_load_VK_KHR_wayland_surface(GladVulkanContext *context, GLAD
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 static void glad_vk_load_VK_KHR_win32_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         370, /* vkCreateWin32SurfaceKHR */
-         600  /* vkGetPhysicalDeviceWin32PresentationSupportKHR */
+         374, /* vkCreateWin32SurfaceKHR */
+         609  /* vkGetPhysicalDeviceWin32PresentationSupportKHR */
     };
     if (!context->KHR_win32_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2828,8 +2854,8 @@ static void glad_vk_load_VK_KHR_win32_surface(GladVulkanContext *context, GLADus
 #if defined(VK_USE_PLATFORM_XCB_KHR)
 static void glad_vk_load_VK_KHR_xcb_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         371, /* vkCreateXcbSurfaceKHR */
-         601  /* vkGetPhysicalDeviceXcbPresentationSupportKHR */
+         375, /* vkCreateXcbSurfaceKHR */
+         610  /* vkGetPhysicalDeviceXcbPresentationSupportKHR */
     };
     if (!context->KHR_xcb_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2839,8 +2865,8 @@ static void glad_vk_load_VK_KHR_xcb_surface(GladVulkanContext *context, GLADuser
 #if defined(VK_USE_PLATFORM_XLIB_KHR)
 static void glad_vk_load_VK_KHR_xlib_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         372, /* vkCreateXlibSurfaceKHR */
-         602  /* vkGetPhysicalDeviceXlibPresentationSupportKHR */
+         376, /* vkCreateXlibSurfaceKHR */
+         611  /* vkGetPhysicalDeviceXlibPresentationSupportKHR */
     };
     if (!context->KHR_xlib_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2850,7 +2876,7 @@ static void glad_vk_load_VK_KHR_xlib_surface(GladVulkanContext *context, GLADuse
 #if defined(VK_USE_PLATFORM_IOS_MVK)
 static void glad_vk_load_VK_MVK_ios_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         332  /* vkCreateIOSSurfaceMVK */
+         336  /* vkCreateIOSSurfaceMVK */
     };
     if (!context->MVK_ios_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2860,7 +2886,7 @@ static void glad_vk_load_VK_MVK_ios_surface(GladVulkanContext *context, GLADuser
 #if defined(VK_USE_PLATFORM_MACOS_MVK)
 static void glad_vk_load_VK_MVK_macos_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         340  /* vkCreateMacOSSurfaceMVK */
+         344  /* vkCreateMacOSSurfaceMVK */
     };
     if (!context->MVK_macos_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2870,7 +2896,7 @@ static void glad_vk_load_VK_MVK_macos_surface(GladVulkanContext *context, GLADus
 #if defined(VK_USE_PLATFORM_VI_NN)
 static void glad_vk_load_VK_NN_vi_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         366  /* vkCreateViSurfaceNN */
+         370  /* vkCreateViSurfaceNN */
     };
     if (!context->NN_vi_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2879,11 +2905,11 @@ static void glad_vk_load_VK_NN_vi_surface(GladVulkanContext *context, GLADuserpt
 #endif
 static void glad_vk_load_VK_NVX_binary_import(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          86, /* vkCmdCuLaunchKernelNVX */
-         311, /* vkCreateCuFunctionNVX */
-         312, /* vkCreateCuModuleNVX */
-         383, /* vkDestroyCuFunctionNVX */
-         384  /* vkDestroyCuModuleNVX */
+          89, /* vkCmdCuLaunchKernelNVX */
+         315, /* vkCreateCuFunctionNVX */
+         316, /* vkCreateCuModuleNVX */
+         387, /* vkDestroyCuFunctionNVX */
+         388  /* vkDestroyCuModuleNVX */
     };
     if (!context->NVX_binary_import) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2891,9 +2917,9 @@ static void glad_vk_load_VK_NVX_binary_import(GladVulkanContext *context, GLADus
 
 static void glad_vk_load_VK_NVX_image_view_handle(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         522, /* vkGetImageViewAddressNVX */
-         523, /* vkGetImageViewHandle64NVX */
-         524  /* vkGetImageViewHandleNVX */
+         527, /* vkGetImageViewAddressNVX */
+         528, /* vkGetImageViewHandle64NVX */
+         529  /* vkGetImageViewHandleNVX */
     };
     if (!context->NVX_image_view_handle) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2903,7 +2929,7 @@ static void glad_vk_load_VK_NVX_image_view_handle(GladVulkanContext *context, GL
 static void glad_vk_load_VK_NV_acquire_winrt_display(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
            6, /* vkAcquireWinrtDisplayNV */
-         642  /* vkGetWinrtDisplayNV */
+         651  /* vkGetWinrtDisplayNV */
     };
     if (!context->NV_acquire_winrt_display) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2912,15 +2938,24 @@ static void glad_vk_load_VK_NV_acquire_winrt_display(GladVulkanContext *context,
 #endif
 static void glad_vk_load_VK_NV_clip_space_w_scaling(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         269  /* vkCmdSetViewportWScalingNV */
+         272  /* vkCmdSetViewportWScalingNV */
     };
     if (!context->NV_clip_space_w_scaling) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
+static void glad_vk_load_VK_NV_cluster_acceleration_structure(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    static const uint16_t s_pfnIdx[] = {
+          59, /* vkCmdBuildClusterAccelerationStructureIndirectNV */
+         464  /* vkGetClusterAccelerationStructureBuildSizesNV */
+    };
+    if (!context->NV_cluster_acceleration_structure) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
+}
+
 static void glad_vk_load_VK_NV_cooperative_matrix(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         545  /* vkGetPhysicalDeviceCooperativeMatrixPropertiesNV */
+         553  /* vkGetPhysicalDeviceCooperativeMatrixPropertiesNV */
     };
     if (!context->NV_cooperative_matrix) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2928,16 +2963,26 @@ static void glad_vk_load_VK_NV_cooperative_matrix(GladVulkanContext *context, GL
 
 static void glad_vk_load_VK_NV_cooperative_matrix2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         543  /* vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV */
+         551  /* vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV */
     };
     if (!context->NV_cooperative_matrix2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
+static void glad_vk_load_VK_NV_cooperative_vector(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    static const uint16_t s_pfnIdx[] = {
+          66, /* vkCmdConvertCooperativeVectorMatrixNV */
+         294, /* vkConvertCooperativeVectorMatrixNV */
+         554  /* vkGetPhysicalDeviceCooperativeVectorPropertiesNV */
+    };
+    if (!context->NV_cooperative_vector) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
+}
+
 static void glad_vk_load_VK_NV_copy_memory_indirect(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          79, /* vkCmdCopyMemoryIndirectNV */
-          81  /* vkCmdCopyMemoryToImageIndirectNV */
+          82, /* vkCmdCopyMemoryIndirectNV */
+          84  /* vkCmdCopyMemoryToImageIndirectNV */
     };
     if (!context->NV_copy_memory_indirect) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2945,7 +2990,7 @@ static void glad_vk_load_VK_NV_copy_memory_indirect(GladVulkanContext *context, 
 
 static void glad_vk_load_VK_NV_coverage_reduction_mode(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         585  /* vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV */
+         594  /* vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV */
     };
     if (!context->NV_coverage_reduction_mode) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2953,12 +2998,12 @@ static void glad_vk_load_VK_NV_coverage_reduction_mode(GladVulkanContext *contex
 
 static void glad_vk_load_VK_NV_cuda_kernel_launch(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          87, /* vkCmdCudaLaunchKernelNV */
-         313, /* vkCreateCudaFunctionNV */
-         314, /* vkCreateCudaModuleNV */
-         385, /* vkDestroyCudaFunctionNV */
-         386, /* vkDestroyCudaModuleNV */
-         460  /* vkGetCudaModuleCacheNV */
+          90, /* vkCmdCudaLaunchKernelNV */
+         317, /* vkCreateCudaFunctionNV */
+         318, /* vkCreateCudaModuleNV */
+         389, /* vkDestroyCudaFunctionNV */
+         390, /* vkDestroyCudaModuleNV */
+         465  /* vkGetCudaModuleCacheNV */
     };
     if (!context->NV_cuda_kernel_launch) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2966,9 +3011,9 @@ static void glad_vk_load_VK_NV_cuda_kernel_launch(GladVulkanContext *context, GL
 
 static void glad_vk_load_VK_NV_device_diagnostic_checkpoints(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         171, /* vkCmdSetCheckpointNV */
-         615, /* vkGetQueueCheckpointData2NV */
-         616  /* vkGetQueueCheckpointDataNV */
+         174, /* vkCmdSetCheckpointNV */
+         624, /* vkGetQueueCheckpointData2NV */
+         625  /* vkGetQueueCheckpointDataNV */
     };
     if (!context->NV_device_diagnostic_checkpoints) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2977,11 +3022,11 @@ static void glad_vk_load_VK_NV_device_diagnostic_checkpoints(GladVulkanContext *
 static void glad_vk_load_VK_NV_device_generated_commands(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           46, /* vkCmdBindPipelineShaderGroupNV */
-         136, /* vkCmdExecuteGeneratedCommandsNV */
-         148, /* vkCmdPreprocessGeneratedCommandsNV */
-         337, /* vkCreateIndirectCommandsLayoutNV */
-         401, /* vkDestroyIndirectCommandsLayoutNV */
-         509  /* vkGetGeneratedCommandsMemoryRequirementsNV */
+         139, /* vkCmdExecuteGeneratedCommandsNV */
+         151, /* vkCmdPreprocessGeneratedCommandsNV */
+         341, /* vkCreateIndirectCommandsLayoutNV */
+         405, /* vkDestroyIndirectCommandsLayoutNV */
+         514  /* vkGetGeneratedCommandsMemoryRequirementsNV */
     };
     if (!context->NV_device_generated_commands) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2989,9 +3034,9 @@ static void glad_vk_load_VK_NV_device_generated_commands(GladVulkanContext *cont
 
 static void glad_vk_load_VK_NV_device_generated_commands_compute(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         278, /* vkCmdUpdatePipelineIndirectBufferNV */
-         608, /* vkGetPipelineIndirectDeviceAddressNV */
-         609  /* vkGetPipelineIndirectMemoryRequirementsNV */
+         281, /* vkCmdUpdatePipelineIndirectBufferNV */
+         617, /* vkGetPipelineIndirectDeviceAddressNV */
+         618  /* vkGetPipelineIndirectMemoryRequirementsNV */
     };
     if (!context->NV_device_generated_commands_compute) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -2999,7 +3044,7 @@ static void glad_vk_load_VK_NV_device_generated_commands_compute(GladVulkanConte
 
 static void glad_vk_load_VK_NV_external_memory_capabilities(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         555  /* vkGetPhysicalDeviceExternalImageFormatPropertiesNV */
+         564  /* vkGetPhysicalDeviceExternalImageFormatPropertiesNV */
     };
     if (!context->NV_external_memory_capabilities) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3007,7 +3052,7 @@ static void glad_vk_load_VK_NV_external_memory_capabilities(GladVulkanContext *c
 
 static void glad_vk_load_VK_NV_external_memory_rdma(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         532  /* vkGetMemoryRemoteAddressNV */
+         539  /* vkGetMemoryRemoteAddressNV */
     };
     if (!context->NV_external_memory_rdma) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3016,7 +3061,7 @@ static void glad_vk_load_VK_NV_external_memory_rdma(GladVulkanContext *context, 
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
 static void glad_vk_load_VK_NV_external_memory_win32(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         534  /* vkGetMemoryWin32HandleNV */
+         541  /* vkGetMemoryWin32HandleNV */
     };
     if (!context->NV_external_memory_win32) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3025,7 +3070,7 @@ static void glad_vk_load_VK_NV_external_memory_win32(GladVulkanContext *context,
 #endif
 static void glad_vk_load_VK_NV_fragment_shading_rate_enums(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         217  /* vkCmdSetFragmentShadingRateEnumNV */
+         220  /* vkCmdSetFragmentShadingRateEnumNV */
     };
     if (!context->NV_fragment_shading_rate_enums) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3033,11 +3078,11 @@ static void glad_vk_load_VK_NV_fragment_shading_rate_enums(GladVulkanContext *co
 
 static void glad_vk_load_VK_NV_low_latency2(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         527, /* vkGetLatencyTimingsNV */
-         650, /* vkLatencySleepNV */
-         660, /* vkQueueNotifyOutOfBandNV */
-         689, /* vkSetLatencyMarkerNV */
-         690  /* vkSetLatencySleepModeNV */
+         532, /* vkGetLatencyTimingsNV */
+         659, /* vkLatencySleepNV */
+         669, /* vkQueueNotifyOutOfBandNV */
+         698, /* vkSetLatencyMarkerNV */
+         699  /* vkSetLatencySleepModeNV */
     };
     if (!context->NV_low_latency2) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3045,8 +3090,8 @@ static void glad_vk_load_VK_NV_low_latency2(GladVulkanContext *context, GLADuser
 
 static void glad_vk_load_VK_NV_memory_decompression(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-          92, /* vkCmdDecompressMemoryIndirectCountNV */
-          93  /* vkCmdDecompressMemoryNV */
+          95, /* vkCmdDecompressMemoryIndirectCountNV */
+          96  /* vkCmdDecompressMemoryNV */
     };
     if (!context->NV_memory_decompression) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3054,9 +3099,9 @@ static void glad_vk_load_VK_NV_memory_decompression(GladVulkanContext *context, 
 
 static void glad_vk_load_VK_NV_mesh_shader(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         116, /* vkCmdDrawMeshTasksIndirectCountNV */
-         118, /* vkCmdDrawMeshTasksIndirectNV */
-         119  /* vkCmdDrawMeshTasksNV */
+         119, /* vkCmdDrawMeshTasksIndirectCountNV */
+         121, /* vkCmdDrawMeshTasksIndirectNV */
+         122  /* vkCmdDrawMeshTasksNV */
     };
     if (!context->NV_mesh_shader) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3065,12 +3110,21 @@ static void glad_vk_load_VK_NV_mesh_shader(GladVulkanContext *context, GLADuserp
 static void glad_vk_load_VK_NV_optical_flow(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           20, /* vkBindOpticalFlowSessionImageNV */
-         143, /* vkCmdOpticalFlowExecuteNV */
-         343, /* vkCreateOpticalFlowSessionNV */
-         405, /* vkDestroyOpticalFlowSessionNV */
-         572  /* vkGetPhysicalDeviceOpticalFlowImageFormatsNV */
+         146, /* vkCmdOpticalFlowExecuteNV */
+         347, /* vkCreateOpticalFlowSessionNV */
+         409, /* vkDestroyOpticalFlowSessionNV */
+         581  /* vkGetPhysicalDeviceOpticalFlowImageFormatsNV */
     };
     if (!context->NV_optical_flow) return;
+    glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
+}
+
+static void glad_vk_load_VK_NV_partitioned_acceleration_structure(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
+    static const uint16_t s_pfnIdx[] = {
+          61, /* vkCmdBuildPartitionedAccelerationStructuresNV */
+         546  /* vkGetPartitionedAccelerationStructuresBuildSizesNV */
+    };
+    if (!context->NV_partitioned_acceleration_structure) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
@@ -3078,16 +3132,16 @@ static void glad_vk_load_VK_NV_ray_tracing(GladVulkanContext *context, GLADuserp
     static const uint16_t s_pfnIdx[] = {
           13, /* vkBindAccelerationStructureMemoryNV */
           56, /* vkCmdBuildAccelerationStructureNV */
-          65, /* vkCmdCopyAccelerationStructureNV */
-         276, /* vkCmdTraceRaysNV */
-         283, /* vkCmdWriteAccelerationStructuresPropertiesNV */
-         290, /* vkCompileDeferredNV */
-         304, /* vkCreateAccelerationStructureNV */
-         351, /* vkCreateRayTracingPipelinesNV */
-         378, /* vkDestroyAccelerationStructureNV */
-         444, /* vkGetAccelerationStructureHandleNV */
-         445, /* vkGetAccelerationStructureMemoryRequirementsNV */
-         620  /* vkGetRayTracingShaderGroupHandlesNV */
+          68, /* vkCmdCopyAccelerationStructureNV */
+         279, /* vkCmdTraceRaysNV */
+         286, /* vkCmdWriteAccelerationStructuresPropertiesNV */
+         293, /* vkCompileDeferredNV */
+         308, /* vkCreateAccelerationStructureNV */
+         355, /* vkCreateRayTracingPipelinesNV */
+         382, /* vkDestroyAccelerationStructureNV */
+         448, /* vkGetAccelerationStructureHandleNV */
+         449, /* vkGetAccelerationStructureMemoryRequirementsNV */
+         629  /* vkGetRayTracingShaderGroupHandlesNV */
     };
     if (!context->NV_ray_tracing) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3095,8 +3149,8 @@ static void glad_vk_load_VK_NV_ray_tracing(GladVulkanContext *context, GLADuserp
 
 static void glad_vk_load_VK_NV_scissor_exclusive(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         214, /* vkCmdSetExclusiveScissorEnableNV */
-         215  /* vkCmdSetExclusiveScissorNV */
+         217, /* vkCmdSetExclusiveScissorEnableNV */
+         218  /* vkCmdSetExclusiveScissorNV */
     };
     if (!context->NV_scissor_exclusive) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3105,8 +3159,8 @@ static void glad_vk_load_VK_NV_scissor_exclusive(GladVulkanContext *context, GLA
 static void glad_vk_load_VK_NV_shading_rate_image(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
           48, /* vkCmdBindShadingRateImageNV */
-         172, /* vkCmdSetCoarseSampleOrderNV */
-         266  /* vkCmdSetViewportShadingRatePaletteNV */
+         175, /* vkCmdSetCoarseSampleOrderNV */
+         269  /* vkCmdSetViewportShadingRatePaletteNV */
     };
     if (!context->NV_shading_rate_image) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3114,8 +3168,8 @@ static void glad_vk_load_VK_NV_shading_rate_image(GladVulkanContext *context, GL
 
 static void glad_vk_load_VK_QCOM_tile_properties(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         499, /* vkGetDynamicRenderingTilePropertiesQCOM */
-         507  /* vkGetFramebufferTilePropertiesQCOM */
+         504, /* vkGetDynamicRenderingTilePropertiesQCOM */
+         512  /* vkGetFramebufferTilePropertiesQCOM */
     };
     if (!context->QCOM_tile_properties) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3124,7 +3178,7 @@ static void glad_vk_load_VK_QCOM_tile_properties(GladVulkanContext *context, GLA
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
 static void glad_vk_load_VK_QNX_external_memory_screen_buffer(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         627  /* vkGetScreenBufferPropertiesQNX */
+         636  /* vkGetScreenBufferPropertiesQNX */
     };
     if (!context->QNX_external_memory_screen_buffer) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3134,8 +3188,8 @@ static void glad_vk_load_VK_QNX_external_memory_screen_buffer(GladVulkanContext 
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
 static void glad_vk_load_VK_QNX_screen_surface(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         358, /* vkCreateScreenSurfaceQNX */
-         581  /* vkGetPhysicalDeviceScreenPresentationSupportQNX */
+         362, /* vkCreateScreenSurfaceQNX */
+         590  /* vkGetPhysicalDeviceScreenPresentationSupportQNX */
     };
     if (!context->QNX_screen_surface) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3144,8 +3198,8 @@ static void glad_vk_load_VK_QNX_screen_surface(GladVulkanContext *context, GLADu
 #endif
 static void glad_vk_load_VK_VALVE_descriptor_set_host_mapping(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
-         464, /* vkGetDescriptorSetHostMappingVALVE */
-         466  /* vkGetDescriptorSetLayoutHostMappingInfoVALVE */
+         469, /* vkGetDescriptorSetHostMappingVALVE */
+         471  /* vkGetDescriptorSetLayoutHostMappingInfoVALVE */
     };
     if (!context->VALVE_descriptor_set_host_mapping) return;
     glad_vk_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
@@ -3169,206 +3223,206 @@ static void glad_vk_resolve_aliases(GladVulkanContext *context) {
         {   52,   51 }, /* vkCmdBindVertexBuffers2EXT and vkCmdBindVertexBuffers2 */
         {   54,   55 }, /* vkCmdBlitImage2 and vkCmdBlitImage2KHR */
         {   55,   54 }, /* vkCmdBlitImage2KHR and vkCmdBlitImage2 */
-        {   68,   69 }, /* vkCmdCopyBuffer2 and vkCmdCopyBuffer2KHR */
-        {   69,   68 }, /* vkCmdCopyBuffer2KHR and vkCmdCopyBuffer2 */
-        {   71,   72 }, /* vkCmdCopyBufferToImage2 and vkCmdCopyBufferToImage2KHR */
-        {   72,   71 }, /* vkCmdCopyBufferToImage2KHR and vkCmdCopyBufferToImage2 */
-        {   74,   75 }, /* vkCmdCopyImage2 and vkCmdCopyImage2KHR */
-        {   75,   74 }, /* vkCmdCopyImage2KHR and vkCmdCopyImage2 */
-        {   77,   78 }, /* vkCmdCopyImageToBuffer2 and vkCmdCopyImageToBuffer2KHR */
-        {   78,   77 }, /* vkCmdCopyImageToBuffer2KHR and vkCmdCopyImageToBuffer2 */
-        {   95,   96 }, /* vkCmdDispatchBase and vkCmdDispatchBaseKHR */
-        {   96,   95 }, /* vkCmdDispatchBaseKHR and vkCmdDispatchBase */
-        {  106,  107 }, /* vkCmdDrawIndexedIndirectCount and vkCmdDrawIndexedIndirectCountAMD */
-        {  106,  108 }, /* vkCmdDrawIndexedIndirectCount and vkCmdDrawIndexedIndirectCountKHR */
-        {  107,  106 }, /* vkCmdDrawIndexedIndirectCountAMD and vkCmdDrawIndexedIndirectCount */
-        {  107,  108 }, /* vkCmdDrawIndexedIndirectCountAMD and vkCmdDrawIndexedIndirectCountKHR */
-        {  108,  106 }, /* vkCmdDrawIndexedIndirectCountKHR and vkCmdDrawIndexedIndirectCount */
-        {  108,  107 }, /* vkCmdDrawIndexedIndirectCountKHR and vkCmdDrawIndexedIndirectCountAMD */
-        {  111,  112 }, /* vkCmdDrawIndirectCount and vkCmdDrawIndirectCountAMD */
-        {  111,  113 }, /* vkCmdDrawIndirectCount and vkCmdDrawIndirectCountKHR */
-        {  112,  111 }, /* vkCmdDrawIndirectCountAMD and vkCmdDrawIndirectCount */
-        {  112,  113 }, /* vkCmdDrawIndirectCountAMD and vkCmdDrawIndirectCountKHR */
-        {  113,  111 }, /* vkCmdDrawIndirectCountKHR and vkCmdDrawIndirectCount */
-        {  113,  112 }, /* vkCmdDrawIndirectCountKHR and vkCmdDrawIndirectCountAMD */
-        {  130,  131 }, /* vkCmdEndRendering and vkCmdEndRenderingKHR */
-        {  131,  130 }, /* vkCmdEndRenderingKHR and vkCmdEndRendering */
-        {  128,  129 }, /* vkCmdEndRenderPass2 and vkCmdEndRenderPass2KHR */
-        {  129,  128 }, /* vkCmdEndRenderPass2KHR and vkCmdEndRenderPass2 */
-        {  141,  142 }, /* vkCmdNextSubpass2 and vkCmdNextSubpass2KHR */
-        {  142,  141 }, /* vkCmdNextSubpass2KHR and vkCmdNextSubpass2 */
-        {  145,  146 }, /* vkCmdPipelineBarrier2 and vkCmdPipelineBarrier2KHR */
-        {  146,  145 }, /* vkCmdPipelineBarrier2KHR and vkCmdPipelineBarrier2 */
-        {  150,  151 }, /* vkCmdPushConstants2 and vkCmdPushConstants2KHR */
-        {  151,  150 }, /* vkCmdPushConstants2KHR and vkCmdPushConstants2 */
-        {  152,  155 }, /* vkCmdPushDescriptorSet and vkCmdPushDescriptorSetKHR */
-        {  153,  154 }, /* vkCmdPushDescriptorSet2 and vkCmdPushDescriptorSet2KHR */
-        {  154,  153 }, /* vkCmdPushDescriptorSet2KHR and vkCmdPushDescriptorSet2 */
-        {  155,  152 }, /* vkCmdPushDescriptorSetKHR and vkCmdPushDescriptorSet */
-        {  156,  159 }, /* vkCmdPushDescriptorSetWithTemplate and vkCmdPushDescriptorSetWithTemplateKHR */
-        {  157,  158 }, /* vkCmdPushDescriptorSetWithTemplate2 and vkCmdPushDescriptorSetWithTemplate2KHR */
-        {  158,  157 }, /* vkCmdPushDescriptorSetWithTemplate2KHR and vkCmdPushDescriptorSetWithTemplate2 */
-        {  159,  156 }, /* vkCmdPushDescriptorSetWithTemplateKHR and vkCmdPushDescriptorSetWithTemplate */
-        {  161,  162 }, /* vkCmdResetEvent2 and vkCmdResetEvent2KHR */
-        {  162,  161 }, /* vkCmdResetEvent2KHR and vkCmdResetEvent2 */
-        {  165,  166 }, /* vkCmdResolveImage2 and vkCmdResolveImage2KHR */
-        {  166,  165 }, /* vkCmdResolveImage2KHR and vkCmdResolveImage2 */
-        {  185,  186 }, /* vkCmdSetCullMode and vkCmdSetCullModeEXT */
-        {  186,  185 }, /* vkCmdSetCullModeEXT and vkCmdSetCullMode */
-        {  189,  190 }, /* vkCmdSetDepthBiasEnable and vkCmdSetDepthBiasEnableEXT */
-        {  190,  189 }, /* vkCmdSetDepthBiasEnableEXT and vkCmdSetDepthBiasEnable */
-        {  192,  193 }, /* vkCmdSetDepthBoundsTestEnable and vkCmdSetDepthBoundsTestEnableEXT */
-        {  193,  192 }, /* vkCmdSetDepthBoundsTestEnableEXT and vkCmdSetDepthBoundsTestEnable */
-        {  198,  199 }, /* vkCmdSetDepthCompareOp and vkCmdSetDepthCompareOpEXT */
-        {  199,  198 }, /* vkCmdSetDepthCompareOpEXT and vkCmdSetDepthCompareOp */
-        {  200,  201 }, /* vkCmdSetDepthTestEnable and vkCmdSetDepthTestEnableEXT */
-        {  201,  200 }, /* vkCmdSetDepthTestEnableEXT and vkCmdSetDepthTestEnable */
-        {  202,  203 }, /* vkCmdSetDepthWriteEnable and vkCmdSetDepthWriteEnableEXT */
-        {  203,  202 }, /* vkCmdSetDepthWriteEnableEXT and vkCmdSetDepthWriteEnable */
-        {  206,  207 }, /* vkCmdSetDeviceMask and vkCmdSetDeviceMaskKHR */
-        {  207,  206 }, /* vkCmdSetDeviceMaskKHR and vkCmdSetDeviceMask */
-        {  212,  213 }, /* vkCmdSetEvent2 and vkCmdSetEvent2KHR */
-        {  213,  212 }, /* vkCmdSetEvent2KHR and vkCmdSetEvent2 */
-        {  219,  220 }, /* vkCmdSetFrontFace and vkCmdSetFrontFaceEXT */
-        {  220,  219 }, /* vkCmdSetFrontFaceEXT and vkCmdSetFrontFace */
-        {  222,  223 }, /* vkCmdSetLineStipple and vkCmdSetLineStippleEXT */
-        {  222,  225 }, /* vkCmdSetLineStipple and vkCmdSetLineStippleKHR */
-        {  223,  222 }, /* vkCmdSetLineStippleEXT and vkCmdSetLineStipple */
-        {  223,  225 }, /* vkCmdSetLineStippleEXT and vkCmdSetLineStippleKHR */
-        {  225,  222 }, /* vkCmdSetLineStippleKHR and vkCmdSetLineStipple */
-        {  225,  223 }, /* vkCmdSetLineStippleKHR and vkCmdSetLineStippleEXT */
-        {  234,  235 }, /* vkCmdSetPrimitiveRestartEnable and vkCmdSetPrimitiveRestartEnableEXT */
-        {  235,  234 }, /* vkCmdSetPrimitiveRestartEnableEXT and vkCmdSetPrimitiveRestartEnable */
-        {  236,  237 }, /* vkCmdSetPrimitiveTopology and vkCmdSetPrimitiveTopologyEXT */
-        {  237,  236 }, /* vkCmdSetPrimitiveTopologyEXT and vkCmdSetPrimitiveTopology */
-        {  241,  242 }, /* vkCmdSetRasterizerDiscardEnable and vkCmdSetRasterizerDiscardEnableEXT */
-        {  242,  241 }, /* vkCmdSetRasterizerDiscardEnableEXT and vkCmdSetRasterizerDiscardEnable */
-        {  244,  245 }, /* vkCmdSetRenderingAttachmentLocations and vkCmdSetRenderingAttachmentLocationsKHR */
-        {  245,  244 }, /* vkCmdSetRenderingAttachmentLocationsKHR and vkCmdSetRenderingAttachmentLocations */
-        {  246,  247 }, /* vkCmdSetRenderingInputAttachmentIndices and vkCmdSetRenderingInputAttachmentIndicesKHR */
-        {  247,  246 }, /* vkCmdSetRenderingInputAttachmentIndicesKHR and vkCmdSetRenderingInputAttachmentIndices */
-        {  253,  254 }, /* vkCmdSetScissorWithCount and vkCmdSetScissorWithCountEXT */
-        {  254,  253 }, /* vkCmdSetScissorWithCountEXT and vkCmdSetScissorWithCount */
-        {  257,  258 }, /* vkCmdSetStencilOp and vkCmdSetStencilOpEXT */
-        {  258,  257 }, /* vkCmdSetStencilOpEXT and vkCmdSetStencilOp */
-        {  260,  261 }, /* vkCmdSetStencilTestEnable and vkCmdSetStencilTestEnableEXT */
-        {  261,  260 }, /* vkCmdSetStencilTestEnableEXT and vkCmdSetStencilTestEnable */
-        {  270,  271 }, /* vkCmdSetViewportWithCount and vkCmdSetViewportWithCountEXT */
-        {  271,  270 }, /* vkCmdSetViewportWithCountEXT and vkCmdSetViewportWithCount */
-        {  280,  281 }, /* vkCmdWaitEvents2 and vkCmdWaitEvents2KHR */
-        {  281,  280 }, /* vkCmdWaitEvents2KHR and vkCmdWaitEvents2 */
-        {  288,  289 }, /* vkCmdWriteTimestamp2 and vkCmdWriteTimestamp2KHR */
-        {  289,  288 }, /* vkCmdWriteTimestamp2KHR and vkCmdWriteTimestamp2 */
-        {  293,  294 }, /* vkCopyImageToImage and vkCopyImageToImageEXT */
-        {  294,  293 }, /* vkCopyImageToImageEXT and vkCopyImageToImage */
-        {  295,  296 }, /* vkCopyImageToMemory and vkCopyImageToMemoryEXT */
-        {  296,  295 }, /* vkCopyImageToMemoryEXT and vkCopyImageToMemory */
-        {  298,  299 }, /* vkCopyMemoryToImage and vkCopyMemoryToImageEXT */
-        {  299,  298 }, /* vkCopyMemoryToImageEXT and vkCopyMemoryToImage */
-        {  320,  321 }, /* vkCreateDescriptorUpdateTemplate and vkCreateDescriptorUpdateTemplateKHR */
-        {  321,  320 }, /* vkCreateDescriptorUpdateTemplateKHR and vkCreateDescriptorUpdateTemplate */
-        {  347,  348 }, /* vkCreatePrivateDataSlot and vkCreatePrivateDataSlotEXT */
-        {  348,  347 }, /* vkCreatePrivateDataSlotEXT and vkCreatePrivateDataSlot */
-        {  353,  354 }, /* vkCreateRenderPass2 and vkCreateRenderPass2KHR */
-        {  354,  353 }, /* vkCreateRenderPass2KHR and vkCreateRenderPass2 */
-        {  356,  357 }, /* vkCreateSamplerYcbcrConversion and vkCreateSamplerYcbcrConversionKHR */
-        {  357,  356 }, /* vkCreateSamplerYcbcrConversionKHR and vkCreateSamplerYcbcrConversion */
-        {  392,  393 }, /* vkDestroyDescriptorUpdateTemplate and vkDestroyDescriptorUpdateTemplateKHR */
-        {  393,  392 }, /* vkDestroyDescriptorUpdateTemplateKHR and vkDestroyDescriptorUpdateTemplate */
-        {  410,  411 }, /* vkDestroyPrivateDataSlot and vkDestroyPrivateDataSlotEXT */
-        {  411,  410 }, /* vkDestroyPrivateDataSlotEXT and vkDestroyPrivateDataSlot */
-        {  415,  416 }, /* vkDestroySamplerYcbcrConversion and vkDestroySamplerYcbcrConversionKHR */
-        {  416,  415 }, /* vkDestroySamplerYcbcrConversionKHR and vkDestroySamplerYcbcrConversion */
-        {  433,  434 }, /* vkEnumeratePhysicalDeviceGroups and vkEnumeratePhysicalDeviceGroupsKHR */
-        {  434,  433 }, /* vkEnumeratePhysicalDeviceGroupsKHR and vkEnumeratePhysicalDeviceGroups */
-        {  449,  450 }, /* vkGetBufferDeviceAddress and vkGetBufferDeviceAddressEXT */
-        {  449,  451 }, /* vkGetBufferDeviceAddress and vkGetBufferDeviceAddressKHR */
-        {  450,  449 }, /* vkGetBufferDeviceAddressEXT and vkGetBufferDeviceAddress */
-        {  450,  451 }, /* vkGetBufferDeviceAddressEXT and vkGetBufferDeviceAddressKHR */
-        {  451,  449 }, /* vkGetBufferDeviceAddressKHR and vkGetBufferDeviceAddress */
-        {  451,  450 }, /* vkGetBufferDeviceAddressKHR and vkGetBufferDeviceAddressEXT */
-        {  453,  454 }, /* vkGetBufferMemoryRequirements2 and vkGetBufferMemoryRequirements2KHR */
-        {  454,  453 }, /* vkGetBufferMemoryRequirements2KHR and vkGetBufferMemoryRequirements2 */
-        {  455,  456 }, /* vkGetBufferOpaqueCaptureAddress and vkGetBufferOpaqueCaptureAddressKHR */
-        {  456,  455 }, /* vkGetBufferOpaqueCaptureAddressKHR and vkGetBufferOpaqueCaptureAddress */
-        {  458,  459 }, /* vkGetCalibratedTimestampsEXT and vkGetCalibratedTimestampsKHR */
-        {  459,  458 }, /* vkGetCalibratedTimestampsKHR and vkGetCalibratedTimestampsEXT */
-        {  468,  469 }, /* vkGetDescriptorSetLayoutSupport and vkGetDescriptorSetLayoutSupportKHR */
-        {  469,  468 }, /* vkGetDescriptorSetLayoutSupportKHR and vkGetDescriptorSetLayoutSupport */
-        {  471,  472 }, /* vkGetDeviceBufferMemoryRequirements and vkGetDeviceBufferMemoryRequirementsKHR */
-        {  472,  471 }, /* vkGetDeviceBufferMemoryRequirementsKHR and vkGetDeviceBufferMemoryRequirements */
-        {  474,  475 }, /* vkGetDeviceGroupPeerMemoryFeatures and vkGetDeviceGroupPeerMemoryFeaturesKHR */
-        {  475,  474 }, /* vkGetDeviceGroupPeerMemoryFeaturesKHR and vkGetDeviceGroupPeerMemoryFeatures */
-        {  479,  480 }, /* vkGetDeviceImageMemoryRequirements and vkGetDeviceImageMemoryRequirementsKHR */
-        {  480,  479 }, /* vkGetDeviceImageMemoryRequirementsKHR and vkGetDeviceImageMemoryRequirements */
-        {  481,  482 }, /* vkGetDeviceImageSparseMemoryRequirements and vkGetDeviceImageSparseMemoryRequirementsKHR */
-        {  482,  481 }, /* vkGetDeviceImageSparseMemoryRequirementsKHR and vkGetDeviceImageSparseMemoryRequirements */
-        {  483,  484 }, /* vkGetDeviceImageSubresourceLayout and vkGetDeviceImageSubresourceLayoutKHR */
-        {  484,  483 }, /* vkGetDeviceImageSubresourceLayoutKHR and vkGetDeviceImageSubresourceLayout */
-        {  486,  487 }, /* vkGetDeviceMemoryOpaqueCaptureAddress and vkGetDeviceMemoryOpaqueCaptureAddressKHR */
-        {  487,  486 }, /* vkGetDeviceMemoryOpaqueCaptureAddressKHR and vkGetDeviceMemoryOpaqueCaptureAddress */
-        {  512,  513 }, /* vkGetImageMemoryRequirements2 and vkGetImageMemoryRequirements2KHR */
-        {  513,  512 }, /* vkGetImageMemoryRequirements2KHR and vkGetImageMemoryRequirements2 */
-        {  516,  517 }, /* vkGetImageSparseMemoryRequirements2 and vkGetImageSparseMemoryRequirements2KHR */
-        {  517,  516 }, /* vkGetImageSparseMemoryRequirements2KHR and vkGetImageSparseMemoryRequirements2 */
-        {  519,  520 }, /* vkGetImageSubresourceLayout2 and vkGetImageSubresourceLayout2EXT */
-        {  519,  521 }, /* vkGetImageSubresourceLayout2 and vkGetImageSubresourceLayout2KHR */
-        {  520,  519 }, /* vkGetImageSubresourceLayout2EXT and vkGetImageSubresourceLayout2 */
-        {  520,  521 }, /* vkGetImageSubresourceLayout2EXT and vkGetImageSubresourceLayout2KHR */
-        {  521,  519 }, /* vkGetImageSubresourceLayout2KHR and vkGetImageSubresourceLayout2 */
-        {  521,  520 }, /* vkGetImageSubresourceLayout2KHR and vkGetImageSubresourceLayout2EXT */
-        {  541,  542 }, /* vkGetPhysicalDeviceCalibrateableTimeDomainsEXT and vkGetPhysicalDeviceCalibrateableTimeDomainsKHR */
-        {  542,  541 }, /* vkGetPhysicalDeviceCalibrateableTimeDomainsKHR and vkGetPhysicalDeviceCalibrateableTimeDomainsEXT */
-        {  551,  552 }, /* vkGetPhysicalDeviceExternalBufferProperties and vkGetPhysicalDeviceExternalBufferPropertiesKHR */
-        {  552,  551 }, /* vkGetPhysicalDeviceExternalBufferPropertiesKHR and vkGetPhysicalDeviceExternalBufferProperties */
-        {  553,  554 }, /* vkGetPhysicalDeviceExternalFenceProperties and vkGetPhysicalDeviceExternalFencePropertiesKHR */
-        {  554,  553 }, /* vkGetPhysicalDeviceExternalFencePropertiesKHR and vkGetPhysicalDeviceExternalFenceProperties */
-        {  556,  557 }, /* vkGetPhysicalDeviceExternalSemaphoreProperties and vkGetPhysicalDeviceExternalSemaphorePropertiesKHR */
-        {  557,  556 }, /* vkGetPhysicalDeviceExternalSemaphorePropertiesKHR and vkGetPhysicalDeviceExternalSemaphoreProperties */
-        {  559,  560 }, /* vkGetPhysicalDeviceFeatures2 and vkGetPhysicalDeviceFeatures2KHR */
-        {  560,  559 }, /* vkGetPhysicalDeviceFeatures2KHR and vkGetPhysicalDeviceFeatures2 */
-        {  562,  563 }, /* vkGetPhysicalDeviceFormatProperties2 and vkGetPhysicalDeviceFormatProperties2KHR */
-        {  563,  562 }, /* vkGetPhysicalDeviceFormatProperties2KHR and vkGetPhysicalDeviceFormatProperties2 */
-        {  566,  567 }, /* vkGetPhysicalDeviceImageFormatProperties2 and vkGetPhysicalDeviceImageFormatProperties2KHR */
-        {  567,  566 }, /* vkGetPhysicalDeviceImageFormatProperties2KHR and vkGetPhysicalDeviceImageFormatProperties2 */
-        {  569,  570 }, /* vkGetPhysicalDeviceMemoryProperties2 and vkGetPhysicalDeviceMemoryProperties2KHR */
-        {  570,  569 }, /* vkGetPhysicalDeviceMemoryProperties2KHR and vkGetPhysicalDeviceMemoryProperties2 */
-        {  575,  576 }, /* vkGetPhysicalDeviceProperties2 and vkGetPhysicalDeviceProperties2KHR */
-        {  576,  575 }, /* vkGetPhysicalDeviceProperties2KHR and vkGetPhysicalDeviceProperties2 */
-        {  579,  580 }, /* vkGetPhysicalDeviceQueueFamilyProperties2 and vkGetPhysicalDeviceQueueFamilyProperties2KHR */
-        {  580,  579 }, /* vkGetPhysicalDeviceQueueFamilyProperties2KHR and vkGetPhysicalDeviceQueueFamilyProperties2 */
-        {  583,  584 }, /* vkGetPhysicalDeviceSparseImageFormatProperties2 and vkGetPhysicalDeviceSparseImageFormatProperties2KHR */
-        {  584,  583 }, /* vkGetPhysicalDeviceSparseImageFormatProperties2KHR and vkGetPhysicalDeviceSparseImageFormatProperties2 */
-        {  594,  595 }, /* vkGetPhysicalDeviceToolProperties and vkGetPhysicalDeviceToolPropertiesEXT */
-        {  595,  594 }, /* vkGetPhysicalDeviceToolPropertiesEXT and vkGetPhysicalDeviceToolProperties */
-        {  612,  613 }, /* vkGetPrivateData and vkGetPrivateDataEXT */
-        {  613,  612 }, /* vkGetPrivateDataEXT and vkGetPrivateData */
-        {  619,  620 }, /* vkGetRayTracingShaderGroupHandlesKHR and vkGetRayTracingShaderGroupHandlesNV */
-        {  620,  619 }, /* vkGetRayTracingShaderGroupHandlesNV and vkGetRayTracingShaderGroupHandlesKHR */
-        {  624,  625 }, /* vkGetRenderingAreaGranularity and vkGetRenderingAreaGranularityKHR */
-        {  625,  624 }, /* vkGetRenderingAreaGranularityKHR and vkGetRenderingAreaGranularity */
-        {  628,  629 }, /* vkGetSemaphoreCounterValue and vkGetSemaphoreCounterValueKHR */
-        {  629,  628 }, /* vkGetSemaphoreCounterValueKHR and vkGetSemaphoreCounterValue */
-        {  652,  653 }, /* vkMapMemory2 and vkMapMemory2KHR */
-        {  653,  652 }, /* vkMapMemory2KHR and vkMapMemory2 */
-        {  664,  665 }, /* vkQueueSubmit2 and vkQueueSubmit2KHR */
-        {  665,  664 }, /* vkQueueSubmit2KHR and vkQueueSubmit2 */
-        {  680,  681 }, /* vkResetQueryPool and vkResetQueryPoolEXT */
-        {  681,  680 }, /* vkResetQueryPoolEXT and vkResetQueryPool */
-        {  692,  693 }, /* vkSetPrivateData and vkSetPrivateDataEXT */
-        {  693,  692 }, /* vkSetPrivateDataEXT and vkSetPrivateData */
-        {  694,  695 }, /* vkSignalSemaphore and vkSignalSemaphoreKHR */
-        {  695,  694 }, /* vkSignalSemaphoreKHR and vkSignalSemaphore */
-        {  697,  698 }, /* vkTransitionImageLayout and vkTransitionImageLayoutEXT */
-        {  698,  697 }, /* vkTransitionImageLayoutEXT and vkTransitionImageLayout */
-        {  699,  700 }, /* vkTrimCommandPool and vkTrimCommandPoolKHR */
-        {  700,  699 }, /* vkTrimCommandPoolKHR and vkTrimCommandPool */
-        {  703,  704 }, /* vkUnmapMemory2 and vkUnmapMemory2KHR */
-        {  704,  703 }, /* vkUnmapMemory2KHR and vkUnmapMemory2 */
-        {  705,  706 }, /* vkUpdateDescriptorSetWithTemplate and vkUpdateDescriptorSetWithTemplateKHR */
-        {  706,  705 }, /* vkUpdateDescriptorSetWithTemplateKHR and vkUpdateDescriptorSetWithTemplate */
-        {  713,  714 }, /* vkWaitSemaphores and vkWaitSemaphoresKHR */
-        {  714,  713 }, /* vkWaitSemaphoresKHR and vkWaitSemaphores */
+        {   71,   72 }, /* vkCmdCopyBuffer2 and vkCmdCopyBuffer2KHR */
+        {   72,   71 }, /* vkCmdCopyBuffer2KHR and vkCmdCopyBuffer2 */
+        {   74,   75 }, /* vkCmdCopyBufferToImage2 and vkCmdCopyBufferToImage2KHR */
+        {   75,   74 }, /* vkCmdCopyBufferToImage2KHR and vkCmdCopyBufferToImage2 */
+        {   77,   78 }, /* vkCmdCopyImage2 and vkCmdCopyImage2KHR */
+        {   78,   77 }, /* vkCmdCopyImage2KHR and vkCmdCopyImage2 */
+        {   80,   81 }, /* vkCmdCopyImageToBuffer2 and vkCmdCopyImageToBuffer2KHR */
+        {   81,   80 }, /* vkCmdCopyImageToBuffer2KHR and vkCmdCopyImageToBuffer2 */
+        {   98,   99 }, /* vkCmdDispatchBase and vkCmdDispatchBaseKHR */
+        {   99,   98 }, /* vkCmdDispatchBaseKHR and vkCmdDispatchBase */
+        {  109,  110 }, /* vkCmdDrawIndexedIndirectCount and vkCmdDrawIndexedIndirectCountAMD */
+        {  109,  111 }, /* vkCmdDrawIndexedIndirectCount and vkCmdDrawIndexedIndirectCountKHR */
+        {  110,  109 }, /* vkCmdDrawIndexedIndirectCountAMD and vkCmdDrawIndexedIndirectCount */
+        {  110,  111 }, /* vkCmdDrawIndexedIndirectCountAMD and vkCmdDrawIndexedIndirectCountKHR */
+        {  111,  109 }, /* vkCmdDrawIndexedIndirectCountKHR and vkCmdDrawIndexedIndirectCount */
+        {  111,  110 }, /* vkCmdDrawIndexedIndirectCountKHR and vkCmdDrawIndexedIndirectCountAMD */
+        {  114,  115 }, /* vkCmdDrawIndirectCount and vkCmdDrawIndirectCountAMD */
+        {  114,  116 }, /* vkCmdDrawIndirectCount and vkCmdDrawIndirectCountKHR */
+        {  115,  114 }, /* vkCmdDrawIndirectCountAMD and vkCmdDrawIndirectCount */
+        {  115,  116 }, /* vkCmdDrawIndirectCountAMD and vkCmdDrawIndirectCountKHR */
+        {  116,  114 }, /* vkCmdDrawIndirectCountKHR and vkCmdDrawIndirectCount */
+        {  116,  115 }, /* vkCmdDrawIndirectCountKHR and vkCmdDrawIndirectCountAMD */
+        {  133,  134 }, /* vkCmdEndRendering and vkCmdEndRenderingKHR */
+        {  134,  133 }, /* vkCmdEndRenderingKHR and vkCmdEndRendering */
+        {  131,  132 }, /* vkCmdEndRenderPass2 and vkCmdEndRenderPass2KHR */
+        {  132,  131 }, /* vkCmdEndRenderPass2KHR and vkCmdEndRenderPass2 */
+        {  144,  145 }, /* vkCmdNextSubpass2 and vkCmdNextSubpass2KHR */
+        {  145,  144 }, /* vkCmdNextSubpass2KHR and vkCmdNextSubpass2 */
+        {  148,  149 }, /* vkCmdPipelineBarrier2 and vkCmdPipelineBarrier2KHR */
+        {  149,  148 }, /* vkCmdPipelineBarrier2KHR and vkCmdPipelineBarrier2 */
+        {  153,  154 }, /* vkCmdPushConstants2 and vkCmdPushConstants2KHR */
+        {  154,  153 }, /* vkCmdPushConstants2KHR and vkCmdPushConstants2 */
+        {  155,  158 }, /* vkCmdPushDescriptorSet and vkCmdPushDescriptorSetKHR */
+        {  156,  157 }, /* vkCmdPushDescriptorSet2 and vkCmdPushDescriptorSet2KHR */
+        {  157,  156 }, /* vkCmdPushDescriptorSet2KHR and vkCmdPushDescriptorSet2 */
+        {  158,  155 }, /* vkCmdPushDescriptorSetKHR and vkCmdPushDescriptorSet */
+        {  159,  162 }, /* vkCmdPushDescriptorSetWithTemplate and vkCmdPushDescriptorSetWithTemplateKHR */
+        {  160,  161 }, /* vkCmdPushDescriptorSetWithTemplate2 and vkCmdPushDescriptorSetWithTemplate2KHR */
+        {  161,  160 }, /* vkCmdPushDescriptorSetWithTemplate2KHR and vkCmdPushDescriptorSetWithTemplate2 */
+        {  162,  159 }, /* vkCmdPushDescriptorSetWithTemplateKHR and vkCmdPushDescriptorSetWithTemplate */
+        {  164,  165 }, /* vkCmdResetEvent2 and vkCmdResetEvent2KHR */
+        {  165,  164 }, /* vkCmdResetEvent2KHR and vkCmdResetEvent2 */
+        {  168,  169 }, /* vkCmdResolveImage2 and vkCmdResolveImage2KHR */
+        {  169,  168 }, /* vkCmdResolveImage2KHR and vkCmdResolveImage2 */
+        {  188,  189 }, /* vkCmdSetCullMode and vkCmdSetCullModeEXT */
+        {  189,  188 }, /* vkCmdSetCullModeEXT and vkCmdSetCullMode */
+        {  192,  193 }, /* vkCmdSetDepthBiasEnable and vkCmdSetDepthBiasEnableEXT */
+        {  193,  192 }, /* vkCmdSetDepthBiasEnableEXT and vkCmdSetDepthBiasEnable */
+        {  195,  196 }, /* vkCmdSetDepthBoundsTestEnable and vkCmdSetDepthBoundsTestEnableEXT */
+        {  196,  195 }, /* vkCmdSetDepthBoundsTestEnableEXT and vkCmdSetDepthBoundsTestEnable */
+        {  201,  202 }, /* vkCmdSetDepthCompareOp and vkCmdSetDepthCompareOpEXT */
+        {  202,  201 }, /* vkCmdSetDepthCompareOpEXT and vkCmdSetDepthCompareOp */
+        {  203,  204 }, /* vkCmdSetDepthTestEnable and vkCmdSetDepthTestEnableEXT */
+        {  204,  203 }, /* vkCmdSetDepthTestEnableEXT and vkCmdSetDepthTestEnable */
+        {  205,  206 }, /* vkCmdSetDepthWriteEnable and vkCmdSetDepthWriteEnableEXT */
+        {  206,  205 }, /* vkCmdSetDepthWriteEnableEXT and vkCmdSetDepthWriteEnable */
+        {  209,  210 }, /* vkCmdSetDeviceMask and vkCmdSetDeviceMaskKHR */
+        {  210,  209 }, /* vkCmdSetDeviceMaskKHR and vkCmdSetDeviceMask */
+        {  215,  216 }, /* vkCmdSetEvent2 and vkCmdSetEvent2KHR */
+        {  216,  215 }, /* vkCmdSetEvent2KHR and vkCmdSetEvent2 */
+        {  222,  223 }, /* vkCmdSetFrontFace and vkCmdSetFrontFaceEXT */
+        {  223,  222 }, /* vkCmdSetFrontFaceEXT and vkCmdSetFrontFace */
+        {  225,  226 }, /* vkCmdSetLineStipple and vkCmdSetLineStippleEXT */
+        {  225,  228 }, /* vkCmdSetLineStipple and vkCmdSetLineStippleKHR */
+        {  226,  225 }, /* vkCmdSetLineStippleEXT and vkCmdSetLineStipple */
+        {  226,  228 }, /* vkCmdSetLineStippleEXT and vkCmdSetLineStippleKHR */
+        {  228,  225 }, /* vkCmdSetLineStippleKHR and vkCmdSetLineStipple */
+        {  228,  226 }, /* vkCmdSetLineStippleKHR and vkCmdSetLineStippleEXT */
+        {  237,  238 }, /* vkCmdSetPrimitiveRestartEnable and vkCmdSetPrimitiveRestartEnableEXT */
+        {  238,  237 }, /* vkCmdSetPrimitiveRestartEnableEXT and vkCmdSetPrimitiveRestartEnable */
+        {  239,  240 }, /* vkCmdSetPrimitiveTopology and vkCmdSetPrimitiveTopologyEXT */
+        {  240,  239 }, /* vkCmdSetPrimitiveTopologyEXT and vkCmdSetPrimitiveTopology */
+        {  244,  245 }, /* vkCmdSetRasterizerDiscardEnable and vkCmdSetRasterizerDiscardEnableEXT */
+        {  245,  244 }, /* vkCmdSetRasterizerDiscardEnableEXT and vkCmdSetRasterizerDiscardEnable */
+        {  247,  248 }, /* vkCmdSetRenderingAttachmentLocations and vkCmdSetRenderingAttachmentLocationsKHR */
+        {  248,  247 }, /* vkCmdSetRenderingAttachmentLocationsKHR and vkCmdSetRenderingAttachmentLocations */
+        {  249,  250 }, /* vkCmdSetRenderingInputAttachmentIndices and vkCmdSetRenderingInputAttachmentIndicesKHR */
+        {  250,  249 }, /* vkCmdSetRenderingInputAttachmentIndicesKHR and vkCmdSetRenderingInputAttachmentIndices */
+        {  256,  257 }, /* vkCmdSetScissorWithCount and vkCmdSetScissorWithCountEXT */
+        {  257,  256 }, /* vkCmdSetScissorWithCountEXT and vkCmdSetScissorWithCount */
+        {  260,  261 }, /* vkCmdSetStencilOp and vkCmdSetStencilOpEXT */
+        {  261,  260 }, /* vkCmdSetStencilOpEXT and vkCmdSetStencilOp */
+        {  263,  264 }, /* vkCmdSetStencilTestEnable and vkCmdSetStencilTestEnableEXT */
+        {  264,  263 }, /* vkCmdSetStencilTestEnableEXT and vkCmdSetStencilTestEnable */
+        {  273,  274 }, /* vkCmdSetViewportWithCount and vkCmdSetViewportWithCountEXT */
+        {  274,  273 }, /* vkCmdSetViewportWithCountEXT and vkCmdSetViewportWithCount */
+        {  283,  284 }, /* vkCmdWaitEvents2 and vkCmdWaitEvents2KHR */
+        {  284,  283 }, /* vkCmdWaitEvents2KHR and vkCmdWaitEvents2 */
+        {  291,  292 }, /* vkCmdWriteTimestamp2 and vkCmdWriteTimestamp2KHR */
+        {  292,  291 }, /* vkCmdWriteTimestamp2KHR and vkCmdWriteTimestamp2 */
+        {  297,  298 }, /* vkCopyImageToImage and vkCopyImageToImageEXT */
+        {  298,  297 }, /* vkCopyImageToImageEXT and vkCopyImageToImage */
+        {  299,  300 }, /* vkCopyImageToMemory and vkCopyImageToMemoryEXT */
+        {  300,  299 }, /* vkCopyImageToMemoryEXT and vkCopyImageToMemory */
+        {  302,  303 }, /* vkCopyMemoryToImage and vkCopyMemoryToImageEXT */
+        {  303,  302 }, /* vkCopyMemoryToImageEXT and vkCopyMemoryToImage */
+        {  324,  325 }, /* vkCreateDescriptorUpdateTemplate and vkCreateDescriptorUpdateTemplateKHR */
+        {  325,  324 }, /* vkCreateDescriptorUpdateTemplateKHR and vkCreateDescriptorUpdateTemplate */
+        {  351,  352 }, /* vkCreatePrivateDataSlot and vkCreatePrivateDataSlotEXT */
+        {  352,  351 }, /* vkCreatePrivateDataSlotEXT and vkCreatePrivateDataSlot */
+        {  357,  358 }, /* vkCreateRenderPass2 and vkCreateRenderPass2KHR */
+        {  358,  357 }, /* vkCreateRenderPass2KHR and vkCreateRenderPass2 */
+        {  360,  361 }, /* vkCreateSamplerYcbcrConversion and vkCreateSamplerYcbcrConversionKHR */
+        {  361,  360 }, /* vkCreateSamplerYcbcrConversionKHR and vkCreateSamplerYcbcrConversion */
+        {  396,  397 }, /* vkDestroyDescriptorUpdateTemplate and vkDestroyDescriptorUpdateTemplateKHR */
+        {  397,  396 }, /* vkDestroyDescriptorUpdateTemplateKHR and vkDestroyDescriptorUpdateTemplate */
+        {  414,  415 }, /* vkDestroyPrivateDataSlot and vkDestroyPrivateDataSlotEXT */
+        {  415,  414 }, /* vkDestroyPrivateDataSlotEXT and vkDestroyPrivateDataSlot */
+        {  419,  420 }, /* vkDestroySamplerYcbcrConversion and vkDestroySamplerYcbcrConversionKHR */
+        {  420,  419 }, /* vkDestroySamplerYcbcrConversionKHR and vkDestroySamplerYcbcrConversion */
+        {  437,  438 }, /* vkEnumeratePhysicalDeviceGroups and vkEnumeratePhysicalDeviceGroupsKHR */
+        {  438,  437 }, /* vkEnumeratePhysicalDeviceGroupsKHR and vkEnumeratePhysicalDeviceGroups */
+        {  453,  454 }, /* vkGetBufferDeviceAddress and vkGetBufferDeviceAddressEXT */
+        {  453,  455 }, /* vkGetBufferDeviceAddress and vkGetBufferDeviceAddressKHR */
+        {  454,  453 }, /* vkGetBufferDeviceAddressEXT and vkGetBufferDeviceAddress */
+        {  454,  455 }, /* vkGetBufferDeviceAddressEXT and vkGetBufferDeviceAddressKHR */
+        {  455,  453 }, /* vkGetBufferDeviceAddressKHR and vkGetBufferDeviceAddress */
+        {  455,  454 }, /* vkGetBufferDeviceAddressKHR and vkGetBufferDeviceAddressEXT */
+        {  457,  458 }, /* vkGetBufferMemoryRequirements2 and vkGetBufferMemoryRequirements2KHR */
+        {  458,  457 }, /* vkGetBufferMemoryRequirements2KHR and vkGetBufferMemoryRequirements2 */
+        {  459,  460 }, /* vkGetBufferOpaqueCaptureAddress and vkGetBufferOpaqueCaptureAddressKHR */
+        {  460,  459 }, /* vkGetBufferOpaqueCaptureAddressKHR and vkGetBufferOpaqueCaptureAddress */
+        {  462,  463 }, /* vkGetCalibratedTimestampsEXT and vkGetCalibratedTimestampsKHR */
+        {  463,  462 }, /* vkGetCalibratedTimestampsKHR and vkGetCalibratedTimestampsEXT */
+        {  473,  474 }, /* vkGetDescriptorSetLayoutSupport and vkGetDescriptorSetLayoutSupportKHR */
+        {  474,  473 }, /* vkGetDescriptorSetLayoutSupportKHR and vkGetDescriptorSetLayoutSupport */
+        {  476,  477 }, /* vkGetDeviceBufferMemoryRequirements and vkGetDeviceBufferMemoryRequirementsKHR */
+        {  477,  476 }, /* vkGetDeviceBufferMemoryRequirementsKHR and vkGetDeviceBufferMemoryRequirements */
+        {  479,  480 }, /* vkGetDeviceGroupPeerMemoryFeatures and vkGetDeviceGroupPeerMemoryFeaturesKHR */
+        {  480,  479 }, /* vkGetDeviceGroupPeerMemoryFeaturesKHR and vkGetDeviceGroupPeerMemoryFeatures */
+        {  484,  485 }, /* vkGetDeviceImageMemoryRequirements and vkGetDeviceImageMemoryRequirementsKHR */
+        {  485,  484 }, /* vkGetDeviceImageMemoryRequirementsKHR and vkGetDeviceImageMemoryRequirements */
+        {  486,  487 }, /* vkGetDeviceImageSparseMemoryRequirements and vkGetDeviceImageSparseMemoryRequirementsKHR */
+        {  487,  486 }, /* vkGetDeviceImageSparseMemoryRequirementsKHR and vkGetDeviceImageSparseMemoryRequirements */
+        {  488,  489 }, /* vkGetDeviceImageSubresourceLayout and vkGetDeviceImageSubresourceLayoutKHR */
+        {  489,  488 }, /* vkGetDeviceImageSubresourceLayoutKHR and vkGetDeviceImageSubresourceLayout */
+        {  491,  492 }, /* vkGetDeviceMemoryOpaqueCaptureAddress and vkGetDeviceMemoryOpaqueCaptureAddressKHR */
+        {  492,  491 }, /* vkGetDeviceMemoryOpaqueCaptureAddressKHR and vkGetDeviceMemoryOpaqueCaptureAddress */
+        {  517,  518 }, /* vkGetImageMemoryRequirements2 and vkGetImageMemoryRequirements2KHR */
+        {  518,  517 }, /* vkGetImageMemoryRequirements2KHR and vkGetImageMemoryRequirements2 */
+        {  521,  522 }, /* vkGetImageSparseMemoryRequirements2 and vkGetImageSparseMemoryRequirements2KHR */
+        {  522,  521 }, /* vkGetImageSparseMemoryRequirements2KHR and vkGetImageSparseMemoryRequirements2 */
+        {  524,  525 }, /* vkGetImageSubresourceLayout2 and vkGetImageSubresourceLayout2EXT */
+        {  524,  526 }, /* vkGetImageSubresourceLayout2 and vkGetImageSubresourceLayout2KHR */
+        {  525,  524 }, /* vkGetImageSubresourceLayout2EXT and vkGetImageSubresourceLayout2 */
+        {  525,  526 }, /* vkGetImageSubresourceLayout2EXT and vkGetImageSubresourceLayout2KHR */
+        {  526,  524 }, /* vkGetImageSubresourceLayout2KHR and vkGetImageSubresourceLayout2 */
+        {  526,  525 }, /* vkGetImageSubresourceLayout2KHR and vkGetImageSubresourceLayout2EXT */
+        {  549,  550 }, /* vkGetPhysicalDeviceCalibrateableTimeDomainsEXT and vkGetPhysicalDeviceCalibrateableTimeDomainsKHR */
+        {  550,  549 }, /* vkGetPhysicalDeviceCalibrateableTimeDomainsKHR and vkGetPhysicalDeviceCalibrateableTimeDomainsEXT */
+        {  560,  561 }, /* vkGetPhysicalDeviceExternalBufferProperties and vkGetPhysicalDeviceExternalBufferPropertiesKHR */
+        {  561,  560 }, /* vkGetPhysicalDeviceExternalBufferPropertiesKHR and vkGetPhysicalDeviceExternalBufferProperties */
+        {  562,  563 }, /* vkGetPhysicalDeviceExternalFenceProperties and vkGetPhysicalDeviceExternalFencePropertiesKHR */
+        {  563,  562 }, /* vkGetPhysicalDeviceExternalFencePropertiesKHR and vkGetPhysicalDeviceExternalFenceProperties */
+        {  565,  566 }, /* vkGetPhysicalDeviceExternalSemaphoreProperties and vkGetPhysicalDeviceExternalSemaphorePropertiesKHR */
+        {  566,  565 }, /* vkGetPhysicalDeviceExternalSemaphorePropertiesKHR and vkGetPhysicalDeviceExternalSemaphoreProperties */
+        {  568,  569 }, /* vkGetPhysicalDeviceFeatures2 and vkGetPhysicalDeviceFeatures2KHR */
+        {  569,  568 }, /* vkGetPhysicalDeviceFeatures2KHR and vkGetPhysicalDeviceFeatures2 */
+        {  571,  572 }, /* vkGetPhysicalDeviceFormatProperties2 and vkGetPhysicalDeviceFormatProperties2KHR */
+        {  572,  571 }, /* vkGetPhysicalDeviceFormatProperties2KHR and vkGetPhysicalDeviceFormatProperties2 */
+        {  575,  576 }, /* vkGetPhysicalDeviceImageFormatProperties2 and vkGetPhysicalDeviceImageFormatProperties2KHR */
+        {  576,  575 }, /* vkGetPhysicalDeviceImageFormatProperties2KHR and vkGetPhysicalDeviceImageFormatProperties2 */
+        {  578,  579 }, /* vkGetPhysicalDeviceMemoryProperties2 and vkGetPhysicalDeviceMemoryProperties2KHR */
+        {  579,  578 }, /* vkGetPhysicalDeviceMemoryProperties2KHR and vkGetPhysicalDeviceMemoryProperties2 */
+        {  584,  585 }, /* vkGetPhysicalDeviceProperties2 and vkGetPhysicalDeviceProperties2KHR */
+        {  585,  584 }, /* vkGetPhysicalDeviceProperties2KHR and vkGetPhysicalDeviceProperties2 */
+        {  588,  589 }, /* vkGetPhysicalDeviceQueueFamilyProperties2 and vkGetPhysicalDeviceQueueFamilyProperties2KHR */
+        {  589,  588 }, /* vkGetPhysicalDeviceQueueFamilyProperties2KHR and vkGetPhysicalDeviceQueueFamilyProperties2 */
+        {  592,  593 }, /* vkGetPhysicalDeviceSparseImageFormatProperties2 and vkGetPhysicalDeviceSparseImageFormatProperties2KHR */
+        {  593,  592 }, /* vkGetPhysicalDeviceSparseImageFormatProperties2KHR and vkGetPhysicalDeviceSparseImageFormatProperties2 */
+        {  603,  604 }, /* vkGetPhysicalDeviceToolProperties and vkGetPhysicalDeviceToolPropertiesEXT */
+        {  604,  603 }, /* vkGetPhysicalDeviceToolPropertiesEXT and vkGetPhysicalDeviceToolProperties */
+        {  621,  622 }, /* vkGetPrivateData and vkGetPrivateDataEXT */
+        {  622,  621 }, /* vkGetPrivateDataEXT and vkGetPrivateData */
+        {  628,  629 }, /* vkGetRayTracingShaderGroupHandlesKHR and vkGetRayTracingShaderGroupHandlesNV */
+        {  629,  628 }, /* vkGetRayTracingShaderGroupHandlesNV and vkGetRayTracingShaderGroupHandlesKHR */
+        {  633,  634 }, /* vkGetRenderingAreaGranularity and vkGetRenderingAreaGranularityKHR */
+        {  634,  633 }, /* vkGetRenderingAreaGranularityKHR and vkGetRenderingAreaGranularity */
+        {  637,  638 }, /* vkGetSemaphoreCounterValue and vkGetSemaphoreCounterValueKHR */
+        {  638,  637 }, /* vkGetSemaphoreCounterValueKHR and vkGetSemaphoreCounterValue */
+        {  661,  662 }, /* vkMapMemory2 and vkMapMemory2KHR */
+        {  662,  661 }, /* vkMapMemory2KHR and vkMapMemory2 */
+        {  673,  674 }, /* vkQueueSubmit2 and vkQueueSubmit2KHR */
+        {  674,  673 }, /* vkQueueSubmit2KHR and vkQueueSubmit2 */
+        {  689,  690 }, /* vkResetQueryPool and vkResetQueryPoolEXT */
+        {  690,  689 }, /* vkResetQueryPoolEXT and vkResetQueryPool */
+        {  701,  702 }, /* vkSetPrivateData and vkSetPrivateDataEXT */
+        {  702,  701 }, /* vkSetPrivateDataEXT and vkSetPrivateData */
+        {  703,  704 }, /* vkSignalSemaphore and vkSignalSemaphoreKHR */
+        {  704,  703 }, /* vkSignalSemaphoreKHR and vkSignalSemaphore */
+        {  706,  707 }, /* vkTransitionImageLayout and vkTransitionImageLayoutEXT */
+        {  707,  706 }, /* vkTransitionImageLayoutEXT and vkTransitionImageLayout */
+        {  708,  709 }, /* vkTrimCommandPool and vkTrimCommandPoolKHR */
+        {  709,  708 }, /* vkTrimCommandPoolKHR and vkTrimCommandPool */
+        {  712,  713 }, /* vkUnmapMemory2 and vkUnmapMemory2KHR */
+        {  713,  712 }, /* vkUnmapMemory2KHR and vkUnmapMemory2 */
+        {  714,  715 }, /* vkUpdateDescriptorSetWithTemplate and vkUpdateDescriptorSetWithTemplateKHR */
+        {  715,  714 }, /* vkUpdateDescriptorSetWithTemplateKHR and vkUpdateDescriptorSetWithTemplate */
+        {  722,  723 }, /* vkWaitSemaphores and vkWaitSemaphoresKHR */
+        {  723,  722 }, /* vkWaitSemaphoresKHR and vkWaitSemaphores */
     };
     void **pfnArray = context->pfnArray;
     uint32_t i;
@@ -3606,6 +3660,9 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_EXT_extended_dynamic_state2(context, load, userptr);
     glad_vk_load_VK_EXT_extended_dynamic_state3(context, load, userptr);
     glad_vk_load_VK_EXT_external_memory_host(context, load, userptr);
+#if defined(VK_USE_PLATFORM_METAL_EXT)
+    glad_vk_load_VK_EXT_external_memory_metal(context, load, userptr);
+#endif
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
     glad_vk_load_VK_EXT_full_screen_exclusive(context, load, userptr);
 #endif
@@ -3745,8 +3802,10 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_NV_acquire_winrt_display(context, load, userptr);
 #endif
     glad_vk_load_VK_NV_clip_space_w_scaling(context, load, userptr);
+    glad_vk_load_VK_NV_cluster_acceleration_structure(context, load, userptr);
     glad_vk_load_VK_NV_cooperative_matrix(context, load, userptr);
     glad_vk_load_VK_NV_cooperative_matrix2(context, load, userptr);
+    glad_vk_load_VK_NV_cooperative_vector(context, load, userptr);
     glad_vk_load_VK_NV_copy_memory_indirect(context, load, userptr);
     glad_vk_load_VK_NV_coverage_reduction_mode(context, load, userptr);
     glad_vk_load_VK_NV_cuda_kernel_launch(context, load, userptr);
@@ -3763,6 +3822,7 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     glad_vk_load_VK_NV_memory_decompression(context, load, userptr);
     glad_vk_load_VK_NV_mesh_shader(context, load, userptr);
     glad_vk_load_VK_NV_optical_flow(context, load, userptr);
+    glad_vk_load_VK_NV_partitioned_acceleration_structure(context, load, userptr);
     glad_vk_load_VK_NV_ray_tracing(context, load, userptr);
     glad_vk_load_VK_NV_scissor_exclusive(context, load, userptr);
     glad_vk_load_VK_NV_shading_rate_image(context, load, userptr);
@@ -3967,6 +4027,7 @@ static uint64_t DEVICE_COMMANDS[] = {
     0x234a880591facce1, /* vkResetFences */
     0x2384403e82f430b9, /* vkSetPrivateData */
     0x238991922eb2dc5f, /* vkCopyImageToImageEXT */
+    0x2391b4f29bdf37b3, /* vkGetMemoryMetalHandleEXT */
     0x23d7885b70c5f681, /* vkGetImageSubresourceLayout */
     0x24683f73b0e5e597, /* vkGetDeviceQueue */
     0x24975600fb49fd73, /* vkCmdBindTransformFeedbackBuffersEXT */
@@ -4043,6 +4104,7 @@ static uint64_t DEVICE_COMMANDS[] = {
     0x40db28be40a6f866, /* vkCmdTraceRaysIndirect2KHR */
     0x40f65d68942eb094, /* vkGetDeviceMemoryCommitment */
     0x410043fbd97c4c0d, /* vkDestroyDescriptorUpdateTemplate */
+    0x41319d7151e3be68, /* vkGetMemoryMetalHandlePropertiesEXT */
     0x41a01ed27bc041f2, /* vkCmdCopyMemoryToImageIndirectNV */
     0x423629691279d2c9, /* vkGetDeviceImageSparseMemoryRequirementsKHR */
     0x429417467467b909, /* vkCmdSetExclusiveScissorNV */
@@ -4053,6 +4115,7 @@ static uint64_t DEVICE_COMMANDS[] = {
     0x452970172a23c174, /* vkCreateAccelerationStructureKHR */
     0x45568382cd976a58, /* vkGetGeneratedCommandsMemoryRequirementsNV */
     0x45e8058b548405ce, /* vkGetImageViewHandle64NVX */
+    0x4633e10f15501242, /* vkGetPartitionedAccelerationStructuresBuildSizesNV */
     0x464cdf5591d873eb, /* vkWaitSemaphores */
     0x46bd70f746f4073f, /* vkDestroyCudaModuleNV */
     0x47176b0b432286d1, /* vkCreateBuffer */
@@ -4120,6 +4183,7 @@ static uint64_t DEVICE_COMMANDS[] = {
     0x656d8617bf4a33fc, /* vkGetImageSubresourceLayout2 */
     0x658b77dd8968ff3b, /* vkCmdDrawIndirectCountAMD */
     0x659cd4a0990430f6, /* vkCmdSetConservativeRasterizationModeEXT */
+    0x666e9050d505a21c, /* vkCmdBuildClusterAccelerationStructureIndirectNV */
     0x6688394878be035e, /* vkGetDescriptorSetLayoutBindingOffsetEXT */
     0x668f24a3147926db, /* vkCmdBindIndexBuffer */
     0x66d07f2af74e8d8b, /* vkGetQueueCheckpointData2NV */
@@ -4215,6 +4279,7 @@ static uint64_t DEVICE_COMMANDS[] = {
     0x8eaf0b3e0a85d3bc, /* vkDestroyOpticalFlowSessionNV */
     0x8ed6523506902ceb, /* vkCmdSetFragmentShadingRateKHR */
     0x8f433193cdb26798, /* vkReleaseCapturedPipelineDataKHR */
+    0x8f737985d0de322a, /* vkCmdBuildPartitionedAccelerationStructuresNV */
     0x8ffccda86549f286, /* vkDestroyBuffer */
     0x900de63b0b6f0ca2, /* vkCmdClearColorImage */
     0x9022d31d32c4a419, /* vkDestroyPipelineLayout */
@@ -4282,6 +4347,7 @@ static uint64_t DEVICE_COMMANDS[] = {
     0xa99627a28d359157, /* vkCmdBuildAccelerationStructuresIndirectKHR */
     0xa9a55fd0d9b55eda, /* vkCmdDecompressMemoryIndirectCountNV */
     0xaa4956312cfc8f69, /* vkAcquireProfilingLockKHR */
+    0xaa6c800d6f3a85cf, /* vkGetClusterAccelerationStructureBuildSizesNV */
     0xaac33dd01204ea6d, /* vkUpdateDescriptorSets */
     0xaae6e3e723f39a93, /* vkCmdCopyBufferToImage2KHR */
     0xaaee8606a2f000f3, /* vkInitializePerformanceApiINTEL */
@@ -4404,6 +4470,7 @@ static uint64_t DEVICE_COMMANDS[] = {
     0xdac55f445397e484, /* vkCmdDispatchIndirect */
     0xdad4b40f2b59becc, /* vkReleaseFullScreenExclusiveModeEXT */
     0xdad7d425257f2349, /* vkCmdBuildMicromapsEXT */
+    0xdb365928cfa4eba1, /* vkConvertCooperativeVectorMatrixNV */
     0xdce67e01cb34aa72, /* vkDestroyPrivateDataSlotEXT */
     0xdd609c8b8fed0093, /* vkGetRayTracingShaderGroupStackSizeKHR */
     0xddc1b3a9e007be5a, /* vkGetFenceStatus */
@@ -4426,6 +4493,7 @@ static uint64_t DEVICE_COMMANDS[] = {
     0xe7b1ed7ad6f748f7, /* vkCompileDeferredNV */
     0xe7ba2bcf3218ef91, /* vkGetPipelineKeyKHR */
     0xe7cfb8155a9ec7f4, /* vkGetSemaphoreWin32HandleKHR */
+    0xe7e550b2969ceb79, /* vkCmdConvertCooperativeVectorMatrixNV */
     0xe86e1a671a40b3b7, /* vkCmdSetLineRasterizationModeEXT */
     0xe89bda66824b7d7d, /* vkCreateVideoSessionParametersKHR */
     0xe8ddcebfb8abfe62, /* vkGetDeferredOperationMaxConcurrencyKHR */
