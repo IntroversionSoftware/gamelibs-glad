@@ -5,6 +5,18 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 string(COMPARE EQUAL "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}" GLAD_STANDALONE)
 
+# Set up external dependencies via FetchContent
+include(FetchContent)
+
+# fast_float
+FetchContent_Declare(
+	xxHash
+	GIT_REPOSITORY https://git.uplinklabs.net/IntroversionSoftware/gamelibs-xxhash.git
+	GIT_TAG origin/master
+	SOURCE_SUBDIR cmake_unofficial
+)
+FetchContent_MakeAvailable(xxHash)
+
 if (MSVC)
 	add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
 endif()
@@ -20,11 +32,21 @@ add_library(glad_Vulkan STATIC
 add_library(glad_WGL STATIC
     src/wgl.c)
 
-target_include_directories(glad_GL PUBLIC include)
-target_include_directories(glad_EGL PUBLIC include)
-target_include_directories(glad_GLX PUBLIC include)
-target_include_directories(glad_Vulkan PUBLIC include)
-target_include_directories(glad_WGL PUBLIC include)
+target_include_directories(glad_GL PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+target_include_directories(glad_EGL PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+target_include_directories(glad_GLX PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+target_include_directories(glad_Vulkan PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
+target_include_directories(glad_WGL PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
 
 target_link_libraries(glad_GL PUBLIC xxHash::xxhash)
 target_link_libraries(glad_EGL PUBLIC xxHash::xxhash)
