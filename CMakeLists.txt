@@ -8,14 +8,16 @@ string(COMPARE EQUAL "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}" GLAD_ST
 # Set up external dependencies via FetchContent
 include(FetchContent)
 
-# fast_float
-FetchContent_Declare(
-	xxHash
-	GIT_REPOSITORY https://git.uplinklabs.net/IntroversionSoftware/gamelibs-xxhash.git
-	GIT_TAG origin/master
-	SOURCE_SUBDIR cmake_unofficial
-)
-FetchContent_MakeAvailable(xxHash)
+# xxhash
+if (NOT TARGET xxhash)
+    FetchContent_Declare(
+	    xxHash
+	    GIT_REPOSITORY https://git.uplinklabs.net/IntroversionSoftware/gamelibs-xxhash.git
+	    GIT_TAG origin/master
+	    SOURCE_SUBDIR cmake_unofficial
+    )
+    FetchContent_MakeAvailable(xxHash)
+endif()
 
 if (MSVC)
 	add_compile_definitions(_CRT_SECURE_NO_WARNINGS)
