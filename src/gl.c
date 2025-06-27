@@ -10061,6 +10061,14 @@ static void glad_gl_load_GL_OES_EGL_image(GladGLContext *context, GLADuserptrloa
     glad_gl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
+static void glad_gl_load_GL_OES_EGL_image_external(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
+    static const uint16_t s_pfnIdx[] = {
+        2628  /* glEGLImageTargetTexture2DOES */
+    };
+    if (!context->OES_EGL_image_external) return;
+    glad_gl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
+}
+
 static void glad_gl_load_GL_OES_byte_coordinates(GladGLContext *context, GLADuserptrloadfunc load, void* userptr) {
     static const uint16_t s_pfnIdx[] = {
         1222, /* glMultiTexCoord1bOES */
@@ -14098,6 +14106,7 @@ GLAD_NO_INLINE int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserp
     glad_gl_load_GL_NV_viewport_array(context, load, userptr);
     glad_gl_load_GL_NV_viewport_swizzle(context, load, userptr);
     glad_gl_load_GL_OES_EGL_image(context, load, userptr);
+    glad_gl_load_GL_OES_EGL_image_external(context, load, userptr);
     glad_gl_load_GL_OES_copy_image(context, load, userptr);
     glad_gl_load_GL_OES_draw_buffers_indexed(context, load, userptr);
     glad_gl_load_GL_OES_draw_elements_base_vertex(context, load, userptr);
