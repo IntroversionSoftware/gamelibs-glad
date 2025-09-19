@@ -1276,7 +1276,8 @@ static uint64_t GLAD_Vulkan_ext_hashes[] = {
     /*  419 */ 0x8501d958b34af871, /* VK_SEC_pipeline_cache_incremental_mode */
     /*  420 */ 0x45542cac22bd41a7, /* VK_VALVE_descriptor_set_host_mapping */
     /*  421 */ 0x7aab48db428bd31b, /* VK_VALVE_fragment_density_map_layered */
-    /*  422 */ 0x38c73d4ab66a4942  /* VK_VALVE_mutable_descriptor_type */
+    /*  422 */ 0x38c73d4ab66a4942, /* VK_VALVE_mutable_descriptor_type */
+    /*  423 */ 0x5674ed8bc838fecb  /* VK_VALVE_video_encode_rgb_conversion */
 };
 
 static void glad_vk_load_pfns(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr, const uint16_t *pPfnIdx, uint32_t numPfns)
