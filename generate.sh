@@ -7,6 +7,7 @@ EXTENSIONS=(
 	EGL_ANGLE_colorspace_attribute_passthrough
 	EGL_ANGLE_create_context_extensions_enabled
 	EGL_ANGLE_create_surface_swap_interval
+	EGL_ANGLE_device_d3d
 	EGL_ANGLE_device_vulkan
 	EGL_ANGLE_direct_composition
 	EGL_ANGLE_display_power_preference
