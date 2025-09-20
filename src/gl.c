@@ -8,8 +8,10 @@
 #include <string.h>
 
 #if defined(__x86_64__) || defined(__i386__) || defined(_M_IX86) || defined(_M_X64)
+#define XXH_VECTOR XXH_SSE2
 #include <immintrin.h>
 #elif defined(__aarch64__) || defined(__arm__) || defined(_M_ARM) || defined(_M_ARM64)
+#define XXH_VECTOR XXH_NEON
 #include <arm_neon.h>
 #endif
 
@@ -13083,6 +13085,7 @@ static int glad_gl_find_core_gl(GladGLContext *context) {
     };
     int major = 0;
     int minor = 0;
+    unsigned short version_value;
     version = (const char*) context->GetString(GL_VERSION);
     if (!version) return 0;
     for (i = 0;  prefixes[i];  i++) {
@@ -13095,25 +13098,27 @@ static int glad_gl_find_core_gl(GladGLContext *context) {
 
     GLAD_IMPL_UTIL_SSCANF(version, "%d.%d", &major, &minor);
 
-    context->VERSION_1_0 = (major == 1 && minor >= 0) || major > 1;
-    context->VERSION_1_1 = (major == 1 && minor >= 1) || major > 1;
-    context->VERSION_1_2 = (major == 1 && minor >= 2) || major > 1;
-    context->VERSION_1_3 = (major == 1 && minor >= 3) || major > 1;
-    context->VERSION_1_4 = (major == 1 && minor >= 4) || major > 1;
-    context->VERSION_1_5 = (major == 1 && minor >= 5) || major > 1;
-    context->VERSION_2_0 = (major == 2 && minor >= 0) || major > 2;
-    context->VERSION_2_1 = (major == 2 && minor >= 1) || major > 2;
-    context->VERSION_3_0 = (major == 3 && minor >= 0) || major > 3;
-    context->VERSION_3_1 = (major == 3 && minor >= 1) || major > 3;
-    context->VERSION_3_2 = (major == 3 && minor >= 2) || major > 3;
-    context->VERSION_3_3 = (major == 3 && minor >= 3) || major > 3;
-    context->VERSION_4_0 = (major == 4 && minor >= 0) || major > 4;
-    context->VERSION_4_1 = (major == 4 && minor >= 1) || major > 4;
-    context->VERSION_4_2 = (major == 4 && minor >= 2) || major > 4;
-    context->VERSION_4_3 = (major == 4 && minor >= 3) || major > 4;
-    context->VERSION_4_4 = (major == 4 && minor >= 4) || major > 4;
-    context->VERSION_4_5 = (major == 4 && minor >= 5) || major > 4;
-    context->VERSION_4_6 = (major == 4 && minor >= 6) || major > 4;
+    version_value = (major << 8U) | minor;
+
+    context->VERSION_1_0 = version_value >= 0x0100;
+    context->VERSION_1_1 = version_value >= 0x0101;
+    context->VERSION_1_2 = version_value >= 0x0102;
+    context->VERSION_1_3 = version_value >= 0x0103;
+    context->VERSION_1_4 = version_value >= 0x0104;
+    context->VERSION_1_5 = version_value >= 0x0105;
+    context->VERSION_2_0 = version_value >= 0x0200;
+    context->VERSION_2_1 = version_value >= 0x0201;
+    context->VERSION_3_0 = version_value >= 0x0300;
+    context->VERSION_3_1 = version_value >= 0x0301;
+    context->VERSION_3_2 = version_value >= 0x0302;
+    context->VERSION_3_3 = version_value >= 0x0303;
+    context->VERSION_4_0 = version_value >= 0x0400;
+    context->VERSION_4_1 = version_value >= 0x0401;
+    context->VERSION_4_2 = version_value >= 0x0402;
+    context->VERSION_4_3 = version_value >= 0x0403;
+    context->VERSION_4_4 = version_value >= 0x0404;
+    context->VERSION_4_5 = version_value >= 0x0405;
+    context->VERSION_4_6 = version_value >= 0x0406;
 
     return GLAD_MAKE_VERSION(major, minor);
 }
@@ -13949,6 +13954,7 @@ static int glad_gl_find_core_gles2(GladGLContext *context) {
     };
     int major = 0;
     int minor = 0;
+    unsigned short version_value;
     version = (const char*) context->GetString(GL_VERSION);
     if (!version) return 0;
     for (i = 0;  prefixes[i];  i++) {
@@ -13961,10 +13967,12 @@ static int glad_gl_find_core_gles2(GladGLContext *context) {
 
     GLAD_IMPL_UTIL_SSCANF(version, "%d.%d", &major, &minor);
 
-    context->ES_VERSION_2_0 = (major == 2 && minor >= 0) || major > 2;
-    context->ES_VERSION_3_0 = (major == 3 && minor >= 0) || major > 3;
-    context->ES_VERSION_3_1 = (major == 3 && minor >= 1) || major > 3;
-    context->ES_VERSION_3_2 = (major == 3 && minor >= 2) || major > 3;
+    version_value = (major << 8U) | minor;
+
+    context->ES_VERSION_2_0 = version_value >= 0x0200;
+    context->ES_VERSION_3_0 = version_value >= 0x0300;
+    context->ES_VERSION_3_1 = version_value >= 0x0301;
+    context->ES_VERSION_3_2 = version_value >= 0x0302;
 
     return GLAD_MAKE_VERSION(major, minor);
 }

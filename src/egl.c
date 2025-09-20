@@ -8,8 +8,10 @@
 #include <string.h>
 
 #if defined(__x86_64__) || defined(__i386__) || defined(_M_IX86) || defined(_M_X64)
+#define XXH_VECTOR XXH_SSE2
 #include <immintrin.h>
 #elif defined(__aarch64__) || defined(__arm__) || defined(_M_ARM) || defined(_M_ARM64)
+#define XXH_VECTOR XXH_NEON
 #include <arm_neon.h>
 #endif
 
@@ -1362,6 +1364,7 @@ static int glad_egl_find_extensions_egl(GladEGLContext *context, EGLDisplay disp
 
 static int glad_egl_find_core_egl(GladEGLContext *context, EGLDisplay display) {
     int major, minor;
+    unsigned short version_value;
     const char *version;
 
     if (display == NULL) {
@@ -1378,12 +1381,14 @@ static int glad_egl_find_core_egl(GladEGLContext *context, EGLDisplay display) {
         GLAD_IMPL_UTIL_SSCANF(version, "%d.%d", &major, &minor);
     }
 
-    context->VERSION_1_0 = (major == 1 && minor >= 0) || major > 1;
-    context->VERSION_1_1 = (major == 1 && minor >= 1) || major > 1;
-    context->VERSION_1_2 = (major == 1 && minor >= 2) || major > 1;
-    context->VERSION_1_3 = (major == 1 && minor >= 3) || major > 1;
-    context->VERSION_1_4 = (major == 1 && minor >= 4) || major > 1;
-    context->VERSION_1_5 = (major == 1 && minor >= 5) || major > 1;
+    version_value = (major << 8U) | minor;
+
+    context->VERSION_1_0 = version_value >= 0x0100;
+    context->VERSION_1_1 = version_value >= 0x0101;
+    context->VERSION_1_2 = version_value >= 0x0102;
+    context->VERSION_1_3 = version_value >= 0x0103;
+    context->VERSION_1_4 = version_value >= 0x0104;
+    context->VERSION_1_5 = version_value >= 0x0105;
 
     return GLAD_MAKE_VERSION(major, minor);
 }

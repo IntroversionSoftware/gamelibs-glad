@@ -8,8 +8,10 @@
 #include <string.h>
 
 #if defined(__x86_64__) || defined(__i386__) || defined(_M_IX86) || defined(_M_X64)
+#define XXH_VECTOR XXH_SSE2
 #include <immintrin.h>
 #elif defined(__aarch64__) || defined(__arm__) || defined(_M_ARM) || defined(_M_ARM64)
+#define XXH_VECTOR XXH_NEON
 #include <arm_neon.h>
 #endif
 
@@ -3725,8 +3727,10 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 }
 
 static int glad_vk_find_core_vulkan(GladVulkanContext *context, VkPhysicalDevice physical_device) {
+    const uint32_t API_VARIANT_MASK = 0xe0000000;
     int major = 1;
     int minor = 0;
+    uint16_t version_value;
 
 #ifdef VK_VERSION_1_1
     if (!context->glad_vk_instance_version && context->EnumerateInstanceVersion != NULL) {
@@ -3735,6 +3739,7 @@ static int glad_vk_find_core_vulkan(GladVulkanContext *context, VkPhysicalDevice
         result = context->EnumerateInstanceVersion(&context->glad_vk_instance_version);
         if (result != VK_SUCCESS)
             context->glad_vk_instance_version = 0;
+        context->glad_vk_instance_version &= ~API_VARIANT_MASK;
     }
     major = (int) VK_VERSION_MAJOR(context->glad_vk_instance_version);
     minor = (int) VK_VERSION_MINOR(context->glad_vk_instance_version);
@@ -3745,6 +3750,7 @@ static int glad_vk_find_core_vulkan(GladVulkanContext *context, VkPhysicalDevice
             VkPhysicalDeviceProperties properties;
             context->GetPhysicalDeviceProperties(physical_device, &properties);
             context->glad_vk_device_version = properties.apiVersion;
+            context->glad_vk_device_version &= ~API_VARIANT_MASK;
         }
     }
     if (context->glad_vk_device_version) {
@@ -3752,11 +3758,13 @@ static int glad_vk_find_core_vulkan(GladVulkanContext *context, VkPhysicalDevice
         minor = (int) VK_VERSION_MINOR(context->glad_vk_device_version);
     }
 
-    context->VERSION_1_0 = (major == 1 && minor >= 0) || major > 1;
-    context->VERSION_1_1 = (major == 1 && minor >= 1) || major > 1;
-    context->VERSION_1_2 = (major == 1 && minor >= 2) || major > 1;
-    context->VERSION_1_3 = (major == 1 && minor >= 3) || major > 1;
-    context->VERSION_1_4 = (major == 1 && minor >= 4) || major > 1;
+    version_value = (major << 8U) | minor;
+
+    context->VERSION_1_0 = version_value >= 0x0100;
+    context->VERSION_1_1 = version_value >= 0x0101;
+    context->VERSION_1_2 = version_value >= 0x0102;
+    context->VERSION_1_3 = version_value >= 0x0103;
+    context->VERSION_1_4 = version_value >= 0x0104;
 
     return GLAD_MAKE_VERSION(major, minor);
 }
