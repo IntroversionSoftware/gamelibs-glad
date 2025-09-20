@@ -44,6 +44,12 @@ typedef struct {
     uint16_t second;
 } GladAliasPair_t;
 
+typedef struct {
+    uint16_t extension;
+    uint16_t start;
+    uint16_t count;
+} GladPfnRange_t;
+
 #endif /* GLAD_IMPL_UTIL_C_ */
 
 #ifdef __cplusplus
@@ -63,143 +69,143 @@ static const char *GLAD_WGL_fn_names[] = {
     /*    3 */ "GetPixelFormat",
     /*    4 */ "SetPixelFormat",
     /*    5 */ "SwapBuffers",
-    /*    6 */ "wglAllocateMemoryNV",
-    /*    7 */ "wglAssociateImageBufferEventsI3D",
-    /*    8 */ "wglBeginFrameTrackingI3D",
-    /*    9 */ "wglBindDisplayColorTableEXT",
-    /*   10 */ "wglBindSwapBarrierNV",
-    /*   11 */ "wglBindTexImageARB",
-    /*   12 */ "wglBindVideoCaptureDeviceNV",
-    /*   13 */ "wglBindVideoDeviceNV",
-    /*   14 */ "wglBindVideoImageNV",
-    /*   15 */ "wglBlitContextFramebufferAMD",
-    /*   16 */ "wglChoosePixelFormatARB",
-    /*   17 */ "wglChoosePixelFormatEXT",
-    /*   18 */ "wglCopyContext",
-    /*   19 */ "wglCopyImageSubDataNV",
-    /*   20 */ "wglCreateAffinityDCNV",
-    /*   21 */ "wglCreateAssociatedContextAMD",
-    /*   22 */ "wglCreateAssociatedContextAttribsAMD",
-    /*   23 */ "wglCreateBufferRegionARB",
-    /*   24 */ "wglCreateContext",
-    /*   25 */ "wglCreateContextAttribsARB",
-    /*   26 */ "wglCreateDisplayColorTableEXT",
-    /*   27 */ "wglCreateImageBufferI3D",
-    /*   28 */ "wglCreateLayerContext",
-    /*   29 */ "wglCreatePbufferARB",
-    /*   30 */ "wglCreatePbufferEXT",
-    /*   31 */ "wglDXCloseDeviceNV",
-    /*   32 */ "wglDXLockObjectsNV",
-    /*   33 */ "wglDXObjectAccessNV",
-    /*   34 */ "wglDXOpenDeviceNV",
-    /*   35 */ "wglDXRegisterObjectNV",
-    /*   36 */ "wglDXSetResourceShareHandleNV",
-    /*   37 */ "wglDXUnlockObjectsNV",
-    /*   38 */ "wglDXUnregisterObjectNV",
-    /*   39 */ "wglDelayBeforeSwapNV",
-    /*   40 */ "wglDeleteAssociatedContextAMD",
-    /*   41 */ "wglDeleteBufferRegionARB",
-    /*   42 */ "wglDeleteContext",
-    /*   43 */ "wglDeleteDCNV",
-    /*   44 */ "wglDescribeLayerPlane",
-    /*   45 */ "wglDestroyDisplayColorTableEXT",
-    /*   46 */ "wglDestroyImageBufferI3D",
+    /*    6 */ "wglCopyContext",
+    /*    7 */ "wglCreateContext",
+    /*    8 */ "wglCreateLayerContext",
+    /*    9 */ "wglDeleteContext",
+    /*   10 */ "wglDescribeLayerPlane",
+    /*   11 */ "wglGetCurrentContext",
+    /*   12 */ "wglGetCurrentDC",
+    /*   13 */ "wglGetLayerPaletteEntries",
+    /*   14 */ "wglGetProcAddress",
+    /*   15 */ "wglMakeCurrent",
+    /*   16 */ "wglRealizeLayerPalette",
+    /*   17 */ "wglSetLayerPaletteEntries",
+    /*   18 */ "wglShareLists",
+    /*   19 */ "wglSwapLayerBuffers",
+    /*   20 */ "wglUseFontBitmaps",
+    /*   21 */ "wglUseFontBitmapsA",
+    /*   22 */ "wglUseFontBitmapsW",
+    /*   23 */ "wglUseFontOutlines",
+    /*   24 */ "wglUseFontOutlinesA",
+    /*   25 */ "wglUseFontOutlinesW",
+    /*   26 */ "wglSetStereoEmitterState3DL",
+    /*   27 */ "wglGetGPUIDsAMD",
+    /*   28 */ "wglGetGPUInfoAMD",
+    /*   29 */ "wglGetContextGPUIDAMD",
+    /*   30 */ "wglCreateAssociatedContextAMD",
+    /*   31 */ "wglCreateAssociatedContextAttribsAMD",
+    /*   32 */ "wglDeleteAssociatedContextAMD",
+    /*   33 */ "wglMakeAssociatedContextCurrentAMD",
+    /*   34 */ "wglGetCurrentAssociatedContextAMD",
+    /*   35 */ "wglBlitContextFramebufferAMD",
+    /*   36 */ "wglCreateBufferRegionARB",
+    /*   37 */ "wglDeleteBufferRegionARB",
+    /*   38 */ "wglSaveBufferRegionARB",
+    /*   39 */ "wglRestoreBufferRegionARB",
+    /*   40 */ "wglCreateContextAttribsARB",
+    /*   41 */ "wglGetExtensionsStringARB",
+    /*   42 */ "wglMakeContextCurrentARB",
+    /*   43 */ "wglGetCurrentReadDCARB",
+    /*   44 */ "wglCreatePbufferARB",
+    /*   45 */ "wglGetPbufferDCARB",
+    /*   46 */ "wglReleasePbufferDCARB",
     /*   47 */ "wglDestroyPbufferARB",
-    /*   48 */ "wglDestroyPbufferEXT",
-    /*   49 */ "wglDisableFrameLockI3D",
-    /*   50 */ "wglDisableGenlockI3D",
-    /*   51 */ "wglEnableFrameLockI3D",
-    /*   52 */ "wglEnableGenlockI3D",
-    /*   53 */ "wglEndFrameTrackingI3D",
-    /*   54 */ "wglEnumGpuDevicesNV",
-    /*   55 */ "wglEnumGpusFromAffinityDCNV",
-    /*   56 */ "wglEnumGpusNV",
-    /*   57 */ "wglEnumerateVideoCaptureDevicesNV",
-    /*   58 */ "wglEnumerateVideoDevicesNV",
-    /*   59 */ "wglFreeMemoryNV",
-    /*   60 */ "wglGenlockSampleRateI3D",
-    /*   61 */ "wglGenlockSourceDelayI3D",
-    /*   62 */ "wglGenlockSourceEdgeI3D",
-    /*   63 */ "wglGenlockSourceI3D",
-    /*   64 */ "wglGetContextGPUIDAMD",
-    /*   65 */ "wglGetCurrentAssociatedContextAMD",
-    /*   66 */ "wglGetCurrentContext",
-    /*   67 */ "wglGetCurrentDC",
-    /*   68 */ "wglGetCurrentReadDCARB",
-    /*   69 */ "wglGetCurrentReadDCEXT",
-    /*   70 */ "wglGetDigitalVideoParametersI3D",
-    /*   71 */ "wglGetExtensionsStringARB",
-    /*   72 */ "wglGetExtensionsStringEXT",
-    /*   73 */ "wglGetFrameUsageI3D",
-    /*   74 */ "wglGetGPUIDsAMD",
-    /*   75 */ "wglGetGPUInfoAMD",
+    /*   48 */ "wglQueryPbufferARB",
+    /*   49 */ "wglGetPixelFormatAttribivARB",
+    /*   50 */ "wglGetPixelFormatAttribfvARB",
+    /*   51 */ "wglChoosePixelFormatARB",
+    /*   52 */ "wglBindTexImageARB",
+    /*   53 */ "wglReleaseTexImageARB",
+    /*   54 */ "wglSetPbufferAttribARB",
+    /*   55 */ "wglCreateDisplayColorTableEXT",
+    /*   56 */ "wglLoadDisplayColorTableEXT",
+    /*   57 */ "wglBindDisplayColorTableEXT",
+    /*   58 */ "wglDestroyDisplayColorTableEXT",
+    /*   59 */ "wglGetExtensionsStringEXT",
+    /*   60 */ "wglMakeContextCurrentEXT",
+    /*   61 */ "wglGetCurrentReadDCEXT",
+    /*   62 */ "wglCreatePbufferEXT",
+    /*   63 */ "wglGetPbufferDCEXT",
+    /*   64 */ "wglReleasePbufferDCEXT",
+    /*   65 */ "wglDestroyPbufferEXT",
+    /*   66 */ "wglQueryPbufferEXT",
+    /*   67 */ "wglGetPixelFormatAttribivEXT",
+    /*   68 */ "wglGetPixelFormatAttribfvEXT",
+    /*   69 */ "wglChoosePixelFormatEXT",
+    /*   70 */ "wglSwapIntervalEXT",
+    /*   71 */ "wglGetSwapIntervalEXT",
+    /*   72 */ "wglGetDigitalVideoParametersI3D",
+    /*   73 */ "wglSetDigitalVideoParametersI3D",
+    /*   74 */ "wglGetGammaTableParametersI3D",
+    /*   75 */ "wglSetGammaTableParametersI3D",
     /*   76 */ "wglGetGammaTableI3D",
-    /*   77 */ "wglGetGammaTableParametersI3D",
-    /*   78 */ "wglGetGenlockSampleRateI3D",
-    /*   79 */ "wglGetGenlockSourceDelayI3D",
-    /*   80 */ "wglGetGenlockSourceEdgeI3D",
-    /*   81 */ "wglGetGenlockSourceI3D",
-    /*   82 */ "wglGetLayerPaletteEntries",
-    /*   83 */ "wglGetMscRateOML",
-    /*   84 */ "wglGetPbufferDCARB",
-    /*   85 */ "wglGetPbufferDCEXT",
-    /*   86 */ "wglGetPixelFormatAttribfvARB",
-    /*   87 */ "wglGetPixelFormatAttribfvEXT",
-    /*   88 */ "wglGetPixelFormatAttribivARB",
-    /*   89 */ "wglGetPixelFormatAttribivEXT",
-    /*   90 */ "wglGetProcAddress",
-    /*   91 */ "wglGetSwapIntervalEXT",
-    /*   92 */ "wglGetSyncValuesOML",
-    /*   93 */ "wglGetVideoDeviceNV",
-    /*   94 */ "wglGetVideoInfoNV",
-    /*   95 */ "wglIsEnabledFrameLockI3D",
-    /*   96 */ "wglIsEnabledGenlockI3D",
-    /*   97 */ "wglJoinSwapGroupNV",
-    /*   98 */ "wglLoadDisplayColorTableEXT",
-    /*   99 */ "wglLockVideoCaptureDeviceNV",
-    /*  100 */ "wglMakeAssociatedContextCurrentAMD",
-    /*  101 */ "wglMakeContextCurrentARB",
-    /*  102 */ "wglMakeContextCurrentEXT",
-    /*  103 */ "wglMakeCurrent",
-    /*  104 */ "wglQueryCurrentContextNV",
-    /*  105 */ "wglQueryFrameCountNV",
-    /*  106 */ "wglQueryFrameLockMasterI3D",
-    /*  107 */ "wglQueryFrameTrackingI3D",
-    /*  108 */ "wglQueryGenlockMaxSourceDelayI3D",
-    /*  109 */ "wglQueryMaxSwapGroupsNV",
-    /*  110 */ "wglQueryPbufferARB",
-    /*  111 */ "wglQueryPbufferEXT",
-    /*  112 */ "wglQuerySwapGroupNV",
-    /*  113 */ "wglQueryVideoCaptureDeviceNV",
-    /*  114 */ "wglRealizeLayerPalette",
-    /*  115 */ "wglReleaseImageBufferEventsI3D",
-    /*  116 */ "wglReleasePbufferDCARB",
-    /*  117 */ "wglReleasePbufferDCEXT",
-    /*  118 */ "wglReleaseTexImageARB",
-    /*  119 */ "wglReleaseVideoCaptureDeviceNV",
-    /*  120 */ "wglReleaseVideoDeviceNV",
-    /*  121 */ "wglReleaseVideoImageNV",
-    /*  122 */ "wglResetFrameCountNV",
-    /*  123 */ "wglRestoreBufferRegionARB",
-    /*  124 */ "wglSaveBufferRegionARB",
-    /*  125 */ "wglSendPbufferToVideoNV",
-    /*  126 */ "wglSetDigitalVideoParametersI3D",
-    /*  127 */ "wglSetGammaTableI3D",
-    /*  128 */ "wglSetGammaTableParametersI3D",
-    /*  129 */ "wglSetLayerPaletteEntries",
-    /*  130 */ "wglSetPbufferAttribARB",
-    /*  131 */ "wglSetStereoEmitterState3DL",
-    /*  132 */ "wglShareLists",
-    /*  133 */ "wglSwapBuffersMscOML",
-    /*  134 */ "wglSwapIntervalEXT",
-    /*  135 */ "wglSwapLayerBuffers",
-    /*  136 */ "wglSwapLayerBuffersMscOML",
-    /*  137 */ "wglUseFontBitmaps",
-    /*  138 */ "wglUseFontBitmapsA",
-    /*  139 */ "wglUseFontBitmapsW",
-    /*  140 */ "wglUseFontOutlines",
-    /*  141 */ "wglUseFontOutlinesA",
-    /*  142 */ "wglUseFontOutlinesW",
+    /*   77 */ "wglSetGammaTableI3D",
+    /*   78 */ "wglEnableGenlockI3D",
+    /*   79 */ "wglDisableGenlockI3D",
+    /*   80 */ "wglIsEnabledGenlockI3D",
+    /*   81 */ "wglGenlockSourceI3D",
+    /*   82 */ "wglGetGenlockSourceI3D",
+    /*   83 */ "wglGenlockSourceEdgeI3D",
+    /*   84 */ "wglGetGenlockSourceEdgeI3D",
+    /*   85 */ "wglGenlockSampleRateI3D",
+    /*   86 */ "wglGetGenlockSampleRateI3D",
+    /*   87 */ "wglGenlockSourceDelayI3D",
+    /*   88 */ "wglGetGenlockSourceDelayI3D",
+    /*   89 */ "wglQueryGenlockMaxSourceDelayI3D",
+    /*   90 */ "wglCreateImageBufferI3D",
+    /*   91 */ "wglDestroyImageBufferI3D",
+    /*   92 */ "wglAssociateImageBufferEventsI3D",
+    /*   93 */ "wglReleaseImageBufferEventsI3D",
+    /*   94 */ "wglEnableFrameLockI3D",
+    /*   95 */ "wglDisableFrameLockI3D",
+    /*   96 */ "wglIsEnabledFrameLockI3D",
+    /*   97 */ "wglQueryFrameLockMasterI3D",
+    /*   98 */ "wglGetFrameUsageI3D",
+    /*   99 */ "wglBeginFrameTrackingI3D",
+    /*  100 */ "wglEndFrameTrackingI3D",
+    /*  101 */ "wglQueryFrameTrackingI3D",
+    /*  102 */ "wglCopyImageSubDataNV",
+    /*  103 */ "wglDelayBeforeSwapNV",
+    /*  104 */ "wglDXSetResourceShareHandleNV",
+    /*  105 */ "wglDXOpenDeviceNV",
+    /*  106 */ "wglDXCloseDeviceNV",
+    /*  107 */ "wglDXRegisterObjectNV",
+    /*  108 */ "wglDXUnregisterObjectNV",
+    /*  109 */ "wglDXObjectAccessNV",
+    /*  110 */ "wglDXLockObjectsNV",
+    /*  111 */ "wglDXUnlockObjectsNV",
+    /*  112 */ "wglEnumGpusNV",
+    /*  113 */ "wglEnumGpuDevicesNV",
+    /*  114 */ "wglCreateAffinityDCNV",
+    /*  115 */ "wglEnumGpusFromAffinityDCNV",
+    /*  116 */ "wglDeleteDCNV",
+    /*  117 */ "wglEnumerateVideoDevicesNV",
+    /*  118 */ "wglBindVideoDeviceNV",
+    /*  119 */ "wglQueryCurrentContextNV",
+    /*  120 */ "wglJoinSwapGroupNV",
+    /*  121 */ "wglBindSwapBarrierNV",
+    /*  122 */ "wglQuerySwapGroupNV",
+    /*  123 */ "wglQueryMaxSwapGroupsNV",
+    /*  124 */ "wglQueryFrameCountNV",
+    /*  125 */ "wglResetFrameCountNV",
+    /*  126 */ "wglBindVideoCaptureDeviceNV",
+    /*  127 */ "wglEnumerateVideoCaptureDevicesNV",
+    /*  128 */ "wglLockVideoCaptureDeviceNV",
+    /*  129 */ "wglQueryVideoCaptureDeviceNV",
+    /*  130 */ "wglReleaseVideoCaptureDeviceNV",
+    /*  131 */ "wglGetVideoDeviceNV",
+    /*  132 */ "wglReleaseVideoDeviceNV",
+    /*  133 */ "wglBindVideoImageNV",
+    /*  134 */ "wglReleaseVideoImageNV",
+    /*  135 */ "wglSendPbufferToVideoNV",
+    /*  136 */ "wglGetVideoInfoNV",
+    /*  137 */ "wglAllocateMemoryNV",
+    /*  138 */ "wglFreeMemoryNV",
+    /*  139 */ "wglGetSyncValuesOML",
+    /*  140 */ "wglGetMscRateOML",
+    /*  141 */ "wglSwapBuffersMscOML",
+    /*  142 */ "wglSwapLayerBuffersMscOML",
     /*  143 */ "wglWaitForMscOML",
     /*  144 */ "wglWaitForSbcOML"
 };
@@ -264,387 +270,117 @@ static const char *GLAD_WGL_ext_names[] = {
     /*   56 */ "WGL_OML_sync_control"
 };
 
+static const GladPfnRange_t GLAD_WGL_feature_pfn_ranges[] = {
+    /* WGL_VERSION_1_0 */
+    {    0,    0,   26 },
+};
 
-static void glad_wgl_load_pfns(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr, const uint16_t *pPfnIdx, uint32_t numPfns)
+static const GladPfnRange_t GLAD_WGL_ext_pfn_ranges[] = {
+    /* WGL_3DL_stereo_control */
+    {    1,   26,    1 },
+
+    /* WGL_AMD_gpu_association */
+    {    2,   27,    9 },
+
+    /* WGL_ARB_buffer_region */
+    {    3,   36,    4 },
+
+    /* WGL_ARB_create_context */
+    {    5,   40,    1 },
+
+    /* WGL_ARB_extensions_string */
+    {    9,   41,    1 },
+
+    /* WGL_ARB_make_current_read */
+    {   11,   42,    2 },
+
+    /* WGL_ARB_pbuffer */
+    {   13,   44,    5 },
+
+    /* WGL_ARB_pixel_format */
+    {   14,   49,    3 },
+
+    /* WGL_ARB_render_texture */
+    {   16,   52,    3 },
+
+    /* WGL_EXT_display_color_table */
+    {   25,   55,    4 },
+
+    /* WGL_EXT_extensions_string */
+    {   26,   59,    1 },
+
+    /* WGL_EXT_make_current_read */
+    {   28,   60,    2 },
+
+    /* WGL_EXT_pbuffer */
+    {   30,   62,    5 },
+
+    /* WGL_EXT_pixel_format */
+    {   31,   67,    3 },
+
+    /* WGL_EXT_swap_control */
+    {   33,   70,    2 },
+
+    /* WGL_I3D_digital_video_control */
+    {   35,   72,    2 },
+
+    /* WGL_I3D_gamma */
+    {   36,   74,    4 },
+
+    /* WGL_I3D_genlock */
+    {   37,   78,   12 },
+
+    /* WGL_I3D_image_buffer */
+    {   38,   90,    4 },
+
+    /* WGL_I3D_swap_frame_lock */
+    {   39,   94,    4 },
+
+    /* WGL_I3D_swap_frame_usage */
+    {   40,   98,    4 },
+
+    /* WGL_NV_DX_interop */
+    {   41,  104,    8 },
+
+    /* WGL_NV_copy_image */
+    {   43,  102,    1 },
+
+    /* WGL_NV_delay_before_swap */
+    {   44,  103,    1 },
+
+    /* WGL_NV_gpu_affinity */
+    {   46,  112,    5 },
+
+    /* WGL_NV_present_video */
+    {   49,  117,    3 },
+
+    /* WGL_NV_swap_group */
+    {   52,  120,    6 },
+
+    /* WGL_NV_vertex_array_range */
+    {   53,  137,    2 },
+
+    /* WGL_NV_video_capture */
+    {   54,  126,    5 },
+
+    /* WGL_NV_video_output */
+    {   55,  131,    6 },
+
+    /* WGL_OML_sync_control */
+    {   56,  139,    6 },
+};
+
+
+static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
-    uint32_t i;
+    uint32_t pfnIdx;
 
     #ifdef __clang__
     #pragma nounroll
     #endif
-    for (i = 0; i < numPfns; ++i) {
-        const uint16_t pfnIdx = pPfnIdx[i];
+    for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
         context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
     }
-}
-
-static void glad_wgl_load_WGL_VERSION_1_0(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-           0, /* ChoosePixelFormat */
-           1, /* DescribePixelFormat */
-           2, /* GetEnhMetaFilePixelFormat */
-           3, /* GetPixelFormat */
-           4, /* SetPixelFormat */
-           5, /* SwapBuffers */
-          18, /* wglCopyContext */
-          24, /* wglCreateContext */
-          28, /* wglCreateLayerContext */
-          42, /* wglDeleteContext */
-          44, /* wglDescribeLayerPlane */
-          66, /* wglGetCurrentContext */
-          67, /* wglGetCurrentDC */
-          82, /* wglGetLayerPaletteEntries */
-          90, /* wglGetProcAddress */
-         103, /* wglMakeCurrent */
-         114, /* wglRealizeLayerPalette */
-         129, /* wglSetLayerPaletteEntries */
-         132, /* wglShareLists */
-         135, /* wglSwapLayerBuffers */
-         137, /* wglUseFontBitmaps */
-         138, /* wglUseFontBitmapsA */
-         139, /* wglUseFontBitmapsW */
-         140, /* wglUseFontOutlines */
-         141, /* wglUseFontOutlinesA */
-         142  /* wglUseFontOutlinesW */
-    };
-    if (!context->VERSION_1_0) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_3DL_stereo_control(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-         131  /* wglSetStereoEmitterState3DL */
-    };
-    if (!context->_3DL_stereo_control) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_AMD_gpu_association(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          15, /* wglBlitContextFramebufferAMD */
-          21, /* wglCreateAssociatedContextAMD */
-          22, /* wglCreateAssociatedContextAttribsAMD */
-          40, /* wglDeleteAssociatedContextAMD */
-          64, /* wglGetContextGPUIDAMD */
-          65, /* wglGetCurrentAssociatedContextAMD */
-          74, /* wglGetGPUIDsAMD */
-          75, /* wglGetGPUInfoAMD */
-         100  /* wglMakeAssociatedContextCurrentAMD */
-    };
-    if (!context->AMD_gpu_association) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_ARB_buffer_region(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          23, /* wglCreateBufferRegionARB */
-          41, /* wglDeleteBufferRegionARB */
-         123, /* wglRestoreBufferRegionARB */
-         124  /* wglSaveBufferRegionARB */
-    };
-    if (!context->ARB_buffer_region) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_ARB_create_context(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          25  /* wglCreateContextAttribsARB */
-    };
-    if (!context->ARB_create_context) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_ARB_extensions_string(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          71  /* wglGetExtensionsStringARB */
-    };
-    if (!context->ARB_extensions_string) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_ARB_make_current_read(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          68, /* wglGetCurrentReadDCARB */
-         101  /* wglMakeContextCurrentARB */
-    };
-    if (!context->ARB_make_current_read) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_ARB_pbuffer(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          29, /* wglCreatePbufferARB */
-          47, /* wglDestroyPbufferARB */
-          84, /* wglGetPbufferDCARB */
-         110, /* wglQueryPbufferARB */
-         116  /* wglReleasePbufferDCARB */
-    };
-    if (!context->ARB_pbuffer) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_ARB_pixel_format(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          16, /* wglChoosePixelFormatARB */
-          86, /* wglGetPixelFormatAttribfvARB */
-          88  /* wglGetPixelFormatAttribivARB */
-    };
-    if (!context->ARB_pixel_format) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_ARB_render_texture(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          11, /* wglBindTexImageARB */
-         118, /* wglReleaseTexImageARB */
-         130  /* wglSetPbufferAttribARB */
-    };
-    if (!context->ARB_render_texture) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_EXT_display_color_table(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-           9, /* wglBindDisplayColorTableEXT */
-          26, /* wglCreateDisplayColorTableEXT */
-          45, /* wglDestroyDisplayColorTableEXT */
-          98  /* wglLoadDisplayColorTableEXT */
-    };
-    if (!context->EXT_display_color_table) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_EXT_extensions_string(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          72  /* wglGetExtensionsStringEXT */
-    };
-    if (!context->EXT_extensions_string) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_EXT_make_current_read(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          69, /* wglGetCurrentReadDCEXT */
-         102  /* wglMakeContextCurrentEXT */
-    };
-    if (!context->EXT_make_current_read) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_EXT_pbuffer(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          30, /* wglCreatePbufferEXT */
-          48, /* wglDestroyPbufferEXT */
-          85, /* wglGetPbufferDCEXT */
-         111, /* wglQueryPbufferEXT */
-         117  /* wglReleasePbufferDCEXT */
-    };
-    if (!context->EXT_pbuffer) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_EXT_pixel_format(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          17, /* wglChoosePixelFormatEXT */
-          87, /* wglGetPixelFormatAttribfvEXT */
-          89  /* wglGetPixelFormatAttribivEXT */
-    };
-    if (!context->EXT_pixel_format) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_EXT_swap_control(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          91, /* wglGetSwapIntervalEXT */
-         134  /* wglSwapIntervalEXT */
-    };
-    if (!context->EXT_swap_control) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_I3D_digital_video_control(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          70, /* wglGetDigitalVideoParametersI3D */
-         126  /* wglSetDigitalVideoParametersI3D */
-    };
-    if (!context->I3D_digital_video_control) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_I3D_gamma(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          76, /* wglGetGammaTableI3D */
-          77, /* wglGetGammaTableParametersI3D */
-         127, /* wglSetGammaTableI3D */
-         128  /* wglSetGammaTableParametersI3D */
-    };
-    if (!context->I3D_gamma) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_I3D_genlock(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          50, /* wglDisableGenlockI3D */
-          52, /* wglEnableGenlockI3D */
-          60, /* wglGenlockSampleRateI3D */
-          61, /* wglGenlockSourceDelayI3D */
-          62, /* wglGenlockSourceEdgeI3D */
-          63, /* wglGenlockSourceI3D */
-          78, /* wglGetGenlockSampleRateI3D */
-          79, /* wglGetGenlockSourceDelayI3D */
-          80, /* wglGetGenlockSourceEdgeI3D */
-          81, /* wglGetGenlockSourceI3D */
-          96, /* wglIsEnabledGenlockI3D */
-         108  /* wglQueryGenlockMaxSourceDelayI3D */
-    };
-    if (!context->I3D_genlock) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_I3D_image_buffer(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-           7, /* wglAssociateImageBufferEventsI3D */
-          27, /* wglCreateImageBufferI3D */
-          46, /* wglDestroyImageBufferI3D */
-         115  /* wglReleaseImageBufferEventsI3D */
-    };
-    if (!context->I3D_image_buffer) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_I3D_swap_frame_lock(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          49, /* wglDisableFrameLockI3D */
-          51, /* wglEnableFrameLockI3D */
-          95, /* wglIsEnabledFrameLockI3D */
-         106  /* wglQueryFrameLockMasterI3D */
-    };
-    if (!context->I3D_swap_frame_lock) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_I3D_swap_frame_usage(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-           8, /* wglBeginFrameTrackingI3D */
-          53, /* wglEndFrameTrackingI3D */
-          73, /* wglGetFrameUsageI3D */
-         107  /* wglQueryFrameTrackingI3D */
-    };
-    if (!context->I3D_swap_frame_usage) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_DX_interop(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          31, /* wglDXCloseDeviceNV */
-          32, /* wglDXLockObjectsNV */
-          33, /* wglDXObjectAccessNV */
-          34, /* wglDXOpenDeviceNV */
-          35, /* wglDXRegisterObjectNV */
-          36, /* wglDXSetResourceShareHandleNV */
-          37, /* wglDXUnlockObjectsNV */
-          38  /* wglDXUnregisterObjectNV */
-    };
-    if (!context->NV_DX_interop) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_copy_image(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          19  /* wglCopyImageSubDataNV */
-    };
-    if (!context->NV_copy_image) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_delay_before_swap(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          39  /* wglDelayBeforeSwapNV */
-    };
-    if (!context->NV_delay_before_swap) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_gpu_affinity(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          20, /* wglCreateAffinityDCNV */
-          43, /* wglDeleteDCNV */
-          54, /* wglEnumGpuDevicesNV */
-          55, /* wglEnumGpusFromAffinityDCNV */
-          56  /* wglEnumGpusNV */
-    };
-    if (!context->NV_gpu_affinity) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_present_video(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          13, /* wglBindVideoDeviceNV */
-          58, /* wglEnumerateVideoDevicesNV */
-         104  /* wglQueryCurrentContextNV */
-    };
-    if (!context->NV_present_video) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_swap_group(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          10, /* wglBindSwapBarrierNV */
-          97, /* wglJoinSwapGroupNV */
-         105, /* wglQueryFrameCountNV */
-         109, /* wglQueryMaxSwapGroupsNV */
-         112, /* wglQuerySwapGroupNV */
-         122  /* wglResetFrameCountNV */
-    };
-    if (!context->NV_swap_group) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_vertex_array_range(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-           6, /* wglAllocateMemoryNV */
-          59  /* wglFreeMemoryNV */
-    };
-    if (!context->NV_vertex_array_range) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_video_capture(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          12, /* wglBindVideoCaptureDeviceNV */
-          57, /* wglEnumerateVideoCaptureDevicesNV */
-          99, /* wglLockVideoCaptureDeviceNV */
-         113, /* wglQueryVideoCaptureDeviceNV */
-         119  /* wglReleaseVideoCaptureDeviceNV */
-    };
-    if (!context->NV_video_capture) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_NV_video_output(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          14, /* wglBindVideoImageNV */
-          93, /* wglGetVideoDeviceNV */
-          94, /* wglGetVideoInfoNV */
-         120, /* wglReleaseVideoDeviceNV */
-         121, /* wglReleaseVideoImageNV */
-         125  /* wglSendPbufferToVideoNV */
-    };
-    if (!context->NV_video_output) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
-}
-
-static void glad_wgl_load_WGL_OML_sync_control(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr) {
-    static const uint16_t s_pfnIdx[] = {
-          83, /* wglGetMscRateOML */
-          92, /* wglGetSyncValuesOML */
-         133, /* wglSwapBuffersMscOML */
-         136, /* wglSwapLayerBuffersMscOML */
-         143, /* wglWaitForMscOML */
-         144  /* wglWaitForSbcOML */
-    };
-    if (!context->OML_sync_control) return;
-    glad_wgl_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
 static void glad_wgl_resolve_aliases(GladWGLContext *context) {
@@ -706,45 +442,28 @@ static int glad_wgl_find_core_wgl(GladWGLContext *context) {
 
 GLAD_NO_INLINE int gladLoadWGLContextUserPtr(GladWGLContext *context, HDC hdc, GLADuserptrloadfunc load, void *userptr) {
     int version;
+    uint32_t i;
+
     context->GetExtensionsStringARB = (PFNWGLGETEXTENSIONSSTRINGARBPROC) load(userptr, "wglGetExtensionsStringARB");
     context->GetExtensionsStringEXT = (PFNWGLGETEXTENSIONSSTRINGEXTPROC) load(userptr, "wglGetExtensionsStringEXT");
     if(context->GetExtensionsStringARB == NULL && context->GetExtensionsStringEXT == NULL) return 0;
     version = glad_wgl_find_core_wgl(context);
 
-    glad_wgl_load_WGL_VERSION_1_0(context, load, userptr);
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_WGL_feature_pfn_ranges); ++i) {
+        const GladPfnRange_t *range = &GLAD_WGL_feature_pfn_ranges[i];
+        if (context->featArray[range->extension]) {
+            glad_wgl_load_pfn_range(context, load, userptr, range->start, range->count);
+        }
+    }
 
     if (!glad_wgl_find_extensions_wgl(context, hdc)) return 0;
-    glad_wgl_load_WGL_3DL_stereo_control(context, load, userptr);
-    glad_wgl_load_WGL_AMD_gpu_association(context, load, userptr);
-    glad_wgl_load_WGL_ARB_buffer_region(context, load, userptr);
-    glad_wgl_load_WGL_ARB_create_context(context, load, userptr);
-    glad_wgl_load_WGL_ARB_extensions_string(context, load, userptr);
-    glad_wgl_load_WGL_ARB_make_current_read(context, load, userptr);
-    glad_wgl_load_WGL_ARB_pbuffer(context, load, userptr);
-    glad_wgl_load_WGL_ARB_pixel_format(context, load, userptr);
-    glad_wgl_load_WGL_ARB_render_texture(context, load, userptr);
-    glad_wgl_load_WGL_EXT_display_color_table(context, load, userptr);
-    glad_wgl_load_WGL_EXT_extensions_string(context, load, userptr);
-    glad_wgl_load_WGL_EXT_make_current_read(context, load, userptr);
-    glad_wgl_load_WGL_EXT_pbuffer(context, load, userptr);
-    glad_wgl_load_WGL_EXT_pixel_format(context, load, userptr);
-    glad_wgl_load_WGL_EXT_swap_control(context, load, userptr);
-    glad_wgl_load_WGL_I3D_digital_video_control(context, load, userptr);
-    glad_wgl_load_WGL_I3D_gamma(context, load, userptr);
-    glad_wgl_load_WGL_I3D_genlock(context, load, userptr);
-    glad_wgl_load_WGL_I3D_image_buffer(context, load, userptr);
-    glad_wgl_load_WGL_I3D_swap_frame_lock(context, load, userptr);
-    glad_wgl_load_WGL_I3D_swap_frame_usage(context, load, userptr);
-    glad_wgl_load_WGL_NV_DX_interop(context, load, userptr);
-    glad_wgl_load_WGL_NV_copy_image(context, load, userptr);
-    glad_wgl_load_WGL_NV_delay_before_swap(context, load, userptr);
-    glad_wgl_load_WGL_NV_gpu_affinity(context, load, userptr);
-    glad_wgl_load_WGL_NV_present_video(context, load, userptr);
-    glad_wgl_load_WGL_NV_swap_group(context, load, userptr);
-    glad_wgl_load_WGL_NV_vertex_array_range(context, load, userptr);
-    glad_wgl_load_WGL_NV_video_capture(context, load, userptr);
-    glad_wgl_load_WGL_NV_video_output(context, load, userptr);
-    glad_wgl_load_WGL_OML_sync_control(context, load, userptr);
+
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_WGL_ext_pfn_ranges); ++i) {
+        const GladPfnRange_t *range = &GLAD_WGL_ext_pfn_ranges[i];
+        if (context->extArray[range->extension]) {
+            glad_wgl_load_pfn_range(context, load, userptr, range->start, range->count);
+        }
+    }
 
     glad_wgl_resolve_aliases(context);
 

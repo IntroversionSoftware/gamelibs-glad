@@ -125,6 +125,9 @@ GLAD_ARGS=(
 	# purpose, it does reduce the amount of memory consumed (by using
 	# bitfields) and simplifies context reset.
 	--mx --mx-global
+
+	# Generate much smaller code for GL, GLES, WGL, and VK
+	--use-pfn-ranges
 )
 
 # Faster profile for testing changes with the C generator
