@@ -755,34 +755,56 @@ static void glad_egl_load_pfn_range(GladEGLContext *context, GLADuserptrloadfunc
     }
 }
 
+static uint32_t glad_egl_resolve_alias_group(GladEGLContext *context, const GladAliasPair_t *pairs, uint32_t start_idx, uint32_t total_count) {
+    void **pfnArray = context->pfnArray;
+    uint16_t canonical_idx = pairs[start_idx].first;
+
+    /* Find the end of this group (consecutive pairs with same canonical index) */
+    uint32_t end_idx = start_idx;
+    while (end_idx < total_count && pairs[end_idx].first == canonical_idx) {
+        end_idx++;
+    }
+
+    /* Pass 1: Find any loaded secondary for this canonical */
+    void *canonical_ptr = pfnArray[canonical_idx];
+    if (canonical_ptr == NULL) {
+        for (uint32_t i = start_idx; i < end_idx; ++i) {
+            if (pfnArray[pairs[i].second] != NULL) {
+                canonical_ptr = pfnArray[pairs[i].second];
+                pfnArray[canonical_idx] = canonical_ptr;
+                break;
+            }
+        }
+    }
+
+    /* Pass 2: Populate unloaded secondaries */
+    if (canonical_ptr != NULL) {
+        for (uint32_t i = start_idx; i < end_idx; ++i) {
+            if (pfnArray[pairs[i].second] == NULL) {
+                pfnArray[pairs[i].second] = canonical_ptr;
+            }
+        }
+    }
+
+    return end_idx - 1;  /* Return index of last processed pair */
+}
+
 static void glad_egl_resolve_aliases(GladEGLContext *context) {
     static const GladAliasPair_t s_aliases[] = {
         {   36,   85 }, /* eglClientWaitSync and eglClientWaitSyncKHR */
-        {   85,   36 }, /* eglClientWaitSyncKHR and eglClientWaitSync */
         {   34,   78 }, /* eglCreateSync and eglCreateSync64KHR */
-        {   78,   34 }, /* eglCreateSync64KHR and eglCreateSync */
         {   39,   88 }, /* eglDestroyImage and eglDestroyImageKHR */
-        {   88,   39 }, /* eglDestroyImageKHR and eglDestroyImage */
         {   35,   84 }, /* eglDestroySync and eglDestroySyncKHR */
-        {   84,   35 }, /* eglDestroySyncKHR and eglDestroySync */
-        {   60,   82 }, /* eglQueryDisplayAttribEXT and eglQueryDisplayAttribKHR */
-        {   60,  131 }, /* eglQueryDisplayAttribEXT and eglQueryDisplayAttribNV */
-        {   82,   60 }, /* eglQueryDisplayAttribKHR and eglQueryDisplayAttribEXT */
-        {   82,  131 }, /* eglQueryDisplayAttribKHR and eglQueryDisplayAttribNV */
         {  131,   60 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT */
         {  131,   82 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR */
     };
-    void **pfnArray = context->pfnArray;
     uint32_t i;
 
     #ifdef __clang__
     #pragma nounroll
     #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_aliases); ++i) {
-        const GladAliasPair_t *pAlias = &s_aliases[i];
-        if (pfnArray[pAlias->first] == NULL && pfnArray[pAlias->second] != NULL) {
-            pfnArray[pAlias->first] = pfnArray[pAlias->second];
-        }
+        i = glad_egl_resolve_alias_group(context, s_aliases, i, GLAD_ARRAYSIZE(s_aliases));
     }
 }
 
