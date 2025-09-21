@@ -1917,7 +1917,7 @@ static uint32_t glad_vk_resolve_alias_group(GladVulkanContext *context, const Gl
     return end_idx - 1;  /* Return index of last processed pair */
 }
 
-static void glad_vk_resolve_aliases(GladVulkanContext *context) {
+GLAD_NO_INLINE static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     static const GladAliasPair_t s_aliases[] = {
         {  138,  425 }, /* vkBindBufferMemory2 and vkBindBufferMemory2KHR */
         {  139,  426 }, /* vkBindImageMemory2 and vkBindImageMemory2KHR */

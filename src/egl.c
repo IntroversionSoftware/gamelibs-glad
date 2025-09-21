@@ -789,7 +789,7 @@ static uint32_t glad_egl_resolve_alias_group(GladEGLContext *context, const Glad
     return end_idx - 1;  /* Return index of last processed pair */
 }
 
-static void glad_egl_resolve_aliases(GladEGLContext *context) {
+GLAD_NO_INLINE static void glad_egl_resolve_aliases(GladEGLContext *context) {
     static const GladAliasPair_t s_aliases[] = {
         {   36,   85 }, /* eglClientWaitSync and eglClientWaitSyncKHR */
         {   34,   78 }, /* eglCreateSync and eglCreateSync64KHR */

@@ -5446,7 +5446,7 @@ static uint32_t glad_gl_resolve_alias_group(GladGLContext *context, const GladAl
     return end_idx - 1;  /* Return index of last processed pair */
 }
 
-static void glad_gl_resolve_aliases(GladGLContext *context) {
+GLAD_NO_INLINE static void glad_gl_resolve_aliases(GladGLContext *context) {
     static const GladAliasPair_t s_aliases[] = {
         {   66,  864 }, /* glActiveTexture and glActiveTextureARB */
         {  108,  928 }, /* glAttachShader and glAttachObjectARB */

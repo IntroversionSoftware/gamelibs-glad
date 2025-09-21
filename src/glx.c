@@ -669,7 +669,7 @@ static void glad_glx_load_GLX_SUN_get_transparent_index(GladGLXContext *context,
     glad_glx_load_pfns(context, load, userptr, s_pfnIdx, GLAD_ARRAYSIZE(s_pfnIdx));
 }
 
-static void glad_glx_resolve_aliases(GladGLXContext *context) {
+GLAD_NO_INLINE static void glad_glx_resolve_aliases(GladGLXContext *context) {
     GLAD_UNUSED(context);
 }
 

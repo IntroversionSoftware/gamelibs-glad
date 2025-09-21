@@ -383,7 +383,7 @@ static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc
     }
 }
 
-static void glad_wgl_resolve_aliases(GladWGLContext *context) {
+GLAD_NO_INLINE static void glad_wgl_resolve_aliases(GladWGLContext *context) {
     GLAD_UNUSED(context);
 }
 
