@@ -44,12 +44,6 @@ typedef struct {
     uint16_t second;
 } GladAliasPair_t;
 
-typedef struct {
-    uint16_t extension;
-    uint16_t start;
-    uint16_t count;
-} GladPfnRange_t;
-
 #endif /* GLAD_IMPL_UTIL_C_ */
 
 #ifdef __cplusplus
@@ -275,7 +269,7 @@ static void glad_glx_load_pfns(GladGLXContext *context, GLADuserptrloadfunc load
     #endif
     for (i = 0; i < numPfns; ++i) {
         const uint16_t pfnIdx = pPfnIdx[i];
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_GLX_fn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
 }
 

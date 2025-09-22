@@ -379,7 +379,7 @@ static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc
     #pragma nounroll
     #endif
     for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
-        context->pfnArray[pfnIdx] = load(userptr, GLAD_WGL_fn_names[pfnIdx]);
+        context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_WGL_fn_names[pfnIdx]);
     }
 }
 
