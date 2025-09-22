@@ -62,7 +62,7 @@ GladWGLContext glad_wgl_context = {};
 GladWGLContext glad_wgl_context = { 0 };
 #endif
 
-static const char *GLAD_WGL_fn_names[] = {
+static const char * const GLAD_WGL_fn_names[] = {
     /*    0 */ "ChoosePixelFormat",
     /*    1 */ "DescribePixelFormat",
     /*    2 */ "GetEnhMetaFilePixelFormat",
@@ -210,7 +210,7 @@ static const char *GLAD_WGL_fn_names[] = {
     /*  144 */ "wglWaitForSbcOML"
 };
 
-static const char *GLAD_WGL_ext_names[] = {
+static const char * const GLAD_WGL_ext_names[] = {
     /*    0 */ "WGL_3DFX_multisample",
     /*    1 */ "WGL_3DL_stereo_control",
     /*    2 */ "WGL_AMD_gpu_association",

@@ -99,7 +99,7 @@ GladGLContext glad_gl_context = {};
 GladGLContext glad_gl_context = { 0 };
 #endif
 
-static const char *GLAD_GL_fn_names[] = {
+static const char * const GLAD_GL_fn_names[] = {
     /*    0 */ "glCullFace",
     /*    1 */ "glFrontFace",
     /*    2 */ "glHint",

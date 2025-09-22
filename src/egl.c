@@ -99,7 +99,7 @@ GladEGLContext glad_egl_context = {};
 GladEGLContext glad_egl_context = { 0 };
 #endif
 
-static const char *GLAD_EGL_fn_names[] = {
+static const char * const GLAD_EGL_fn_names[] = {
     /*    0 */ "eglChooseConfig",
     /*    1 */ "eglCopyBuffers",
     /*    2 */ "eglCreateContext",

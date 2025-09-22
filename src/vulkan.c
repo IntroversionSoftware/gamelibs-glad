@@ -99,7 +99,7 @@ GladVulkanContext glad_vulkan_context = {};
 GladVulkanContext glad_vulkan_context = { 0 };
 #endif
 
-static const char *GLAD_Vulkan_fn_names[] = {
+static const char * const GLAD_Vulkan_fn_names[] = {
     /*    0 */ "vkCreateInstance",
     /*    1 */ "vkDestroyInstance",
     /*    2 */ "vkEnumeratePhysicalDevices",
@@ -2332,7 +2332,7 @@ static GLADapiproc glad_dlsym_handle(void* handle, const char *name) {
 
 #endif /* GLAD_LOADER_LIBRARY_C_ */
 
-static uint64_t GLAD_Vulkan_instance_commands[] = {
+static const uint64_t GLAD_Vulkan_instance_commands[] = {
     0x01628e687379a800ULL, /* vkGetPhysicalDeviceXcbPresentationSupportKHR */
     0x06f2fe22a6f73ea9ULL, /* vkGetPhysicalDeviceOpticalFlowImageFormatsNV */
     0x077270ba2023329bULL, /* vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR */
@@ -2447,7 +2447,7 @@ static uint64_t GLAD_Vulkan_instance_commands[] = {
     0xff2edfe5fb33ed95ULL, /* vkCreateAndroidSurfaceKHR */
 };
 
-static uint64_t GLAD_Vulkan_global_commands[] = {
+static const uint64_t GLAD_Vulkan_global_commands[] = {
     0x293f4d0e3d436dceULL, /* vkEnumerateInstanceExtensionProperties */
     0xc930c283b60dafd0ULL, /* vkEnumerateInstanceLayerProperties */
     0xed8a6efd46f4e052ULL, /* vkCreateInstance */

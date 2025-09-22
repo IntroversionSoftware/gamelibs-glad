@@ -56,7 +56,7 @@ GladGLXContext glad_glx_context = {};
 GladGLXContext glad_glx_context = { 0 };
 #endif
 
-static const char *GLAD_GLX_fn_names[] = {
+static const char * const GLAD_GLX_fn_names[] = {
     /*    0 */ "glXChooseVisual",
     /*    1 */ "glXCreateContext",
     /*    2 */ "glXDestroyContext",
@@ -190,7 +190,7 @@ static const char *GLAD_GLX_fn_names[] = {
     /*  130 */ "glXGetTransparentIndexSUN"
 };
 
-static const char *GLAD_GLX_ext_names[] = {
+static const char * const GLAD_GLX_ext_names[] = {
     /*    0 */ "GLX_3DFX_multisample",
     /*    1 */ "GLX_AMD_gpu_association",
     /*    2 */ "GLX_ARB_context_flush_control",
