@@ -16,7 +16,6 @@
  *  - LOADER = True
  *  - MX = True
  *  - MX_GLOBAL = True
- *  - NO_EXTENSION_DETECTION = False
  *  - USE_PFN_RANGES = True
  *
  * Commandline:
@@ -23561,11 +23560,25 @@ void vkCmdEndRendering2EXT(VkCommandBuffer commandBuffer, const VkRenderingEndIn
 GLAD_API_CALL GladVulkanContext* gladGetVulkanContext(void);
 GLAD_API_CALL void gladSetVulkanContext(GladVulkanContext *context);
 
-GLAD_API_CALL int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADuserptrloadfunc load, void *userptr);
-GLAD_API_CALL int gladLoadVulkanContext(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADloadfunc load);
 
-GLAD_API_CALL int gladLoadVulkanUserPtr(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADuserptrloadfunc load, void *userptr);
-GLAD_API_CALL int gladLoadVulkan(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADloadfunc load);
+/* The scope of this command, i.e. whether it's a global, device or instance
+ * function.
+ */
+enum GLADcommandscope {
+    CommandScopeUnknown = 0,
+    CommandScopeGlobal,
+    CommandScopeDevice,
+    CommandScopeInstance,
+};
+
+typedef GLADapiproc (*GLADvkuserptrloadfunc)(void *userptr, const char *name, enum GLADcommandscope type);
+typedef GLADapiproc (*GLADvkloadfunc)(const char *name, enum GLADcommandscope type);
+
+GLAD_API_CALL int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADvkuserptrloadfunc load, void *userptr);
+GLAD_API_CALL int gladLoadVulkanContext(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADvkloadfunc load);
+
+GLAD_API_CALL int gladLoadVulkanUserPtr(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADvkuserptrloadfunc load, void *userptr);
+GLAD_API_CALL int gladLoadVulkan(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADvkloadfunc load);
 
 #ifdef GLAD_VULKAN
 

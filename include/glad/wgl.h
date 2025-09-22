@@ -16,7 +16,6 @@
  *  - LOADER = True
  *  - MX = True
  *  - MX_GLOBAL = True
- *  - NO_EXTENSION_DETECTION = False
  *  - USE_PFN_RANGES = True
  *
  * Commandline:

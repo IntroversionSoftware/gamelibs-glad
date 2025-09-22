@@ -375,9 +375,6 @@ static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc
 {
     uint32_t pfnIdx;
 
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
     for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
         context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_WGL_fn_names[pfnIdx]);
     }
@@ -427,7 +424,6 @@ static int glad_wgl_find_extensions_wgl(GladWGLContext *context, HDC hdc) {
     else
         extensions = context->GetExtensionsStringARB(hdc);
 
-    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(GLAD_WGL_ext_names); ++i)
         context->extArray[i] = glad_wgl_has_extension(extensions, GLAD_WGL_ext_names[i]);
 

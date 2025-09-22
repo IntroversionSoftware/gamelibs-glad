@@ -54,6 +54,10 @@ typedef struct {
 #ifndef GLAD_IMPL_UTIL_HASHSEARCH_C_
 #define GLAD_IMPL_UTIL_HASHSEARCH_C_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
     /* Binary search for matching hash */
     int32_t low = 0;
@@ -86,6 +90,10 @@ GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
 {
     return XXH3_64bits(str, length);
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* GLAD_IMPL_HASHSEARCH_C_ */
 
@@ -859,6 +867,768 @@ static const char * const GLAD_Vulkan_fn_names[] = {
     /*  756 */ "vkGetMemoryMetalHandleEXT",
     /*  757 */ "vkGetMemoryMetalHandlePropertiesEXT",
     /*  758 */ "vkCmdEndRendering2EXT"
+};
+
+static const uint8_t GLAD_Vulkan_fn_scopes[] = {
+    /*    0 */ CommandScopeGlobal  , /* vkCreateInstance */
+    /*    1 */ CommandScopeInstance, /* vkDestroyInstance */
+    /*    2 */ CommandScopeInstance, /* vkEnumeratePhysicalDevices */
+    /*    3 */ CommandScopeInstance, /* vkGetPhysicalDeviceFeatures */
+    /*    4 */ CommandScopeInstance, /* vkGetPhysicalDeviceFormatProperties */
+    /*    5 */ CommandScopeInstance, /* vkGetPhysicalDeviceImageFormatProperties */
+    /*    6 */ CommandScopeInstance, /* vkGetPhysicalDeviceProperties */
+    /*    7 */ CommandScopeInstance, /* vkGetPhysicalDeviceQueueFamilyProperties */
+    /*    8 */ CommandScopeInstance, /* vkGetPhysicalDeviceMemoryProperties */
+    /*    9 */ CommandScopeUnknown , /* vkGetInstanceProcAddr */
+    /*   10 */ CommandScopeDevice  , /* vkGetDeviceProcAddr */
+    /*   11 */ CommandScopeInstance, /* vkCreateDevice */
+    /*   12 */ CommandScopeDevice  , /* vkDestroyDevice */
+    /*   13 */ CommandScopeGlobal  , /* vkEnumerateInstanceExtensionProperties */
+    /*   14 */ CommandScopeInstance, /* vkEnumerateDeviceExtensionProperties */
+    /*   15 */ CommandScopeGlobal  , /* vkEnumerateInstanceLayerProperties */
+    /*   16 */ CommandScopeInstance, /* vkEnumerateDeviceLayerProperties */
+    /*   17 */ CommandScopeDevice  , /* vkGetDeviceQueue */
+    /*   18 */ CommandScopeDevice  , /* vkQueueSubmit */
+    /*   19 */ CommandScopeDevice  , /* vkQueueWaitIdle */
+    /*   20 */ CommandScopeDevice  , /* vkDeviceWaitIdle */
+    /*   21 */ CommandScopeDevice  , /* vkAllocateMemory */
+    /*   22 */ CommandScopeDevice  , /* vkFreeMemory */
+    /*   23 */ CommandScopeDevice  , /* vkMapMemory */
+    /*   24 */ CommandScopeDevice  , /* vkUnmapMemory */
+    /*   25 */ CommandScopeDevice  , /* vkFlushMappedMemoryRanges */
+    /*   26 */ CommandScopeDevice  , /* vkInvalidateMappedMemoryRanges */
+    /*   27 */ CommandScopeDevice  , /* vkGetDeviceMemoryCommitment */
+    /*   28 */ CommandScopeDevice  , /* vkBindBufferMemory */
+    /*   29 */ CommandScopeDevice  , /* vkBindImageMemory */
+    /*   30 */ CommandScopeDevice  , /* vkGetBufferMemoryRequirements */
+    /*   31 */ CommandScopeDevice  , /* vkGetImageMemoryRequirements */
+    /*   32 */ CommandScopeDevice  , /* vkGetImageSparseMemoryRequirements */
+    /*   33 */ CommandScopeInstance, /* vkGetPhysicalDeviceSparseImageFormatProperties */
+    /*   34 */ CommandScopeDevice  , /* vkQueueBindSparse */
+    /*   35 */ CommandScopeDevice  , /* vkCreateFence */
+    /*   36 */ CommandScopeDevice  , /* vkDestroyFence */
+    /*   37 */ CommandScopeDevice  , /* vkResetFences */
+    /*   38 */ CommandScopeDevice  , /* vkGetFenceStatus */
+    /*   39 */ CommandScopeDevice  , /* vkWaitForFences */
+    /*   40 */ CommandScopeDevice  , /* vkCreateSemaphore */
+    /*   41 */ CommandScopeDevice  , /* vkDestroySemaphore */
+    /*   42 */ CommandScopeDevice  , /* vkCreateEvent */
+    /*   43 */ CommandScopeDevice  , /* vkDestroyEvent */
+    /*   44 */ CommandScopeDevice  , /* vkGetEventStatus */
+    /*   45 */ CommandScopeDevice  , /* vkSetEvent */
+    /*   46 */ CommandScopeDevice  , /* vkResetEvent */
+    /*   47 */ CommandScopeDevice  , /* vkCreateQueryPool */
+    /*   48 */ CommandScopeDevice  , /* vkDestroyQueryPool */
+    /*   49 */ CommandScopeDevice  , /* vkGetQueryPoolResults */
+    /*   50 */ CommandScopeDevice  , /* vkCreateBuffer */
+    /*   51 */ CommandScopeDevice  , /* vkDestroyBuffer */
+    /*   52 */ CommandScopeDevice  , /* vkCreateBufferView */
+    /*   53 */ CommandScopeDevice  , /* vkDestroyBufferView */
+    /*   54 */ CommandScopeDevice  , /* vkCreateImage */
+    /*   55 */ CommandScopeDevice  , /* vkDestroyImage */
+    /*   56 */ CommandScopeDevice  , /* vkGetImageSubresourceLayout */
+    /*   57 */ CommandScopeDevice  , /* vkCreateImageView */
+    /*   58 */ CommandScopeDevice  , /* vkDestroyImageView */
+    /*   59 */ CommandScopeDevice  , /* vkCreateShaderModule */
+    /*   60 */ CommandScopeDevice  , /* vkDestroyShaderModule */
+    /*   61 */ CommandScopeDevice  , /* vkCreatePipelineCache */
+    /*   62 */ CommandScopeDevice  , /* vkDestroyPipelineCache */
+    /*   63 */ CommandScopeDevice  , /* vkGetPipelineCacheData */
+    /*   64 */ CommandScopeDevice  , /* vkMergePipelineCaches */
+    /*   65 */ CommandScopeDevice  , /* vkCreateGraphicsPipelines */
+    /*   66 */ CommandScopeDevice  , /* vkCreateComputePipelines */
+    /*   67 */ CommandScopeDevice  , /* vkDestroyPipeline */
+    /*   68 */ CommandScopeDevice  , /* vkCreatePipelineLayout */
+    /*   69 */ CommandScopeDevice  , /* vkDestroyPipelineLayout */
+    /*   70 */ CommandScopeDevice  , /* vkCreateSampler */
+    /*   71 */ CommandScopeDevice  , /* vkDestroySampler */
+    /*   72 */ CommandScopeDevice  , /* vkCreateDescriptorSetLayout */
+    /*   73 */ CommandScopeDevice  , /* vkDestroyDescriptorSetLayout */
+    /*   74 */ CommandScopeDevice  , /* vkCreateDescriptorPool */
+    /*   75 */ CommandScopeDevice  , /* vkDestroyDescriptorPool */
+    /*   76 */ CommandScopeDevice  , /* vkResetDescriptorPool */
+    /*   77 */ CommandScopeDevice  , /* vkAllocateDescriptorSets */
+    /*   78 */ CommandScopeDevice  , /* vkFreeDescriptorSets */
+    /*   79 */ CommandScopeDevice  , /* vkUpdateDescriptorSets */
+    /*   80 */ CommandScopeDevice  , /* vkCreateFramebuffer */
+    /*   81 */ CommandScopeDevice  , /* vkDestroyFramebuffer */
+    /*   82 */ CommandScopeDevice  , /* vkCreateRenderPass */
+    /*   83 */ CommandScopeDevice  , /* vkDestroyRenderPass */
+    /*   84 */ CommandScopeDevice  , /* vkGetRenderAreaGranularity */
+    /*   85 */ CommandScopeDevice  , /* vkCreateCommandPool */
+    /*   86 */ CommandScopeDevice  , /* vkDestroyCommandPool */
+    /*   87 */ CommandScopeDevice  , /* vkResetCommandPool */
+    /*   88 */ CommandScopeDevice  , /* vkAllocateCommandBuffers */
+    /*   89 */ CommandScopeDevice  , /* vkFreeCommandBuffers */
+    /*   90 */ CommandScopeDevice  , /* vkBeginCommandBuffer */
+    /*   91 */ CommandScopeDevice  , /* vkEndCommandBuffer */
+    /*   92 */ CommandScopeDevice  , /* vkResetCommandBuffer */
+    /*   93 */ CommandScopeDevice  , /* vkCmdBindPipeline */
+    /*   94 */ CommandScopeDevice  , /* vkCmdSetViewport */
+    /*   95 */ CommandScopeDevice  , /* vkCmdSetScissor */
+    /*   96 */ CommandScopeDevice  , /* vkCmdSetLineWidth */
+    /*   97 */ CommandScopeDevice  , /* vkCmdSetDepthBias */
+    /*   98 */ CommandScopeDevice  , /* vkCmdSetBlendConstants */
+    /*   99 */ CommandScopeDevice  , /* vkCmdSetDepthBounds */
+    /*  100 */ CommandScopeDevice  , /* vkCmdSetStencilCompareMask */
+    /*  101 */ CommandScopeDevice  , /* vkCmdSetStencilWriteMask */
+    /*  102 */ CommandScopeDevice  , /* vkCmdSetStencilReference */
+    /*  103 */ CommandScopeDevice  , /* vkCmdBindDescriptorSets */
+    /*  104 */ CommandScopeDevice  , /* vkCmdBindIndexBuffer */
+    /*  105 */ CommandScopeDevice  , /* vkCmdBindVertexBuffers */
+    /*  106 */ CommandScopeDevice  , /* vkCmdDraw */
+    /*  107 */ CommandScopeDevice  , /* vkCmdDrawIndexed */
+    /*  108 */ CommandScopeDevice  , /* vkCmdDrawIndirect */
+    /*  109 */ CommandScopeDevice  , /* vkCmdDrawIndexedIndirect */
+    /*  110 */ CommandScopeDevice  , /* vkCmdDispatch */
+    /*  111 */ CommandScopeDevice  , /* vkCmdDispatchIndirect */
+    /*  112 */ CommandScopeDevice  , /* vkCmdCopyBuffer */
+    /*  113 */ CommandScopeDevice  , /* vkCmdCopyImage */
+    /*  114 */ CommandScopeDevice  , /* vkCmdBlitImage */
+    /*  115 */ CommandScopeDevice  , /* vkCmdCopyBufferToImage */
+    /*  116 */ CommandScopeDevice  , /* vkCmdCopyImageToBuffer */
+    /*  117 */ CommandScopeDevice  , /* vkCmdUpdateBuffer */
+    /*  118 */ CommandScopeDevice  , /* vkCmdFillBuffer */
+    /*  119 */ CommandScopeDevice  , /* vkCmdClearColorImage */
+    /*  120 */ CommandScopeDevice  , /* vkCmdClearDepthStencilImage */
+    /*  121 */ CommandScopeDevice  , /* vkCmdClearAttachments */
+    /*  122 */ CommandScopeDevice  , /* vkCmdResolveImage */
+    /*  123 */ CommandScopeDevice  , /* vkCmdSetEvent */
+    /*  124 */ CommandScopeDevice  , /* vkCmdResetEvent */
+    /*  125 */ CommandScopeDevice  , /* vkCmdWaitEvents */
+    /*  126 */ CommandScopeDevice  , /* vkCmdPipelineBarrier */
+    /*  127 */ CommandScopeDevice  , /* vkCmdBeginQuery */
+    /*  128 */ CommandScopeDevice  , /* vkCmdEndQuery */
+    /*  129 */ CommandScopeDevice  , /* vkCmdResetQueryPool */
+    /*  130 */ CommandScopeDevice  , /* vkCmdWriteTimestamp */
+    /*  131 */ CommandScopeDevice  , /* vkCmdCopyQueryPoolResults */
+    /*  132 */ CommandScopeDevice  , /* vkCmdPushConstants */
+    /*  133 */ CommandScopeDevice  , /* vkCmdBeginRenderPass */
+    /*  134 */ CommandScopeDevice  , /* vkCmdNextSubpass */
+    /*  135 */ CommandScopeDevice  , /* vkCmdEndRenderPass */
+    /*  136 */ CommandScopeDevice  , /* vkCmdExecuteCommands */
+    /*  137 */ CommandScopeGlobal  , /* vkEnumerateInstanceVersion */
+    /*  138 */ CommandScopeDevice  , /* vkBindBufferMemory2 */
+    /*  139 */ CommandScopeDevice  , /* vkBindImageMemory2 */
+    /*  140 */ CommandScopeDevice  , /* vkGetDeviceGroupPeerMemoryFeatures */
+    /*  141 */ CommandScopeDevice  , /* vkCmdSetDeviceMask */
+    /*  142 */ CommandScopeDevice  , /* vkCmdDispatchBase */
+    /*  143 */ CommandScopeInstance, /* vkEnumeratePhysicalDeviceGroups */
+    /*  144 */ CommandScopeDevice  , /* vkGetImageMemoryRequirements2 */
+    /*  145 */ CommandScopeDevice  , /* vkGetBufferMemoryRequirements2 */
+    /*  146 */ CommandScopeDevice  , /* vkGetImageSparseMemoryRequirements2 */
+    /*  147 */ CommandScopeInstance, /* vkGetPhysicalDeviceFeatures2 */
+    /*  148 */ CommandScopeInstance, /* vkGetPhysicalDeviceProperties2 */
+    /*  149 */ CommandScopeInstance, /* vkGetPhysicalDeviceFormatProperties2 */
+    /*  150 */ CommandScopeInstance, /* vkGetPhysicalDeviceImageFormatProperties2 */
+    /*  151 */ CommandScopeInstance, /* vkGetPhysicalDeviceQueueFamilyProperties2 */
+    /*  152 */ CommandScopeInstance, /* vkGetPhysicalDeviceMemoryProperties2 */
+    /*  153 */ CommandScopeInstance, /* vkGetPhysicalDeviceSparseImageFormatProperties2 */
+    /*  154 */ CommandScopeDevice  , /* vkTrimCommandPool */
+    /*  155 */ CommandScopeDevice  , /* vkGetDeviceQueue2 */
+    /*  156 */ CommandScopeDevice  , /* vkCreateSamplerYcbcrConversion */
+    /*  157 */ CommandScopeDevice  , /* vkDestroySamplerYcbcrConversion */
+    /*  158 */ CommandScopeDevice  , /* vkCreateDescriptorUpdateTemplate */
+    /*  159 */ CommandScopeDevice  , /* vkDestroyDescriptorUpdateTemplate */
+    /*  160 */ CommandScopeDevice  , /* vkUpdateDescriptorSetWithTemplate */
+    /*  161 */ CommandScopeInstance, /* vkGetPhysicalDeviceExternalBufferProperties */
+    /*  162 */ CommandScopeInstance, /* vkGetPhysicalDeviceExternalFenceProperties */
+    /*  163 */ CommandScopeInstance, /* vkGetPhysicalDeviceExternalSemaphoreProperties */
+    /*  164 */ CommandScopeDevice  , /* vkGetDescriptorSetLayoutSupport */
+    /*  165 */ CommandScopeDevice  , /* vkCmdDrawIndirectCount */
+    /*  166 */ CommandScopeDevice  , /* vkCmdDrawIndexedIndirectCount */
+    /*  167 */ CommandScopeDevice  , /* vkCreateRenderPass2 */
+    /*  168 */ CommandScopeDevice  , /* vkCmdBeginRenderPass2 */
+    /*  169 */ CommandScopeDevice  , /* vkCmdNextSubpass2 */
+    /*  170 */ CommandScopeDevice  , /* vkCmdEndRenderPass2 */
+    /*  171 */ CommandScopeDevice  , /* vkResetQueryPool */
+    /*  172 */ CommandScopeDevice  , /* vkGetSemaphoreCounterValue */
+    /*  173 */ CommandScopeDevice  , /* vkWaitSemaphores */
+    /*  174 */ CommandScopeDevice  , /* vkSignalSemaphore */
+    /*  175 */ CommandScopeDevice  , /* vkGetBufferDeviceAddress */
+    /*  176 */ CommandScopeDevice  , /* vkGetBufferOpaqueCaptureAddress */
+    /*  177 */ CommandScopeDevice  , /* vkGetDeviceMemoryOpaqueCaptureAddress */
+    /*  178 */ CommandScopeInstance, /* vkGetPhysicalDeviceToolProperties */
+    /*  179 */ CommandScopeDevice  , /* vkCreatePrivateDataSlot */
+    /*  180 */ CommandScopeDevice  , /* vkDestroyPrivateDataSlot */
+    /*  181 */ CommandScopeDevice  , /* vkSetPrivateData */
+    /*  182 */ CommandScopeDevice  , /* vkGetPrivateData */
+    /*  183 */ CommandScopeDevice  , /* vkCmdSetEvent2 */
+    /*  184 */ CommandScopeDevice  , /* vkCmdResetEvent2 */
+    /*  185 */ CommandScopeDevice  , /* vkCmdWaitEvents2 */
+    /*  186 */ CommandScopeDevice  , /* vkCmdPipelineBarrier2 */
+    /*  187 */ CommandScopeDevice  , /* vkCmdWriteTimestamp2 */
+    /*  188 */ CommandScopeDevice  , /* vkQueueSubmit2 */
+    /*  189 */ CommandScopeDevice  , /* vkCmdCopyBuffer2 */
+    /*  190 */ CommandScopeDevice  , /* vkCmdCopyImage2 */
+    /*  191 */ CommandScopeDevice  , /* vkCmdCopyBufferToImage2 */
+    /*  192 */ CommandScopeDevice  , /* vkCmdCopyImageToBuffer2 */
+    /*  193 */ CommandScopeDevice  , /* vkCmdBlitImage2 */
+    /*  194 */ CommandScopeDevice  , /* vkCmdResolveImage2 */
+    /*  195 */ CommandScopeDevice  , /* vkCmdBeginRendering */
+    /*  196 */ CommandScopeDevice  , /* vkCmdEndRendering */
+    /*  197 */ CommandScopeDevice  , /* vkCmdSetCullMode */
+    /*  198 */ CommandScopeDevice  , /* vkCmdSetFrontFace */
+    /*  199 */ CommandScopeDevice  , /* vkCmdSetPrimitiveTopology */
+    /*  200 */ CommandScopeDevice  , /* vkCmdSetViewportWithCount */
+    /*  201 */ CommandScopeDevice  , /* vkCmdSetScissorWithCount */
+    /*  202 */ CommandScopeDevice  , /* vkCmdBindVertexBuffers2 */
+    /*  203 */ CommandScopeDevice  , /* vkCmdSetDepthTestEnable */
+    /*  204 */ CommandScopeDevice  , /* vkCmdSetDepthWriteEnable */
+    /*  205 */ CommandScopeDevice  , /* vkCmdSetDepthCompareOp */
+    /*  206 */ CommandScopeDevice  , /* vkCmdSetDepthBoundsTestEnable */
+    /*  207 */ CommandScopeDevice  , /* vkCmdSetStencilTestEnable */
+    /*  208 */ CommandScopeDevice  , /* vkCmdSetStencilOp */
+    /*  209 */ CommandScopeDevice  , /* vkCmdSetRasterizerDiscardEnable */
+    /*  210 */ CommandScopeDevice  , /* vkCmdSetDepthBiasEnable */
+    /*  211 */ CommandScopeDevice  , /* vkCmdSetPrimitiveRestartEnable */
+    /*  212 */ CommandScopeDevice  , /* vkGetDeviceBufferMemoryRequirements */
+    /*  213 */ CommandScopeDevice  , /* vkGetDeviceImageMemoryRequirements */
+    /*  214 */ CommandScopeDevice  , /* vkGetDeviceImageSparseMemoryRequirements */
+    /*  215 */ CommandScopeDevice  , /* vkCmdSetLineStipple */
+    /*  216 */ CommandScopeDevice  , /* vkMapMemory2 */
+    /*  217 */ CommandScopeDevice  , /* vkUnmapMemory2 */
+    /*  218 */ CommandScopeDevice  , /* vkCmdBindIndexBuffer2 */
+    /*  219 */ CommandScopeDevice  , /* vkGetRenderingAreaGranularity */
+    /*  220 */ CommandScopeDevice  , /* vkGetDeviceImageSubresourceLayout */
+    /*  221 */ CommandScopeDevice  , /* vkGetImageSubresourceLayout2 */
+    /*  222 */ CommandScopeDevice  , /* vkCmdPushDescriptorSet */
+    /*  223 */ CommandScopeDevice  , /* vkCmdPushDescriptorSetWithTemplate */
+    /*  224 */ CommandScopeDevice  , /* vkCmdSetRenderingAttachmentLocations */
+    /*  225 */ CommandScopeDevice  , /* vkCmdSetRenderingInputAttachmentIndices */
+    /*  226 */ CommandScopeDevice  , /* vkCmdBindDescriptorSets2 */
+    /*  227 */ CommandScopeDevice  , /* vkCmdPushConstants2 */
+    /*  228 */ CommandScopeDevice  , /* vkCmdPushDescriptorSet2 */
+    /*  229 */ CommandScopeDevice  , /* vkCmdPushDescriptorSetWithTemplate2 */
+    /*  230 */ CommandScopeDevice  , /* vkCopyMemoryToImage */
+    /*  231 */ CommandScopeDevice  , /* vkCopyImageToMemory */
+    /*  232 */ CommandScopeDevice  , /* vkCopyImageToImage */
+    /*  233 */ CommandScopeDevice  , /* vkTransitionImageLayout */
+    /*  234 */ CommandScopeInstance, /* vkDestroySurfaceKHR */
+    /*  235 */ CommandScopeInstance, /* vkGetPhysicalDeviceSurfaceSupportKHR */
+    /*  236 */ CommandScopeInstance, /* vkGetPhysicalDeviceSurfaceCapabilitiesKHR */
+    /*  237 */ CommandScopeInstance, /* vkGetPhysicalDeviceSurfaceFormatsKHR */
+    /*  238 */ CommandScopeInstance, /* vkGetPhysicalDeviceSurfacePresentModesKHR */
+    /*  239 */ CommandScopeDevice  , /* vkCreateSwapchainKHR */
+    /*  240 */ CommandScopeDevice  , /* vkDestroySwapchainKHR */
+    /*  241 */ CommandScopeDevice  , /* vkGetSwapchainImagesKHR */
+    /*  242 */ CommandScopeDevice  , /* vkAcquireNextImageKHR */
+    /*  243 */ CommandScopeDevice  , /* vkQueuePresentKHR */
+    /*  244 */ CommandScopeDevice  , /* vkGetDeviceGroupPresentCapabilitiesKHR */
+    /*  245 */ CommandScopeDevice  , /* vkGetDeviceGroupSurfacePresentModesKHR */
+    /*  246 */ CommandScopeInstance, /* vkGetPhysicalDevicePresentRectanglesKHR */
+    /*  247 */ CommandScopeDevice  , /* vkAcquireNextImage2KHR */
+    /*  248 */ CommandScopeInstance, /* vkGetPhysicalDeviceDisplayPropertiesKHR */
+    /*  249 */ CommandScopeInstance, /* vkGetPhysicalDeviceDisplayPlanePropertiesKHR */
+    /*  250 */ CommandScopeInstance, /* vkGetDisplayPlaneSupportedDisplaysKHR */
+    /*  251 */ CommandScopeInstance, /* vkGetDisplayModePropertiesKHR */
+    /*  252 */ CommandScopeInstance, /* vkCreateDisplayModeKHR */
+    /*  253 */ CommandScopeInstance, /* vkGetDisplayPlaneCapabilitiesKHR */
+    /*  254 */ CommandScopeInstance, /* vkCreateDisplayPlaneSurfaceKHR */
+    /*  255 */ CommandScopeDevice  , /* vkCreateSharedSwapchainsKHR */
+    /*  256 */ CommandScopeInstance, /* vkCreateXlibSurfaceKHR */
+    /*  257 */ CommandScopeInstance, /* vkGetPhysicalDeviceXlibPresentationSupportKHR */
+    /*  258 */ CommandScopeInstance, /* vkCreateXcbSurfaceKHR */
+    /*  259 */ CommandScopeInstance, /* vkGetPhysicalDeviceXcbPresentationSupportKHR */
+    /*  260 */ CommandScopeInstance, /* vkCreateWaylandSurfaceKHR */
+    /*  261 */ CommandScopeInstance, /* vkGetPhysicalDeviceWaylandPresentationSupportKHR */
+    /*  262 */ CommandScopeInstance, /* vkCreateAndroidSurfaceKHR */
+    /*  263 */ CommandScopeInstance, /* vkCreateWin32SurfaceKHR */
+    /*  264 */ CommandScopeInstance, /* vkGetPhysicalDeviceWin32PresentationSupportKHR */
+    /*  265 */ CommandScopeInstance, /* vkCreateDebugReportCallbackEXT */
+    /*  266 */ CommandScopeInstance, /* vkDestroyDebugReportCallbackEXT */
+    /*  267 */ CommandScopeInstance, /* vkDebugReportMessageEXT */
+    /*  268 */ CommandScopeDevice  , /* vkDebugMarkerSetObjectTagEXT */
+    /*  269 */ CommandScopeDevice  , /* vkDebugMarkerSetObjectNameEXT */
+    /*  270 */ CommandScopeDevice  , /* vkCmdDebugMarkerBeginEXT */
+    /*  271 */ CommandScopeDevice  , /* vkCmdDebugMarkerEndEXT */
+    /*  272 */ CommandScopeDevice  , /* vkCmdDebugMarkerInsertEXT */
+    /*  273 */ CommandScopeInstance, /* vkGetPhysicalDeviceVideoCapabilitiesKHR */
+    /*  274 */ CommandScopeInstance, /* vkGetPhysicalDeviceVideoFormatPropertiesKHR */
+    /*  275 */ CommandScopeDevice  , /* vkCreateVideoSessionKHR */
+    /*  276 */ CommandScopeDevice  , /* vkDestroyVideoSessionKHR */
+    /*  277 */ CommandScopeDevice  , /* vkGetVideoSessionMemoryRequirementsKHR */
+    /*  278 */ CommandScopeDevice  , /* vkBindVideoSessionMemoryKHR */
+    /*  279 */ CommandScopeDevice  , /* vkCreateVideoSessionParametersKHR */
+    /*  280 */ CommandScopeDevice  , /* vkUpdateVideoSessionParametersKHR */
+    /*  281 */ CommandScopeDevice  , /* vkDestroyVideoSessionParametersKHR */
+    /*  282 */ CommandScopeDevice  , /* vkCmdBeginVideoCodingKHR */
+    /*  283 */ CommandScopeDevice  , /* vkCmdEndVideoCodingKHR */
+    /*  284 */ CommandScopeDevice  , /* vkCmdControlVideoCodingKHR */
+    /*  285 */ CommandScopeDevice  , /* vkCmdDecodeVideoKHR */
+    /*  286 */ CommandScopeDevice  , /* vkCmdBindTransformFeedbackBuffersEXT */
+    /*  287 */ CommandScopeDevice  , /* vkCmdBeginTransformFeedbackEXT */
+    /*  288 */ CommandScopeDevice  , /* vkCmdEndTransformFeedbackEXT */
+    /*  289 */ CommandScopeDevice  , /* vkCmdBeginQueryIndexedEXT */
+    /*  290 */ CommandScopeDevice  , /* vkCmdEndQueryIndexedEXT */
+    /*  291 */ CommandScopeDevice  , /* vkCmdDrawIndirectByteCountEXT */
+    /*  292 */ CommandScopeDevice  , /* vkCreateCuModuleNVX */
+    /*  293 */ CommandScopeDevice  , /* vkCreateCuFunctionNVX */
+    /*  294 */ CommandScopeDevice  , /* vkDestroyCuModuleNVX */
+    /*  295 */ CommandScopeDevice  , /* vkDestroyCuFunctionNVX */
+    /*  296 */ CommandScopeDevice  , /* vkCmdCuLaunchKernelNVX */
+    /*  297 */ CommandScopeDevice  , /* vkGetImageViewHandleNVX */
+    /*  298 */ CommandScopeDevice  , /* vkGetImageViewHandle64NVX */
+    /*  299 */ CommandScopeDevice  , /* vkGetImageViewAddressNVX */
+    /*  300 */ CommandScopeDevice  , /* vkCmdDrawIndirectCountAMD */
+    /*  301 */ CommandScopeDevice  , /* vkCmdDrawIndexedIndirectCountAMD */
+    /*  302 */ CommandScopeDevice  , /* vkGetShaderInfoAMD */
+    /*  303 */ CommandScopeDevice  , /* vkCmdBeginRenderingKHR */
+    /*  304 */ CommandScopeDevice  , /* vkCmdEndRenderingKHR */
+    /*  305 */ CommandScopeInstance, /* vkCreateStreamDescriptorSurfaceGGP */
+    /*  306 */ CommandScopeInstance, /* vkGetPhysicalDeviceExternalImageFormatPropertiesNV */
+    /*  307 */ CommandScopeDevice  , /* vkGetMemoryWin32HandleNV */
+    /*  308 */ CommandScopeInstance, /* vkGetPhysicalDeviceFeatures2KHR */
+    /*  309 */ CommandScopeInstance, /* vkGetPhysicalDeviceProperties2KHR */
+    /*  310 */ CommandScopeInstance, /* vkGetPhysicalDeviceFormatProperties2KHR */
+    /*  311 */ CommandScopeInstance, /* vkGetPhysicalDeviceImageFormatProperties2KHR */
+    /*  312 */ CommandScopeInstance, /* vkGetPhysicalDeviceQueueFamilyProperties2KHR */
+    /*  313 */ CommandScopeInstance, /* vkGetPhysicalDeviceMemoryProperties2KHR */
+    /*  314 */ CommandScopeInstance, /* vkGetPhysicalDeviceSparseImageFormatProperties2KHR */
+    /*  315 */ CommandScopeDevice  , /* vkGetDeviceGroupPeerMemoryFeaturesKHR */
+    /*  316 */ CommandScopeDevice  , /* vkCmdSetDeviceMaskKHR */
+    /*  317 */ CommandScopeDevice  , /* vkCmdDispatchBaseKHR */
+    /*  318 */ CommandScopeInstance, /* vkCreateViSurfaceNN */
+    /*  319 */ CommandScopeDevice  , /* vkTrimCommandPoolKHR */
+    /*  320 */ CommandScopeInstance, /* vkEnumeratePhysicalDeviceGroupsKHR */
+    /*  321 */ CommandScopeInstance, /* vkGetPhysicalDeviceExternalBufferPropertiesKHR */
+    /*  322 */ CommandScopeDevice  , /* vkGetMemoryWin32HandleKHR */
+    /*  323 */ CommandScopeDevice  , /* vkGetMemoryWin32HandlePropertiesKHR */
+    /*  324 */ CommandScopeDevice  , /* vkGetMemoryFdKHR */
+    /*  325 */ CommandScopeDevice  , /* vkGetMemoryFdPropertiesKHR */
+    /*  326 */ CommandScopeInstance, /* vkGetPhysicalDeviceExternalSemaphorePropertiesKHR */
+    /*  327 */ CommandScopeDevice  , /* vkImportSemaphoreWin32HandleKHR */
+    /*  328 */ CommandScopeDevice  , /* vkGetSemaphoreWin32HandleKHR */
+    /*  329 */ CommandScopeDevice  , /* vkImportSemaphoreFdKHR */
+    /*  330 */ CommandScopeDevice  , /* vkGetSemaphoreFdKHR */
+    /*  331 */ CommandScopeDevice  , /* vkCmdPushDescriptorSetKHR */
+    /*  332 */ CommandScopeDevice  , /* vkCmdPushDescriptorSetWithTemplateKHR */
+    /*  333 */ CommandScopeDevice  , /* vkCmdBeginConditionalRenderingEXT */
+    /*  334 */ CommandScopeDevice  , /* vkCmdEndConditionalRenderingEXT */
+    /*  335 */ CommandScopeDevice  , /* vkCreateDescriptorUpdateTemplateKHR */
+    /*  336 */ CommandScopeDevice  , /* vkDestroyDescriptorUpdateTemplateKHR */
+    /*  337 */ CommandScopeDevice  , /* vkUpdateDescriptorSetWithTemplateKHR */
+    /*  338 */ CommandScopeDevice  , /* vkCmdSetViewportWScalingNV */
+    /*  339 */ CommandScopeInstance, /* vkReleaseDisplayEXT */
+    /*  340 */ CommandScopeInstance, /* vkAcquireXlibDisplayEXT */
+    /*  341 */ CommandScopeInstance, /* vkGetRandROutputDisplayEXT */
+    /*  342 */ CommandScopeInstance, /* vkGetPhysicalDeviceSurfaceCapabilities2EXT */
+    /*  343 */ CommandScopeDevice  , /* vkDisplayPowerControlEXT */
+    /*  344 */ CommandScopeDevice  , /* vkRegisterDeviceEventEXT */
+    /*  345 */ CommandScopeDevice  , /* vkRegisterDisplayEventEXT */
+    /*  346 */ CommandScopeDevice  , /* vkGetSwapchainCounterEXT */
+    /*  347 */ CommandScopeDevice  , /* vkGetRefreshCycleDurationGOOGLE */
+    /*  348 */ CommandScopeDevice  , /* vkGetPastPresentationTimingGOOGLE */
+    /*  349 */ CommandScopeDevice  , /* vkCmdSetDiscardRectangleEXT */
+    /*  350 */ CommandScopeDevice  , /* vkCmdSetDiscardRectangleEnableEXT */
+    /*  351 */ CommandScopeDevice  , /* vkCmdSetDiscardRectangleModeEXT */
+    /*  352 */ CommandScopeDevice  , /* vkSetHdrMetadataEXT */
+    /*  353 */ CommandScopeDevice  , /* vkCreateRenderPass2KHR */
+    /*  354 */ CommandScopeDevice  , /* vkCmdBeginRenderPass2KHR */
+    /*  355 */ CommandScopeDevice  , /* vkCmdNextSubpass2KHR */
+    /*  356 */ CommandScopeDevice  , /* vkCmdEndRenderPass2KHR */
+    /*  357 */ CommandScopeDevice  , /* vkGetSwapchainStatusKHR */
+    /*  358 */ CommandScopeInstance, /* vkGetPhysicalDeviceExternalFencePropertiesKHR */
+    /*  359 */ CommandScopeDevice  , /* vkImportFenceWin32HandleKHR */
+    /*  360 */ CommandScopeDevice  , /* vkGetFenceWin32HandleKHR */
+    /*  361 */ CommandScopeDevice  , /* vkImportFenceFdKHR */
+    /*  362 */ CommandScopeDevice  , /* vkGetFenceFdKHR */
+    /*  363 */ CommandScopeInstance, /* vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR */
+    /*  364 */ CommandScopeInstance, /* vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR */
+    /*  365 */ CommandScopeDevice  , /* vkAcquireProfilingLockKHR */
+    /*  366 */ CommandScopeDevice  , /* vkReleaseProfilingLockKHR */
+    /*  367 */ CommandScopeInstance, /* vkGetPhysicalDeviceSurfaceCapabilities2KHR */
+    /*  368 */ CommandScopeInstance, /* vkGetPhysicalDeviceSurfaceFormats2KHR */
+    /*  369 */ CommandScopeInstance, /* vkGetPhysicalDeviceDisplayProperties2KHR */
+    /*  370 */ CommandScopeInstance, /* vkGetPhysicalDeviceDisplayPlaneProperties2KHR */
+    /*  371 */ CommandScopeInstance, /* vkGetDisplayModeProperties2KHR */
+    /*  372 */ CommandScopeInstance, /* vkGetDisplayPlaneCapabilities2KHR */
+    /*  373 */ CommandScopeInstance, /* vkCreateIOSSurfaceMVK */
+    /*  374 */ CommandScopeInstance, /* vkCreateMacOSSurfaceMVK */
+    /*  375 */ CommandScopeDevice  , /* vkSetDebugUtilsObjectNameEXT */
+    /*  376 */ CommandScopeDevice  , /* vkSetDebugUtilsObjectTagEXT */
+    /*  377 */ CommandScopeDevice  , /* vkQueueBeginDebugUtilsLabelEXT */
+    /*  378 */ CommandScopeDevice  , /* vkQueueEndDebugUtilsLabelEXT */
+    /*  379 */ CommandScopeDevice  , /* vkQueueInsertDebugUtilsLabelEXT */
+    /*  380 */ CommandScopeDevice  , /* vkCmdBeginDebugUtilsLabelEXT */
+    /*  381 */ CommandScopeDevice  , /* vkCmdEndDebugUtilsLabelEXT */
+    /*  382 */ CommandScopeDevice  , /* vkCmdInsertDebugUtilsLabelEXT */
+    /*  383 */ CommandScopeInstance, /* vkCreateDebugUtilsMessengerEXT */
+    /*  384 */ CommandScopeInstance, /* vkDestroyDebugUtilsMessengerEXT */
+    /*  385 */ CommandScopeInstance, /* vkSubmitDebugUtilsMessageEXT */
+    /*  386 */ CommandScopeDevice  , /* vkGetAndroidHardwareBufferPropertiesANDROID */
+    /*  387 */ CommandScopeDevice  , /* vkGetMemoryAndroidHardwareBufferANDROID */
+    /*  388 */ CommandScopeDevice  , /* vkCreateExecutionGraphPipelinesAMDX */
+    /*  389 */ CommandScopeDevice  , /* vkGetExecutionGraphPipelineScratchSizeAMDX */
+    /*  390 */ CommandScopeDevice  , /* vkGetExecutionGraphPipelineNodeIndexAMDX */
+    /*  391 */ CommandScopeDevice  , /* vkCmdInitializeGraphScratchMemoryAMDX */
+    /*  392 */ CommandScopeDevice  , /* vkCmdDispatchGraphAMDX */
+    /*  393 */ CommandScopeDevice  , /* vkCmdDispatchGraphIndirectAMDX */
+    /*  394 */ CommandScopeDevice  , /* vkCmdDispatchGraphIndirectCountAMDX */
+    /*  395 */ CommandScopeDevice  , /* vkCmdSetSampleLocationsEXT */
+    /*  396 */ CommandScopeInstance, /* vkGetPhysicalDeviceMultisamplePropertiesEXT */
+    /*  397 */ CommandScopeDevice  , /* vkGetImageMemoryRequirements2KHR */
+    /*  398 */ CommandScopeDevice  , /* vkGetBufferMemoryRequirements2KHR */
+    /*  399 */ CommandScopeDevice  , /* vkGetImageSparseMemoryRequirements2KHR */
+    /*  400 */ CommandScopeDevice  , /* vkCreateAccelerationStructureKHR */
+    /*  401 */ CommandScopeDevice  , /* vkDestroyAccelerationStructureKHR */
+    /*  402 */ CommandScopeDevice  , /* vkCmdBuildAccelerationStructuresKHR */
+    /*  403 */ CommandScopeDevice  , /* vkCmdBuildAccelerationStructuresIndirectKHR */
+    /*  404 */ CommandScopeDevice  , /* vkBuildAccelerationStructuresKHR */
+    /*  405 */ CommandScopeDevice  , /* vkCopyAccelerationStructureKHR */
+    /*  406 */ CommandScopeDevice  , /* vkCopyAccelerationStructureToMemoryKHR */
+    /*  407 */ CommandScopeDevice  , /* vkCopyMemoryToAccelerationStructureKHR */
+    /*  408 */ CommandScopeDevice  , /* vkWriteAccelerationStructuresPropertiesKHR */
+    /*  409 */ CommandScopeDevice  , /* vkCmdCopyAccelerationStructureKHR */
+    /*  410 */ CommandScopeDevice  , /* vkCmdCopyAccelerationStructureToMemoryKHR */
+    /*  411 */ CommandScopeDevice  , /* vkCmdCopyMemoryToAccelerationStructureKHR */
+    /*  412 */ CommandScopeDevice  , /* vkGetAccelerationStructureDeviceAddressKHR */
+    /*  413 */ CommandScopeDevice  , /* vkCmdWriteAccelerationStructuresPropertiesKHR */
+    /*  414 */ CommandScopeDevice  , /* vkGetDeviceAccelerationStructureCompatibilityKHR */
+    /*  415 */ CommandScopeDevice  , /* vkGetAccelerationStructureBuildSizesKHR */
+    /*  416 */ CommandScopeDevice  , /* vkCmdTraceRaysKHR */
+    /*  417 */ CommandScopeDevice  , /* vkCreateRayTracingPipelinesKHR */
+    /*  418 */ CommandScopeDevice  , /* vkGetRayTracingShaderGroupHandlesKHR */
+    /*  419 */ CommandScopeDevice  , /* vkGetRayTracingCaptureReplayShaderGroupHandlesKHR */
+    /*  420 */ CommandScopeDevice  , /* vkCmdTraceRaysIndirectKHR */
+    /*  421 */ CommandScopeDevice  , /* vkGetRayTracingShaderGroupStackSizeKHR */
+    /*  422 */ CommandScopeDevice  , /* vkCmdSetRayTracingPipelineStackSizeKHR */
+    /*  423 */ CommandScopeDevice  , /* vkCreateSamplerYcbcrConversionKHR */
+    /*  424 */ CommandScopeDevice  , /* vkDestroySamplerYcbcrConversionKHR */
+    /*  425 */ CommandScopeDevice  , /* vkBindBufferMemory2KHR */
+    /*  426 */ CommandScopeDevice  , /* vkBindImageMemory2KHR */
+    /*  427 */ CommandScopeDevice  , /* vkGetImageDrmFormatModifierPropertiesEXT */
+    /*  428 */ CommandScopeDevice  , /* vkCreateValidationCacheEXT */
+    /*  429 */ CommandScopeDevice  , /* vkDestroyValidationCacheEXT */
+    /*  430 */ CommandScopeDevice  , /* vkMergeValidationCachesEXT */
+    /*  431 */ CommandScopeDevice  , /* vkGetValidationCacheDataEXT */
+    /*  432 */ CommandScopeDevice  , /* vkCmdBindShadingRateImageNV */
+    /*  433 */ CommandScopeDevice  , /* vkCmdSetViewportShadingRatePaletteNV */
+    /*  434 */ CommandScopeDevice  , /* vkCmdSetCoarseSampleOrderNV */
+    /*  435 */ CommandScopeDevice  , /* vkCreateAccelerationStructureNV */
+    /*  436 */ CommandScopeDevice  , /* vkDestroyAccelerationStructureNV */
+    /*  437 */ CommandScopeDevice  , /* vkGetAccelerationStructureMemoryRequirementsNV */
+    /*  438 */ CommandScopeDevice  , /* vkBindAccelerationStructureMemoryNV */
+    /*  439 */ CommandScopeDevice  , /* vkCmdBuildAccelerationStructureNV */
+    /*  440 */ CommandScopeDevice  , /* vkCmdCopyAccelerationStructureNV */
+    /*  441 */ CommandScopeDevice  , /* vkCmdTraceRaysNV */
+    /*  442 */ CommandScopeDevice  , /* vkCreateRayTracingPipelinesNV */
+    /*  443 */ CommandScopeDevice  , /* vkGetRayTracingShaderGroupHandlesNV */
+    /*  444 */ CommandScopeDevice  , /* vkGetAccelerationStructureHandleNV */
+    /*  445 */ CommandScopeDevice  , /* vkCmdWriteAccelerationStructuresPropertiesNV */
+    /*  446 */ CommandScopeDevice  , /* vkCompileDeferredNV */
+    /*  447 */ CommandScopeDevice  , /* vkGetDescriptorSetLayoutSupportKHR */
+    /*  448 */ CommandScopeDevice  , /* vkCmdDrawIndirectCountKHR */
+    /*  449 */ CommandScopeDevice  , /* vkCmdDrawIndexedIndirectCountKHR */
+    /*  450 */ CommandScopeDevice  , /* vkGetMemoryHostPointerPropertiesEXT */
+    /*  451 */ CommandScopeDevice  , /* vkCmdWriteBufferMarkerAMD */
+    /*  452 */ CommandScopeDevice  , /* vkCmdWriteBufferMarker2AMD */
+    /*  453 */ CommandScopeInstance, /* vkGetPhysicalDeviceCalibrateableTimeDomainsEXT */
+    /*  454 */ CommandScopeDevice  , /* vkGetCalibratedTimestampsEXT */
+    /*  455 */ CommandScopeDevice  , /* vkCmdDrawMeshTasksNV */
+    /*  456 */ CommandScopeDevice  , /* vkCmdDrawMeshTasksIndirectNV */
+    /*  457 */ CommandScopeDevice  , /* vkCmdDrawMeshTasksIndirectCountNV */
+    /*  458 */ CommandScopeDevice  , /* vkCmdSetExclusiveScissorEnableNV */
+    /*  459 */ CommandScopeDevice  , /* vkCmdSetExclusiveScissorNV */
+    /*  460 */ CommandScopeDevice  , /* vkCmdSetCheckpointNV */
+    /*  461 */ CommandScopeDevice  , /* vkGetQueueCheckpointDataNV */
+    /*  462 */ CommandScopeDevice  , /* vkGetQueueCheckpointData2NV */
+    /*  463 */ CommandScopeDevice  , /* vkGetSemaphoreCounterValueKHR */
+    /*  464 */ CommandScopeDevice  , /* vkWaitSemaphoresKHR */
+    /*  465 */ CommandScopeDevice  , /* vkSignalSemaphoreKHR */
+    /*  466 */ CommandScopeDevice  , /* vkInitializePerformanceApiINTEL */
+    /*  467 */ CommandScopeDevice  , /* vkUninitializePerformanceApiINTEL */
+    /*  468 */ CommandScopeDevice  , /* vkCmdSetPerformanceMarkerINTEL */
+    /*  469 */ CommandScopeDevice  , /* vkCmdSetPerformanceStreamMarkerINTEL */
+    /*  470 */ CommandScopeDevice  , /* vkCmdSetPerformanceOverrideINTEL */
+    /*  471 */ CommandScopeDevice  , /* vkAcquirePerformanceConfigurationINTEL */
+    /*  472 */ CommandScopeDevice  , /* vkReleasePerformanceConfigurationINTEL */
+    /*  473 */ CommandScopeDevice  , /* vkQueueSetPerformanceConfigurationINTEL */
+    /*  474 */ CommandScopeDevice  , /* vkGetPerformanceParameterINTEL */
+    /*  475 */ CommandScopeDevice  , /* vkSetLocalDimmingAMD */
+    /*  476 */ CommandScopeInstance, /* vkCreateImagePipeSurfaceFUCHSIA */
+    /*  477 */ CommandScopeInstance, /* vkCreateMetalSurfaceEXT */
+    /*  478 */ CommandScopeInstance, /* vkGetPhysicalDeviceFragmentShadingRatesKHR */
+    /*  479 */ CommandScopeDevice  , /* vkCmdSetFragmentShadingRateKHR */
+    /*  480 */ CommandScopeDevice  , /* vkCmdSetRenderingAttachmentLocationsKHR */
+    /*  481 */ CommandScopeDevice  , /* vkCmdSetRenderingInputAttachmentIndicesKHR */
+    /*  482 */ CommandScopeDevice  , /* vkGetBufferDeviceAddressEXT */
+    /*  483 */ CommandScopeInstance, /* vkGetPhysicalDeviceToolPropertiesEXT */
+    /*  484 */ CommandScopeDevice  , /* vkWaitForPresentKHR */
+    /*  485 */ CommandScopeInstance, /* vkGetPhysicalDeviceCooperativeMatrixPropertiesNV */
+    /*  486 */ CommandScopeInstance, /* vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV */
+    /*  487 */ CommandScopeInstance, /* vkGetPhysicalDeviceSurfacePresentModes2EXT */
+    /*  488 */ CommandScopeDevice  , /* vkAcquireFullScreenExclusiveModeEXT */
+    /*  489 */ CommandScopeDevice  , /* vkReleaseFullScreenExclusiveModeEXT */
+    /*  490 */ CommandScopeDevice  , /* vkGetDeviceGroupSurfacePresentModes2EXT */
+    /*  491 */ CommandScopeInstance, /* vkCreateHeadlessSurfaceEXT */
+    /*  492 */ CommandScopeDevice  , /* vkGetBufferDeviceAddressKHR */
+    /*  493 */ CommandScopeDevice  , /* vkGetBufferOpaqueCaptureAddressKHR */
+    /*  494 */ CommandScopeDevice  , /* vkGetDeviceMemoryOpaqueCaptureAddressKHR */
+    /*  495 */ CommandScopeDevice  , /* vkCmdSetLineStippleEXT */
+    /*  496 */ CommandScopeDevice  , /* vkResetQueryPoolEXT */
+    /*  497 */ CommandScopeDevice  , /* vkCmdSetCullModeEXT */
+    /*  498 */ CommandScopeDevice  , /* vkCmdSetFrontFaceEXT */
+    /*  499 */ CommandScopeDevice  , /* vkCmdSetPrimitiveTopologyEXT */
+    /*  500 */ CommandScopeDevice  , /* vkCmdSetViewportWithCountEXT */
+    /*  501 */ CommandScopeDevice  , /* vkCmdSetScissorWithCountEXT */
+    /*  502 */ CommandScopeDevice  , /* vkCmdBindVertexBuffers2EXT */
+    /*  503 */ CommandScopeDevice  , /* vkCmdSetDepthTestEnableEXT */
+    /*  504 */ CommandScopeDevice  , /* vkCmdSetDepthWriteEnableEXT */
+    /*  505 */ CommandScopeDevice  , /* vkCmdSetDepthCompareOpEXT */
+    /*  506 */ CommandScopeDevice  , /* vkCmdSetDepthBoundsTestEnableEXT */
+    /*  507 */ CommandScopeDevice  , /* vkCmdSetStencilTestEnableEXT */
+    /*  508 */ CommandScopeDevice  , /* vkCmdSetStencilOpEXT */
+    /*  509 */ CommandScopeDevice  , /* vkCreateDeferredOperationKHR */
+    /*  510 */ CommandScopeDevice  , /* vkDestroyDeferredOperationKHR */
+    /*  511 */ CommandScopeDevice  , /* vkGetDeferredOperationMaxConcurrencyKHR */
+    /*  512 */ CommandScopeDevice  , /* vkGetDeferredOperationResultKHR */
+    /*  513 */ CommandScopeDevice  , /* vkDeferredOperationJoinKHR */
+    /*  514 */ CommandScopeDevice  , /* vkGetPipelineExecutablePropertiesKHR */
+    /*  515 */ CommandScopeDevice  , /* vkGetPipelineExecutableStatisticsKHR */
+    /*  516 */ CommandScopeDevice  , /* vkGetPipelineExecutableInternalRepresentationsKHR */
+    /*  517 */ CommandScopeDevice  , /* vkCopyMemoryToImageEXT */
+    /*  518 */ CommandScopeDevice  , /* vkCopyImageToMemoryEXT */
+    /*  519 */ CommandScopeDevice  , /* vkCopyImageToImageEXT */
+    /*  520 */ CommandScopeDevice  , /* vkTransitionImageLayoutEXT */
+    /*  521 */ CommandScopeDevice  , /* vkGetImageSubresourceLayout2EXT */
+    /*  522 */ CommandScopeDevice  , /* vkMapMemory2KHR */
+    /*  523 */ CommandScopeDevice  , /* vkUnmapMemory2KHR */
+    /*  524 */ CommandScopeDevice  , /* vkReleaseSwapchainImagesEXT */
+    /*  525 */ CommandScopeDevice  , /* vkGetGeneratedCommandsMemoryRequirementsNV */
+    /*  526 */ CommandScopeDevice  , /* vkCmdPreprocessGeneratedCommandsNV */
+    /*  527 */ CommandScopeDevice  , /* vkCmdExecuteGeneratedCommandsNV */
+    /*  528 */ CommandScopeDevice  , /* vkCmdBindPipelineShaderGroupNV */
+    /*  529 */ CommandScopeDevice  , /* vkCreateIndirectCommandsLayoutNV */
+    /*  530 */ CommandScopeDevice  , /* vkDestroyIndirectCommandsLayoutNV */
+    /*  531 */ CommandScopeDevice  , /* vkCmdSetDepthBias2EXT */
+    /*  532 */ CommandScopeInstance, /* vkAcquireDrmDisplayEXT */
+    /*  533 */ CommandScopeInstance, /* vkGetDrmDisplayEXT */
+    /*  534 */ CommandScopeDevice  , /* vkCreatePrivateDataSlotEXT */
+    /*  535 */ CommandScopeDevice  , /* vkDestroyPrivateDataSlotEXT */
+    /*  536 */ CommandScopeDevice  , /* vkSetPrivateDataEXT */
+    /*  537 */ CommandScopeDevice  , /* vkGetPrivateDataEXT */
+    /*  538 */ CommandScopeInstance, /* vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR */
+    /*  539 */ CommandScopeDevice  , /* vkGetEncodedVideoSessionParametersKHR */
+    /*  540 */ CommandScopeDevice  , /* vkCmdEncodeVideoKHR */
+    /*  541 */ CommandScopeDevice  , /* vkCreateCudaModuleNV */
+    /*  542 */ CommandScopeDevice  , /* vkGetCudaModuleCacheNV */
+    /*  543 */ CommandScopeDevice  , /* vkCreateCudaFunctionNV */
+    /*  544 */ CommandScopeDevice  , /* vkDestroyCudaModuleNV */
+    /*  545 */ CommandScopeDevice  , /* vkDestroyCudaFunctionNV */
+    /*  546 */ CommandScopeDevice  , /* vkCmdCudaLaunchKernelNV */
+    /*  547 */ CommandScopeDevice  , /* vkCmdDispatchTileQCOM */
+    /*  548 */ CommandScopeDevice  , /* vkCmdBeginPerTileExecutionQCOM */
+    /*  549 */ CommandScopeDevice  , /* vkCmdEndPerTileExecutionQCOM */
+    /*  550 */ CommandScopeDevice  , /* vkExportMetalObjectsEXT */
+    /*  551 */ CommandScopeDevice  , /* vkCmdSetEvent2KHR */
+    /*  552 */ CommandScopeDevice  , /* vkCmdResetEvent2KHR */
+    /*  553 */ CommandScopeDevice  , /* vkCmdWaitEvents2KHR */
+    /*  554 */ CommandScopeDevice  , /* vkCmdPipelineBarrier2KHR */
+    /*  555 */ CommandScopeDevice  , /* vkCmdWriteTimestamp2KHR */
+    /*  556 */ CommandScopeDevice  , /* vkQueueSubmit2KHR */
+    /*  557 */ CommandScopeDevice  , /* vkGetDescriptorSetLayoutSizeEXT */
+    /*  558 */ CommandScopeDevice  , /* vkGetDescriptorSetLayoutBindingOffsetEXT */
+    /*  559 */ CommandScopeDevice  , /* vkGetDescriptorEXT */
+    /*  560 */ CommandScopeDevice  , /* vkCmdBindDescriptorBuffersEXT */
+    /*  561 */ CommandScopeDevice  , /* vkCmdSetDescriptorBufferOffsetsEXT */
+    /*  562 */ CommandScopeDevice  , /* vkCmdBindDescriptorBufferEmbeddedSamplersEXT */
+    /*  563 */ CommandScopeDevice  , /* vkGetBufferOpaqueCaptureDescriptorDataEXT */
+    /*  564 */ CommandScopeDevice  , /* vkGetImageOpaqueCaptureDescriptorDataEXT */
+    /*  565 */ CommandScopeDevice  , /* vkGetImageViewOpaqueCaptureDescriptorDataEXT */
+    /*  566 */ CommandScopeDevice  , /* vkGetSamplerOpaqueCaptureDescriptorDataEXT */
+    /*  567 */ CommandScopeDevice  , /* vkGetAccelerationStructureOpaqueCaptureDescriptorDataEXT */
+    /*  568 */ CommandScopeDevice  , /* vkCmdSetFragmentShadingRateEnumNV */
+    /*  569 */ CommandScopeDevice  , /* vkCmdDrawMeshTasksEXT */
+    /*  570 */ CommandScopeDevice  , /* vkCmdDrawMeshTasksIndirectEXT */
+    /*  571 */ CommandScopeDevice  , /* vkCmdDrawMeshTasksIndirectCountEXT */
+    /*  572 */ CommandScopeDevice  , /* vkCmdCopyBuffer2KHR */
+    /*  573 */ CommandScopeDevice  , /* vkCmdCopyImage2KHR */
+    /*  574 */ CommandScopeDevice  , /* vkCmdCopyBufferToImage2KHR */
+    /*  575 */ CommandScopeDevice  , /* vkCmdCopyImageToBuffer2KHR */
+    /*  576 */ CommandScopeDevice  , /* vkCmdBlitImage2KHR */
+    /*  577 */ CommandScopeDevice  , /* vkCmdResolveImage2KHR */
+    /*  578 */ CommandScopeDevice  , /* vkGetDeviceFaultInfoEXT */
+    /*  579 */ CommandScopeInstance, /* vkAcquireWinrtDisplayNV */
+    /*  580 */ CommandScopeInstance, /* vkGetWinrtDisplayNV */
+    /*  581 */ CommandScopeInstance, /* vkCreateDirectFBSurfaceEXT */
+    /*  582 */ CommandScopeInstance, /* vkGetPhysicalDeviceDirectFBPresentationSupportEXT */
+    /*  583 */ CommandScopeDevice  , /* vkCmdSetVertexInputEXT */
+    /*  584 */ CommandScopeDevice  , /* vkGetMemoryZirconHandleFUCHSIA */
+    /*  585 */ CommandScopeDevice  , /* vkGetMemoryZirconHandlePropertiesFUCHSIA */
+    /*  586 */ CommandScopeDevice  , /* vkImportSemaphoreZirconHandleFUCHSIA */
+    /*  587 */ CommandScopeDevice  , /* vkGetSemaphoreZirconHandleFUCHSIA */
+    /*  588 */ CommandScopeDevice  , /* vkCreateBufferCollectionFUCHSIA */
+    /*  589 */ CommandScopeDevice  , /* vkSetBufferCollectionImageConstraintsFUCHSIA */
+    /*  590 */ CommandScopeDevice  , /* vkSetBufferCollectionBufferConstraintsFUCHSIA */
+    /*  591 */ CommandScopeDevice  , /* vkDestroyBufferCollectionFUCHSIA */
+    /*  592 */ CommandScopeDevice  , /* vkGetBufferCollectionPropertiesFUCHSIA */
+    /*  593 */ CommandScopeDevice  , /* vkGetDeviceSubpassShadingMaxWorkgroupSizeHUAWEI */
+    /*  594 */ CommandScopeDevice  , /* vkCmdSubpassShadingHUAWEI */
+    /*  595 */ CommandScopeDevice  , /* vkCmdBindInvocationMaskHUAWEI */
+    /*  596 */ CommandScopeDevice  , /* vkGetMemoryRemoteAddressNV */
+    /*  597 */ CommandScopeDevice  , /* vkGetPipelinePropertiesEXT */
+    /*  598 */ CommandScopeDevice  , /* vkCmdSetPatchControlPointsEXT */
+    /*  599 */ CommandScopeDevice  , /* vkCmdSetRasterizerDiscardEnableEXT */
+    /*  600 */ CommandScopeDevice  , /* vkCmdSetDepthBiasEnableEXT */
+    /*  601 */ CommandScopeDevice  , /* vkCmdSetLogicOpEXT */
+    /*  602 */ CommandScopeDevice  , /* vkCmdSetPrimitiveRestartEnableEXT */
+    /*  603 */ CommandScopeInstance, /* vkCreateScreenSurfaceQNX */
+    /*  604 */ CommandScopeInstance, /* vkGetPhysicalDeviceScreenPresentationSupportQNX */
+    /*  605 */ CommandScopeDevice  , /* vkCmdSetColorWriteEnableEXT */
+    /*  606 */ CommandScopeDevice  , /* vkCmdTraceRaysIndirect2KHR */
+    /*  607 */ CommandScopeDevice  , /* vkCmdDrawMultiEXT */
+    /*  608 */ CommandScopeDevice  , /* vkCmdDrawMultiIndexedEXT */
+    /*  609 */ CommandScopeDevice  , /* vkCreateMicromapEXT */
+    /*  610 */ CommandScopeDevice  , /* vkDestroyMicromapEXT */
+    /*  611 */ CommandScopeDevice  , /* vkCmdBuildMicromapsEXT */
+    /*  612 */ CommandScopeDevice  , /* vkBuildMicromapsEXT */
+    /*  613 */ CommandScopeDevice  , /* vkCopyMicromapEXT */
+    /*  614 */ CommandScopeDevice  , /* vkCopyMicromapToMemoryEXT */
+    /*  615 */ CommandScopeDevice  , /* vkCopyMemoryToMicromapEXT */
+    /*  616 */ CommandScopeDevice  , /* vkWriteMicromapsPropertiesEXT */
+    /*  617 */ CommandScopeDevice  , /* vkCmdCopyMicromapEXT */
+    /*  618 */ CommandScopeDevice  , /* vkCmdCopyMicromapToMemoryEXT */
+    /*  619 */ CommandScopeDevice  , /* vkCmdCopyMemoryToMicromapEXT */
+    /*  620 */ CommandScopeDevice  , /* vkCmdWriteMicromapsPropertiesEXT */
+    /*  621 */ CommandScopeDevice  , /* vkGetDeviceMicromapCompatibilityEXT */
+    /*  622 */ CommandScopeDevice  , /* vkGetMicromapBuildSizesEXT */
+    /*  623 */ CommandScopeDevice  , /* vkCmdDrawClusterHUAWEI */
+    /*  624 */ CommandScopeDevice  , /* vkCmdDrawClusterIndirectHUAWEI */
+    /*  625 */ CommandScopeDevice  , /* vkSetDeviceMemoryPriorityEXT */
+    /*  626 */ CommandScopeDevice  , /* vkGetDeviceBufferMemoryRequirementsKHR */
+    /*  627 */ CommandScopeDevice  , /* vkGetDeviceImageMemoryRequirementsKHR */
+    /*  628 */ CommandScopeDevice  , /* vkGetDeviceImageSparseMemoryRequirementsKHR */
+    /*  629 */ CommandScopeDevice  , /* vkGetDescriptorSetLayoutHostMappingInfoVALVE */
+    /*  630 */ CommandScopeDevice  , /* vkGetDescriptorSetHostMappingVALVE */
+    /*  631 */ CommandScopeDevice  , /* vkCmdCopyMemoryIndirectNV */
+    /*  632 */ CommandScopeDevice  , /* vkCmdCopyMemoryToImageIndirectNV */
+    /*  633 */ CommandScopeDevice  , /* vkCmdDecompressMemoryNV */
+    /*  634 */ CommandScopeDevice  , /* vkCmdDecompressMemoryIndirectCountNV */
+    /*  635 */ CommandScopeDevice  , /* vkGetPipelineIndirectMemoryRequirementsNV */
+    /*  636 */ CommandScopeDevice  , /* vkCmdUpdatePipelineIndirectBufferNV */
+    /*  637 */ CommandScopeDevice  , /* vkGetPipelineIndirectDeviceAddressNV */
+    /*  638 */ CommandScopeDevice  , /* vkCmdSetDepthClampEnableEXT */
+    /*  639 */ CommandScopeDevice  , /* vkCmdSetPolygonModeEXT */
+    /*  640 */ CommandScopeDevice  , /* vkCmdSetRasterizationSamplesEXT */
+    /*  641 */ CommandScopeDevice  , /* vkCmdSetSampleMaskEXT */
+    /*  642 */ CommandScopeDevice  , /* vkCmdSetAlphaToCoverageEnableEXT */
+    /*  643 */ CommandScopeDevice  , /* vkCmdSetAlphaToOneEnableEXT */
+    /*  644 */ CommandScopeDevice  , /* vkCmdSetLogicOpEnableEXT */
+    /*  645 */ CommandScopeDevice  , /* vkCmdSetColorBlendEnableEXT */
+    /*  646 */ CommandScopeDevice  , /* vkCmdSetColorBlendEquationEXT */
+    /*  647 */ CommandScopeDevice  , /* vkCmdSetColorWriteMaskEXT */
+    /*  648 */ CommandScopeDevice  , /* vkCmdSetTessellationDomainOriginEXT */
+    /*  649 */ CommandScopeDevice  , /* vkCmdSetRasterizationStreamEXT */
+    /*  650 */ CommandScopeDevice  , /* vkCmdSetConservativeRasterizationModeEXT */
+    /*  651 */ CommandScopeDevice  , /* vkCmdSetExtraPrimitiveOverestimationSizeEXT */
+    /*  652 */ CommandScopeDevice  , /* vkCmdSetDepthClipEnableEXT */
+    /*  653 */ CommandScopeDevice  , /* vkCmdSetSampleLocationsEnableEXT */
+    /*  654 */ CommandScopeDevice  , /* vkCmdSetColorBlendAdvancedEXT */
+    /*  655 */ CommandScopeDevice  , /* vkCmdSetProvokingVertexModeEXT */
+    /*  656 */ CommandScopeDevice  , /* vkCmdSetLineRasterizationModeEXT */
+    /*  657 */ CommandScopeDevice  , /* vkCmdSetLineStippleEnableEXT */
+    /*  658 */ CommandScopeDevice  , /* vkCmdSetDepthClipNegativeOneToOneEXT */
+    /*  659 */ CommandScopeDevice  , /* vkCmdSetViewportWScalingEnableNV */
+    /*  660 */ CommandScopeDevice  , /* vkCmdSetViewportSwizzleNV */
+    /*  661 */ CommandScopeDevice  , /* vkCmdSetCoverageToColorEnableNV */
+    /*  662 */ CommandScopeDevice  , /* vkCmdSetCoverageToColorLocationNV */
+    /*  663 */ CommandScopeDevice  , /* vkCmdSetCoverageModulationModeNV */
+    /*  664 */ CommandScopeDevice  , /* vkCmdSetCoverageModulationTableEnableNV */
+    /*  665 */ CommandScopeDevice  , /* vkCmdSetCoverageModulationTableNV */
+    /*  666 */ CommandScopeDevice  , /* vkCmdSetShadingRateImageEnableNV */
+    /*  667 */ CommandScopeDevice  , /* vkCmdSetRepresentativeFragmentTestEnableNV */
+    /*  668 */ CommandScopeDevice  , /* vkCmdSetCoverageReductionModeNV */
+    /*  669 */ CommandScopeDevice  , /* vkCreateTensorARM */
+    /*  670 */ CommandScopeDevice  , /* vkDestroyTensorARM */
+    /*  671 */ CommandScopeDevice  , /* vkCreateTensorViewARM */
+    /*  672 */ CommandScopeDevice  , /* vkDestroyTensorViewARM */
+    /*  673 */ CommandScopeDevice  , /* vkGetTensorMemoryRequirementsARM */
+    /*  674 */ CommandScopeDevice  , /* vkBindTensorMemoryARM */
+    /*  675 */ CommandScopeDevice  , /* vkGetDeviceTensorMemoryRequirementsARM */
+    /*  676 */ CommandScopeDevice  , /* vkCmdCopyTensorARM */
+    /*  677 */ CommandScopeInstance, /* vkGetPhysicalDeviceExternalTensorPropertiesARM */
+    /*  678 */ CommandScopeDevice  , /* vkGetTensorOpaqueCaptureDescriptorDataARM */
+    /*  679 */ CommandScopeDevice  , /* vkGetTensorViewOpaqueCaptureDescriptorDataARM */
+    /*  680 */ CommandScopeDevice  , /* vkGetShaderModuleIdentifierEXT */
+    /*  681 */ CommandScopeDevice  , /* vkGetShaderModuleCreateInfoIdentifierEXT */
+    /*  682 */ CommandScopeInstance, /* vkGetPhysicalDeviceOpticalFlowImageFormatsNV */
+    /*  683 */ CommandScopeDevice  , /* vkCreateOpticalFlowSessionNV */
+    /*  684 */ CommandScopeDevice  , /* vkDestroyOpticalFlowSessionNV */
+    /*  685 */ CommandScopeDevice  , /* vkBindOpticalFlowSessionImageNV */
+    /*  686 */ CommandScopeDevice  , /* vkCmdOpticalFlowExecuteNV */
+    /*  687 */ CommandScopeDevice  , /* vkCmdBindIndexBuffer2KHR */
+    /*  688 */ CommandScopeDevice  , /* vkGetRenderingAreaGranularityKHR */
+    /*  689 */ CommandScopeDevice  , /* vkGetDeviceImageSubresourceLayoutKHR */
+    /*  690 */ CommandScopeDevice  , /* vkGetImageSubresourceLayout2KHR */
+    /*  691 */ CommandScopeDevice  , /* vkAntiLagUpdateAMD */
+    /*  692 */ CommandScopeDevice  , /* vkWaitForPresent2KHR */
+    /*  693 */ CommandScopeDevice  , /* vkCreateShadersEXT */
+    /*  694 */ CommandScopeDevice  , /* vkDestroyShaderEXT */
+    /*  695 */ CommandScopeDevice  , /* vkGetShaderBinaryDataEXT */
+    /*  696 */ CommandScopeDevice  , /* vkCmdBindShadersEXT */
+    /*  697 */ CommandScopeDevice  , /* vkCmdSetDepthClampRangeEXT */
+    /*  698 */ CommandScopeDevice  , /* vkCreatePipelineBinariesKHR */
+    /*  699 */ CommandScopeDevice  , /* vkDestroyPipelineBinaryKHR */
+    /*  700 */ CommandScopeDevice  , /* vkGetPipelineKeyKHR */
+    /*  701 */ CommandScopeDevice  , /* vkGetPipelineBinaryDataKHR */
+    /*  702 */ CommandScopeDevice  , /* vkReleaseCapturedPipelineDataKHR */
+    /*  703 */ CommandScopeDevice  , /* vkGetFramebufferTilePropertiesQCOM */
+    /*  704 */ CommandScopeDevice  , /* vkGetDynamicRenderingTilePropertiesQCOM */
+    /*  705 */ CommandScopeDevice  , /* vkReleaseSwapchainImagesKHR */
+    /*  706 */ CommandScopeInstance, /* vkGetPhysicalDeviceCooperativeVectorPropertiesNV */
+    /*  707 */ CommandScopeDevice  , /* vkConvertCooperativeVectorMatrixNV */
+    /*  708 */ CommandScopeDevice  , /* vkCmdConvertCooperativeVectorMatrixNV */
+    /*  709 */ CommandScopeDevice  , /* vkSetLatencySleepModeNV */
+    /*  710 */ CommandScopeDevice  , /* vkLatencySleepNV */
+    /*  711 */ CommandScopeDevice  , /* vkSetLatencyMarkerNV */
+    /*  712 */ CommandScopeDevice  , /* vkGetLatencyTimingsNV */
+    /*  713 */ CommandScopeDevice  , /* vkQueueNotifyOutOfBandNV */
+    /*  714 */ CommandScopeInstance, /* vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR */
+    /*  715 */ CommandScopeDevice  , /* vkCreateDataGraphPipelinesARM */
+    /*  716 */ CommandScopeDevice  , /* vkCreateDataGraphPipelineSessionARM */
+    /*  717 */ CommandScopeDevice  , /* vkGetDataGraphPipelineSessionBindPointRequirementsARM */
+    /*  718 */ CommandScopeDevice  , /* vkGetDataGraphPipelineSessionMemoryRequirementsARM */
+    /*  719 */ CommandScopeDevice  , /* vkBindDataGraphPipelineSessionMemoryARM */
+    /*  720 */ CommandScopeDevice  , /* vkDestroyDataGraphPipelineSessionARM */
+    /*  721 */ CommandScopeDevice  , /* vkCmdDispatchDataGraphARM */
+    /*  722 */ CommandScopeDevice  , /* vkGetDataGraphPipelineAvailablePropertiesARM */
+    /*  723 */ CommandScopeDevice  , /* vkGetDataGraphPipelinePropertiesARM */
+    /*  724 */ CommandScopeInstance, /* vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM */
+    /*  725 */ CommandScopeInstance, /* vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM */
+    /*  726 */ CommandScopeDevice  , /* vkCmdSetAttachmentFeedbackLoopEnableEXT */
+    /*  727 */ CommandScopeDevice  , /* vkGetScreenBufferPropertiesQNX */
+    /*  728 */ CommandScopeDevice  , /* vkCmdSetLineStippleKHR */
+    /*  729 */ CommandScopeInstance, /* vkGetPhysicalDeviceCalibrateableTimeDomainsKHR */
+    /*  730 */ CommandScopeDevice  , /* vkGetCalibratedTimestampsKHR */
+    /*  731 */ CommandScopeDevice  , /* vkCmdBindDescriptorSets2KHR */
+    /*  732 */ CommandScopeDevice  , /* vkCmdPushConstants2KHR */
+    /*  733 */ CommandScopeDevice  , /* vkCmdPushDescriptorSet2KHR */
+    /*  734 */ CommandScopeDevice  , /* vkCmdPushDescriptorSetWithTemplate2KHR */
+    /*  735 */ CommandScopeDevice  , /* vkCmdSetDescriptorBufferOffsets2EXT */
+    /*  736 */ CommandScopeDevice  , /* vkCmdBindDescriptorBufferEmbeddedSamplers2EXT */
+    /*  737 */ CommandScopeDevice  , /* vkCmdBindTileMemoryQCOM */
+    /*  738 */ CommandScopeDevice  , /* vkCreateExternalComputeQueueNV */
+    /*  739 */ CommandScopeDevice  , /* vkDestroyExternalComputeQueueNV */
+    /*  740 */ CommandScopeInstance, /* vkGetExternalComputeQueueDataNV */
+    /*  741 */ CommandScopeDevice  , /* vkGetClusterAccelerationStructureBuildSizesNV */
+    /*  742 */ CommandScopeDevice  , /* vkCmdBuildClusterAccelerationStructureIndirectNV */
+    /*  743 */ CommandScopeDevice  , /* vkGetPartitionedAccelerationStructuresBuildSizesNV */
+    /*  744 */ CommandScopeDevice  , /* vkCmdBuildPartitionedAccelerationStructuresNV */
+    /*  745 */ CommandScopeDevice  , /* vkGetGeneratedCommandsMemoryRequirementsEXT */
+    /*  746 */ CommandScopeDevice  , /* vkCmdPreprocessGeneratedCommandsEXT */
+    /*  747 */ CommandScopeDevice  , /* vkCmdExecuteGeneratedCommandsEXT */
+    /*  748 */ CommandScopeDevice  , /* vkCreateIndirectCommandsLayoutEXT */
+    /*  749 */ CommandScopeDevice  , /* vkDestroyIndirectCommandsLayoutEXT */
+    /*  750 */ CommandScopeDevice  , /* vkCreateIndirectExecutionSetEXT */
+    /*  751 */ CommandScopeDevice  , /* vkDestroyIndirectExecutionSetEXT */
+    /*  752 */ CommandScopeDevice  , /* vkUpdateIndirectExecutionSetPipelineEXT */
+    /*  753 */ CommandScopeDevice  , /* vkUpdateIndirectExecutionSetShaderEXT */
+    /*  754 */ CommandScopeInstance, /* vkCreateSurfaceOHOS */
+    /*  755 */ CommandScopeInstance, /* vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV */
+    /*  756 */ CommandScopeDevice  , /* vkGetMemoryMetalHandleEXT */
+    /*  757 */ CommandScopeDevice  , /* vkGetMemoryMetalHandlePropertiesEXT */
+    /*  758 */ CommandScopeDevice  , /* vkCmdEndRendering2EXT */
 };
 
 static const GladPfnRange_t GLAD_Vulkan_feature_pfn_ranges[] = {
@@ -1871,21 +2641,19 @@ static uint64_t GLAD_Vulkan_ext_hashes[] = {
     /*  423 */ 0x5674ed8bc838fecbULL  /* VK_VALVE_video_encode_rgb_conversion */
 };
 
-static void glad_vk_load_pfn_range(GladVulkanContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
+static void glad_vk_load_pfn_range(GladVulkanContext *context, GLADvkuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
     uint32_t pfnIdx;
 
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
     for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
-        context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_Vulkan_fn_names[pfnIdx]);
+        const char *name = GLAD_Vulkan_fn_names[pfnIdx];
+        const enum GLADcommandscope scope = (enum GLADcommandscope)GLAD_Vulkan_fn_scopes[pfnIdx];
+        context->pfnArray[pfnIdx] = (void *)load(userptr, name, scope);
     }
 }
-
 static uint32_t glad_vk_resolve_alias_group(GladVulkanContext *context, const GladAliasPair_t *pairs, uint32_t start_idx, uint32_t total_count) {
     void **pfnArray = context->pfnArray;
-	void *canonical_ptr;
+    void *canonical_ptr;
     uint16_t canonical_idx = pairs[start_idx].first;
     uint32_t i, end_idx = start_idx;
 
@@ -2027,9 +2795,6 @@ GLAD_NO_INLINE static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     };
     uint32_t i;
 
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_aliases); ++i) {
         i = glad_vk_resolve_alias_group(context, s_aliases, i, GLAD_ARRAYSIZE(s_aliases));
     }
@@ -2131,8 +2896,8 @@ static int glad_vk_has_extension(uint64_t *extensions, uint64_t extension_count,
     return glad_hash_search(extensions, extension_count, name);
 }
 
-static GLADapiproc glad_vk_get_proc_from_userptr(void *userptr, const char* name) {
-    return (GLAD_GNUC_EXTENSION (GLADapiproc (*)(const char *name)) userptr)(name);
+static GLADapiproc glad_vk_get_proc_from_userptr(void *userptr, const char* name, enum GLADcommandscope scope) {
+    return (GLAD_GNUC_EXTENSION (GLADapiproc (*)(const char *, enum GLADcommandscope)) userptr)(name, scope);
 }
 
 static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysicalDevice physical_device) {
@@ -2147,9 +2912,6 @@ static int glad_vk_find_extensions_vulkan(GladVulkanContext *context, VkPhysical
 
     if (!glad_vk_get_extensions(context, physical_device, &extension_count, &extensions)) return 0;
 
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(GLAD_Vulkan_ext_hashes); ++i)
         context->extArray[i] = glad_vk_has_extension(extensions, extension_count, GLAD_Vulkan_ext_hashes[i]);
 
@@ -2202,7 +2964,7 @@ static int glad_vk_find_core_vulkan(GladVulkanContext *context, VkPhysicalDevice
     return GLAD_MAKE_VERSION(major, minor);
 }
 
-GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADuserptrloadfunc load, void *userptr) {
+GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADvkuserptrloadfunc load, void *userptr) {
     int version;
     uint32_t i;
 
@@ -2210,7 +2972,7 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     (void)device;
 
 #ifdef VK_VERSION_1_1
-    context->EnumerateInstanceVersion = (PFN_vkEnumerateInstanceVersion)load(userptr, "vkEnumerateInstanceVersion");
+    context->EnumerateInstanceVersion = (PFN_vkEnumerateInstanceVersion)load(userptr, "vkEnumerateInstanceVersion", CommandScopeGlobal);
 #endif
 
     version = glad_vk_find_core_vulkan(context, physical_device);
@@ -2240,15 +3002,15 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     return version;
 }
 
-int gladLoadVulkanUserPtr(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADuserptrloadfunc load, void *userptr) {
+int gladLoadVulkanUserPtr(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADvkuserptrloadfunc load, void *userptr) {
     return gladLoadVulkanContextUserPtr(gladGetVulkanContext(), instance, physical_device, device, load, userptr);
 }
 
-int gladLoadVulkanContext(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADloadfunc load) {
+int gladLoadVulkanContext(GladVulkanContext *context, VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADvkloadfunc load) {
     return gladLoadVulkanContextUserPtr(context, instance, physical_device, device, glad_vk_get_proc_from_userptr, GLAD_GNUC_EXTENSION (void*) load);
 }
 
-int gladLoadVulkan(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADloadfunc load) {
+int gladLoadVulkan(VkInstance instance, VkPhysicalDevice physical_device, VkDevice device, GLADvkloadfunc load) {
     return gladLoadVulkanContext(gladGetVulkanContext(), instance, physical_device, device, load);
 }
 
@@ -2332,141 +3094,6 @@ static GLADapiproc glad_dlsym_handle(void* handle, const char *name) {
 
 #endif /* GLAD_LOADER_LIBRARY_C_ */
 
-static const uint64_t GLAD_Vulkan_instance_commands[] = {
-    0x01628e687379a800ULL, /* vkGetPhysicalDeviceXcbPresentationSupportKHR */
-    0x06f2fe22a6f73ea9ULL, /* vkGetPhysicalDeviceOpticalFlowImageFormatsNV */
-    0x077270ba2023329bULL, /* vkEnumeratePhysicalDeviceQueueFamilyPerformanceQueryCountersKHR */
-    0x07c6f662a8afbdcdULL, /* vkAcquireDrmDisplayEXT */
-    0x07d7f65f9502b047ULL, /* vkReleaseDisplayEXT */
-    0x0a7cb804a19f8d38ULL, /* vkCreateDirectFBSurfaceEXT */
-    0x0d056d30f5678b25ULL, /* vkGetPhysicalDeviceCooperativeMatrixFlexibleDimensionsPropertiesNV */
-    0x0d1d0e6ec5e20528ULL, /* vkEnumerateDeviceLayerProperties */
-    0x0d649c4383ec7a89ULL, /* vkGetPhysicalDeviceFragmentShadingRatesKHR */
-    0x0e00b79e53c7512dULL, /* vkGetDisplayPlaneCapabilitiesKHR */
-    0x0f4117dbba29bc3aULL, /* vkGetDisplayModePropertiesKHR */
-    0x148832c9169f3e74ULL, /* vkGetPhysicalDeviceWin32PresentationSupportKHR */
-    0x167106e03eb07e8dULL, /* vkGetPhysicalDeviceExternalFencePropertiesKHR */
-    0x18d0a02e3ba007feULL, /* vkEnumeratePhysicalDevices */
-    0x1a2ceebf7665e634ULL, /* vkGetPhysicalDeviceDisplayPlaneProperties2KHR */
-    0x1a4224a14b693350ULL, /* vkGetPhysicalDeviceCalibrateableTimeDomainsKHR */
-    0x1d7216a50f590db2ULL, /* vkGetPhysicalDeviceQueueFamilyDataGraphProcessingEnginePropertiesARM */
-    0x2517bce1d06e4a03ULL, /* vkGetPhysicalDeviceVideoCapabilitiesKHR */
-    0x271fe9077ef533d1ULL, /* vkGetPhysicalDeviceFeatures2KHR */
-    0x2bcf2ad912ad48a3ULL, /* vkCreateWaylandSurfaceKHR */
-    0x32e1633a3f5c604bULL, /* vkCreateHeadlessSurfaceEXT */
-    0x38ad6b820ca1b604ULL, /* vkEnumerateDeviceExtensionProperties */
-    0x39eec9d5f829fd31ULL, /* vkGetPhysicalDeviceFormatProperties */
-    0x39fbee03ddc7e70eULL, /* vkGetPhysicalDeviceFormatProperties2KHR */
-    0x3acc37b403e87ac3ULL, /* vkGetPhysicalDeviceProperties2KHR */
-    0x3c043f25e88ad467ULL, /* vkGetPhysicalDeviceSurfaceFormatsKHR */
-    0x3d31a6a7bedfba51ULL, /* vkGetRandROutputDisplayEXT */
-    0x3d3954d1737cc2bdULL, /* vkGetPhysicalDeviceExternalSemaphorePropertiesKHR */
-    0x43524692a7f3408bULL, /* vkGetDisplayPlaneSupportedDisplaysKHR */
-    0x435d49e0c9740090ULL, /* vkGetPhysicalDeviceQueueFamilyProperties2KHR */
-    0x43d06e39e3edac61ULL, /* vkCreateStreamDescriptorSurfaceGGP */
-    0x45b2086251116f99ULL, /* vkCreateDevice */
-    0x45ce665f079d08ecULL, /* vkGetPhysicalDeviceXlibPresentationSupportKHR */
-    0x47ac80818c4e0a8aULL, /* vkGetPhysicalDeviceExternalImageFormatPropertiesNV */
-    0x487f09a0fe165fd6ULL, /* vkGetPhysicalDeviceQueueFamilyDataGraphPropertiesARM */
-    0x49b103cf69b48bbaULL, /* vkGetDisplayModeProperties2KHR */
-    0x4a1ca0b582a457c0ULL, /* vkGetPhysicalDeviceImageFormatProperties */
-    0x4b8097efe7a403d2ULL, /* vkGetPhysicalDeviceCooperativeVectorPropertiesNV */
-    0x4b8ff5f08d987c5aULL, /* vkCreateScreenSurfaceQNX */
-    0x52d4fff81b4ea8deULL, /* vkGetPhysicalDeviceSurfacePresentModesKHR */
-    0x52e6981b035c87feULL, /* vkEnumeratePhysicalDeviceGroupsKHR */
-    0x537299821dbd504fULL, /* vkGetPhysicalDeviceToolPropertiesEXT */
-    0x53d1f58fd7e7558cULL, /* vkGetPhysicalDeviceFormatProperties2 */
-    0x57fddf2e7905b565ULL, /* vkGetPhysicalDeviceMultisamplePropertiesEXT */
-    0x5cd180715ec81628ULL, /* vkGetPhysicalDeviceCalibrateableTimeDomainsEXT */
-    0x5dca2dd1ea6654eeULL, /* vkGetPhysicalDeviceFeatures2 */
-    0x5e3c48604b7158a4ULL, /* vkGetPhysicalDeviceQueueFamilyProperties2 */
-    0x5ec24bf8bf79e8fdULL, /* vkGetDisplayPlaneCapabilities2KHR */
-    0x606f8ae1aaacec90ULL, /* vkEnumeratePhysicalDeviceGroups */
-    0x61c13e84ce5c483bULL, /* vkGetWinrtDisplayNV */
-    0x641cc3c18ac777ddULL, /* vkCreateSurfaceOHOS */
-    0x698f41e6299f30d2ULL, /* vkDestroyInstance */
-    0x69ef92b3a62ea127ULL, /* vkGetPhysicalDeviceDisplayPropertiesKHR */
-    0x70e6e260c2fba0f4ULL, /* vkGetPhysicalDeviceSurfaceCapabilitiesKHR */
-    0x736479d9aaecd06eULL, /* vkGetPhysicalDeviceQueueFamilyProperties */
-    0x75357780677617eaULL, /* vkDestroyDebugReportCallbackEXT */
-    0x7ad0a59b02543fcdULL, /* vkGetDrmDisplayEXT */
-    0x80666bfa24dd996fULL, /* vkGetPhysicalDeviceMemoryProperties */
-    0x825cde4b6e7e00eaULL, /* vkGetPhysicalDeviceDisplayPlanePropertiesKHR */
-    0x82c3f5f82d3f7a21ULL, /* vkDestroyDebugUtilsMessengerEXT */
-    0x875c67a6f6143fddULL, /* vkGetPhysicalDeviceCooperativeMatrixPropertiesKHR */
-    0x9338d10ef240c729ULL, /* vkGetPhysicalDeviceSparseImageFormatProperties2 */
-    0x93c0d2b7c2a1fcdcULL, /* vkCreateMacOSSurfaceMVK */
-    0x952f84e4519a6819ULL, /* vkCreateIOSSurfaceMVK */
-    0x9ce9a534a3acc808ULL, /* vkGetPhysicalDeviceSparseImageFormatProperties */
-    0x9d45d6ceeb54540fULL, /* vkGetPhysicalDeviceExternalBufferProperties */
-    0xaabe3b92419e8e38ULL, /* vkGetPhysicalDeviceExternalTensorPropertiesARM */
-    0xab1126fda3a0fa8dULL, /* vkCreateDebugReportCallbackEXT */
-    0xad319e2c95c14175ULL, /* vkAcquireWinrtDisplayNV */
-    0xad6c4532349fd476ULL, /* vkDebugReportMessageEXT */
-    0xade0cf089ad306efULL, /* vkCreateDisplayModeKHR */
-    0xadec6ca4a17a30f5ULL, /* vkGetPhysicalDevicePresentRectanglesKHR */
-    0xaf9743132d216c3fULL, /* vkGetPhysicalDeviceFeatures */
-    0xb4e2ff145e115a30ULL, /* vkGetPhysicalDeviceSurfacePresentModes2EXT */
-    0xb55826fa36b0b298ULL, /* vkGetPhysicalDeviceVideoFormatPropertiesKHR */
-    0xb5b7cd77fde2741aULL, /* vkGetPhysicalDeviceVideoEncodeQualityLevelPropertiesKHR */
-    0xb746a730e03f945fULL, /* vkDestroySurfaceKHR */
-    0xba60d8eb22951ad2ULL, /* vkGetPhysicalDeviceSurfaceFormats2KHR */
-    0xbd9b598956c7366aULL, /* vkGetPhysicalDeviceCooperativeMatrixPropertiesNV */
-    0xbdf594b7ae4af921ULL, /* vkGetInstanceProcAddr */
-    0xbe616f5f63c1ce25ULL, /* vkSubmitDebugUtilsMessageEXT */
-    0xbecec18dc0f1923bULL, /* vkCreateDebugUtilsMessengerEXT */
-    0xc0305d666c70b81bULL, /* vkGetPhysicalDeviceImageFormatProperties2KHR */
-    0xc79bcf369fe8ca6eULL, /* vkGetPhysicalDeviceSparseImageFormatProperties2KHR */
-    0xc8b1c23e6174b64bULL, /* vkCreateXcbSurfaceKHR */
-    0xc8c1cf60816e6d0bULL, /* vkCreateMetalSurfaceEXT */
-    0xc92b2f5a154a828dULL, /* vkGetPhysicalDeviceMemoryProperties2 */
-    0xce552719aadd91f1ULL, /* vkCreateImagePipeSurfaceFUCHSIA */
-    0xd07a635e04a59475ULL, /* vkAcquireXlibDisplayEXT */
-    0xd36fa6a24fe70f58ULL, /* vkGetPhysicalDeviceProperties2 */
-    0xd40235c9cab9b686ULL, /* vkGetPhysicalDeviceWaylandPresentationSupportKHR */
-    0xd6701419da6617d4ULL, /* vkGetPhysicalDeviceMemoryProperties2KHR */
-    0xd6fbb1a654e70656ULL, /* vkCreateWin32SurfaceKHR */
-    0xd7c941518fd0e818ULL, /* vkGetPhysicalDeviceExternalSemaphoreProperties */
-    0xdc45f87f50da94d9ULL, /* vkGetPhysicalDeviceSurfaceCapabilities2EXT */
-    0xdec11a6b6abbaa1bULL, /* vkGetPhysicalDeviceDisplayProperties2KHR */
-    0xdf03aa8b036d5b06ULL, /* vkGetPhysicalDeviceExternalFenceProperties */
-    0xdf1e5a19dae9208bULL, /* vkGetPhysicalDeviceProperties */
-    0xdfeb05796ee61f38ULL, /* vkGetPhysicalDeviceImageFormatProperties2 */
-    0xe0e022af99face3dULL, /* vkGetPhysicalDeviceDirectFBPresentationSupportEXT */
-    0xe38f515cd327be62ULL, /* vkGetExternalComputeQueueDataNV */
-    0xe3c8b71d8ae8e847ULL, /* vkGetPhysicalDeviceExternalBufferPropertiesKHR */
-    0xe6edbd25c980bbfbULL, /* vkCreateViSurfaceNN */
-    0xe8d5da825e49ede6ULL, /* vkCreateDisplayPlaneSurfaceKHR */
-    0xeadc76790fea3998ULL, /* vkGetPhysicalDeviceSurfaceCapabilities2KHR */
-    0xf14ce64102b8ecedULL, /* vkGetPhysicalDeviceToolProperties */
-    0xf2f37645ab938329ULL, /* vkCreateXlibSurfaceKHR */
-    0xf38f3b03668798a8ULL, /* vkGetPhysicalDeviceQueueFamilyPerformanceQueryPassesKHR */
-    0xf3c741c713ed78b6ULL, /* vkGetPhysicalDeviceScreenPresentationSupportQNX */
-    0xf43459aa9a0dd505ULL, /* vkGetPhysicalDeviceSupportedFramebufferMixedSamplesCombinationsNV */
-    0xfa972e7a0d03ee3cULL, /* vkGetPhysicalDeviceSurfaceSupportKHR */
-    0xff2edfe5fb33ed95ULL, /* vkCreateAndroidSurfaceKHR */
-};
-
-static const uint64_t GLAD_Vulkan_global_commands[] = {
-    0x293f4d0e3d436dceULL, /* vkEnumerateInstanceExtensionProperties */
-    0xc930c283b60dafd0ULL, /* vkEnumerateInstanceLayerProperties */
-    0xed8a6efd46f4e052ULL, /* vkCreateInstance */
-    0xf79cbf7989a3746eULL, /* vkEnumerateInstanceVersion */
-};
-
-static int glad_vulkan_is_instance_command(uint64_t nameHash) {
-    /* Exists as a workaround for:
-     * https://github.com/KhronosGroup/Vulkan-LoaderAndValidationLayers/issues/2323
-     *
-     * `vkGetDeviceProcAddr` does not return NULL for non-device functions.
-     */
-    return glad_hash_search(GLAD_Vulkan_instance_commands, GLAD_ARRAYSIZE(GLAD_Vulkan_instance_commands), nameHash);
-}
-
-static int glad_vulkan_is_global_command(uint64_t nameHash) {
-    return glad_hash_search(GLAD_Vulkan_global_commands, GLAD_ARRAYSIZE(GLAD_Vulkan_global_commands), nameHash);
-}
-
 struct _glad_vulkan_userptr {
     void *vk_handle;
     VkInstance vk_instance;
@@ -2475,17 +3102,26 @@ struct _glad_vulkan_userptr {
     PFN_vkGetDeviceProcAddr get_device_proc_addr;
 };
 
-static GLADapiproc glad_vulkan_get_proc(void *vuserptr, const char *name) {
+static GLADapiproc glad_vulkan_get_proc(void *vuserptr, const char *name, enum GLADcommandscope scope ) {
     struct _glad_vulkan_userptr userptr = *(struct _glad_vulkan_userptr*) vuserptr;
-    uint64_t nameHash = glad_hash_string(name, strlen(name));
     PFN_vkVoidFunction result = NULL;
 
-    if (glad_vulkan_is_global_command(nameHash))
+    switch (scope) {
+    case CommandScopeUnknown:
+        result = (PFN_vkVoidFunction)glad_dlsym_handle(userptr.vk_handle, name);
+        break;
+    case CommandScopeGlobal:
         result = userptr.get_instance_proc_addr(NULL, name);
-    else if (glad_vulkan_is_instance_command(nameHash))
-        result = userptr.get_instance_proc_addr(userptr.vk_instance, name);
-    else
-        result = userptr.get_device_proc_addr(userptr.vk_device, name);
+        break;
+    case CommandScopeDevice:
+        if (userptr.vk_device != NULL)
+            result = userptr.get_device_proc_addr(userptr.vk_device, name);
+        break;
+    case CommandScopeInstance:
+        if (userptr.vk_instance != NULL)
+            result = userptr.get_instance_proc_addr(userptr.vk_instance, name);
+        break;
+    }
 
     return (GLADapiproc) result;
 }

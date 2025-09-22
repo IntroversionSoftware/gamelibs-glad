@@ -54,6 +54,10 @@ typedef struct {
 #ifndef GLAD_IMPL_UTIL_HASHSEARCH_C_
 #define GLAD_IMPL_UTIL_HASHSEARCH_C_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
     /* Binary search for matching hash */
     int32_t low = 0;
@@ -86,6 +90,10 @@ GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
 {
     return XXH3_64bits(str, length);
 }
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* GLAD_IMPL_HASHSEARCH_C_ */
 
@@ -5404,9 +5412,6 @@ static void glad_gl_load_pfn_range(GladGLContext *context, GLADuserptrloadfunc l
 {
     uint32_t pfnIdx;
 
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
     for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
         context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_GL_fn_names[pfnIdx]);
     }
@@ -5414,7 +5419,7 @@ static void glad_gl_load_pfn_range(GladGLContext *context, GLADuserptrloadfunc l
 
 static uint32_t glad_gl_resolve_alias_group(GladGLContext *context, const GladAliasPair_t *pairs, uint32_t start_idx, uint32_t total_count) {
     void **pfnArray = context->pfnArray;
-	void *canonical_ptr;
+    void *canonical_ptr;
     uint16_t canonical_idx = pairs[start_idx].first;
     uint32_t i, end_idx = start_idx;
 
@@ -5968,9 +5973,6 @@ GLAD_NO_INLINE static void glad_gl_resolve_aliases(GladGLContext *context) {
     };
     uint32_t i;
 
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
     for (i = 0; i < GLAD_ARRAYSIZE(s_aliases); ++i) {
         i = glad_gl_resolve_alias_group(context, s_aliases, i, GLAD_ARRAYSIZE(s_aliases));
     }
@@ -6769,7 +6771,6 @@ static int glad_gl_find_extensions_gl(GladGLContext *context) {
     uint32_t i;
     if (!glad_gl_get_extensions(context, &exts, &num_exts)) return 0;
 
-    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_extIdx); ++i) {
         const uint32_t extIdx = s_extIdx[i];
         context->extArray[extIdx] = glad_gl_has_extension(exts, num_exts, GLAD_GL_ext_hashes[extIdx]);
@@ -7321,7 +7322,6 @@ static int glad_gl_find_extensions_gles2(GladGLContext *context) {
     uint32_t i;
     if (!glad_gl_get_extensions(context, &exts, &num_exts)) return 0;
 
-    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(s_extIdx); ++i) {
         const uint32_t extIdx = s_extIdx[i];
         context->extArray[extIdx] = glad_gl_has_extension(exts, num_exts, GLAD_GL_ext_hashes[extIdx]);

@@ -264,9 +264,6 @@ static void glad_glx_load_pfns(GladGLXContext *context, GLADuserptrloadfunc load
 {
     uint32_t i;
 
-    #ifdef __clang__
-    #pragma nounroll
-    #endif
     for (i = 0; i < numPfns; ++i) {
         const uint16_t pfnIdx = pPfnIdx[i];
         context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_GLX_fn_names[pfnIdx]);
@@ -707,7 +704,6 @@ static int glad_glx_find_extensions(GladGLXContext *context, Display *display, i
 
     extensions = context->QueryExtensionsString(display, screen);
 
-    #pragma nounroll
     for (i = 0; i < GLAD_ARRAYSIZE(GLAD_GLX_ext_names); ++i)
         context->extArray[i] = glad_glx_has_extension(extensions, GLAD_GLX_ext_names[i]);
 #else
