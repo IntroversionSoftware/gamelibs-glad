@@ -16,6 +16,7 @@
 #endif
 
 #define XXH_INLINE_ALL
+#define XXH_NO_STREAM
 #include "xxhash.h"
 
 #include <glad/wgl.h>
