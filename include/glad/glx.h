@@ -48,6 +48,7 @@
 #define GLAD_OPTION_GLX_LOADER
 #define GLAD_OPTION_GLX_MX
 #define GLAD_OPTION_GLX_MX_GLOBAL
+#define GLAD_OPTION_GLX_USE_PFN_RANGES
 
 #ifdef __cplusplus
 extern "C" {

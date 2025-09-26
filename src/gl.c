@@ -6014,7 +6014,9 @@ static int glad_gl_get_extensions(GladGLContext *context, uint64_t **out_exts, u
         }
 
         /* This is done in two passes. The first pass counts up the number of
-        * extensions. The second pass copies them into an allocated block of memory. */
+         * extensions. The second pass hashes their names and stores them in
+         * a heap-allocated uint64 array for searching.
+         */
         for (j = 0; j < 2; ++j) {
             num_exts = 0;
             cur = exts_str;
@@ -6042,6 +6044,7 @@ static int glad_gl_get_extensions(GladGLContext *context, uint64_t **out_exts, u
         }
     }
 
+    /* Sort extension list for binary search */
     qsort(exts, num_exts, sizeof(uint64_t), compare_uint64);
 
     *out_num_exts = num_exts;

@@ -52,6 +52,52 @@ typedef struct {
 
 #endif /* GLAD_IMPL_UTIL_C_ */
 
+#ifndef GLAD_IMPL_UTIL_HASHSEARCH_C_
+#define GLAD_IMPL_UTIL_HASHSEARCH_C_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, uint64_t target) {
+    /* Binary search for matching hash */
+    int32_t low = 0;
+    int32_t high = (int32_t)size - 1;
+
+    while (low <= high) {
+        int32_t mid = low + (high - low) / 2;
+
+        if (arr[mid] == target) {
+            return true;
+        } else if (arr[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return false;
+}
+
+GLAD_NO_INLINE static int compare_uint64(const void *pA, const void *pB)
+{
+    uint64_t a = *(const uint64_t *)pA;
+    uint64_t b = *(const uint64_t *)pB;
+    if (a > b)      return 1;
+    else if (a < b) return -1;
+    else            return 0;
+}
+
+GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
+{
+    return XXH3_64bits(str, length);
+}
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* GLAD_IMPL_HASHSEARCH_C_ */
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -210,66 +256,6 @@ static const char * const GLAD_WGL_fn_names[] = {
     /*  144 */ "wglWaitForSbcOML"
 };
 
-static const char * const GLAD_WGL_ext_names[] = {
-    /*    0 */ "WGL_3DFX_multisample",
-    /*    1 */ "WGL_3DL_stereo_control",
-    /*    2 */ "WGL_AMD_gpu_association",
-    /*    3 */ "WGL_ARB_buffer_region",
-    /*    4 */ "WGL_ARB_context_flush_control",
-    /*    5 */ "WGL_ARB_create_context",
-    /*    6 */ "WGL_ARB_create_context_no_error",
-    /*    7 */ "WGL_ARB_create_context_profile",
-    /*    8 */ "WGL_ARB_create_context_robustness",
-    /*    9 */ "WGL_ARB_extensions_string",
-    /*   10 */ "WGL_ARB_framebuffer_sRGB",
-    /*   11 */ "WGL_ARB_make_current_read",
-    /*   12 */ "WGL_ARB_multisample",
-    /*   13 */ "WGL_ARB_pbuffer",
-    /*   14 */ "WGL_ARB_pixel_format",
-    /*   15 */ "WGL_ARB_pixel_format_float",
-    /*   16 */ "WGL_ARB_render_texture",
-    /*   17 */ "WGL_ARB_robustness_application_isolation",
-    /*   18 */ "WGL_ARB_robustness_share_group_isolation",
-    /*   19 */ "WGL_ATI_pixel_format_float",
-    /*   20 */ "WGL_ATI_render_texture_rectangle",
-    /*   21 */ "WGL_EXT_colorspace",
-    /*   22 */ "WGL_EXT_create_context_es2_profile",
-    /*   23 */ "WGL_EXT_create_context_es_profile",
-    /*   24 */ "WGL_EXT_depth_float",
-    /*   25 */ "WGL_EXT_display_color_table",
-    /*   26 */ "WGL_EXT_extensions_string",
-    /*   27 */ "WGL_EXT_framebuffer_sRGB",
-    /*   28 */ "WGL_EXT_make_current_read",
-    /*   29 */ "WGL_EXT_multisample",
-    /*   30 */ "WGL_EXT_pbuffer",
-    /*   31 */ "WGL_EXT_pixel_format",
-    /*   32 */ "WGL_EXT_pixel_format_packed_float",
-    /*   33 */ "WGL_EXT_swap_control",
-    /*   34 */ "WGL_EXT_swap_control_tear",
-    /*   35 */ "WGL_I3D_digital_video_control",
-    /*   36 */ "WGL_I3D_gamma",
-    /*   37 */ "WGL_I3D_genlock",
-    /*   38 */ "WGL_I3D_image_buffer",
-    /*   39 */ "WGL_I3D_swap_frame_lock",
-    /*   40 */ "WGL_I3D_swap_frame_usage",
-    /*   41 */ "WGL_NV_DX_interop",
-    /*   42 */ "WGL_NV_DX_interop2",
-    /*   43 */ "WGL_NV_copy_image",
-    /*   44 */ "WGL_NV_delay_before_swap",
-    /*   45 */ "WGL_NV_float_buffer",
-    /*   46 */ "WGL_NV_gpu_affinity",
-    /*   47 */ "WGL_NV_multigpu_context",
-    /*   48 */ "WGL_NV_multisample_coverage",
-    /*   49 */ "WGL_NV_present_video",
-    /*   50 */ "WGL_NV_render_depth_texture",
-    /*   51 */ "WGL_NV_render_texture_rectangle",
-    /*   52 */ "WGL_NV_swap_group",
-    /*   53 */ "WGL_NV_vertex_array_range",
-    /*   54 */ "WGL_NV_video_capture",
-    /*   55 */ "WGL_NV_video_output",
-    /*   56 */ "WGL_OML_sync_control"
-};
-
 static const GladPfnRange_t GLAD_WGL_feature_pfn_ranges[] = {
     /* WGL_VERSION_1_0 */
     {    0,    0,   26 },
@@ -370,6 +356,65 @@ static const GladPfnRange_t GLAD_WGL_ext_pfn_ranges[] = {
     {   56,  139,    6 },
 };
 
+static const uint64_t GLAD_WGL_ext_hashes[] = {
+    /*    0 */ 0x0bec45d23000040cULL, /* WGL_3DFX_multisample */
+    /*    1 */ 0xa544e2233909cd6cULL, /* WGL_3DL_stereo_control */
+    /*    2 */ 0x3444be63e457de0aULL, /* WGL_AMD_gpu_association */
+    /*    3 */ 0x23735e3ef94191dfULL, /* WGL_ARB_buffer_region */
+    /*    4 */ 0xcba9d91bf8152127ULL, /* WGL_ARB_context_flush_control */
+    /*    5 */ 0x93b339a9e2cbe314ULL, /* WGL_ARB_create_context */
+    /*    6 */ 0x4d3ff082cec434daULL, /* WGL_ARB_create_context_no_error */
+    /*    7 */ 0x6879670f69d523e8ULL, /* WGL_ARB_create_context_profile */
+    /*    8 */ 0x24a0369001a0d30dULL, /* WGL_ARB_create_context_robustness */
+    /*    9 */ 0xd6afdfe5c6fa3614ULL, /* WGL_ARB_extensions_string */
+    /*   10 */ 0x2b2322e59fb5083bULL, /* WGL_ARB_framebuffer_sRGB */
+    /*   11 */ 0xffb3e932bb0ccdd5ULL, /* WGL_ARB_make_current_read */
+    /*   12 */ 0xad82eec327c2f1d8ULL, /* WGL_ARB_multisample */
+    /*   13 */ 0xf6b9458b542c30dcULL, /* WGL_ARB_pbuffer */
+    /*   14 */ 0xe73be941e5f7916bULL, /* WGL_ARB_pixel_format */
+    /*   15 */ 0x0bed92c76c78efffULL, /* WGL_ARB_pixel_format_float */
+    /*   16 */ 0xf0753dc5c832f146ULL, /* WGL_ARB_render_texture */
+    /*   17 */ 0x6c50f503bc89115eULL, /* WGL_ARB_robustness_application_isolation */
+    /*   18 */ 0x944ee36787077ccfULL, /* WGL_ARB_robustness_share_group_isolation */
+    /*   19 */ 0x40521e21b96727d5ULL, /* WGL_ATI_pixel_format_float */
+    /*   20 */ 0x6a042befb2e60d17ULL, /* WGL_ATI_render_texture_rectangle */
+    /*   21 */ 0x344eee0b6820af34ULL, /* WGL_EXT_colorspace */
+    /*   22 */ 0xdea75ca5e2edbb10ULL, /* WGL_EXT_create_context_es2_profile */
+    /*   23 */ 0x7e5f58022569e61eULL, /* WGL_EXT_create_context_es_profile */
+    /*   24 */ 0x3404dab980e61ca2ULL, /* WGL_EXT_depth_float */
+    /*   25 */ 0x2d0e6cfb46a0106fULL, /* WGL_EXT_display_color_table */
+    /*   26 */ 0x675d378710334a65ULL, /* WGL_EXT_extensions_string */
+    /*   27 */ 0x1f5a579fdea0f148ULL, /* WGL_EXT_framebuffer_sRGB */
+    /*   28 */ 0x6d4cef39fc681fb3ULL, /* WGL_EXT_make_current_read */
+    /*   29 */ 0x712af2217200a415ULL, /* WGL_EXT_multisample */
+    /*   30 */ 0x51b3a5602fa896a1ULL, /* WGL_EXT_pbuffer */
+    /*   31 */ 0xf09d08e1c43f564eULL, /* WGL_EXT_pixel_format */
+    /*   32 */ 0x61cb3bc9968979c9ULL, /* WGL_EXT_pixel_format_packed_float */
+    /*   33 */ 0x212a6bdfca219506ULL, /* WGL_EXT_swap_control */
+    /*   34 */ 0x97c79eb8ab4c254aULL, /* WGL_EXT_swap_control_tear */
+    /*   35 */ 0x93c433aa5564a48dULL, /* WGL_I3D_digital_video_control */
+    /*   36 */ 0x50b4447ba45d250eULL, /* WGL_I3D_gamma */
+    /*   37 */ 0x13f677cdbcea2701ULL, /* WGL_I3D_genlock */
+    /*   38 */ 0x7030d8df95640f74ULL, /* WGL_I3D_image_buffer */
+    /*   39 */ 0xf89e0e880fa2991dULL, /* WGL_I3D_swap_frame_lock */
+    /*   40 */ 0xe483d21a182c9656ULL, /* WGL_I3D_swap_frame_usage */
+    /*   41 */ 0xa54b9b658ac06b9aULL, /* WGL_NV_DX_interop */
+    /*   42 */ 0x1187bf238685f6baULL, /* WGL_NV_DX_interop2 */
+    /*   43 */ 0xafab55f5e37bcb25ULL, /* WGL_NV_copy_image */
+    /*   44 */ 0x3e1dd8f8bde73422ULL, /* WGL_NV_delay_before_swap */
+    /*   45 */ 0xdad29f54a41cb160ULL, /* WGL_NV_float_buffer */
+    /*   46 */ 0x83ba23356bc5c9c7ULL, /* WGL_NV_gpu_affinity */
+    /*   47 */ 0x045e190c435b4d35ULL, /* WGL_NV_multigpu_context */
+    /*   48 */ 0x7d7c383b450b63afULL, /* WGL_NV_multisample_coverage */
+    /*   49 */ 0x5f2a9df50cf1003aULL, /* WGL_NV_present_video */
+    /*   50 */ 0x2ac871c1f2dbac4dULL, /* WGL_NV_render_depth_texture */
+    /*   51 */ 0x275c113e57078fccULL, /* WGL_NV_render_texture_rectangle */
+    /*   52 */ 0xd91b7247d42d3ba5ULL, /* WGL_NV_swap_group */
+    /*   53 */ 0x293670a02363360bULL, /* WGL_NV_vertex_array_range */
+    /*   54 */ 0x8cf54648141ca138ULL, /* WGL_NV_video_capture */
+    /*   55 */ 0xeab153b5cac91b24ULL, /* WGL_NV_video_output */
+    /*   56 */ 0x3c2462ed17d12185ULL  /* WGL_OML_sync_control */
+};
 
 static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
@@ -384,48 +429,83 @@ GLAD_NO_INLINE static void glad_wgl_resolve_aliases(GladWGLContext *context) {
     GLAD_UNUSED(context);
 }
 
-static int glad_wgl_has_extension(const char *extensions, const char *ext) {
-    const char *terminator;
-    const char *loc;
-
-    if(extensions == NULL || ext == NULL)
-        return 0;
-
-    while(1) {
-        loc = strstr(extensions, ext);
-        if(loc == NULL)
-            break;
-
-        terminator = loc + strlen(ext);
-        if((loc == extensions || *(loc - 1) == ' ') &&
-            (*terminator == ' ' || *terminator == '\0'))
-        {
-            return 1;
-        }
-        extensions = terminator;
-    }
-
-    return 0;
-}
-
 static GLADapiproc glad_wgl_get_proc_from_userptr(void *userptr, const char* name) {
     return (GLAD_GNUC_EXTENSION (GLADapiproc (*)(const char *name)) userptr)(name);
 }
 
-static int glad_wgl_find_extensions_wgl(GladWGLContext *context, HDC hdc) {
-    const char *extensions;
-    uint32_t i;
+static int glad_wgl_get_extensions(GladWGLContext *context, HDC hdc, uint64_t **out_exts, uint32_t *out_num_exts) {
+    uint32_t num_exts = 0;
+    uint64_t *exts = NULL;
+    const char *exts_str = NULL;
+    const char *cur = NULL;
+    const char *next = NULL;
+    uint32_t len = 0, j = 0;
 
     if(context->GetExtensionsStringEXT == NULL && context->GetExtensionsStringARB == NULL)
         return 0;
 
     if(context->GetExtensionsStringARB == NULL || hdc == INVALID_HANDLE_VALUE)
-        extensions = context->GetExtensionsStringEXT();
+        exts_str = context->GetExtensionsStringEXT();
     else
-        extensions = context->GetExtensionsStringARB(hdc);
+        exts_str = context->GetExtensionsStringARB(hdc);
 
-    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_WGL_ext_names); ++i)
-        context->extArray[i] = glad_wgl_has_extension(extensions, GLAD_WGL_ext_names[i]);
+    /* This is done in two passes. The first pass counts up the number of
+     * extensions. The second pass hashes their names and stores them in
+     * a heap-allocated uint64 array for searching.
+     */
+    for (j = 0; j < 2; ++j) {
+        num_exts = 0;
+        cur = exts_str;
+        next = cur + strcspn(cur, " ");
+        while (1) {
+            cur += strspn(cur, " ");
+
+            if (!cur[0])
+                break;
+
+            len = next - cur;
+
+            if (exts != NULL) {
+                exts[num_exts++] = glad_hash_string(cur, len);
+            } else {
+                num_exts++;
+            }
+
+            cur = next + strspn(next, " ");
+            next = cur + strcspn(cur, " ");
+        }
+
+        if (!exts)
+            exts = (uint64_t *)calloc(num_exts, sizeof(uint64_t));
+    }
+
+    /* Sort extension list for binary search */
+    qsort(exts, num_exts, sizeof(uint64_t), compare_uint64);
+
+    *out_num_exts = num_exts;
+    *out_exts = exts;
+
+    return 1;
+}
+
+static void glad_wgl_free_extensions(uint64_t *exts) {
+    free(exts);
+}
+
+static int glad_wgl_has_extension(uint64_t *exts, uint32_t num_exts, uint64_t ext) {
+    return glad_hash_search(exts, num_exts, ext);
+}
+
+static int glad_wgl_find_extensions_wgl(GladWGLContext *context, HDC hdc) {
+    uint64_t *exts = NULL;
+    uint32_t num_exts = 0;
+    uint32_t i;
+    if (!glad_wgl_get_extensions(context, hdc, &exts, &num_exts)) return 0;
+
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_WGL_ext_hashes); ++i)
+        context->extArray[i] = glad_wgl_has_extension(exts, num_exts, GLAD_WGL_ext_hashes[i]);
+
+    glad_wgl_free_extensions(exts);
 
     return 1;
 }
