@@ -526,7 +526,7 @@ static const GladPfnRange_t GLAD_EGL_ext_pfn_ranges[] = {
     {  221,  155,    1 },
 };
 
-static uint64_t GLAD_EGL_ext_hashes[] = {
+static const uint64_t GLAD_EGL_ext_hashes[] = {
     /*    0 */ 0x2253fd149000c540ULL, /* EGL_ANDROID_GLES_layers */
     /*    1 */ 0xb309a80c1c4fc565ULL, /* EGL_ANDROID_blob_cache */
     /*    2 */ 0x88e2a3925c1f8e55ULL, /* EGL_ANDROID_create_native_client_buffer */
@@ -795,19 +795,20 @@ static uint32_t glad_egl_resolve_alias_group(GladEGLContext *context, const Glad
     return end_idx - 1;  /* Return index of last processed pair */
 }
 
+static const GladAliasPair_t GLAD_EGL_command_aliases[] = {
+    {   36,   85 }, /* eglClientWaitSync and eglClientWaitSyncKHR */
+    {   34,   78 }, /* eglCreateSync and eglCreateSync64KHR */
+    {   39,   88 }, /* eglDestroyImage and eglDestroyImageKHR */
+    {   35,   84 }, /* eglDestroySync and eglDestroySyncKHR */
+    {  131,   60 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT */
+    {  131,   82 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR */
+};
+
 GLAD_NO_INLINE static void glad_egl_resolve_aliases(GladEGLContext *context) {
-    static const GladAliasPair_t s_aliases[] = {
-        {   36,   85 }, /* eglClientWaitSync and eglClientWaitSyncKHR */
-        {   34,   78 }, /* eglCreateSync and eglCreateSync64KHR */
-        {   39,   88 }, /* eglDestroyImage and eglDestroyImageKHR */
-        {   35,   84 }, /* eglDestroySync and eglDestroySyncKHR */
-        {  131,   60 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT */
-        {  131,   82 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR */
-    };
     uint32_t i;
 
-    for (i = 0; i < GLAD_ARRAYSIZE(s_aliases); ++i) {
-        i = glad_egl_resolve_alias_group(context, s_aliases, i, GLAD_ARRAYSIZE(s_aliases));
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_EGL_command_aliases); ++i) {
+        i = glad_egl_resolve_alias_group(context, GLAD_EGL_command_aliases, i, GLAD_ARRAYSIZE(GLAD_EGL_command_aliases));
     }
 }
 
