@@ -293,237 +293,87 @@ static const char * const GLAD_EGL_fn_names[] = {
 };
 
 static const GladPfnRange_t GLAD_EGL_feature_pfn_ranges[] = {
-    /* EGL_VERSION_1_0 */
-    {    0,    0,   24 },
-
-    /* EGL_VERSION_1_1 */
-    {    1,   24,    4 },
-
-    /* EGL_VERSION_1_2 */
-    {    2,   28,    5 },
-
-    /* EGL_VERSION_1_4 */
-    {    4,   33,    1 },
-
-    /* EGL_VERSION_1_5 */
-    {    5,   34,   10 },
+    {    0,    0,   24 }, /* EGL_VERSION_1_0 */
+    {    1,   24,    4 }, /* EGL_VERSION_1_1 */
+    {    2,   28,    5 }, /* EGL_VERSION_1_2 */
+    {    4,   33,    1 }, /* EGL_VERSION_1_4 */
+    {    5,   34,   10 }, /* EGL_VERSION_1_5 */
 };
 
 static const GladPfnRange_t GLAD_EGL_ext_pfn_ranges[] = {
-    /* EGL_ANDROID_blob_cache */
-    {    1,   44,    1 },
-
-    /* EGL_ANDROID_create_native_client_buffer */
-    {    2,   45,    1 },
-
-    /* EGL_ANDROID_get_frame_timestamps */
-    {    5,   49,    5 },
-
-    /* EGL_ANDROID_get_native_client_buffer */
-    {    6,   46,    1 },
-
-    /* EGL_ANDROID_native_fence_sync */
-    {    8,   47,    1 },
-
-    /* EGL_ANDROID_presentation_time */
-    {    9,   48,    1 },
-
-    /* EGL_ANGLE_device_creation */
-    {   22,  158,    2 },
-
-    /* EGL_ANGLE_device_vulkan */
-    {   28,  178,    2 },
-
-    /* EGL_ANGLE_external_context_and_surface */
-    {   34,  162,    2 },
-
-    /* EGL_ANGLE_feature_control */
-    {   35,  160,    2 },
-
-    /* EGL_ANGLE_metal_shared_event_sync */
-    {   41,  180,    1 },
-
-    /* EGL_ANGLE_no_error */
-    {   43,  181,    1 },
-
-    /* EGL_ANGLE_power_preference */
-    {   59,  173,    4 },
-
-    /* EGL_ANGLE_prepare_swap_buffers */
-    {   60,  172,    1 },
-
-    /* EGL_ANGLE_program_cache_control */
-    {   61,  167,    4 },
-
-    /* EGL_ANGLE_query_surface_pointer */
-    {   62,   54,    1 },
-
-    /* EGL_ANGLE_stream_producer_d3d_texture */
-    {   64,  164,    2 },
-
-    /* EGL_ANGLE_sync_control_rate */
-    {   67,   55,    1 },
-
-    /* EGL_ANGLE_vulkan_image */
-    {   69,  177,    1 },
-
-    /* EGL_ANGLE_wait_until_work_scheduled */
-    {   70,  171,    1 },
-
-    /* EGL_CHROMIUM_sync_control */
-    {   76,  166,    1 },
-
-    /* EGL_EXT_client_sync */
-    {   80,   56,    1 },
-
-    /* EGL_EXT_compositor */
-    {   81,  144,    7 },
-
-    /* EGL_EXT_device_base */
-    {   84,   57,    4 },
-
-    /* EGL_EXT_device_enumeration */
-    {   87,   59,    1 },
-
-    /* EGL_EXT_device_persistent_id */
-    {   89,  156,    1 },
-
-    /* EGL_EXT_device_query */
-    {   90,   57,    2 },
-    {   90,   60,    1 },
-
-    /* EGL_EXT_display_alloc */
-    {   92,  157,    1 },
-
-    /* EGL_EXT_image_dma_buf_import_modifiers */
-    {  103,   61,    2 },
-
-    /* EGL_EXT_output_base */
-    {  107,   63,    8 },
-
-    /* EGL_EXT_platform_base */
-    {  111,   71,    3 },
-
-    /* EGL_EXT_stream_consumer_egloutput */
-    {  120,   74,    1 },
-
-    /* EGL_EXT_surface_compression */
-    {  123,  151,    1 },
-
-    /* EGL_EXT_swap_buffers_with_damage */
-    {  124,   75,    1 },
-
-    /* EGL_EXT_sync_reuse */
-    {  125,   76,    1 },
-
-    /* EGL_HI_clientpixmap */
-    {  127,   77,    1 },
-
-    /* EGL_KHR_cl_event2 */
-    {  132,   78,    1 },
-
-    /* EGL_KHR_debug */
-    {  138,   79,    3 },
-
-    /* EGL_KHR_display_reference */
-    {  139,   82,    1 },
-
-    /* EGL_KHR_fence_sync */
-    {  140,   83,    4 },
-
-    /* EGL_KHR_image */
-    {  147,   87,    2 },
-
-    /* EGL_KHR_image_base */
-    {  148,   87,    2 },
-
-    /* EGL_KHR_lock_surface */
-    {  150,   89,    2 },
-
-    /* EGL_KHR_lock_surface3 */
-    {  152,   89,    3 },
-
-    /* EGL_KHR_partial_update */
-    {  155,   92,    1 },
-
-    /* EGL_KHR_reusable_sync */
-    {  160,   83,    4 },
-    {  160,   93,    1 },
-
-    /* EGL_KHR_stream */
-    {  161,   94,    5 },
-
-    /* EGL_KHR_stream_attrib */
-    {  162,   99,    5 },
-
-    /* EGL_KHR_stream_consumer_gltexture */
-    {  163,  104,    3 },
-
-    /* EGL_KHR_stream_cross_process_fd */
-    {  164,  107,    2 },
-
-    /* EGL_KHR_stream_fifo */
-    {  165,  109,    1 },
-
-    /* EGL_KHR_stream_producer_eglsurface */
-    {  167,  110,    1 },
-
-    /* EGL_KHR_swap_buffers_with_damage */
-    {  169,  111,    1 },
-
-    /* EGL_KHR_wait_sync */
-    {  171,  112,    1 },
-
-    /* EGL_MESA_drm_image */
-    {  172,  113,    2 },
-
-    /* EGL_MESA_image_dma_buf_export */
-    {  173,  115,    2 },
-
-    /* EGL_MESA_query_driver */
-    {  176,  117,    2 },
-
-    /* EGL_NOK_swap_region */
-    {  177,  119,    1 },
-
-    /* EGL_NOK_swap_region2 */
-    {  178,  120,    1 },
-
-    /* EGL_NV_native_query */
-    {  187,  121,    3 },
-
-    /* EGL_NV_post_sub_buffer */
-    {  189,  124,    1 },
-
-    /* EGL_NV_stream_consumer_eglimage */
-    {  192,  126,    4 },
-
-    /* EGL_NV_stream_consumer_gltexture_yuv */
-    {  194,  125,    1 },
-
-    /* EGL_NV_stream_flush */
-    {  203,  130,    1 },
-
-    /* EGL_NV_stream_metadata */
-    {  205,  131,    3 },
-
-    /* EGL_NV_stream_reset */
-    {  208,  134,    1 },
-
-    /* EGL_NV_stream_sync */
-    {  212,  135,    1 },
-
-    /* EGL_NV_sync */
-    {  213,  136,    6 },
-
-    /* EGL_NV_system_time */
-    {  214,  142,    2 },
-
-    /* EGL_WL_bind_wayland_display */
-    {  220,  152,    3 },
-
-    /* EGL_WL_create_wayland_buffer_from_image */
-    {  221,  155,    1 },
+    {    1,   44,    1 }, /* EGL_ANDROID_blob_cache */
+    {    2,   45,    1 }, /* EGL_ANDROID_create_native_client_buffer */
+    {    5,   49,    5 }, /* EGL_ANDROID_get_frame_timestamps */
+    {    6,   46,    1 }, /* EGL_ANDROID_get_native_client_buffer */
+    {    8,   47,    1 }, /* EGL_ANDROID_native_fence_sync */
+    {    9,   48,    1 }, /* EGL_ANDROID_presentation_time */
+    {   22,  158,    2 }, /* EGL_ANGLE_device_creation */
+    {   28,  178,    2 }, /* EGL_ANGLE_device_vulkan */
+    {   34,  162,    2 }, /* EGL_ANGLE_external_context_and_surface */
+    {   35,  160,    2 }, /* EGL_ANGLE_feature_control */
+    {   41,  180,    1 }, /* EGL_ANGLE_metal_shared_event_sync */
+    {   43,  181,    1 }, /* EGL_ANGLE_no_error */
+    {   59,  173,    4 }, /* EGL_ANGLE_power_preference */
+    {   60,  172,    1 }, /* EGL_ANGLE_prepare_swap_buffers */
+    {   61,  167,    4 }, /* EGL_ANGLE_program_cache_control */
+    {   62,   54,    1 }, /* EGL_ANGLE_query_surface_pointer */
+    {   64,  164,    2 }, /* EGL_ANGLE_stream_producer_d3d_texture */
+    {   67,   55,    1 }, /* EGL_ANGLE_sync_control_rate */
+    {   69,  177,    1 }, /* EGL_ANGLE_vulkan_image */
+    {   70,  171,    1 }, /* EGL_ANGLE_wait_until_work_scheduled */
+    {   76,  166,    1 }, /* EGL_CHROMIUM_sync_control */
+    {   80,   56,    1 }, /* EGL_EXT_client_sync */
+    {   81,  144,    7 }, /* EGL_EXT_compositor */
+    {   84,   57,    4 }, /* EGL_EXT_device_base */
+    {   87,   59,    1 }, /* EGL_EXT_device_enumeration */
+    {   89,  156,    1 }, /* EGL_EXT_device_persistent_id */
+    {   90,   57,    2 }, /* EGL_EXT_device_query */
+    {   90,   60,    1 }, /* EGL_EXT_device_query */
+    {   92,  157,    1 }, /* EGL_EXT_display_alloc */
+    {  103,   61,    2 }, /* EGL_EXT_image_dma_buf_import_modifiers */
+    {  107,   63,    8 }, /* EGL_EXT_output_base */
+    {  111,   71,    3 }, /* EGL_EXT_platform_base */
+    {  120,   74,    1 }, /* EGL_EXT_stream_consumer_egloutput */
+    {  123,  151,    1 }, /* EGL_EXT_surface_compression */
+    {  124,   75,    1 }, /* EGL_EXT_swap_buffers_with_damage */
+    {  125,   76,    1 }, /* EGL_EXT_sync_reuse */
+    {  127,   77,    1 }, /* EGL_HI_clientpixmap */
+    {  132,   78,    1 }, /* EGL_KHR_cl_event2 */
+    {  138,   79,    3 }, /* EGL_KHR_debug */
+    {  139,   82,    1 }, /* EGL_KHR_display_reference */
+    {  140,   83,    4 }, /* EGL_KHR_fence_sync */
+    {  147,   87,    2 }, /* EGL_KHR_image */
+    {  148,   87,    2 }, /* EGL_KHR_image_base */
+    {  150,   89,    2 }, /* EGL_KHR_lock_surface */
+    {  152,   89,    3 }, /* EGL_KHR_lock_surface3 */
+    {  155,   92,    1 }, /* EGL_KHR_partial_update */
+    {  160,   83,    4 }, /* EGL_KHR_reusable_sync */
+    {  160,   93,    1 }, /* EGL_KHR_reusable_sync */
+    {  161,   94,    5 }, /* EGL_KHR_stream */
+    {  162,   99,    5 }, /* EGL_KHR_stream_attrib */
+    {  163,  104,    3 }, /* EGL_KHR_stream_consumer_gltexture */
+    {  164,  107,    2 }, /* EGL_KHR_stream_cross_process_fd */
+    {  165,  109,    1 }, /* EGL_KHR_stream_fifo */
+    {  167,  110,    1 }, /* EGL_KHR_stream_producer_eglsurface */
+    {  169,  111,    1 }, /* EGL_KHR_swap_buffers_with_damage */
+    {  171,  112,    1 }, /* EGL_KHR_wait_sync */
+    {  172,  113,    2 }, /* EGL_MESA_drm_image */
+    {  173,  115,    2 }, /* EGL_MESA_image_dma_buf_export */
+    {  176,  117,    2 }, /* EGL_MESA_query_driver */
+    {  177,  119,    1 }, /* EGL_NOK_swap_region */
+    {  178,  120,    1 }, /* EGL_NOK_swap_region2 */
+    {  187,  121,    3 }, /* EGL_NV_native_query */
+    {  189,  124,    1 }, /* EGL_NV_post_sub_buffer */
+    {  192,  126,    4 }, /* EGL_NV_stream_consumer_eglimage */
+    {  194,  125,    1 }, /* EGL_NV_stream_consumer_gltexture_yuv */
+    {  203,  130,    1 }, /* EGL_NV_stream_flush */
+    {  205,  131,    3 }, /* EGL_NV_stream_metadata */
+    {  208,  134,    1 }, /* EGL_NV_stream_reset */
+    {  212,  135,    1 }, /* EGL_NV_stream_sync */
+    {  213,  136,    6 }, /* EGL_NV_sync */
+    {  214,  142,    2 }, /* EGL_NV_system_time */
+    {  220,  152,    3 }, /* EGL_WL_bind_wayland_display */
+    {  221,  155,    1 }, /* EGL_WL_create_wayland_buffer_from_image */
 };
 
 static const uint64_t GLAD_EGL_ext_hashes[] = {
@@ -750,7 +600,6 @@ static const uint64_t GLAD_EGL_ext_hashes[] = {
     /*  220 */ 0xc81b6f913740e456ULL, /* EGL_WL_bind_wayland_display */
     /*  221 */ 0xa3002402543e70a5ULL  /* EGL_WL_create_wayland_buffer_from_image */
 };
-
 static void glad_egl_load_pfn_range(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
     uint32_t pfnIdx;
@@ -811,7 +660,6 @@ GLAD_NO_INLINE static void glad_egl_resolve_aliases(GladEGLContext *context) {
         i = glad_egl_resolve_alias_group(context, GLAD_EGL_command_aliases, i, GLAD_ARRAYSIZE(GLAD_EGL_command_aliases));
     }
 }
-
 static int glad_egl_get_extensions(GladEGLContext *context, EGLDisplay display, uint64_t **out_exts, uint32_t *out_num_exts) {
     size_t clientLen, displayLen;
     char *concat;
@@ -989,7 +837,6 @@ void gladSetEGLContext(GladEGLContext *context) {
     glad_egl_context = *context;
 }
 
-
 #ifdef GLAD_EGL
 
 #ifndef GLAD_LOADER_LIBRARY_C_
@@ -1003,7 +850,6 @@ void gladSetEGLContext(GladEGLContext *context) {
 #else
 #include <dlfcn.h>
 #endif
-
 
 static void* glad_get_dlopen_handle(const char *lib_names[], int length) {
     void *handle = NULL;

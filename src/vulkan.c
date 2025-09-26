@@ -1632,586 +1632,246 @@ static const uint8_t GLAD_Vulkan_fn_scopes[] = {
 };
 
 static const GladPfnRange_t GLAD_Vulkan_feature_pfn_ranges[] = {
-    /* VK_VERSION_1_0 */
-    {    0,    0,  137 },
-
-    /* VK_VERSION_1_1 */
-    {    1,  137,   28 },
-
-    /* VK_VERSION_1_2 */
-    {    2,  165,   13 },
-
-    /* VK_VERSION_1_3 */
-    {    3,  178,   37 },
-
-    /* VK_VERSION_1_4 */
-    {    4,  215,   19 },
+    {    0,    0,  137 }, /* VK_VERSION_1_0 */
+    {    1,  137,   28 }, /* VK_VERSION_1_1 */
+    {    2,  165,   13 }, /* VK_VERSION_1_2 */
+    {    3,  178,   37 }, /* VK_VERSION_1_3 */
+    {    4,  215,   19 }, /* VK_VERSION_1_4 */
 };
 
 static const GladPfnRange_t GLAD_Vulkan_ext_pfn_ranges[] = {
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-    /* VK_AMDX_shader_enqueue */
-    {    1,  388,    7 },
-
+    {    1,  388,    7 }, /* VK_AMDX_shader_enqueue */
 #endif
-    /* VK_AMD_anti_lag */
-    {    2,  691,    1 },
-
-    /* VK_AMD_buffer_marker */
-    {    3,  451,    2 },
-
-    /* VK_AMD_display_native_hdr */
-    {    5,  475,    1 },
-
-    /* VK_AMD_draw_indirect_count */
-    {    6,  300,    2 },
-
-    /* VK_AMD_shader_info */
-    {   22,  302,    1 },
-
+    {    2,  691,    1 }, /* VK_AMD_anti_lag */
+    {    3,  451,    2 }, /* VK_AMD_buffer_marker */
+    {    5,  475,    1 }, /* VK_AMD_display_native_hdr */
+    {    6,  300,    2 }, /* VK_AMD_draw_indirect_count */
+    {   22,  302,    1 }, /* VK_AMD_shader_info */
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
-    /* VK_ANDROID_external_memory_android_hardware_buffer */
-    {   26,  386,    2 },
-
+    {   26,  386,    2 }, /* VK_ANDROID_external_memory_android_hardware_buffer */
 #endif
-    /* VK_ARM_data_graph */
-    {   27,  715,   11 },
-
-    /* VK_ARM_tensors */
-    {   35,  669,   11 },
-
-    /* VK_EXT_acquire_drm_display */
-    {   37,  532,    2 },
-
+    {   27,  715,   11 }, /* VK_ARM_data_graph */
+    {   35,  669,   11 }, /* VK_ARM_tensors */
+    {   37,  532,    2 }, /* VK_EXT_acquire_drm_display */
 #if defined(VK_USE_PLATFORM_XLIB_XRANDR_EXT)
-    /* VK_EXT_acquire_xlib_display */
-    {   38,  340,    2 },
-
+    {   38,  340,    2 }, /* VK_EXT_acquire_xlib_display */
 #endif
-    /* VK_EXT_attachment_feedback_loop_dynamic_state */
-    {   40,  726,    1 },
-
-    /* VK_EXT_buffer_device_address */
-    {   44,  482,    1 },
-
-    /* VK_EXT_calibrated_timestamps */
-    {   45,  453,    2 },
-
-    /* VK_EXT_color_write_enable */
-    {   46,  605,    1 },
-
-    /* VK_EXT_conditional_rendering */
-    {   47,  333,    2 },
-
-    /* VK_EXT_debug_marker */
-    {   50,  268,    5 },
-
-    /* VK_EXT_debug_report */
-    {   51,  265,    3 },
-
-    /* VK_EXT_debug_utils */
-    {   52,  375,   11 },
-
-    /* VK_EXT_depth_bias_control */
-    {   53,  531,    1 },
-
-    /* VK_EXT_depth_clamp_control */
-    {   54,  697,    1 },
-
-    /* VK_EXT_descriptor_buffer */
-    {   59,  557,   11 },
-
-    /* VK_EXT_device_fault */
-    {   62,  578,    1 },
-
-    /* VK_EXT_device_generated_commands */
-    {   63,  745,    9 },
-
-    /* VK_EXT_direct_mode_display */
-    {   65,  339,    1 },
-
+    {   40,  726,    1 }, /* VK_EXT_attachment_feedback_loop_dynamic_state */
+    {   44,  482,    1 }, /* VK_EXT_buffer_device_address */
+    {   45,  453,    2 }, /* VK_EXT_calibrated_timestamps */
+    {   46,  605,    1 }, /* VK_EXT_color_write_enable */
+    {   47,  333,    2 }, /* VK_EXT_conditional_rendering */
+    {   50,  268,    5 }, /* VK_EXT_debug_marker */
+    {   51,  265,    3 }, /* VK_EXT_debug_report */
+    {   52,  375,   11 }, /* VK_EXT_debug_utils */
+    {   53,  531,    1 }, /* VK_EXT_depth_bias_control */
+    {   54,  697,    1 }, /* VK_EXT_depth_clamp_control */
+    {   59,  557,   11 }, /* VK_EXT_descriptor_buffer */
+    {   62,  578,    1 }, /* VK_EXT_device_fault */
+    {   63,  745,    9 }, /* VK_EXT_device_generated_commands */
+    {   65,  339,    1 }, /* VK_EXT_direct_mode_display */
 #if defined(VK_USE_PLATFORM_DIRECTFB_EXT)
-    /* VK_EXT_directfb_surface */
-    {   66,  581,    2 },
-
+    {   66,  581,    2 }, /* VK_EXT_directfb_surface */
 #endif
-    /* VK_EXT_discard_rectangles */
-    {   67,  349,    3 },
-
-    /* VK_EXT_display_control */
-    {   68,  343,    4 },
-
-    /* VK_EXT_display_surface_counter */
-    {   69,  342,    1 },
-
-    /* VK_EXT_extended_dynamic_state */
-    {   71,  497,   12 },
-
-    /* VK_EXT_extended_dynamic_state2 */
-    {   72,  598,    5 },
-
-    /* VK_EXT_extended_dynamic_state3 */
-    {   73,  638,   31 },
-
-    /* VK_EXT_external_memory_host */
-    {   76,  450,    1 },
-
+    {   67,  349,    3 }, /* VK_EXT_discard_rectangles */
+    {   68,  343,    4 }, /* VK_EXT_display_control */
+    {   69,  342,    1 }, /* VK_EXT_display_surface_counter */
+    {   71,  497,   12 }, /* VK_EXT_extended_dynamic_state */
+    {   72,  598,    5 }, /* VK_EXT_extended_dynamic_state2 */
+    {   73,  638,   31 }, /* VK_EXT_extended_dynamic_state3 */
+    {   76,  450,    1 }, /* VK_EXT_external_memory_host */
 #if defined(VK_USE_PLATFORM_METAL_EXT)
-    /* VK_EXT_external_memory_metal */
-    {   77,  756,    2 },
-
+    {   77,  756,    2 }, /* VK_EXT_external_memory_metal */
 #endif
-    /* VK_EXT_fragment_density_map_offset */
-    {   81,  758,    1 },
-
+    {   81,  758,    1 }, /* VK_EXT_fragment_density_map_offset */
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
-    /* VK_EXT_full_screen_exclusive */
-    {   84,  487,    4 },
-
+    {   84,  487,    4 }, /* VK_EXT_full_screen_exclusive */
 #endif
-    /* VK_EXT_hdr_metadata */
-    {   88,  352,    1 },
-
-    /* VK_EXT_headless_surface */
-    {   89,  491,    1 },
-
-    /* VK_EXT_host_image_copy */
-    {   90,  517,    5 },
-
-    /* VK_EXT_host_query_reset */
-    {   91,  496,    1 },
-
-    /* VK_EXT_image_compression_control */
-    {   93,  521,    1 },
-
-    /* VK_EXT_image_drm_format_modifier */
-    {   95,  427,    1 },
-
-    /* VK_EXT_line_rasterization */
-    {  104,  495,    1 },
-
-    /* VK_EXT_mesh_shader */
-    {  109,  569,    3 },
-
+    {   88,  352,    1 }, /* VK_EXT_hdr_metadata */
+    {   89,  491,    1 }, /* VK_EXT_headless_surface */
+    {   90,  517,    5 }, /* VK_EXT_host_image_copy */
+    {   91,  496,    1 }, /* VK_EXT_host_query_reset */
+    {   93,  521,    1 }, /* VK_EXT_image_compression_control */
+    {   95,  427,    1 }, /* VK_EXT_image_drm_format_modifier */
+    {  104,  495,    1 }, /* VK_EXT_line_rasterization */
+    {  109,  569,    3 }, /* VK_EXT_mesh_shader */
 #if defined(VK_USE_PLATFORM_METAL_EXT)
-    /* VK_EXT_metal_objects */
-    {  110,  550,    1 },
-
+    {  110,  550,    1 }, /* VK_EXT_metal_objects */
 #endif
 #if defined(VK_USE_PLATFORM_METAL_EXT)
-    /* VK_EXT_metal_surface */
-    {  111,  477,    1 },
-
+    {  111,  477,    1 }, /* VK_EXT_metal_surface */
 #endif
-    /* VK_EXT_multi_draw */
-    {  112,  607,    2 },
-
-    /* VK_EXT_opacity_micromap */
-    {  117,  609,   14 },
-
-    /* VK_EXT_pageable_device_local_memory */
-    {  118,  625,    1 },
-
-    /* VK_EXT_pipeline_properties */
-    {  124,  597,    1 },
-
-    /* VK_EXT_private_data */
-    {  131,  534,    4 },
-
-    /* VK_EXT_sample_locations */
-    {  137,  395,    2 },
-
-    /* VK_EXT_shader_module_identifier */
-    {  146,  680,    2 },
-
-    /* VK_EXT_shader_object */
-    {  147,  497,   12 },
-    {  147,  583,    1 },
-    {  147,  598,    5 },
-    {  147,  638,   31 },
-    {  147,  693,    5 },
-
-    /* VK_EXT_swapchain_maintenance1 */
-    {  158,  524,    1 },
-
-    /* VK_EXT_tooling_info */
-    {  161,  483,    1 },
-
-    /* VK_EXT_transform_feedback */
-    {  162,  286,    6 },
-
-    /* VK_EXT_validation_cache */
-    {  163,  428,    4 },
-
-    /* VK_EXT_vertex_input_dynamic_state */
-    {  168,  583,    1 },
-
+    {  112,  607,    2 }, /* VK_EXT_multi_draw */
+    {  117,  609,   14 }, /* VK_EXT_opacity_micromap */
+    {  118,  625,    1 }, /* VK_EXT_pageable_device_local_memory */
+    {  124,  597,    1 }, /* VK_EXT_pipeline_properties */
+    {  131,  534,    4 }, /* VK_EXT_private_data */
+    {  137,  395,    2 }, /* VK_EXT_sample_locations */
+    {  146,  680,    2 }, /* VK_EXT_shader_module_identifier */
+    {  147,  497,   12 }, /* VK_EXT_shader_object */
+    {  147,  583,    1 }, /* VK_EXT_shader_object */
+    {  147,  598,    5 }, /* VK_EXT_shader_object */
+    {  147,  638,   31 }, /* VK_EXT_shader_object */
+    {  147,  693,    5 }, /* VK_EXT_shader_object */
+    {  158,  524,    1 }, /* VK_EXT_swapchain_maintenance1 */
+    {  161,  483,    1 }, /* VK_EXT_tooling_info */
+    {  162,  286,    6 }, /* VK_EXT_transform_feedback */
+    {  163,  428,    4 }, /* VK_EXT_validation_cache */
+    {  168,  583,    1 }, /* VK_EXT_vertex_input_dynamic_state */
 #if defined(VK_USE_PLATFORM_FUCHSIA)
-    /* VK_FUCHSIA_buffer_collection */
-    {  172,  588,    5 },
-
+    {  172,  588,    5 }, /* VK_FUCHSIA_buffer_collection */
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
-    /* VK_FUCHSIA_external_memory */
-    {  173,  584,    2 },
-
+    {  173,  584,    2 }, /* VK_FUCHSIA_external_memory */
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
-    /* VK_FUCHSIA_external_semaphore */
-    {  174,  586,    2 },
-
+    {  174,  586,    2 }, /* VK_FUCHSIA_external_semaphore */
 #endif
 #if defined(VK_USE_PLATFORM_FUCHSIA)
-    /* VK_FUCHSIA_imagepipe_surface */
-    {  175,  476,    1 },
-
+    {  175,  476,    1 }, /* VK_FUCHSIA_imagepipe_surface */
 #endif
 #if defined(VK_USE_PLATFORM_GGP)
-    /* VK_GGP_stream_descriptor_surface */
-    {  177,  305,    1 },
-
+    {  177,  305,    1 }, /* VK_GGP_stream_descriptor_surface */
 #endif
-    /* VK_GOOGLE_display_timing */
-    {  179,  347,    2 },
-
-    /* VK_HUAWEI_cluster_culling_shader */
-    {  183,  623,    2 },
-
-    /* VK_HUAWEI_invocation_mask */
-    {  185,  595,    1 },
-
-    /* VK_HUAWEI_subpass_shading */
-    {  186,  593,    2 },
-
-    /* VK_INTEL_performance_query */
-    {  190,  466,    9 },
-
-    /* VK_KHR_acceleration_structure */
-    {  194,  400,   16 },
-
+    {  179,  347,    2 }, /* VK_GOOGLE_display_timing */
+    {  183,  623,    2 }, /* VK_HUAWEI_cluster_culling_shader */
+    {  185,  595,    1 }, /* VK_HUAWEI_invocation_mask */
+    {  186,  593,    2 }, /* VK_HUAWEI_subpass_shading */
+    {  190,  466,    9 }, /* VK_INTEL_performance_query */
+    {  194,  400,   16 }, /* VK_KHR_acceleration_structure */
 #if defined(VK_USE_PLATFORM_ANDROID_KHR)
-    /* VK_KHR_android_surface */
-    {  195,  262,    1 },
-
+    {  195,  262,    1 }, /* VK_KHR_android_surface */
 #endif
-    /* VK_KHR_bind_memory2 */
-    {  196,  425,    2 },
-
-    /* VK_KHR_buffer_device_address */
-    {  197,  492,    3 },
-
-    /* VK_KHR_calibrated_timestamps */
-    {  198,  729,    2 },
-
-    /* VK_KHR_cooperative_matrix */
-    {  200,  714,    1 },
-
-    /* VK_KHR_copy_commands2 */
-    {  201,  572,    6 },
-
-    /* VK_KHR_create_renderpass2 */
-    {  202,  353,    4 },
-
-    /* VK_KHR_deferred_host_operations */
-    {  204,  509,    5 },
-
-    /* VK_KHR_descriptor_update_template */
-    {  207,  332,    1 },
-    {  207,  335,    3 },
-
-    /* VK_KHR_device_group */
-    {  208,  244,    4 },
-    {  208,  315,    3 },
-
-    /* VK_KHR_device_group_creation */
-    {  209,  320,    1 },
-
-    /* VK_KHR_display */
-    {  210,  248,    7 },
-
-    /* VK_KHR_display_swapchain */
-    {  211,  255,    1 },
-
-    /* VK_KHR_draw_indirect_count */
-    {  212,  448,    2 },
-
-    /* VK_KHR_dynamic_rendering */
-    {  214,  303,    2 },
-
-    /* VK_KHR_dynamic_rendering_local_read */
-    {  215,  480,    2 },
-
-    /* VK_KHR_external_fence_capabilities */
-    {  217,  358,    1 },
-
-    /* VK_KHR_external_fence_fd */
-    {  218,  361,    2 },
-
+    {  196,  425,    2 }, /* VK_KHR_bind_memory2 */
+    {  197,  492,    3 }, /* VK_KHR_buffer_device_address */
+    {  198,  729,    2 }, /* VK_KHR_calibrated_timestamps */
+    {  200,  714,    1 }, /* VK_KHR_cooperative_matrix */
+    {  201,  572,    6 }, /* VK_KHR_copy_commands2 */
+    {  202,  353,    4 }, /* VK_KHR_create_renderpass2 */
+    {  204,  509,    5 }, /* VK_KHR_deferred_host_operations */
+    {  207,  332,    1 }, /* VK_KHR_descriptor_update_template */
+    {  207,  335,    3 }, /* VK_KHR_descriptor_update_template */
+    {  208,  244,    4 }, /* VK_KHR_device_group */
+    {  208,  315,    3 }, /* VK_KHR_device_group */
+    {  209,  320,    1 }, /* VK_KHR_device_group_creation */
+    {  210,  248,    7 }, /* VK_KHR_display */
+    {  211,  255,    1 }, /* VK_KHR_display_swapchain */
+    {  212,  448,    2 }, /* VK_KHR_draw_indirect_count */
+    {  214,  303,    2 }, /* VK_KHR_dynamic_rendering */
+    {  215,  480,    2 }, /* VK_KHR_dynamic_rendering_local_read */
+    {  217,  358,    1 }, /* VK_KHR_external_fence_capabilities */
+    {  218,  361,    2 }, /* VK_KHR_external_fence_fd */
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
-    /* VK_KHR_external_fence_win32 */
-    {  219,  359,    2 },
-
+    {  219,  359,    2 }, /* VK_KHR_external_fence_win32 */
 #endif
-    /* VK_KHR_external_memory_capabilities */
-    {  221,  321,    1 },
-
-    /* VK_KHR_external_memory_fd */
-    {  222,  324,    2 },
-
+    {  221,  321,    1 }, /* VK_KHR_external_memory_capabilities */
+    {  222,  324,    2 }, /* VK_KHR_external_memory_fd */
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
-    /* VK_KHR_external_memory_win32 */
-    {  223,  322,    2 },
-
+    {  223,  322,    2 }, /* VK_KHR_external_memory_win32 */
 #endif
-    /* VK_KHR_external_semaphore_capabilities */
-    {  225,  326,    1 },
-
-    /* VK_KHR_external_semaphore_fd */
-    {  226,  329,    2 },
-
+    {  225,  326,    1 }, /* VK_KHR_external_semaphore_capabilities */
+    {  226,  329,    2 }, /* VK_KHR_external_semaphore_fd */
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
-    /* VK_KHR_external_semaphore_win32 */
-    {  227,  327,    2 },
-
+    {  227,  327,    2 }, /* VK_KHR_external_semaphore_win32 */
 #endif
-    /* VK_KHR_fragment_shading_rate */
-    {  230,  478,    2 },
-
-    /* VK_KHR_get_display_properties2 */
-    {  231,  369,    4 },
-
-    /* VK_KHR_get_memory_requirements2 */
-    {  232,  397,    3 },
-
-    /* VK_KHR_get_physical_device_properties2 */
-    {  233,  308,    7 },
-
-    /* VK_KHR_get_surface_capabilities2 */
-    {  234,  367,    2 },
-
-    /* VK_KHR_line_rasterization */
-    {  240,  728,    1 },
-
-    /* VK_KHR_maintenance1 */
-    {  242,  319,    1 },
-
-    /* VK_KHR_maintenance3 */
-    {  244,  447,    1 },
-
-    /* VK_KHR_maintenance4 */
-    {  245,  626,    3 },
-
-    /* VK_KHR_maintenance5 */
-    {  246,  687,    4 },
-
-    /* VK_KHR_maintenance6 */
-    {  247,  731,    6 },
-
-    /* VK_KHR_map_memory2 */
-    {  251,  522,    2 },
-
-    /* VK_KHR_performance_query */
-    {  253,  363,    4 },
-
-    /* VK_KHR_pipeline_binary */
-    {  254,  698,    5 },
-
-    /* VK_KHR_pipeline_executable_properties */
-    {  255,  514,    3 },
-
-    /* VK_KHR_present_wait */
-    {  262,  484,    1 },
-
-    /* VK_KHR_present_wait2 */
-    {  263,  692,    1 },
-
-    /* VK_KHR_push_descriptor */
-    {  264,  331,    2 },
-
-    /* VK_KHR_ray_tracing_maintenance1 */
-    {  266,  606,    1 },
-
-    /* VK_KHR_ray_tracing_pipeline */
-    {  267,  416,    7 },
-
-    /* VK_KHR_sampler_ycbcr_conversion */
-    {  272,  423,    2 },
-
-    /* VK_KHR_shared_presentable_image */
-    {  292,  357,    1 },
-
-    /* VK_KHR_surface */
-    {  295,  234,    5 },
-
-    /* VK_KHR_swapchain */
-    {  298,  239,    9 },
-
-    /* VK_KHR_swapchain_maintenance1 */
-    {  299,  705,    1 },
-
-    /* VK_KHR_synchronization2 */
-    {  301,  551,    6 },
-
-    /* VK_KHR_timeline_semaphore */
-    {  302,  463,    3 },
-
-    /* VK_KHR_video_decode_queue */
-    {  310,  285,    1 },
-
-    /* VK_KHR_video_encode_queue */
-    {  317,  538,    3 },
-
-    /* VK_KHR_video_queue */
-    {  320,  273,   12 },
-
+    {  230,  478,    2 }, /* VK_KHR_fragment_shading_rate */
+    {  231,  369,    4 }, /* VK_KHR_get_display_properties2 */
+    {  232,  397,    3 }, /* VK_KHR_get_memory_requirements2 */
+    {  233,  308,    7 }, /* VK_KHR_get_physical_device_properties2 */
+    {  234,  367,    2 }, /* VK_KHR_get_surface_capabilities2 */
+    {  240,  728,    1 }, /* VK_KHR_line_rasterization */
+    {  242,  319,    1 }, /* VK_KHR_maintenance1 */
+    {  244,  447,    1 }, /* VK_KHR_maintenance3 */
+    {  245,  626,    3 }, /* VK_KHR_maintenance4 */
+    {  246,  687,    4 }, /* VK_KHR_maintenance5 */
+    {  247,  731,    6 }, /* VK_KHR_maintenance6 */
+    {  251,  522,    2 }, /* VK_KHR_map_memory2 */
+    {  253,  363,    4 }, /* VK_KHR_performance_query */
+    {  254,  698,    5 }, /* VK_KHR_pipeline_binary */
+    {  255,  514,    3 }, /* VK_KHR_pipeline_executable_properties */
+    {  262,  484,    1 }, /* VK_KHR_present_wait */
+    {  263,  692,    1 }, /* VK_KHR_present_wait2 */
+    {  264,  331,    2 }, /* VK_KHR_push_descriptor */
+    {  266,  606,    1 }, /* VK_KHR_ray_tracing_maintenance1 */
+    {  267,  416,    7 }, /* VK_KHR_ray_tracing_pipeline */
+    {  272,  423,    2 }, /* VK_KHR_sampler_ycbcr_conversion */
+    {  292,  357,    1 }, /* VK_KHR_shared_presentable_image */
+    {  295,  234,    5 }, /* VK_KHR_surface */
+    {  298,  239,    9 }, /* VK_KHR_swapchain */
+    {  299,  705,    1 }, /* VK_KHR_swapchain_maintenance1 */
+    {  301,  551,    6 }, /* VK_KHR_synchronization2 */
+    {  302,  463,    3 }, /* VK_KHR_timeline_semaphore */
+    {  310,  285,    1 }, /* VK_KHR_video_decode_queue */
+    {  317,  538,    3 }, /* VK_KHR_video_encode_queue */
+    {  320,  273,   12 }, /* VK_KHR_video_queue */
 #if defined(VK_USE_PLATFORM_WAYLAND_KHR)
-    /* VK_KHR_wayland_surface */
-    {  322,  260,    2 },
-
+    {  322,  260,    2 }, /* VK_KHR_wayland_surface */
 #endif
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
-    /* VK_KHR_win32_surface */
-    {  324,  263,    2 },
-
+    {  324,  263,    2 }, /* VK_KHR_win32_surface */
 #endif
 #if defined(VK_USE_PLATFORM_XCB_KHR)
-    /* VK_KHR_xcb_surface */
-    {  326,  258,    2 },
-
+    {  326,  258,    2 }, /* VK_KHR_xcb_surface */
 #endif
 #if defined(VK_USE_PLATFORM_XLIB_KHR)
-    /* VK_KHR_xlib_surface */
-    {  327,  256,    2 },
-
+    {  327,  256,    2 }, /* VK_KHR_xlib_surface */
 #endif
 #if defined(VK_USE_PLATFORM_IOS_MVK)
-    /* VK_MVK_ios_surface */
-    {  332,  373,    1 },
-
+    {  332,  373,    1 }, /* VK_MVK_ios_surface */
 #endif
 #if defined(VK_USE_PLATFORM_MACOS_MVK)
-    /* VK_MVK_macos_surface */
-    {  333,  374,    1 },
-
+    {  333,  374,    1 }, /* VK_MVK_macos_surface */
 #endif
 #if defined(VK_USE_PLATFORM_VI_NN)
-    /* VK_NN_vi_surface */
-    {  334,  318,    1 },
-
+    {  334,  318,    1 }, /* VK_NN_vi_surface */
 #endif
-    /* VK_NVX_binary_import */
-    {  335,  292,    5 },
-
-    /* VK_NVX_image_view_handle */
-    {  336,  297,    3 },
-
+    {  335,  292,    5 }, /* VK_NVX_binary_import */
+    {  336,  297,    3 }, /* VK_NVX_image_view_handle */
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
-    /* VK_NV_acquire_winrt_display */
-    {  338,  579,    2 },
-
+    {  338,  579,    2 }, /* VK_NV_acquire_winrt_display */
 #endif
-    /* VK_NV_clip_space_w_scaling */
-    {  339,  338,    1 },
-
-    /* VK_NV_cluster_acceleration_structure */
-    {  340,  741,    2 },
-
-    /* VK_NV_cooperative_matrix */
-    {  343,  485,    1 },
-
-    /* VK_NV_cooperative_matrix2 */
-    {  344,  755,    1 },
-
-    /* VK_NV_cooperative_vector */
-    {  345,  706,    3 },
-
-    /* VK_NV_copy_memory_indirect */
-    {  346,  631,    2 },
-
-    /* VK_NV_coverage_reduction_mode */
-    {  348,  486,    1 },
-
+    {  339,  338,    1 }, /* VK_NV_clip_space_w_scaling */
+    {  340,  741,    2 }, /* VK_NV_cluster_acceleration_structure */
+    {  343,  485,    1 }, /* VK_NV_cooperative_matrix */
+    {  344,  755,    1 }, /* VK_NV_cooperative_matrix2 */
+    {  345,  706,    3 }, /* VK_NV_cooperative_vector */
+    {  346,  631,    2 }, /* VK_NV_copy_memory_indirect */
+    {  348,  486,    1 }, /* VK_NV_coverage_reduction_mode */
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
-    /* VK_NV_cuda_kernel_launch */
-    {  349,  541,    6 },
-
+    {  349,  541,    6 }, /* VK_NV_cuda_kernel_launch */
 #endif
-    /* VK_NV_device_diagnostic_checkpoints */
-    {  353,  460,    3 },
-
-    /* VK_NV_device_generated_commands */
-    {  355,  525,    6 },
-
-    /* VK_NV_device_generated_commands_compute */
-    {  356,  635,    3 },
-
-    /* VK_NV_external_compute_queue */
-    {  360,  738,    3 },
-
-    /* VK_NV_external_memory_capabilities */
-    {  362,  306,    1 },
-
-    /* VK_NV_external_memory_rdma */
-    {  363,  596,    1 },
-
+    {  353,  460,    3 }, /* VK_NV_device_diagnostic_checkpoints */
+    {  355,  525,    6 }, /* VK_NV_device_generated_commands */
+    {  356,  635,    3 }, /* VK_NV_device_generated_commands_compute */
+    {  360,  738,    3 }, /* VK_NV_external_compute_queue */
+    {  362,  306,    1 }, /* VK_NV_external_memory_capabilities */
+    {  363,  596,    1 }, /* VK_NV_external_memory_rdma */
 #if defined(VK_USE_PLATFORM_WIN32_KHR)
-    /* VK_NV_external_memory_win32 */
-    {  364,  307,    1 },
-
+    {  364,  307,    1 }, /* VK_NV_external_memory_win32 */
 #endif
-    /* VK_NV_fragment_shading_rate_enums */
-    {  368,  568,    1 },
-
-    /* VK_NV_low_latency2 */
-    {  375,  709,    5 },
-
-    /* VK_NV_memory_decompression */
-    {  376,  633,    2 },
-
-    /* VK_NV_mesh_shader */
-    {  377,  455,    3 },
-
-    /* VK_NV_optical_flow */
-    {  378,  682,    5 },
-
-    /* VK_NV_partitioned_acceleration_structure */
-    {  379,  743,    2 },
-
-    /* VK_NV_ray_tracing */
-    {  384,  435,   12 },
-
-    /* VK_NV_scissor_exclusive */
-    {  391,  458,    2 },
-
-    /* VK_NV_shading_rate_image */
-    {  396,  432,    3 },
-
+    {  368,  568,    1 }, /* VK_NV_fragment_shading_rate_enums */
+    {  375,  709,    5 }, /* VK_NV_low_latency2 */
+    {  376,  633,    2 }, /* VK_NV_memory_decompression */
+    {  377,  455,    3 }, /* VK_NV_mesh_shader */
+    {  378,  682,    5 }, /* VK_NV_optical_flow */
+    {  379,  743,    2 }, /* VK_NV_partitioned_acceleration_structure */
+    {  384,  435,   12 }, /* VK_NV_ray_tracing */
+    {  391,  458,    2 }, /* VK_NV_scissor_exclusive */
+    {  396,  432,    3 }, /* VK_NV_shading_rate_image */
 #if defined(VK_USE_PLATFORM_OHOS)
-    /* VK_OHOS_surface */
-    {  400,  754,    1 },
-
+    {  400,  754,    1 }, /* VK_OHOS_surface */
 #endif
-    /* VK_QCOM_tile_memory_heap */
-    {  412,  737,    1 },
-
-    /* VK_QCOM_tile_properties */
-    {  413,  703,    2 },
-
-    /* VK_QCOM_tile_shading */
-    {  414,  547,    3 },
-
+    {  412,  737,    1 }, /* VK_QCOM_tile_memory_heap */
+    {  413,  703,    2 }, /* VK_QCOM_tile_properties */
+    {  414,  547,    3 }, /* VK_QCOM_tile_shading */
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
-    /* VK_QNX_external_memory_screen_buffer */
-    {  416,  727,    1 },
-
+    {  416,  727,    1 }, /* VK_QNX_external_memory_screen_buffer */
 #endif
 #if defined(VK_USE_PLATFORM_SCREEN_QNX)
-    /* VK_QNX_screen_surface */
-    {  417,  603,    2 },
-
+    {  417,  603,    2 }, /* VK_QNX_screen_surface */
 #endif
-    /* VK_VALVE_descriptor_set_host_mapping */
-    {  420,  629,    2 },
+    {  420,  629,    2 }, /* VK_VALVE_descriptor_set_host_mapping */
 };
 
 static const uint64_t GLAD_Vulkan_ext_hashes[] = {
@@ -2640,7 +2300,6 @@ static const uint64_t GLAD_Vulkan_ext_hashes[] = {
     /*  422 */ 0x38c73d4ab66a4942ULL, /* VK_VALVE_mutable_descriptor_type */
     /*  423 */ 0x5674ed8bc838fecbULL  /* VK_VALVE_video_encode_rgb_conversion */
 };
-
 static void glad_vk_load_pfn_range(GladVulkanContext *context, GLADvkuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
     uint32_t pfnIdx;
@@ -2800,7 +2459,6 @@ GLAD_NO_INLINE static void glad_vk_resolve_aliases(GladVulkanContext *context) {
         i = glad_vk_resolve_alias_group(context, GLAD_Vulkan_command_aliases, i, GLAD_ARRAYSIZE(GLAD_Vulkan_command_aliases));
     }
 }
-
 static int glad_vk_get_extensions(GladVulkanContext *context, VkPhysicalDevice physical_device, uint32_t *out_extension_count, uint64_t **out_extensions) {
     uint32_t i;
     uint32_t instance_extension_count = 0;
@@ -2869,6 +2527,7 @@ static int glad_vk_get_extensions(GladVulkanContext *context, VkPhysicalDevice p
         }
     }
 
+    /* Sort extension list for binary search */
     qsort(extensions, total_extension_count, sizeof(uint64_t), compare_uint64);
 
     if (instance_extension_count)
@@ -2998,6 +2657,7 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
     }
 
     gladSetVulkanContext(context);
+
     glad_vk_resolve_aliases(context);
 
     return version;
@@ -3025,7 +2685,6 @@ void gladSetVulkanContext(GladVulkanContext *context) {
     glad_vulkan_context = *context;
 }
 
-
 #ifdef GLAD_VULKAN
 
 #ifndef GLAD_LOADER_LIBRARY_C_
@@ -3039,7 +2698,6 @@ void gladSetVulkanContext(GladVulkanContext *context) {
 #else
 #include <dlfcn.h>
 #endif
-
 
 static void* glad_get_dlopen_handle(const char *lib_names[], int length) {
     void *handle = NULL;

@@ -243,118 +243,46 @@ static const char * const GLAD_GLX_fn_names[] = {
 };
 
 static const GladPfnRange_t GLAD_GLX_feature_pfn_ranges[] = {
-    /* GLX_VERSION_1_0 */
-    {    0,    0,   17 },
-
-    /* GLX_VERSION_1_1 */
-    {    1,   17,    3 },
-
-    /* GLX_VERSION_1_2 */
-    {    2,   20,    1 },
-
-    /* GLX_VERSION_1_3 */
-    {    3,   21,   17 },
-
-    /* GLX_VERSION_1_4 */
-    {    4,   38,    1 },
+    {    0,    0,   17 }, /* GLX_VERSION_1_0 */
+    {    1,   17,    3 }, /* GLX_VERSION_1_1 */
+    {    2,   20,    1 }, /* GLX_VERSION_1_2 */
+    {    3,   21,   17 }, /* GLX_VERSION_1_3 */
+    {    4,   38,    1 }, /* GLX_VERSION_1_4 */
 };
 
 static const GladPfnRange_t GLAD_GLX_ext_pfn_ranges[] = {
-    /* GLX_AMD_gpu_association */
-    {    1,   39,    9 },
-
-    /* GLX_ARB_create_context */
-    {    3,   48,    1 },
-
-    /* GLX_ARB_get_proc_address */
-    {    9,   49,    1 },
-
-    /* GLX_EXT_import_context */
-    {   21,   50,    5 },
-
-    /* GLX_EXT_swap_control */
-    {   25,   55,    1 },
-
-    /* GLX_EXT_texture_from_pixmap */
-    {   27,   56,    2 },
-
-    /* GLX_MESA_agp_offset */
-    {   31,   58,    1 },
-
-    /* GLX_MESA_copy_sub_buffer */
-    {   32,   59,    1 },
-
-    /* GLX_MESA_pixmap_colormap */
-    {   33,   60,    1 },
-
-    /* GLX_MESA_query_renderer */
-    {   34,   61,    4 },
-
-    /* GLX_MESA_release_buffers */
-    {   35,   65,    1 },
-
-    /* GLX_MESA_set_3dfx_mode */
-    {   36,   66,    1 },
-
-    /* GLX_MESA_swap_control */
-    {   37,   67,    2 },
-
-    /* GLX_NV_copy_buffer */
-    {   38,   69,    2 },
-
-    /* GLX_NV_copy_image */
-    {   39,   71,    1 },
-
-    /* GLX_NV_delay_before_swap */
-    {   40,   72,    1 },
-
-    /* GLX_NV_present_video */
-    {   44,   73,    2 },
-
-    /* GLX_NV_swap_group */
-    {   46,   75,    6 },
-
-    /* GLX_NV_video_capture */
-    {   47,   81,    5 },
-
-    /* GLX_NV_video_out */
-    {   48,   86,    6 },
-
-    /* GLX_OML_sync_control */
-    {   50,   92,    5 },
-
-    /* GLX_SGIX_fbconfig */
-    {   54,  103,    6 },
-
-    /* GLX_SGIX_hyperpipe */
-    {   55,  109,    8 },
-
-    /* GLX_SGIX_pbuffer */
-    {   56,  117,    5 },
-
-    /* GLX_SGIX_swap_barrier */
-    {   57,  122,    2 },
-
-    /* GLX_SGIX_swap_group */
-    {   58,  124,    1 },
-
-    /* GLX_SGIX_video_resize */
-    {   59,  125,    5 },
-
-    /* GLX_SGI_cushion */
-    {   61,   97,    1 },
-
-    /* GLX_SGI_make_current_read */
-    {   62,   98,    2 },
-
-    /* GLX_SGI_swap_control */
-    {   63,  100,    1 },
-
-    /* GLX_SGI_video_sync */
-    {   64,  101,    2 },
-
-    /* GLX_SUN_get_transparent_index */
-    {   65,  130,    1 },
+    {    1,   39,    9 }, /* GLX_AMD_gpu_association */
+    {    3,   48,    1 }, /* GLX_ARB_create_context */
+    {    9,   49,    1 }, /* GLX_ARB_get_proc_address */
+    {   21,   50,    5 }, /* GLX_EXT_import_context */
+    {   25,   55,    1 }, /* GLX_EXT_swap_control */
+    {   27,   56,    2 }, /* GLX_EXT_texture_from_pixmap */
+    {   31,   58,    1 }, /* GLX_MESA_agp_offset */
+    {   32,   59,    1 }, /* GLX_MESA_copy_sub_buffer */
+    {   33,   60,    1 }, /* GLX_MESA_pixmap_colormap */
+    {   34,   61,    4 }, /* GLX_MESA_query_renderer */
+    {   35,   65,    1 }, /* GLX_MESA_release_buffers */
+    {   36,   66,    1 }, /* GLX_MESA_set_3dfx_mode */
+    {   37,   67,    2 }, /* GLX_MESA_swap_control */
+    {   38,   69,    2 }, /* GLX_NV_copy_buffer */
+    {   39,   71,    1 }, /* GLX_NV_copy_image */
+    {   40,   72,    1 }, /* GLX_NV_delay_before_swap */
+    {   44,   73,    2 }, /* GLX_NV_present_video */
+    {   46,   75,    6 }, /* GLX_NV_swap_group */
+    {   47,   81,    5 }, /* GLX_NV_video_capture */
+    {   48,   86,    6 }, /* GLX_NV_video_out */
+    {   50,   92,    5 }, /* GLX_OML_sync_control */
+    {   54,  103,    6 }, /* GLX_SGIX_fbconfig */
+    {   55,  109,    8 }, /* GLX_SGIX_hyperpipe */
+    {   56,  117,    5 }, /* GLX_SGIX_pbuffer */
+    {   57,  122,    2 }, /* GLX_SGIX_swap_barrier */
+    {   58,  124,    1 }, /* GLX_SGIX_swap_group */
+    {   59,  125,    5 }, /* GLX_SGIX_video_resize */
+    {   61,   97,    1 }, /* GLX_SGI_cushion */
+    {   62,   98,    2 }, /* GLX_SGI_make_current_read */
+    {   63,  100,    1 }, /* GLX_SGI_swap_control */
+    {   64,  101,    2 }, /* GLX_SGI_video_sync */
+    {   65,  130,    1 }, /* GLX_SUN_get_transparent_index */
 };
 
 static const uint64_t GLAD_GLX_ext_hashes[] = {
@@ -425,7 +353,6 @@ static const uint64_t GLAD_GLX_ext_hashes[] = {
     /*   64 */ 0x0d617d9b2139534bULL, /* GLX_SGI_video_sync */
     /*   65 */ 0xa1de47dd92ad3d02ULL  /* GLX_SUN_get_transparent_index */
 };
-
 static void glad_glx_load_pfn_range(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
     uint32_t pfnIdx;
@@ -438,7 +365,6 @@ static void glad_glx_load_pfn_range(GladGLXContext *context, GLADuserptrloadfunc
 GLAD_NO_INLINE static void glad_glx_resolve_aliases(GladGLXContext *context) {
     GLAD_UNUSED(context);
 }
-
 static GLADapiproc glad_glx_get_proc_from_userptr(void *userptr, const char* name) {
     return (GLAD_GNUC_EXTENSION (GLADapiproc (*)(const char *name)) userptr)(name);
 }
@@ -492,7 +418,6 @@ static int glad_glx_get_extensions(GladGLXContext *context, Display *display, in
 
     *out_num_exts = num_exts;
     *out_exts = exts;
-
     return 1;
 }
 
@@ -596,7 +521,6 @@ void gladSetGLXContext(GladGLXContext *context) {
     glad_glx_context = *context;
 }
 
-
 #ifdef GLAD_GLX
 
 #ifndef GLAD_LOADER_LIBRARY_C_
@@ -610,7 +534,6 @@ void gladSetGLXContext(GladGLXContext *context) {
 #else
 #include <dlfcn.h>
 #endif
-
 
 static void* glad_get_dlopen_handle(const char *lib_names[], int length) {
     void *handle = NULL;

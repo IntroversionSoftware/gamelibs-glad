@@ -257,103 +257,41 @@ static const char * const GLAD_WGL_fn_names[] = {
 };
 
 static const GladPfnRange_t GLAD_WGL_feature_pfn_ranges[] = {
-    /* WGL_VERSION_1_0 */
-    {    0,    0,   26 },
+    {    0,    0,   26 }, /* WGL_VERSION_1_0 */
 };
 
 static const GladPfnRange_t GLAD_WGL_ext_pfn_ranges[] = {
-    /* WGL_3DL_stereo_control */
-    {    1,   26,    1 },
-
-    /* WGL_AMD_gpu_association */
-    {    2,   27,    9 },
-
-    /* WGL_ARB_buffer_region */
-    {    3,   36,    4 },
-
-    /* WGL_ARB_create_context */
-    {    5,   40,    1 },
-
-    /* WGL_ARB_extensions_string */
-    {    9,   41,    1 },
-
-    /* WGL_ARB_make_current_read */
-    {   11,   42,    2 },
-
-    /* WGL_ARB_pbuffer */
-    {   13,   44,    5 },
-
-    /* WGL_ARB_pixel_format */
-    {   14,   49,    3 },
-
-    /* WGL_ARB_render_texture */
-    {   16,   52,    3 },
-
-    /* WGL_EXT_display_color_table */
-    {   25,   55,    4 },
-
-    /* WGL_EXT_extensions_string */
-    {   26,   59,    1 },
-
-    /* WGL_EXT_make_current_read */
-    {   28,   60,    2 },
-
-    /* WGL_EXT_pbuffer */
-    {   30,   62,    5 },
-
-    /* WGL_EXT_pixel_format */
-    {   31,   67,    3 },
-
-    /* WGL_EXT_swap_control */
-    {   33,   70,    2 },
-
-    /* WGL_I3D_digital_video_control */
-    {   35,   72,    2 },
-
-    /* WGL_I3D_gamma */
-    {   36,   74,    4 },
-
-    /* WGL_I3D_genlock */
-    {   37,   78,   12 },
-
-    /* WGL_I3D_image_buffer */
-    {   38,   90,    4 },
-
-    /* WGL_I3D_swap_frame_lock */
-    {   39,   94,    4 },
-
-    /* WGL_I3D_swap_frame_usage */
-    {   40,   98,    4 },
-
-    /* WGL_NV_DX_interop */
-    {   41,  104,    8 },
-
-    /* WGL_NV_copy_image */
-    {   43,  102,    1 },
-
-    /* WGL_NV_delay_before_swap */
-    {   44,  103,    1 },
-
-    /* WGL_NV_gpu_affinity */
-    {   46,  112,    5 },
-
-    /* WGL_NV_present_video */
-    {   49,  117,    3 },
-
-    /* WGL_NV_swap_group */
-    {   52,  120,    6 },
-
-    /* WGL_NV_vertex_array_range */
-    {   53,  137,    2 },
-
-    /* WGL_NV_video_capture */
-    {   54,  126,    5 },
-
-    /* WGL_NV_video_output */
-    {   55,  131,    6 },
-
-    /* WGL_OML_sync_control */
-    {   56,  139,    6 },
+    {    1,   26,    1 }, /* WGL_3DL_stereo_control */
+    {    2,   27,    9 }, /* WGL_AMD_gpu_association */
+    {    3,   36,    4 }, /* WGL_ARB_buffer_region */
+    {    5,   40,    1 }, /* WGL_ARB_create_context */
+    {    9,   41,    1 }, /* WGL_ARB_extensions_string */
+    {   11,   42,    2 }, /* WGL_ARB_make_current_read */
+    {   13,   44,    5 }, /* WGL_ARB_pbuffer */
+    {   14,   49,    3 }, /* WGL_ARB_pixel_format */
+    {   16,   52,    3 }, /* WGL_ARB_render_texture */
+    {   25,   55,    4 }, /* WGL_EXT_display_color_table */
+    {   26,   59,    1 }, /* WGL_EXT_extensions_string */
+    {   28,   60,    2 }, /* WGL_EXT_make_current_read */
+    {   30,   62,    5 }, /* WGL_EXT_pbuffer */
+    {   31,   67,    3 }, /* WGL_EXT_pixel_format */
+    {   33,   70,    2 }, /* WGL_EXT_swap_control */
+    {   35,   72,    2 }, /* WGL_I3D_digital_video_control */
+    {   36,   74,    4 }, /* WGL_I3D_gamma */
+    {   37,   78,   12 }, /* WGL_I3D_genlock */
+    {   38,   90,    4 }, /* WGL_I3D_image_buffer */
+    {   39,   94,    4 }, /* WGL_I3D_swap_frame_lock */
+    {   40,   98,    4 }, /* WGL_I3D_swap_frame_usage */
+    {   41,  104,    8 }, /* WGL_NV_DX_interop */
+    {   43,  102,    1 }, /* WGL_NV_copy_image */
+    {   44,  103,    1 }, /* WGL_NV_delay_before_swap */
+    {   46,  112,    5 }, /* WGL_NV_gpu_affinity */
+    {   49,  117,    3 }, /* WGL_NV_present_video */
+    {   52,  120,    6 }, /* WGL_NV_swap_group */
+    {   53,  137,    2 }, /* WGL_NV_vertex_array_range */
+    {   54,  126,    5 }, /* WGL_NV_video_capture */
+    {   55,  131,    6 }, /* WGL_NV_video_output */
+    {   56,  139,    6 }, /* WGL_OML_sync_control */
 };
 
 static const uint64_t GLAD_WGL_ext_hashes[] = {
@@ -415,7 +353,6 @@ static const uint64_t GLAD_WGL_ext_hashes[] = {
     /*   55 */ 0xeab153b5cac91b24ULL, /* WGL_NV_video_output */
     /*   56 */ 0x3c2462ed17d12185ULL  /* WGL_OML_sync_control */
 };
-
 static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
     uint32_t pfnIdx;
@@ -428,7 +365,6 @@ static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc
 GLAD_NO_INLINE static void glad_wgl_resolve_aliases(GladWGLContext *context) {
     GLAD_UNUSED(context);
 }
-
 static GLADapiproc glad_wgl_get_proc_from_userptr(void *userptr, const char* name) {
     return (GLAD_GNUC_EXTENSION (GLADapiproc (*)(const char *name)) userptr)(name);
 }
@@ -567,7 +503,6 @@ void gladSetWGLContext(GladWGLContext *context) {
     if (&glad_wgl_context == context) return;
     glad_wgl_context = *context;
 }
-
 #ifdef GLAD_WGL
 
 #ifndef GLAD_LOADER_LIBRARY_C_
@@ -581,7 +516,6 @@ void gladSetWGLContext(GladWGLContext *context) {
 #else
 #include <dlfcn.h>
 #endif
-
 
 static void* glad_get_dlopen_handle(const char *lib_names[], int length) {
     void *handle = NULL;
