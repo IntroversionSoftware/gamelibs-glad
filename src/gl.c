@@ -5126,7 +5126,8 @@ static int glad_gl_get_extensions(GladGLContext *context, uint64_t **out_exts, u
     const char *exts_str = NULL;
     const char *cur = NULL;
     const char *next = NULL;
-    uint32_t len = 0, j = 0;
+    uint32_t j;
+    size_t len;
 
 #if defined(GL_ES_VERSION_3_0) || defined(GL_VERSION_3_0)
     if (context->GetStringi != NULL && context->GetIntegerv != NULL) {
@@ -5140,7 +5141,7 @@ static int glad_gl_get_extensions(GladGLContext *context, uint64_t **out_exts, u
         }
         for(index = 0; index < num_exts; index++) {
             const char *gl_str_tmp = (const char*) context->GetStringi(GL_EXTENSIONS, index);
-            size_t len = strlen(gl_str_tmp);
+            len = strlen(gl_str_tmp);
             exts[index] = glad_hash_string(gl_str_tmp, len);
         }
     } else
