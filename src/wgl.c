@@ -504,6 +504,7 @@ void gladSetWGLContext(GladWGLContext *context) {
     if (&glad_wgl_context == context) return;
     glad_wgl_context = *context;
 }
+
 #ifdef GLAD_WGL
 
 #ifndef GLAD_LOADER_LIBRARY_C_
@@ -577,7 +578,6 @@ struct _glad_wgl_userptr {
     void *handle;
     GLADwglprocaddrfunc wgl_get_proc_address_ptr;
 };
-
 
 static void* glad_wgl_dlopen_handle(GladWGLContext *context) {
 #if GLAD_PLATFORM_APPLE

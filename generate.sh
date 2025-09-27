@@ -121,11 +121,6 @@ GLAD_ARGS=(
 	--alias
 	--loader
 
-	# Even though we don't use the multi-context feature for its declared
-	# purpose, it does reduce the amount of memory consumed (by using
-	# bitfields) and simplifies context reset.
-	--mx --mx-global
-
 	# Generate much smaller code for GL, GLES, WGL, and VK
 	--use-pfn-ranges
 )

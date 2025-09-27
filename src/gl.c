@@ -6850,7 +6850,6 @@ static GLADapiproc glad_gles2_get_proc(void *vuserptr, const char* name) {
     return result;
 }
 
-
 static void* glad_gles2_dlopen_handle(GladGLContext *context) {
 #if GLAD_PLATFORM_EMSCRIPTEN
 #elif GLAD_PLATFORM_APPLE

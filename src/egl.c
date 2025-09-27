@@ -808,7 +808,6 @@ GLAD_NO_INLINE int gladLoadEGLContextUserPtr(GladEGLContext *context, EGLDisplay
             glad_egl_load_pfn_range(context, load, userptr, range->start, range->count);
         }
     }
-
     gladSetEGLContext(context);
 
     glad_egl_resolve_aliases(context);
@@ -922,7 +921,6 @@ static GLADapiproc glad_egl_get_proc(void *vuserptr, const char* name) {
 
     return result;
 }
-
 
 static void* glad_egl_dlopen_handle(GladEGLContext *context) {
 #if GLAD_PLATFORM_APPLE
