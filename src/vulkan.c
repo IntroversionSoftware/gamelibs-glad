@@ -1644,7 +1644,7 @@ static const GladPfnRange_t GLAD_Vulkan_feature_pfn_ranges[] = {
     {    4,  215,   19 }, /* VK_VERSION_1_4 */
 };
 
-static const GladPfnRange_t GLAD_Vulkan_ext_pfn_ranges[] = {
+static const GladPfnRange_t GLAD_vulkan_ext_pfn_ranges[] = {
 #if defined(VK_ENABLE_BETA_EXTENSIONS)
     {    1,  388,    7 }, /* VK_AMDX_shader_enqueue */
 #endif
@@ -2656,8 +2656,8 @@ GLAD_NO_INLINE int gladLoadVulkanContextUserPtr(GladVulkanContext *context, VkIn
 
     if (!glad_vk_find_extensions_vulkan(context, physical_device)) return 0;
 
-    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_Vulkan_ext_pfn_ranges); ++i) {
-        const GladPfnRange_t *range = &GLAD_Vulkan_ext_pfn_ranges[i];
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_vulkan_ext_pfn_ranges); ++i) {
+        const GladPfnRange_t *range = &GLAD_vulkan_ext_pfn_ranges[i];
         if (context->extArray[range->extension]) {
             glad_vk_load_pfn_range(context, load, userptr, range->start, range->count);
         }

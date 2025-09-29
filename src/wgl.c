@@ -261,7 +261,7 @@ static const GladPfnRange_t GLAD_WGL_feature_pfn_ranges[] = {
     {    0,    0,   26 }, /* WGL_VERSION_1_0 */
 };
 
-static const GladPfnRange_t GLAD_WGL_ext_pfn_ranges[] = {
+static const GladPfnRange_t GLAD_wgl_ext_pfn_ranges[] = {
     {    1,   26,    1 }, /* WGL_3DL_stereo_control */
     {    2,   27,    9 }, /* WGL_AMD_gpu_association */
     {    3,   36,    4 }, /* WGL_ARB_buffer_region */
@@ -471,8 +471,8 @@ GLAD_NO_INLINE int gladLoadWGLContextUserPtr(GladWGLContext *context, HDC hdc, G
 
     if (!glad_wgl_find_extensions_wgl(context, hdc)) return 0;
 
-    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_WGL_ext_pfn_ranges); ++i) {
-        const GladPfnRange_t *range = &GLAD_WGL_ext_pfn_ranges[i];
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_wgl_ext_pfn_ranges); ++i) {
+        const GladPfnRange_t *range = &GLAD_wgl_ext_pfn_ranges[i];
         if (context->extArray[range->extension]) {
             glad_wgl_load_pfn_range(context, load, userptr, range->start, range->count);
         }

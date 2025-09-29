@@ -3128,7 +3128,7 @@ static const GladPfnRange_t GLAD_GL_feature_pfn_ranges[] = {
     {   22, 2541,    2 }, /* GL_ES_VERSION_3_2 */
 };
 
-static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
+static const GladPfnRange_t GLAD_gl_ext_pfn_ranges[] = {
     {    1,  657,    1 }, /* GL_3DFX_tbuffer */
     {    7,  658,    4 }, /* GL_AMD_debug_output */
     {    9,  662,    4 }, /* GL_AMD_draw_buffers_blend */
@@ -3144,35 +3144,14 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {   34,  725,    2 }, /* GL_AMD_sparse_texture */
     {   35,  727,    1 }, /* GL_AMD_stencil_operation_extended */
     {   41,  728,    2 }, /* GL_AMD_vertex_shader_tessellator */
-    {   44, 2859,    4 }, /* GL_ANGLE_base_vertex_base_instance */
-    {   45, 2884,    2 }, /* GL_ANGLE_blob_cache */
-    {   48, 2850,    2 }, /* GL_ANGLE_copy_texture_3d */
-    {   50, 2543,    1 }, /* GL_ANGLE_framebuffer_blit */
-    {   51, 2544,    1 }, /* GL_ANGLE_framebuffer_multisample */
-    {   52, 2866,    3 }, /* GL_ANGLE_get_image */
-    {   54, 2869,    2 }, /* GL_ANGLE_get_tex_level_parameter */
-    {   55, 2545,    3 }, /* GL_ANGLE_instanced_arrays */
-    {   56, 2883,    1 }, /* GL_ANGLE_logic_op */
     {   58, 2535,    4 }, /* GL_ANGLE_memory_object_flags */
     {   59, 2539,    1 }, /* GL_ANGLE_memory_object_fuchsia */
-    {   61, 2855,    4 }, /* GL_ANGLE_multi_draw */
-    {   63, 2863,    1 }, /* GL_ANGLE_polygon_mode */
-    {   67, 2864,    1 }, /* GL_ANGLE_provoking_vertex */
-    {   69, 2780,    2 }, /* GL_ANGLE_request_extension */
-    {   71, 2784,   66 }, /* GL_ANGLE_robust_client_memory */
     {   74, 2540,    1 }, /* GL_ANGLE_semaphore_fuchsia */
-    {   76, 2871,   12 }, /* GL_ANGLE_shader_pixel_local_storage */
     {   81, 2533,    2 }, /* GL_ANGLE_texture_external_update */
-    {   82, 2852,    3 }, /* GL_ANGLE_texture_multisample */
-    {   84, 2548,    1 }, /* GL_ANGLE_translated_shader_source */
-    {   85, 2782,    2 }, /* GL_ANGLE_vulkan_image */
-    {   91, 2549,    1 }, /* GL_APPLE_copy_texture_levels */
     {   92,  730,    5 }, /* GL_APPLE_element_array */
     {   93,  735,    8 }, /* GL_APPLE_fence */
     {   95,  743,    2 }, /* GL_APPLE_flush_buffer_range */
-    {   96, 2550,    2 }, /* GL_APPLE_framebuffer_multisample */
     {   97,  745,    3 }, /* GL_APPLE_object_purgeable */
-    {  101, 2552,    7 }, /* GL_APPLE_sync */
     {  105,  748,    2 }, /* GL_APPLE_texture_range */
     {  107,  750,    4 }, /* GL_APPLE_vertex_array_object */
     {  108,  754,    3 }, /* GL_APPLE_vertex_array_range */
@@ -3270,7 +3249,6 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  280,  469,   10 }, /* GL_ARB_viewport_array */
     {  280, 1049,    2 }, /* GL_ARB_viewport_array */
     {  281, 1051,   16 }, /* GL_ARB_window_pos */
-    {  287, 2559,    1 }, /* GL_ARM_shader_core_properties */
     {  291, 1067,    1 }, /* GL_ATI_draw_buffers */
     {  292, 1068,    3 }, /* GL_ATI_element_array */
     {  293, 1071,    4 }, /* GL_ATI_envmap_bumpmap */
@@ -3281,53 +3259,32 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  304, 1095,   12 }, /* GL_ATI_vertex_array_object */
     {  305, 1107,    3 }, /* GL_ATI_vertex_attrib_array_object */
     {  306, 1110,   45 }, /* GL_ATI_vertex_streams */
-    {  307, 2775,    1 }, /* GL_CHROMIUM_bind_uniform_location */
-    {  308, 2779,    1 }, /* GL_CHROMIUM_copy_compressed_texture */
-    {  309, 2777,    2 }, /* GL_CHROMIUM_copy_texture */
-    {  310, 2776,    1 }, /* GL_CHROMIUM_framebuffer_mixed_samples */
-    {  311, 2865,    1 }, /* GL_CHROMIUM_lose_context */
     {  316, 1155,    2 }, /* GL_EXT_EGL_image_storage */
-    {  321, 2560,    3 }, /* GL_EXT_base_instance */
     {  324, 1157,    3 }, /* GL_EXT_bindable_uniform */
     {  325, 1160,    1 }, /* GL_EXT_blend_color */
     {  326, 1161,    1 }, /* GL_EXT_blend_equation_separate */
-    {  327, 1162,    1 }, /* GL_EXT_blend_func_extended */
-    {  327, 2563,    3 }, /* GL_EXT_blend_func_extended */
     {  328, 1163,    1 }, /* GL_EXT_blend_func_separate */
     {  330, 1164,    1 }, /* GL_EXT_blend_minmax */
-    {  335, 2566,    1 }, /* GL_EXT_buffer_storage */
-    {  336, 2567,    2 }, /* GL_EXT_clear_texture */
-    {  337, 2569,    1 }, /* GL_EXT_clip_control */
     {  343, 1165,    2 }, /* GL_EXT_color_subtable */
     {  344, 1167,    2 }, /* GL_EXT_compiled_vertex_array */
     {  348, 1169,   13 }, /* GL_EXT_convolution */
     {  349, 1182,   22 }, /* GL_EXT_coordinate_frame */
-    {  350, 2570,    1 }, /* GL_EXT_copy_image */
     {  351, 1204,    5 }, /* GL_EXT_copy_texture */
     {  352, 1209,    2 }, /* GL_EXT_cull_vertex */
     {  353, 1211,    2 }, /* GL_EXT_debug_label */
     {  354, 1213,    3 }, /* GL_EXT_debug_marker */
     {  357, 1216,    1 }, /* GL_EXT_depth_bounds_test */
     {  360, 1217,  255 }, /* GL_EXT_direct_state_access */
-    {  361, 2571,    1 }, /* GL_EXT_discard_framebuffer */
-    {  362, 1472,    2 }, /* GL_EXT_disjoint_timer_query */
-    {  362, 2572,   10 }, /* GL_EXT_disjoint_timer_query */
-    {  363, 2582,    1 }, /* GL_EXT_draw_buffers */
     {  364, 1296,    5 }, /* GL_EXT_draw_buffers2 */
     {  364, 1474,    1 }, /* GL_EXT_draw_buffers2 */
-    {  365, 2583,    8 }, /* GL_EXT_draw_buffers_indexed */
-    {  366, 2591,    4 }, /* GL_EXT_draw_elements_base_vertex */
     {  367, 1475,    2 }, /* GL_EXT_draw_instanced */
     {  368, 1477,    1 }, /* GL_EXT_draw_range_elements */
-    {  369, 2595,    2 }, /* GL_EXT_draw_transform_feedback */
     {  371, 1478,    2 }, /* GL_EXT_external_buffer */
     {  374, 1480,    5 }, /* GL_EXT_fog_coord */
-    {  377, 2597,    4 }, /* GL_EXT_fragment_shading_rate */
     {  378, 1485,    1 }, /* GL_EXT_framebuffer_blit */
     {  379, 1486,    2 }, /* GL_EXT_framebuffer_blit_layers */
     {  380, 1488,    1 }, /* GL_EXT_framebuffer_multisample */
     {  382, 1489,   17 }, /* GL_EXT_framebuffer_object */
-    {  385, 1506,    1 }, /* GL_EXT_geometry_shader */
     {  386, 1507,    1 }, /* GL_EXT_geometry_shader4 */
     {  387, 1508,    2 }, /* GL_EXT_gpu_program_parameters */
     {  388, 1162,    1 }, /* GL_EXT_gpu_shader4 */
@@ -3335,55 +3292,32 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  390, 1543,   10 }, /* GL_EXT_histogram */
     {  392, 1553,    1 }, /* GL_EXT_index_func */
     {  393, 1554,    1 }, /* GL_EXT_index_material */
-    {  395, 1475,    2 }, /* GL_EXT_instanced_arrays */
-    {  395, 2601,    1 }, /* GL_EXT_instanced_arrays */
     {  397, 1555,    3 }, /* GL_EXT_light_texture */
-    {  398, 2602,    2 }, /* GL_EXT_map_buffer_range */
     {  400, 1558,   19 }, /* GL_EXT_memory_object */
     {  401, 1577,    1 }, /* GL_EXT_memory_object_fd */
     {  402, 1578,    2 }, /* GL_EXT_memory_object_win32 */
     {  405, 1580,    2 }, /* GL_EXT_multi_draw_arrays */
-    {  406, 2604,    2 }, /* GL_EXT_multi_draw_indirect */
     {  407, 1582,    2 }, /* GL_EXT_multisample */
-    {  409, 1488,    1 }, /* GL_EXT_multisampled_render_to_texture */
-    {  409, 2606,    1 }, /* GL_EXT_multisampled_render_to_texture */
-    {  411, 2607,    3 }, /* GL_EXT_multiview_draw_buffers */
-    {  418, 2572,    5 }, /* GL_EXT_occlusion_query_boolean */
-    {  418, 2578,    1 }, /* GL_EXT_occlusion_query_boolean */
-    {  418, 2580,    1 }, /* GL_EXT_occlusion_query_boolean */
     {  423, 1584,    4 }, /* GL_EXT_paletted_texture */
     {  425, 1588,    6 }, /* GL_EXT_pixel_transform */
     {  427, 1594,    2 }, /* GL_EXT_point_parameters */
     {  428, 1596,    1 }, /* GL_EXT_polygon_offset */
     {  429, 1597,    1 }, /* GL_EXT_polygon_offset_clamp */
-    {  431, 2610,    1 }, /* GL_EXT_primitive_bounding_box */
     {  433, 1598,    1 }, /* GL_EXT_provoking_vertex */
     {  435, 1599,    1 }, /* GL_EXT_raster_multisample */
-    {  444, 2611,    4 }, /* GL_EXT_robustness */
     {  449, 1610,   17 }, /* GL_EXT_secondary_color */
     {  450, 1558,    2 }, /* GL_EXT_semaphore */
     {  450, 1600,    7 }, /* GL_EXT_semaphore */
     {  451, 1607,    1 }, /* GL_EXT_semaphore_fd */
     {  452, 1608,    2 }, /* GL_EXT_semaphore_win32 */
-    {  454, 1326,   25 }, /* GL_EXT_separate_shader_objects */
-    {  454, 1361,    8 }, /* GL_EXT_separate_shader_objects */
-    {  454, 1507,    1 }, /* GL_EXT_separate_shader_objects */
     {  454, 1627,    3 }, /* GL_EXT_separate_shader_objects */
-    {  454, 2615,   10 }, /* GL_EXT_separate_shader_objects */
     {  470, 1630,    1 }, /* GL_EXT_shader_framebuffer_fetch_non_coherent */
     {  474, 1631,    2 }, /* GL_EXT_shader_image_load_store */
-    {  480, 2625,    3 }, /* GL_EXT_shader_pixel_local_storage2 */
-    {  495, 2628,    1 }, /* GL_EXT_sparse_texture */
     {  499, 1633,    1 }, /* GL_EXT_stencil_clear_tag */
     {  500, 1634,    1 }, /* GL_EXT_stencil_two_side */
     {  504, 1635,    2 }, /* GL_EXT_subtexture */
-    {  507, 2629,    1 }, /* GL_EXT_tessellation_shader */
     {  509, 1637,    2 }, /* GL_EXT_texture3D */
     {  510, 1639,    1 }, /* GL_EXT_texture_array */
-    {  511, 1640,    4 }, /* GL_EXT_texture_border_clamp */
-    {  511, 2630,    4 }, /* GL_EXT_texture_border_clamp */
-    {  512, 1644,    1 }, /* GL_EXT_texture_buffer */
-    {  512, 2634,    1 }, /* GL_EXT_texture_buffer */
     {  513, 1644,    1 }, /* GL_EXT_texture_buffer_object */
     {  530, 1640,    4 }, /* GL_EXT_texture_integer */
     {  530, 1645,    2 }, /* GL_EXT_texture_integer */
@@ -3391,8 +3325,6 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  537, 1653,    1 }, /* GL_EXT_texture_perturb_normal */
     {  547, 1458,    3 }, /* GL_EXT_texture_storage */
     {  547, 1654,    3 }, /* GL_EXT_texture_storage */
-    {  548, 2635,    2 }, /* GL_EXT_texture_storage_compression */
-    {  551, 2637,    1 }, /* GL_EXT_texture_view */
     {  552, 1472,    2 }, /* GL_EXT_timer_query */
     {  553, 1660,    7 }, /* GL_EXT_transform_feedback */
     {  555, 1667,    9 }, /* GL_EXT_vertex_array */
@@ -3408,9 +3340,6 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  576, 1743,    2 }, /* GL_IBM_multimode_draw_arrays */
     {  578, 1745,    1 }, /* GL_IBM_static_data */
     {  580, 1746,    8 }, /* GL_IBM_vertex_array_lists */
-    {  581, 2638,    6 }, /* GL_IMG_bindless_texture */
-    {  582, 2644,    2 }, /* GL_IMG_framebuffer_downsample */
-    {  583, 2646,    2 }, /* GL_IMG_multisampled_render_to_texture */
     {  590, 1754,    1 }, /* GL_INGR_blend_func_separate */
     {  596, 1755,    1 }, /* GL_INTEL_framebuffer_CMAA */
     {  597, 1756,    3 }, /* GL_INTEL_map_texture */
@@ -3419,16 +3348,11 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  600, 1773,    1 }, /* GL_KHR_blend_equation_advanced */
     {  604,   50,    1 }, /* GL_KHR_debug */
     {  604,  524,   10 }, /* GL_KHR_debug */
-    {  604, 2648,   11 }, /* GL_KHR_debug */
     {  607, 1774,    1 }, /* GL_KHR_parallel_shader_compile */
     {  609,  644,    1 }, /* GL_KHR_robustness */
     {  609,  648,    4 }, /* GL_KHR_robustness */
-    {  609, 2659,    5 }, /* GL_KHR_robustness */
     {  627, 1775,    2 }, /* GL_MESA_framebuffer_flip_y */
     {  631, 1777,    1 }, /* GL_MESA_resize_buffers */
-    {  632,  319,    8 }, /* GL_MESA_sampler_objects */
-    {  632,  329,    1 }, /* GL_MESA_sampler_objects */
-    {  632,  331,    1 }, /* GL_MESA_sampler_objects */
     {  636, 1778,   24 }, /* GL_MESA_window_pos */
     {  639, 1802,    2 }, /* GL_NVX_conditional_render */
     {  641, 1969,    6 }, /* GL_NVX_gpu_multicast2 */
@@ -3445,12 +3369,8 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  659, 1847,    1 }, /* GL_NV_conservative_raster */
     {  660, 1848,    1 }, /* GL_NV_conservative_raster_dilate */
     {  662, 1849,    1 }, /* GL_NV_conservative_raster_pre_snap_triangles */
-    {  667, 2664,    1 }, /* GL_NV_copy_buffer */
     {  669, 1850,    1 }, /* GL_NV_copy_image */
-    {  670, 2665,    2 }, /* GL_NV_coverage_sample */
     {  672, 1851,    3 }, /* GL_NV_depth_buffer_float */
-    {  676, 2667,    1 }, /* GL_NV_draw_buffers */
-    {  677, 2668,    2 }, /* GL_NV_draw_instanced */
     {  678, 1854,    1 }, /* GL_NV_draw_texture */
     {  679, 1855,    5 }, /* GL_NV_draw_vulkan_image */
     {  680, 1860,    9 }, /* GL_NV_evaluators */
@@ -3458,10 +3378,8 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  684, 1872,    7 }, /* GL_NV_fence */
     {  688, 1879,    1 }, /* GL_NV_fragment_coverage_to_color */
     {  689, 1880,    6 }, /* GL_NV_fragment_program */
-    {  695, 2670,    1 }, /* GL_NV_framebuffer_blit */
     {  696, 1599,    1 }, /* GL_NV_framebuffer_mixed_samples */
     {  696, 1886,    3 }, /* GL_NV_framebuffer_mixed_samples */
-    {  697, 2671,    1 }, /* GL_NV_framebuffer_multisample */
     {  698, 1889,    1 }, /* GL_NV_framebuffer_multisample_coverage */
     {  700, 1506,    1 }, /* GL_NV_geometry_program4 */
     {  700, 1639,    1 }, /* GL_NV_geometry_program4 */
@@ -3472,12 +3390,10 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  707,  672,   17 }, /* GL_NV_gpu_shader5 */
     {  707,  690,   16 }, /* GL_NV_gpu_shader5 */
     {  708, 1910,   46 }, /* GL_NV_half_float */
-    {  710, 2672,    1 }, /* GL_NV_instanced_arrays */
     {  712, 1956,    1 }, /* GL_NV_internalformat_sample_query */
     {  715, 1979,    6 }, /* GL_NV_memory_attachment */
     {  716, 1985,    4 }, /* GL_NV_memory_object_sparse */
     {  717, 1989,    4 }, /* GL_NV_mesh_shader */
-    {  720, 2673,    6 }, /* GL_NV_non_square_matrices */
     {  721, 1993,    7 }, /* GL_NV_occlusion_query */
     {  724, 2000,    3 }, /* GL_NV_parameter_buffer_object */
     {  726, 1217,   15 }, /* GL_NV_path_rendering */
@@ -3485,12 +3401,10 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  726, 2003,   57 }, /* GL_NV_path_rendering */
     {  729, 2060,    2 }, /* GL_NV_pixel_data_range */
     {  730, 2062,    2 }, /* GL_NV_point_sprite */
-    {  731, 2679,    1 }, /* GL_NV_polygon_mode */
     {  732, 2064,    6 }, /* GL_NV_present_video */
     {  733, 2070,    2 }, /* GL_NV_primitive_restart */
     {  735, 2072,    1 }, /* GL_NV_query_resource */
     {  736, 2073,    3 }, /* GL_NV_query_resource_tag */
-    {  739, 2680,    1 }, /* GL_NV_read_buffer */
     {  744, 2076,   13 }, /* GL_NV_register_combiners */
     {  745, 2089,    2 }, /* GL_NV_register_combiners2 */
     {  749, 2091,    3 }, /* GL_NV_sample_locations */
@@ -3511,47 +3425,13 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  798, 2186,   64 }, /* GL_NV_vertex_program */
     {  803, 1520,   23 }, /* GL_NV_vertex_program4 */
     {  804, 2250,   12 }, /* GL_NV_video_capture */
-    {  805, 2681,   12 }, /* GL_NV_viewport_array */
     {  807, 2262,    1 }, /* GL_NV_viewport_swizzle */
-    {  808, 2693,    2 }, /* GL_OES_EGL_image */
-    {  809, 2693,    1 }, /* GL_OES_EGL_image_external */
     {  811, 2263,   22 }, /* GL_OES_byte_coordinates */
-    {  815, 2695,    1 }, /* GL_OES_copy_image */
-    {  819, 2696,    8 }, /* GL_OES_draw_buffers_indexed */
-    {  820, 2594,    1 }, /* GL_OES_draw_elements_base_vertex */
-    {  820, 2704,    3 }, /* GL_OES_draw_elements_base_vertex */
     {  823, 2285,  103 }, /* GL_OES_fixed_point */
-    {  826, 2707,    1 }, /* GL_OES_geometry_shader */
-    {  827, 2708,    2 }, /* GL_OES_get_program_binary */
-    {  829, 2710,    3 }, /* GL_OES_mapbuffer */
-    {  831, 2713,    1 }, /* GL_OES_primitive_bounding_box */
     {  832, 2388,    1 }, /* GL_OES_query_matrix */
-    {  836, 2714,    1 }, /* GL_OES_sample_shading */
     {  841, 2389,    6 }, /* GL_OES_single_precision */
-    {  847, 2715,    1 }, /* GL_OES_tessellation_shader */
-    {  848, 2716,    6 }, /* GL_OES_texture_3D */
-    {  849, 2722,    8 }, /* GL_OES_texture_border_clamp */
-    {  850, 2730,    2 }, /* GL_OES_texture_buffer */
-    {  859, 2732,    1 }, /* GL_OES_texture_storage_multisample_2d_array */
-    {  860, 2733,    1 }, /* GL_OES_texture_view */
-    {  861, 2734,    4 }, /* GL_OES_vertex_array_object */
-    {  864, 2696,    2 }, /* GL_OES_viewport_array */
-    {  864, 2703,    1 }, /* GL_OES_viewport_array */
-    {  864, 2738,    9 }, /* GL_OES_viewport_array */
     {  868, 2395,    2 }, /* GL_OVR_multiview */
-    {  870, 2747,    1 }, /* GL_OVR_multiview_multisampled_render_to_texture */
     {  871, 2397,    1 }, /* GL_PGI_misc_hints */
-    {  874, 2748,    1 }, /* GL_QCOM_alpha_test */
-    {  877, 2749,    4 }, /* GL_QCOM_driver_control */
-    {  878, 2753,    8 }, /* GL_QCOM_extended_get */
-    {  879, 2761,    4 }, /* GL_QCOM_extended_get2 */
-    {  880, 2769,    1 }, /* GL_QCOM_frame_extrapolation */
-    {  881, 2765,    2 }, /* GL_QCOM_framebuffer_foveated */
-    {  884, 2767,    2 }, /* GL_QCOM_motion_estimation */
-    {  888, 2771,    1 }, /* GL_QCOM_shader_framebuffer_fetch_noncoherent */
-    {  890, 2772,    1 }, /* GL_QCOM_shading_rate */
-    {  891, 2770,    1 }, /* GL_QCOM_texture_foveated */
-    {  896, 2773,    2 }, /* GL_QCOM_tiled_rendering */
     {  901, 2398,    2 }, /* GL_SGIS_detail_texture */
     {  902, 2400,    2 }, /* GL_SGIS_fog_function */
     {  904, 2402,    2 }, /* GL_SGIS_multisample */
@@ -3579,6 +3459,187 @@ static const GladPfnRange_t GLAD_GL_ext_pfn_ranges[] = {
     {  960, 2485,    1 }, /* GL_SUN_mesh_array */
     {  962, 2486,    7 }, /* GL_SUN_triangle_list */
     {  963, 2493,   40 }, /* GL_SUN_vertex */
+};
+static const GladPfnRange_t GLAD_gles2_ext_pfn_ranges[] = {
+    {   10,  666,    2 }, /* GL_AMD_framebuffer_multisample_advanced */
+    {   20,  713,   11 }, /* GL_AMD_performance_monitor */
+    {   44, 2859,    4 }, /* GL_ANGLE_base_vertex_base_instance */
+    {   45, 2884,    2 }, /* GL_ANGLE_blob_cache */
+    {   48, 2850,    2 }, /* GL_ANGLE_copy_texture_3d */
+    {   50, 2543,    1 }, /* GL_ANGLE_framebuffer_blit */
+    {   51, 2544,    1 }, /* GL_ANGLE_framebuffer_multisample */
+    {   52, 2866,    3 }, /* GL_ANGLE_get_image */
+    {   54, 2869,    2 }, /* GL_ANGLE_get_tex_level_parameter */
+    {   55, 2545,    3 }, /* GL_ANGLE_instanced_arrays */
+    {   56, 2883,    1 }, /* GL_ANGLE_logic_op */
+    {   58, 2535,    4 }, /* GL_ANGLE_memory_object_flags */
+    {   59, 2539,    1 }, /* GL_ANGLE_memory_object_fuchsia */
+    {   61, 2855,    4 }, /* GL_ANGLE_multi_draw */
+    {   63, 2863,    1 }, /* GL_ANGLE_polygon_mode */
+    {   67, 2864,    1 }, /* GL_ANGLE_provoking_vertex */
+    {   69, 2780,    2 }, /* GL_ANGLE_request_extension */
+    {   71, 2784,   66 }, /* GL_ANGLE_robust_client_memory */
+    {   74, 2540,    1 }, /* GL_ANGLE_semaphore_fuchsia */
+    {   76, 2871,   12 }, /* GL_ANGLE_shader_pixel_local_storage */
+    {   81, 2533,    2 }, /* GL_ANGLE_texture_external_update */
+    {   82, 2852,    3 }, /* GL_ANGLE_texture_multisample */
+    {   84, 2548,    1 }, /* GL_ANGLE_translated_shader_source */
+    {   85, 2782,    2 }, /* GL_ANGLE_vulkan_image */
+    {   91, 2549,    1 }, /* GL_APPLE_copy_texture_levels */
+    {   96, 2550,    2 }, /* GL_APPLE_framebuffer_multisample */
+    {  101, 2552,    7 }, /* GL_APPLE_sync */
+    {  287, 2559,    1 }, /* GL_ARM_shader_core_properties */
+    {  307, 2775,    1 }, /* GL_CHROMIUM_bind_uniform_location */
+    {  308, 2779,    1 }, /* GL_CHROMIUM_copy_compressed_texture */
+    {  309, 2777,    2 }, /* GL_CHROMIUM_copy_texture */
+    {  310, 2776,    1 }, /* GL_CHROMIUM_framebuffer_mixed_samples */
+    {  311, 2865,    1 }, /* GL_CHROMIUM_lose_context */
+    {  316, 1155,    2 }, /* GL_EXT_EGL_image_storage */
+    {  321, 2560,    3 }, /* GL_EXT_base_instance */
+    {  327, 1162,    1 }, /* GL_EXT_blend_func_extended */
+    {  327, 2563,    3 }, /* GL_EXT_blend_func_extended */
+    {  335, 2566,    1 }, /* GL_EXT_buffer_storage */
+    {  336, 2567,    2 }, /* GL_EXT_clear_texture */
+    {  337, 2569,    1 }, /* GL_EXT_clip_control */
+    {  350, 2570,    1 }, /* GL_EXT_copy_image */
+    {  353, 1211,    2 }, /* GL_EXT_debug_label */
+    {  354, 1213,    3 }, /* GL_EXT_debug_marker */
+    {  361, 2571,    1 }, /* GL_EXT_discard_framebuffer */
+    {  362, 1472,    2 }, /* GL_EXT_disjoint_timer_query */
+    {  362, 2572,   10 }, /* GL_EXT_disjoint_timer_query */
+    {  363, 2582,    1 }, /* GL_EXT_draw_buffers */
+    {  365, 2583,    8 }, /* GL_EXT_draw_buffers_indexed */
+    {  366, 2591,    4 }, /* GL_EXT_draw_elements_base_vertex */
+    {  367, 1475,    2 }, /* GL_EXT_draw_instanced */
+    {  369, 2595,    2 }, /* GL_EXT_draw_transform_feedback */
+    {  371, 1478,    2 }, /* GL_EXT_external_buffer */
+    {  377, 2597,    4 }, /* GL_EXT_fragment_shading_rate */
+    {  379, 1486,    2 }, /* GL_EXT_framebuffer_blit_layers */
+    {  385, 1506,    1 }, /* GL_EXT_geometry_shader */
+    {  395, 1475,    2 }, /* GL_EXT_instanced_arrays */
+    {  395, 2601,    1 }, /* GL_EXT_instanced_arrays */
+    {  398, 2602,    2 }, /* GL_EXT_map_buffer_range */
+    {  400, 1558,   17 }, /* GL_EXT_memory_object */
+    {  401, 1577,    1 }, /* GL_EXT_memory_object_fd */
+    {  402, 1578,    2 }, /* GL_EXT_memory_object_win32 */
+    {  405, 1580,    2 }, /* GL_EXT_multi_draw_arrays */
+    {  406, 2604,    2 }, /* GL_EXT_multi_draw_indirect */
+    {  409, 1488,    1 }, /* GL_EXT_multisampled_render_to_texture */
+    {  409, 2606,    1 }, /* GL_EXT_multisampled_render_to_texture */
+    {  411, 2607,    3 }, /* GL_EXT_multiview_draw_buffers */
+    {  418, 2572,    5 }, /* GL_EXT_occlusion_query_boolean */
+    {  418, 2578,    1 }, /* GL_EXT_occlusion_query_boolean */
+    {  418, 2580,    1 }, /* GL_EXT_occlusion_query_boolean */
+    {  429, 1597,    1 }, /* GL_EXT_polygon_offset_clamp */
+    {  431, 2610,    1 }, /* GL_EXT_primitive_bounding_box */
+    {  435, 1599,    1 }, /* GL_EXT_raster_multisample */
+    {  444, 2611,    4 }, /* GL_EXT_robustness */
+    {  450, 1558,    2 }, /* GL_EXT_semaphore */
+    {  450, 1600,    7 }, /* GL_EXT_semaphore */
+    {  451, 1607,    1 }, /* GL_EXT_semaphore_fd */
+    {  452, 1608,    2 }, /* GL_EXT_semaphore_win32 */
+    {  454, 1326,   25 }, /* GL_EXT_separate_shader_objects */
+    {  454, 1361,    8 }, /* GL_EXT_separate_shader_objects */
+    {  454, 1507,    1 }, /* GL_EXT_separate_shader_objects */
+    {  454, 2615,   10 }, /* GL_EXT_separate_shader_objects */
+    {  470, 1630,    1 }, /* GL_EXT_shader_framebuffer_fetch_non_coherent */
+    {  480, 2625,    3 }, /* GL_EXT_shader_pixel_local_storage2 */
+    {  495, 2628,    1 }, /* GL_EXT_sparse_texture */
+    {  507, 2629,    1 }, /* GL_EXT_tessellation_shader */
+    {  511, 1640,    4 }, /* GL_EXT_texture_border_clamp */
+    {  511, 2630,    4 }, /* GL_EXT_texture_border_clamp */
+    {  512, 1644,    1 }, /* GL_EXT_texture_buffer */
+    {  512, 2634,    1 }, /* GL_EXT_texture_buffer */
+    {  547, 1458,    3 }, /* GL_EXT_texture_storage */
+    {  547, 1654,    3 }, /* GL_EXT_texture_storage */
+    {  548, 2635,    2 }, /* GL_EXT_texture_storage_compression */
+    {  551, 2637,    1 }, /* GL_EXT_texture_view */
+    {  561, 1731,    2 }, /* GL_EXT_win32_keyed_mutex */
+    {  562, 1733,    1 }, /* GL_EXT_window_rectangles */
+    {  581, 2638,    6 }, /* GL_IMG_bindless_texture */
+    {  582, 2644,    2 }, /* GL_IMG_framebuffer_downsample */
+    {  583, 2646,    2 }, /* GL_IMG_multisampled_render_to_texture */
+    {  596, 1755,    1 }, /* GL_INTEL_framebuffer_CMAA */
+    {  599, 1763,   10 }, /* GL_INTEL_performance_query */
+    {  600, 1773,    1 }, /* GL_KHR_blend_equation_advanced */
+    {  604, 2648,   11 }, /* GL_KHR_debug */
+    {  607, 1774,    1 }, /* GL_KHR_parallel_shader_compile */
+    {  609, 2659,    5 }, /* GL_KHR_robustness */
+    {  627, 1775,    2 }, /* GL_MESA_framebuffer_flip_y */
+    {  632,  319,    8 }, /* GL_MESA_sampler_objects */
+    {  632,  329,    1 }, /* GL_MESA_sampler_objects */
+    {  632,  331,    1 }, /* GL_MESA_sampler_objects */
+    {  648, 1812,   13 }, /* GL_NV_bindless_texture */
+    {  649, 1825,    2 }, /* GL_NV_blend_equation_advanced */
+    {  653, 1827,    1 }, /* GL_NV_clip_space_w_scaling */
+    {  658, 1845,    2 }, /* GL_NV_conditional_render */
+    {  659, 1847,    1 }, /* GL_NV_conservative_raster */
+    {  662, 1849,    1 }, /* GL_NV_conservative_raster_pre_snap_triangles */
+    {  667, 2664,    1 }, /* GL_NV_copy_buffer */
+    {  670, 2665,    2 }, /* GL_NV_coverage_sample */
+    {  676, 2667,    1 }, /* GL_NV_draw_buffers */
+    {  677, 2668,    2 }, /* GL_NV_draw_instanced */
+    {  679, 1855,    5 }, /* GL_NV_draw_vulkan_image */
+    {  684, 1872,    7 }, /* GL_NV_fence */
+    {  688, 1879,    1 }, /* GL_NV_fragment_coverage_to_color */
+    {  695, 2670,    1 }, /* GL_NV_framebuffer_blit */
+    {  696, 1599,    1 }, /* GL_NV_framebuffer_mixed_samples */
+    {  696, 1886,    3 }, /* GL_NV_framebuffer_mixed_samples */
+    {  697, 2671,    1 }, /* GL_NV_framebuffer_multisample */
+    {  707,  672,   17 }, /* GL_NV_gpu_shader5 */
+    {  707,  690,   16 }, /* GL_NV_gpu_shader5 */
+    {  710, 2672,    1 }, /* GL_NV_instanced_arrays */
+    {  712, 1956,    1 }, /* GL_NV_internalformat_sample_query */
+    {  715, 1979,    6 }, /* GL_NV_memory_attachment */
+    {  716, 1985,    4 }, /* GL_NV_memory_object_sparse */
+    {  717, 1989,    4 }, /* GL_NV_mesh_shader */
+    {  720, 2673,    6 }, /* GL_NV_non_square_matrices */
+    {  726, 1217,   15 }, /* GL_NV_path_rendering */
+    {  726, 1315,    4 }, /* GL_NV_path_rendering */
+    {  726, 2003,   57 }, /* GL_NV_path_rendering */
+    {  731, 2679,    1 }, /* GL_NV_polygon_mode */
+    {  739, 2680,    1 }, /* GL_NV_read_buffer */
+    {  749, 2091,    3 }, /* GL_NV_sample_locations */
+    {  751, 2094,    2 }, /* GL_NV_scissor_exclusive */
+    {  767, 2109,    7 }, /* GL_NV_shading_rate_image */
+    {  774, 2116,    1 }, /* GL_NV_texture_barrier */
+    {  787, 1657,    3 }, /* GL_NV_timeline_semaphore */
+    {  805, 2681,   12 }, /* GL_NV_viewport_array */
+    {  807, 2262,    1 }, /* GL_NV_viewport_swizzle */
+    {  808, 2693,    2 }, /* GL_OES_EGL_image */
+    {  809, 2693,    1 }, /* GL_OES_EGL_image_external */
+    {  815, 2695,    1 }, /* GL_OES_copy_image */
+    {  819, 2696,    8 }, /* GL_OES_draw_buffers_indexed */
+    {  820, 2594,    1 }, /* GL_OES_draw_elements_base_vertex */
+    {  820, 2704,    3 }, /* GL_OES_draw_elements_base_vertex */
+    {  826, 2707,    1 }, /* GL_OES_geometry_shader */
+    {  827, 2708,    2 }, /* GL_OES_get_program_binary */
+    {  829, 2710,    3 }, /* GL_OES_mapbuffer */
+    {  831, 2713,    1 }, /* GL_OES_primitive_bounding_box */
+    {  836, 2714,    1 }, /* GL_OES_sample_shading */
+    {  847, 2715,    1 }, /* GL_OES_tessellation_shader */
+    {  848, 2716,    6 }, /* GL_OES_texture_3D */
+    {  849, 2722,    8 }, /* GL_OES_texture_border_clamp */
+    {  850, 2730,    2 }, /* GL_OES_texture_buffer */
+    {  859, 2732,    1 }, /* GL_OES_texture_storage_multisample_2d_array */
+    {  860, 2733,    1 }, /* GL_OES_texture_view */
+    {  861, 2734,    4 }, /* GL_OES_vertex_array_object */
+    {  864, 2696,    2 }, /* GL_OES_viewport_array */
+    {  864, 2703,    1 }, /* GL_OES_viewport_array */
+    {  864, 2738,    9 }, /* GL_OES_viewport_array */
+    {  868, 2395,    2 }, /* GL_OVR_multiview */
+    {  870, 2747,    1 }, /* GL_OVR_multiview_multisampled_render_to_texture */
+    {  874, 2748,    1 }, /* GL_QCOM_alpha_test */
+    {  877, 2749,    4 }, /* GL_QCOM_driver_control */
+    {  878, 2753,    8 }, /* GL_QCOM_extended_get */
+    {  879, 2761,    4 }, /* GL_QCOM_extended_get2 */
+    {  880, 2769,    1 }, /* GL_QCOM_frame_extrapolation */
+    {  881, 2765,    2 }, /* GL_QCOM_framebuffer_foveated */
+    {  884, 2767,    2 }, /* GL_QCOM_motion_estimation */
+    {  888, 2771,    1 }, /* GL_QCOM_shader_framebuffer_fetch_noncoherent */
+    {  890, 2772,    1 }, /* GL_QCOM_shading_rate */
+    {  891, 2770,    1 }, /* GL_QCOM_texture_foveated */
+    {  896, 2773,    2 }, /* GL_QCOM_tiled_rendering */
 };
 
 static const uint64_t GLAD_GL_ext_hashes[] = {
@@ -5169,7 +5230,7 @@ static int glad_gl_get_extensions(GladGLContext *context, uint64_t **out_exts, u
                 if (!cur[0])
                     break;
 
-                len = next - cur;
+                len = (size_t)(next - cur);
 
                 if (exts != NULL) {
                     exts[num_exts++] = glad_hash_string(cur, len);
@@ -6006,8 +6067,8 @@ GLAD_NO_INLINE int gladLoadGLContextUserPtr(GladGLContext *context, GLADuserptrl
 
     if (!glad_gl_find_extensions_gl(context)) return 0;
 
-    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_GL_ext_pfn_ranges); ++i) {
-        const GladPfnRange_t *range = &GLAD_GL_ext_pfn_ranges[i];
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_gl_ext_pfn_ranges); ++i) {
+        const GladPfnRange_t *range = &GLAD_gl_ext_pfn_ranges[i];
         if (context->extArray[range->extension]) {
             glad_gl_load_pfn_range(context, load, userptr, range->start, range->count);
         }
@@ -6532,8 +6593,8 @@ GLAD_NO_INLINE int gladLoadGLES2ContextUserPtr(GladGLContext *context, GLADuserp
 
     if (!glad_gl_find_extensions_gles2(context)) return 0;
 
-    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_GL_ext_pfn_ranges); ++i) {
-        const GladPfnRange_t *range = &GLAD_GL_ext_pfn_ranges[i];
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_gles2_ext_pfn_ranges); ++i) {
+        const GladPfnRange_t *range = &GLAD_gles2_ext_pfn_ranges[i];
         if (context->extArray[range->extension]) {
             glad_gl_load_pfn_range(context, load, userptr, range->start, range->count);
         }

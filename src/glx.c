@@ -251,7 +251,7 @@ static const GladPfnRange_t GLAD_GLX_feature_pfn_ranges[] = {
     {    4,   38,    1 }, /* GLX_VERSION_1_4 */
 };
 
-static const GladPfnRange_t GLAD_GLX_ext_pfn_ranges[] = {
+static const GladPfnRange_t GLAD_glx_ext_pfn_ranges[] = {
     {    1,   39,    9 }, /* GLX_AMD_gpu_association */
     {    3,   48,    1 }, /* GLX_ARB_create_context */
     {    9,   49,    1 }, /* GLX_ARB_get_proc_address */
@@ -486,8 +486,8 @@ GLAD_NO_INLINE int gladLoadGLXContextUserPtr(GladGLXContext *context, Display *d
 
     if (!glad_glx_find_extensions(context, display, screen)) return 0;
 
-    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_GLX_ext_pfn_ranges); ++i) {
-        const GladPfnRange_t *range = &GLAD_GLX_ext_pfn_ranges[i];
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_glx_ext_pfn_ranges); ++i) {
+        const GladPfnRange_t *range = &GLAD_glx_ext_pfn_ranges[i];
         if (context->extArray[range->extension]) {
             glad_glx_load_pfn_range(context, load, userptr, range->start, range->count);
         }

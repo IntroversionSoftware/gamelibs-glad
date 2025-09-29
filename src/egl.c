@@ -301,7 +301,7 @@ static const GladPfnRange_t GLAD_EGL_feature_pfn_ranges[] = {
     {    5,   34,   10 }, /* EGL_VERSION_1_5 */
 };
 
-static const GladPfnRange_t GLAD_EGL_ext_pfn_ranges[] = {
+static const GladPfnRange_t GLAD_egl_ext_pfn_ranges[] = {
     {    1,   44,    1 }, /* EGL_ANDROID_blob_cache */
     {    2,   45,    1 }, /* EGL_ANDROID_create_native_client_buffer */
     {    5,   49,    5 }, /* EGL_ANDROID_get_frame_timestamps */
@@ -802,8 +802,8 @@ GLAD_NO_INLINE int gladLoadEGLContextUserPtr(GladEGLContext *context, EGLDisplay
 
     if (!glad_egl_find_extensions_egl(context, display)) return 0;
 
-    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_EGL_ext_pfn_ranges); ++i) {
-        const GladPfnRange_t *range = &GLAD_EGL_ext_pfn_ranges[i];
+    for (i = 0; i < GLAD_ARRAYSIZE(GLAD_egl_ext_pfn_ranges); ++i) {
+        const GladPfnRange_t *range = &GLAD_egl_ext_pfn_ranges[i];
         if (context->extArray[range->extension]) {
             glad_egl_load_pfn_range(context, load, userptr, range->start, range->count);
         }
