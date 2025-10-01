@@ -15,8 +15,10 @@
 #include <arm_neon.h>
 #endif
 
+#ifndef GLAD_EXTERNAL_XXHASH
 #define XXH_INLINE_ALL
 #define XXH_NO_STREAM
+#endif
 #include "xxhash.h"
 
 #include <glad/glx.h>
@@ -79,13 +81,30 @@ GLAD_NO_INLINE static bool glad_hash_search(const uint64_t *arr, uint32_t size, 
     return false;
 }
 
-GLAD_NO_INLINE static int compare_uint64(const void *pA, const void *pB)
-{
-    uint64_t a = *(const uint64_t *)pA;
-    uint64_t b = *(const uint64_t *)pB;
-    if (a > b)      return 1;
-    else if (a < b) return -1;
-    else            return 0;
+GLAD_NO_INLINE static void glad_sort_hashes(uint64_t *a, size_t n) {
+    /* Ciura gap sequence; we’ll skip the big ones at runtime. */
+    static const size_t gaps[] = {701, 301, 132, 57, 23, 10, 4, 1};
+    size_t gi = 0;
+
+    if (!a || n < 2)
+        return;
+
+    while (gi < GLAD_ARRAYSIZE(gaps) && gaps[gi] >= n)
+        gi++;
+
+    for (; gi < GLAD_ARRAYSIZE(gaps); ++gi) {
+        size_t gap = gaps[gi];
+        for (size_t i = gap; i < n; ++i) {
+            uint64_t v = a[i];
+            size_t j = i;
+            // gapped insertion sort
+            while (j >= gap && a[j - gap] > v) {
+                a[j] = a[j - gap];
+                j -= gap;
+            }
+            a[j] = v;
+        }
+    }
 }
 
 GLAD_NO_INLINE static uint64_t glad_hash_string(const char *str, size_t length)
@@ -366,6 +385,7 @@ static void glad_glx_load_pfn_range(GladGLXContext *context, GLADuserptrloadfunc
 GLAD_NO_INLINE static void glad_glx_resolve_aliases(GladGLXContext *context) {
     GLAD_UNUSED(context);
 }
+
 static GLADapiproc glad_glx_get_proc_from_userptr(void *userptr, const char* name) {
     return (GLAD_GNUC_EXTENSION (GLADapiproc (*)(const char *name)) userptr)(name);
 }
@@ -415,7 +435,7 @@ static int glad_glx_get_extensions(GladGLXContext *context, Display *display, in
     }
 
     /* Sort extension list for binary search */
-    qsort(exts, num_exts, sizeof(uint64_t), compare_uint64);
+    glad_sort_hashes(exts, num_exts);
 
     *out_num_exts = num_exts;
     *out_exts = exts;
