@@ -92,11 +92,11 @@ GLAD_NO_INLINE static void glad_sort_hashes(uint64_t *a, size_t n) {
         gi++;
 
     for (; gi < GLAD_ARRAYSIZE(gaps); ++gi) {
-        size_t gap = gaps[gi];
-        for (size_t i = gap; i < n; ++i) {
+        size_t gap = gaps[gi], i;
+        for (i = gap; i < n; ++i) {
             uint64_t v = a[i];
             size_t j = i;
-            // gapped insertion sort
+            /* gapped insertion sort */
             while (j >= gap && a[j - gap] > v) {
                 a[j] = a[j - gap];
                 j -= gap;
@@ -620,14 +620,15 @@ static const uint64_t GLAD_EGL_ext_hashes[] = {
     /*  220 */ 0xc81b6f913740e456ULL, /* EGL_WL_bind_wayland_display */
     /*  221 */ 0xa3002402543e70a5ULL  /* EGL_WL_create_wayland_buffer_from_image */
 };
-static void glad_egl_load_pfn_range(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
-{
-    uint32_t pfnIdx;
 
-    for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
-        context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_EGL_fn_names[pfnIdx]);
-    }
-}
+static const GladAliasPair_t GLAD_EGL_command_aliases[] = {
+    {   36,   85 }, /* eglClientWaitSync and eglClientWaitSyncKHR */
+    {   34,   78 }, /* eglCreateSync and eglCreateSync64KHR */
+    {   39,   88 }, /* eglDestroyImage and eglDestroyImageKHR */
+    {   35,   84 }, /* eglDestroySync and eglDestroySyncKHR */
+    {  131,   60 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT */
+    {  131,   82 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR */
+};
 
 static uint32_t glad_egl_resolve_alias_group(GladEGLContext *context, const GladAliasPair_t *pairs, uint32_t start_idx, uint32_t total_count) {
     void **pfnArray = context->pfnArray;
@@ -664,20 +665,20 @@ static uint32_t glad_egl_resolve_alias_group(GladEGLContext *context, const Glad
     return end_idx - 1;  /* Return index of last processed pair */
 }
 
-static const GladAliasPair_t GLAD_EGL_command_aliases[] = {
-    {   36,   85 }, /* eglClientWaitSync and eglClientWaitSyncKHR */
-    {   34,   78 }, /* eglCreateSync and eglCreateSync64KHR */
-    {   39,   88 }, /* eglDestroyImage and eglDestroyImageKHR */
-    {   35,   84 }, /* eglDestroySync and eglDestroySyncKHR */
-    {  131,   60 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribEXT */
-    {  131,   82 }, /* eglQueryDisplayAttribNV and eglQueryDisplayAttribKHR */
-};
-
 GLAD_NO_INLINE static void glad_egl_resolve_aliases(GladEGLContext *context) {
     uint32_t i;
 
     for (i = 0; i < GLAD_ARRAYSIZE(GLAD_EGL_command_aliases); ++i) {
         i = glad_egl_resolve_alias_group(context, GLAD_EGL_command_aliases, i, GLAD_ARRAYSIZE(GLAD_EGL_command_aliases));
+    }
+}
+
+static void glad_egl_load_pfn_range(GladEGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
+{
+    uint32_t pfnIdx;
+
+    for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
+        context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_EGL_fn_names[pfnIdx]);
     }
 }
 

@@ -92,11 +92,11 @@ GLAD_NO_INLINE static void glad_sort_hashes(uint64_t *a, size_t n) {
         gi++;
 
     for (; gi < GLAD_ARRAYSIZE(gaps); ++gi) {
-        size_t gap = gaps[gi];
-        for (size_t i = gap; i < n; ++i) {
+        size_t gap = gaps[gi], i;
+        for (i = gap; i < n; ++i) {
             uint64_t v = a[i];
             size_t j = i;
-            // gapped insertion sort
+            /* gapped insertion sort */
             while (j >= gap && a[j - gap] > v) {
                 a[j] = a[j - gap];
                 j -= gap;
@@ -3479,6 +3479,7 @@ static const GladPfnRange_t GLAD_gl_ext_pfn_ranges[] = {
     {  962, 2486,    7 }, /* GL_SUN_triangle_list */
     {  963, 2493,   40 }, /* GL_SUN_vertex */
 };
+
 static const GladPfnRange_t GLAD_gles2_ext_pfn_ranges[] = {
     {   10,  666,    2 }, /* GL_AMD_framebuffer_multisample_advanced */
     {   20,  713,   11 }, /* GL_AMD_performance_monitor */
@@ -4630,49 +4631,6 @@ static const uint64_t GLAD_GL_ext_hashes[] = {
     /*  965 */ 0xf09a257256bde8f6ULL, /* GL_WIN_phong_shading */
     /*  966 */ 0x5a3e106713a38cffULL  /* GL_WIN_specular_fog */
 };
-static void glad_gl_load_pfn_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
-{
-    uint32_t pfnIdx;
-
-    for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
-        context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_GL_fn_names[pfnIdx]);
-    }
-}
-
-static uint32_t glad_gl_resolve_alias_group(GladGLContext *context, const GladAliasPair_t *pairs, uint32_t start_idx, uint32_t total_count) {
-    void **pfnArray = context->pfnArray;
-    void *canonical_ptr;
-    uint16_t canonical_idx = pairs[start_idx].first;
-    uint32_t i, end_idx = start_idx;
-
-    /* Find the end of this group (consecutive pairs with same canonical index) */
-    while (end_idx < total_count && pairs[end_idx].first == canonical_idx) {
-        end_idx++;
-    }
-
-    /* Pass 1: Find any loaded secondary for this canonical */
-    canonical_ptr = pfnArray[canonical_idx];
-    if (canonical_ptr == NULL) {
-        for (i = start_idx; i < end_idx; ++i) {
-            if (pfnArray[pairs[i].second] != NULL) {
-                canonical_ptr = pfnArray[pairs[i].second];
-                pfnArray[canonical_idx] = canonical_ptr;
-                break;
-            }
-        }
-    }
-
-    /* Pass 2: Populate unloaded secondaries */
-    if (canonical_ptr != NULL) {
-        for (i = start_idx; i < end_idx; ++i) {
-            if (pfnArray[pairs[i].second] == NULL) {
-                pfnArray[pairs[i].second] = canonical_ptr;
-            }
-        }
-    }
-
-    return end_idx - 1;  /* Return index of last processed pair */
-}
 
 static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {   66,  864 }, /* glActiveTexture and glActiveTextureARB */
@@ -5193,11 +5151,55 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  307, 2556 }, /* glWaitSync and glWaitSyncAPPLE */
 };
 
+static uint32_t glad_gl_resolve_alias_group(GladGLContext *context, const GladAliasPair_t *pairs, uint32_t start_idx, uint32_t total_count) {
+    void **pfnArray = context->pfnArray;
+    void *canonical_ptr;
+    uint16_t canonical_idx = pairs[start_idx].first;
+    uint32_t i, end_idx = start_idx;
+
+    /* Find the end of this group (consecutive pairs with same canonical index) */
+    while (end_idx < total_count && pairs[end_idx].first == canonical_idx) {
+        end_idx++;
+    }
+
+    /* Pass 1: Find any loaded secondary for this canonical */
+    canonical_ptr = pfnArray[canonical_idx];
+    if (canonical_ptr == NULL) {
+        for (i = start_idx; i < end_idx; ++i) {
+            if (pfnArray[pairs[i].second] != NULL) {
+                canonical_ptr = pfnArray[pairs[i].second];
+                pfnArray[canonical_idx] = canonical_ptr;
+                break;
+            }
+        }
+    }
+
+    /* Pass 2: Populate unloaded secondaries */
+    if (canonical_ptr != NULL) {
+        for (i = start_idx; i < end_idx; ++i) {
+            if (pfnArray[pairs[i].second] == NULL) {
+                pfnArray[pairs[i].second] = canonical_ptr;
+            }
+        }
+    }
+
+    return end_idx - 1;  /* Return index of last processed pair */
+}
+
 GLAD_NO_INLINE static void glad_gl_resolve_aliases(GladGLContext *context) {
     uint32_t i;
 
     for (i = 0; i < GLAD_ARRAYSIZE(GLAD_GL_command_aliases); ++i) {
         i = glad_gl_resolve_alias_group(context, GLAD_GL_command_aliases, i, GLAD_ARRAYSIZE(GLAD_GL_command_aliases));
+    }
+}
+
+static void glad_gl_load_pfn_range(GladGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
+{
+    uint32_t pfnIdx;
+
+    for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
+        context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_GL_fn_names[pfnIdx]);
     }
 }
 

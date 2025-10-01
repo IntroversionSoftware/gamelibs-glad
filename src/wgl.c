@@ -93,11 +93,11 @@ GLAD_NO_INLINE static void glad_sort_hashes(uint64_t *a, size_t n) {
         gi++;
 
     for (; gi < GLAD_ARRAYSIZE(gaps); ++gi) {
-        size_t gap = gaps[gi];
-        for (size_t i = gap; i < n; ++i) {
+        size_t gap = gaps[gi], i;
+        for (i = gap; i < n; ++i) {
             uint64_t v = a[i];
             size_t j = i;
-            // gapped insertion sort
+            /* gapped insertion sort */
             while (j >= gap && a[j - gap] > v) {
                 a[j] = a[j - gap];
                 j -= gap;
@@ -373,6 +373,11 @@ static const uint64_t GLAD_WGL_ext_hashes[] = {
     /*   55 */ 0xeab153b5cac91b24ULL, /* WGL_NV_video_output */
     /*   56 */ 0x3c2462ed17d12185ULL  /* WGL_OML_sync_control */
 };
+
+GLAD_NO_INLINE static void glad_wgl_resolve_aliases(GladWGLContext *context) {
+    GLAD_UNUSED(context);
+}
+
 static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
     uint32_t pfnIdx;
@@ -380,10 +385,6 @@ static void glad_wgl_load_pfn_range(GladWGLContext *context, GLADuserptrloadfunc
     for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
         context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_WGL_fn_names[pfnIdx]);
     }
-}
-
-GLAD_NO_INLINE static void glad_wgl_resolve_aliases(GladWGLContext *context) {
-    GLAD_UNUSED(context);
 }
 
 static GLADapiproc glad_wgl_get_proc_from_userptr(void *userptr, const char* name) {

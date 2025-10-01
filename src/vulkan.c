@@ -92,11 +92,11 @@ GLAD_NO_INLINE static void glad_sort_hashes(uint64_t *a, size_t n) {
         gi++;
 
     for (; gi < GLAD_ARRAYSIZE(gaps); ++gi) {
-        size_t gap = gaps[gi];
-        for (size_t i = gap; i < n; ++i) {
+        size_t gap = gaps[gi], i;
+        for (i = gap; i < n; ++i) {
             uint64_t v = a[i];
             size_t j = i;
-            // gapped insertion sort
+            /* gapped insertion sort */
             while (j >= gap && a[j - gap] > v) {
                 a[j] = a[j - gap];
                 j -= gap;
@@ -2326,50 +2326,6 @@ static const uint64_t GLAD_Vulkan_ext_hashes[] = {
     /*  423 */ 0x38c73d4ab66a4942ULL, /* VK_VALVE_mutable_descriptor_type */
     /*  424 */ 0x5674ed8bc838fecbULL  /* VK_VALVE_video_encode_rgb_conversion */
 };
-static void glad_vk_load_pfn_range(GladVulkanContext *context, GLADvkuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
-{
-    uint32_t pfnIdx;
-
-    for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
-        const char *name = GLAD_Vulkan_fn_names[pfnIdx];
-        const enum GLADcommandscope scope = (enum GLADcommandscope)GLAD_Vulkan_fn_scopes[pfnIdx];
-        context->pfnArray[pfnIdx] = (void *)load(userptr, name, scope);
-    }
-}
-static uint32_t glad_vk_resolve_alias_group(GladVulkanContext *context, const GladAliasPair_t *pairs, uint32_t start_idx, uint32_t total_count) {
-    void **pfnArray = context->pfnArray;
-    void *canonical_ptr;
-    uint16_t canonical_idx = pairs[start_idx].first;
-    uint32_t i, end_idx = start_idx;
-
-    /* Find the end of this group (consecutive pairs with same canonical index) */
-    while (end_idx < total_count && pairs[end_idx].first == canonical_idx) {
-        end_idx++;
-    }
-
-    /* Pass 1: Find any loaded secondary for this canonical */
-    canonical_ptr = pfnArray[canonical_idx];
-    if (canonical_ptr == NULL) {
-        for (i = start_idx; i < end_idx; ++i) {
-            if (pfnArray[pairs[i].second] != NULL) {
-                canonical_ptr = pfnArray[pairs[i].second];
-                pfnArray[canonical_idx] = canonical_ptr;
-                break;
-            }
-        }
-    }
-
-    /* Pass 2: Populate unloaded secondaries */
-    if (canonical_ptr != NULL) {
-        for (i = start_idx; i < end_idx; ++i) {
-            if (pfnArray[pairs[i].second] == NULL) {
-                pfnArray[pairs[i].second] = canonical_ptr;
-            }
-        }
-    }
-
-    return end_idx - 1;  /* Return index of last processed pair */
-}
 
 static const GladAliasPair_t GLAD_Vulkan_command_aliases[] = {
     {  138,  425 }, /* vkBindBufferMemory2 and vkBindBufferMemory2KHR */
@@ -2478,11 +2434,57 @@ static const GladAliasPair_t GLAD_Vulkan_command_aliases[] = {
     {  173,  464 }, /* vkWaitSemaphores and vkWaitSemaphoresKHR */
 };
 
+static uint32_t glad_vk_resolve_alias_group(GladVulkanContext *context, const GladAliasPair_t *pairs, uint32_t start_idx, uint32_t total_count) {
+    void **pfnArray = context->pfnArray;
+    void *canonical_ptr;
+    uint16_t canonical_idx = pairs[start_idx].first;
+    uint32_t i, end_idx = start_idx;
+
+    /* Find the end of this group (consecutive pairs with same canonical index) */
+    while (end_idx < total_count && pairs[end_idx].first == canonical_idx) {
+        end_idx++;
+    }
+
+    /* Pass 1: Find any loaded secondary for this canonical */
+    canonical_ptr = pfnArray[canonical_idx];
+    if (canonical_ptr == NULL) {
+        for (i = start_idx; i < end_idx; ++i) {
+            if (pfnArray[pairs[i].second] != NULL) {
+                canonical_ptr = pfnArray[pairs[i].second];
+                pfnArray[canonical_idx] = canonical_ptr;
+                break;
+            }
+        }
+    }
+
+    /* Pass 2: Populate unloaded secondaries */
+    if (canonical_ptr != NULL) {
+        for (i = start_idx; i < end_idx; ++i) {
+            if (pfnArray[pairs[i].second] == NULL) {
+                pfnArray[pairs[i].second] = canonical_ptr;
+            }
+        }
+    }
+
+    return end_idx - 1;  /* Return index of last processed pair */
+}
+
 GLAD_NO_INLINE static void glad_vk_resolve_aliases(GladVulkanContext *context) {
     uint32_t i;
 
     for (i = 0; i < GLAD_ARRAYSIZE(GLAD_Vulkan_command_aliases); ++i) {
         i = glad_vk_resolve_alias_group(context, GLAD_Vulkan_command_aliases, i, GLAD_ARRAYSIZE(GLAD_Vulkan_command_aliases));
+    }
+}
+
+static void glad_vk_load_pfn_range(GladVulkanContext *context, GLADvkuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
+{
+    uint32_t pfnIdx;
+
+    for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
+        const char *name = GLAD_Vulkan_fn_names[pfnIdx];
+        const enum GLADcommandscope scope = (enum GLADcommandscope)GLAD_Vulkan_fn_scopes[pfnIdx];
+        context->pfnArray[pfnIdx] = (void *)load(userptr, name, scope);
     }
 }
 

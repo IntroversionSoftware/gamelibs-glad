@@ -93,11 +93,11 @@ GLAD_NO_INLINE static void glad_sort_hashes(uint64_t *a, size_t n) {
         gi++;
 
     for (; gi < GLAD_ARRAYSIZE(gaps); ++gi) {
-        size_t gap = gaps[gi];
-        for (size_t i = gap; i < n; ++i) {
+        size_t gap = gaps[gi], i;
+        for (i = gap; i < n; ++i) {
             uint64_t v = a[i];
             size_t j = i;
-            // gapped insertion sort
+            /* gapped insertion sort */
             while (j >= gap && a[j - gap] > v) {
                 a[j] = a[j - gap];
                 j -= gap;
@@ -373,6 +373,11 @@ static const uint64_t GLAD_GLX_ext_hashes[] = {
     /*   64 */ 0x0d617d9b2139534bULL, /* GLX_SGI_video_sync */
     /*   65 */ 0xa1de47dd92ad3d02ULL  /* GLX_SUN_get_transparent_index */
 };
+
+GLAD_NO_INLINE static void glad_glx_resolve_aliases(GladGLXContext *context) {
+    GLAD_UNUSED(context);
+}
+
 static void glad_glx_load_pfn_range(GladGLXContext *context, GLADuserptrloadfunc load, void* userptr, uint16_t pfnStart, uint32_t numPfns)
 {
     uint32_t pfnIdx;
@@ -380,10 +385,6 @@ static void glad_glx_load_pfn_range(GladGLXContext *context, GLADuserptrloadfunc
     for (pfnIdx = pfnStart; pfnIdx < pfnStart + numPfns; ++pfnIdx) {
         context->pfnArray[pfnIdx] = (void *)load(userptr, GLAD_GLX_fn_names[pfnIdx]);
     }
-}
-
-GLAD_NO_INLINE static void glad_glx_resolve_aliases(GladGLXContext *context) {
-    GLAD_UNUSED(context);
 }
 
 static GLADapiproc glad_glx_get_proc_from_userptr(void *userptr, const char* name) {
