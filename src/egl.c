@@ -309,7 +309,13 @@ static const char * const GLAD_EGL_fn_names[] = {
     /*  178 */ "eglLockVulkanQueueANGLE",
     /*  179 */ "eglUnlockVulkanQueueANGLE",
     /*  180 */ "eglCopyMetalSharedEventANGLE",
-    /*  181 */ "eglSetValidationEnabledANGLE"
+    /*  181 */ "eglSetValidationEnabledANGLE",
+    /*  182 */ "eglQueryLowLatencyCapsANGLE",
+    /*  183 */ "eglLowLatencySetModeANGLE",
+    /*  184 */ "eglLowLatencySetPerfHintANGLE",
+    /*  185 */ "eglLowLatencySetMinPresentIntervalANGLE",
+    /*  186 */ "eglLowLatencySleepANGLE",
+    /*  187 */ "eglLowLatencyMarkerANGLE"
 };
 
 static const GladPfnRange_t GLAD_EGL_feature_pfn_ranges[] = {
@@ -331,69 +337,70 @@ static const GladPfnRange_t GLAD_egl_ext_pfn_ranges[] = {
     {   28,  178,    2 }, /* EGL_ANGLE_device_vulkan */
     {   34,  162,    2 }, /* EGL_ANGLE_external_context_and_surface */
     {   35,  160,    2 }, /* EGL_ANGLE_feature_control */
-    {   41,  180,    1 }, /* EGL_ANGLE_metal_shared_event_sync */
-    {   43,  181,    1 }, /* EGL_ANGLE_no_error */
-    {   59,  173,    4 }, /* EGL_ANGLE_power_preference */
-    {   60,  172,    1 }, /* EGL_ANGLE_prepare_swap_buffers */
-    {   61,  167,    4 }, /* EGL_ANGLE_program_cache_control */
-    {   62,   54,    1 }, /* EGL_ANGLE_query_surface_pointer */
-    {   64,  164,    2 }, /* EGL_ANGLE_stream_producer_d3d_texture */
-    {   67,   55,    1 }, /* EGL_ANGLE_sync_control_rate */
-    {   69,  177,    1 }, /* EGL_ANGLE_vulkan_image */
-    {   70,  171,    1 }, /* EGL_ANGLE_wait_until_work_scheduled */
-    {   76,  166,    1 }, /* EGL_CHROMIUM_sync_control */
-    {   80,   56,    1 }, /* EGL_EXT_client_sync */
-    {   81,  144,    7 }, /* EGL_EXT_compositor */
-    {   84,   57,    4 }, /* EGL_EXT_device_base */
-    {   87,   59,    1 }, /* EGL_EXT_device_enumeration */
-    {   89,  156,    1 }, /* EGL_EXT_device_persistent_id */
-    {   90,   57,    2 }, /* EGL_EXT_device_query */
-    {   90,   60,    1 }, /* EGL_EXT_device_query */
-    {   92,  157,    1 }, /* EGL_EXT_display_alloc */
-    {  103,   61,    2 }, /* EGL_EXT_image_dma_buf_import_modifiers */
-    {  107,   63,    8 }, /* EGL_EXT_output_base */
-    {  111,   71,    3 }, /* EGL_EXT_platform_base */
-    {  120,   74,    1 }, /* EGL_EXT_stream_consumer_egloutput */
-    {  123,  151,    1 }, /* EGL_EXT_surface_compression */
-    {  124,   75,    1 }, /* EGL_EXT_swap_buffers_with_damage */
-    {  125,   76,    1 }, /* EGL_EXT_sync_reuse */
-    {  127,   77,    1 }, /* EGL_HI_clientpixmap */
-    {  132,   78,    1 }, /* EGL_KHR_cl_event2 */
-    {  138,   79,    3 }, /* EGL_KHR_debug */
-    {  139,   82,    1 }, /* EGL_KHR_display_reference */
-    {  140,   83,    4 }, /* EGL_KHR_fence_sync */
-    {  147,   87,    2 }, /* EGL_KHR_image */
-    {  148,   87,    2 }, /* EGL_KHR_image_base */
-    {  150,   89,    2 }, /* EGL_KHR_lock_surface */
-    {  152,   89,    3 }, /* EGL_KHR_lock_surface3 */
-    {  155,   92,    1 }, /* EGL_KHR_partial_update */
-    {  160,   83,    4 }, /* EGL_KHR_reusable_sync */
-    {  160,   93,    1 }, /* EGL_KHR_reusable_sync */
-    {  161,   94,    5 }, /* EGL_KHR_stream */
-    {  162,   99,    5 }, /* EGL_KHR_stream_attrib */
-    {  163,  104,    3 }, /* EGL_KHR_stream_consumer_gltexture */
-    {  164,  107,    2 }, /* EGL_KHR_stream_cross_process_fd */
-    {  165,  109,    1 }, /* EGL_KHR_stream_fifo */
-    {  167,  110,    1 }, /* EGL_KHR_stream_producer_eglsurface */
-    {  169,  111,    1 }, /* EGL_KHR_swap_buffers_with_damage */
-    {  171,  112,    1 }, /* EGL_KHR_wait_sync */
-    {  172,  113,    2 }, /* EGL_MESA_drm_image */
-    {  173,  115,    2 }, /* EGL_MESA_image_dma_buf_export */
-    {  176,  117,    2 }, /* EGL_MESA_query_driver */
-    {  177,  119,    1 }, /* EGL_NOK_swap_region */
-    {  178,  120,    1 }, /* EGL_NOK_swap_region2 */
-    {  187,  121,    3 }, /* EGL_NV_native_query */
-    {  189,  124,    1 }, /* EGL_NV_post_sub_buffer */
-    {  192,  126,    4 }, /* EGL_NV_stream_consumer_eglimage */
-    {  194,  125,    1 }, /* EGL_NV_stream_consumer_gltexture_yuv */
-    {  203,  130,    1 }, /* EGL_NV_stream_flush */
-    {  205,  131,    3 }, /* EGL_NV_stream_metadata */
-    {  208,  134,    1 }, /* EGL_NV_stream_reset */
-    {  212,  135,    1 }, /* EGL_NV_stream_sync */
-    {  213,  136,    6 }, /* EGL_NV_sync */
-    {  214,  142,    2 }, /* EGL_NV_system_time */
-    {  220,  152,    3 }, /* EGL_WL_bind_wayland_display */
-    {  221,  155,    1 }, /* EGL_WL_create_wayland_buffer_from_image */
+    {   39,  182,    6 }, /* EGL_ANGLE_low_latency */
+    {   43,  180,    1 }, /* EGL_ANGLE_metal_shared_event_sync */
+    {   45,  181,    1 }, /* EGL_ANGLE_no_error */
+    {   61,  173,    4 }, /* EGL_ANGLE_power_preference */
+    {   62,  172,    1 }, /* EGL_ANGLE_prepare_swap_buffers */
+    {   63,  167,    4 }, /* EGL_ANGLE_program_cache_control */
+    {   64,   54,    1 }, /* EGL_ANGLE_query_surface_pointer */
+    {   66,  164,    2 }, /* EGL_ANGLE_stream_producer_d3d_texture */
+    {   69,   55,    1 }, /* EGL_ANGLE_sync_control_rate */
+    {   71,  177,    1 }, /* EGL_ANGLE_vulkan_image */
+    {   72,  171,    1 }, /* EGL_ANGLE_wait_until_work_scheduled */
+    {   78,  166,    1 }, /* EGL_CHROMIUM_sync_control */
+    {   82,   56,    1 }, /* EGL_EXT_client_sync */
+    {   83,  144,    7 }, /* EGL_EXT_compositor */
+    {   86,   57,    4 }, /* EGL_EXT_device_base */
+    {   89,   59,    1 }, /* EGL_EXT_device_enumeration */
+    {   91,  156,    1 }, /* EGL_EXT_device_persistent_id */
+    {   92,   57,    2 }, /* EGL_EXT_device_query */
+    {   92,   60,    1 }, /* EGL_EXT_device_query */
+    {   94,  157,    1 }, /* EGL_EXT_display_alloc */
+    {  105,   61,    2 }, /* EGL_EXT_image_dma_buf_import_modifiers */
+    {  109,   63,    8 }, /* EGL_EXT_output_base */
+    {  113,   71,    3 }, /* EGL_EXT_platform_base */
+    {  122,   74,    1 }, /* EGL_EXT_stream_consumer_egloutput */
+    {  125,  151,    1 }, /* EGL_EXT_surface_compression */
+    {  126,   75,    1 }, /* EGL_EXT_swap_buffers_with_damage */
+    {  127,   76,    1 }, /* EGL_EXT_sync_reuse */
+    {  129,   77,    1 }, /* EGL_HI_clientpixmap */
+    {  134,   78,    1 }, /* EGL_KHR_cl_event2 */
+    {  140,   79,    3 }, /* EGL_KHR_debug */
+    {  141,   82,    1 }, /* EGL_KHR_display_reference */
+    {  142,   83,    4 }, /* EGL_KHR_fence_sync */
+    {  149,   87,    2 }, /* EGL_KHR_image */
+    {  150,   87,    2 }, /* EGL_KHR_image_base */
+    {  152,   89,    2 }, /* EGL_KHR_lock_surface */
+    {  154,   89,    3 }, /* EGL_KHR_lock_surface3 */
+    {  157,   92,    1 }, /* EGL_KHR_partial_update */
+    {  162,   83,    4 }, /* EGL_KHR_reusable_sync */
+    {  162,   93,    1 }, /* EGL_KHR_reusable_sync */
+    {  163,   94,    5 }, /* EGL_KHR_stream */
+    {  164,   99,    5 }, /* EGL_KHR_stream_attrib */
+    {  165,  104,    3 }, /* EGL_KHR_stream_consumer_gltexture */
+    {  166,  107,    2 }, /* EGL_KHR_stream_cross_process_fd */
+    {  167,  109,    1 }, /* EGL_KHR_stream_fifo */
+    {  169,  110,    1 }, /* EGL_KHR_stream_producer_eglsurface */
+    {  171,  111,    1 }, /* EGL_KHR_swap_buffers_with_damage */
+    {  173,  112,    1 }, /* EGL_KHR_wait_sync */
+    {  174,  113,    2 }, /* EGL_MESA_drm_image */
+    {  175,  115,    2 }, /* EGL_MESA_image_dma_buf_export */
+    {  178,  117,    2 }, /* EGL_MESA_query_driver */
+    {  179,  119,    1 }, /* EGL_NOK_swap_region */
+    {  180,  120,    1 }, /* EGL_NOK_swap_region2 */
+    {  189,  121,    3 }, /* EGL_NV_native_query */
+    {  191,  124,    1 }, /* EGL_NV_post_sub_buffer */
+    {  194,  126,    4 }, /* EGL_NV_stream_consumer_eglimage */
+    {  196,  125,    1 }, /* EGL_NV_stream_consumer_gltexture_yuv */
+    {  205,  130,    1 }, /* EGL_NV_stream_flush */
+    {  207,  131,    3 }, /* EGL_NV_stream_metadata */
+    {  210,  134,    1 }, /* EGL_NV_stream_reset */
+    {  214,  135,    1 }, /* EGL_NV_stream_sync */
+    {  215,  136,    6 }, /* EGL_NV_sync */
+    {  216,  142,    2 }, /* EGL_NV_system_time */
+    {  222,  152,    3 }, /* EGL_WL_bind_wayland_display */
+    {  223,  155,    1 }, /* EGL_WL_create_wayland_buffer_from_image */
 };
 
 static const uint64_t GLAD_EGL_ext_hashes[] = {
@@ -436,189 +443,191 @@ static const uint64_t GLAD_EGL_ext_hashes[] = {
     /*   36 */ 0x18d0970ca7b4c268ULL, /* EGL_ANGLE_global_fence_sync */
     /*   37 */ 0x8247503770574a19ULL, /* EGL_ANGLE_iosurface_client_buffer */
     /*   38 */ 0x2050b7157f814d10ULL, /* EGL_ANGLE_keyed_mutex */
-    /*   39 */ 0x3385337af72503e9ULL, /* EGL_ANGLE_memory_usage_report */
-    /*   40 */ 0x5027858c4c30d226ULL, /* EGL_ANGLE_metal_create_context_ownership_identity */
-    /*   41 */ 0x6e333abff6cec928ULL, /* EGL_ANGLE_metal_shared_event_sync */
-    /*   42 */ 0xea85ee216b66aed6ULL, /* EGL_ANGLE_metal_texture_client_buffer */
-    /*   43 */ 0x69ec6f07eb567773ULL, /* EGL_ANGLE_no_error */
-    /*   44 */ 0x0e642f860b2670f4ULL, /* EGL_ANGLE_platform_angle */
-    /*   45 */ 0xb3c6378facb30b47ULL, /* EGL_ANGLE_platform_angle_d3d */
-    /*   46 */ 0x67363c4648bf01a6ULL, /* EGL_ANGLE_platform_angle_d3d11on12 */
-    /*   47 */ 0x7404e65415e0cf49ULL, /* EGL_ANGLE_platform_angle_d3d_luid */
-    /*   48 */ 0x5b49c1a91e2bcce3ULL, /* EGL_ANGLE_platform_angle_device_context_volatile_cgl */
-    /*   49 */ 0xf27d356bb04d147dULL, /* EGL_ANGLE_platform_angle_device_context_volatile_eagl */
-    /*   50 */ 0x1d4a1428061a339aULL, /* EGL_ANGLE_platform_angle_device_id */
-    /*   51 */ 0xbe47353c1f13390bULL, /* EGL_ANGLE_platform_angle_device_type_egl */
-    /*   52 */ 0xe9d3e98ad0d51659ULL, /* EGL_ANGLE_platform_angle_device_type_swiftshader */
-    /*   53 */ 0x98c1482cf6675807ULL, /* EGL_ANGLE_platform_angle_metal */
-    /*   54 */ 0x6ab80514da15b6f9ULL, /* EGL_ANGLE_platform_angle_null */
-    /*   55 */ 0xb419931c39c7f38aULL, /* EGL_ANGLE_platform_angle_opengl */
-    /*   56 */ 0xb2ad9cccda275eb4ULL, /* EGL_ANGLE_platform_angle_vulkan */
-    /*   57 */ 0x76ecae883c1293e2ULL, /* EGL_ANGLE_platform_angle_vulkan_device_uuid */
-    /*   58 */ 0x2d155ccb3d2e416dULL, /* EGL_ANGLE_platform_angle_webgpu */
-    /*   59 */ 0xaf2ad94baa465742ULL, /* EGL_ANGLE_power_preference */
-    /*   60 */ 0x41534601630f79ceULL, /* EGL_ANGLE_prepare_swap_buffers */
-    /*   61 */ 0x15c4d55f4f359f01ULL, /* EGL_ANGLE_program_cache_control */
-    /*   62 */ 0x655dcac0071412b7ULL, /* EGL_ANGLE_query_surface_pointer */
-    /*   63 */ 0xbec48c7959021479ULL, /* EGL_ANGLE_robust_resource_initialization */
-    /*   64 */ 0x9e02c97224491c29ULL, /* EGL_ANGLE_stream_producer_d3d_texture */
-    /*   65 */ 0x460ce0075e78a2bdULL, /* EGL_ANGLE_surface_d3d_texture_2d_share_handle */
-    /*   66 */ 0xa388335593ecba25ULL, /* EGL_ANGLE_surface_orientation */
-    /*   67 */ 0xcbc83f2fb8143390ULL, /* EGL_ANGLE_sync_control_rate */
-    /*   68 */ 0x9b7afb42d23ff24aULL, /* EGL_ANGLE_vulkan_display */
-    /*   69 */ 0x3b9d20f1e7cea30cULL, /* EGL_ANGLE_vulkan_image */
-    /*   70 */ 0x32f27a4c7977f1ccULL, /* EGL_ANGLE_wait_until_work_scheduled */
-    /*   71 */ 0x584d724a2585416bULL, /* EGL_ANGLE_window_fixed_size */
-    /*   72 */ 0x7fd85a1fe267fe03ULL, /* EGL_ANGLE_x11_visual */
-    /*   73 */ 0x79e92599e5906543ULL, /* EGL_ARM_image_format */
-    /*   74 */ 0xe6b4aba5bdfeb761ULL, /* EGL_ARM_implicit_external_sync */
-    /*   75 */ 0xae00b1c9df43676fULL, /* EGL_ARM_pixmap_multisample_discard */
-    /*   76 */ 0xff8aede3988df0ecULL, /* EGL_CHROMIUM_sync_control */
-    /*   77 */ 0x9c662d7d2c258a50ULL, /* EGL_EXT_bind_to_front */
-    /*   78 */ 0x2aa08328d074a816ULL, /* EGL_EXT_buffer_age */
-    /*   79 */ 0xa31e0274c2bcafb4ULL, /* EGL_EXT_client_extensions */
-    /*   80 */ 0x0391123aa67cc9fdULL, /* EGL_EXT_client_sync */
-    /*   81 */ 0x7ad217dadabe87ccULL, /* EGL_EXT_compositor */
-    /*   82 */ 0x7a089e984094346aULL, /* EGL_EXT_config_select_group */
-    /*   83 */ 0x7150da6f49b30f3eULL, /* EGL_EXT_create_context_robustness */
-    /*   84 */ 0x2f6c882c1eab9296ULL, /* EGL_EXT_device_base */
-    /*   85 */ 0x25ef29d5ba78dacbULL, /* EGL_EXT_device_drm */
-    /*   86 */ 0x85d84ed980a0f6c3ULL, /* EGL_EXT_device_drm_render_node */
-    /*   87 */ 0xbf886c3682e570aaULL, /* EGL_EXT_device_enumeration */
-    /*   88 */ 0xbb95b050ecd18b71ULL, /* EGL_EXT_device_openwf */
-    /*   89 */ 0x25e4685edc9371c5ULL, /* EGL_EXT_device_persistent_id */
-    /*   90 */ 0x4c3836479bf75ba3ULL, /* EGL_EXT_device_query */
-    /*   91 */ 0x0ec61ed2c29b6b7eULL, /* EGL_EXT_device_query_name */
-    /*   92 */ 0xdbf00a0a59a03004ULL, /* EGL_EXT_display_alloc */
-    /*   93 */ 0x1a98bf220bf010e1ULL, /* EGL_EXT_explicit_device */
-    /*   94 */ 0x375b95889c713c9aULL, /* EGL_EXT_gl_colorspace_bt2020_hlg */
-    /*   95 */ 0x5091e9def2327eeaULL, /* EGL_EXT_gl_colorspace_bt2020_linear */
-    /*   96 */ 0xfc5bf7ce45097f02ULL, /* EGL_EXT_gl_colorspace_bt2020_pq */
-    /*   97 */ 0xd63b77d8efe7c73eULL, /* EGL_EXT_gl_colorspace_display_p3 */
-    /*   98 */ 0x24c124c0512e760aULL, /* EGL_EXT_gl_colorspace_display_p3_linear */
-    /*   99 */ 0x46817a7a0934b21aULL, /* EGL_EXT_gl_colorspace_display_p3_passthrough */
-    /*  100 */ 0x01e6ab8e204224c3ULL, /* EGL_EXT_gl_colorspace_scrgb */
-    /*  101 */ 0x9d59eeae4c92e9f7ULL, /* EGL_EXT_gl_colorspace_scrgb_linear */
-    /*  102 */ 0x0c3a9519d769be90ULL, /* EGL_EXT_image_dma_buf_import */
-    /*  103 */ 0xa09fd39f9f1158a7ULL, /* EGL_EXT_image_dma_buf_import_modifiers */
-    /*  104 */ 0x476226fa1413890aULL, /* EGL_EXT_image_gl_colorspace */
-    /*  105 */ 0xa5c94b3fdd6261daULL, /* EGL_EXT_image_implicit_sync_control */
-    /*  106 */ 0x9f0bdd4dde93e968ULL, /* EGL_EXT_multiview_window */
-    /*  107 */ 0xd324b54bf6a35048ULL, /* EGL_EXT_output_base */
-    /*  108 */ 0x0659adf490093fcbULL, /* EGL_EXT_output_drm */
-    /*  109 */ 0x53a0e0b8eb5f3f00ULL, /* EGL_EXT_output_openwf */
-    /*  110 */ 0xefb059a6e6841776ULL, /* EGL_EXT_pixel_format_float */
-    /*  111 */ 0xa841b196d3768c24ULL, /* EGL_EXT_platform_base */
-    /*  112 */ 0x8df4a934a55860dbULL, /* EGL_EXT_platform_device */
-    /*  113 */ 0x27716290eb920120ULL, /* EGL_EXT_platform_wayland */
-    /*  114 */ 0xe548f3fc71409c63ULL, /* EGL_EXT_platform_x11 */
-    /*  115 */ 0x6b5d9de25dfe7ebaULL, /* EGL_EXT_platform_xcb */
-    /*  116 */ 0x5e7a56764d6c44b1ULL, /* EGL_EXT_present_opaque */
-    /*  117 */ 0x91cb4ebfba10a35fULL, /* EGL_EXT_protected_content */
-    /*  118 */ 0x83f096c0f29ebb18ULL, /* EGL_EXT_protected_surface */
-    /*  119 */ 0xfd8d9ef9e9360c00ULL, /* EGL_EXT_query_reset_notification_strategy */
-    /*  120 */ 0xfbac73bd87a06d67ULL, /* EGL_EXT_stream_consumer_egloutput */
-    /*  121 */ 0x5654a8bc12eeebabULL, /* EGL_EXT_surface_CTA861_3_metadata */
-    /*  122 */ 0x283ef3c9e93fa780ULL, /* EGL_EXT_surface_SMPTE2086_metadata */
-    /*  123 */ 0x46e2ba77cc14c6daULL, /* EGL_EXT_surface_compression */
-    /*  124 */ 0xff56e7e2acee3106ULL, /* EGL_EXT_swap_buffers_with_damage */
-    /*  125 */ 0x42a3ca98a3fcecb6ULL, /* EGL_EXT_sync_reuse */
-    /*  126 */ 0x451b691d8d24df6cULL, /* EGL_EXT_yuv_surface */
-    /*  127 */ 0xdaf189f7653009bfULL, /* EGL_HI_clientpixmap */
-    /*  128 */ 0x066d89176cab3c2cULL, /* EGL_HI_colorformats */
-    /*  129 */ 0x0a76d8252afa230aULL, /* EGL_IMG_context_priority */
-    /*  130 */ 0x7084567bc80e8320ULL, /* EGL_IMG_image_plane_attribs */
-    /*  131 */ 0x0b5d7506753789deULL, /* EGL_KHR_cl_event */
-    /*  132 */ 0x70fce70cba139c12ULL, /* EGL_KHR_cl_event2 */
-    /*  133 */ 0xef7264f8eef3335bULL, /* EGL_KHR_client_get_all_proc_addresses */
-    /*  134 */ 0x270d8abedb2d3a6dULL, /* EGL_KHR_config_attribs */
-    /*  135 */ 0xda20b827ff8ca001ULL, /* EGL_KHR_context_flush_control */
-    /*  136 */ 0x4e16c8c1f6a8131cULL, /* EGL_KHR_create_context */
-    /*  137 */ 0x7b8ef4b379c8f0fdULL, /* EGL_KHR_create_context_no_error */
-    /*  138 */ 0x5b61d2012f7861b3ULL, /* EGL_KHR_debug */
-    /*  139 */ 0xfb4d4422d07bc81cULL, /* EGL_KHR_display_reference */
-    /*  140 */ 0x3fc685858cb02200ULL, /* EGL_KHR_fence_sync */
-    /*  141 */ 0xcc74201669ca5b5dULL, /* EGL_KHR_get_all_proc_addresses */
-    /*  142 */ 0x0089c927779cc6efULL, /* EGL_KHR_gl_colorspace */
-    /*  143 */ 0xf2fdf97c1361d5d7ULL, /* EGL_KHR_gl_renderbuffer_image */
-    /*  144 */ 0x16756bf4b09c5e40ULL, /* EGL_KHR_gl_texture_2D_image */
-    /*  145 */ 0x38fe09b43c8ef819ULL, /* EGL_KHR_gl_texture_3D_image */
-    /*  146 */ 0x8da10d2afff88da2ULL, /* EGL_KHR_gl_texture_cubemap_image */
-    /*  147 */ 0x871bd75821391394ULL, /* EGL_KHR_image */
-    /*  148 */ 0xa2aecd33728540cbULL, /* EGL_KHR_image_base */
-    /*  149 */ 0x6d3e7071805da5a8ULL, /* EGL_KHR_image_pixmap */
-    /*  150 */ 0xd1965fc59df1967cULL, /* EGL_KHR_lock_surface */
-    /*  151 */ 0x607598bc0d7426f5ULL, /* EGL_KHR_lock_surface2 */
-    /*  152 */ 0xc5c0850bfdef920fULL, /* EGL_KHR_lock_surface3 */
-    /*  153 */ 0xf2c65c6b58412a19ULL, /* EGL_KHR_mutable_render_buffer */
-    /*  154 */ 0xb04bf399be660bcaULL, /* EGL_KHR_no_config_context */
-    /*  155 */ 0xbf10c896f39ac381ULL, /* EGL_KHR_partial_update */
-    /*  156 */ 0x1b60d04af505e88cULL, /* EGL_KHR_platform_android */
-    /*  157 */ 0x92732717613804d7ULL, /* EGL_KHR_platform_gbm */
-    /*  158 */ 0xa9c339bb0bd9f8ffULL, /* EGL_KHR_platform_wayland */
-    /*  159 */ 0xb95b474e87d914c0ULL, /* EGL_KHR_platform_x11 */
-    /*  160 */ 0x3e707e46a988246fULL, /* EGL_KHR_reusable_sync */
-    /*  161 */ 0x16184f4f924509efULL, /* EGL_KHR_stream */
-    /*  162 */ 0x9d0b59cf206f7842ULL, /* EGL_KHR_stream_attrib */
-    /*  163 */ 0xd9b572ac9eb89474ULL, /* EGL_KHR_stream_consumer_gltexture */
-    /*  164 */ 0x6e523fb6f05a3d29ULL, /* EGL_KHR_stream_cross_process_fd */
-    /*  165 */ 0x3114241b811aadf2ULL, /* EGL_KHR_stream_fifo */
-    /*  166 */ 0x4e02a91ae238a029ULL, /* EGL_KHR_stream_producer_aldatalocator */
-    /*  167 */ 0x75e923758d9b47fbULL, /* EGL_KHR_stream_producer_eglsurface */
-    /*  168 */ 0x98778891a458759fULL, /* EGL_KHR_surfaceless_context */
-    /*  169 */ 0x836da10ce92250efULL, /* EGL_KHR_swap_buffers_with_damage */
-    /*  170 */ 0xc795b75646aecc5bULL, /* EGL_KHR_vg_parent_image */
-    /*  171 */ 0x76eb9817e8dc6c57ULL, /* EGL_KHR_wait_sync */
-    /*  172 */ 0x8a02851eceb4e60bULL, /* EGL_MESA_drm_image */
-    /*  173 */ 0xff40140d7e6b5b22ULL, /* EGL_MESA_image_dma_buf_export */
-    /*  174 */ 0xcbf9865290d1d737ULL, /* EGL_MESA_platform_gbm */
-    /*  175 */ 0xa718f1a00dfc77b2ULL, /* EGL_MESA_platform_surfaceless */
-    /*  176 */ 0x205a0c44642ecfe4ULL, /* EGL_MESA_query_driver */
-    /*  177 */ 0xc6c6646757ff2eb0ULL, /* EGL_NOK_swap_region */
-    /*  178 */ 0xcacecd1071a7c53dULL, /* EGL_NOK_swap_region2 */
-    /*  179 */ 0x140a1d4d56e89998ULL, /* EGL_NOK_texture_from_pixmap */
-    /*  180 */ 0x53d1f2866df11721ULL, /* EGL_NV_3dvision_surface */
-    /*  181 */ 0x87d534f485d23e03ULL, /* EGL_NV_context_priority_realtime */
-    /*  182 */ 0x29d02d6b41d01c44ULL, /* EGL_NV_coverage_sample */
-    /*  183 */ 0xbf4228511c15c43eULL, /* EGL_NV_coverage_sample_resolve */
-    /*  184 */ 0xba24ab7c282aa98cULL, /* EGL_NV_cuda_event */
-    /*  185 */ 0x4f20169819f31a19ULL, /* EGL_NV_depth_nonlinear */
-    /*  186 */ 0xb32a3dd6b03226f2ULL, /* EGL_NV_device_cuda */
-    /*  187 */ 0x797c903a522c4c75ULL, /* EGL_NV_native_query */
-    /*  188 */ 0xb151fe3f08ba15f6ULL, /* EGL_NV_post_convert_rounding */
-    /*  189 */ 0xaad3806034d0954dULL, /* EGL_NV_post_sub_buffer */
-    /*  190 */ 0x37a228d0850f64a1ULL, /* EGL_NV_quadruple_buffer */
-    /*  191 */ 0x74855b1caf0bb727ULL, /* EGL_NV_robustness_video_memory_purge */
-    /*  192 */ 0x2db9bc2b87115201ULL, /* EGL_NV_stream_consumer_eglimage */
-    /*  193 */ 0xd01bc63b758f4cb9ULL, /* EGL_NV_stream_consumer_eglimage_use_scanout_attrib */
-    /*  194 */ 0x2baced719176deedULL, /* EGL_NV_stream_consumer_gltexture_yuv */
-    /*  195 */ 0xfc105cd6c3f68dbeULL, /* EGL_NV_stream_cross_display */
-    /*  196 */ 0x363e000d3383a473ULL, /* EGL_NV_stream_cross_object */
-    /*  197 */ 0xac63132cd757c637ULL, /* EGL_NV_stream_cross_partition */
-    /*  198 */ 0x2821ab7eeb491706ULL, /* EGL_NV_stream_cross_process */
-    /*  199 */ 0x97b15fd0e09adf80ULL, /* EGL_NV_stream_cross_system */
-    /*  200 */ 0x7ae84605ae3ae44aULL, /* EGL_NV_stream_dma */
-    /*  201 */ 0x450721831a3bcf73ULL, /* EGL_NV_stream_fifo_next */
-    /*  202 */ 0x5dd63931ba6563fbULL, /* EGL_NV_stream_fifo_synchronous */
-    /*  203 */ 0x33597e019cc7811dULL, /* EGL_NV_stream_flush */
-    /*  204 */ 0x0c5d5d4b9e76b0d3ULL, /* EGL_NV_stream_frame_limits */
-    /*  205 */ 0xd899fb78ae205e27ULL, /* EGL_NV_stream_metadata */
-    /*  206 */ 0xcb6e884a7e412a07ULL, /* EGL_NV_stream_origin */
-    /*  207 */ 0x817f41736f96de51ULL, /* EGL_NV_stream_remote */
-    /*  208 */ 0x6ad8d08948340894ULL, /* EGL_NV_stream_reset */
-    /*  209 */ 0xb46eaf4ddee294f4ULL, /* EGL_NV_stream_socket */
-    /*  210 */ 0x7d669bb43a324d63ULL, /* EGL_NV_stream_socket_inet */
-    /*  211 */ 0x55bf7befb5997e09ULL, /* EGL_NV_stream_socket_unix */
-    /*  212 */ 0xdfb98789892372ebULL, /* EGL_NV_stream_sync */
-    /*  213 */ 0x5557f40f2ef2066cULL, /* EGL_NV_sync */
-    /*  214 */ 0xe1a6732356a0f69fULL, /* EGL_NV_system_time */
-    /*  215 */ 0xf2ec54e65029ed17ULL, /* EGL_NV_triple_buffer */
-    /*  216 */ 0xaf15d314b7e55c0fULL, /* EGL_QNX_image_native_buffer */
-    /*  217 */ 0x8efc13d2448ab5b1ULL, /* EGL_QNX_platform_screen */
-    /*  218 */ 0x71dbd1513b2ad7e5ULL, /* EGL_TIZEN_image_native_buffer */
-    /*  219 */ 0x6d7cb4f9ba09cb5dULL, /* EGL_TIZEN_image_native_surface */
-    /*  220 */ 0xc81b6f913740e456ULL, /* EGL_WL_bind_wayland_display */
-    /*  221 */ 0xa3002402543e70a5ULL  /* EGL_WL_create_wayland_buffer_from_image */
+    /*   39 */ 0xaeb71df911ad80f9ULL, /* EGL_ANGLE_low_latency */
+    /*   40 */ 0x3385337af72503e9ULL, /* EGL_ANGLE_memory_usage_report */
+    /*   41 */ 0x1c79535a56a7c3daULL, /* EGL_ANGLE_metal_commands_scheduled_sync */
+    /*   42 */ 0x5027858c4c30d226ULL, /* EGL_ANGLE_metal_create_context_ownership_identity */
+    /*   43 */ 0x6e333abff6cec928ULL, /* EGL_ANGLE_metal_shared_event_sync */
+    /*   44 */ 0xea85ee216b66aed6ULL, /* EGL_ANGLE_metal_texture_client_buffer */
+    /*   45 */ 0x69ec6f07eb567773ULL, /* EGL_ANGLE_no_error */
+    /*   46 */ 0x0e642f860b2670f4ULL, /* EGL_ANGLE_platform_angle */
+    /*   47 */ 0xb3c6378facb30b47ULL, /* EGL_ANGLE_platform_angle_d3d */
+    /*   48 */ 0x67363c4648bf01a6ULL, /* EGL_ANGLE_platform_angle_d3d11on12 */
+    /*   49 */ 0x7404e65415e0cf49ULL, /* EGL_ANGLE_platform_angle_d3d_luid */
+    /*   50 */ 0x5b49c1a91e2bcce3ULL, /* EGL_ANGLE_platform_angle_device_context_volatile_cgl */
+    /*   51 */ 0xf27d356bb04d147dULL, /* EGL_ANGLE_platform_angle_device_context_volatile_eagl */
+    /*   52 */ 0x1d4a1428061a339aULL, /* EGL_ANGLE_platform_angle_device_id */
+    /*   53 */ 0xbe47353c1f13390bULL, /* EGL_ANGLE_platform_angle_device_type_egl */
+    /*   54 */ 0xe9d3e98ad0d51659ULL, /* EGL_ANGLE_platform_angle_device_type_swiftshader */
+    /*   55 */ 0x98c1482cf6675807ULL, /* EGL_ANGLE_platform_angle_metal */
+    /*   56 */ 0x6ab80514da15b6f9ULL, /* EGL_ANGLE_platform_angle_null */
+    /*   57 */ 0xb419931c39c7f38aULL, /* EGL_ANGLE_platform_angle_opengl */
+    /*   58 */ 0xb2ad9cccda275eb4ULL, /* EGL_ANGLE_platform_angle_vulkan */
+    /*   59 */ 0x76ecae883c1293e2ULL, /* EGL_ANGLE_platform_angle_vulkan_device_uuid */
+    /*   60 */ 0x2d155ccb3d2e416dULL, /* EGL_ANGLE_platform_angle_webgpu */
+    /*   61 */ 0xaf2ad94baa465742ULL, /* EGL_ANGLE_power_preference */
+    /*   62 */ 0x41534601630f79ceULL, /* EGL_ANGLE_prepare_swap_buffers */
+    /*   63 */ 0x15c4d55f4f359f01ULL, /* EGL_ANGLE_program_cache_control */
+    /*   64 */ 0x655dcac0071412b7ULL, /* EGL_ANGLE_query_surface_pointer */
+    /*   65 */ 0xbec48c7959021479ULL, /* EGL_ANGLE_robust_resource_initialization */
+    /*   66 */ 0x9e02c97224491c29ULL, /* EGL_ANGLE_stream_producer_d3d_texture */
+    /*   67 */ 0x460ce0075e78a2bdULL, /* EGL_ANGLE_surface_d3d_texture_2d_share_handle */
+    /*   68 */ 0xa388335593ecba25ULL, /* EGL_ANGLE_surface_orientation */
+    /*   69 */ 0xcbc83f2fb8143390ULL, /* EGL_ANGLE_sync_control_rate */
+    /*   70 */ 0x9b7afb42d23ff24aULL, /* EGL_ANGLE_vulkan_display */
+    /*   71 */ 0x3b9d20f1e7cea30cULL, /* EGL_ANGLE_vulkan_image */
+    /*   72 */ 0x32f27a4c7977f1ccULL, /* EGL_ANGLE_wait_until_work_scheduled */
+    /*   73 */ 0x584d724a2585416bULL, /* EGL_ANGLE_window_fixed_size */
+    /*   74 */ 0x7fd85a1fe267fe03ULL, /* EGL_ANGLE_x11_visual */
+    /*   75 */ 0x79e92599e5906543ULL, /* EGL_ARM_image_format */
+    /*   76 */ 0xe6b4aba5bdfeb761ULL, /* EGL_ARM_implicit_external_sync */
+    /*   77 */ 0xae00b1c9df43676fULL, /* EGL_ARM_pixmap_multisample_discard */
+    /*   78 */ 0xff8aede3988df0ecULL, /* EGL_CHROMIUM_sync_control */
+    /*   79 */ 0x9c662d7d2c258a50ULL, /* EGL_EXT_bind_to_front */
+    /*   80 */ 0x2aa08328d074a816ULL, /* EGL_EXT_buffer_age */
+    /*   81 */ 0xa31e0274c2bcafb4ULL, /* EGL_EXT_client_extensions */
+    /*   82 */ 0x0391123aa67cc9fdULL, /* EGL_EXT_client_sync */
+    /*   83 */ 0x7ad217dadabe87ccULL, /* EGL_EXT_compositor */
+    /*   84 */ 0x7a089e984094346aULL, /* EGL_EXT_config_select_group */
+    /*   85 */ 0x7150da6f49b30f3eULL, /* EGL_EXT_create_context_robustness */
+    /*   86 */ 0x2f6c882c1eab9296ULL, /* EGL_EXT_device_base */
+    /*   87 */ 0x25ef29d5ba78dacbULL, /* EGL_EXT_device_drm */
+    /*   88 */ 0x85d84ed980a0f6c3ULL, /* EGL_EXT_device_drm_render_node */
+    /*   89 */ 0xbf886c3682e570aaULL, /* EGL_EXT_device_enumeration */
+    /*   90 */ 0xbb95b050ecd18b71ULL, /* EGL_EXT_device_openwf */
+    /*   91 */ 0x25e4685edc9371c5ULL, /* EGL_EXT_device_persistent_id */
+    /*   92 */ 0x4c3836479bf75ba3ULL, /* EGL_EXT_device_query */
+    /*   93 */ 0x0ec61ed2c29b6b7eULL, /* EGL_EXT_device_query_name */
+    /*   94 */ 0xdbf00a0a59a03004ULL, /* EGL_EXT_display_alloc */
+    /*   95 */ 0x1a98bf220bf010e1ULL, /* EGL_EXT_explicit_device */
+    /*   96 */ 0x375b95889c713c9aULL, /* EGL_EXT_gl_colorspace_bt2020_hlg */
+    /*   97 */ 0x5091e9def2327eeaULL, /* EGL_EXT_gl_colorspace_bt2020_linear */
+    /*   98 */ 0xfc5bf7ce45097f02ULL, /* EGL_EXT_gl_colorspace_bt2020_pq */
+    /*   99 */ 0xd63b77d8efe7c73eULL, /* EGL_EXT_gl_colorspace_display_p3 */
+    /*  100 */ 0x24c124c0512e760aULL, /* EGL_EXT_gl_colorspace_display_p3_linear */
+    /*  101 */ 0x46817a7a0934b21aULL, /* EGL_EXT_gl_colorspace_display_p3_passthrough */
+    /*  102 */ 0x01e6ab8e204224c3ULL, /* EGL_EXT_gl_colorspace_scrgb */
+    /*  103 */ 0x9d59eeae4c92e9f7ULL, /* EGL_EXT_gl_colorspace_scrgb_linear */
+    /*  104 */ 0x0c3a9519d769be90ULL, /* EGL_EXT_image_dma_buf_import */
+    /*  105 */ 0xa09fd39f9f1158a7ULL, /* EGL_EXT_image_dma_buf_import_modifiers */
+    /*  106 */ 0x476226fa1413890aULL, /* EGL_EXT_image_gl_colorspace */
+    /*  107 */ 0xa5c94b3fdd6261daULL, /* EGL_EXT_image_implicit_sync_control */
+    /*  108 */ 0x9f0bdd4dde93e968ULL, /* EGL_EXT_multiview_window */
+    /*  109 */ 0xd324b54bf6a35048ULL, /* EGL_EXT_output_base */
+    /*  110 */ 0x0659adf490093fcbULL, /* EGL_EXT_output_drm */
+    /*  111 */ 0x53a0e0b8eb5f3f00ULL, /* EGL_EXT_output_openwf */
+    /*  112 */ 0xefb059a6e6841776ULL, /* EGL_EXT_pixel_format_float */
+    /*  113 */ 0xa841b196d3768c24ULL, /* EGL_EXT_platform_base */
+    /*  114 */ 0x8df4a934a55860dbULL, /* EGL_EXT_platform_device */
+    /*  115 */ 0x27716290eb920120ULL, /* EGL_EXT_platform_wayland */
+    /*  116 */ 0xe548f3fc71409c63ULL, /* EGL_EXT_platform_x11 */
+    /*  117 */ 0x6b5d9de25dfe7ebaULL, /* EGL_EXT_platform_xcb */
+    /*  118 */ 0x5e7a56764d6c44b1ULL, /* EGL_EXT_present_opaque */
+    /*  119 */ 0x91cb4ebfba10a35fULL, /* EGL_EXT_protected_content */
+    /*  120 */ 0x83f096c0f29ebb18ULL, /* EGL_EXT_protected_surface */
+    /*  121 */ 0xfd8d9ef9e9360c00ULL, /* EGL_EXT_query_reset_notification_strategy */
+    /*  122 */ 0xfbac73bd87a06d67ULL, /* EGL_EXT_stream_consumer_egloutput */
+    /*  123 */ 0x5654a8bc12eeebabULL, /* EGL_EXT_surface_CTA861_3_metadata */
+    /*  124 */ 0x283ef3c9e93fa780ULL, /* EGL_EXT_surface_SMPTE2086_metadata */
+    /*  125 */ 0x46e2ba77cc14c6daULL, /* EGL_EXT_surface_compression */
+    /*  126 */ 0xff56e7e2acee3106ULL, /* EGL_EXT_swap_buffers_with_damage */
+    /*  127 */ 0x42a3ca98a3fcecb6ULL, /* EGL_EXT_sync_reuse */
+    /*  128 */ 0x451b691d8d24df6cULL, /* EGL_EXT_yuv_surface */
+    /*  129 */ 0xdaf189f7653009bfULL, /* EGL_HI_clientpixmap */
+    /*  130 */ 0x066d89176cab3c2cULL, /* EGL_HI_colorformats */
+    /*  131 */ 0x0a76d8252afa230aULL, /* EGL_IMG_context_priority */
+    /*  132 */ 0x7084567bc80e8320ULL, /* EGL_IMG_image_plane_attribs */
+    /*  133 */ 0x0b5d7506753789deULL, /* EGL_KHR_cl_event */
+    /*  134 */ 0x70fce70cba139c12ULL, /* EGL_KHR_cl_event2 */
+    /*  135 */ 0xef7264f8eef3335bULL, /* EGL_KHR_client_get_all_proc_addresses */
+    /*  136 */ 0x270d8abedb2d3a6dULL, /* EGL_KHR_config_attribs */
+    /*  137 */ 0xda20b827ff8ca001ULL, /* EGL_KHR_context_flush_control */
+    /*  138 */ 0x4e16c8c1f6a8131cULL, /* EGL_KHR_create_context */
+    /*  139 */ 0x7b8ef4b379c8f0fdULL, /* EGL_KHR_create_context_no_error */
+    /*  140 */ 0x5b61d2012f7861b3ULL, /* EGL_KHR_debug */
+    /*  141 */ 0xfb4d4422d07bc81cULL, /* EGL_KHR_display_reference */
+    /*  142 */ 0x3fc685858cb02200ULL, /* EGL_KHR_fence_sync */
+    /*  143 */ 0xcc74201669ca5b5dULL, /* EGL_KHR_get_all_proc_addresses */
+    /*  144 */ 0x0089c927779cc6efULL, /* EGL_KHR_gl_colorspace */
+    /*  145 */ 0xf2fdf97c1361d5d7ULL, /* EGL_KHR_gl_renderbuffer_image */
+    /*  146 */ 0x16756bf4b09c5e40ULL, /* EGL_KHR_gl_texture_2D_image */
+    /*  147 */ 0x38fe09b43c8ef819ULL, /* EGL_KHR_gl_texture_3D_image */
+    /*  148 */ 0x8da10d2afff88da2ULL, /* EGL_KHR_gl_texture_cubemap_image */
+    /*  149 */ 0x871bd75821391394ULL, /* EGL_KHR_image */
+    /*  150 */ 0xa2aecd33728540cbULL, /* EGL_KHR_image_base */
+    /*  151 */ 0x6d3e7071805da5a8ULL, /* EGL_KHR_image_pixmap */
+    /*  152 */ 0xd1965fc59df1967cULL, /* EGL_KHR_lock_surface */
+    /*  153 */ 0x607598bc0d7426f5ULL, /* EGL_KHR_lock_surface2 */
+    /*  154 */ 0xc5c0850bfdef920fULL, /* EGL_KHR_lock_surface3 */
+    /*  155 */ 0xf2c65c6b58412a19ULL, /* EGL_KHR_mutable_render_buffer */
+    /*  156 */ 0xb04bf399be660bcaULL, /* EGL_KHR_no_config_context */
+    /*  157 */ 0xbf10c896f39ac381ULL, /* EGL_KHR_partial_update */
+    /*  158 */ 0x1b60d04af505e88cULL, /* EGL_KHR_platform_android */
+    /*  159 */ 0x92732717613804d7ULL, /* EGL_KHR_platform_gbm */
+    /*  160 */ 0xa9c339bb0bd9f8ffULL, /* EGL_KHR_platform_wayland */
+    /*  161 */ 0xb95b474e87d914c0ULL, /* EGL_KHR_platform_x11 */
+    /*  162 */ 0x3e707e46a988246fULL, /* EGL_KHR_reusable_sync */
+    /*  163 */ 0x16184f4f924509efULL, /* EGL_KHR_stream */
+    /*  164 */ 0x9d0b59cf206f7842ULL, /* EGL_KHR_stream_attrib */
+    /*  165 */ 0xd9b572ac9eb89474ULL, /* EGL_KHR_stream_consumer_gltexture */
+    /*  166 */ 0x6e523fb6f05a3d29ULL, /* EGL_KHR_stream_cross_process_fd */
+    /*  167 */ 0x3114241b811aadf2ULL, /* EGL_KHR_stream_fifo */
+    /*  168 */ 0x4e02a91ae238a029ULL, /* EGL_KHR_stream_producer_aldatalocator */
+    /*  169 */ 0x75e923758d9b47fbULL, /* EGL_KHR_stream_producer_eglsurface */
+    /*  170 */ 0x98778891a458759fULL, /* EGL_KHR_surfaceless_context */
+    /*  171 */ 0x836da10ce92250efULL, /* EGL_KHR_swap_buffers_with_damage */
+    /*  172 */ 0xc795b75646aecc5bULL, /* EGL_KHR_vg_parent_image */
+    /*  173 */ 0x76eb9817e8dc6c57ULL, /* EGL_KHR_wait_sync */
+    /*  174 */ 0x8a02851eceb4e60bULL, /* EGL_MESA_drm_image */
+    /*  175 */ 0xff40140d7e6b5b22ULL, /* EGL_MESA_image_dma_buf_export */
+    /*  176 */ 0xcbf9865290d1d737ULL, /* EGL_MESA_platform_gbm */
+    /*  177 */ 0xa718f1a00dfc77b2ULL, /* EGL_MESA_platform_surfaceless */
+    /*  178 */ 0x205a0c44642ecfe4ULL, /* EGL_MESA_query_driver */
+    /*  179 */ 0xc6c6646757ff2eb0ULL, /* EGL_NOK_swap_region */
+    /*  180 */ 0xcacecd1071a7c53dULL, /* EGL_NOK_swap_region2 */
+    /*  181 */ 0x140a1d4d56e89998ULL, /* EGL_NOK_texture_from_pixmap */
+    /*  182 */ 0x53d1f2866df11721ULL, /* EGL_NV_3dvision_surface */
+    /*  183 */ 0x87d534f485d23e03ULL, /* EGL_NV_context_priority_realtime */
+    /*  184 */ 0x29d02d6b41d01c44ULL, /* EGL_NV_coverage_sample */
+    /*  185 */ 0xbf4228511c15c43eULL, /* EGL_NV_coverage_sample_resolve */
+    /*  186 */ 0xba24ab7c282aa98cULL, /* EGL_NV_cuda_event */
+    /*  187 */ 0x4f20169819f31a19ULL, /* EGL_NV_depth_nonlinear */
+    /*  188 */ 0xb32a3dd6b03226f2ULL, /* EGL_NV_device_cuda */
+    /*  189 */ 0x797c903a522c4c75ULL, /* EGL_NV_native_query */
+    /*  190 */ 0xb151fe3f08ba15f6ULL, /* EGL_NV_post_convert_rounding */
+    /*  191 */ 0xaad3806034d0954dULL, /* EGL_NV_post_sub_buffer */
+    /*  192 */ 0x37a228d0850f64a1ULL, /* EGL_NV_quadruple_buffer */
+    /*  193 */ 0x74855b1caf0bb727ULL, /* EGL_NV_robustness_video_memory_purge */
+    /*  194 */ 0x2db9bc2b87115201ULL, /* EGL_NV_stream_consumer_eglimage */
+    /*  195 */ 0xd01bc63b758f4cb9ULL, /* EGL_NV_stream_consumer_eglimage_use_scanout_attrib */
+    /*  196 */ 0x2baced719176deedULL, /* EGL_NV_stream_consumer_gltexture_yuv */
+    /*  197 */ 0xfc105cd6c3f68dbeULL, /* EGL_NV_stream_cross_display */
+    /*  198 */ 0x363e000d3383a473ULL, /* EGL_NV_stream_cross_object */
+    /*  199 */ 0xac63132cd757c637ULL, /* EGL_NV_stream_cross_partition */
+    /*  200 */ 0x2821ab7eeb491706ULL, /* EGL_NV_stream_cross_process */
+    /*  201 */ 0x97b15fd0e09adf80ULL, /* EGL_NV_stream_cross_system */
+    /*  202 */ 0x7ae84605ae3ae44aULL, /* EGL_NV_stream_dma */
+    /*  203 */ 0x450721831a3bcf73ULL, /* EGL_NV_stream_fifo_next */
+    /*  204 */ 0x5dd63931ba6563fbULL, /* EGL_NV_stream_fifo_synchronous */
+    /*  205 */ 0x33597e019cc7811dULL, /* EGL_NV_stream_flush */
+    /*  206 */ 0x0c5d5d4b9e76b0d3ULL, /* EGL_NV_stream_frame_limits */
+    /*  207 */ 0xd899fb78ae205e27ULL, /* EGL_NV_stream_metadata */
+    /*  208 */ 0xcb6e884a7e412a07ULL, /* EGL_NV_stream_origin */
+    /*  209 */ 0x817f41736f96de51ULL, /* EGL_NV_stream_remote */
+    /*  210 */ 0x6ad8d08948340894ULL, /* EGL_NV_stream_reset */
+    /*  211 */ 0xb46eaf4ddee294f4ULL, /* EGL_NV_stream_socket */
+    /*  212 */ 0x7d669bb43a324d63ULL, /* EGL_NV_stream_socket_inet */
+    /*  213 */ 0x55bf7befb5997e09ULL, /* EGL_NV_stream_socket_unix */
+    /*  214 */ 0xdfb98789892372ebULL, /* EGL_NV_stream_sync */
+    /*  215 */ 0x5557f40f2ef2066cULL, /* EGL_NV_sync */
+    /*  216 */ 0xe1a6732356a0f69fULL, /* EGL_NV_system_time */
+    /*  217 */ 0xf2ec54e65029ed17ULL, /* EGL_NV_triple_buffer */
+    /*  218 */ 0xaf15d314b7e55c0fULL, /* EGL_QNX_image_native_buffer */
+    /*  219 */ 0x8efc13d2448ab5b1ULL, /* EGL_QNX_platform_screen */
+    /*  220 */ 0x71dbd1513b2ad7e5ULL, /* EGL_TIZEN_image_native_buffer */
+    /*  221 */ 0x6d7cb4f9ba09cb5dULL, /* EGL_TIZEN_image_native_surface */
+    /*  222 */ 0xc81b6f913740e456ULL, /* EGL_WL_bind_wayland_display */
+    /*  223 */ 0xa3002402543e70a5ULL  /* EGL_WL_create_wayland_buffer_from_image */
 };
 
 static const GladAliasPair_t GLAD_EGL_command_aliases[] = {
