@@ -460,6 +460,8 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define EGL_LOW_LATENCY_MARK_SIMULATION_START_ANGLE 0x0002
 #define EGL_LOW_LATENCY_MARK_SLEEP_END_ANGLE 0x0007
 #define EGL_LOW_LATENCY_MARK_SLEEP_START_ANGLE 0x0006
+#define EGL_LOW_LATENCY_MIN_PRESENT_INTERVAL_US_MAX_ANGLE 0x34F4
+#define EGL_LOW_LATENCY_MIN_PRESENT_INTERVAL_US_MIN_ANGLE 0x34F3
 #define EGL_LOW_LATENCY_PERF_DEFAULT_ANGLE 0x0000
 #define EGL_LOW_LATENCY_PERF_PREFER_HIGH_ANGLE 0x0001
 #define EGL_LOW_POWER_ANGLE 0x0001
@@ -965,8 +967,6 @@ typedef void (GLAD_API_PTR *EGLDEBUGPROCKHR)(EGLenum error,const char *command,E
 
 typedef khronos_uint32_t EGLLowLatencyCapsANGLE;
 
-typedef khronos_uint32_t EGLLowLatencyMicrosecondsANGLE;
-
 
 #define EGL_VERSION_1_0 1
 #define EGL_VERSION_1_1 1
@@ -1385,7 +1385,7 @@ typedef void (GLAD_API_PTR *PFNEGLSETVALIDATIONENABLEDANGLEPROC)(EGLBoolean vali
 typedef EGLBoolean (GLAD_API_PTR *PFNEGLQUERYLOWLATENCYCAPSANGLEPROC)(EGLDisplay dpy, EGLSurface surface, EGLLowLatencyCapsANGLE * caps_out);
 typedef EGLBoolean (GLAD_API_PTR *PFNEGLLOWLATENCYSETMODEANGLEPROC)(EGLDisplay dpy, EGLSurface surface, EGLint mode);
 typedef EGLBoolean (GLAD_API_PTR *PFNEGLLOWLATENCYSETPERFHINTANGLEPROC)(EGLDisplay dpy, EGLSurface surface, EGLint perfMode);
-typedef EGLBoolean (GLAD_API_PTR *PFNEGLLOWLATENCYSETMINPRESENTINTERVALANGLEPROC)(EGLDisplay dpy, EGLSurface surface, EGLLowLatencyMicrosecondsANGLE minIntervalUS);
+typedef EGLBoolean (GLAD_API_PTR *PFNEGLLOWLATENCYSETMINPRESENTINTERVALANGLEPROC)(EGLDisplay dpy, EGLSurface surface, EGLint minIntervalUS);
 typedef EGLBoolean (GLAD_API_PTR *PFNEGLLOWLATENCYSLEEPANGLEPROC)(EGLDisplay dpy, EGLSurface surface);
 typedef EGLBoolean (GLAD_API_PTR *PFNEGLLOWLATENCYMARKERANGLEPROC)(EGLDisplay dpy, EGLSurface surface, EGLint marker);
 
@@ -2250,7 +2250,7 @@ void eglSetValidationEnabledANGLE(EGLBoolean validationState);
 EGLBoolean eglQueryLowLatencyCapsANGLE(EGLDisplay dpy, EGLSurface surface, EGLLowLatencyCapsANGLE * caps_out);
 EGLBoolean eglLowLatencySetModeANGLE(EGLDisplay dpy, EGLSurface surface, EGLint mode);
 EGLBoolean eglLowLatencySetPerfHintANGLE(EGLDisplay dpy, EGLSurface surface, EGLint perfMode);
-EGLBoolean eglLowLatencySetMinPresentIntervalANGLE(EGLDisplay dpy, EGLSurface surface, EGLLowLatencyMicrosecondsANGLE minIntervalUS);
+EGLBoolean eglLowLatencySetMinPresentIntervalANGLE(EGLDisplay dpy, EGLSurface surface, EGLint minIntervalUS);
 EGLBoolean eglLowLatencySleepANGLE(EGLDisplay dpy, EGLSurface surface);
 EGLBoolean eglLowLatencyMarkerANGLE(EGLDisplay dpy, EGLSurface surface, EGLint marker);
 
