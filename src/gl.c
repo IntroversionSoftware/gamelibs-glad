@@ -2954,66 +2954,53 @@ static const char * const GLAD_GL_fn_names[] = {
     /* 2823 */ "glSamplerParameterfvRobustANGLE",
     /* 2824 */ "glGetSamplerParameterivRobustANGLE",
     /* 2825 */ "glGetSamplerParameterfvRobustANGLE",
-    /* 2826 */ "glGetFramebufferParameterivRobustANGLE",
-    /* 2827 */ "glGetProgramInterfaceivRobustANGLE",
-    /* 2828 */ "glGetBooleani_vRobustANGLE",
-    /* 2829 */ "glGetMultisamplefvRobustANGLE",
-    /* 2830 */ "glGetTexLevelParameterivRobustANGLE",
-    /* 2831 */ "glGetTexLevelParameterfvRobustANGLE",
-    /* 2832 */ "glGetPointervRobustANGLERobustANGLE",
-    /* 2833 */ "glReadnPixelsRobustANGLE",
-    /* 2834 */ "glGetnUniformfvRobustANGLE",
-    /* 2835 */ "glGetnUniformivRobustANGLE",
-    /* 2836 */ "glGetnUniformuivRobustANGLE",
-    /* 2837 */ "glTexParameterIivRobustANGLE",
-    /* 2838 */ "glTexParameterIuivRobustANGLE",
-    /* 2839 */ "glGetTexParameterIivRobustANGLE",
-    /* 2840 */ "glGetTexParameterIuivRobustANGLE",
-    /* 2841 */ "glSamplerParameterIivRobustANGLE",
-    /* 2842 */ "glSamplerParameterIuivRobustANGLE",
-    /* 2843 */ "glGetSamplerParameterIivRobustANGLE",
-    /* 2844 */ "glGetSamplerParameterIuivRobustANGLE",
-    /* 2845 */ "glGetQueryObjectivRobustANGLE",
-    /* 2846 */ "glGetQueryObjecti64vRobustANGLE",
-    /* 2847 */ "glGetQueryObjectui64vRobustANGLE",
-    /* 2848 */ "glGetFramebufferPixelLocalStorageParameterfvRobustANGLE",
-    /* 2849 */ "glGetFramebufferPixelLocalStorageParameterivRobustANGLE",
-    /* 2850 */ "glCopyTexture3DANGLE",
-    /* 2851 */ "glCopySubTexture3DANGLE",
-    /* 2852 */ "glTexStorage2DMultisampleANGLE",
-    /* 2853 */ "glGetMultisamplefvANGLE",
-    /* 2854 */ "glSampleMaskiANGLE",
-    /* 2855 */ "glMultiDrawArraysANGLE",
-    /* 2856 */ "glMultiDrawArraysInstancedANGLE",
-    /* 2857 */ "glMultiDrawElementsANGLE",
-    /* 2858 */ "glMultiDrawElementsInstancedANGLE",
-    /* 2859 */ "glDrawArraysInstancedBaseInstanceANGLE",
-    /* 2860 */ "glDrawElementsInstancedBaseVertexBaseInstanceANGLE",
-    /* 2861 */ "glMultiDrawArraysInstancedBaseInstanceANGLE",
-    /* 2862 */ "glMultiDrawElementsInstancedBaseVertexBaseInstanceANGLE",
-    /* 2863 */ "glPolygonModeANGLE",
-    /* 2864 */ "glProvokingVertexANGLE",
-    /* 2865 */ "glLoseContextCHROMIUM",
-    /* 2866 */ "glGetTexImageANGLE",
-    /* 2867 */ "glGetCompressedTexImageANGLE",
-    /* 2868 */ "glGetRenderbufferImageANGLE",
-    /* 2869 */ "glGetTexLevelParameterfvANGLE",
-    /* 2870 */ "glGetTexLevelParameterivANGLE",
-    /* 2871 */ "glFramebufferMemorylessPixelLocalStorageANGLE",
-    /* 2872 */ "glFramebufferTexturePixelLocalStorageANGLE",
-    /* 2873 */ "glFramebufferPixelLocalClearValuefvANGLE",
-    /* 2874 */ "glFramebufferPixelLocalClearValueivANGLE",
-    /* 2875 */ "glFramebufferPixelLocalClearValueuivANGLE",
-    /* 2876 */ "glBeginPixelLocalStorageANGLE",
-    /* 2877 */ "glEndPixelLocalStorageANGLE",
-    /* 2878 */ "glPixelLocalStorageBarrierANGLE",
-    /* 2879 */ "glFramebufferPixelLocalStorageInterruptANGLE",
-    /* 2880 */ "glFramebufferPixelLocalStorageRestoreANGLE",
-    /* 2881 */ "glGetFramebufferPixelLocalStorageParameterfvANGLE",
-    /* 2882 */ "glGetFramebufferPixelLocalStorageParameterivANGLE",
-    /* 2883 */ "glLogicOpANGLE",
-    /* 2884 */ "glBlobCacheCallbacksANGLE",
-    /* 2885 */ "glGetPointervANGLE"
+    /* 2826 */ "glGetMultisamplefvRobustANGLE",
+    /* 2827 */ "glGetTexLevelParameterivRobustANGLE",
+    /* 2828 */ "glGetTexLevelParameterfvRobustANGLE",
+    /* 2829 */ "glGetQueryObjectivRobustANGLE",
+    /* 2830 */ "glGetQueryObjecti64vRobustANGLE",
+    /* 2831 */ "glGetQueryObjectui64vRobustANGLE",
+    /* 2832 */ "glGetFramebufferPixelLocalStorageParameterfvRobustANGLE",
+    /* 2833 */ "glGetFramebufferPixelLocalStorageParameterivRobustANGLE",
+    /* 2834 */ "glGetFramebufferPixelLocalStorageParameteruivRobustANGLE",
+    /* 2835 */ "glCopyTexture3DANGLE",
+    /* 2836 */ "glCopySubTexture3DANGLE",
+    /* 2837 */ "glTexStorage2DMultisampleANGLE",
+    /* 2838 */ "glGetMultisamplefvANGLE",
+    /* 2839 */ "glSampleMaskiANGLE",
+    /* 2840 */ "glMultiDrawArraysANGLE",
+    /* 2841 */ "glMultiDrawArraysInstancedANGLE",
+    /* 2842 */ "glMultiDrawElementsANGLE",
+    /* 2843 */ "glMultiDrawElementsInstancedANGLE",
+    /* 2844 */ "glDrawArraysInstancedBaseInstanceANGLE",
+    /* 2845 */ "glDrawElementsInstancedBaseVertexBaseInstanceANGLE",
+    /* 2846 */ "glMultiDrawArraysInstancedBaseInstanceANGLE",
+    /* 2847 */ "glMultiDrawElementsInstancedBaseVertexBaseInstanceANGLE",
+    /* 2848 */ "glPolygonModeANGLE",
+    /* 2849 */ "glProvokingVertexANGLE",
+    /* 2850 */ "glLoseContextCHROMIUM",
+    /* 2851 */ "glGetTexImageANGLE",
+    /* 2852 */ "glGetCompressedTexImageANGLE",
+    /* 2853 */ "glGetRenderbufferImageANGLE",
+    /* 2854 */ "glGetTexLevelParameterfvANGLE",
+    /* 2855 */ "glGetTexLevelParameterivANGLE",
+    /* 2856 */ "glFramebufferMemorylessPixelLocalStorageANGLE",
+    /* 2857 */ "glFramebufferTexturePixelLocalStorageANGLE",
+    /* 2858 */ "glFramebufferPixelLocalClearValuefvANGLE",
+    /* 2859 */ "glFramebufferPixelLocalClearValueivANGLE",
+    /* 2860 */ "glFramebufferPixelLocalClearValueuivANGLE",
+    /* 2861 */ "glBeginPixelLocalStorageANGLE",
+    /* 2862 */ "glEndPixelLocalStorageANGLE",
+    /* 2863 */ "glEndPixelLocalStorageImplicitANGLE",
+    /* 2864 */ "glPixelLocalStorageBarrierANGLE",
+    /* 2865 */ "glFramebufferPixelLocalStorageInterruptANGLE",
+    /* 2866 */ "glFramebufferPixelLocalStorageRestoreANGLE",
+    /* 2867 */ "glGetFramebufferPixelLocalStorageParameterfvANGLE",
+    /* 2868 */ "glGetFramebufferPixelLocalStorageParameterivANGLE",
+    /* 2869 */ "glGetFramebufferPixelLocalStorageParameteruivANGLE",
+    /* 2870 */ "glLogicOpANGLE",
+    /* 2871 */ "glBlobCacheCallbacksANGLE",
+    /* 2872 */ "glGetPointervANGLE"
 };
 
 static const GladPfnRange_t GLAD_GL_feature_pfn_ranges[] = {
@@ -3484,26 +3471,26 @@ static const GladPfnRange_t GLAD_gl_ext_pfn_ranges[] = {
 static const GladPfnRange_t GLAD_gles2_ext_pfn_ranges[] = {
     {   10,  666,    2 }, /* GL_AMD_framebuffer_multisample_advanced */
     {   20,  713,   11 }, /* GL_AMD_performance_monitor */
-    {   44, 2859,    4 }, /* GL_ANGLE_base_vertex_base_instance */
-    {   45, 2884,    2 }, /* GL_ANGLE_blob_cache */
-    {   48, 2850,    2 }, /* GL_ANGLE_copy_texture_3d */
+    {   44, 2844,    4 }, /* GL_ANGLE_base_vertex_base_instance */
+    {   45, 2871,    2 }, /* GL_ANGLE_blob_cache */
+    {   48, 2835,    2 }, /* GL_ANGLE_copy_texture_3d */
     {   50, 2547,    1 }, /* GL_ANGLE_framebuffer_blit */
     {   51, 2548,    1 }, /* GL_ANGLE_framebuffer_multisample */
-    {   52, 2866,    3 }, /* GL_ANGLE_get_image */
-    {   54, 2869,    2 }, /* GL_ANGLE_get_tex_level_parameter */
+    {   52, 2851,    3 }, /* GL_ANGLE_get_image */
+    {   54, 2854,    2 }, /* GL_ANGLE_get_tex_level_parameter */
     {   55, 2549,    3 }, /* GL_ANGLE_instanced_arrays */
-    {   56, 2883,    1 }, /* GL_ANGLE_logic_op */
+    {   56, 2870,    1 }, /* GL_ANGLE_logic_op */
     {   58, 2539,    4 }, /* GL_ANGLE_memory_object_flags */
     {   59, 2543,    1 }, /* GL_ANGLE_memory_object_fuchsia */
-    {   61, 2855,    4 }, /* GL_ANGLE_multi_draw */
-    {   63, 2863,    1 }, /* GL_ANGLE_polygon_mode */
-    {   67, 2864,    1 }, /* GL_ANGLE_provoking_vertex */
+    {   61, 2840,    4 }, /* GL_ANGLE_multi_draw */
+    {   63, 2848,    1 }, /* GL_ANGLE_polygon_mode */
+    {   67, 2849,    1 }, /* GL_ANGLE_provoking_vertex */
     {   69, 2780,    2 }, /* GL_ANGLE_request_extension */
-    {   71, 2784,   66 }, /* GL_ANGLE_robust_client_memory */
+    {   71, 2784,   51 }, /* GL_ANGLE_robust_client_memory */
     {   74, 2544,    1 }, /* GL_ANGLE_semaphore_fuchsia */
-    {   76, 2871,   12 }, /* GL_ANGLE_shader_pixel_local_storage */
+    {   76, 2856,   14 }, /* GL_ANGLE_shader_pixel_local_storage */
     {   81, 2537,    2 }, /* GL_ANGLE_texture_external_update */
-    {   82, 2852,    3 }, /* GL_ANGLE_texture_multisample */
+    {   82, 2837,    3 }, /* GL_ANGLE_texture_multisample */
     {   84, 2552,    1 }, /* GL_ANGLE_translated_shader_source */
     {   85, 2782,    2 }, /* GL_ANGLE_vulkan_image */
     {   91, 2553,    1 }, /* GL_APPLE_copy_texture_levels */
@@ -3514,7 +3501,7 @@ static const GladPfnRange_t GLAD_gles2_ext_pfn_ranges[] = {
     {  308, 2779,    1 }, /* GL_CHROMIUM_copy_compressed_texture */
     {  309, 2777,    2 }, /* GL_CHROMIUM_copy_texture */
     {  310, 2776,    1 }, /* GL_CHROMIUM_framebuffer_mixed_samples */
-    {  311, 2865,    1 }, /* GL_CHROMIUM_lose_context */
+    {  311, 2850,    1 }, /* GL_CHROMIUM_lose_context */
     {  316, 1155,    2 }, /* GL_EXT_EGL_image_storage */
     {  321, 2564,    3 }, /* GL_EXT_base_instance */
     {  327, 1162,    1 }, /* GL_EXT_blend_func_extended */
@@ -4735,7 +4722,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  286,  793 }, /* glDrawArraysInstanced and glDrawArraysInstancedARB */
     {  286, 1475 }, /* glDrawArraysInstanced and glDrawArraysInstancedEXT */
     {  286, 2668 }, /* glDrawArraysInstanced and glDrawArraysInstancedNV */
-    {  479, 2859 }, /* glDrawArraysInstancedBaseInstance and glDrawArraysInstancedBaseInstanceANGLE */
+    {  479, 2844 }, /* glDrawArraysInstancedBaseInstance and glDrawArraysInstancedBaseInstanceANGLE */
     {  479, 2564 }, /* glDrawArraysInstancedBaseInstance and glDrawArraysInstancedBaseInstanceEXT */
     {  104,  788 }, /* glDrawBuffers and glDrawBuffersARB */
     {  104, 1067 }, /* glDrawBuffers and glDrawBuffersATI */
@@ -4749,7 +4736,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  480, 2565 }, /* glDrawElementsInstancedBaseInstance and glDrawElementsInstancedBaseInstanceEXT */
     {  300, 2597 }, /* glDrawElementsInstancedBaseVertex and glDrawElementsInstancedBaseVertexEXT */
     {  300, 2706 }, /* glDrawElementsInstancedBaseVertex and glDrawElementsInstancedBaseVertexOES */
-    {  481, 2860 }, /* glDrawElementsInstancedBaseVertexBaseInstance and glDrawElementsInstancedBaseVertexBaseInstanceANGLE */
+    {  481, 2845 }, /* glDrawElementsInstancedBaseVertexBaseInstance and glDrawElementsInstancedBaseVertexBaseInstanceANGLE */
     {  481, 2566 }, /* glDrawElementsInstancedBaseVertexBaseInstance and glDrawElementsInstancedBaseVertexBaseInstanceEXT */
     {   62, 1477 }, /* glDrawRangeElements and glDrawRangeElementsEXT */
     {  299, 2596 }, /* glDrawRangeElementsBaseVertex and glDrawRangeElementsBaseVertexEXT */
@@ -4797,7 +4784,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  102, 1002 }, /* glGetBufferPointerv and glGetBufferPointervARB */
     {  102, 2712 }, /* glGetBufferPointerv and glGetBufferPointervOES */
     {   98,  998 }, /* glGetBufferSubData and glGetBufferSubDataARB */
-    {   74, 2867 }, /* glGetCompressedTexImage and glGetCompressedTexImageANGLE */
+    {   74, 2852 }, /* glGetCompressedTexImage and glGetCompressedTexImageANGLE */
     {   74,  977 }, /* glGetCompressedTexImage and glGetCompressedTexImageARB */
     {  527,  787 }, /* glGetDebugMessageLog and glGetDebugMessageLogARB */
     {  527, 2651 }, /* glGetDebugMessageLog and glGetDebugMessageLogKHR */
@@ -4815,7 +4802,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  308, 2561 }, /* glGetInteger64v and glGetInteger64vAPPLE */
     {  308, 2585 }, /* glGetInteger64v and glGetInteger64vEXT */
     {  204, 1299 }, /* glGetIntegeri_v and glGetIntegerIndexedvEXT */
-    {  315, 2853 }, /* glGetMultisamplefv and glGetMultisamplefvANGLE */
+    {  315, 2838 }, /* glGetMultisamplefv and glGetMultisamplefvANGLE */
     {  315, 1873 }, /* glGetMultisamplefv and glGetMultisamplefvNV */
     {  648, 2613 }, /* glGetnUniformfv and glGetnUniformfvEXT */
     {  648, 2661 }, /* glGetnUniformfv and glGetnUniformfvKHR */
@@ -4824,7 +4811,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  650, 2663 }, /* glGetnUniformuiv and glGetnUniformuivKHR */
     {  531, 2655 }, /* glGetObjectLabel and glGetObjectLabelKHR */
     {  533, 2657 }, /* glGetObjectPtrLabel and glGetObjectPtrLabelKHR */
-    {   50, 2885 }, /* glGetPointerv and glGetPointervANGLE */
+    {   50, 2872 }, /* glGetPointerv and glGetPointervANGLE */
     {   50, 1675 }, /* glGetPointerv and glGetPointervEXT */
     {   50, 2658 }, /* glGetPointerv and glGetPointervKHR */
     {  396, 2708 }, /* glGetProgramBinary and glGetProgramBinaryOES */
@@ -4841,9 +4828,9 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  332, 2729 }, /* glGetSamplerParameterIuiv and glGetSamplerParameterIuivOES */
     {  126,  959 }, /* glGetShaderSource and glGetShaderSourceARB */
     {  309, 2562 }, /* glGetSynciv and glGetSyncivAPPLE */
-    {   40, 2866 }, /* glGetTexImage and glGetTexImageANGLE */
-    {   43, 2869 }, /* glGetTexLevelParameterfv and glGetTexLevelParameterfvANGLE */
-    {   44, 2870 }, /* glGetTexLevelParameteriv and glGetTexLevelParameterivANGLE */
+    {   40, 2851 }, /* glGetTexImage and glGetTexImageANGLE */
+    {   43, 2854 }, /* glGetTexLevelParameterfv and glGetTexLevelParameterfvANGLE */
+    {   44, 2855 }, /* glGetTexLevelParameteriv and glGetTexLevelParameterivANGLE */
     {  253, 1646 }, /* glGetTexParameterIiv and glGetTexParameterIivEXT */
     {  253, 2724 }, /* glGetTexParameterIiv and glGetTexParameterIivOES */
     {  254, 1647 }, /* glGetTexParameterIuiv and glGetTexParameterIuivEXT */
@@ -4880,7 +4867,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  285,  753 }, /* glIsVertexArray and glIsVertexArrayAPPLE */
     {  285, 2737 }, /* glIsVertexArray and glIsVertexArrayOES */
     {  136,  929 }, /* glLinkProgram and glLinkProgramARB */
-    {   26, 2883 }, /* glLogicOp and glLogicOpANGLE */
+    {   26, 2870 }, /* glLogicOp and glLogicOpANGLE */
     {   99,  999 }, /* glMapBuffer and glMapBufferARB */
     {   99, 2710 }, /* glMapBuffer and glMapBufferOES */
     {  280, 2602 }, /* glMapBufferRange and glMapBufferRangeEXT */
@@ -4888,12 +4875,12 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  485, 1636 }, /* glMemoryBarrier and glMemoryBarrierEXT */
     {  345,  920 }, /* glMinSampleShading and glMinSampleShadingARB */
     {  345, 2714 }, /* glMinSampleShading and glMinSampleShadingOES */
-    {   76, 2855 }, /* glMultiDrawArrays and glMultiDrawArraysANGLE */
+    {   76, 2840 }, /* glMultiDrawArrays and glMultiDrawArraysANGLE */
     {   76, 1584 }, /* glMultiDrawArrays and glMultiDrawArraysEXT */
     {  505,  707 }, /* glMultiDrawArraysIndirect and glMultiDrawArraysIndirectAMD */
     {  505, 2604 }, /* glMultiDrawArraysIndirect and glMultiDrawArraysIndirectEXT */
     {  654,  855 }, /* glMultiDrawArraysIndirectCount and glMultiDrawArraysIndirectCountARB */
-    {   77, 2857 }, /* glMultiDrawElements and glMultiDrawElementsANGLE */
+    {   77, 2842 }, /* glMultiDrawElements and glMultiDrawElementsANGLE */
     {   77, 1585 }, /* glMultiDrawElements and glMultiDrawElementsEXT */
     {  301, 2598 }, /* glMultiDrawElementsBaseVertex and glMultiDrawElementsBaseVertexEXT */
     {  506,  708 }, /* glMultiDrawElementsIndirect and glMultiDrawElementsIndirectAMD */
@@ -4958,7 +4945,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  441, 1344 }, /* glProgramUniformMatrix4fv and glProgramUniformMatrix4fvEXT */
     {  448, 1348 }, /* glProgramUniformMatrix4x2fv and glProgramUniformMatrix4x2fvEXT */
     {  450, 1350 }, /* glProgramUniformMatrix4x3fv and glProgramUniformMatrix4x3fvEXT */
-    {  302, 2864 }, /* glProvokingVertex and glProvokingVertexANGLE */
+    {  302, 2849 }, /* glProvokingVertex and glProvokingVertexANGLE */
     {  302, 1602 }, /* glProvokingVertex and glProvokingVertexEXT */
     {  528, 2652 }, /* glPushDebugGroup and glPushDebugGroupKHR */
     {  333, 2581 }, /* glQueryCounter and glQueryCounterEXT */
@@ -4971,7 +4958,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  385, 2144 }, /* glResumeTransformFeedback and glResumeTransformFeedbackNV */
     {   67,  863 }, /* glSampleCoverage and glSampleCoverageARB */
     { 1586, 2406 }, /* glSampleMaskEXT and glSampleMaskSGIS */
-    {  316, 2854 }, /* glSampleMaski and glSampleMaskiANGLE */
+    {  316, 2839 }, /* glSampleMaski and glSampleMaskiANGLE */
     { 1587, 2407 }, /* glSamplePatternEXT and glSamplePatternSGIS */
     {  327, 2630 }, /* glSamplerParameterIiv and glSamplerParameterIivEXT */
     {  327, 2726 }, /* glSamplerParameterIiv and glSamplerParameterIivOES */
@@ -4999,7 +4986,7 @@ static const GladAliasPair_t GLAD_GL_command_aliases[] = {
     {  252, 2723 }, /* glTexParameterIuiv and glTexParameterIuivOES */
     {  486, 1658 }, /* glTexStorage1D and glTexStorage1DEXT */
     {  487, 1659 }, /* glTexStorage2D and glTexStorage2DEXT */
-    {  515, 2852 }, /* glTexStorage2DMultisample and glTexStorage2DMultisampleANGLE */
+    {  515, 2837 }, /* glTexStorage2DMultisample and glTexStorage2DMultisampleANGLE */
     {  488, 1660 }, /* glTexStorage3D and glTexStorage3DEXT */
     {  516, 2732 }, /* glTexStorage3DMultisample and glTexStorage3DMultisampleOES */
     {   56, 1639 }, /* glTexSubImage1D and glTexSubImage1DEXT */
