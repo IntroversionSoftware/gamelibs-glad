@@ -29,13 +29,17 @@ EXTENSIONS=(
 	EGL_EXT_platform_x11
 	EGL_KHR_debug
 	EGL_KHR_gl_colorspace
+	GL_3DFX_texture_compression_FXT1
 	GL_AMD_gpu_shader_half_float
 	GL_AMD_gpu_shader_int16
 	GL_AMD_performance_monitor
 	GL_AMD_query_buffer_object
 	GL_ANGLE_base_vertex_base_instance
+	GL_ANGLE_lossy_etc_decode
 	GL_ANGLE_multi_draw
+	GL_ANGLE_program_binary
 	GL_ANGLE_provoking_vertex
+	GL_ANGLE_shader_binary
 	GL_ANGLE_texture_compression_dxt5
 	GL_ANGLE_texture_multisample
 	GL_ANGLE_texture_usage
@@ -78,23 +82,39 @@ EXTENSIONS=(
 	GL_EXT_multisample
 	GL_EXT_multisampled_render_to_texture
 	GL_EXT_multisampled_render_to_texture2
+	GL_EXT_pvrtc_sRGB
 	GL_EXT_sRGB_write_control
 	GL_EXT_shader_16bit_storage
 	GL_EXT_shader_explicit_arithmetic_types
+	GL_EXT_texture
 	GL_EXT_texture_compression_dxt1
+	GL_EXT_texture_compression_latc
 	GL_EXT_texture_compression_rgtc
 	GL_EXT_texture_compression_s3tc
 	GL_EXT_texture_compression_s3tc_srgb
 	GL_EXT_texture_env_combine
 	GL_EXT_texture_filter_anisotropic
 	GL_EXT_texture_format_BGRA8888
+	GL_EXT_texture_sRGB
 	GL_EXT_texture_storage
+	GL_HUAWEI_program_binary
+	GL_HUAWEI_shader_binary
+	GL_IMG_texture_compression_pvrtc
+	GL_IMG_texture_compression_pvrtc2
 	GL_KHR_debug
 	GL_KHR_parallel_shader_compile
+	GL_MESA_program_binary_formats
+	GL_NV_depth_buffer_float
 	GL_NV_fence
 	GL_NV_fragment_shader_barycentric
+	GL_NV_sRGB_formats
+	GL_OES_compressed_ETC1_RGB8_texture
+	GL_OES_compressed_paletted_texture
 	GL_OES_shader_image_atomic
+	GL_OES_texture_compression_astc
 	GL_QCOM_shading_rate
+	GL_S3_s3tc
+	GL_VIV_shader_binary
 	VK_EXT_memory_budget
 	VK_KHR_driver_properties
 	VK_KHR_get_physical_device_properties2
