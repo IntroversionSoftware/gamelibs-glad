@@ -5,7 +5,7 @@
  *
  * Generator: C/C++
  * Specification: egl
- * Extensions: 224
+ * Extensions: 225
  *
  * APIs:
  *  - egl=1.5
@@ -17,7 +17,7 @@
  *  - USE_PFN_RANGES = True
  *
  * Commandline:
- *    --merge --api='egl=1.5' --extensions='EGL_ANDROID_GLES_layers,EGL_ANDROID_blob_cache,EGL_ANDROID_create_native_client_buffer,EGL_ANDROID_framebuffer_target,EGL_ANDROID_front_buffer_auto_refresh,EGL_ANDROID_get_frame_timestamps,EGL_ANDROID_get_native_client_buffer,EGL_ANDROID_image_native_buffer,EGL_ANDROID_native_fence_sync,EGL_ANDROID_presentation_time,EGL_ANDROID_recordable,EGL_ANDROID_telemetry_hint,EGL_ANGLE_colorspace_attribute_passthrough,EGL_ANGLE_context_virtualization,EGL_ANGLE_create_context_backwards_compatible,EGL_ANGLE_create_context_client_arrays,EGL_ANGLE_create_context_extensions_enabled,EGL_ANGLE_create_context_webgl_compatibility,EGL_ANGLE_create_surface_swap_interval,EGL_ANGLE_d3d_share_handle_client_buffer,EGL_ANGLE_d3d_texture_client_buffer,EGL_ANGLE_device_cgl,EGL_ANGLE_device_creation,EGL_ANGLE_device_d3d,EGL_ANGLE_device_d3d11,EGL_ANGLE_device_d3d9,EGL_ANGLE_device_eagl,EGL_ANGLE_device_metal,EGL_ANGLE_device_vulkan,EGL_ANGLE_direct_composition,EGL_ANGLE_display_power_preference,EGL_ANGLE_display_semaphore_share_group,EGL_ANGLE_display_texture_share_group,EGL_ANGLE_experimental_present_path,EGL_ANGLE_external_context_and_surface,EGL_ANGLE_feature_control,EGL_ANGLE_global_fence_sync,EGL_ANGLE_iosurface_client_buffer,EGL_ANGLE_keyed_mutex,EGL_ANGLE_low_latency,EGL_ANGLE_memory_usage_report,EGL_ANGLE_metal_commands_scheduled_sync,EGL_ANGLE_metal_create_context_ownership_identity,EGL_ANGLE_metal_shared_event_sync,EGL_ANGLE_metal_texture_client_buffer,EGL_ANGLE_no_error,EGL_ANGLE_platform_angle,EGL_ANGLE_platform_angle_d3d,EGL_ANGLE_platform_angle_d3d11on12,EGL_ANGLE_platform_angle_d3d_luid,EGL_ANGLE_platform_angle_device_context_volatile_cgl,EGL_ANGLE_platform_angle_device_context_volatile_eagl,EGL_ANGLE_platform_angle_device_id,EGL_ANGLE_platform_angle_device_type_egl,EGL_ANGLE_platform_angle_device_type_swiftshader,EGL_ANGLE_platform_angle_metal,EGL_ANGLE_platform_angle_null,EGL_ANGLE_platform_angle_opengl,EGL_ANGLE_platform_angle_vulkan,EGL_ANGLE_platform_angle_vulkan_device_uuid,EGL_ANGLE_platform_angle_webgpu,EGL_ANGLE_power_preference,EGL_ANGLE_prepare_swap_buffers,EGL_ANGLE_program_cache_control,EGL_ANGLE_query_surface_pointer,EGL_ANGLE_robust_resource_initialization,EGL_ANGLE_stream_producer_d3d_texture,EGL_ANGLE_surface_d3d_texture_2d_share_handle,EGL_ANGLE_surface_orientation,EGL_ANGLE_sync_control_rate,EGL_ANGLE_vulkan_display,EGL_ANGLE_vulkan_image,EGL_ANGLE_wait_until_work_scheduled,EGL_ANGLE_window_fixed_size,EGL_ANGLE_x11_visual,EGL_ARM_image_format,EGL_ARM_implicit_external_sync,EGL_ARM_pixmap_multisample_discard,EGL_CHROMIUM_sync_control,EGL_EXT_bind_to_front,EGL_EXT_buffer_age,EGL_EXT_client_extensions,EGL_EXT_client_sync,EGL_EXT_compositor,EGL_EXT_config_select_group,EGL_EXT_create_context_robustness,EGL_EXT_device_base,EGL_EXT_device_drm,EGL_EXT_device_drm_render_node,EGL_EXT_device_enumeration,EGL_EXT_device_openwf,EGL_EXT_device_persistent_id,EGL_EXT_device_query,EGL_EXT_device_query_name,EGL_EXT_display_alloc,EGL_EXT_explicit_device,EGL_EXT_gl_colorspace_bt2020_hlg,EGL_EXT_gl_colorspace_bt2020_linear,EGL_EXT_gl_colorspace_bt2020_pq,EGL_EXT_gl_colorspace_display_p3,EGL_EXT_gl_colorspace_display_p3_linear,EGL_EXT_gl_colorspace_display_p3_passthrough,EGL_EXT_gl_colorspace_scrgb,EGL_EXT_gl_colorspace_scrgb_linear,EGL_EXT_image_dma_buf_import,EGL_EXT_image_dma_buf_import_modifiers,EGL_EXT_image_gl_colorspace,EGL_EXT_image_implicit_sync_control,EGL_EXT_multiview_window,EGL_EXT_output_base,EGL_EXT_output_drm,EGL_EXT_output_openwf,EGL_EXT_pixel_format_float,EGL_EXT_platform_base,EGL_EXT_platform_device,EGL_EXT_platform_wayland,EGL_EXT_platform_x11,EGL_EXT_platform_xcb,EGL_EXT_present_opaque,EGL_EXT_protected_content,EGL_EXT_protected_surface,EGL_EXT_query_reset_notification_strategy,EGL_EXT_stream_consumer_egloutput,EGL_EXT_surface_CTA861_3_metadata,EGL_EXT_surface_SMPTE2086_metadata,EGL_EXT_surface_compression,EGL_EXT_swap_buffers_with_damage,EGL_EXT_sync_reuse,EGL_EXT_yuv_surface,EGL_HI_clientpixmap,EGL_HI_colorformats,EGL_IMG_context_priority,EGL_IMG_image_plane_attribs,EGL_KHR_cl_event,EGL_KHR_cl_event2,EGL_KHR_client_get_all_proc_addresses,EGL_KHR_config_attribs,EGL_KHR_context_flush_control,EGL_KHR_create_context,EGL_KHR_create_context_no_error,EGL_KHR_debug,EGL_KHR_display_reference,EGL_KHR_fence_sync,EGL_KHR_get_all_proc_addresses,EGL_KHR_gl_colorspace,EGL_KHR_gl_renderbuffer_image,EGL_KHR_gl_texture_2D_image,EGL_KHR_gl_texture_3D_image,EGL_KHR_gl_texture_cubemap_image,EGL_KHR_image,EGL_KHR_image_base,EGL_KHR_image_pixmap,EGL_KHR_lock_surface,EGL_KHR_lock_surface2,EGL_KHR_lock_surface3,EGL_KHR_mutable_render_buffer,EGL_KHR_no_config_context,EGL_KHR_partial_update,EGL_KHR_platform_android,EGL_KHR_platform_gbm,EGL_KHR_platform_wayland,EGL_KHR_platform_x11,EGL_KHR_reusable_sync,EGL_KHR_stream,EGL_KHR_stream_attrib,EGL_KHR_stream_consumer_gltexture,EGL_KHR_stream_cross_process_fd,EGL_KHR_stream_fifo,EGL_KHR_stream_producer_aldatalocator,EGL_KHR_stream_producer_eglsurface,EGL_KHR_surfaceless_context,EGL_KHR_swap_buffers_with_damage,EGL_KHR_vg_parent_image,EGL_KHR_wait_sync,EGL_MESA_drm_image,EGL_MESA_image_dma_buf_export,EGL_MESA_platform_gbm,EGL_MESA_platform_surfaceless,EGL_MESA_query_driver,EGL_NOK_swap_region,EGL_NOK_swap_region2,EGL_NOK_texture_from_pixmap,EGL_NV_3dvision_surface,EGL_NV_context_priority_realtime,EGL_NV_coverage_sample,EGL_NV_coverage_sample_resolve,EGL_NV_cuda_event,EGL_NV_depth_nonlinear,EGL_NV_device_cuda,EGL_NV_native_query,EGL_NV_post_convert_rounding,EGL_NV_post_sub_buffer,EGL_NV_quadruple_buffer,EGL_NV_robustness_video_memory_purge,EGL_NV_stream_consumer_eglimage,EGL_NV_stream_consumer_eglimage_use_scanout_attrib,EGL_NV_stream_consumer_gltexture_yuv,EGL_NV_stream_cross_display,EGL_NV_stream_cross_object,EGL_NV_stream_cross_partition,EGL_NV_stream_cross_process,EGL_NV_stream_cross_system,EGL_NV_stream_dma,EGL_NV_stream_fifo_next,EGL_NV_stream_fifo_synchronous,EGL_NV_stream_flush,EGL_NV_stream_frame_limits,EGL_NV_stream_metadata,EGL_NV_stream_origin,EGL_NV_stream_remote,EGL_NV_stream_reset,EGL_NV_stream_socket,EGL_NV_stream_socket_inet,EGL_NV_stream_socket_unix,EGL_NV_stream_sync,EGL_NV_sync,EGL_NV_system_time,EGL_NV_triple_buffer,EGL_QNX_image_native_buffer,EGL_QNX_platform_screen,EGL_TIZEN_image_native_buffer,EGL_TIZEN_image_native_surface,EGL_WL_bind_wayland_display,EGL_WL_create_wayland_buffer_from_image' c --alias --loader --use-pfn-ranges
+ *    --merge --api='egl=1.5' --extensions='EGL_ANDROID_GLES_layers,EGL_ANDROID_blob_cache,EGL_ANDROID_create_native_client_buffer,EGL_ANDROID_framebuffer_target,EGL_ANDROID_front_buffer_auto_refresh,EGL_ANDROID_get_frame_timestamps,EGL_ANDROID_get_native_client_buffer,EGL_ANDROID_image_native_buffer,EGL_ANDROID_native_fence_sync,EGL_ANDROID_presentation_time,EGL_ANDROID_recordable,EGL_ANDROID_telemetry_hint,EGL_ANGLE_colorspace_attribute_passthrough,EGL_ANGLE_context_virtualization,EGL_ANGLE_create_context_backwards_compatible,EGL_ANGLE_create_context_client_arrays,EGL_ANGLE_create_context_extensions_enabled,EGL_ANGLE_create_context_webgl_compatibility,EGL_ANGLE_create_surface_swap_interval,EGL_ANGLE_d3d_share_handle_client_buffer,EGL_ANGLE_d3d_texture_client_buffer,EGL_ANGLE_device_cgl,EGL_ANGLE_device_creation,EGL_ANGLE_device_d3d,EGL_ANGLE_device_d3d11,EGL_ANGLE_device_d3d9,EGL_ANGLE_device_eagl,EGL_ANGLE_device_metal,EGL_ANGLE_device_vulkan,EGL_ANGLE_direct_composition,EGL_ANGLE_display_power_preference,EGL_ANGLE_display_semaphore_share_group,EGL_ANGLE_display_texture_share_group,EGL_ANGLE_experimental_present_path,EGL_ANGLE_external_context_and_surface,EGL_ANGLE_feature_control,EGL_ANGLE_global_fence_sync,EGL_ANGLE_iosurface_client_buffer,EGL_ANGLE_keyed_mutex,EGL_ANGLE_low_latency,EGL_ANGLE_memory_usage_report,EGL_ANGLE_metal_commands_scheduled_sync,EGL_ANGLE_metal_create_context_ownership_identity,EGL_ANGLE_metal_shared_event_sync,EGL_ANGLE_metal_texture_client_buffer,EGL_ANGLE_no_error,EGL_ANGLE_platform_angle,EGL_ANGLE_platform_angle_d3d,EGL_ANGLE_platform_angle_d3d11on12,EGL_ANGLE_platform_angle_d3d_luid,EGL_ANGLE_platform_angle_device_context_volatile_cgl,EGL_ANGLE_platform_angle_device_context_volatile_eagl,EGL_ANGLE_platform_angle_device_id,EGL_ANGLE_platform_angle_device_type_egl,EGL_ANGLE_platform_angle_device_type_swiftshader,EGL_ANGLE_platform_angle_metal,EGL_ANGLE_platform_angle_null,EGL_ANGLE_platform_angle_opengl,EGL_ANGLE_platform_angle_vulkan,EGL_ANGLE_platform_angle_vulkan_device_uuid,EGL_ANGLE_platform_angle_webgpu,EGL_ANGLE_power_preference,EGL_ANGLE_prepare_swap_buffers,EGL_ANGLE_program_cache_control,EGL_ANGLE_query_surface_pointer,EGL_ANGLE_robust_resource_initialization,EGL_ANGLE_stream_producer_d3d_texture,EGL_ANGLE_surface_d3d_texture_2d_share_handle,EGL_ANGLE_surface_orientation,EGL_ANGLE_sync_control_rate,EGL_ANGLE_vulkan_display,EGL_ANGLE_vulkan_image,EGL_ANGLE_wait_until_work_scheduled,EGL_ANGLE_window_fixed_size,EGL_ANGLE_x11_visual,EGL_ARM_image_format,EGL_ARM_implicit_external_sync,EGL_ARM_pixmap_multisample_discard,EGL_CHROMIUM_sync_control,EGL_EXT_bind_to_front,EGL_EXT_buffer_age,EGL_EXT_client_extensions,EGL_EXT_client_sync,EGL_EXT_compositor,EGL_EXT_config_select_group,EGL_EXT_create_context_robustness,EGL_EXT_device_base,EGL_EXT_device_drm,EGL_EXT_device_drm_render_node,EGL_EXT_device_enumeration,EGL_EXT_device_openwf,EGL_EXT_device_persistent_id,EGL_EXT_device_query,EGL_EXT_device_query_name,EGL_EXT_device_type,EGL_EXT_display_alloc,EGL_EXT_explicit_device,EGL_EXT_gl_colorspace_bt2020_hlg,EGL_EXT_gl_colorspace_bt2020_linear,EGL_EXT_gl_colorspace_bt2020_pq,EGL_EXT_gl_colorspace_display_p3,EGL_EXT_gl_colorspace_display_p3_linear,EGL_EXT_gl_colorspace_display_p3_passthrough,EGL_EXT_gl_colorspace_scrgb,EGL_EXT_gl_colorspace_scrgb_linear,EGL_EXT_image_dma_buf_import,EGL_EXT_image_dma_buf_import_modifiers,EGL_EXT_image_gl_colorspace,EGL_EXT_image_implicit_sync_control,EGL_EXT_multiview_window,EGL_EXT_output_base,EGL_EXT_output_drm,EGL_EXT_output_openwf,EGL_EXT_pixel_format_float,EGL_EXT_platform_base,EGL_EXT_platform_device,EGL_EXT_platform_wayland,EGL_EXT_platform_x11,EGL_EXT_platform_xcb,EGL_EXT_present_opaque,EGL_EXT_protected_content,EGL_EXT_protected_surface,EGL_EXT_query_reset_notification_strategy,EGL_EXT_stream_consumer_egloutput,EGL_EXT_surface_CTA861_3_metadata,EGL_EXT_surface_SMPTE2086_metadata,EGL_EXT_surface_compression,EGL_EXT_swap_buffers_with_damage,EGL_EXT_sync_reuse,EGL_EXT_yuv_surface,EGL_HI_clientpixmap,EGL_HI_colorformats,EGL_IMG_context_priority,EGL_IMG_image_plane_attribs,EGL_KHR_cl_event,EGL_KHR_cl_event2,EGL_KHR_client_get_all_proc_addresses,EGL_KHR_config_attribs,EGL_KHR_context_flush_control,EGL_KHR_create_context,EGL_KHR_create_context_no_error,EGL_KHR_debug,EGL_KHR_display_reference,EGL_KHR_fence_sync,EGL_KHR_get_all_proc_addresses,EGL_KHR_gl_colorspace,EGL_KHR_gl_renderbuffer_image,EGL_KHR_gl_texture_2D_image,EGL_KHR_gl_texture_3D_image,EGL_KHR_gl_texture_cubemap_image,EGL_KHR_image,EGL_KHR_image_base,EGL_KHR_image_pixmap,EGL_KHR_lock_surface,EGL_KHR_lock_surface2,EGL_KHR_lock_surface3,EGL_KHR_mutable_render_buffer,EGL_KHR_no_config_context,EGL_KHR_partial_update,EGL_KHR_platform_android,EGL_KHR_platform_gbm,EGL_KHR_platform_wayland,EGL_KHR_platform_x11,EGL_KHR_reusable_sync,EGL_KHR_stream,EGL_KHR_stream_attrib,EGL_KHR_stream_consumer_gltexture,EGL_KHR_stream_cross_process_fd,EGL_KHR_stream_fifo,EGL_KHR_stream_producer_aldatalocator,EGL_KHR_stream_producer_eglsurface,EGL_KHR_surfaceless_context,EGL_KHR_swap_buffers_with_damage,EGL_KHR_vg_parent_image,EGL_KHR_wait_sync,EGL_MESA_drm_image,EGL_MESA_image_dma_buf_export,EGL_MESA_platform_gbm,EGL_MESA_platform_surfaceless,EGL_MESA_query_driver,EGL_NOK_swap_region,EGL_NOK_swap_region2,EGL_NOK_texture_from_pixmap,EGL_NV_3dvision_surface,EGL_NV_context_priority_realtime,EGL_NV_coverage_sample,EGL_NV_coverage_sample_resolve,EGL_NV_cuda_event,EGL_NV_depth_nonlinear,EGL_NV_device_cuda,EGL_NV_native_query,EGL_NV_post_convert_rounding,EGL_NV_post_sub_buffer,EGL_NV_quadruple_buffer,EGL_NV_robustness_video_memory_purge,EGL_NV_stream_consumer_eglimage,EGL_NV_stream_consumer_eglimage_use_scanout_attrib,EGL_NV_stream_consumer_gltexture_yuv,EGL_NV_stream_cross_display,EGL_NV_stream_cross_object,EGL_NV_stream_cross_partition,EGL_NV_stream_cross_process,EGL_NV_stream_cross_system,EGL_NV_stream_dma,EGL_NV_stream_fifo_next,EGL_NV_stream_fifo_synchronous,EGL_NV_stream_flush,EGL_NV_stream_frame_limits,EGL_NV_stream_metadata,EGL_NV_stream_origin,EGL_NV_stream_remote,EGL_NV_stream_reset,EGL_NV_stream_socket,EGL_NV_stream_socket_inet,EGL_NV_stream_socket_unix,EGL_NV_stream_sync,EGL_NV_sync,EGL_NV_system_time,EGL_NV_triple_buffer,EGL_QNX_image_native_buffer,EGL_QNX_platform_screen,EGL_TIZEN_image_native_buffer,EGL_TIZEN_image_native_surface,EGL_WL_bind_wayland_display,EGL_WL_create_wayland_buffer_from_image' c --alias --loader --use-pfn-ranges
  *
  * Online:
  *    http://glad.sh/#api=egl%3D1.5&generator=c&options=MERGE%2CALIAS%2CLOADER%2CUSE_PFN_RANGES
@@ -306,6 +306,11 @@ typedef void (*GLADpostcallback)(void *ret, const char *name, GLADapiproc apipro
 #define EGL_DEPTH_SIZE 0x3025
 #define EGL_DEQUEUE_READY_TIME_ANDROID 0x343B
 #define EGL_DEVICE_EXT 0x322C
+#define EGL_DEVICE_TYPE_CPU_EXT 0x3594
+#define EGL_DEVICE_TYPE_DISCRETE_GPU_EXT 0x3593
+#define EGL_DEVICE_TYPE_EXT 0x3590
+#define EGL_DEVICE_TYPE_INTEGRATED_GPU_EXT 0x3592
+#define EGL_DEVICE_TYPE_OTHER_EXT 0x3591
 #define EGL_DEVICE_UUID_EXT 0x335C
 #define EGL_DIRECT_COMPOSITION_ANGLE 0x33A5
 #define EGL_DISCARD_SAMPLES_ARM 0x3286
@@ -1069,6 +1074,7 @@ typedef khronos_uint32_t EGLLowLatencyCapsANGLE;
 #define EGL_EXT_device_persistent_id 1
 #define EGL_EXT_device_query 1
 #define EGL_EXT_device_query_name 1
+#define EGL_EXT_device_type 1
 #define EGL_EXT_display_alloc 1
 #define EGL_EXT_explicit_device 1
 #define EGL_EXT_gl_colorspace_bt2020_hlg 1
@@ -1406,7 +1412,7 @@ typedef struct GladEGLContext {
     };
 
     union {
-        unsigned char extArray[224];
+        unsigned char extArray[225];
         struct {
         /*    0 */ unsigned char ANDROID_GLES_layers;
         /*    1 */ unsigned char ANDROID_blob_cache;
@@ -1502,136 +1508,137 @@ typedef struct GladEGLContext {
         /*   91 */ unsigned char EXT_device_persistent_id;
         /*   92 */ unsigned char EXT_device_query;
         /*   93 */ unsigned char EXT_device_query_name;
-        /*   94 */ unsigned char EXT_display_alloc;
-        /*   95 */ unsigned char EXT_explicit_device;
-        /*   96 */ unsigned char EXT_gl_colorspace_bt2020_hlg;
-        /*   97 */ unsigned char EXT_gl_colorspace_bt2020_linear;
-        /*   98 */ unsigned char EXT_gl_colorspace_bt2020_pq;
-        /*   99 */ unsigned char EXT_gl_colorspace_display_p3;
-        /*  100 */ unsigned char EXT_gl_colorspace_display_p3_linear;
-        /*  101 */ unsigned char EXT_gl_colorspace_display_p3_passthrough;
-        /*  102 */ unsigned char EXT_gl_colorspace_scrgb;
-        /*  103 */ unsigned char EXT_gl_colorspace_scrgb_linear;
-        /*  104 */ unsigned char EXT_image_dma_buf_import;
-        /*  105 */ unsigned char EXT_image_dma_buf_import_modifiers;
-        /*  106 */ unsigned char EXT_image_gl_colorspace;
-        /*  107 */ unsigned char EXT_image_implicit_sync_control;
-        /*  108 */ unsigned char EXT_multiview_window;
-        /*  109 */ unsigned char EXT_output_base;
-        /*  110 */ unsigned char EXT_output_drm;
-        /*  111 */ unsigned char EXT_output_openwf;
-        /*  112 */ unsigned char EXT_pixel_format_float;
-        /*  113 */ unsigned char EXT_platform_base;
-        /*  114 */ unsigned char EXT_platform_device;
-        /*  115 */ unsigned char EXT_platform_wayland;
-        /*  116 */ unsigned char EXT_platform_x11;
-        /*  117 */ unsigned char EXT_platform_xcb;
-        /*  118 */ unsigned char EXT_present_opaque;
-        /*  119 */ unsigned char EXT_protected_content;
-        /*  120 */ unsigned char EXT_protected_surface;
-        /*  121 */ unsigned char EXT_query_reset_notification_strategy;
-        /*  122 */ unsigned char EXT_stream_consumer_egloutput;
-        /*  123 */ unsigned char EXT_surface_CTA861_3_metadata;
-        /*  124 */ unsigned char EXT_surface_SMPTE2086_metadata;
-        /*  125 */ unsigned char EXT_surface_compression;
-        /*  126 */ unsigned char EXT_swap_buffers_with_damage;
-        /*  127 */ unsigned char EXT_sync_reuse;
-        /*  128 */ unsigned char EXT_yuv_surface;
-        /*  129 */ unsigned char HI_clientpixmap;
-        /*  130 */ unsigned char HI_colorformats;
-        /*  131 */ unsigned char IMG_context_priority;
-        /*  132 */ unsigned char IMG_image_plane_attribs;
-        /*  133 */ unsigned char KHR_cl_event;
-        /*  134 */ unsigned char KHR_cl_event2;
-        /*  135 */ unsigned char KHR_client_get_all_proc_addresses;
-        /*  136 */ unsigned char KHR_config_attribs;
-        /*  137 */ unsigned char KHR_context_flush_control;
-        /*  138 */ unsigned char KHR_create_context;
-        /*  139 */ unsigned char KHR_create_context_no_error;
-        /*  140 */ unsigned char KHR_debug;
-        /*  141 */ unsigned char KHR_display_reference;
-        /*  142 */ unsigned char KHR_fence_sync;
-        /*  143 */ unsigned char KHR_get_all_proc_addresses;
-        /*  144 */ unsigned char KHR_gl_colorspace;
-        /*  145 */ unsigned char KHR_gl_renderbuffer_image;
-        /*  146 */ unsigned char KHR_gl_texture_2D_image;
-        /*  147 */ unsigned char KHR_gl_texture_3D_image;
-        /*  148 */ unsigned char KHR_gl_texture_cubemap_image;
-        /*  149 */ unsigned char KHR_image;
-        /*  150 */ unsigned char KHR_image_base;
-        /*  151 */ unsigned char KHR_image_pixmap;
-        /*  152 */ unsigned char KHR_lock_surface;
-        /*  153 */ unsigned char KHR_lock_surface2;
-        /*  154 */ unsigned char KHR_lock_surface3;
-        /*  155 */ unsigned char KHR_mutable_render_buffer;
-        /*  156 */ unsigned char KHR_no_config_context;
-        /*  157 */ unsigned char KHR_partial_update;
-        /*  158 */ unsigned char KHR_platform_android;
-        /*  159 */ unsigned char KHR_platform_gbm;
-        /*  160 */ unsigned char KHR_platform_wayland;
-        /*  161 */ unsigned char KHR_platform_x11;
-        /*  162 */ unsigned char KHR_reusable_sync;
-        /*  163 */ unsigned char KHR_stream;
-        /*  164 */ unsigned char KHR_stream_attrib;
-        /*  165 */ unsigned char KHR_stream_consumer_gltexture;
-        /*  166 */ unsigned char KHR_stream_cross_process_fd;
-        /*  167 */ unsigned char KHR_stream_fifo;
-        /*  168 */ unsigned char KHR_stream_producer_aldatalocator;
-        /*  169 */ unsigned char KHR_stream_producer_eglsurface;
-        /*  170 */ unsigned char KHR_surfaceless_context;
-        /*  171 */ unsigned char KHR_swap_buffers_with_damage;
-        /*  172 */ unsigned char KHR_vg_parent_image;
-        /*  173 */ unsigned char KHR_wait_sync;
-        /*  174 */ unsigned char MESA_drm_image;
-        /*  175 */ unsigned char MESA_image_dma_buf_export;
-        /*  176 */ unsigned char MESA_platform_gbm;
-        /*  177 */ unsigned char MESA_platform_surfaceless;
-        /*  178 */ unsigned char MESA_query_driver;
-        /*  179 */ unsigned char NOK_swap_region;
-        /*  180 */ unsigned char NOK_swap_region2;
-        /*  181 */ unsigned char NOK_texture_from_pixmap;
-        /*  182 */ unsigned char NV_3dvision_surface;
-        /*  183 */ unsigned char NV_context_priority_realtime;
-        /*  184 */ unsigned char NV_coverage_sample;
-        /*  185 */ unsigned char NV_coverage_sample_resolve;
-        /*  186 */ unsigned char NV_cuda_event;
-        /*  187 */ unsigned char NV_depth_nonlinear;
-        /*  188 */ unsigned char NV_device_cuda;
-        /*  189 */ unsigned char NV_native_query;
-        /*  190 */ unsigned char NV_post_convert_rounding;
-        /*  191 */ unsigned char NV_post_sub_buffer;
-        /*  192 */ unsigned char NV_quadruple_buffer;
-        /*  193 */ unsigned char NV_robustness_video_memory_purge;
-        /*  194 */ unsigned char NV_stream_consumer_eglimage;
-        /*  195 */ unsigned char NV_stream_consumer_eglimage_use_scanout_attrib;
-        /*  196 */ unsigned char NV_stream_consumer_gltexture_yuv;
-        /*  197 */ unsigned char NV_stream_cross_display;
-        /*  198 */ unsigned char NV_stream_cross_object;
-        /*  199 */ unsigned char NV_stream_cross_partition;
-        /*  200 */ unsigned char NV_stream_cross_process;
-        /*  201 */ unsigned char NV_stream_cross_system;
-        /*  202 */ unsigned char NV_stream_dma;
-        /*  203 */ unsigned char NV_stream_fifo_next;
-        /*  204 */ unsigned char NV_stream_fifo_synchronous;
-        /*  205 */ unsigned char NV_stream_flush;
-        /*  206 */ unsigned char NV_stream_frame_limits;
-        /*  207 */ unsigned char NV_stream_metadata;
-        /*  208 */ unsigned char NV_stream_origin;
-        /*  209 */ unsigned char NV_stream_remote;
-        /*  210 */ unsigned char NV_stream_reset;
-        /*  211 */ unsigned char NV_stream_socket;
-        /*  212 */ unsigned char NV_stream_socket_inet;
-        /*  213 */ unsigned char NV_stream_socket_unix;
-        /*  214 */ unsigned char NV_stream_sync;
-        /*  215 */ unsigned char NV_sync;
-        /*  216 */ unsigned char NV_system_time;
-        /*  217 */ unsigned char NV_triple_buffer;
-        /*  218 */ unsigned char QNX_image_native_buffer;
-        /*  219 */ unsigned char QNX_platform_screen;
-        /*  220 */ unsigned char TIZEN_image_native_buffer;
-        /*  221 */ unsigned char TIZEN_image_native_surface;
-        /*  222 */ unsigned char WL_bind_wayland_display;
-        /*  223 */ unsigned char WL_create_wayland_buffer_from_image;
+        /*   94 */ unsigned char EXT_device_type;
+        /*   95 */ unsigned char EXT_display_alloc;
+        /*   96 */ unsigned char EXT_explicit_device;
+        /*   97 */ unsigned char EXT_gl_colorspace_bt2020_hlg;
+        /*   98 */ unsigned char EXT_gl_colorspace_bt2020_linear;
+        /*   99 */ unsigned char EXT_gl_colorspace_bt2020_pq;
+        /*  100 */ unsigned char EXT_gl_colorspace_display_p3;
+        /*  101 */ unsigned char EXT_gl_colorspace_display_p3_linear;
+        /*  102 */ unsigned char EXT_gl_colorspace_display_p3_passthrough;
+        /*  103 */ unsigned char EXT_gl_colorspace_scrgb;
+        /*  104 */ unsigned char EXT_gl_colorspace_scrgb_linear;
+        /*  105 */ unsigned char EXT_image_dma_buf_import;
+        /*  106 */ unsigned char EXT_image_dma_buf_import_modifiers;
+        /*  107 */ unsigned char EXT_image_gl_colorspace;
+        /*  108 */ unsigned char EXT_image_implicit_sync_control;
+        /*  109 */ unsigned char EXT_multiview_window;
+        /*  110 */ unsigned char EXT_output_base;
+        /*  111 */ unsigned char EXT_output_drm;
+        /*  112 */ unsigned char EXT_output_openwf;
+        /*  113 */ unsigned char EXT_pixel_format_float;
+        /*  114 */ unsigned char EXT_platform_base;
+        /*  115 */ unsigned char EXT_platform_device;
+        /*  116 */ unsigned char EXT_platform_wayland;
+        /*  117 */ unsigned char EXT_platform_x11;
+        /*  118 */ unsigned char EXT_platform_xcb;
+        /*  119 */ unsigned char EXT_present_opaque;
+        /*  120 */ unsigned char EXT_protected_content;
+        /*  121 */ unsigned char EXT_protected_surface;
+        /*  122 */ unsigned char EXT_query_reset_notification_strategy;
+        /*  123 */ unsigned char EXT_stream_consumer_egloutput;
+        /*  124 */ unsigned char EXT_surface_CTA861_3_metadata;
+        /*  125 */ unsigned char EXT_surface_SMPTE2086_metadata;
+        /*  126 */ unsigned char EXT_surface_compression;
+        /*  127 */ unsigned char EXT_swap_buffers_with_damage;
+        /*  128 */ unsigned char EXT_sync_reuse;
+        /*  129 */ unsigned char EXT_yuv_surface;
+        /*  130 */ unsigned char HI_clientpixmap;
+        /*  131 */ unsigned char HI_colorformats;
+        /*  132 */ unsigned char IMG_context_priority;
+        /*  133 */ unsigned char IMG_image_plane_attribs;
+        /*  134 */ unsigned char KHR_cl_event;
+        /*  135 */ unsigned char KHR_cl_event2;
+        /*  136 */ unsigned char KHR_client_get_all_proc_addresses;
+        /*  137 */ unsigned char KHR_config_attribs;
+        /*  138 */ unsigned char KHR_context_flush_control;
+        /*  139 */ unsigned char KHR_create_context;
+        /*  140 */ unsigned char KHR_create_context_no_error;
+        /*  141 */ unsigned char KHR_debug;
+        /*  142 */ unsigned char KHR_display_reference;
+        /*  143 */ unsigned char KHR_fence_sync;
+        /*  144 */ unsigned char KHR_get_all_proc_addresses;
+        /*  145 */ unsigned char KHR_gl_colorspace;
+        /*  146 */ unsigned char KHR_gl_renderbuffer_image;
+        /*  147 */ unsigned char KHR_gl_texture_2D_image;
+        /*  148 */ unsigned char KHR_gl_texture_3D_image;
+        /*  149 */ unsigned char KHR_gl_texture_cubemap_image;
+        /*  150 */ unsigned char KHR_image;
+        /*  151 */ unsigned char KHR_image_base;
+        /*  152 */ unsigned char KHR_image_pixmap;
+        /*  153 */ unsigned char KHR_lock_surface;
+        /*  154 */ unsigned char KHR_lock_surface2;
+        /*  155 */ unsigned char KHR_lock_surface3;
+        /*  156 */ unsigned char KHR_mutable_render_buffer;
+        /*  157 */ unsigned char KHR_no_config_context;
+        /*  158 */ unsigned char KHR_partial_update;
+        /*  159 */ unsigned char KHR_platform_android;
+        /*  160 */ unsigned char KHR_platform_gbm;
+        /*  161 */ unsigned char KHR_platform_wayland;
+        /*  162 */ unsigned char KHR_platform_x11;
+        /*  163 */ unsigned char KHR_reusable_sync;
+        /*  164 */ unsigned char KHR_stream;
+        /*  165 */ unsigned char KHR_stream_attrib;
+        /*  166 */ unsigned char KHR_stream_consumer_gltexture;
+        /*  167 */ unsigned char KHR_stream_cross_process_fd;
+        /*  168 */ unsigned char KHR_stream_fifo;
+        /*  169 */ unsigned char KHR_stream_producer_aldatalocator;
+        /*  170 */ unsigned char KHR_stream_producer_eglsurface;
+        /*  171 */ unsigned char KHR_surfaceless_context;
+        /*  172 */ unsigned char KHR_swap_buffers_with_damage;
+        /*  173 */ unsigned char KHR_vg_parent_image;
+        /*  174 */ unsigned char KHR_wait_sync;
+        /*  175 */ unsigned char MESA_drm_image;
+        /*  176 */ unsigned char MESA_image_dma_buf_export;
+        /*  177 */ unsigned char MESA_platform_gbm;
+        /*  178 */ unsigned char MESA_platform_surfaceless;
+        /*  179 */ unsigned char MESA_query_driver;
+        /*  180 */ unsigned char NOK_swap_region;
+        /*  181 */ unsigned char NOK_swap_region2;
+        /*  182 */ unsigned char NOK_texture_from_pixmap;
+        /*  183 */ unsigned char NV_3dvision_surface;
+        /*  184 */ unsigned char NV_context_priority_realtime;
+        /*  185 */ unsigned char NV_coverage_sample;
+        /*  186 */ unsigned char NV_coverage_sample_resolve;
+        /*  187 */ unsigned char NV_cuda_event;
+        /*  188 */ unsigned char NV_depth_nonlinear;
+        /*  189 */ unsigned char NV_device_cuda;
+        /*  190 */ unsigned char NV_native_query;
+        /*  191 */ unsigned char NV_post_convert_rounding;
+        /*  192 */ unsigned char NV_post_sub_buffer;
+        /*  193 */ unsigned char NV_quadruple_buffer;
+        /*  194 */ unsigned char NV_robustness_video_memory_purge;
+        /*  195 */ unsigned char NV_stream_consumer_eglimage;
+        /*  196 */ unsigned char NV_stream_consumer_eglimage_use_scanout_attrib;
+        /*  197 */ unsigned char NV_stream_consumer_gltexture_yuv;
+        /*  198 */ unsigned char NV_stream_cross_display;
+        /*  199 */ unsigned char NV_stream_cross_object;
+        /*  200 */ unsigned char NV_stream_cross_partition;
+        /*  201 */ unsigned char NV_stream_cross_process;
+        /*  202 */ unsigned char NV_stream_cross_system;
+        /*  203 */ unsigned char NV_stream_dma;
+        /*  204 */ unsigned char NV_stream_fifo_next;
+        /*  205 */ unsigned char NV_stream_fifo_synchronous;
+        /*  206 */ unsigned char NV_stream_flush;
+        /*  207 */ unsigned char NV_stream_frame_limits;
+        /*  208 */ unsigned char NV_stream_metadata;
+        /*  209 */ unsigned char NV_stream_origin;
+        /*  210 */ unsigned char NV_stream_remote;
+        /*  211 */ unsigned char NV_stream_reset;
+        /*  212 */ unsigned char NV_stream_socket;
+        /*  213 */ unsigned char NV_stream_socket_inet;
+        /*  214 */ unsigned char NV_stream_socket_unix;
+        /*  215 */ unsigned char NV_stream_sync;
+        /*  216 */ unsigned char NV_sync;
+        /*  217 */ unsigned char NV_system_time;
+        /*  218 */ unsigned char NV_triple_buffer;
+        /*  219 */ unsigned char QNX_image_native_buffer;
+        /*  220 */ unsigned char QNX_platform_screen;
+        /*  221 */ unsigned char TIZEN_image_native_buffer;
+        /*  222 */ unsigned char TIZEN_image_native_surface;
+        /*  223 */ unsigned char WL_bind_wayland_display;
+        /*  224 */ unsigned char WL_create_wayland_buffer_from_image;
         };
     };
 
@@ -1934,6 +1941,7 @@ GLAD_API_CALL GladEGLContext glad_egl_context;
 #define GLAD_EGL_EXT_device_persistent_id (glad_egl_context.EXT_device_persistent_id)
 #define GLAD_EGL_EXT_device_query (glad_egl_context.EXT_device_query)
 #define GLAD_EGL_EXT_device_query_name (glad_egl_context.EXT_device_query_name)
+#define GLAD_EGL_EXT_device_type (glad_egl_context.EXT_device_type)
 #define GLAD_EGL_EXT_display_alloc (glad_egl_context.EXT_display_alloc)
 #define GLAD_EGL_EXT_explicit_device (glad_egl_context.EXT_explicit_device)
 #define GLAD_EGL_EXT_gl_colorspace_bt2020_hlg (glad_egl_context.EXT_gl_colorspace_bt2020_hlg)
